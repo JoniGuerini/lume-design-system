@@ -128,9 +128,9 @@ export function paint(color, index = 0) {
 /* ───────── Texto ───────── */
 
 export const FONTS = {
-  tick: '400 12px Inter, system-ui, sans-serif',
-  label: '500 13px Inter, system-ui, sans-serif',
-  value: '600 12px Inter, system-ui, sans-serif',
+  tick: '400 12px Geist, system-ui, sans-serif',
+  label: '500 13px Geist, system-ui, sans-serif',
+  value: '600 12px Geist, system-ui, sans-serif',
 };
 
 let ctx;
