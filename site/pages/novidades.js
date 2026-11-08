@@ -2,7 +2,8 @@ import { icon } from '../../ds/icons/icons.js';
 import { dateFormat } from '../../ds/js/i18n.js';
 import { L } from '../i18n.js';
 import { mountDocNav } from '../doc-nav.js';
-import { releases, upcoming, TYPES, CURRENT_VERSION, SEEN_KEY } from '../changelog.js';
+import { releases, TYPES, CURRENT_VERSION, SEEN_KEY } from '../changelog.js';
+import { stages } from '../roadmap.js';
 
 export const styles = 'site/pages/novidades.css';
 
@@ -81,7 +82,7 @@ export default function renderNovidades(page) {
         <div class="doc-stat"><dt class="doc-stat__label">${L('versão atual', 'current version', 'versión actual')}</dt><dd class="doc-stat__value">${CURRENT_VERSION}</dd></div>
         <div class="doc-stat"><dt class="doc-stat__label">${L('lançada em', 'released', 'lanzada el')}</dt><dd class="doc-stat__value">${shortDate(current.date)}</dd></div>
         <div class="doc-stat"><dt class="doc-stat__label">${L('mudanças', 'changes', 'cambios')}</dt><dd class="doc-stat__value">${changes}</dd></div>
-        <div class="doc-stat"><dt class="doc-stat__label">${L('próximas versões', 'upcoming versions', 'próximas versiones')}</dt><dd class="doc-stat__value">${upcoming.length}</dd></div>
+        <div class="doc-stat"><dt class="doc-stat__label">${L('próximas versões', 'upcoming versions', 'próximas versiones')}</dt><dd class="doc-stat__value">${stages().length}</dd></div>
       </dl>
     </header>
 
@@ -97,23 +98,10 @@ export default function renderNovidades(page) {
       <header class="doc-section__header">
         <div>
           <h2 class="doc-section__title" id="proximas-title">${L('Próximas versões', 'Upcoming versions', 'Próximas versiones')}</h2>
-          <p class="doc-section__desc">${L('O plano daqui para a frente. A ordem pode mudar conforme o uso pedir.', 'The plan from here on. The order may change as usage demands.', 'El plan de aquí en adelante. El orden puede cambiar según lo pida el uso.')}</p>
+          <p class="doc-section__desc">${L('O plano daqui para a frente fica no Roadmap.', 'The plan from here on lives in the Roadmap.', 'El plan de aquí en adelante está en el Roadmap.')}</p>
         </div>
+        <a class="ds-btn ds-btn--secondary" href="#/roadmap">${icon('compass', { size: 18 })}${L('Ver o roadmap', 'See the roadmap', 'Ver el roadmap')}</a>
       </header>
-      <ol class="nv-upcoming" role="list">
-        ${upcoming
-          .map(
-            (u) => `<li class="nv-next">
-              <p class="nv-next__head"><span class="nv-next__version">${u.version}</span><span class="ds-badge ds-badge--sm${u.status[0] === 'neutral' ? '' : ` ds-badge--${u.status[0]}`}">${u.status[1]}</span></p>
-              <h3 class="nv-next__title">${u.title}</h3>
-              <p class="nv-next__text">${u.text}</p>
-              <ul class="nv-next__items" role="list">
-                ${u.items.map((item) => `<li>${icon('clock', { size: 16 })}${item}</li>`).join('')}
-              </ul>
-            </li>`,
-          )
-          .join('')}
-      </ol>
     </section>
 
     <section class="doc-section" id="versionamento" aria-labelledby="versionamento-title">

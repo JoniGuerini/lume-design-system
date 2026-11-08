@@ -2,7 +2,8 @@ import { icon, iconList } from '../../ds/icons/icons.js';
 import { palettes, tokens, contrast, generatedAt } from '../../ds/tokens.js';
 import { tr, numberFormat, dateFormat } from '../../ds/js/i18n.js';
 import { navigation } from '../nav.js';
-import { releases, upcoming, CURRENT_VERSION } from '../changelog.js';
+import { releases, CURRENT_VERSION } from '../changelog.js';
+import { stages } from '../roadmap.js';
 import { T } from '../i18n.js';
 
 /* ───────── Textos ───────── */
@@ -42,7 +43,7 @@ const COPY = T(
     components: { title: 'Planos, calmos e precisos', desc: (n) => `Contornos finos, nada de brilho. ${n} componentes, cada um com anatomia, estados e acessibilidade.`, all: 'Ver todos' },
     charts: { title: 'Dados que se leem de relance', desc: 'Cores em ordem fixa validadas para daltonismo, marcas finas e tooltip também no teclado. Todo gráfico vira tabela com um clique.', overview: 'Ver visão geral' },
     patterns: 'Como as peças se encaixam',
-    roadmap: { title: 'Do token ao componente', history: 'Histórico de versões' },
+    roadmap: { title: 'Do token ao componente', all: 'Ver o roadmap' },
     footer: (colors, count, date) => `${colors} cores · ${count} tokens semânticos e de fundação · gerado em ${date}`,
   },
   {
@@ -79,7 +80,7 @@ const COPY = T(
     components: { title: 'Flat, calm, and precise', desc: (n) => `Thin outlines, no shine. ${n} components, each with anatomy, states, and accessibility.`, all: 'See all' },
     charts: { title: 'Data you can read at a glance', desc: 'Colors in a fixed order validated for color blindness, thin marks, and tooltips that work from the keyboard too. Every chart turns into a table with one click.', overview: 'See overview' },
     patterns: 'How the pieces fit together',
-    roadmap: { title: 'From token to component', history: 'Version history' },
+    roadmap: { title: 'From token to component', all: 'See the roadmap' },
     footer: (colors, count, date) => `${colors} colors · ${count} semantic and foundation tokens · generated on ${date}`,
   },
   {
@@ -116,7 +117,7 @@ const COPY = T(
     components: { title: 'Planos, tranquilos y precisos', desc: (n) => `Contornos finos, nada de brillo. ${n} componentes, cada uno con anatomía, estados y accesibilidad.`, all: 'Ver todos' },
     charts: { title: 'Datos que se leen de un vistazo', desc: 'Colores en un orden fijo validado para daltonismo, marcas finas y tooltip también con el teclado. Todo gráfico se vuelve tabla con un clic.', overview: 'Ver visión general' },
     patterns: 'Cómo encajan las piezas',
-    roadmap: { title: 'Del token al componente', history: 'Historial de versiones' },
+    roadmap: { title: 'Del token al componente', all: 'Ver el roadmap' },
     footer: (colors, count, date) => `${colors} colores · ${count} tokens semánticos y de fundación · generado el ${date}`,
   },
 );
@@ -139,12 +140,12 @@ const stats = (c) =>
   ].map((value, i) => [value, c.stats[i]]);
 
 // o card não cresce a cada lançamento: mostra as versões recentes que cabem na altura do card ao lado
-// (fitRoadmap) e as próximas; o histórico inteiro fica em Novidades
+// (fitRoadmap) e as duas próximas etapas; o histórico fica em Novidades e o plano inteiro em Roadmap
 const ROADMAP_MAX = 6;
 const ROADMAP_MIN = 2;
 const roadmap = (c) => [
   ...releases.slice(0, ROADMAP_MAX).reverse().map((r) => [`v${r.version.replace(/\.0$/, '')}`, r.title, ['success', c.ready], r.summary, true]),
-  ...upcoming.map((u) => [`v${u.version}`, u.title, u.status, `${u.text} ${u.items.join(', ')}.`, false]),
+  ...stages().slice(0, 2).map((s) => [`v${s.version}`, s.title, [s.tone, s.status], s.text, false]),
 ];
 
 /** Esconde as versões mais antigas até o roadmap caber na altura natural do card de padrões (lado a lado). */
@@ -433,7 +434,7 @@ export default function renderHome() {
             )
             .join('')}
         </ol>
-        <a class="ds-inline-action" href="#/novidades">${icon('history', { size: 16 })}${c.roadmap.history}${icon('arrow-right', { size: 14 })}</a>
+        <a class="ds-inline-action" href="#/roadmap">${icon('compass', { size: 16 })}${c.roadmap.all}${icon('arrow-right', { size: 14 })}</a>
       </section>
     </div>
 

@@ -23,6 +23,7 @@ const RAW = [
       { label: T('Início', 'Home', 'Inicio'), icon: 'home', path: '/', load: () => import('./pages/home.js'), description: T('Visão geral do Lume Design System.', 'An overview of the Lume Design System.', 'Visión general del Lume Design System.') },
       { label: T('Primeiros passos', 'Getting started', 'Primeros pasos'), icon: 'zap', path: '/primeiros-passos', load: () => import('./pages/primeiros-passos.js'), description: T('Como instalar, importar os estilos e usar os tokens no seu projeto.', 'How to install, import the styles, and use the tokens in your project.', 'Cómo instalar, importar los estilos y usar los tokens en tu proyecto.') },
       { label: T('Novidades', 'What’s new', 'Novedades'), icon: 'megaphone', path: '/novidades', load: () => import('./pages/novidades.js'), dot: true, description: T('Tudo o que mudou em cada versão.', 'Everything that changed in each version.', 'Todo lo que cambió en cada versión.') },
+      { label: T('Roadmap', 'Roadmap', 'Roadmap'), icon: 'compass', path: '/roadmap', load: () => import('./pages/roadmap.js'), description: T('Os próximos passos: componentes que faltam e o caminho até a 1.0.', 'What’s next: the components still missing and the road to 1.0.', 'Los próximos pasos: los componentes que faltan y el camino a la 1.0.') },
     ],
   },
   {

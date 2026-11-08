@@ -383,7 +383,7 @@ const RELEASES = [
 const AFTER = () => [
   ['megaphone', L('A bolinha de Novidades volta na sidebar para quem ainda não viu a versão.', 'The What’s new dot comes back in the sidebar for anyone who hasn’t seen the version yet.', 'El puntito de Novedades vuelve a la sidebar para quien todavía no vio la versión.')],
   ['package', L(`O cartão da conta mostra a versão nova — hoje, Lume ${CURRENT_VERSION.replace(/\.0$/, '')}.`, `The account card shows the new version — today, Lume ${CURRENT_VERSION.replace(/\.0$/, '')}.`, `La tarjeta de la cuenta muestra la versión nueva — hoy, Lume ${CURRENT_VERSION.replace(/\.0$/, '')}.`)],
-  ['history', L('O roadmap do Início e a página Novidades leem o mesmo arquivo; não há outro lugar para atualizar.', 'The Home roadmap and the What’s new page read the same file; there’s nowhere else to update.', 'El roadmap del Inicio y la página Novedades leen el mismo archivo; no hay otro lugar que actualizar.')],
+  ['history', L('O card de roadmap do Início lê os mesmos arquivos de Novidades e de Roadmap; não há outro lugar para atualizar.', 'The Home roadmap card reads the same files as What’s new and Roadmap; there’s nowhere else to update.', 'La tarjeta de roadmap del Inicio lee los mismos archivos que Novedades y Roadmap; no hay otro lugar que actualizar.')],
 ];
 
 const DONE = () => [

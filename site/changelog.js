@@ -1,17 +1,49 @@
 /**
  * Histórico de versões do Lume — fonte da página Novidades e do indicador da sidebar.
  * Tipos: 'novo' | 'melhoria' | 'correcao'.
- * Textos em T(pt-BR, en, es): títulos, resumos, nomes dos grupos e itens. Em `releases`, `upcoming`
+ * Textos em T(pt-BR, en, es): títulos, resumos, nomes dos grupos e itens. Em `releases`
  * e `TYPES` eles viram getters no idioma atual.
  */
 import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.12.0';
+export const CURRENT_VERSION = '0.13.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.13.0',
+    date: '2026-11-08',
+    title: T('Roadmap', 'Roadmap', 'Roadmap'),
+    summary: T(
+      'Uma página nova com os próximos passos: os componentes que faltam e o caminho até a 1.0.',
+      'A new page with what’s next: the components still missing and the road to 1.0.',
+      'Una página nueva con los próximos pasos: los componentes que faltan y el camino a la 1.0.',
+    ),
+    groups: [
+      {
+        name: T('Site', 'Site', 'Sitio'),
+        items: [
+          ['novo', T(
+            'Página Roadmap, logo abaixo de Novidades, com os componentes planejados por assunto',
+            'Roadmap page, right below What’s new, with the planned components by subject',
+            'Página Roadmap, justo debajo de Novedades, con los componentes planificados por tema',
+          ), '/roadmap'],
+          ['melhoria', T(
+            'O card de roadmap do Início mostra as duas próximas etapas e leva à página nova',
+            'The Home roadmap card shows the next two stages and links to the new page',
+            'La tarjeta de roadmap del Inicio muestra las dos próximas etapas y lleva a la página nueva',
+          ), '/'],
+          ['melhoria', T(
+            'O “Experimente ao vivo” saiu do Início: a topbar já troca o tema',
+            '“Try it live” is gone from Home: the top bar already switches the theme',
+            '“Pruébalo en vivo” salió del Inicio: la barra superior ya cambia el tema',
+          ), '/'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.12.0',
     date: '2026-11-04',
@@ -1029,20 +1061,6 @@ function live(source) {
 }
 
 export const releases = RELEASES.map(live);
-
-export const upcoming = [
-  {
-    version: '1.0',
-    title: T('Estável', 'Stable', 'Estable'),
-    status: T(['brand', 'Próximo'], ['brand', 'Next'], ['brand', 'Próximo']),
-    text: T('API congelada e pronta para escalar.', 'A frozen API, ready to scale.', 'API congelada y lista para escalar.'),
-    items: T(
-      ['Pacote para instalar', 'Testes visuais com data-state', 'Compromisso de compatibilidade'],
-      ['An installable package', 'Visual tests with data-state', 'A compatibility promise'],
-      ['Paquete para instalar', 'Pruebas visuales con data-state', 'Compromiso de compatibilidad'],
-    ),
-  },
-].map(live);
 
 /** Tipos de mudança: o tom do badge e o rótulo (getter no idioma atual). */
 export const TYPES = {

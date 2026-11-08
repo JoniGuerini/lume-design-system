@@ -62,7 +62,8 @@ site/                ← o site de documentação (usa o DS)
   docs.css           layout das páginas de documentação (cabeçalho, nav da página, seções, tabelas)
   doc-nav.js         navegação "nesta página" (rolagem + seção ativa)
   component-doc.*    peças das páginas de componente: playground com código, tokens usados, acessibilidade
-  changelog.js       versões, próximas versões e o indicador de Novidades da sidebar
+  changelog.js       versões e o indicador de Novidades da sidebar
+  roadmap.js         próximas etapas: página Roadmap e card do Início
   brand.js           troca da cor da marca ao vivo (demonstração)
   chart-data.js      dados de exemplo (fixos) das páginas de gráficos
   pages/             páginas (cada uma com seu .css): home, primeiros-passos, novidades,
