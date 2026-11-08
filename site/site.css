@@ -49,22 +49,6 @@
   margin-top: var(--ds-space-500);
 }
 
-.home-hero__try {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--ds-space-100);
-  margin-top: var(--ds-space-500);
-  padding-top: var(--ds-space-300);
-  border-top: 1px solid var(--ds-color-border-subtle);
-  color: var(--ds-color-fg-subtle);
-  font: var(--ds-text-body-sm);
-}
-
-.home-hero__try > span:first-child {
-  margin-inline-end: var(--ds-space-100);
-}
-
 /* Colagem de componentes reais (decorativa, inerte) */
 .home-collage {
   display: grid;

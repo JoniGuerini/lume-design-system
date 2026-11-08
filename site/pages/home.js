@@ -1,10 +1,7 @@
 import { icon, iconList } from '../../ds/icons/icons.js';
 import { palettes, tokens, contrast, generatedAt } from '../../ds/tokens.js';
-import { attachMenu } from '../../ds/js/menu.js';
-import { getThemePreference, setTheme } from '../../ds/js/theme.js';
 import { tr, numberFormat, dateFormat } from '../../ds/js/i18n.js';
 import { navigation } from '../nav.js';
-import { applyBrand, getBrand, brandOptions, brandLabel } from '../brand.js';
 import { releases, upcoming, CURRENT_VERSION } from '../changelog.js';
 import { T } from '../i18n.js';
 
@@ -12,7 +9,6 @@ import { T } from '../i18n.js';
 
 const COPY = T(
   {
-    themes: { system: 'Sistema', light: 'Lume claro', dark: 'Lume escuro', orange: 'Laranja' },
     stats: ['cores em OKLCH', 'tokens de cor', 'estilos de texto', 'ícones próprios', 'contrastes WCAG'],
     statsLabel: 'O sistema em números',
     ready: 'Pronto',
@@ -28,7 +24,6 @@ const COPY = T(
       lead: 'O Lume reúne tokens, tipografia, ícones, componentes e gráficos para que cada tela nasça consistente, acessível e cuidada nos detalhes.',
       start: 'Começar agora',
       components: 'Ver componentes',
-      try: 'Experimente ao vivo',
     },
     collage: {
       eyebrow: 'Exemplo',
@@ -49,11 +44,8 @@ const COPY = T(
     patterns: 'Como as peças se encaixam',
     roadmap: { title: 'Do token ao componente', history: 'Histórico de versões' },
     footer: (colors, count, date) => `${colors} cores · ${count} tokens semânticos e de fundação · gerado em ${date}`,
-    brand: 'Cor da marca',
-    theme: 'Tema',
   },
   {
-    themes: { system: 'System', light: 'Lume light', dark: 'Lume dark', orange: 'Orange' },
     stats: ['OKLCH colors', 'color tokens', 'text styles', 'custom icons', 'WCAG contrast checks'],
     statsLabel: 'The system in numbers',
     ready: 'Done',
@@ -69,7 +61,6 @@ const COPY = T(
       lead: 'Lume brings together tokens, typography, icons, components, and charts so every screen starts out consistent, accessible, and carefully detailed.',
       start: 'Get started',
       components: 'See components',
-      try: 'Try it live',
     },
     collage: {
       eyebrow: 'Example',
@@ -90,11 +81,8 @@ const COPY = T(
     patterns: 'How the pieces fit together',
     roadmap: { title: 'From token to component', history: 'Version history' },
     footer: (colors, count, date) => `${colors} colors · ${count} semantic and foundation tokens · generated on ${date}`,
-    brand: 'Brand color',
-    theme: 'Theme',
   },
   {
-    themes: { system: 'Sistema', light: 'Lume claro', dark: 'Lume oscuro', orange: 'Naranja' },
     stats: ['colores en OKLCH', 'tokens de color', 'estilos de texto', 'íconos propios', 'contrastes WCAG'],
     statsLabel: 'El sistema en números',
     ready: 'Listo',
@@ -110,7 +98,6 @@ const COPY = T(
       lead: 'Lume reúne tokens, tipografía, íconos, componentes y gráficos para que cada pantalla nazca consistente, accesible y cuidada en los detalles.',
       start: 'Empezar ahora',
       components: 'Ver componentes',
-      try: 'Pruébalo en vivo',
     },
     collage: {
       eyebrow: 'Ejemplo',
@@ -131,8 +118,6 @@ const COPY = T(
     patterns: 'Cómo encajan las piezas',
     roadmap: { title: 'Del token al componente', history: 'Historial de versiones' },
     footer: (colors, count, date) => `${colors} colores · ${count} tokens semánticos y de fundación · generado el ${date}`,
-    brand: 'Color de marca',
-    theme: 'Tema',
   },
 );
 
@@ -140,9 +125,6 @@ const COPY = T(
 
 const group = (id) => navigation.find((g) => g.id === id);
 const items = (id) => group(id).items;
-
-const THEME_ICONS = { system: 'monitor', light: 'sun', dark: 'moon', orange: 'palette' };
-const themes = (c) => Object.entries(THEME_ICONS).map(([value, ic]) => ({ value, label: c.themes[value], icon: ic }));
 
 const colorCount = palettes.reduce((n, p) => n + p.steps.length, 0);
 const passed = contrast.filter((c) => c.pass).length;
@@ -322,11 +304,6 @@ export default function renderHome() {
           <a class="ds-btn ds-btn--primary ds-btn--lg" href="#/primeiros-passos">${icon('zap', { size: 20 })}${c.hero.start}</a>
           <a class="ds-btn ds-btn--secondary ds-btn--lg" href="#/componentes/botao">${c.hero.components}</a>
         </div>
-        <div class="home-hero__try">
-          <span>${c.hero.try}</span>
-          <button type="button" class="ds-chip" data-menu="brand"><span class="ds-chip__icon">${icon('palette', { size: 16 })}</span><span data-label>${brandLabel(getBrand())}</span>${chev}</button>
-          <button type="button" class="ds-chip" data-menu="theme"><span class="ds-chip__icon">${icon('monitor', { size: 16 })}</span><span data-label>${c.themes.system}</span>${chev}</button>
-        </div>
       </div>
 
       <div class="home-collage" aria-hidden="true" inert>
@@ -468,39 +445,6 @@ export default function renderHome() {
 }
 
 export function mount(root) {
-  const c = tr(COPY);
-  const THEMES = themes(c);
-  const brandChip = root.querySelector('[data-menu="brand"]');
-  const themeChip = root.querySelector('[data-menu="theme"]');
-  const setLabel = (chip, options, value) => {
-    const option = options.find((o) => o.value === value);
-    chip.querySelector('[data-label]').textContent = option?.label ?? '';
-    if (option?.icon) chip.querySelector('.ds-chip__icon').innerHTML = icon(option.icon, { size: 16 });
-  };
-
-  const brandMenu = attachMenu(brandChip, {
-    label: c.brand,
-    value: getBrand(),
-    options: brandOptions(),
-    onChange: (value) => {
-      applyBrand(value);
-      setLabel(brandChip, brandOptions(), value);
-    },
-  });
-
-  setLabel(themeChip, THEMES, getThemePreference());
-  const themeMenu = attachMenu(themeChip, {
-    label: c.theme,
-    value: getThemePreference(),
-    options: THEMES,
-    onChange: (value) => setTheme(value),
-  });
-  const onTheme = (event) => {
-    themeMenu.setValue(event.detail.preference);
-    setLabel(themeChip, THEMES, event.detail.preference);
-  };
-  document.documentElement.addEventListener('ds:themechange', onTheme);
-
   // refaz a conta quando a largura muda (o texto quebra diferente) e quando as fontes chegam
   const split = root.querySelector('.home-split');
   let width = 0;
@@ -513,9 +457,6 @@ export function mount(root) {
   document.fonts.ready.then(() => split.isConnected && fitRoadmap(split));
 
   return () => {
-    brandMenu.destroy();
-    themeMenu.destroy();
     fit.disconnect();
-    document.documentElement.removeEventListener('ds:themechange', onTheme);
   };
 }
