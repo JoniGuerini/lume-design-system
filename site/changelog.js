@@ -8,10 +8,52 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.13.0';
+export const CURRENT_VERSION = '0.13.1';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.13.1',
+    date: '2026-11-08',
+    title: T('Fontes atualizadas', 'Updated fonts', 'Fuentes actualizadas'),
+    summary: T(
+      'Correções pequenas: as últimas menções à Inter saíram, e os gráficos medem os textos na fonte certa.',
+      'Small fixes: the last mentions of Inter are gone, and charts measure text in the right font.',
+      'Correcciones pequeñas: salieron las últimas menciones a Inter, y los gráficos miden los textos en la fuente correcta.',
+    ),
+    groups: [
+      {
+        name: T('Gráficos', 'Charts', 'Gráficos'),
+        items: [
+          ['correcao', T(
+            'Os gráficos medem os rótulos na Geist, a fonte em que eles aparecem',
+            'Charts measure labels in Geist, the font they’re displayed in',
+            'Los gráficos miden las etiquetas en Geist, la fuente en la que aparecen',
+          ), '/graficos/visao-geral'],
+        ],
+      },
+      {
+        name: T('Site', 'Site', 'Sitio'),
+        items: [
+          ['correcao', T(
+            'A descrição de Tipografia cita Geist Serif e Geist Sans',
+            'The Typography description mentions Geist Serif and Geist Sans',
+            'La descripción de Tipografía menciona Geist Serif y Geist Sans',
+          ), '/fundamentos/tipografia'],
+          ['correcao', T(
+            'A página do Plugin do Figma pede as fontes atuais',
+            'The Figma plugin page asks for the current fonts',
+            'La página del Plugin de Figma pide las fuentes actuales',
+          ), '/recursos/figma'],
+          ['correcao', T(
+            'O exemplo de estilo de texto em Tokens para Figma usa a Geist',
+            'The text style example in Tokens for Figma uses Geist',
+            'El ejemplo de estilo de texto en Tokens para Figma usa Geist',
+          ), '/recursos/tokens'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.13.0',
     date: '2026-11-08',
