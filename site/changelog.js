@@ -8,10 +8,32 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.14.2';
+export const CURRENT_VERSION = '0.14.3';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.14.3',
+    date: '2026-11-08',
+    title: T('Última versão no Início', 'Latest version on Home', 'Última versión en el Inicio'),
+    summary: T(
+      'A colagem do Início deu lugar a um cartão com a última versão e o que ela trouxe.',
+      'The Home collage gave way to a card with the latest version and what it brought.',
+      'El collage del Inicio dio lugar a una tarjeta con la última versión y lo que trajo.',
+    ),
+    groups: [
+      {
+        name: T('Site', 'Site', 'Sitio'),
+        items: [
+          ['melhoria', T(
+            'Cartão da última versão no Início, atualizado sozinho a partir do changelog',
+            'Latest version card on Home, updated on its own from the changelog',
+            'Tarjeta de la última versión en el Inicio, actualizada sola desde el changelog',
+          ), '/'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.14.2',
     date: '2026-11-08',

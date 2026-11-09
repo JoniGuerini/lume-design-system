@@ -49,83 +49,117 @@
   margin-top: var(--ds-space-500);
 }
 
-/* Colagem de componentes reais (decorativa, inerte) */
-.home-collage {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--ds-space-150);
-  user-select: none;
-}
-
-.collage-card {
+/* A última versão, lida do changelog: muda sozinha a cada lançamento */
+.home-latest {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: var(--ds-space-150);
+  min-width: 0;
   padding: var(--ds-space-300);
   border-radius: var(--ds-radius-xl);
-  background: var(--ds-color-bg-raised);
+  background: var(--ds-color-bg-surface);
   border: 1px solid var(--ds-color-border-subtle);
-  box-shadow: var(--ds-shadow-lg);
+  color: var(--ds-color-fg-default);
+  text-decoration: none;
+  transition: border-color var(--ds-duration-fast) var(--ds-easing-standard);
 }
 
-.collage-card--wide {
-  grid-column: 1 / -1;
-  padding: var(--ds-space-300) var(--ds-space-400) var(--ds-space-400);
+.home-latest:hover {
+  border-color: var(--ds-color-border-strong);
+  color: var(--ds-color-fg-default);
 }
 
-.collage-card__head {
+.home-latest__head {
   display: flex;
-  align-items: flex-start;
+  flex-wrap: wrap;
   justify-content: space-between;
+  gap: var(--ds-space-050) var(--ds-space-200);
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-body-sm);
 }
 
-.collage-card__title {
+.home-latest__version {
+  margin-top: var(--ds-space-200);
+  font: var(--ds-text-display-md);
+  letter-spacing: var(--ds-text-display-md-tracking);
+  font-variant-numeric: tabular-nums;
+}
+
+.home-latest__title {
   margin-top: var(--ds-space-050);
   font: var(--ds-text-heading-md);
   letter-spacing: var(--ds-text-heading-md-tracking);
 }
 
-.collage-card__icons {
+.home-latest__items {
   display: flex;
-  gap: var(--ds-space-050);
-  margin: -4px -8px 0 0;
-}
-
-.collage-card__chips {
-  display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: var(--ds-space-100);
-  margin: var(--ds-space-100) 0 var(--ds-space-150);
+  margin-top: var(--ds-space-200);
 }
 
-.collage-card__meta {
-  margin-inline-start: auto;
+.home-latest__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ds-space-100);
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+.home-latest__item .ds-badge {
+  flex: none;
+}
+
+.home-latest__more {
   color: var(--ds-color-fg-subtle);
   font: var(--ds-text-body-sm);
 }
 
-.collage-card__text {
-  margin-top: calc(-1 * var(--ds-space-050));
-  font: var(--ds-text-body-md);
-  letter-spacing: var(--ds-text-body-md-tracking);
-}
-
-.collage-card__buttons {
+.home-latest__older {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: var(--ds-space-100);
-}
-
-.collage-card__badges {
-  display: flex;
-  flex-wrap: wrap;
   gap: var(--ds-space-075);
+  margin-top: var(--ds-space-250);
+  padding-top: var(--ds-space-200);
+  border-top: 1px solid var(--ds-color-border-subtle);
 }
 
-.collage-card__field {
-  --_h: 40px;
+.home-latest__row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--ds-space-150);
+  min-width: 0;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+.home-latest__stamp {
+  flex: none;
+  min-width: 3.25rem;
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-code-sm);
+}
+
+.home-latest__all {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-075);
+  margin-top: var(--ds-space-250);
+  font: var(--ds-text-label-sm);
+  letter-spacing: var(--ds-text-label-sm-tracking);
+}
+
+.home-latest__all .ds-icon {
+  transition: translate var(--ds-duration-base) var(--ds-easing-emphasized);
+}
+
+.home-latest:hover .home-latest__all .ds-icon {
+  translate: 3px 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-latest__all .ds-icon {
+    transition: none;
+  }
 }
 
 /* ───────── Início: números ───────── */
@@ -667,10 +701,6 @@
     gap: var(--ds-space-600);
   }
 
-  .home-collage {
-    max-width: 640px;
-  }
-
   .tile-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -708,14 +738,6 @@
 
   .home-hero__lead {
     font: var(--ds-text-body-md);
-  }
-
-  .home-collage {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .collage-card--wide {
-    padding: var(--ds-space-250);
   }
 
   .home-section {

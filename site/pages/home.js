@@ -2,7 +2,7 @@ import { icon, iconList } from '../../ds/icons/icons.js';
 import { palettes, tokens, contrast, generatedAt } from '../../ds/tokens.js';
 import { tr, numberFormat, dateFormat } from '../../ds/js/i18n.js';
 import { navigation } from '../nav.js';
-import { releases, CURRENT_VERSION } from '../changelog.js';
+import { releases, TYPES, CURRENT_VERSION } from '../changelog.js';
 import { stages } from '../roadmap.js';
 import { T } from '../i18n.js';
 
@@ -26,19 +26,7 @@ const COPY = T(
       start: 'Começar agora',
       components: 'Ver componentes',
     },
-    collage: {
-      eyebrow: 'Exemplo',
-      title: (v) => `Lançamento da versão ${v}`,
-      tone: 'Tom direto',
-      dark: 'Escuro',
-      section: 'Fundamentos prontos',
-      text: 'Cores, tipografia e ícones já estão em tokens, nos três temas.',
-      demo: 'Ver demonstração',
-      template: 'Escolher modelo',
-      examples: 'Exemplos',
-      badges: ['Pronto', 'Novo', 'Beta'],
-      search: 'Buscar',
-    },
+    latest: { label: 'Última versão', more: (n) => `e mais ${n}`, all: 'Ver todas as novidades' },
     foundations: { title: 'As decisões que sustentam tudo', desc: 'Cada decisão visual vira um token. Os componentes só consomem tokens — por isso o sistema muda inteiro quando a marca muda.' },
     components: { title: 'Planos, calmos e precisos', desc: (n) => `Contornos finos, nada de brilho. ${n} componentes, cada um com anatomia, estados e acessibilidade.`, all: 'Ver todos' },
     charts: { title: 'Dados que se leem de relance', desc: 'Cores em ordem fixa validadas para daltonismo, marcas finas e tooltip também no teclado. Todo gráfico vira tabela com um clique.', overview: 'Ver visão geral' },
@@ -63,19 +51,7 @@ const COPY = T(
       start: 'Get started',
       components: 'See components',
     },
-    collage: {
-      eyebrow: 'Example',
-      title: (v) => `Version ${v} launch`,
-      tone: 'Direct tone',
-      dark: 'Dark',
-      section: 'Foundations ready',
-      text: 'Color, typography, and icons are already tokens, in all three themes.',
-      demo: 'Watch demo',
-      template: 'Choose template',
-      examples: 'Examples',
-      badges: ['Done', 'New', 'Beta'],
-      search: 'Search',
-    },
+    latest: { label: 'Latest version', more: (n) => `and ${n} more`, all: 'See everything new' },
     foundations: { title: 'The decisions that hold it all up', desc: 'Every visual decision becomes a token. Components only consume tokens — that’s why the whole system changes when the brand does.' },
     components: { title: 'Flat, calm, and precise', desc: (n) => `Thin outlines, no shine. ${n} components, each with anatomy, states, and accessibility.`, all: 'See all' },
     charts: { title: 'Data you can read at a glance', desc: 'Colors in a fixed order validated for color blindness, thin marks, and tooltips that work from the keyboard too. Every chart turns into a table with one click.', overview: 'See overview' },
@@ -100,19 +76,7 @@ const COPY = T(
       start: 'Empezar ahora',
       components: 'Ver componentes',
     },
-    collage: {
-      eyebrow: 'Ejemplo',
-      title: (v) => `Lanzamiento de la versión ${v}`,
-      tone: 'Tono directo',
-      dark: 'Oscuro',
-      section: 'Fundamentos listos',
-      text: 'Color, tipografía e íconos ya están en tokens, en los tres temas.',
-      demo: 'Ver demostración',
-      template: 'Elegir plantilla',
-      examples: 'Ejemplos',
-      badges: ['Listo', 'Nuevo', 'Beta'],
-      search: 'Buscar',
-    },
+    latest: { label: 'Última versión', more: (n) => `y ${n} más`, all: 'Ver todas las novedades' },
     foundations: { title: 'Las decisiones que lo sostienen todo', desc: 'Cada decisión visual se vuelve un token. Los componentes solo consumen tokens — por eso todo el sistema cambia cuando cambia la marca.' },
     components: { title: 'Planos, tranquilos y precisos', desc: (n) => `Contornos finos, nada de brillo. ${n} componentes, cada uno con anatomía, estados y accesibilidad.`, all: 'Ver todos' },
     charts: { title: 'Datos que se leen de un vistazo', desc: 'Colores en un orden fijo validado para daltonismo, marcas finas y tooltip también con el teclado. Todo gráfico se vuelve tabla con un clic.', overview: 'Ver visión general' },
@@ -290,6 +254,37 @@ const listItems = (list) => `<ul class="home-list__items" role="list">
     .join('')}
 </ul>`;
 
+/* ───────── Cartão do hero: a última versão, direto do changelog ───────── */
+
+const LATEST_ITEMS = 3;
+const LATEST_PREVIOUS = 2;
+
+function latestCard(c) {
+  const [latest, ...older] = releases;
+  const items = latest.groups.flatMap((g) => g.items);
+  const date = dateFormat({ day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(`${latest.date}T12:00:00`));
+  const rest = items.length - LATEST_ITEMS;
+  return `<a class="home-latest" href="#/novidades">
+    <span class="home-latest__head"><span>${c.latest.label}</span><time datetime="${latest.date}">${date}</time></span>
+    <span class="home-latest__version">${latest.version}</span>
+    <span class="home-latest__title">${latest.title}</span>
+    <span class="home-latest__items">
+      ${items
+        .slice(0, LATEST_ITEMS)
+        .map(([type, text]) => `<span class="home-latest__item"><span class="ds-badge ds-badge--sm ds-badge--${TYPES[type].tone}">${TYPES[type].label}</span><span>${text}</span></span>`)
+        .join('')}
+      ${rest > 0 ? `<span class="home-latest__more">${c.latest.more(rest)}</span>` : ''}
+    </span>
+    <span class="home-latest__older">
+      ${older
+        .slice(0, LATEST_PREVIOUS)
+        .map((r) => `<span class="home-latest__row"><span class="home-latest__stamp">${r.version}</span><span>${r.title}</span></span>`)
+        .join('')}
+    </span>
+    <span class="home-latest__all">${c.latest.all}${icon('arrow-right', { size: 16 })}</span>
+  </a>`;
+}
+
 /* ───────── Página ───────── */
 
 export default function renderHome() {
@@ -306,40 +301,7 @@ export default function renderHome() {
           <a class="ds-btn ds-btn--secondary ds-btn--lg" href="#/componentes/botao">${c.hero.components}</a>
         </div>
       </div>
-
-      <div class="home-collage" aria-hidden="true" inert>
-        <div class="collage-card collage-card--wide">
-          <div class="collage-card__head">
-            <div>
-              <p class="ds-panel__eyebrow">${c.collage.eyebrow}</p>
-              <p class="collage-card__title">${c.collage.title(CURRENT_VERSION.replace(/\.0$/, ''))}</p>
-            </div>
-            <div class="collage-card__icons"><span class="ds-icon-btn">${icon('stack')}</span><span class="ds-icon-btn">${icon('x')}</span></div>
-          </div>
-          <div class="collage-card__chips">
-            <span class="ds-chip ds-chip--sm"><span class="ds-chip__icon">${icon('pencil', { size: 14 })}</span>${c.collage.tone}${chev}</span>
-            <span class="ds-chip ds-chip--sm">${c.collage.dark}${chev}</span>
-            <span class="collage-card__meta">~3 min</span>
-          </div>
-          <p class="ds-section__head"><span class="ds-section__stamp">01</span><span>${c.collage.section}</span></p>
-          <p class="collage-card__text">${c.collage.text}</p>
-          <span class="ds-inline-action">${icon('video', { size: 16 })}${c.collage.demo}${icon('plus', { size: 14, className: 'ds-inline-action__plus' })}</span>
-        </div>
-        <div class="collage-card">
-          <div class="collage-card__buttons">
-            <span class="ds-btn ds-btn--primary">${icon('video', { size: 18 })}${c.collage.template}</span>
-            <span class="ds-btn ds-btn--ghost">${icon('star', { size: 18 })}${c.collage.examples}</span>
-          </div>
-        </div>
-        <div class="collage-card">
-          <div class="collage-card__badges">
-            <span class="ds-badge ds-badge--success"><span class="ds-badge__dot"></span>${c.collage.badges[0]}</span>
-            <span class="ds-badge ds-badge--brand">${c.collage.badges[1]}</span>
-            <span class="ds-badge">${c.collage.badges[2]}</span>
-          </div>
-          <div class="ds-field collage-card__field">${icon('search', { size: 18 })}<span class="ds-field__placeholder">${c.collage.search}</span><kbd class="ds-kbd">⌘K</kbd></div>
-        </div>
-      </div>
+      ${latestCard(c)}
     </section>
 
     <section class="home-stats" aria-label="${c.statsLabel}">
