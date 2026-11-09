@@ -8,10 +8,30 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.15.0';
+export const CURRENT_VERSION = '0.16.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.16.0',
+    date: '2026-11-08',
+    title: T('Camadas', 'Overlays', 'Capas'),
+    summary: T(
+      'Três componentes novos para mostrar conteúdo por cima da tela: popover, gaveta lateral e menu de contexto.',
+      'Three new components for showing content above the screen: popover, drawer, and context menu.',
+      'Tres componentes nuevos para mostrar contenido sobre la pantalla: popover, panel lateral y menú contextual.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['novo', T('Popover: conteúdo livre preso ao gatilho, que troca de lado se não couber', 'Popover: free content attached to its trigger, switching sides if it doesn’t fit', 'Popover: contenido libre unido a su disparador, que cambia de lado si no cabe'), '/componentes/popover'],
+          ['novo', T('Gaveta lateral: detalhes ou uma tarefa pela direita, esquerda ou embaixo', 'Drawer: details or a task from the right, left, or bottom', 'Panel lateral: detalles o una tarea por la derecha, izquierda o abajo'), '/componentes/gaveta-lateral'],
+          ['novo', T('Menu de contexto: botão direito, teclado ou toque longo', 'Context menu: right-click, keyboard, or long press', 'Menú contextual: clic derecho, teclado o toque largo'), '/componentes/menu-de-contexto'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.15.0',
     date: '2026-11-08',

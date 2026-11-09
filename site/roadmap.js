@@ -13,27 +13,10 @@ const GOAL = T('Meta', 'Goal', 'Meta');
 
 const STAGES = [
   {
-    version: '0.16',
+    version: '0.17',
     group: 'components',
     tone: 'brand',
     status: NEXT,
-    title: T('Camadas', 'Overlays', 'Capas'),
-    text: T(
-      'Conteúdo por cima da tela, entre o Tooltip e o Modal.',
-      'Content above the screen, between Tooltip and Modal.',
-      'Contenido sobre la pantalla, entre el Tooltip y el Modal.',
-    ),
-    items: [
-      { name: T('Popover', 'Popover', 'Popover'), text: T('Conteúdo livre que abre ao clicar, preso ao gatilho.', 'Free content that opens on click, attached to its trigger.', 'Contenido libre que se abre al hacer clic, unido a su disparador.') },
-      { name: T('Gaveta lateral', 'Drawer', 'Panel lateral'), text: T('Detalhes ou uma tarefa sem sair da página.', 'Details or a task without leaving the page.', 'Detalles o una tarea sin salir de la página.') },
-      { name: T('Menu de contexto', 'Context menu', 'Menú contextual'), text: T('Ações do item, com o botão direito ou o teclado.', 'Item actions, with a right-click or the keyboard.', 'Acciones del elemento, con clic derecho o teclado.') },
-    ],
-  },
-  {
-    version: '0.17',
-    group: 'components',
-    tone: 'neutral',
-    status: PLANNED,
     title: T('Feedback e carregamento', 'Feedback and loading', 'Feedback y carga'),
     text: T(
       'O que dizer enquanto algo acontece ou precisa de atenção.',
