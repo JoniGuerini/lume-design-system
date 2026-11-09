@@ -109,6 +109,7 @@ const DEFINITIONS = [
   ['cabin', 'interface', 'cabana abrigo refúgio tema casa', path('M2.5 19.5h19M3.5 19.5 12 4.5l8.5 15M10 19.5v-3.5a2 2 0 0 1 4 0v3.5M16 11.6V7.5h2v7.6')],
   ['mountain', 'interface', 'montanha natureza', path('M2.5 19.5h19M3.5 19.5 10.5 6l7 13.5M14.39 13.5l2.41-4 4.2 10M8.17 10.5l1.6 1.5 1.7-1.4 2 1.2')],
   ['monitor', 'interface', 'sistema tela desktop', rect(3, 4, 18, 12.5, 2.5) + path('M8.5 20.5h7M12 16.5v4')],
+  ['scrollbar', 'interface', 'barra de rolagem rolar scroll', rect(4, 3.5, 16, 17, 3) + path('M16 7.5v5')],
   ['eye', 'interface', 'visualizar mostrar ver', path('M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z') + circle(12, 12, 3)],
   ['eye-off', 'interface', 'ocultar esconder senha', path('M10 5.7a9.6 9.6 0 0 1 2-.2c6 0 9.5 6.5 9.5 6.5a17 17 0 0 1-2.6 3.4M6.6 6.6C4 8.3 2.5 12 2.5 12S6 18.5 12 18.5a9.4 9.4 0 0 0 5.2-1.3M9.9 9.9a3 3 0 0 0 4.2 4.2M3.5 3.5l17 17')],
   ['keyboard', 'interface', 'teclado atalhos teclas', rect(2.5, 6, 19, 12, 2.5) + path('M6 10h.01M9.3 10h.01M12.6 10h.01M15.9 10h.01M18 10h.01M7 14h10')],

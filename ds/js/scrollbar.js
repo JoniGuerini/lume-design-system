@@ -10,6 +10,9 @@
  * que entram depois — não há nada para registrar. A barra fica numa camada própria (no <body>, ou
  * dentro do <dialog> aberto, para aparecer na camada do topo) e não mexe no layout da área.
  *
+ * Enquanto está visível, a barra é reposicionada a cada quadro: ela acompanha a área se a página
+ * rolar, se a sidebar recolher ou se a janela mudar de tamanho, e some se a área sair de vista.
+ *
  * Só aparece em rolagem feita pela pessoa (roda, toque, teclado, clique): um scrollTo do código
  * logo ao abrir uma página não faz a barra piscar.
  *
@@ -22,10 +25,10 @@ const INTENT_WINDOW = 1200;
 const MIN_THUMB = 28;
 const RAIL = 12; // largura da área de pegar (a barra visível é mais fina, no CSS)
 const PAD = 3; // folga nas pontas do trilho
+const FADE = 400; // tempo de sumir (--ds-duration-slow, com folga): segue acompanhando a área até terminar
 
 const entries = new Map();
-const dirty = new Set(); // rolou: reposiciona e mostra
-const moved = new Set(); // mudou de lugar: só reposiciona
+const dirty = new Set(); // rolou: mostra a barra
 let installed = false;
 let lastIntent = 0;
 let frame = 0;
@@ -58,8 +61,6 @@ function entryFor(el) {
     isRoot,
     start: parseFloat(cs.getPropertyValue('--ds-scrollbar-start')) || 0,
     end: parseFloat(cs.getPropertyValue('--ds-scrollbar-end')) || 0,
-    canY: isRoot || !/hidden|clip/.test(cs.overflowY),
-    canX: isRoot || !/hidden|clip/.test(cs.overflowX),
     clips: isRoot ? [] : clipAncestors(el, host),
     rails: { y: null, x: null },
     geo: { y: null, x: null },
@@ -67,6 +68,7 @@ function entryFor(el) {
     hover: false,
     drag: false,
     visible: false,
+    fadeUntil: 0,
   };
   entries.set(el, e);
   return e;
@@ -96,6 +98,15 @@ function railFor(e, axis) {
 /** Calcula e posiciona as barras de uma área. */
 function update(e) {
   const el = e.el;
+  const cs = getComputedStyle(el);
+  // a área pode ter deixado de rolar ou saído de cena desde o último quadro
+  if (!e.isRoot && (cs.visibility === 'hidden' || !el.getClientRects().length)) {
+    e.geo.y = null;
+    e.geo.x = null;
+    return;
+  }
+  const canY = e.isRoot || !/hidden|clip/.test(cs.overflowY);
+  const canX = e.isRoot || !/hidden|clip/.test(cs.overflowX);
   let box;
   if (e.isRoot) box = { left: 0, top: 0, right: innerWidth, bottom: innerHeight };
   else {
@@ -116,8 +127,8 @@ function update(e) {
 
   const maxY = el.scrollHeight - el.clientHeight;
   const maxX = el.scrollWidth - el.clientWidth;
-  const hasY = e.canY && maxY > 1;
-  const hasX = e.canX && maxX > 1;
+  const hasY = canY && maxY > 1;
+  const hasX = canX && maxX > 1;
 
   // vertical: na borda direita, se ela estiver à vista
   e.geo.y = null;
@@ -151,14 +162,19 @@ function update(e) {
   }
 }
 
+function syncRails(e) {
+  for (const axis of ['y', 'x']) e.rails[axis]?.toggleAttribute('data-visible', Boolean(e.geo[axis]));
+}
+
 function show(e) {
   clearTimeout(e.timer);
   e.visible = true;
-  for (const axis of ['y', 'x']) e.rails[axis]?.toggleAttribute('data-visible', Boolean(e.geo[axis]));
+  syncRails(e);
 }
 
 function hide(e) {
   e.visible = false;
+  e.fadeUntil = performance.now() + FADE;
   e.rails.y?.removeAttribute('data-visible');
   e.rails.x?.removeAttribute('data-visible');
   if (!e.el.isConnected) dispose(e);
@@ -210,25 +226,27 @@ function startDrag(e, axis, ev) {
   rail.addEventListener('pointercancel', end);
 }
 
+/** Roda a cada quadro enquanto houver barra na tela (inclusive sumindo) e para sozinho depois. */
 function flush() {
   frame = 0;
-  for (const e of entries.values()) if (!e.el.isConnected && !e.visible) dispose(e);
-  for (const e of dirty) {
+  const now = performance.now();
+  let active = false;
+  for (const e of entries.values()) {
     if (!e.el.isConnected) {
       dispose(e);
       continue;
     }
+    const scrolled = dirty.has(e);
+    if (!scrolled && !e.visible && now >= e.fadeUntil) continue;
     update(e);
-    show(e);
-    scheduleHide(e);
-  }
-  for (const e of moved) {
-    if (dirty.has(e) || !e.el.isConnected || !e.visible) continue;
-    update(e);
-    for (const axis of ['y', 'x']) e.rails[axis]?.toggleAttribute('data-visible', Boolean(e.geo[axis]));
+    if (scrolled) {
+      show(e);
+      scheduleHide(e);
+    } else if (e.visible) syncRails(e);
+    active = true;
   }
   dirty.clear();
-  moved.clear();
+  if (active) frame = requestAnimationFrame(flush);
 }
 
 function onScroll(event) {
@@ -245,13 +263,6 @@ function onScroll(event) {
 
 const onIntent = () => (lastIntent = performance.now());
 
-/** A área mudou de lugar ou de tamanho (janela, gaveta que terminou de deslizar): reposiciona sem segurar a barra na tela. */
-function onMove(event) {
-  if (event?.target?.classList?.contains('ds-scrollbar')) return;
-  for (const e of entries.values()) if (e.visible) moved.add(e);
-  if (moved.size) frame ||= requestAnimationFrame(flush);
-}
-
 /** Liga a barra sobreposta no documento inteiro. Chamar mais de uma vez não duplica nada. */
 export function initScrollbars() {
   if (installed) return;
@@ -259,6 +270,4 @@ export function initScrollbars() {
   document.documentElement.setAttribute('data-ds-scrollbars', '');
   document.addEventListener('scroll', onScroll, { capture: true, passive: true });
   for (const type of ['wheel', 'touchmove', 'keydown', 'pointerdown']) document.addEventListener(type, onIntent, { capture: true, passive: true });
-  addEventListener('resize', onMove, { passive: true });
-  document.addEventListener('transitionend', onMove, { capture: true, passive: true });
 }

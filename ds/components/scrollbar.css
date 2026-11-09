@@ -86,16 +86,19 @@
 }
 
 .ds-scrollbar:hover::before,
+.ds-scrollbar[data-state="hover"]::before,
 .ds-scrollbar[data-active]::before {
   background: var(--ds-color-fg-subtle);
 }
 
 .ds-scrollbar--y:hover::before,
+.ds-scrollbar--y[data-state="hover"]::before,
 .ds-scrollbar--y[data-active]::before {
   width: 8px;
 }
 
 .ds-scrollbar--x:hover::before,
+.ds-scrollbar--x[data-state="hover"]::before,
 .ds-scrollbar--x[data-active]::before {
   height: 8px;
 }

@@ -8,10 +8,31 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.19.2';
+export const CURRENT_VERSION = '0.20.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.20.0',
+    date: '2026-11-08',
+    title: T('Barra de rolagem', 'Scrollbar', 'Barra de desplazamiento'),
+    summary: T(
+      'A barra que o site já usava agora é um componente documentado, com exemplos para rolar, estados e os ajustes por área.',
+      'The bar the site already used is now a documented component, with examples to scroll, states, and per-area settings.',
+      'La barra que el sitio ya usaba ahora es un componente documentado, con ejemplos para desplazar, estados y ajustes por área.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['novo', T('Barra de rolagem com página própria', 'Scrollbar with its own page', 'Barra de desplazamiento con página propia'), '/componentes/barra-de-rolagem'],
+          ['novo', T('Ícone de barra de rolagem', 'Scrollbar icon', 'Ícono de barra de desplazamiento'), '/fundamentos/icones'],
+          ['melhoria', T('Hover da barra pode ser forçado com data-state', 'The bar’s hover can be forced with data-state', 'El hover de la barra se puede forzar con data-state'), '/componentes/barra-de-rolagem'],
+          ['correcao', T('A barra acompanha a área quando a página rola ou a sidebar recolhe, em vez de ficar parada na tela', 'The bar follows its area when the page scrolls or the sidebar collapses, instead of staying put on screen', 'La barra sigue a su área cuando la página se desplaza o la sidebar se recoge, en vez de quedarse quieta en la pantalla'), '/componentes/barra-de-rolagem'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.19.2',
     date: '2026-11-08',

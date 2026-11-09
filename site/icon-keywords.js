@@ -46,6 +46,7 @@ export const ICON_KEYWORDS = {
   'more-vertical': ['more options menu kebab', 'más opciones menú'],
   zap: ['lightning fast start bolt', 'rayo rápido empezar'],
   play: ['play start animation', 'reproducir iniciar animación'],
+  scrollbar: ['scroll scrollbar scrolling bar', 'barra de desplazamiento desplazar scroll'],
   megaphone: ['news announcement changelog what’s new', 'novedades anuncio comunicado changelog'],
   slash: ['shortcut command slash', 'atajo comando barra'],
   mic: ['microphone audio voice', 'micrófono audio voz'],

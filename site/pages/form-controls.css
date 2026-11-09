@@ -333,3 +333,86 @@
   display: inline-flex;
   gap: var(--ds-space-050);
 }
+
+/* Barra de rolagem */
+.fc-preview:has(.fc-scroll) {
+  width: 100%;
+}
+
+.fc-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-100);
+  height: 148px;
+  padding: var(--ds-space-200);
+  overflow: auto;
+  border-radius: var(--ds-radius-lg);
+  background: var(--ds-color-bg-surface);
+  border: 1px solid var(--ds-color-border-subtle);
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+.cd-playground .fc-scroll {
+  width: min(520px, 100%);
+  height: 220px;
+}
+
+.fc-scroll > p {
+  flex: none;
+}
+
+.fc-scroll--x {
+  justify-content: center;
+}
+
+.fc-scroll--inset {
+  padding-top: 0;
+}
+
+.fc-scroll__head {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  height: 44px;
+  margin-inline: calc(var(--ds-space-200) * -1);
+  padding-inline: var(--ds-space-200);
+  background: var(--ds-color-bg-surface);
+  border-bottom: 1px solid var(--ds-color-border-subtle);
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-label-md);
+}
+
+.fc-scroll__wide {
+  display: flex;
+  flex: none;
+  gap: var(--ds-space-100);
+  width: max-content;
+}
+
+.fc-scroll__cell {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 64px;
+  border-radius: var(--ds-radius-md);
+  background: var(--ds-color-bg-muted);
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-label-sm);
+}
+
+/* amostra parada da barra, sem a posição fixa e o movimento do componente real */
+.fc-scroll-state {
+  position: relative;
+  height: 96px;
+  border-radius: var(--ds-radius-md);
+  background: var(--ds-color-bg-surface);
+  border: 1px solid var(--ds-color-border-subtle);
+}
+
+.fc-scroll-state .ds-scrollbar {
+  position: absolute;
+  inset: 8px 4px auto auto;
+  height: 48px;
+}
