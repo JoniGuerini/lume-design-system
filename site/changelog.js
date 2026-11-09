@@ -8,10 +8,31 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.19.1';
+export const CURRENT_VERSION = '0.19.2';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.19.2',
+    date: '2026-11-08',
+    title: T('Revisão dos ícones', 'Icon review', 'Revisión de íconos'),
+    summary: T(
+      'Medimos as pontas de traço de todos os ícones e olhamos cada um ampliado. Quatro precisavam de ajuste.',
+      'We measured the stroke ends of every icon and looked at each one enlarged. Four needed adjusting.',
+      'Medimos las puntas de trazo de todos los íconos y miramos cada uno ampliado. Cuatro necesitaban ajuste.',
+    ),
+    groups: [
+      {
+        name: T('Ícones', 'Icons', 'Íconos'),
+        items: [
+          ['correcao', T('Wifi desligado: os arcos ficam à mesma distância dos dois lados da barra', 'Wifi off: the arcs sit at the same distance on both sides of the bar', 'Wifi apagado: los arcos quedan a la misma distancia a ambos lados de la barra'), '/fundamentos/icones'],
+          ['correcao', T('Olho riscado: a borda do olho termina na barra, sem passar dela', 'Eye off: the edge of the eye ends at the bar, without passing it', 'Ojo tachado: el borde del ojo termina en la barra, sin pasarla'), '/fundamentos/icones'],
+          ['correcao', T('Bandeira: o mastro não passa mais do topo', 'Flag: the pole no longer sticks out at the top', 'Bandera: el mástil ya no sobresale arriba'), '/fundamentos/icones'],
+          ['correcao', T('Imagem: a linha da montanha termina na borda, sem engrossar o canto', 'Image: the mountain line ends at the edge, without thickening the corner', 'Imagen: la línea de la montaña termina en el borde, sin engrosar la esquina'), '/fundamentos/icones'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.19.1',
     date: '2026-11-08',

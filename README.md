@@ -50,7 +50,7 @@ ds/                  ← o design system em si
   components/        um CSS por componente (botão, chip, campo, seleção, checkbox, switch, abas,
                      tabela, modal, menu, toast, painel, avatar, alerta, filtros, conversa,
                      gráficos, shell, ⌘K…)
-  icons/icons.js     126 ícones próprios + função icon() + <ds-icon>
+  icons/icons.js     129 ícones próprios + função icon() + <ds-icon>
   js/                theme, tooltip, menu, select, date-picker, time-picker, number-field, slider,
                      tag-field, file-upload, otp-field, segmented, pagination, stepper, tree, tabs, modal, popover, drawer, context-menu, code-block, toast, shell, command-palette,
                      composer (conversa), form (validação), filters (barra de filtros),
