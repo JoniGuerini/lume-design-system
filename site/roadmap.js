@@ -13,29 +13,10 @@ const GOAL = T('Meta', 'Goal', 'Meta');
 
 const STAGES = [
   {
-    version: '0.18',
-    group: 'components',
-    tone: 'brand',
-    status: NEXT,
-    title: T('Conteúdo', 'Content', 'Contenido'),
-    text: T(
-      'Peças para apresentar informação.',
-      'Pieces for presenting information.',
-      'Piezas para presentar información.',
-    ),
-    items: [
-      { name: T('Linha do tempo', 'Timeline', 'Línea de tiempo'), text: T('Eventos em ordem, como um histórico de atividade.', 'Events in order, like an activity history.', 'Eventos en orden, como un historial de actividad.') },
-      { name: T('Lista de definições', 'Description list', 'Lista de definiciones'), text: T('Pares de rótulo e valor, como numa ficha de detalhes.', 'Label and value pairs, as on a details sheet.', 'Pares de etiqueta y valor, como en una ficha de detalles.') },
-      { name: T('Card', 'Card', 'Tarjeta'), text: T('A superfície básica para agrupar conteúdo.', 'The basic surface for grouping content.', 'La superficie básica para agrupar contenido.'), doc: true },
-      { name: T('Bloco de código', 'Code block', 'Bloque de código'), text: T('Código com botão de copiar.', 'Code with a copy button.', 'Código con botón de copiar.'), doc: true },
-      { name: T('Tecla', 'Keyboard key', 'Tecla'), text: T('Atalhos de teclado no meio do texto.', 'Keyboard shortcuts within text.', 'Atajos de teclado en medio del texto.'), doc: true },
-    ],
-  },
-  {
     version: '0.19',
     group: 'release',
-    tone: 'neutral',
-    status: PLANNED,
+    tone: 'brand',
+    status: NEXT,
     title: T('Refino', 'Refinement', 'Refinamiento'),
     text: T('Uma revisão de tudo o que já existe.', 'A review of everything that already exists.', 'Una revisión de todo lo que ya existe.'),
     items: [

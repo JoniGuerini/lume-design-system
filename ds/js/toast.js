@@ -158,7 +158,7 @@ function legacyCopy(text) {
   return ok;
 }
 
-export async function copyText(text, label = msg('toast.copied')) {
+export async function copyText(text, label = msg('toast.copied'), { echo = true } = {}) {
   let ok = false;
   try {
     await navigator.clipboard.writeText(text);
@@ -166,6 +166,6 @@ export async function copyText(text, label = msg('toast.copied')) {
   } catch {
     ok = legacyCopy(text);
   }
-  if (ok) toast(`${label}: ${text}`);
+  if (ok) toast(echo ? `${label}: ${text}` : label);
   else toast(msg('toast.copyFailed'), { icon: 'alert-circle' });
 }

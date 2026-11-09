@@ -8,10 +8,38 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.17.0';
+export const CURRENT_VERSION = '0.18.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.18.0',
+    date: '2026-11-08',
+    title: T('Conteúdo', 'Content', 'Contenido'),
+    summary: T(
+      'Peças para apresentar informação: dois componentes novos e três que ganharam página. Com eles, os componentes planejados estão completos.',
+      'Pieces for presenting information: two new components and three that got a page. With them, the planned components are complete.',
+      'Piezas para presentar información: dos componentes nuevos y tres que tienen ahora página. Con ellos, los componentes planificados están completos.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['novo', T('Linha do tempo: eventos em ordem, com ícones ou pontos', 'Timeline: events in order, with icons or dots', 'Línea de tiempo: eventos en orden, con íconos o puntos'), '/componentes/linha-do-tempo'],
+          ['novo', T('Lista de definições: pares de rótulo e valor, em três disposições', 'Description list: label and value pairs, in three layouts', 'Lista de definiciones: pares de etiqueta y valor, en tres disposiciones'), '/componentes/lista-de-definicoes'],
+          ['melhoria', T('Card com página própria e versão clicável', 'Card with its own page and a clickable version', 'Tarjeta con página propia y versión clicable'), '/componentes/card'],
+          ['melhoria', T('Bloco de código com página própria e botão de copiar no DS', 'Code block with its own page and a copy button in the DS', 'Bloque de código con página propia y botón de copiar en el DS'), '/componentes/bloco-de-codigo'],
+          ['melhoria', T('Tecla com página própria', 'Keyboard key with its own page', 'Tecla con página propia'), '/componentes/tecla'],
+        ],
+      },
+      {
+        name: T('Site', 'Site', 'Sitio'),
+        items: [
+          ['correcao', T('Copiar um bloco de código não repete mais o código inteiro no aviso', 'Copying a code block no longer repeats all the code in the notice', 'Copiar un bloque de código ya no repite todo el código en el aviso'), '/componentes/bloco-de-codigo'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.17.0',
     date: '2026-11-08',

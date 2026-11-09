@@ -155,7 +155,7 @@ export function mountPlayground(root, { id, controls, text, render, code, mount 
 export function mountCodeCopy(root) {
   const onClick = (event) => {
     const btn = event.target.closest('[data-copy-code]');
-    if (btn) copyText(btn.parentElement.querySelector('code').textContent, tr(TEXT).copied);
+    if (btn) copyText(btn.parentElement.querySelector('code').textContent, tr(TEXT).copied, { echo: false });
     const token = event.target.closest('[data-copy-token]');
     if (token) copyText(token.dataset.copyToken);
   };

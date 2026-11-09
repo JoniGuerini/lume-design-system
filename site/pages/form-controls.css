@@ -306,3 +306,26 @@
 .fc-skel-card > .ds-skeleton:first-child {
   margin-bottom: var(--ds-space-050);
 }
+
+/* Conteúdo */
+.fc-preview:has(.ds-code, .ds-code-block) {
+  width: 100%;
+}
+
+.fc-preview:has(.ds-kbd) {
+  width: auto;
+}
+
+/* prévias da mesma linha com a mesma altura, e as legendas alinhadas */
+.fc-grid > .cd-example {
+  display: grid;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 0;
+}
+
+.fc-keys {
+  display: inline-flex;
+  gap: var(--ds-space-050);
+}

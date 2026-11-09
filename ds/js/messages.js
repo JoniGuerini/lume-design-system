@@ -150,6 +150,9 @@ export const MESSAGES = {
 
     'stepper.done': 'concluída',
 
+    'code.copy': 'Copiar código',
+    'code.copied': 'Código copiado',
+
     'calendar.view': 'Visão',
     'calendar.month': 'Mês',
     'calendar.week': 'Semana',
@@ -354,6 +357,9 @@ export const MESSAGES = {
 
     'stepper.done': 'completed',
 
+    'code.copy': 'Copy code',
+    'code.copied': 'Code copied',
+
     'calendar.view': 'View',
     'calendar.month': 'Month',
     'calendar.week': 'Week',
@@ -557,6 +563,9 @@ export const MESSAGES = {
     'pagination.pageSize': 'Elementos por página',
 
     'stepper.done': 'completada',
+
+    'code.copy': 'Copiar código',
+    'code.copied': 'Código copiado',
 
     'calendar.view': 'Vista',
     'calendar.month': 'Mes',

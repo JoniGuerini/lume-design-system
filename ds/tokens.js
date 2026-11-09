@@ -1,6 +1,6 @@
 // Gerado por scripts/build-tokens.mjs — não edite à mão.
 const data = {
-  "generatedAt": "2026-11-09T01:10:25.497Z",
+  "generatedAt": "2026-11-09T02:12:38.836Z",
   "prefix": "ds",
   "modes": [
     "light",
