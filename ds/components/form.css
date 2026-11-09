@@ -231,8 +231,8 @@
 .ds-segmented__item {
   display: inline-grid;
   place-items: center;
-  min-width: 30px;
-  height: 30px;
+  min-width: 28px;
+  height: 28px;
   padding-inline: var(--ds-space-100);
   border: 1px solid transparent;
   border-radius: var(--ds-radius-full);
@@ -253,16 +253,49 @@
   color: var(--ds-color-fg-default);
 }
 
-/* Toggle de claro e escuro: dois lados, o atual em destaque; um clique em qualquer lugar troca */
+/* Toggle de claro e escuro: um botão redondo que mostra o tema atual; cada clique troca */
 .ds-theme-toggle {
-  cursor: pointer;
-}
-
-.ds-theme-toggle[aria-checked="false"] .ds-segmented__item:first-child,
-.ds-theme-toggle[aria-checked="true"] .ds-segmented__item:last-child {
-  border-color: var(--ds-color-border-default);
+  position: relative;
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--ds-color-border-default);
+  border-radius: var(--ds-radius-full);
   background: var(--ds-color-bg-field);
   color: var(--ds-color-fg-default);
+  transition:
+    background-color var(--ds-duration-fast) var(--ds-easing-standard),
+    border-color var(--ds-duration-fast) var(--ds-easing-standard);
+}
+
+.ds-theme-toggle:hover {
+  border-color: var(--ds-color-border-strong);
+  background: var(--ds-color-bg-field-hover);
+}
+
+/* os dois ícones na mesma célula (os filhos são <ds-icon>; a classe .ds-icon fica no svg de dentro) */
+.ds-theme-toggle > ds-icon {
+  grid-area: 1 / 1;
+  display: grid;
+  place-items: center;
+  transition:
+    opacity var(--ds-duration-base) var(--ds-easing-standard),
+    transform var(--ds-duration-base) var(--ds-easing-emphasized);
+}
+
+/* o ícone que sai gira e some; o que entra ocupa o mesmo lugar */
+.ds-theme-toggle[aria-pressed="false"] .ds-theme-toggle__moon,
+.ds-theme-toggle[aria-pressed="true"] .ds-theme-toggle__sun {
+  opacity: 0;
+  transform: rotate(-60deg) scale(0.7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-theme-toggle > ds-icon {
+    transition: none;
+  }
 }
 
 /*

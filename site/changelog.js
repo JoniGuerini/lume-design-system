@@ -8,10 +8,30 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.14.4';
+export const CURRENT_VERSION = '0.14.5';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.14.5',
+    date: '2026-11-08',
+    title: T('Botão de tema', 'Theme button', 'Botón de tema'),
+    summary: T(
+      'A troca de tema virou um botão redondo só, e os controles da topbar agora têm a mesma altura.',
+      'Switching themes is now a single round button, and the top bar controls now share the same height.',
+      'El cambio de tema ahora es un solo botón redondo, y los controles de la barra superior ahora tienen la misma altura.',
+    ),
+    groups: [
+      {
+        name: T('Temas', 'Themes', 'Temas'),
+        items: [
+          ['melhoria', T('Botão redondo único no lugar dos dois lados, com sol ou lua conforme o tema', 'A single round button instead of two sides, with a sun or moon to match the theme', 'Un solo botón redondo en lugar de dos lados, con sol o luna según el tema'), '/padroes/app-shell'],
+          ['melhoria', T('Idioma, layout e tema com 36 px na topbar; o controle segmentado passa de 38 para 36 px', 'Language, layout, and theme at 36 px in the top bar; the segmented control goes from 38 to 36 px', 'Idioma, diseño y tema con 36 px en la barra superior; el control segmentado pasa de 38 a 36 px'), '/padroes/app-shell'],
+          ['melhoria', T('Os palcos de exemplo usam o mesmo botão de tema da topbar', 'Example stages use the same theme button as the top bar', 'Los escenarios de ejemplo usan el mismo botón de tema de la barra superior'), '/componentes/botao'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.14.4',
     date: '2026-11-08',

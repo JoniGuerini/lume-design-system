@@ -1,7 +1,7 @@
 import { icon } from '../../ds/icons/icons.js';
 import { tokens } from '../../ds/tokens.js';
 import { resolvedTheme } from '../../ds/js/theme.js';
-import { THEME_IDS, themeLabel, themeIcon } from '../themes.js';
+import { themeSwitch, markThemeSwitch } from '../themes.js';
 import { locale } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
 import { mountCodeCopy, codeBlock, tokenTable, a11yList } from '../component-doc.js';
@@ -32,7 +32,7 @@ const PARTS = () => [
   ['.ds-account', [1, 0.5, 0, 0], L('Cartão da conta', 'Account card', 'Tarjeta de la cuenta'), L('Fica preso no pé da sidebar: conta, versão ou workspace.', 'Pinned to the foot of the sidebar: account, version, or workspace.', 'Queda fija al pie de la sidebar: cuenta, versión o workspace.')],
   ['.ds-main', [0.94, 0.16, 0, 0], L('Painel principal', 'Main panel', 'Panel principal'), L(`O conteúdo da página, com respiro lateral de ${px('layout.gutter')} px e largura de leitura limitada.`, `The page content, with ${px('layout.gutter')} px side padding and a limited reading width.`, `El contenido de la página, con respiro lateral de ${px('layout.gutter')} px y ancho de lectura limitado.`)],
   ['#breadcrumb', [1, 0.5, 16, 0], L('Topbar e trilha', 'Top bar and breadcrumb', 'Barra superior y ruta'), L(`${px('layout.topbar')} px, fixa no topo do painel: transparente no início, opaca ao rolar.`, `${px('layout.topbar')} px, fixed at the top of the panel: transparent at first, opaque on scroll.`, `${px('layout.topbar')} px, fija arriba del panel: transparente al inicio, opaca al desplazarse.`), '.ds-topbar'],
-  ['[data-theme-toggle]', [0, 0.5, -16, 0], L('Tema', 'Theme', 'Tema'), L('Um toggle de claro e escuro. Começa como o aparelho, e a escolha fica salva para o app inteiro.', 'A light and dark toggle. It starts like the device, and the choice is saved for the whole app.', 'Un toggle de claro y oscuro. Empieza como el dispositivo, y la elección queda guardada para toda la app.')],
+  ['[data-theme-toggle]', [0, 0.5, -16, 0], L('Tema', 'Theme', 'Tema'), L('Um botão que troca entre claro e escuro a cada clique. Começa como o aparelho, e a escolha fica salva para o app inteiro.', 'A button that switches between light and dark with each click. It starts like the device, and the choice is saved for the whole app.', 'Un botón que cambia entre claro y oscuro con cada clic. Empieza como el dispositivo, y la elección queda guardada para toda la app.')],
 ];
 
 const SHORTCUTS = () => [
@@ -194,7 +194,7 @@ export default function renderAppShell(page) {
           ${segmented('layout', L('Layout do exemplo', 'Example layout', 'Diseño del ejemplo'), [{ value: 'sidebar', label: L('Sidebar', 'Sidebar', 'Sidebar'), icon: 'panel-left' }, { value: 'navbar', label: L('Navbar', 'Navbar', 'Navbar'), icon: 'panel-top' }], 'sidebar')}
           <button type="button" class="ds-btn ds-btn--secondary ds-btn--sm" data-demo-toggle disabled>${icon('panel-left', { size: 16 })}<span data-demo-toggle-label>${L('Recolher menu', 'Collapse menu', 'Contraer menú')}</span></button>
           <span class="pa-demo__spacer"></span>
-          ${segmented('theme', L('Tema do exemplo', 'Example theme', 'Tema del ejemplo'), THEME_IDS.map((id) => ({ value: id, label: themeLabel(id), icon: themeIcon(id) })), theme)}
+          ${themeSwitch('demo-theme', theme)}
           <button type="button" class="ds-icon-btn ds-icon-btn--muted" data-demo-reload aria-label="${L('Recarregar o exemplo', 'Reload the example', 'Recargar el ejemplo')}" data-ds-tooltip="${L('Recarregar o exemplo', 'Reload the example', 'Recargar el ejemplo')}">${icon('refresh', { size: 18 })}</button>
         </div>
         ${frame('live', L('Exemplo ao vivo do Lume', 'Live Lume example', 'Ejemplo en vivo de Lume'))}
@@ -570,11 +570,16 @@ export function mount(root) {
     layout = value;
     liveApi?.setLayout?.(value);
   });
-  const themeGroup = bindSegmented(root.querySelector('[data-segmented="theme"]'), (value) => {
-    theme = value;
+  const toolbar = root.querySelector('.pa-demo__toolbar');
+  const onThemeClick = (event) => {
+    const btn = event.target.closest('[data-demo-theme]');
+    if (!btn) return;
+    theme = btn.dataset.demoTheme;
+    markThemeSwitch(toolbar, 'demo-theme', theme);
     liveApi?.setTheme(theme);
     anatomyApi?.setTheme(theme);
-  });
+  };
+  toolbar.addEventListener('click', onThemeClick);
 
   const onToggle = () => liveApi?.shell.toggle();
   toggleBtn.addEventListener('click', onToggle);
@@ -696,7 +701,7 @@ export function mount(root) {
   // segue o tema do site quando ele muda (o usuário ainda pode escolher outro só para o exemplo)
   const onSiteTheme = (e) => {
     theme = e.detail.resolved;
-    themeGroup.set(theme);
+    markThemeSwitch(toolbar, 'demo-theme', theme);
     liveApi?.setTheme(theme);
     anatomyApi?.setTheme(theme);
   };
@@ -705,7 +710,7 @@ export function mount(root) {
   return () => {
     cleanups.forEach((fn) => fn());
     deviceGroup.off();
-    themeGroup.off();
+    toolbar.removeEventListener('click', onThemeClick);
     layoutGroup.off();
     toggleBtn.removeEventListener('click', onToggle);
     reloadBtn.removeEventListener('click', onReload);

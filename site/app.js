@@ -36,7 +36,7 @@ if (EMBED) {
 function embedTheme(theme) {
   if (!THEMES.includes(theme)) return;
   document.documentElement.dataset.theme = theme;
-  document.querySelectorAll('[data-theme-toggle]').forEach((btn) => btn.setAttribute('aria-checked', String(theme === 'dark')));
+  document.querySelectorAll('[data-theme-toggle]').forEach((btn) => btn.setAttribute('aria-pressed', String(theme === 'dark')));
   document.documentElement.dispatchEvent(new CustomEvent('ds:themechange', { detail: { preference: theme, resolved: theme } }));
 }
 /** Preferência (inclusive "Sistema") no exemplo, sem gravar nada. */

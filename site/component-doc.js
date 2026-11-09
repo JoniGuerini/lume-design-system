@@ -11,7 +11,7 @@ import { icon } from '../ds/icons/icons.js';
 import { tokens } from '../ds/tokens.js';
 import { attachMenu } from '../ds/js/menu.js';
 import { resolvedTheme } from '../ds/js/theme.js';
-import { THEME_IDS, themeLabel, themeSwitch } from './themes.js';
+import { THEME_IDS, themeLabel, themeSwitch, markThemeSwitch } from './themes.js';
 import { copyText } from '../ds/js/toast.js';
 import { tr } from '../ds/js/i18n.js';
 import { T } from './i18n.js';
@@ -42,14 +42,14 @@ export const siteTheme = () => resolvedTheme();
 
 /**
  * Os palcos (stageSelector) acompanham o tema do site quando ele muda; os botões [data-<attr>] do palco
- * marcam o tema atual. Dá para trocar só o palco depois, pelo próprio seletor. Devolve a limpeza.
+ * trocam o tema dele. Dá para trocar só o palco depois, pelo próprio botão. Devolve a limpeza.
  */
 export function followSiteTheme(root, stageSelector, attr) {
   const onTheme = (event) => {
     const theme = event.detail.resolved;
     root.querySelectorAll(stageSelector).forEach((stage) => {
       stage.dataset.theme = theme;
-      stage.querySelectorAll(`[data-${attr}]`).forEach((b) => b.setAttribute('aria-checked', String(b.getAttribute(`data-${attr}`) === theme)));
+      markThemeSwitch(stage, attr, theme);
     });
   };
   document.documentElement.addEventListener('ds:themechange', onTheme);
@@ -135,7 +135,7 @@ export function mountPlayground(root, { id, controls, text, render, code, mount 
     const btn = event.target.closest('[data-stage-theme]');
     if (!btn) return;
     stage.dataset.theme = btn.dataset.stageTheme;
-    stage.querySelectorAll('[data-stage-theme]').forEach((b) => b.setAttribute('aria-checked', String(b === btn)));
+    markThemeSwitch(stage, 'stage-theme', stage.dataset.theme);
   };
   stage.addEventListener('click', onStageTheme);
   const unfollow = followSiteTheme(el, '[data-stage]', 'stage-theme');

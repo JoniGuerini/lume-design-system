@@ -18,11 +18,23 @@ const ICONS = { light: 'sun', dark: 'moon' };
 export const themeLabel = (id) => LABELS()[id];
 export const themeIcon = (id) => ICONS[id];
 
-/** Segmentado com os dois temas para um palco de exemplo: botões [data-<attr>="<tema>"]. */
+/**
+ * Botão de tema de um palco de exemplo, igual ao da topbar: cada clique troca entre claro e escuro.
+ * O data-<attr> guarda o tema que o próximo clique vai aplicar; depois de aplicar, chame markThemeSwitch.
+ */
 export function themeSwitch(attr, current, { label = L('Tema do exemplo', 'Example theme', 'Tema del ejemplo'), className = '' } = {}) {
-  return `<div class="ds-segmented ${className}" role="radiogroup" aria-label="${label}">
-    ${THEME_IDS.map((id) => `<button type="button" class="ds-segmented__item" role="radio" data-${attr}="${id}" aria-checked="${id === current}" aria-label="${themeLabel(id)}" data-ds-tooltip="${themeLabel(id)}">${icon(ICONS[id], { size: 16 })}</button>`).join('')}
-  </div>`;
+  return `<button type="button" class="ds-theme-toggle ${className}" data-${attr}="${current === 'dark' ? 'light' : 'dark'}" aria-pressed="${current === 'dark'}" aria-label="${label}" data-ds-tooltip="${L('Alternar claro e escuro', 'Switch between light and dark', 'Alternar claro y oscuro')}">
+    <ds-icon name="sun" size="18" class="ds-theme-toggle__sun"></ds-icon>
+    <ds-icon name="moon" size="18" class="ds-theme-toggle__moon"></ds-icon>
+  </button>`;
+}
+
+/** Atualiza os botões [data-<attr>] de um palco depois que o tema dele mudou. */
+export function markThemeSwitch(scope, attr, theme) {
+  scope.querySelectorAll(`[data-${attr}]`).forEach((btn) => {
+    btn.setAttribute(`data-${attr}`, theme === 'dark' ? 'light' : 'dark');
+    btn.setAttribute('aria-pressed', String(theme === 'dark'));
+  });
 }
 
 /** “4,5:1 no Lume claro e 5:1 no Lume escuro” — fn(id) dá o valor de cada tema. */

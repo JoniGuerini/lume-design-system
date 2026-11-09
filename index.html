@@ -125,12 +125,12 @@
               <button type="button" class="ds-segmented__item" role="radio" data-layout-option="sidebar" aria-label="Sidebar" data-ds-tooltip="Navegação na lateral" data-i18n-attr="aria-label:layoutSidebar; data-ds-tooltip:layoutSidebarTip" data-ds-tooltip-placement="bottom"><ds-icon name="panel-left" size="16"></ds-icon></button>
               <button type="button" class="ds-segmented__item" role="radio" data-layout-option="navbar" aria-label="Navbar" data-ds-tooltip="Navegação no topo" data-i18n-attr="aria-label:layoutNavbar; data-ds-tooltip:layoutNavbarTip" data-ds-tooltip-placement="bottom"><ds-icon name="panel-top" size="16"></ds-icon></button>
             </div>
-            <button type="button" class="ds-chip ds-chip--sm ds-topbar__locale" data-locale-menu data-i18n-attr="data-ds-tooltip:language" data-ds-tooltip="Idioma" data-ds-tooltip-placement="bottom">
+            <button type="button" class="ds-chip ds-topbar__locale" data-locale-menu data-i18n-attr="data-ds-tooltip:language" data-ds-tooltip="Idioma" data-ds-tooltip-placement="bottom">
               <span class="ds-chip__icon"><ds-icon name="globe" size="14"></ds-icon></span><span data-label>PT</span><span class="ds-chip__chevron"><ds-icon name="chevron-down" size="14"></ds-icon></span>
             </button>
-            <button type="button" class="ds-segmented ds-theme-toggle" role="switch" aria-checked="false" data-theme-toggle aria-label="Modo escuro" data-ds-tooltip="Alternar claro e escuro" data-i18n-attr="aria-label:darkMode; data-ds-tooltip:toggleTheme" data-ds-tooltip-placement="bottom">
-              <span class="ds-segmented__item" aria-hidden="true"><ds-icon name="sun" size="16"></ds-icon></span>
-              <span class="ds-segmented__item" aria-hidden="true"><ds-icon name="moon" size="16"></ds-icon></span>
+            <button type="button" class="ds-theme-toggle" aria-pressed="false" data-theme-toggle aria-label="Modo escuro" data-ds-tooltip="Alternar claro e escuro" data-i18n-attr="aria-label:darkMode; data-ds-tooltip:toggleTheme" data-ds-tooltip-placement="bottom">
+              <ds-icon name="sun" size="18" class="ds-theme-toggle__sun"></ds-icon>
+              <ds-icon name="moon" size="18" class="ds-theme-toggle__moon"></ds-icon>
             </button>
           </header>
 

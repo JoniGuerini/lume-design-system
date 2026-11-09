@@ -87,10 +87,10 @@ export function setTheme(preference) {
 
 function syncControls() {
   const dark = resolvedTheme() === 'dark';
-  document.querySelectorAll('[data-theme-toggle]').forEach((btn) => btn.setAttribute('aria-checked', String(dark)));
+  document.querySelectorAll('[data-theme-toggle]').forEach((btn) => btn.setAttribute('aria-pressed', String(dark)));
 }
 
-/** Liga os botões [data-theme-toggle] (role="switch": ligado é o escuro). */
+/** Liga os botões [data-theme-toggle]: cada clique troca o tema (aria-pressed: o escuro está ligado). */
 export function bindThemeControls(scope = document) {
   scope.querySelectorAll('[data-theme-toggle]').forEach((btn) => btn.addEventListener('click', toggleTheme));
   syncControls();

@@ -1,7 +1,7 @@
 import { icon } from '../../ds/icons/icons.js';
 import { tokens, contrast } from '../../ds/tokens.js';
 import { siteTheme, followSiteTheme } from '../component-doc.js';
-import { THEME_IDS, themeLabel, perTheme, themeSwitch } from '../themes.js';
+import { THEME_IDS, themeLabel, perTheme, themeSwitch, markThemeSwitch } from '../themes.js';
 import { mountSelects, enhanceSelect } from '../../ds/js/select.js';
 import { barChart, meter } from '../../ds/js/charts.js';
 import { typingHtml } from '../../ds/js/composer.js';
@@ -670,7 +670,7 @@ export function mount(root) {
     if (themeBtn) {
       const stage = themeBtn.closest('[data-ra-stage]');
       stage.dataset.theme = themeBtn.dataset.raTheme;
-      stage.querySelectorAll('[data-ra-theme]').forEach((b) => b.setAttribute('aria-checked', String(b === themeBtn)));
+      markThemeSwitch(stage, 'ra-theme', stage.dataset.theme);
     }
     const chip = event.target.closest('[data-ra-chip]');
     if (chip) chip.setAttribute('aria-pressed', String(chip.getAttribute('aria-pressed') !== 'true'));

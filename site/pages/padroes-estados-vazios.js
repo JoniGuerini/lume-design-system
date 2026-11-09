@@ -3,7 +3,7 @@ import { toast } from '../../ds/js/toast.js';
 import { locale, dateFormat, formatNumber } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, codeBlock, a11yList, escapeHtml, siteTheme, followSiteTheme } from '../component-doc.js';
-import { themeSwitch } from '../themes.js';
+import { themeSwitch, markThemeSwitch } from '../themes.js';
 import { L } from '../i18n.js';
 
 export const styles = ['site/component-doc.css', 'site/pages/padroes-estados-vazios.css'];
@@ -540,7 +540,7 @@ export function mount(root) {
     if (!btn) return;
     const st = btn.closest('[data-pe-stage]');
     st.dataset.theme = btn.dataset.peTheme;
-    st.querySelectorAll('[data-pe-theme]').forEach((b) => b.setAttribute('aria-checked', String(b === btn)));
+    markThemeSwitch(st, 'pe-theme', st.dataset.theme);
   };
   root.addEventListener('click', onTheme);
   cleanups.push(() => root.removeEventListener('click', onTheme));

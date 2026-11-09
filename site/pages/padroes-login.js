@@ -3,7 +3,7 @@ import { enhanceForm } from '../../ds/js/form.js';
 import { toast } from '../../ds/js/toast.js';
 import { mountDocNav } from '../doc-nav.js';
 import { mountCodeCopy, codeBlock, a11yList, escapeHtml, siteTheme, followSiteTheme } from '../component-doc.js';
-import { themeSwitch } from '../themes.js';
+import { themeSwitch, markThemeSwitch } from '../themes.js';
 import { L } from '../i18n.js';
 
 export const styles = ['site/component-doc.css', 'site/pages/padroes-login.css'];
@@ -396,7 +396,7 @@ export function mount(root) {
     const theme = event.target.closest('[data-lc-theme]');
     if (theme) {
       stageEl.dataset.theme = theme.dataset.lcTheme;
-      stageEl.querySelectorAll('[data-lc-theme]').forEach((b) => b.setAttribute('aria-checked', String(b === theme)));
+      markThemeSwitch(stageEl, 'lc-theme', stageEl.dataset.theme);
     }
   };
   const onViewsKey = (event) => {
