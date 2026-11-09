@@ -8,10 +8,32 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.14.1';
+export const CURRENT_VERSION = '0.14.2';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.14.2',
+    date: '2026-11-08',
+    title: T('Novidades só para quem volta', 'News only for returning visitors', 'Novedades solo para quien vuelve'),
+    summary: T(
+      'Na primeira visita, a sidebar não destaca a última versão, porque tudo é novidade. O aviso aparece quando a pessoa volta e há algo novo.',
+      'On a first visit, the sidebar doesn’t highlight the latest version, since everything is new. The notice shows up when the person returns and there’s something new.',
+      'En la primera visita, la sidebar no destaca la última versión, porque todo es novedad. El aviso aparece cuando la persona vuelve y hay algo nuevo.',
+    ),
+    groups: [
+      {
+        name: T('Site', 'Site', 'Sitio'),
+        items: [
+          ['correcao', T(
+            'A bolinha e o cartão de Novidades não aparecem mais na primeira visita',
+            'The What’s new dot and card no longer show on a first visit',
+            'El puntito y la tarjeta de Novedades ya no aparecen en la primera visita',
+          ), '/novidades'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.14.1',
     date: '2026-11-08',

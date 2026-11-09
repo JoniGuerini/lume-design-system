@@ -70,12 +70,21 @@ else bindThemeControls();
 initTooltips();
 initScrollbars();
 
-/** A bolinha de Novidades some depois que a versão atual foi vista. */
+/**
+ * Na primeira visita tudo é novidade, então nada é destacado: a versão atual já conta como vista.
+ * Quem volta depois de uma versão nova vê a bolinha e o cartão, até abrir Novidades.
+ */
+if (!EMBED) {
+  try {
+    if (localStorage.getItem(SEEN_KEY) === null) localStorage.setItem(SEEN_KEY, CURRENT_VERSION);
+  } catch {}
+}
+
 const newsSeen = () => {
   try {
     return localStorage.getItem(SEEN_KEY) === CURRENT_VERSION;
   } catch {
-    return false;
+    return true; // sem memória não dá para saber o que é novo: melhor não insistir em todas as visitas
   }
 };
 
