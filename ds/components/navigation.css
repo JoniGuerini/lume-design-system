@@ -1,0 +1,447 @@
+/* Paginação, acordeão, stepper e árvore */
+
+/* ───────── Paginação ───────── */
+
+.ds-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ds-space-100) var(--ds-space-200);
+}
+
+.ds-pagination__summary {
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.ds-pagination__list {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0 0 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-pagination__page {
+  display: inline-grid;
+  place-items: center;
+  min-width: 36px;
+  height: 36px;
+  padding-inline: var(--ds-space-075);
+  border: 1px solid transparent;
+  border-radius: var(--ds-radius-sm);
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+  font-variant-numeric: tabular-nums;
+  text-decoration: none;
+  transition:
+    background-color var(--ds-duration-fast) var(--ds-easing-standard),
+    color var(--ds-duration-fast) var(--ds-easing-standard);
+}
+
+.ds-pagination__page:hover:not(:disabled),
+.ds-pagination__page[data-state="hover"] {
+  background: var(--ds-color-bg-hover);
+  color: var(--ds-color-fg-default);
+}
+
+.ds-pagination__page[aria-current="page"] {
+  border-color: var(--ds-color-border-default);
+  background: var(--ds-color-bg-selected);
+  color: var(--ds-color-fg-default);
+  font-weight: var(--ds-font-weight-semibold);
+}
+
+.ds-pagination__page:disabled {
+  color: var(--ds-color-fg-disabled);
+  cursor: not-allowed;
+}
+
+.ds-pagination__gap {
+  min-width: 28px;
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-body-sm);
+  text-align: center;
+}
+
+.ds-pagination__compact {
+  display: none;
+  padding-inline: var(--ds-space-100);
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 639.98px) {
+  .ds-pagination__list {
+    margin-inline-start: 0;
+  }
+
+  .ds-pagination__number,
+  .ds-pagination__gap {
+    display: none;
+  }
+
+  .ds-pagination__compact {
+    display: block;
+  }
+}
+
+/* ───────── Acordeão ─────────
+ * <div class="ds-accordion">
+ *   <details class="ds-accordion__item" name="grupo">     (mesmo name: só um aberto por vez)
+ *     <summary class="ds-accordion__head"><span>Título</span><ds-icon name="chevron-down" size="18"></ds-icon></summary>
+ *     <div class="ds-accordion__body">Conteúdo</div>
+ *   </details>
+ * </div>
+ * Modificador: .ds-accordion--card (cada item num cartão). Sem JavaScript.
+ */
+.ds-accordion {
+  display: flex;
+  flex-direction: column;
+  interpolate-size: allow-keywords;
+}
+
+.ds-accordion__item {
+  border-bottom: 1px solid var(--ds-color-border-subtle);
+}
+
+.ds-accordion__item:first-child {
+  border-top: 1px solid var(--ds-color-border-subtle);
+}
+
+.ds-accordion__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-200);
+  min-height: 52px;
+  padding: var(--ds-space-150) var(--ds-space-050);
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-label-md);
+  letter-spacing: var(--ds-text-label-md-tracking);
+  list-style: none;
+  cursor: pointer;
+  border-radius: var(--ds-radius-sm);
+}
+
+.ds-accordion__head::-webkit-details-marker {
+  display: none;
+}
+
+.ds-accordion__head:focus-visible {
+  outline-offset: -2px;
+}
+
+.ds-accordion__head > .ds-icon,
+.ds-accordion__head > ds-icon {
+  flex: none;
+  color: var(--ds-color-fg-subtle);
+  transition: transform var(--ds-duration-base) var(--ds-easing-emphasized);
+}
+
+.ds-accordion__head:hover > .ds-icon,
+.ds-accordion__head:hover > ds-icon {
+  color: var(--ds-color-fg-default);
+}
+
+.ds-accordion__item[open] > .ds-accordion__head > .ds-icon,
+.ds-accordion__item[open] > .ds-accordion__head > ds-icon {
+  transform: rotate(180deg);
+}
+
+.ds-accordion__item::details-content {
+  overflow: clip;
+  block-size: 0;
+  transition:
+    block-size var(--ds-duration-base) var(--ds-easing-emphasized),
+    content-visibility var(--ds-duration-base) allow-discrete;
+}
+
+.ds-accordion__item[open]::details-content {
+  block-size: auto;
+}
+
+.ds-accordion__body {
+  padding: 0 var(--ds-space-050) var(--ds-space-250);
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+  letter-spacing: var(--ds-text-body-sm-tracking);
+}
+
+.ds-accordion--card {
+  gap: var(--ds-space-100);
+}
+
+.ds-accordion--card .ds-accordion__item,
+.ds-accordion--card .ds-accordion__item:first-child {
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-lg);
+  background: var(--ds-color-bg-surface);
+}
+
+.ds-accordion--card .ds-accordion__head {
+  padding-inline: var(--ds-space-250);
+  border-radius: var(--ds-radius-lg);
+}
+
+.ds-accordion--card .ds-accordion__body {
+  padding-inline: var(--ds-space-250);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-accordion__head > .ds-icon,
+  .ds-accordion__head > ds-icon,
+  .ds-accordion__item::details-content {
+    transition: none;
+  }
+}
+
+/* ───────── Stepper ───────── */
+
+.ds-stepper {
+  --_marker: 28px;
+  display: flex;
+  gap: var(--ds-space-100);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-stepper__step {
+  position: relative;
+  display: flex;
+  gap: var(--ds-space-100);
+  flex: 1;
+  min-width: 0;
+}
+
+.ds-stepper__step:last-child {
+  flex: 0 1 auto;
+}
+
+.ds-stepper__content {
+  flex: none;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ds-space-100);
+  max-width: 100%;
+  text-align: start;
+}
+
+button.ds-stepper__content {
+  border-radius: var(--ds-radius-sm);
+}
+
+button.ds-stepper__content:hover .ds-stepper__label {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.ds-stepper__marker {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: var(--_marker);
+  height: var(--_marker);
+  border: 1px solid var(--ds-color-border-field);
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-color-bg-field);
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-label-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.ds-stepper__step[data-state="current"] .ds-stepper__marker,
+.ds-stepper__step[data-state="done"] .ds-stepper__marker {
+  border-color: var(--ds-color-brand-solid);
+  background: var(--ds-color-brand-solid);
+  color: var(--ds-color-brand-on-solid);
+}
+
+.ds-stepper__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  padding-top: 4px;
+}
+
+.ds-stepper__label {
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-label-sm);
+  letter-spacing: var(--ds-text-label-sm-tracking);
+}
+
+.ds-stepper__step[data-state="current"] .ds-stepper__label,
+.ds-stepper__step[data-state="done"] .ds-stepper__label {
+  color: var(--ds-color-fg-default);
+}
+
+.ds-stepper__description {
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-caption);
+}
+
+/* linha até a próxima etapa */
+.ds-stepper__step:not(:last-child)::after {
+  content: "";
+  flex: 1;
+  min-width: var(--ds-space-200);
+  height: 1px;
+  margin-top: calc(var(--_marker) / 2);
+  background: var(--ds-color-border-default);
+}
+
+.ds-stepper__step[data-state="done"]:not(:last-child)::after {
+  background: var(--ds-color-brand-solid);
+}
+
+.ds-stepper--vertical {
+  flex-direction: column;
+  gap: 0;
+}
+
+.ds-stepper--vertical .ds-stepper__step:not(:last-child) {
+  padding-bottom: var(--ds-space-300);
+}
+
+.ds-stepper--vertical .ds-stepper__content {
+  flex: 1;
+}
+
+.ds-stepper--vertical .ds-stepper__step:not(:last-child)::after {
+  position: absolute;
+  inset-block: calc(var(--_marker) + 4px) 4px;
+  inset-inline-start: calc(var(--_marker) / 2);
+  flex: none;
+  min-width: 0;
+  width: 1px;
+  height: auto;
+  margin: 0;
+}
+
+@media (max-width: 639.98px) {
+  .ds-stepper:not(.ds-stepper--vertical) {
+    flex-direction: column;
+    gap: var(--ds-space-200);
+  }
+
+  .ds-stepper:not(.ds-stepper--vertical) .ds-stepper__step:not(:last-child)::after {
+    display: none;
+  }
+
+  .ds-stepper:not(.ds-stepper--vertical) .ds-stepper__content {
+    flex: 1;
+  }
+}
+
+/* ───────── Árvore ───────── */
+
+.ds-tree {
+  --_indent: 20px;
+  min-width: 0;
+}
+
+.ds-tree__group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-tree__group[hidden] {
+  display: none;
+}
+
+.ds-tree__item > .ds-tree__group {
+  margin-top: 2px;
+}
+
+.ds-tree__item {
+  border-radius: var(--ds-radius-sm);
+  outline: none;
+}
+
+.ds-tree__row {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-075);
+  min-height: 36px;
+  padding-inline: calc(var(--_level) * var(--_indent) + 4px) var(--ds-space-100);
+  border-radius: var(--ds-radius-sm);
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+  cursor: pointer;
+  transition: background-color var(--ds-duration-fast) var(--ds-easing-standard);
+}
+
+.ds-tree__row:hover,
+.ds-tree__row[data-state="hover"] {
+  background: var(--ds-color-bg-hover);
+  color: var(--ds-color-fg-default);
+}
+
+.ds-tree__item:focus-visible > .ds-tree__row,
+.ds-tree__row[data-state="focus"] {
+  outline: 2px solid var(--ds-color-border-focus);
+  outline-offset: -2px;
+}
+
+.ds-tree__item[aria-selected="true"] > .ds-tree__row {
+  background: var(--ds-color-bg-selected);
+  color: var(--ds-color-fg-default);
+  font-weight: var(--ds-font-weight-semibold);
+}
+
+.ds-tree__item[aria-disabled="true"] > .ds-tree__row {
+  background: none;
+  color: var(--ds-color-fg-disabled);
+  cursor: not-allowed;
+}
+
+.ds-tree__toggle {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  color: var(--ds-color-fg-subtle);
+  transition: transform var(--ds-duration-base) var(--ds-easing-emphasized);
+}
+
+.ds-tree__item[aria-expanded="true"] > .ds-tree__row > .ds-tree__toggle {
+  transform: rotate(90deg);
+}
+
+.ds-tree__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  color: var(--ds-color-fg-subtle);
+}
+
+.ds-tree__label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ds-tree__meta {
+  flex: none;
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-caption);
+  font-weight: var(--ds-font-weight-regular);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-tree__toggle {
+    transition: none;
+  }
+}

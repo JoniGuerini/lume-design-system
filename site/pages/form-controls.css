@@ -136,3 +136,41 @@
 .fc-otp-demo__resend {
   margin-top: var(--ds-space-100);
 }
+
+/* Navegação e estrutura */
+.fc-preview:has(.ds-pagination, .ds-accordion, .ds-stepper) {
+  width: 100%;
+}
+
+.fc-segmented .ds-segmented__item {
+  padding-inline: var(--ds-space-150);
+  font: var(--ds-text-label-sm);
+}
+
+.fc-states--wide {
+  display: block;
+}
+
+.fc-stepper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-300);
+  width: min(620px, 100%);
+  margin-inline: auto;
+}
+
+.fc-stepper__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--ds-space-100);
+}
+
+.fc-accordion {
+  width: min(560px, 100%);
+  margin-inline: auto;
+}
+
+.fc-tree {
+  width: min(380px, 100%);
+  margin-inline: auto;
+}

@@ -13,30 +13,10 @@ const GOAL = T('Meta', 'Goal', 'Meta');
 
 const STAGES = [
   {
-    version: '0.15',
+    version: '0.16',
     group: 'components',
     tone: 'brand',
     status: NEXT,
-    title: T('Navegação e estrutura', 'Navigation and structure', 'Navegación y estructura'),
-    text: T(
-      'Para percorrer listas longas, etapas e hierarquias.',
-      'For moving through long lists, steps, and hierarchies.',
-      'Para recorrer listas largas, etapas y jerarquías.',
-    ),
-    items: [
-      { name: T('Paginação', 'Pagination', 'Paginación'), text: T('Páginas de uma lista ou tabela, com total e itens por página.', 'Pages of a list or table, with a total and items per page.', 'Páginas de una lista o tabla, con total y elementos por página.') },
-      { name: T('Acordeão', 'Accordion', 'Acordeón'), text: T('Seções que abrem e fecham no lugar.', 'Sections that open and close in place.', 'Secciones que se abren y se cierran en su lugar.') },
-      { name: T('Stepper', 'Stepper', 'Stepper'), text: T('As etapas de um fluxo e onde a pessoa está.', 'The steps of a flow and where the person is.', 'Las etapas de un flujo y dónde está la persona.') },
-      { name: T('Árvore', 'Tree', 'Árbol'), text: T('Pastas e níveis aninhados, com teclado.', 'Folders and nested levels, with keyboard support.', 'Carpetas y niveles anidados, con teclado.') },
-      { name: T('Breadcrumb', 'Breadcrumb', 'Breadcrumb'), text: T('O caminho até a página atual.', 'The path to the current page.', 'El camino hasta la página actual.'), doc: true },
-      { name: T('Controle segmentado', 'Segmented control', 'Control segmentado'), text: T('Poucas opções lado a lado, uma escolhida.', 'A few options side by side, one selected.', 'Pocas opciones lado a lado, una elegida.'), doc: true },
-    ],
-  },
-  {
-    version: '0.16',
-    group: 'components',
-    tone: 'neutral',
-    status: PLANNED,
     title: T('Camadas', 'Overlays', 'Capas'),
     text: T(
       'Conteúdo por cima da tela, entre o Tooltip e o Modal.',

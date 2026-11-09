@@ -139,6 +139,17 @@ export const MESSAGES = {
     'upload.retry': 'Tentar de novo',
     'upload.removed': (name) => `${name} removido`,
 
+    'pagination.label': 'Paginação',
+    'pagination.prev': 'Página anterior',
+    'pagination.next': 'Próxima página',
+    'pagination.page': (n) => `Página ${n}`,
+    'pagination.range': (a, b, total) => `${a}–${b} de ${total}`,
+    'pagination.compact': (page, pages) => `${page} de ${pages}`,
+    'pagination.perPage': (n) => `${BR(n)} por página`,
+    'pagination.pageSize': 'Itens por página',
+
+    'stepper.done': 'concluída',
+
     'calendar.view': 'Visão',
     'calendar.month': 'Mês',
     'calendar.week': 'Semana',
@@ -332,6 +343,17 @@ export const MESSAGES = {
     'upload.retry': 'Try again',
     'upload.removed': (name) => `${name} removed`,
 
+    'pagination.label': 'Pagination',
+    'pagination.prev': 'Previous page',
+    'pagination.next': 'Next page',
+    'pagination.page': (n) => `Page ${n}`,
+    'pagination.range': (a, b, total) => `${a}–${b} of ${total}`,
+    'pagination.compact': (page, pages) => `${page} of ${pages}`,
+    'pagination.perPage': (n) => `${EN(n)} per page`,
+    'pagination.pageSize': 'Items per page',
+
+    'stepper.done': 'completed',
+
     'calendar.view': 'View',
     'calendar.month': 'Month',
     'calendar.week': 'Week',
@@ -524,6 +546,17 @@ export const MESSAGES = {
     'upload.failed': 'No se pudo enviar.',
     'upload.retry': 'Intentar de nuevo',
     'upload.removed': (name) => `${name} eliminado`,
+
+    'pagination.label': 'Paginación',
+    'pagination.prev': 'Página anterior',
+    'pagination.next': 'Página siguiente',
+    'pagination.page': (n) => `Página ${n}`,
+    'pagination.range': (a, b, total) => `${a}–${b} de ${total}`,
+    'pagination.compact': (page, pages) => `${page} de ${pages}`,
+    'pagination.perPage': (n) => `${ES(n)} por página`,
+    'pagination.pageSize': 'Elementos por página',
+
+    'stepper.done': 'completada',
 
     'calendar.view': 'Vista',
     'calendar.month': 'Mes',

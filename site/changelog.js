@@ -8,10 +8,33 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.14.6';
+export const CURRENT_VERSION = '0.15.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.15.0',
+    date: '2026-11-08',
+    title: T('Navegação e estrutura', 'Navigation and structure', 'Navegación y estructura'),
+    summary: T(
+      'Quatro componentes novos para percorrer listas, etapas e hierarquias, e duas peças que ganharam página própria.',
+      'Four new components for moving through lists, steps, and hierarchies, and two pieces that got their own page.',
+      'Cuatro componentes nuevos para recorrer listas, etapas y jerarquías, y dos piezas que tienen ahora su propia página.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['novo', T('Paginação: total, itens por página e versão compacta no celular', 'Pagination: a total, items per page, and a compact version on phones', 'Paginación: total, elementos por página y versión compacta en el móvil'), '/componentes/paginacao'],
+          ['novo', T('Stepper: etapas na horizontal ou na vertical, com volta às já feitas', 'Stepper: horizontal or vertical steps, with a way back to finished ones', 'Stepper: etapas en horizontal o vertical, con vuelta a las ya hechas'), '/componentes/stepper'],
+          ['novo', T('Acordeão: seções que abrem no lugar, sem JavaScript', 'Accordion: sections that open in place, with no JavaScript', 'Acordeón: secciones que se abren en su lugar, sin JavaScript'), '/componentes/acordeao'],
+          ['novo', T('Árvore: pastas e níveis aninhados, com teclado completo', 'Tree: folders and nested levels, with full keyboard support', 'Árbol: carpetas y niveles anidados, con teclado completo'), '/componentes/arvore'],
+          ['melhoria', T('Controle segmentado com página própria e createSegmented', 'Segmented control with its own page and createSegmented', 'Control segmentado con página propia y createSegmented'), '/componentes/controle-segmentado'],
+          ['melhoria', T('Breadcrumb com página própria', 'Breadcrumb with its own page', 'Breadcrumb con página propia'), '/componentes/breadcrumb'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.14.6',
     date: '2026-11-08',
