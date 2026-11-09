@@ -8,10 +8,45 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.18.0';
+export const CURRENT_VERSION = '0.19.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.19.0',
+    date: '2026-11-08',
+    title: T('Refino', 'Refinement', 'Refinamiento'),
+    summary: T(
+      'Uma revisão do que já existe: os controles passam a seguir uma escala única de alturas, e os estados podem ser forçados em todos eles.',
+      'A review of what already exists: controls now follow a single height scale, and states can be forced on all of them.',
+      'Una revisión de lo que ya existe: los controles siguen ahora una escala única de alturas, y los estados se pueden forzar en todos.',
+    ),
+    groups: [
+      {
+        name: T('Tokens', 'Tokens', 'Tokens'),
+        items: [
+          ['novo', T('size.control.compact, de 36 px: a escala agora é 28, 32, 36, 40 e 48', 'size.control.compact, 36 px: the scale is now 28, 32, 36, 40, and 48', 'size.control.compact, de 36 px: la escala ahora es 28, 32, 36, 40 y 48'), '/recursos/tokens'],
+        ],
+      },
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['melhoria', T('Chip pequeno e aba pequena passam de 30 para 32 px', 'Small chip and small tab go from 30 to 32 px', 'Chip pequeño y pestaña pequeña pasan de 30 a 32 px'), '/componentes/chip'],
+          ['melhoria', T('Campo de texto fora de um formulário passa de 44 para 40 px, a altura do botão e da seleção', 'Text field outside a form goes from 44 to 40 px, the height of the button and the select', 'Campo de texto fuera de un formulario pasa de 44 a 40 px, la altura del botón y de la selección'), '/componentes/campo-de-texto'],
+          ['melhoria', T('Botão de ícone grande passa de 44 para 40 px; Código de verificação, de 52 para 48 px', 'Large icon button goes from 44 to 40 px; Verification code, from 52 to 48 px', 'Botón de ícono grande pasa de 44 a 40 px; Código de verificación, de 52 a 48 px'), '/componentes/botao'],
+          ['melhoria', T('Estados com data-state em todos os componentes interativos', 'States with data-state on every interactive component', 'Estados con data-state en todos los componentes interactivos'), '/recursos/contribuir'],
+          ['melhoria', T('Seção de estados em Abas, Menu, Paginação, Acordeão, Árvore e Card', 'States section in Tabs, Menu, Pagination, Accordion, Tree, and Card', 'Sección de estados en Pestañas, Menú, Paginación, Acordeón, Árbol y Tarjeta'), '/componentes/abas'],
+          ['correcao', T('O anel de foco do Acordeão não encosta mais no texto', 'The Accordion focus ring no longer touches the text', 'El anillo de foco del Acordeón ya no toca el texto'), '/componentes/acordeao'],
+        ],
+      },
+      {
+        name: T('Site', 'Site', 'Sitio'),
+        items: [
+          ['melhoria', T('Nos exemplos, as legendas da mesma linha ficam alinhadas', 'In examples, captions on the same row now line up', 'En los ejemplos, las leyendas de la misma fila quedan alineadas'), '/componentes/lista-de-definicoes'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.18.0',
     date: '2026-11-08',

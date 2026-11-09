@@ -55,7 +55,9 @@
 .ds-checkbox:hover .ds-checkbox__input,
 .ds-radio:hover .ds-radio__input,
 .ds-checkbox__input[data-state="hover"],
-.ds-radio__input[data-state="hover"] {
+.ds-radio__input[data-state="hover"],
+.ds-checkbox[data-state="hover"] .ds-checkbox__input,
+.ds-radio[data-state="hover"] .ds-radio__input {
   border-color: var(--ds-color-fg-muted);
 }
 
@@ -84,7 +86,8 @@
   background: var(--ds-color-brand-solid);
 }
 
-.ds-checkbox:hover .ds-checkbox__input:is(:checked, :indeterminate) {
+.ds-checkbox:hover .ds-checkbox__input:is(:checked, :indeterminate),
+.ds-checkbox[data-state="hover"] .ds-checkbox__input:is(:checked, :indeterminate) {
   border-color: var(--ds-color-brand-solid-hover);
   background: var(--ds-color-brand-solid-hover);
 }

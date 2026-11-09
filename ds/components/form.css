@@ -1,7 +1,7 @@
 /* Campo de texto e controle segmentado */
 
 .ds-field {
-  --_h: 44px;
+  --_h: var(--ds-size-control-md);
   position: relative;
   display: flex;
   align-items: center;
@@ -21,12 +21,14 @@
     box-shadow var(--ds-duration-base) var(--ds-easing-standard);
 }
 
-.ds-field:hover {
+.ds-field:hover,
+.ds-field[data-state="hover"] {
   border-color: var(--ds-color-border-strong);
   background: var(--ds-color-bg-field-hover);
 }
 
-.ds-field:focus-within {
+.ds-field:focus-within,
+.ds-field[data-state="focus"] {
   border-color: var(--ds-color-border-focus);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--ds-color-border-focus) 22%, transparent);
 }
@@ -102,12 +104,12 @@
   border-color: var(--ds-color-danger-solid);
 }
 
-.ds-field:has(> .ds-field__input[aria-invalid="true"]):focus-within {
+.ds-field:has(> .ds-field__input[aria-invalid="true"]):focus-within,
+.ds-field:has(> .ds-field__input[aria-invalid="true"])[data-state="focus"] {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--ds-color-danger-solid) 22%, transparent);
 }
 
-/* Tamanhos — dentro de .ds-form-field o padrão é md (40 px) */
-.ds-form-field .ds-field,
+/* Tamanhos — o padrão é md (40 px) */
 .ds-field.ds-field--md {
   --_h: var(--ds-size-control-md);
 }
@@ -232,7 +234,7 @@
   display: inline-grid;
   place-items: center;
   min-width: 28px;
-  height: 28px;
+  height: var(--ds-size-control-xs);
   padding-inline: var(--ds-space-100);
   border: 1px solid transparent;
   border-radius: var(--ds-radius-full);
@@ -243,7 +245,8 @@
     box-shadow var(--ds-duration-base) var(--ds-easing-standard);
 }
 
-.ds-segmented__item:hover {
+.ds-segmented__item:hover,
+.ds-segmented__item[data-state="hover"] {
   color: var(--ds-color-fg-default);
 }
 
@@ -259,8 +262,8 @@
   flex: none;
   display: inline-grid;
   place-items: center;
-  width: 36px;
-  height: 36px;
+  width: var(--ds-size-control-compact);
+  height: var(--ds-size-control-compact);
   border: 1px solid var(--ds-color-border-default);
   border-radius: var(--ds-radius-full);
   background: var(--ds-color-bg-field);
@@ -270,7 +273,8 @@
     border-color var(--ds-duration-fast) var(--ds-easing-standard);
 }
 
-.ds-theme-toggle:hover {
+.ds-theme-toggle:hover,
+.ds-theme-toggle[data-state="hover"] {
   border-color: var(--ds-color-border-strong);
   background: var(--ds-color-bg-field-hover);
 }

@@ -1,8 +1,9 @@
+import { icon } from '../../ds/icons/icons.js';
 import { createTree } from '../../ds/js/tree.js';
 import { toast } from '../../ds/js/toast.js';
 import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, codeBlock, tokenTable, a11yList } from '../component-doc.js';
-import { controlPage, example, examples, usageCards, ic } from '../form-control-doc.js';
+import { controlPage, example, examples, stateGrid, usageCards, ic } from '../form-control-doc.js';
 import { L } from '../i18n.js';
 
 export const styles = ['site/component-doc.css', 'site/pages/form-controls.css'];
@@ -25,6 +26,8 @@ const FILES = (icons = true) => {
   ];
 };
 
+const ROW = (attrs, selected = false) => `<div class="ds-tree"><ul class="ds-tree__group"><li class="ds-tree__item" aria-selected="${selected}"><div class="ds-tree__row" style="--_level:0" ${attrs}><span class="ds-tree__toggle"></span><span class="ds-tree__icon">${icon('file-text', { size: 18 })}</span><span class="ds-tree__label">${L('Notas.txt', 'Notes.txt', 'Notas.txt')}</span></div></li></ul></div>`;
+
 export default function renderArvore(page) {
   return controlPage(page, {
     lead: L('Mostra níveis aninhados, como pastas ou categorias, sem ocupar a tela toda. Só as partes abertas aparecem.', 'Shows nested levels, like folders or categories, without taking over the screen. Only the open parts appear.', 'Muestra niveles anidados, como carpetas o categorías, sin ocupar toda la pantalla. Solo aparecen las partes abiertas.'),
@@ -43,6 +46,17 @@ export default function renderArvore(page) {
         html: examples([
           example(L('Com ícones', 'With icons', 'Con íconos'), 'icon · meta', L('Para arquivos, com o tamanho ao lado.', 'For files, with the size beside them.', 'Para archivos, con el tamaño al lado.'), `<div class="ds-tree" data-demo="icons" aria-label="${L('Arquivos', 'Files', 'Archivos')}"></div>`),
           example(L('Só texto', 'Text only', 'Solo texto'), 'label', L('Para categorias, com menos ruído.', 'For categories, with less noise.', 'Para categorías, con menos ruido.'), `<div class="ds-tree" data-demo="text" aria-label="${L('Categorias', 'Categories', 'Categorías')}"></div>`),
+        ]),
+      },
+      {
+        id: 'estados',
+        title: L('Estados', 'States', 'Estados'),
+        desc: L(`Hover e foco podem ser forçados com ${ic('data-state')} na linha.`, `Hover and focus can be forced with ${ic('data-state')} on the row.`, `Hover y foco se pueden forzar con ${ic('data-state')} en la fila.`),
+        html: stateGrid([
+          [L('Normal', 'Default', 'Normal'), ROW('')],
+          ['Hover', ROW('data-state="hover"')],
+          [L('Foco', 'Focus', 'Foco'), ROW('data-state="focus"')],
+          [L('Selecionado', 'Selected', 'Seleccionado'), ROW('', true)],
         ]),
       },
       {

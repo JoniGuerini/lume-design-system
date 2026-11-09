@@ -45,7 +45,8 @@
 }
 
 .ds-alert[tabindex="-1"]:focus-visible,
-.ds-alert[data-focus-ring]:focus {
+.ds-alert[data-focus-ring]:focus,
+.ds-alert[tabindex="-1"][data-state="focus"] {
   outline: 2px solid var(--ds-color-border-focus);
   outline-offset: 2px;
 }
@@ -105,7 +106,8 @@
   transition: text-decoration-color var(--ds-duration-fast) var(--ds-easing-standard);
 }
 
-.ds-alert__list a:hover {
+.ds-alert__list a:hover,
+.ds-alert__list a[data-state="hover"] {
   text-decoration-color: currentColor;
 }
 

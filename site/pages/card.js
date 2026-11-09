@@ -1,7 +1,7 @@
 import { icon } from '../../ds/icons/icons.js';
 import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, tokenTable, a11yList } from '../component-doc.js';
-import { controlPage, example, examples, usageCards, stageWrap, ic } from '../form-control-doc.js';
+import { controlPage, example, examples, stateGrid, usageCards, stageWrap, ic } from '../form-control-doc.js';
 import { L } from '../i18n.js';
 
 export const styles = ['site/component-doc.css', 'site/pages/form-controls.css'];
@@ -9,6 +9,8 @@ export const styles = ['site/component-doc.css', 'site/pages/form-controls.css']
 const title = () => L('Relatório mensal', 'Monthly report', 'Informe mensual');
 const text = () => L('Receita, novos clientes e o que mudou desde o mês passado.', 'Revenue, new customers, and what changed since last month.', 'Ingresos, nuevos clientes y lo que cambió desde el mes pasado.');
 const inner = () => `<p class="ds-card__title">${title()}</p><p class="ds-card__text">${text()}</p>`;
+
+const LINK = (attrs) => `<a class="ds-card ds-card--link" href="#/componentes/card" ${attrs}>${inner()}</a>`;
 
 export default function renderCard(page) {
   return controlPage(page, {
@@ -30,6 +32,16 @@ export default function renderCard(page) {
           example(L('Clicável', 'Clickable', 'Clicable'), 'ds-card--link', L('O contorno reforça no hover. O destino é um só.', 'The outline strengthens on hover. There’s just one destination.', 'El contorno se refuerza en hover. El destino es uno solo.'), `<a class="ds-card ds-card--link" href="#/componentes/card" data-inert>${inner()}</a>`),
           example(L('Com ação', 'With an action', 'Con acción'), L('dentro do card', 'inside the card', 'dentro de la tarjeta'), L('Botões dentro de um card comum, sem o card inteiro ser link.', 'Buttons inside an ordinary card, without the whole card being a link.', 'Botones dentro de una tarjeta común, sin que toda sea enlace.'), `<div class="ds-card">${inner()}<div style="margin-top:var(--ds-space-200)"><button type="button" class="ds-btn ds-btn--secondary ds-btn--sm">${icon('download', { size: 16 })}${L('Baixar', 'Download', 'Descargar')}</button></div></div>`),
         ], 3),
+      },
+      {
+        id: 'estados',
+        title: L('Estados', 'States', 'Estados'),
+        desc: L(`Só o clicável muda. Hover e foco podem ser forçados com ${ic('data-state')}.`, `Only the clickable one changes. Hover and focus can be forced with ${ic('data-state')}.`, `Solo cambia la clicable. Hover y foco se pueden forzar con ${ic('data-state')}.`),
+        html: stateGrid([
+          [L('Normal', 'Default', 'Normal'), LINK('')],
+          ['Hover', LINK('data-state="hover"')],
+          [L('Foco', 'Focus', 'Foco'), LINK('data-state="focus"')],
+        ]),
       },
       {
         id: 'acessibilidade',

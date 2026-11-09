@@ -26,7 +26,8 @@
     color var(--ds-duration-fast) var(--ds-easing-standard);
 }
 
-.ds-number__btn:hover:not(:disabled) {
+.ds-number__btn:hover:not(:disabled),
+.ds-number__btn[data-state="hover"]:not(:disabled) {
   background: var(--ds-color-bg-hover);
   color: var(--ds-color-fg-default);
 }

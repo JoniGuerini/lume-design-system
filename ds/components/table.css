@@ -21,7 +21,8 @@
   overscroll-behavior: contain;
 }
 
-.ds-table-wrap:focus-visible {
+.ds-table-wrap:focus-visible,
+.ds-table-wrap[data-state="focus"] {
   outline-offset: 2px;
 }
 
@@ -107,7 +108,8 @@
 }
 
 /* Hover e seleção */
-.ds-table--hover tbody tr:hover td {
+.ds-table--hover tbody tr:hover td,
+.ds-table--hover tbody tr[data-state="hover"] td {
   background: var(--ds-color-bg-hover);
 }
 
@@ -140,7 +142,8 @@
     background-color var(--ds-duration-fast) var(--ds-easing-standard);
 }
 
-.ds-table__sort:hover {
+.ds-table__sort:hover,
+.ds-table__sort[data-state="hover"] {
   background: var(--ds-color-bg-hover);
   color: var(--ds-color-fg-default);
 }

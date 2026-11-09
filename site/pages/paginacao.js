@@ -1,10 +1,12 @@
 import { createPagination } from '../../ds/js/pagination.js';
 import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, codeBlock, tokenTable, a11yList } from '../component-doc.js';
-import { controlPage, example, examples, usageCards, ic } from '../form-control-doc.js';
+import { controlPage, example, examples, stateGrid, usageCards, ic } from '../form-control-doc.js';
 import { L } from '../i18n.js';
 
 export const styles = ['site/component-doc.css', 'site/pages/form-controls.css'];
+
+const PAGE = (attrs) => `<button type="button" class="ds-pagination__page" ${attrs}>3</button>`;
 
 export default function renderPaginacao(page) {
   return controlPage(page, {
@@ -26,6 +28,18 @@ export default function renderPaginacao(page) {
           example(L('Muitas páginas', 'Many pages', 'Muchas páginas'), 'total: 2480', L('A primeira e a última ficam sempre à vista.', 'The first and last are always visible.', 'La primera y la última siempre quedan a la vista.'), '<nav class="ds-pagination" data-demo="many"></nav>'),
           example(L('Itens por página', 'Items per page', 'Elementos por página'), 'pageSizes', L('Ao trocar, a pessoa continua vendo o mesmo item.', 'When changed, people keep seeing the same item.', 'Al cambiar, la persona sigue viendo el mismo elemento.'), '<nav class="ds-pagination" data-demo="sizes"></nav>'),
           example(L('Com links', 'With links', 'Con enlaces'), 'hrefFor', L('Cada página é um endereço: dá para compartilhar e abrir em outra aba.', 'Each page is an address: you can share it and open it in another tab.', 'Cada página es una dirección: se puede compartir y abrir en otra pestaña.'), '<nav class="ds-pagination" data-demo="links"></nav>'),
+        ]),
+      },
+      {
+        id: 'estados',
+        title: L('Estados', 'States', 'Estados'),
+        desc: L(`Hover e foco podem ser forçados com ${ic('data-state')}.`, `Hover and focus can be forced with ${ic('data-state')}.`, `Hover y foco se pueden forzar con ${ic('data-state')}.`),
+        html: stateGrid([
+          [L('Normal', 'Default', 'Normal'), PAGE('')],
+          ['Hover', PAGE('data-state="hover"')],
+          [L('Foco', 'Focus', 'Foco'), PAGE('data-state="focus"')],
+          [L('Atual', 'Current', 'Actual'), PAGE('aria-current="page"')],
+          [L('Desativado', 'Disabled', 'Desactivado'), PAGE('disabled')],
         ]),
       },
       {

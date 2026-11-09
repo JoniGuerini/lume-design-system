@@ -98,11 +98,13 @@
   border-inline-start: 1px solid var(--_line);
 }
 
-.ds-calendar__day:hover {
+.ds-calendar__day:hover,
+.ds-calendar__day[data-state="hover"] {
   background: var(--ds-color-bg-hover);
 }
 
-.ds-calendar__day:focus-visible {
+.ds-calendar__day:focus-visible,
+.ds-calendar__day[data-state="focus"] {
   box-shadow: inset 0 0 0 2px var(--ds-color-border-focus);
 }
 
@@ -110,7 +112,8 @@
   background: var(--ds-color-bg-sunken);
 }
 
-.ds-calendar__day[data-outside]:hover {
+.ds-calendar__day[data-outside]:hover,
+.ds-calendar__day[data-outside][data-state="hover"] {
   background: color-mix(in srgb, var(--ds-color-bg-sunken) 60%, var(--ds-color-bg-hover));
 }
 
@@ -156,7 +159,8 @@
   white-space: nowrap;
 }
 
-.ds-calendar__item:hover {
+.ds-calendar__item:hover,
+.ds-calendar__item[data-state="hover"] {
   background: var(--ds-color-bg-hover);
 }
 
@@ -237,7 +241,8 @@ button.ds-calendar__col-head {
   transition: background-color var(--ds-duration-fast) var(--ds-easing-standard);
 }
 
-button.ds-calendar__col-head:hover {
+button.ds-calendar__col-head:hover,
+button.ds-calendar__col-head[data-state="hover"] {
   background: var(--ds-color-bg-hover);
 }
 
@@ -357,13 +362,17 @@ button.ds-calendar__col-head:hover {
   transition: filter var(--ds-duration-fast) var(--ds-easing-standard);
 }
 
-.ds-calendar__event:hover {
+.ds-calendar__event:hover,
+.ds-calendar__event[data-state="hover"] {
   filter: brightness(0.97);
 }
 
 .ds-calendar__event:focus-visible,
 .ds-calendar__chip:focus-visible,
-.ds-calendar__col-head:focus-visible {
+.ds-calendar__col-head:focus-visible,
+.ds-calendar__event[data-state="focus"],
+.ds-calendar__chip[data-state="focus"],
+.ds-calendar__col-head[data-state="focus"] {
   outline: 2px solid var(--ds-color-border-focus);
   outline-offset: 1px;
   z-index: 1;

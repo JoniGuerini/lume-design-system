@@ -92,7 +92,9 @@ pre {
   background: color-mix(in srgb, var(--ds-color-brand-solid) 32%, transparent);
 }
 
-:focus-visible {
+/* o estado forçado acompanha o foco real em tudo o que recebe foco */
+:focus-visible,
+:where(a, button, summary, [tabindex])[data-state="focus"] {
   outline: var(--ds-focus-ring-width) solid var(--ds-color-border-focus);
   outline-offset: var(--ds-focus-ring-offset);
 }

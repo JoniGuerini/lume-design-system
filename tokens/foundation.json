@@ -14,7 +14,7 @@
   "focus-ring": { "$type": "dimension", "$unit": "px", "width": 2, "offset": 2 },
   "size": {
     "$type": "dimension",
-    "control": { "xs": 28, "sm": 32, "md": 40, "lg": 48 },
+    "control": { "xs": 28, "sm": 32, "compact": 36, "md": 40, "lg": 48 },
     "icon": { "xs": 14, "sm": 16, "md": 20, "lg": 24, "xl": 32 }
   },
   "layout": {

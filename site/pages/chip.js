@@ -111,7 +111,7 @@ export default function renderChip(page) {
         <div class="doc-stat"><dt class="doc-stat__label">${L('tipos', 'types', 'tipos')}</dt><dd class="doc-stat__value">${types.length}</dd></div>
         <div class="doc-stat"><dt class="doc-stat__label">${L('tamanhos', 'sizes', 'tamaños')}</dt><dd class="doc-stat__value">2</dd></div>
         <div class="doc-stat"><dt class="doc-stat__label">${L('estados', 'states', 'estados')}</dt><dd class="doc-stat__value">${states.length}</dd></div>
-        <div class="doc-stat"><dt class="doc-stat__label">${L('altura (md / sm)', 'height (md / sm)', 'altura (md / sm)')}</dt><dd class="doc-stat__value">36/30</dd></div>
+        <div class="doc-stat"><dt class="doc-stat__label">${L('altura (md / sm)', 'height (md / sm)', 'altura (md / sm)')}</dt><dd class="doc-stat__value">36/32</dd></div>
       </dl>
     </header>
 
@@ -201,7 +201,7 @@ export default function renderChip(page) {
       <div class="ch-sizes">
         ${[
           ['md', L('Médio', 'Medium', 'Mediano'), '36 px', 'label-sm · 13 px', L('padrão', 'default', 'predeterminado'), [16, 12]],
-          ['sm', L('Pequeno', 'Small', 'Pequeño'), '30 px', 'caption · 12 px', 'ds-chip--sm', [12, 8]],
+          ['sm', L('Pequeno', 'Small', 'Pequeño'), '32 px', 'caption · 12 px', 'ds-chip--sm', [12, 8]],
         ]
           .map(
             ([size, name, h, text, cls, [pad, glyph]]) => `<article class="cd-example">
@@ -252,7 +252,7 @@ export default function renderChip(page) {
         [L('Remover tem nome', 'Remove has a name', 'Quitar tiene nombre'), L('O botão de remover diz o que remove (“Remover Tokens”). Depois, o foco vai para a etiqueta vizinha.', 'The remove button says what it removes (“Remove Tokens”). Afterwards, focus moves to the neighboring tag.', 'El botón de quitar dice qué quita (“Quitar Tokens”). Después, el foco pasa a la etiqueta vecina.')],
         [L('Grupo com nome', 'A named group', 'Grupo con nombre'), L(`Envolva os chips em ${ic('role="group"')} com ${ic('aria-label')} (“Filtrar por status”).`, `Wrap the chips in ${ic('role="group"')} with an ${ic('aria-label')} (“Filter by status”).`, `Envuelve los chips en ${ic('role="group"')} con ${ic('aria-label')} (“Filtrar por estado”).`)],
         [L('Não só cor', 'Not just color', 'No solo color'), L('O filtro ligado mostra um check, além do fundo. O resultado do filtro é anunciado numa região viva.', 'An active filter shows a check, not just a background. The filter result is announced in a live region.', 'El filtro activo muestra un check, además del fondo. El resultado del filtro se anuncia en una región viva.')],
-        [L('Alvo confortável', 'A comfortable target', 'Objetivo cómodo'), L('36 px no médio; o pequeno (30 px) deve ficar em barras com espaço entre os chips.', '36 px for medium; small (30 px) should sit in bars with space between the chips.', '36 px en el mediano; el pequeño (30 px) debe ir en barras con espacio entre los chips.')],
+        [L('Alvo confortável', 'A comfortable target', 'Objetivo cómodo'), L('36 px no médio; o pequeno (32 px) deve ficar em barras com espaço entre os chips.', '36 px for medium; small (32 px) should sit in bars with space between the chips.', '36 px en el mediano; el pequeño (32 px) debe ir en barras con espacio entre los chips.')],
       ])}
     </section>
 

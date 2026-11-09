@@ -1,7 +1,7 @@
 import { icon } from '../../ds/icons/icons.js';
 import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, tokenTable, a11yList } from '../component-doc.js';
-import { controlPage, example, examples, usageCards, ic } from '../form-control-doc.js';
+import { controlPage, example, examples, stateGrid, usageCards, ic } from '../form-control-doc.js';
 import { L } from '../i18n.js';
 
 export const styles = ['site/component-doc.css', 'site/pages/form-controls.css'];
@@ -30,6 +30,8 @@ const codeFor = (s) => `<div class="ds-accordion${s.look === 'card' ? ' ds-accor
   <!-- ${L('mais itens', 'more items', 'más elementos')} -->
 </div>`;
 
+const HEAD = (attrs, open = false) => `<div class="ds-accordion"><details class="ds-accordion__item"${open ? ' open' : ''}><summary class="ds-accordion__head" ${attrs}><span>${ITEMS()[0][0]}</span>${icon('chevron-down', { size: 18 })}</summary><div class="ds-accordion__body">${ITEMS()[0][1]}</div></details></div>`;
+
 export default function renderAcordeao(page) {
   return controlPage(page, {
     lead: L('Seções que abrem e fecham no lugar. Boa para perguntas frequentes e detalhes que só parte das pessoas quer ler.', 'Sections that open and close in place. Good for FAQs and details only some people want to read.', 'Secciones que se abren y se cierran en su lugar. Bueno para preguntas frecuentes y detalles que solo parte de las personas quiere leer.'),
@@ -48,6 +50,17 @@ export default function renderAcordeao(page) {
         html: examples([
           example(L('Com linhas', 'With lines', 'Con líneas'), 'ds-accordion', L('Discreto, para o meio de uma página.', 'Discreet, for the middle of a page.', 'Discreto, para el medio de una página.'), accordion({ name: 'ac-lines' })),
           example(L('Em cartões', 'In cards', 'En tarjetas'), 'ds-accordion--card', L('Cada item é uma superfície. Bom sobre o fundo da página.', 'Each item is a surface. Good on the page background.', 'Cada elemento es una superficie. Bueno sobre el fondo de la página.'), accordion({ name: 'ac-card', card: true })),
+        ]),
+      },
+      {
+        id: 'estados',
+        title: L('Estados', 'States', 'Estados'),
+        desc: L(`Hover e foco podem ser forçados com ${ic('data-state')} no cabeçalho.`, `Hover and focus can be forced with ${ic('data-state')} on the header.`, `Hover y foco se pueden forzar con ${ic('data-state')} en el encabezado.`),
+        html: stateGrid([
+          [L('Normal', 'Default', 'Normal'), HEAD('')],
+          ['Hover', HEAD('data-state="hover"')],
+          [L('Foco', 'Focus', 'Foco'), HEAD('data-state="focus"')],
+          [L('Aberto', 'Open', 'Abierto'), HEAD('', true)],
         ]),
       },
       {

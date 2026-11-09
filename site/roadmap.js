@@ -13,22 +13,10 @@ const GOAL = T('Meta', 'Goal', 'Meta');
 
 const STAGES = [
   {
-    version: '0.19',
+    version: '0.20',
     group: 'release',
     tone: 'brand',
     status: NEXT,
-    title: T('Refino', 'Refinement', 'Refinamiento'),
-    text: T('Uma revisão de tudo o que já existe.', 'A review of everything that already exists.', 'Una revisión de todo lo que ya existe.'),
-    items: [
-      { name: T('Revisão visual', 'Visual review', 'Revisión visual'), text: T('Componente por componente, em todos os temas.', 'Component by component, in every theme.', 'Componente por componente, en todos los temas.') },
-      { name: T('Estados', 'States', 'Estados'), text: T('Todos os estados acessíveis com data-state.', 'Every state reachable with data-state.', 'Todos los estados accesibles con data-state.') },
-    ],
-  },
-  {
-    version: '0.20',
-    group: 'release',
-    tone: 'neutral',
-    status: PLANNED,
     title: T('Plugin do Figma', 'Figma plugin', 'Plugin de Figma'),
     text: T('Gerado de novo quando a plataforma estiver definida.', 'Regenerated once the platform is settled.', 'Generado de nuevo cuando la plataforma esté definida.'),
     items: [

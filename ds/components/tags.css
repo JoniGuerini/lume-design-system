@@ -72,7 +72,8 @@
     color var(--ds-duration-fast) var(--ds-easing-standard);
 }
 
-.ds-tags__remove:hover:not(:disabled) {
+.ds-tags__remove:hover:not(:disabled),
+.ds-tags__remove[data-state="hover"]:not(:disabled) {
   background: var(--ds-color-bg-hover);
   color: var(--ds-color-fg-default);
 }

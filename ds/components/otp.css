@@ -5,7 +5,7 @@
  */
 .ds-otp {
   --_w: 44px;
-  --_h: 52px;
+  --_h: var(--ds-size-control-lg);
   position: relative;
   display: inline-block;
   max-width: 100%;
@@ -52,7 +52,8 @@
     box-shadow var(--ds-duration-base) var(--ds-easing-standard);
 }
 
-.ds-otp:hover .ds-otp__box {
+.ds-otp:hover .ds-otp__box,
+.ds-otp[data-state="hover"] .ds-otp__box {
   border-color: var(--ds-color-border-strong);
 }
 
@@ -104,7 +105,6 @@
 @media (max-width: 479.98px) {
   .ds-otp {
     --_w: 38px;
-    --_h: 46px;
   }
 
   .ds-otp__boxes {

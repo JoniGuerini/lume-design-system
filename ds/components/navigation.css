@@ -28,7 +28,7 @@
   display: inline-grid;
   place-items: center;
   min-width: 36px;
-  height: 36px;
+  height: var(--ds-size-control-compact);
   padding-inline: var(--ds-space-075);
   border: 1px solid transparent;
   border-radius: var(--ds-radius-sm);
@@ -131,7 +131,14 @@
   display: none;
 }
 
-.ds-accordion__head:focus-visible {
+/* sem recuo lateral na versão com linhas: o anel fica por fora, para não encostar no texto */
+.ds-accordion__head:focus-visible,
+.ds-accordion__head[data-state="focus"] {
+  outline-offset: 4px;
+}
+
+.ds-accordion--card .ds-accordion__head:focus-visible,
+.ds-accordion--card .ds-accordion__head[data-state="focus"] {
   outline-offset: -2px;
 }
 
@@ -143,7 +150,9 @@
 }
 
 .ds-accordion__head:hover > .ds-icon,
-.ds-accordion__head:hover > ds-icon {
+.ds-accordion__head:hover > ds-icon,
+.ds-accordion__head[data-state="hover"] > .ds-icon,
+.ds-accordion__head[data-state="hover"] > ds-icon {
   color: var(--ds-color-fg-default);
 }
 
@@ -235,7 +244,8 @@ button.ds-stepper__content {
   border-radius: var(--ds-radius-sm);
 }
 
-button.ds-stepper__content:hover .ds-stepper__label {
+button.ds-stepper__content:hover .ds-stepper__label,
+button.ds-stepper__content[data-state="hover"] .ds-stepper__label {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -371,7 +381,7 @@ button.ds-stepper__content:hover .ds-stepper__label {
   display: flex;
   align-items: center;
   gap: var(--ds-space-075);
-  min-height: 36px;
+  min-height: var(--ds-size-control-compact);
   padding-inline: calc(var(--_level) * var(--_indent) + 4px) var(--ds-space-100);
   border-radius: var(--ds-radius-sm);
   color: var(--ds-color-fg-muted);
@@ -387,7 +397,8 @@ button.ds-stepper__content:hover .ds-stepper__label {
 }
 
 .ds-tree__item:focus-visible > .ds-tree__row,
-.ds-tree__row[data-state="focus"] {
+.ds-tree__row[data-state="focus"],
+.ds-tree__item[data-state="focus"] > .ds-tree__row {
   outline: 2px solid var(--ds-color-border-focus);
   outline-offset: -2px;
 }

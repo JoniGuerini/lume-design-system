@@ -69,7 +69,8 @@
 }
 
 .ds-switch:hover .ds-switch__input,
-.ds-switch__input[data-state="hover"] {
+.ds-switch__input[data-state="hover"],
+.ds-switch[data-state="hover"] .ds-switch__input {
   border-color: var(--ds-color-border-field-hover);
 }
 
@@ -84,7 +85,8 @@
   background: var(--ds-color-brand-solid);
 }
 
-.ds-switch:hover .ds-switch__input:checked {
+.ds-switch:hover .ds-switch__input:checked,
+.ds-switch[data-state="hover"] .ds-switch__input:checked {
   border-color: var(--ds-color-brand-solid-hover);
   background: var(--ds-color-brand-solid-hover);
 }

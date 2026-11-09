@@ -1,6 +1,6 @@
 // Gerado por scripts/build-tokens.mjs — não edite à mão.
 const data = {
-  "generatedAt": "2026-11-09T02:12:38.836Z",
+  "generatedAt": "2026-11-09T02:15:51.533Z",
   "prefix": "ds",
   "modes": [
     "light",
@@ -1831,6 +1831,15 @@ const data = {
       "themed": false,
       "px": 32,
       "css": "2rem"
+    },
+    {
+      "name": "size.control.compact",
+      "cssVar": "--ds-size-control-compact",
+      "type": "dimension",
+      "source": "foundation.json",
+      "themed": false,
+      "px": 36,
+      "css": "2.25rem"
     },
     {
       "name": "size.control.md",

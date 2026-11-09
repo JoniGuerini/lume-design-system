@@ -129,7 +129,7 @@
   flex: none;
   display: inline-grid;
   place-items: center;
-  height: 28px;
+  height: var(--ds-size-control-xs);
   border-radius: var(--ds-radius-sm);
   color: var(--ds-color-fg-inverse);
   transition: background-color var(--ds-duration-fast) var(--ds-easing-standard);
@@ -152,7 +152,9 @@
 }
 
 .ds-toast__action:hover,
-.ds-toast__close:hover {
+.ds-toast__close:hover,
+.ds-toast__action[data-state="hover"],
+.ds-toast__close[data-state="hover"] {
   background: color-mix(in srgb, var(--ds-color-fg-inverse) 12%, transparent);
   opacity: 1;
 }

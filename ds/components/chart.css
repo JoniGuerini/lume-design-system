@@ -93,7 +93,8 @@
     opacity var(--ds-duration-fast) var(--ds-easing-standard);
 }
 
-button.ds-chart__legend-item:hover {
+button.ds-chart__legend-item:hover,
+button.ds-chart__legend-item[data-state="hover"] {
   background: var(--ds-color-bg-hover);
   color: var(--ds-color-fg-default);
 }
@@ -155,7 +156,8 @@ button.ds-chart__legend-item:hover {
   touch-action: pan-y;
 }
 
-.ds-chart__plot:focus-visible {
+.ds-chart__plot:focus-visible,
+.ds-chart__plot[data-state="focus"] {
   box-shadow: 0 0 0 2px var(--ds-color-bg-canvas), 0 0 0 4px var(--ds-color-border-focus);
 }
 
@@ -613,7 +615,8 @@ a.ds-stat {
   transition: border-color var(--ds-duration-fast) var(--ds-easing-standard), background-color var(--ds-duration-fast) var(--ds-easing-standard);
 }
 
-a.ds-stat:hover {
+a.ds-stat:hover,
+a.ds-stat[data-state="hover"] {
   border-color: var(--ds-color-border-default);
 }
 

@@ -43,12 +43,14 @@
 }
 
 .ds-upload__input:hover + .ds-upload__zone,
-.ds-upload[data-state="hover"] .ds-upload__zone {
+.ds-upload[data-state="hover"] .ds-upload__zone,
+.ds-upload__input[data-state="hover"] + .ds-upload__zone {
   background: var(--ds-color-bg-field-hover);
 }
 
 .ds-upload__input:focus-visible + .ds-upload__zone,
-.ds-upload[data-state="focus"] .ds-upload__zone {
+.ds-upload[data-state="focus"] .ds-upload__zone,
+.ds-upload__input[data-state="focus"] + .ds-upload__zone {
   border-color: var(--ds-color-border-focus);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--ds-color-border-focus) 22%, transparent);
 }

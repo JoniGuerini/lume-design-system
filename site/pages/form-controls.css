@@ -58,6 +58,10 @@
   flex: 1;
 }
 
+.fc-states__sample:has(> .ds-pagination__page, > .ds-tabs) {
+  align-items: flex-start;
+}
+
 .fc-states__label {
   color: var(--ds-color-fg-subtle);
   font: var(--ds-text-caption);

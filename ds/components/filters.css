@@ -32,7 +32,7 @@
 
 /* Busca na mesma altura dos chips (36 px) */
 .ds-filters__search {
-  --_h: 36px;
+  --_h: var(--ds-size-control-compact);
   flex: 1 1 240px;
   max-width: 360px;
   border-radius: var(--ds-radius-full);
@@ -64,7 +64,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: var(--ds-space-100) var(--ds-space-150);
-  min-height: 30px;
+  min-height: var(--ds-size-control-sm);
 }
 
 .ds-filters__count {

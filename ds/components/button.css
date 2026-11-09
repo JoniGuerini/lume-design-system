@@ -143,7 +143,7 @@
 /* ───────── Botão de ícone ───────── */
 
 .ds-icon-btn {
-  --_size: 36px;
+  --_size: var(--ds-size-control-compact);
   flex: none;
   display: inline-grid;
   place-items: center;
@@ -199,12 +199,12 @@
 }
 
 .ds-icon-btn--sm {
-  --_size: 28px;
+  --_size: var(--ds-size-control-xs);
   border-radius: var(--ds-radius-xs);
 }
 
 .ds-icon-btn--lg {
-  --_size: 44px;
+  --_size: var(--ds-size-control-md);
   border-radius: var(--ds-radius-md);
 }
 
@@ -218,7 +218,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--ds-space-100);
-  min-height: 28px;
+  min-height: var(--ds-size-control-xs);
   margin-inline: -4px;
   padding-inline: 4px;
   border-radius: var(--ds-radius-xs);

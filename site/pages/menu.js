@@ -4,9 +4,12 @@ import { toast } from '../../ds/js/toast.js';
 import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, tokenTable, a11yList, codeBlock } from '../component-doc.js';
 import { navigation } from '../nav.js';
+import { stateGrid } from '../form-control-doc.js';
 import { L } from '../i18n.js';
 
-export const styles = ['site/component-doc.css', 'site/pages/menu.css'];
+export const styles = ['site/component-doc.css', 'site/pages/form-controls.css', 'site/pages/menu.css'];
+
+const ITEM = (attrs, cls = '', trail = '') => `<button type="button" class="ds-menu__item${cls}" ${attrs}>${icon('copy', { size: 18 })}<span class="ds-menu__text">${L('Duplicar', 'Duplicate', 'Duplicar')}</span>${trail}</button>`;
 
 /* ───────── Dados (textos no idioma atual: chame na renderização) ───────── */
 
@@ -121,6 +124,7 @@ export default function renderMenu(page) {
         ['modos', L('Modos', 'Modes', 'Modos')],
         ['colunas', L('Colunas', 'Columns', 'Columnas')],
         ['itens', L('Itens', 'Items', 'Elementos')],
+        ['estados', L('Estados', 'States', 'Estados')],
         ['teclado', L('Teclado', 'Keyboard', 'Teclado')],
         ['acessibilidade', L('Acessibilidade', 'Accessibility', 'Accesibilidad')],
         ['tokens', 'Tokens'],
@@ -225,6 +229,22 @@ export default function renderMenu(page) {
             .join('')}
         </ul>
       </div>
+    </section>
+
+    <section class="doc-section" id="estados" aria-labelledby="estados-title">
+      <header class="doc-section__header">
+        <div>
+          <h2 class="doc-section__title" id="estados-title">${L('Estados', 'States', 'Estados')}</h2>
+          <p class="doc-section__desc">${L(`Hover e foco têm o mesmo fundo e podem ser forçados com ${ic('data-state')}.`, `Hover and focus share a background and can be forced with ${ic('data-state')}.`, `Hover y foco tienen el mismo fondo y se pueden forzar con ${ic('data-state')}.`)}</p>
+        </div>
+      </header>
+      ${stateGrid([
+        [L('Normal', 'Default', 'Normal'), ITEM('')],
+        [L('Hover e foco', 'Hover and focus', 'Hover y foco'), ITEM('data-state="hover"')],
+        [L('Marcado', 'Checked', 'Marcado'), ITEM('aria-checked="true"', '', icon('check', { size: 16, className: 'ds-menu__check' }))],
+        [L('Perigo', 'Danger', 'Peligro'), ITEM('', ' ds-menu__item--danger')],
+        [L('Desativado', 'Disabled', 'Desactivado'), ITEM('aria-disabled="true"')],
+      ])}
     </section>
 
     <section class="doc-section" id="teclado" aria-labelledby="teclado-title">

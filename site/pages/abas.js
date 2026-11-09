@@ -2,9 +2,10 @@ import { icon } from '../../ds/icons/icons.js';
 import { mountTabs } from '../../ds/js/tabs.js';
 import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, codeBlock, tokenTable, a11yList } from '../component-doc.js';
+import { stateGrid } from '../form-control-doc.js';
 import { L } from '../i18n.js';
 
-export const styles = ['site/component-doc.css', 'site/pages/abas.css'];
+export const styles = ['site/component-doc.css', 'site/pages/form-controls.css', 'site/pages/abas.css'];
 
 /* ───────── Dados (textos no idioma atual: chame na renderização) ───────── */
 
@@ -28,6 +29,8 @@ const KEYS = () => [
   [['Home', 'End'], L('Primeira ou última aba.', 'First or last tab.', 'Primera o última pestaña.')],
   [['Enter', L('Espaço', 'Space', 'Espacio')], L('Ativa a aba focada — só no modo manual.', 'Activates the focused tab — manual mode only.', 'Activa la pestaña enfocada — solo en el modo manual.')],
 ];
+
+const TAB = (attrs) => `<div class="ds-tabs"><div class="ds-tabs__list"><button type="button" class="ds-tabs__tab" ${attrs}>${L('Roteiro', 'Script', 'Guion')}</button></div></div>`;
 
 const projectLabel = () => L('Projeto', 'Project', 'Proyecto');
 
@@ -109,6 +112,7 @@ export default function renderAbas(page) {
       ${[
         ['playground', 'Playground'],
         ['aparencias', L('Aparências', 'Appearances', 'Apariencias')],
+        ['estados', L('Estados', 'States', 'Estados')],
         ['anatomia', L('Anatomia', 'Anatomy', 'Anatomía')],
         ['comportamento', L('Comportamento', 'Behavior', 'Comportamiento')],
         ['acessibilidade', L('Acessibilidade', 'Accessibility', 'Accesibilidad')],
@@ -166,6 +170,22 @@ export default function renderAbas(page) {
           </div>
         </article>
       </div>
+    </section>
+
+    <section class="doc-section" id="estados" aria-labelledby="estados-title">
+      <header class="doc-section__header">
+        <div>
+          <h2 class="doc-section__title" id="estados-title">${L('Estados', 'States', 'Estados')}</h2>
+          <p class="doc-section__desc">${L(`Hover e foco podem ser forçados com ${ic('data-state')}.`, `Hover and focus can be forced with ${ic('data-state')}.`, `Hover y foco se pueden forzar con ${ic('data-state')}.`)}</p>
+        </div>
+      </header>
+      ${stateGrid([
+        [L('Normal', 'Default', 'Normal'), TAB('')],
+        ['Hover', TAB('data-state="hover"')],
+        [L('Foco', 'Focus', 'Foco'), TAB('data-state="focus"')],
+        [L('Selecionada', 'Selected', 'Seleccionada'), TAB('aria-selected="true"')],
+        [L('Desativado', 'Disabled', 'Desactivado'), TAB('disabled')],
+      ])}
     </section>
 
     <section class="doc-section" id="anatomia" aria-labelledby="anatomia-title">
@@ -260,7 +280,7 @@ document.addEventListener('ds:tabchange', (event) => {
         </div>
       </header>
       ${tokenTable([
-        ['size.control.md', L('Altura da aba (médio)', 'Tab height (medium)', 'Altura de la pestaña (mediano)')],
+        ['size.control.compact', L('Altura da aba (médio)', 'Tab height (medium)', 'Altura de la pestaña (mediano)')],
         ['size.control.sm', L('Altura da aba (pequeno)', 'Tab height (small)', 'Altura de la pestaña (pequeño)')],
         ['text.label-md', L('Rótulo', 'Label', 'Etiqueta')],
         ['color.fg.subtle', L('Aba inativa', 'Inactive tab', 'Pestaña inactiva')],

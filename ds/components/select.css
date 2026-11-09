@@ -81,7 +81,8 @@ select[data-ds-select][multiple]:not([data-enhanced]) {
 }
 
 .ds-select__trigger:hover,
-.ds-select[data-state="hover"] .ds-select__trigger {
+.ds-select[data-state="hover"] .ds-select__trigger,
+.ds-select__trigger[data-state="hover"] {
   border-color: var(--ds-color-border-strong);
   background: var(--ds-color-bg-field-hover);
 }
@@ -90,7 +91,9 @@ select[data-ds-select][multiple]:not([data-enhanced]) {
 .ds-select__trigger[aria-expanded="true"],
 .ds-select__trigger--multi:focus-within,
 .ds-select[data-open] .ds-select__trigger--multi,
-.ds-select[data-state="focus"] .ds-select__trigger {
+.ds-select[data-state="focus"] .ds-select__trigger,
+.ds-select__trigger[data-state="focus"],
+.ds-select__trigger--multi[data-state="focus"] {
   outline: none;
   border-color: var(--ds-color-border-focus);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--ds-color-border-focus) 22%, transparent);
@@ -203,7 +206,8 @@ select[data-ds-select][multiple]:not([data-enhanced]) {
     color var(--ds-duration-fast) var(--ds-easing-standard);
 }
 
-.ds-select__clear:hover {
+.ds-select__clear:hover,
+.ds-select__clear[data-state="hover"] {
   background: var(--ds-color-bg-hover);
   color: var(--ds-color-fg-default);
 }
@@ -255,7 +259,9 @@ select[data-ds-select][multiple]:not([data-enhanced]) {
 
 .ds-select__trigger[aria-invalid="true"]:focus-visible,
 .ds-select__trigger[aria-invalid="true"][aria-expanded="true"],
-.ds-select__trigger--multi[data-invalid]:focus-within {
+.ds-select__trigger--multi[data-invalid]:focus-within,
+.ds-select__trigger[aria-invalid="true"][data-state="focus"],
+.ds-select__trigger--multi[data-invalid][data-state="focus"] {
   border-color: var(--ds-color-danger-solid);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--ds-color-danger-solid) 22%, transparent);
 }
@@ -325,7 +331,7 @@ select[data-ds-select][multiple]:not([data-enhanced]) {
   display: flex;
   align-items: center;
   gap: var(--ds-space-150);
-  min-height: 36px;
+  min-height: var(--ds-size-control-compact);
   padding-inline: var(--ds-space-150);
   border-radius: 10px;
   color: var(--ds-color-fg-muted);
