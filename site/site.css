@@ -49,7 +49,7 @@
   margin-top: var(--ds-space-500);
 }
 
-/* A última versão, lida do changelog: muda sozinha a cada lançamento */
+/* A última versão, lida do changelog: muda sozinha a cada lançamento, sem mudar de tamanho */
 .home-latest {
   display: flex;
   flex-direction: column;
@@ -85,58 +85,25 @@
 }
 
 .home-latest__title {
+  overflow: hidden;
   margin-top: var(--ds-space-050);
   font: var(--ds-text-heading-md);
   letter-spacing: var(--ds-text-heading-md-tracking);
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.home-latest__items {
-  display: flex;
-  flex-direction: column;
-  gap: var(--ds-space-100);
-  margin-top: var(--ds-space-200);
-}
-
-.home-latest__item {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--ds-space-100);
+/* sempre a altura de duas linhas: o cartão não cresce com o texto de cada versão */
+.home-latest__summary {
+  display: -webkit-box;
+  overflow: hidden;
+  height: calc(2 * 1.5rem);
+  margin-top: var(--ds-space-150);
   color: var(--ds-color-fg-muted);
   font: var(--ds-text-body-sm);
-}
-
-.home-latest__item .ds-badge {
-  flex: none;
-}
-
-.home-latest__more {
-  color: var(--ds-color-fg-subtle);
-  font: var(--ds-text-body-sm);
-}
-
-.home-latest__older {
-  display: flex;
-  flex-direction: column;
-  gap: var(--ds-space-075);
-  margin-top: var(--ds-space-250);
-  padding-top: var(--ds-space-200);
-  border-top: 1px solid var(--ds-color-border-subtle);
-}
-
-.home-latest__row {
-  display: flex;
-  align-items: baseline;
-  gap: var(--ds-space-150);
-  min-width: 0;
-  color: var(--ds-color-fg-muted);
-  font: var(--ds-text-body-sm);
-}
-
-.home-latest__stamp {
-  flex: none;
-  min-width: 3.25rem;
-  color: var(--ds-color-fg-subtle);
-  font: var(--ds-text-code-sm);
+  line-height: 1.5rem;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .home-latest__all {

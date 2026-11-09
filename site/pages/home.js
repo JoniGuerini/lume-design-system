@@ -2,7 +2,7 @@ import { icon, iconList } from '../../ds/icons/icons.js';
 import { palettes, tokens, contrast, generatedAt } from '../../ds/tokens.js';
 import { tr, numberFormat, dateFormat } from '../../ds/js/i18n.js';
 import { navigation } from '../nav.js';
-import { releases, TYPES, CURRENT_VERSION } from '../changelog.js';
+import { releases, CURRENT_VERSION } from '../changelog.js';
 import { stages } from '../roadmap.js';
 import { T } from '../i18n.js';
 
@@ -26,7 +26,7 @@ const COPY = T(
       start: 'Começar agora',
       components: 'Ver componentes',
     },
-    latest: { label: 'Última versão', more: (n) => `e mais ${n}`, all: 'Ver todas as novidades' },
+    latest: { label: 'Última versão', all: 'Ver todas as novidades' },
     foundations: { title: 'As decisões que sustentam tudo', desc: 'Cada decisão visual vira um token. Os componentes só consomem tokens — por isso o sistema muda inteiro quando a marca muda.' },
     components: { title: 'Planos, calmos e precisos', desc: (n) => `Contornos finos, nada de brilho. ${n} componentes, cada um com anatomia, estados e acessibilidade.`, all: 'Ver todos' },
     charts: { title: 'Dados que se leem de relance', desc: 'Cores em ordem fixa validadas para daltonismo, marcas finas e tooltip também no teclado. Todo gráfico vira tabela com um clique.', overview: 'Ver visão geral' },
@@ -51,7 +51,7 @@ const COPY = T(
       start: 'Get started',
       components: 'See components',
     },
-    latest: { label: 'Latest version', more: (n) => `and ${n} more`, all: 'See everything new' },
+    latest: { label: 'Latest version', all: 'See everything new' },
     foundations: { title: 'The decisions that hold it all up', desc: 'Every visual decision becomes a token. Components only consume tokens — that’s why the whole system changes when the brand does.' },
     components: { title: 'Flat, calm, and precise', desc: (n) => `Thin outlines, no shine. ${n} components, each with anatomy, states, and accessibility.`, all: 'See all' },
     charts: { title: 'Data you can read at a glance', desc: 'Colors in a fixed order validated for color blindness, thin marks, and tooltips that work from the keyboard too. Every chart turns into a table with one click.', overview: 'See overview' },
@@ -76,7 +76,7 @@ const COPY = T(
       start: 'Empezar ahora',
       components: 'Ver componentes',
     },
-    latest: { label: 'Última versión', more: (n) => `y ${n} más`, all: 'Ver todas las novedades' },
+    latest: { label: 'Última versión', all: 'Ver todas las novedades' },
     foundations: { title: 'Las decisiones que lo sostienen todo', desc: 'Cada decisión visual se vuelve un token. Los componentes solo consumen tokens — por eso todo el sistema cambia cuando cambia la marca.' },
     components: { title: 'Planos, tranquilos y precisos', desc: (n) => `Contornos finos, nada de brillo. ${n} componentes, cada uno con anatomía, estados y accesibilidad.`, all: 'Ver todos' },
     charts: { title: 'Datos que se leen de un vistazo', desc: 'Colores en un orden fijo validado para daltonismo, marcas finas y tooltip también con el teclado. Todo gráfico se vuelve tabla con un clic.', overview: 'Ver visión general' },
@@ -256,31 +256,15 @@ const listItems = (list) => `<ul class="home-list__items" role="list">
 
 /* ───────── Cartão do hero: a última versão, direto do changelog ───────── */
 
-const LATEST_ITEMS = 3;
-const LATEST_PREVIOUS = 2;
-
+// o tamanho não depende do texto da versão: título em uma linha e resumo em duas, cortados se passarem
 function latestCard(c) {
-  const [latest, ...older] = releases;
-  const items = latest.groups.flatMap((g) => g.items);
+  const [latest] = releases;
   const date = dateFormat({ day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(`${latest.date}T12:00:00`));
-  const rest = items.length - LATEST_ITEMS;
   return `<a class="home-latest" href="#/novidades">
     <span class="home-latest__head"><span>${c.latest.label}</span><time datetime="${latest.date}">${date}</time></span>
     <span class="home-latest__version">${latest.version}</span>
     <span class="home-latest__title">${latest.title}</span>
-    <span class="home-latest__items">
-      ${items
-        .slice(0, LATEST_ITEMS)
-        .map(([type, text]) => `<span class="home-latest__item"><span class="ds-badge ds-badge--sm ds-badge--${TYPES[type].tone}">${TYPES[type].label}</span><span>${text}</span></span>`)
-        .join('')}
-      ${rest > 0 ? `<span class="home-latest__more">${c.latest.more(rest)}</span>` : ''}
-    </span>
-    <span class="home-latest__older">
-      ${older
-        .slice(0, LATEST_PREVIOUS)
-        .map((r) => `<span class="home-latest__row"><span class="home-latest__stamp">${r.version}</span><span>${r.title}</span></span>`)
-        .join('')}
-    </span>
+    <span class="home-latest__summary">${latest.summary}</span>
     <span class="home-latest__all">${c.latest.all}${icon('arrow-right', { size: 16 })}</span>
   </a>`;
 }

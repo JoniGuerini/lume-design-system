@@ -8,10 +8,28 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.14.5';
+export const CURRENT_VERSION = '0.14.6';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.14.6',
+    date: '2026-11-08',
+    title: T('Cartão com altura fixa', 'Fixed-height card', 'Tarjeta con altura fija'),
+    summary: T(
+      'O cartão da última versão no Início agora tem sempre o mesmo tamanho, e não muda a altura do topo da página.',
+      'The latest version card on Home now always has the same size, and no longer changes the height of the top of the page.',
+      'La tarjeta de la última versión en el Inicio ahora siempre tiene el mismo tamaño, y ya no cambia la altura de la parte superior de la página.',
+    ),
+    groups: [
+      {
+        name: T('Site', 'Site', 'Sitio'),
+        items: [
+          ['correcao', T('O cartão do Início mostra o título e um resumo em duas linhas, em altura fixa', 'The Home card shows the title and a two-line summary, at a fixed height', 'La tarjeta del Inicio muestra el título y un resumen en dos líneas, con altura fija'), '/'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.14.5',
     date: '2026-11-08',
