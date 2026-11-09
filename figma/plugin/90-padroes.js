@@ -352,6 +352,63 @@
     return it;
   }
 
+  /** Layout, idioma e tema: os controles da topbar, todos com 36 px. */
+  async function topbarTools(top) {
+    var layout = box('Layout', { dir: 'H', gap: 2, pad: 3, radius: 'radius/full', fill: 'color/bg/sunken', stroke: 'color/border/subtle', h: 36 });
+    [['panel-left', true], ['panel-top', false]].forEach(function (o) {
+      var item = box('Layout · ' + o[0], { dir: 'H', align: 'center', cross: 'center', w: 28, h: 28, radius: 'radius/full', fill: o[1] ? 'color/bg/muted' : null });
+      add(item, icon(o[0], 16, o[1] ? 'color/fg/default' : 'color/fg/subtle'));
+      add(layout, item);
+    });
+    add(top, layout);
+    var lang = box('Idioma', { dir: 'H', gap: 'space/075', pad: [0, 'space/150'], cross: 'center', h: 36, radius: 'radius/full', stroke: 'color/border/control' });
+    add(lang, icon('globe', 16, 'color/fg/muted'));
+    add(lang, await text('PT', { style: 'label-sm', color: 'color/fg/default', raw: true }));
+    add(lang, icon('chevron-down', 14, 'color/fg/subtle'));
+    add(top, lang);
+    var theme = box('Tema', { dir: 'H', align: 'center', cross: 'center', w: 36, h: 36, radius: 'radius/full', stroke: 'color/border/control' });
+    add(theme, icon('moon', 16, 'color/fg/muted'));
+    add(top, theme);
+  }
+
+  /** A mesma moldura com a navegação deitada no topo; o que não couber vai para o Mais. */
+  async function miniNavbar() {
+    if (P.navbar && !P.navbar.removed) return P.navbar;
+    P.navbar = await component('app-shell-navbar', 'App shell/Navbar', async function (c) {
+      box(c.name, { dir: 'V', gap: 'space/100', pad: 'space/100', w: 940, h: 360, fill: 'color/bg/app', radius: 'radius/3xl' }, c);
+      var bar = box('Navbar', { dir: 'H', gap: 'space/100', pad: [0, 'space/150'], cross: 'center', h: 64, fill: 'color/bg/sidebar', stroke: 'color/border/subtle', radius: 'radius/xl' });
+      var brand = box('Marca', { dir: 'H', gap: 'space/150', cross: 'center', pad: [0, 'space/250', 0, 13] });
+      add(brand, flame(18));
+      add(brand, await text('Lume', { style: 'heading-md', color: 'color/fg/default', raw: true }));
+      add(bar, brand);
+      var nav = box('Navegação', { dir: 'H', gap: 2, cross: 'center' });
+      for (var it of [['Novidades', false, false], ['Roadmap', false, false], ['Fundamentos', true, false], ['Componentes', true, true], ['Mais', true, false]]) {
+        var item = box(it[0], { dir: 'H', gap: 'space/050', pad: [0, 'space/150'], cross: 'center', h: 36, radius: 'radius/md', fill: it[2] ? 'color/bg/selected' : null });
+        add(item, await text(it[0], { style: 'label-md', color: it[2] ? 'color/fg/default' : 'color/fg/muted' }));
+        if (it[1]) add(item, icon('chevron-down', 16, 'color/fg/subtle'));
+        add(nav, item);
+      }
+      add(bar, nav, { grow: true });
+      var search = box('Busca', { dir: 'H', gap: 10, pad: [0, 12], cross: 'center', w: 200, h: 40, radius: 'radius/md', stroke: 'color/border/control' });
+      add(search, icon('search', 16, 'color/fg/subtle'));
+      add(search, await text('Buscar no Lume', { style: 'body-sm', color: 'color/fg/subtle' }), { grow: true });
+      add(bar, search);
+      add(c, bar, { fillW: true });
+      var main = box('Painel principal', { dir: 'V', gap: 0, fill: 'color/bg/canvas', stroke: 'color/border/subtle', radius: 'radius/xl', clip: true });
+      var top = box('Topbar', { dir: 'H', gap: 'space/150', pad: [0, 16, 0, 24], cross: 'center', h: 56 });
+      add(top, await text('Componentes', { style: 'label-sm', color: 'color/fg/default' }));
+      add(top, box('Espaço', { dir: 'H', h: 1 }), { grow: true });
+      await topbarTools(top);
+      add(main, top, { fillW: true });
+      var content = box('Conteúdo', { dir: 'V', gap: 'space/150', pad: [24, 40, 32, 40] });
+      add(content, await text('Componentes', { style: 'heading-xl', color: 'color/fg/default' }));
+      add(content, await text('Sem espaço, a busca vira só o ícone, e os últimos itens vão para o menu Mais.', { style: 'body-md', color: 'color/fg/muted', w: 520 }));
+      add(main, content, { fillW: true });
+      add(c, main, { fillW: true, grow: true });
+    }, { description: 'A alternativa à sidebar: o mesmo painel flutuante, deitado no topo. No celular, os dois layouts viram a mesma gaveta.' });
+    return P.navbar;
+  }
+
   async function miniShell() {
     if (P.shell && !P.shell.removed) return P.shell;
     P.shell = await component('app-shell-mini', 'App shell/Miniatura', async function (c) {
@@ -363,7 +420,7 @@
       // logotipo: a chama e o nome, como a .ds-brand do site (chama de 24 px para texto de 28 → 18 para 21)
       var brand = box('Marca', { dir: 'H', gap: 'space/150', cross: 'center' });
       add(brand, flame(18));
-      add(brand, await text('Lume', { style: 'heading-md', weight: 'Bold', color: 'color/fg/default' }));
+      add(brand, await text('Lume', { style: 'heading-md', color: 'color/fg/default', raw: true }));
       add(head, brand);
       // sem botão no cabeçalho: aberta, quem recolhe é a aba na borda, que só aparece com o mouse
       add(side, head, { fillW: true });
@@ -409,13 +466,7 @@
       add(crumbs, await text('Cores', { style: 'label-sm', color: 'color/fg/default' }));
       add(top, crumbs);
       add(top, box('Espaço', { dir: 'H', h: 1 }), { grow: true });
-      var seg = box('Tema', { dir: 'H', gap: 2, pad: 3, radius: 'radius/full', fill: 'color/bg/sunken', stroke: 'color/border/subtle' });
-      [['moon', true], ['sun', false], ['monitor', false]].forEach(function (o) {
-        var item = box('Tema · ' + o[0], { dir: 'H', align: 'center', cross: 'center', w: 28, h: 28, radius: 'radius/full', fill: o[1] ? 'color/bg/muted' : null });
-        add(item, icon(o[0], 16, o[1] ? 'color/fg/default' : 'color/fg/subtle'));
-        add(seg, item);
-      });
-      add(top, seg);
+      await topbarTools(top);
       add(main, top, { fillW: true });
       var content = box('Conteúdo', { dir: 'V', gap: 'space/150', pad: [24, 40, 32, 40] });
       add(content, await text('Fundamentos', { style: 'eyebrow', color: 'color/fg/subtle' }));
@@ -449,8 +500,11 @@
     tags: ['Padrão', 'Claro · Escuro'],
     build: async function () {
       var shell = await miniShell();
+      var navbar = await miniNavbar();
       return {
-        sections: themed('App shell', function () { return shell.createInstance(); }, { pad: 24 }).map(function (s) { return Object.assign(s, { span: 2 }); }),
+        sections: themed('App shell', function () { return shell.createInstance(); }, { pad: 24 })
+          .concat([{ title: 'Navbar', description: 'O outro layout, à escolha na topbar.', frame: true, pad: 24, node: function () { return navbar.createInstance(); } }])
+          .map(function (s) { return Object.assign(s, { span: 2 }); }),
       };
     },
   });

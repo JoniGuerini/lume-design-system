@@ -25,8 +25,8 @@
   ];
   var IB_SIZES = [
     ['P', { size: 'size/control/xs', px: 28, radius: 'radius/xs', icon: 16 }],
-    ['M', { size: 36, px: 36, radius: 'radius/sm', icon: 20 }],
-    ['G', { size: 44, px: 44, radius: 'radius/md', icon: 20 }],
+    ['M', { size: 'size/control/compact', px: 36, radius: 'radius/sm', icon: 20 }],
+    ['G', { size: 'size/control/md', px: 40, radius: 'radius/md', icon: 20 }],
   ];
 
   async function buildIconButton(c, v, s, state) {
@@ -88,7 +88,7 @@
         sections: [
           {
             title: 'Variantes, tamanhos e estados',
-            description: '4 variantes × 3 tamanhos (28, 36 e 44 px) × 5 estados.',
+            description: '4 variantes × 3 tamanhos (28, 36 e 40 px) × 5 estados.',
             span: 2,
             fill: false,
             node: function () {
@@ -258,8 +258,8 @@
 
   var CHIP_TYPES = ['Filtro', 'Seletor'];
   var CHIP_SIZES = [
-    ['M', { h: 36, pad: 'space/200', glyph: 'space/150', style: 'label-sm', check: 14, icon: 16 }],
-    ['P', { h: 30, pad: 'space/150', glyph: 'space/100', style: 'caption', check: 14, icon: 14 }],
+    ['M', { h: 36, token: 'size/control/compact', pad: 'space/200', glyph: 'space/150', style: 'label-sm', check: 14, icon: 16 }],
+    ['P', { h: 32, token: 'size/control/sm', pad: 'space/150', glyph: 'space/100', style: 'caption', check: 14, icon: 14 }],
   ];
   var CHIP_STATES = ['Normal', 'Hover', 'Selecionado', 'Foco', 'Desativado'];
 
@@ -269,6 +269,7 @@
     var pl = type === 'Filtro' && selected ? s.glyph : s.pad;
     var pr = type === 'Seletor' ? s.glyph : s.pad;
     box(c.name, { dir: 'H', gap: 'space/100', pad: [0, pr, 0, pl], cross: 'center', h: s.h, radius: 'radius/full' }, c);
+    num(c, 'height', s.token);
     if (state === 'Hover') fill(c, 'color/bg/hover');
     if (selected) fill(c, 'color/bg/selected');
     stroke(c, state === 'Hover' || selected ? 'color/border/strong' : 'color/border/control', 1);
@@ -362,7 +363,7 @@
         sections: [
           {
             title: 'Tipos, tamanhos e estados',
-            description: 'Filtro e seletor × médio (36 px) e pequeno (30 px) × 5 estados. Selecionado no seletor = menu aberto.',
+            description: 'Filtro e seletor × médio (36 px) e pequeno (32 px) × 5 estados. Selecionado no seletor = menu aberto.',
             span: 2,
             fill: false,
             node: function () {

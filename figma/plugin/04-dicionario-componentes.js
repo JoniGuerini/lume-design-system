@@ -20,7 +20,7 @@ Object.assign(DICT, {
   /* ───────── Botão de ícone ───────── */
   'Só ícone, sem fundo por padrão. Sempre com nome acessível (aria-label) e tooltip com o mesmo texto.': ['Icon only, no background by default. Always with an accessible name (aria-label) and a tooltip with the same text.', 'Solo ícono, sin fondo por defecto. Siempre con nombre accesible (aria-label) y tooltip con el mismo texto.'],
   'Ações frequentes em barras, cabeçalhos e listas. Sem fundo por padrão; ganha contorno ou fundo sutil quando precisa de presença. O ícone é uma propriedade de troca.': ['Frequent actions in toolbars, headers, and lists. No background by default; gets an outline or a subtle background when it needs presence. The icon is a swap property.', 'Acciones frecuentes en barras, encabezados y listas. Sin fondo por defecto; gana contorno o fondo sutil cuando necesita presencia. El ícono es una propiedad de cambio.'],
-  '4 variantes × 3 tamanhos (28, 36 e 44 px) × 5 estados.': ['4 variants × 3 sizes (28, 36, and 44 px) × 5 states.', '4 variantes × 3 tamaños (28, 36 y 44 px) × 5 estados.'],
+  '4 variantes × 3 tamanhos (28, 36 e 40 px) × 5 estados.': ['4 variants × 3 sizes (28, 36, and 40 px) × 5 states.', '4 variantes × 3 tamaños (28, 36 y 40 px) × 5 estados.'],
   'Barra de ferramentas': ['Toolbar', 'Barra de herramientas'],
   'Padrão para ações do conteúdo; o “mais” abre um menu.': ['Default for content actions; “more” opens a menu.', 'Predeterminado para acciones del contenido; el “más” abre un menú.'],
   'Com contorno e sutil': ['Outline and subtle', 'Con contorno y sutil'],
@@ -54,7 +54,7 @@ Object.assign(DICT, {
   'Mostra uma seleção que dá para tirar. O × tem nome acessível: “Remover Pagamentos”.': ['Shows a selection that can be removed. The × has an accessible name: “Remove Payments”.', 'Muestra una selección que se puede quitar. La × tiene nombre accesible: “Quitar Pagos”.'],
   'Pílula com contorno para filtrar, escolher e mostrar seleções. Como filtro, liga e desliga; como seletor, abre um menu; removível, mostra o que já foi escolhido.': ['Outlined pill to filter, choose, and show selections. As a filter, it toggles; as a selector, it opens a menu; removable, it shows what’s already chosen.', 'Píldora con contorno para filtrar, elegir y mostrar selecciones. Como filtro, se activa y desactiva; como selector, abre un menú; removible, muestra lo ya elegido.'],
   'Tipos, tamanhos e estados': ['Types, sizes, and states', 'Tipos, tamaños y estados'],
-  'Filtro e seletor × médio (36 px) e pequeno (30 px) × 5 estados. Selecionado no seletor = menu aberto.': ['Filter and selector × medium (36 px) and small (30 px) × 5 states. Selected on the selector = menu open.', 'Filtro y selector × mediano (36 px) y pequeño (30 px) × 5 estados. Seleccionado en el selector = menú abierto.'],
+  'Filtro e seletor × médio (36 px) e pequeno (32 px) × 5 estados. Selecionado no seletor = menu aberto.': ['Filter and selector × medium (36 px) and small (32 px) × 5 states. Selected on the selector = menu open.', 'Filtro y selector × mediano (36 px) y pequeño (32 px) × 5 estados. Seleccionado en el selector = menú abierto.'],
   'O × fica em hover separado do chip.': ['The × has its own hover, apart from the chip.', 'La × tiene su propio hover, separado del chip.'],
   'Médio': ['Medium', 'Mediano'],
   'Pequeno': ['Small', 'Pequeño'],

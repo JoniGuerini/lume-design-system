@@ -7,7 +7,7 @@
 var ROWS = {
   Fundamentos: ['Fundamentos'],
   'Ícones': ['Ícones'],
-  Componentes: ['Ações', 'Formulário', 'Navegação', 'Feedback', 'Dados e conteúdo', 'Gráficos', 'Padrões'],
+  Componentes: ['Ações', 'Formulário', 'Navegação', 'Camadas', 'Feedback', 'Dados e conteúdo', 'Gráficos', 'Padrões'],
 };
 
 var GAP_X = 96;

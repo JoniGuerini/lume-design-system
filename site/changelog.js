@@ -8,10 +8,31 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.21.1';
+export const CURRENT_VERSION = '0.22.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.22.0',
+    date: '2026-11-09',
+    title: T('Plugin do Figma', 'Figma plugin', 'Plugin de Figma'),
+    summary: T(
+      'O plugin alcançou o site: temas, fontes, logotipo, navbar, a escala de alturas e os componentes novos. São 67 blocos e 622 variantes.',
+      'The plugin caught up with the site: themes, fonts, logo, navbar, the height scale, and the new components. That’s 67 blocks and 622 variants.',
+      'El plugin alcanzó al sitio: temas, fuentes, logotipo, navbar, la escala de alturas y los componentes nuevos. Son 67 bloques y 622 variantes.',
+    ),
+    groups: [
+      {
+        name: T('Plugin', 'Plugin', 'Plugin'),
+        items: [
+          ['novo', T('25 blocos novos: formulários, navegação, camadas, carregamento, conteúdo e login', '25 new blocks: forms, navigation, layers, loading, content, and login', '25 bloques nuevos: formularios, navegación, capas, carga, contenido e inicio de sesión'), '/recursos/figma'],
+          ['melhoria', T('App shell com a navbar, a topbar atual e o logotipo em Geist Serif', 'App shell with the navbar, the current topbar, and the Geist Serif logo', 'App shell con la navbar, la topbar actual y el logotipo en Geist Serif'), '/recursos/figma'],
+          ['melhoria', T('Chip, abas e botão de ícone na escala de alturas', 'Chip, tabs, and icon button on the height scale', 'Chip, pestañas y botón de ícono en la escala de alturas'), '/recursos/figma'],
+          ['melhoria', T('Nova linha Camadas, com Modal e Tooltip, como no site', 'New Layers row, with Modal and Tooltip, as on the site', 'Nueva fila Capas, con Modal y Tooltip, como en el sitio'), '/recursos/figma'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.21.1',
     date: '2026-11-08',

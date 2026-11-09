@@ -42,6 +42,16 @@
         },
       },
       {
+        props: { Tipo: 'Com copiar' },
+        build: async function (c) {
+          box(c.name, { dir: 'V', pad: ['space/150', 'space/600', 'space/150', 'space/200'], w: 400, radius: 'radius/md', fill: 'color/bg/sunken', stroke: 'color/border/subtle', clip: true }, c);
+          add(c, await codeLines([[['npm run build', '']]], 'code-md'));
+          var copy = box('Copiar', { dir: 'H', align: 'center', cross: 'center', w: 28, h: 28, radius: 'radius/xs' });
+          add(copy, icon('copy', 16, 'color/fg/muted'));
+          add(c, copy, { absolute: true, x: 364, y: 8 });
+        },
+      },
+      {
         props: { Tipo: 'Bloco pequeno' },
         build: async function (c) {
           box(c.name, { dir: 'V', pad: ['space/150', 'space/200'], w: 400, radius: 'radius/md', fill: 'color/bg/sunken', stroke: 'color/border/subtle', clip: true }, c);

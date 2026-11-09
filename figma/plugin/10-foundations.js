@@ -7,7 +7,7 @@ var COLOR_GROUPS = [
   ['Fundos', 'Do fundo do app ao painel elevado — e as camadas de hover e seleção.', 'color/bg/'],
   ['Texto', 'Do mais forte ao mais apagado. Todos passam de 4,5:1 nas superfícies.', 'color/fg/'],
   ['Bordas', 'Contornos finos; border/field é o dos campos e passa de 3:1.', 'color/border/'],
-  ['Marca', 'O pêssego: ação principal, destaque e o indicador de novidade.', 'color/brand/'],
+  ['Marca', 'Ação principal, destaque e o indicador de novidade.', 'color/brand/'],
   ['Status', 'Sucesso, atenção, perigo e informação — sempre com ícone e texto.', ['color/success/', 'color/warning/', 'color/danger/', 'color/info/']],
   ['Gráficos · séries', 'As 8 séries em ordem fixa, validadas para daltonismo.', 'color/chart/series/'],
   ['Gráficos · escalas', 'Sequencial (um tom, mais = mais forte), ordinal (etapas em ordem) e divergente (dois polos com o meio neutro).', ['color/chart/seq/', 'color/chart/ord/', 'color/chart/div/']],

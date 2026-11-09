@@ -10,7 +10,7 @@ Object.assign(DICT, {
   'Do mais forte ao mais apagado. Todos passam de 4,5:1 nas superfícies.': ['From strongest to most faded. All pass 4.5:1 on the surfaces.', 'Del más fuerte al más atenuado. Todos superan 4,5:1 sobre las superficies.'],
   'Bordas': ['Borders', 'Bordes'],
   'Contornos finos; border/field é o dos campos e passa de 3:1.': ['Thin outlines; border/field is the one for fields and passes 3:1.', 'Contornos finos; border/field es el de los campos y supera 3:1.'],
-  'O pêssego: ação principal, destaque e o indicador de novidade.': ['The peach: main action, highlight, and the what’s-new indicator.', 'El melocotón: acción principal, destaque y el indicador de novedad.'],
+  'Ação principal, destaque e o indicador de novidade.': ['The peach: main action, highlight, and the what’s-new indicator.', 'El melocotón: acción principal, destaque y el indicador de novedad.'],
   'Sucesso, atenção, perigo e informação — sempre com ícone e texto.': ['Success, warning, danger, and info — always with an icon and text.', 'Éxito, atención, peligro e información — siempre con ícono y texto.'],
   'séries': ['series', 'series'],
   'As 8 séries em ordem fixa, validadas para daltonismo.': ['The 8 series in a fixed order, validated for color blindness.', 'Las 8 series en orden fijo, validadas para daltonismo.'],

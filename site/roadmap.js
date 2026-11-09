@@ -13,22 +13,10 @@ const GOAL = T('Meta', 'Goal', 'Meta');
 
 const STAGES = [
   {
-    version: '0.22',
+    version: '0.23',
     group: 'release',
     tone: 'brand',
     status: NEXT,
-    title: T('Plugin do Figma', 'Figma plugin', 'Plugin de Figma'),
-    text: T('Gerado de novo quando a plataforma estiver definida.', 'Regenerated once the platform is settled.', 'Generado de nuevo cuando la plataforma esté definida.'),
-    items: [
-      { name: T('Atualização', 'Update', 'Actualización'), text: T('Temas, navbar, fontes e logotipo atuais.', 'Current themes, navbar, fonts, and logo.', 'Temas, navbar, fuentes y logotipo actuales.') },
-      { name: T('Componentes novos', 'New components', 'Componentes nuevos'), text: T('Tudo o que entrar até aqui.', 'Everything added up to this point.', 'Todo lo que se agregue hasta aquí.') },
-    ],
-  },
-  {
-    version: '0.23',
-    group: 'release',
-    tone: 'neutral',
-    status: PLANNED,
     title: T('Testes e API', 'Tests and API', 'Pruebas y API'),
     text: T('Definir o que é público e proteger isso.', 'Define what’s public and protect it.', 'Definir qué es público y protegerlo.'),
     items: [

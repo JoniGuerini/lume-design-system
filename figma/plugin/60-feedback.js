@@ -85,9 +85,9 @@
   defineBlock({
     id: 'tooltip',
     page: 'Componentes',
-    row: 'Feedback',
+    row: 'Camadas',
     order: 1,
-    group: 'Feedback',
+    group: 'Camadas',
     title: 'Tooltip',
     description: 'Dica curta que aparece no hover e no foco. Nomeia botões de ícone e mostra atalhos. Nunca guarde nela algo que a pessoa precisa para concluir a tarefa.',
     build: async function () {
@@ -389,9 +389,9 @@
   defineBlock({
     id: 'modal',
     page: 'Componentes',
-    row: 'Feedback',
-    order: 4,
-    group: 'Feedback',
+    row: 'Camadas',
+    order: 2,
+    group: 'Camadas',
     title: 'Modal',
     description: 'Para uma decisão que não pode esperar ou uma tarefa curta. Destrutivo ganha ícone e o botão de perigo — e o texto diz o que some.',
     build: async function () {

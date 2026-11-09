@@ -341,7 +341,7 @@ const pagesHtml = figma.root.children
   .join('');
 
 const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Prévia · Lume para Figma</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../ds/fonts.css">
 <link rel="stylesheet" href="../../ds/tokens.css">
 <style>body{margin:0;background:#111;color:#ccc;font:13px Inter,sans-serif}header{position:sticky;top:0;z-index:9;display:flex;gap:16px;align-items:center;padding:10px 16px;background:#1b1b1b;border-bottom:1px solid #333}
 header input{width:200px}.page h2{margin:24px 16px 8px;font:600 14px Inter;color:#999}.zoom{transform-origin:0 0}.canvas{position:relative}</style></head>

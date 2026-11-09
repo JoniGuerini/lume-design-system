@@ -13,18 +13,19 @@
 
   var TAB_LOOKS = [
     ['Sublinhada', {
-      M: { h: 36, px: 'space/150', inset: 12, below: 8, style: 'label-md', radius: 'radius/sm' },
-      P: { h: 30, px: 'space/100', inset: 8, below: 6, style: 'label-sm', radius: 'radius/sm' },
+      M: { h: 36, token: 'size/control/compact', px: 'space/150', inset: 12, below: 8, style: 'label-md', radius: 'radius/sm' },
+      P: { h: 32, token: 'size/control/sm', px: 'space/100', inset: 8, below: 6, style: 'label-sm', radius: 'radius/sm' },
     }],
     ['Segmentada', {
-      M: { h: 32, px: 'space/200', style: 'label-md', radius: 'radius/full' },
-      P: { h: 26, px: 'space/150', style: 'label-sm', radius: 'radius/full' },
+      M: { h: 32, token: 'size/control/sm', px: 'space/200', style: 'label-md', radius: 'radius/full' },
+      P: { h: 28, token: 'size/control/xs', px: 'space/150', style: 'label-sm', radius: 'radius/full' },
     }],
   ];
   var TAB_STATES = ['Normal', 'Hover', 'Selecionada', 'Foco', 'Desativada'];
 
   async function buildTab(c, look, size, s, state) {
     box(c.name, { dir: 'H', gap: 'space/100', pad: [0, s.px], cross: 'center', align: 'center', h: s.h, radius: s.radius }, c);
+    num(c, 'height', s.token);
     c.clipsContent = false;
     var selected = state === 'Selecionada';
     var fg = selected || state === 'Hover' ? 'color/fg/default' : 'color/fg/subtle';
@@ -153,8 +154,9 @@
   var SEG_STATES = ['Normal', 'Hover', 'Selecionado'];
 
   async function buildSegment(c, content, state) {
-    box(c.name, { dir: 'H', align: 'center', cross: 'center', pad: [0, 'space/100'], h: 30, radius: 'radius/full' }, c);
-    c.minWidth = 30;
+    box(c.name, { dir: 'H', align: 'center', cross: 'center', pad: [0, 'space/100'], h: 28, radius: 'radius/full' }, c);
+    num(c, 'height', 'size/control/xs');
+    c.minWidth = 28;
     var fg = state === 'Normal' ? 'color/fg/subtle' : 'color/fg/default';
     if (state === 'Selecionado') fill(c, 'color/bg/muted');
     if (content === 'Ícone') {
