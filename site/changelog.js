@@ -8,10 +8,32 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.14.0';
+export const CURRENT_VERSION = '0.14.1';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.14.1',
+    date: '2026-11-08',
+    title: T('Topbar no celular', 'Top bar on phones', 'Barra superior en el móvil'),
+    summary: T(
+      'Os controles da topbar agora cabem em telas estreitas, sem cortar o seletor de tema nem rolar a página para o lado.',
+      'The top bar controls now fit on narrow screens, without cutting off the theme switcher or scrolling the page sideways.',
+      'Los controles de la barra superior ahora caben en pantallas estrechas, sin cortar el selector de tema ni desplazar la página hacia el lado.',
+    ),
+    groups: [
+      {
+        name: T('Site', 'Site', 'Sitio'),
+        items: [
+          ['correcao', T(
+            'Topbar sem transbordar em telas de até 320 px; abaixo de 480 px, o breadcrumb sai',
+            'Top bar no longer overflows on screens down to 320 px; below 480 px, the breadcrumb is hidden',
+            'La barra superior ya no se desborda en pantallas de hasta 320 px; por debajo de 480 px, el breadcrumb se oculta',
+          ), '/padroes/app-shell'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.14.0',
     date: '2026-11-08',

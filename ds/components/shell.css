@@ -757,6 +757,34 @@ button.ds-account {
   }
 }
 
+/* Celular: os controles da topbar têm de caber até em 320 px, sem rolar para o lado */
+@media (max-width: 479.98px) {
+  .ds-topbar {
+    gap: var(--ds-space-100);
+    padding-inline: var(--ds-space-150);
+  }
+
+  .ds-topbar .ds-segmented__item {
+    padding-inline: var(--ds-space-050);
+  }
+
+  /* sem espaço para o caminho: sobrava só a primeira letra, e o título da página já diz onde se está */
+  .ds-topbar .ds-breadcrumb {
+    display: none;
+  }
+}
+
+@media (max-width: 359.98px) {
+  .ds-topbar {
+    gap: var(--ds-space-050);
+    padding-inline: var(--ds-space-100);
+  }
+
+  .ds-topbar .ds-chip__icon {
+    display: none;
+  }
+}
+
 @media (max-width: 767.98px) {
   .ds-main__content {
     --_pt: var(--ds-space-100);
