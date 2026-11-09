@@ -13,28 +13,10 @@ const GOAL = T('Meta', 'Goal', 'Meta');
 
 const STAGES = [
   {
-    version: '0.17',
+    version: '0.18',
     group: 'components',
     tone: 'brand',
     status: NEXT,
-    title: T('Feedback e carregamento', 'Feedback and loading', 'Feedback y carga'),
-    text: T(
-      'O que dizer enquanto algo acontece ou precisa de atenção.',
-      'What to say while something happens or needs attention.',
-      'Qué decir mientras algo sucede o necesita atención.',
-    ),
-    items: [
-      { name: T('Barra de progresso', 'Progress bar', 'Barra de progreso'), text: T('Quanto de uma tarefa já foi feito.', 'How much of a task is done.', 'Cuánto de una tarea ya está hecho.') },
-      { name: T('Spinner', 'Spinner', 'Spinner'), text: T('Espera curta, também dentro de botões.', 'A short wait, inside buttons too.', 'Espera corta, también dentro de botones.') },
-      { name: T('Skeleton', 'Skeleton', 'Skeleton'), text: T('A forma do conteúdo antes de ele chegar.', 'The shape of the content before it arrives.', 'La forma del contenido antes de que llegue.') },
-      { name: T('Alerta', 'Alert', 'Alerta'), text: T('Uma mensagem na própria página, nos tons de status.', 'A message on the page itself, in the status tones.', 'Un mensaje en la propia página, en los tonos de estado.'), doc: true },
-    ],
-  },
-  {
-    version: '0.18',
-    group: 'components',
-    tone: 'neutral',
-    status: PLANNED,
     title: T('Conteúdo', 'Content', 'Contenido'),
     text: T(
       'Peças para apresentar informação.',

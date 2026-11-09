@@ -8,10 +8,31 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.16.0';
+export const CURRENT_VERSION = '0.17.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.17.0',
+    date: '2026-11-08',
+    title: T('Feedback e carregamento', 'Feedback and loading', 'Feedback y carga'),
+    summary: T(
+      'Três componentes novos para as esperas, só com CSS, e o Alerta com página própria.',
+      'Three new components for waiting, CSS only, and the Alert with its own page.',
+      'Tres componentes nuevos para las esperas, solo con CSS, y la Alerta con página propia.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['novo', T('Barra de progresso: determinada ou indeterminada, sobre o elemento nativo', 'Progress bar: determinate or indeterminate, on the native element', 'Barra de progreso: determinada o indeterminada, sobre el elemento nativo'), '/componentes/barra-de-progresso'],
+          ['novo', T('Spinner: três tamanhos, com a cor do texto, também dentro de botões', 'Spinner: three sizes, in the text color, inside buttons too', 'Spinner: tres tamaños, con el color del texto, también dentro de botones'), '/componentes/spinner'],
+          ['novo', T('Skeleton: a forma do conteúdo antes de ele chegar, sem brilho', 'Skeleton: the shape of the content before it arrives, with no shine', 'Skeleton: la forma del contenido antes de que llegue, sin brillo'), '/componentes/skeleton'],
+          ['melhoria', T('Alerta com página própria', 'Alert with its own page', 'Alerta con página propia'), '/componentes/alerta'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.16.0',
     date: '2026-11-08',
