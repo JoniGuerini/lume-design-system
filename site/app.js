@@ -8,6 +8,7 @@ import { initLocale, setLocale, getLocalePreference, locale, LOCALES, LOCALE_NAM
 import { attachMenu } from '../ds/js/menu.js';
 import { initTooltips } from '../ds/js/tooltip.js';
 import { initScrollbars } from '../ds/js/scrollbar.js';
+import { createBackToTop } from '../ds/js/back-to-top.js';
 import { createShell, renderSidebarNav, renderNavbarNav, setActiveNavItem } from '../ds/js/shell.js';
 import { createCommandPalette } from '../ds/js/command-palette.js';
 import { navigation, pages, findPage } from './nav.js';
@@ -120,6 +121,8 @@ const shell = createShell(
   EMBED ? { persist: false, initial: params.get('sidebar') === 'collapsed' ? 'collapsed' : 'expanded', layout: params.get('layout') ?? 'sidebar' } : undefined,
 );
 const go = (path) => (location.hash = path);
+
+if (!EMBED) createBackToTop(document.getElementById('main-scroll'), { parent: document.querySelector('.ds-main'), focusTarget: document.getElementById('conteudo') });
 
 /* ───────── Navbar ───────── */
 

@@ -456,3 +456,52 @@ button.ds-stepper__content[data-state="hover"] .ds-stepper__label {
     transition: none;
   }
 }
+
+/*
+ * Voltar ao topo — criado por createBackToTop (ds/js/back-to-top.js)
+ * Ancorado no canto inferior do contêiner, que precisa ter position. Aparece com [data-visible].
+ */
+.ds-back-to-top {
+  position: absolute;
+  inset-block-end: var(--ds-space-300);
+  inset-inline-end: var(--ds-space-300);
+  z-index: var(--ds-z-sticky);
+  display: grid;
+  place-items: center;
+  width: var(--ds-size-control-md);
+  height: var(--ds-size-control-md);
+  border: 1px solid var(--ds-color-border-default);
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-color-bg-raised);
+  color: var(--ds-color-fg-muted);
+  box-shadow: var(--ds-shadow-md);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(var(--ds-space-100));
+  transition:
+    opacity var(--ds-duration-base) var(--ds-easing-standard),
+    transform var(--ds-duration-base) var(--ds-easing-standard),
+    visibility var(--ds-duration-base) var(--ds-easing-standard),
+    border-color var(--ds-duration-fast) var(--ds-easing-standard),
+    color var(--ds-duration-fast) var(--ds-easing-standard);
+}
+
+.ds-back-to-top[data-visible] {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.ds-back-to-top:hover,
+.ds-back-to-top[data-state="hover"] {
+  border-color: var(--ds-color-border-strong);
+  color: var(--ds-color-fg-default);
+}
+
+@media (max-width: 767.98px) {
+  .ds-back-to-top {
+    inset-block-end: var(--ds-space-200);
+    inset-inline-end: var(--ds-space-200);
+  }
+}

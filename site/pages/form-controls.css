@@ -416,3 +416,22 @@
   inset: 8px 4px auto auto;
   height: 48px;
 }
+
+/* Voltar ao topo */
+.fc-back {
+  position: relative;
+  width: min(520px, 100%);
+}
+
+.fc-back .fc-scroll {
+  width: 100%;
+  height: 260px;
+}
+
+.fc-states__sample:has(> .ds-back-to-top) {
+  align-items: flex-start;
+}
+
+.fc-states__sample > .ds-back-to-top {
+  position: static;
+}

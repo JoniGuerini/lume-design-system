@@ -52,7 +52,7 @@ ds/                  ← o design system em si
                      gráficos, shell, ⌘K…)
   icons/icons.js     130 ícones próprios + função icon() + <ds-icon>
   js/                theme, tooltip, menu, select, date-picker, time-picker, number-field, slider,
-                     tag-field, file-upload, otp-field, segmented, pagination, stepper, tree, tabs, modal, popover, drawer, context-menu, code-block, toast, shell, command-palette,
+                     tag-field, file-upload, otp-field, segmented, pagination, stepper, tree, tabs, modal, popover, drawer, context-menu, code-block, back-to-top, toast, shell, command-palette,
                      composer (conversa), form (validação), filters (barra de filtros),
                      i18n + messages (idioma e os textos dos componentes em PT, EN e ES)
   js/charts.js       gráficos em SVG: barras, linhas e áreas, rosca, heatmap, calendário,
@@ -67,7 +67,7 @@ site/                ← o site de documentação (usa o DS)
   roadmap.js         próximas etapas: página Roadmap e card do Início
   chart-data.js      dados de exemplo (fixos) das páginas de gráficos
   pages/             páginas (cada uma com seu .css): home, primeiros-passos, novidades,
-                     8 fundamentos, 43 componentes, 7 de gráficos, 6 padrões, 4 recursos,
+                     8 fundamentos, 44 componentes, 7 de gráficos, 6 padrões, 4 recursos,
                      placeholder, 404
 ```
 

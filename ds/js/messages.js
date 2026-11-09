@@ -153,6 +153,8 @@ export const MESSAGES = {
     'code.copy': 'Copiar código',
     'code.copied': 'Código copiado',
 
+    'backToTop.label': 'Voltar ao topo',
+
     'calendar.view': 'Visão',
     'calendar.month': 'Mês',
     'calendar.week': 'Semana',
@@ -360,6 +362,8 @@ export const MESSAGES = {
     'code.copy': 'Copy code',
     'code.copied': 'Code copied',
 
+    'backToTop.label': 'Back to top',
+
     'calendar.view': 'View',
     'calendar.month': 'Month',
     'calendar.week': 'Week',
@@ -566,6 +570,8 @@ export const MESSAGES = {
 
     'code.copy': 'Copiar código',
     'code.copied': 'Código copiado',
+
+    'backToTop.label': 'Volver arriba',
 
     'calendar.view': 'Vista',
     'calendar.month': 'Mes',

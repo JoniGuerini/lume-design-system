@@ -8,10 +8,28 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.20.0';
+export const CURRENT_VERSION = '0.21.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.21.0',
+    date: '2026-11-08',
+    title: T('Voltar ao topo', 'Back to top', 'Volver arriba'),
+    summary: T(
+      'Em páginas longas, um botão no canto leva de volta ao começo. O site inteiro já usa.',
+      'On long pages, a button in the corner takes you back to the start. The whole site already uses it.',
+      'En páginas largas, un botón en la esquina lleva de vuelta al inicio. Todo el sitio ya lo usa.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['novo', T('Voltar ao topo: aparece depois de uma tela de rolagem', 'Back to top: appears after one screen of scrolling', 'Volver arriba: aparece después de una pantalla de desplazamiento'), '/componentes/voltar-ao-topo'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.20.0',
     date: '2026-11-08',
