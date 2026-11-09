@@ -8,10 +8,28 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.22.1';
+export const CURRENT_VERSION = '0.22.2';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.22.2',
+    date: '2026-11-09',
+    title: T('Contagem de visitas', 'Visit counts', 'Conteo de visitas'),
+    summary: T(
+      'O site agora conta visitas de forma anônima, para sabermos quantas pessoas chegam até o Lume.',
+      'The site now counts visits anonymously, so we know how many people reach Lume.',
+      'El sitio ahora cuenta las visitas de forma anónima, para saber cuántas personas llegan a Lume.',
+    ),
+    groups: [
+      {
+        name: T('Site', 'Site', 'Sitio'),
+        items: [
+          ['melhoria', T('Contagem anônima de visitas no site publicado', 'Anonymous visit counts on the published site', 'Conteo anónimo de visitas en el sitio publicado'), '/'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.22.1',
     date: '2026-11-09',

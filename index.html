@@ -38,6 +38,17 @@
       } catch (e) {}
     </script>
 
+    <script>
+      // visitas (Vercel Web Analytics): só no site publicado e fora dos exemplos em iframe, que contariam como visita
+      if (location.hostname === 'lumeui.dev' && !new URLSearchParams(location.search).has('embed')) {
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+        var insights = document.createElement('script');
+        insights.defer = true;
+        insights.src = '/_vercel/insights/script.js';
+        document.head.append(insights);
+      }
+    </script>
+
     <link rel="stylesheet" href="ds/ds.css" />
     <link rel="stylesheet" href="site/site.css" />
     <link rel="stylesheet" href="site/docs.css" />
