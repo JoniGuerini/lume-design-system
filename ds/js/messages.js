@@ -52,6 +52,7 @@ export const MESSAGES = {
     'palette.close': 'fechar',
     'palette.empty': (q) => `Nada encontrado para “${q}”.`,
 
+    'shell.more': 'Mais',
     'shell.openMenu': 'Abrir menu',
     'shell.closeMenu': 'Fechar menu',
     'shell.collapse': 'Recolher menu',
@@ -261,6 +262,7 @@ export const MESSAGES = {
     'palette.close': 'close',
     'palette.empty': (q) => `Nothing found for “${q}”.`,
 
+    'shell.more': 'More',
     'shell.openMenu': 'Open menu',
     'shell.closeMenu': 'Close menu',
     'shell.collapse': 'Collapse menu',
@@ -470,6 +472,7 @@ export const MESSAGES = {
     'palette.close': 'cerrar',
     'palette.empty': (q) => `No hay resultados para “${q}”.`,
 
+    'shell.more': 'Más',
     'shell.openMenu': 'Abrir menú',
     'shell.closeMenu': 'Cerrar menú',
     'shell.collapse': 'Contraer menú',

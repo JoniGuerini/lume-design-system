@@ -491,10 +491,15 @@ button.ds-account {
 }
 
 .ds-navbar__nav {
+  flex: 1;
   display: flex;
   align-items: center;
   gap: 2px;
   min-width: 0;
+}
+
+.ds-navbar__item[hidden] {
+  display: none;
 }
 
 .ds-navbar__item {
@@ -545,6 +550,26 @@ button.ds-account {
   flex: none;
   width: 240px;
   margin-inline-start: auto;
+}
+
+/* sem espaço: só o ícone. O texto continua lá para o leitor de tela */
+.ds-navbar[data-compact] .ds-navbar__search {
+  justify-content: center;
+  width: var(--ds-size-control-md);
+  padding-inline: 0;
+}
+
+.ds-navbar[data-compact] .ds-navbar__search .ds-field__placeholder {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.ds-navbar[data-compact] .ds-navbar__search .ds-sidebar-search__kbd {
+  display: none;
 }
 
 @media (min-width: 1024px) {

@@ -8,10 +8,28 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.21.0';
+export const CURRENT_VERSION = '0.21.1';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.21.1',
+    date: '2026-11-08',
+    title: T('Navbar em janelas menores', 'Navbar in smaller windows', 'Navbar en ventanas más pequeñas'),
+    summary: T(
+      'Os itens da navbar não passam mais por cima da busca. Sem espaço, a busca vira só o ícone e o que não couber vai para o menu Mais.',
+      'Navbar items no longer run over the search. Without room, the search becomes just its icon and what doesn’t fit goes into the More menu.',
+      'Los elementos de la navbar ya no pasan por encima de la búsqueda. Sin espacio, la búsqueda queda solo con el ícono y lo que no cabe va al menú Más.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['correcao', T('Navbar: busca só com o ícone e menu Mais quando falta espaço', 'Navbar: icon-only search and a More menu when space runs out', 'Navbar: búsqueda solo con ícono y menú Más cuando falta espacio'), '/padroes/app-shell'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.21.0',
     date: '2026-11-08',

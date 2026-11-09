@@ -239,6 +239,9 @@ export function setActiveNavItem(container, href) {
  *   const navbar = renderNavbarNav(container, groups, { attachMenu, go: (href) => (location.hash = href) });
  *   navbar.setActive('#/componentes/botao');  navbar.destroy();
  * attachMenu vem de ds/js/menu.js (passado por quem chama, para o shell não depender do menu).
+ *
+ * Sem espaço para tudo, primeiro a busca da navbar vira só o ícone; se ainda faltar, os últimos itens
+ * passam para um botão "Mais", que abre um menu com eles. Nada fica cortado nem por cima da busca.
  */
 export function renderNavbarNav(container, groups, { attachMenu, go }) {
   container.innerHTML = groups
@@ -251,6 +254,7 @@ export function renderNavbarNav(container, groups, { attachMenu, go }) {
             .join(''),
     )
     .join('');
+  container.insertAdjacentHTML('beforeend', `<button type="button" class="ds-navbar__item" data-navbar-more hidden><span>${escape(msg('shell.more'))}</span><span class="ds-navbar__chevron" aria-hidden="true">${icon('chevron-down', { size: 16 })}</span></button>`);
   const menus = groups
     .filter((g) => g.label)
     .map((group) => ({
@@ -269,15 +273,73 @@ export function renderNavbarNav(container, groups, { attachMenu, go }) {
         onChange: go,
       }),
     }));
+  /* ── o que não couber vai para o "Mais" ── */
+  const bar = container.closest('.ds-navbar');
+  const more = container.querySelector('[data-navbar-more]');
+  const entries = [...container.children].filter((el) => el !== more);
+  let moreMenu = null;
+  let overflowKey = '';
+  let activeHref = null;
+
+  const overflowOptions = (hidden) =>
+    hidden.flatMap((el) => {
+      if (el.tagName === 'A') return [{ value: el.getAttribute('href'), label: el.querySelector('span').textContent }];
+      const group = groups.find((g) => g.id === el.dataset.navbarGroup);
+      return [{ type: 'group', label: group.label }, ...group.items.map((i) => ({ value: i.href, label: i.label, icon: i.icon }))];
+    });
+
+  function syncMoreCurrent() {
+    const hidden = entries.filter((el) => el.hidden);
+    const here = hidden.some((el) => (el.tagName === 'A' ? el.getAttribute('href') === activeHref : groups.find((g) => g.id === el.dataset.navbarGroup)?.items.some((i) => i.href === activeHref)));
+    more.toggleAttribute('data-current', here);
+    moreMenu?.setValue?.(here ? activeHref : null);
+  }
+
+  function renderMore(hidden) {
+    const key = hidden.map((el) => el.dataset.navbarGroup ?? el.getAttribute('href')).join('|');
+    if (key === overflowKey) return;
+    overflowKey = key;
+    moreMenu?.destroy();
+    moreMenu = hidden.length ? attachMenu(more, { label: msg('shell.more'), options: overflowOptions(hidden), sectionColumns: true, value: null, onChange: go }) : null;
+    syncMoreCurrent();
+  }
+
+  function fit() {
+    if (!bar?.offsetWidth) return;
+    const overflowing = () => container.scrollWidth > container.clientWidth + 1;
+    entries.forEach((el) => (el.hidden = false));
+    more.hidden = true;
+    bar.removeAttribute('data-compact');
+    if (overflowing()) {
+      bar.setAttribute('data-compact', '');
+      if (overflowing()) {
+        more.hidden = false;
+        for (let i = entries.length - 1; i >= 0 && overflowing(); i--) entries[i].hidden = true;
+      }
+    }
+    renderMore(entries.filter((el) => el.hidden));
+  }
+
+  const observer = bar && typeof ResizeObserver !== 'undefined' ? new ResizeObserver(fit) : null;
+  if (bar) observer?.observe(bar);
+  fit();
+  document.fonts?.ready.then(fit); // a largura dos itens muda quando a fonte termina de carregar
+
   return {
     setActive(href) {
+      activeHref = href;
       container.querySelectorAll('a.ds-navbar__item').forEach((a) => (a.getAttribute('href') === href ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current')));
       for (const { group, button, menu } of menus) {
         const here = group.items.some((i) => i.href === href);
         button.toggleAttribute('data-current', here);
         menu.setValue?.(here ? href : null);
       }
+      syncMoreCurrent();
     },
-    destroy: () => menus.forEach(({ menu }) => menu.destroy()),
+    destroy() {
+      observer?.disconnect();
+      moreMenu?.destroy();
+      menus.forEach(({ menu }) => menu.destroy());
+    },
   };
 }
