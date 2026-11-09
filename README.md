@@ -51,7 +51,8 @@ ds/                  ← o design system em si
                      tabela, modal, menu, toast, painel, avatar, alerta, filtros, conversa,
                      gráficos, shell, ⌘K…)
   icons/icons.js     126 ícones próprios + função icon() + <ds-icon>
-  js/                theme, tooltip, menu, select, tabs, modal, toast, shell, command-palette,
+  js/                theme, tooltip, menu, select, date-picker, time-picker, number-field, slider,
+                     tag-field, file-upload, otp-field, tabs, modal, toast, shell, command-palette,
                      composer (conversa), form (validação), filters (barra de filtros),
                      i18n + messages (idioma e os textos dos componentes em PT, EN e ES)
   js/charts.js       gráficos em SVG: barras, linhas e áreas, rosca, heatmap, calendário,
@@ -67,7 +68,7 @@ site/                ← o site de documentação (usa o DS)
   brand.js           troca da cor da marca ao vivo (demonstração)
   chart-data.js      dados de exemplo (fixos) das páginas de gráficos
   pages/             páginas (cada uma com seu .css): home, primeiros-passos, novidades,
-                     8 fundamentos, 17 componentes, 7 de gráficos, 6 padrões, 4 recursos,
+                     8 fundamentos, 24 componentes, 7 de gráficos, 6 padrões, 4 recursos,
                      placeholder, 404
 ```
 

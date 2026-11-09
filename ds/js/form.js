@@ -146,8 +146,12 @@ export function enhanceForm(form, options = {}) {
     } else if (kind === 'check') {
       if (field.required && !el.checked) return fieldMessage(field, 'required');
     } else {
+      // data-ds-invalid: erro de formato que o próprio campo já detectou; data-ds-filled: o valor está fora do input (tags)
+      if (el.dataset.dsInvalid) return el.dataset.dsInvalid;
       const value = kind === 'select' && el.multiple ? [...el.selectedOptions].map((x) => x.value).join(',') : el.value.trim();
-      if (!value) {
+      if (el.dataset.dsFilled && !value) {
+        // tem valor: nada a conferir no texto vazio
+      } else if (!value) {
         if (field.required) return fieldMessage(field, 'required');
       } else if (kind === 'text') {
         if (el.type === 'email' && !EMAIL.test(value)) return fieldMessage(field, 'email', value);

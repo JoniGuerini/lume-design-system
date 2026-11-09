@@ -1,0 +1,184 @@
+/*
+ * Slider — sobre o <input type="range"> nativo; o trilho e a parte preenchida são desenhados no .ds-slider
+ * Estados forçáveis com data-state="hover|focus" no .ds-slider, para documentação e testes.
+ */
+.ds-slider {
+  --_thumb: 18px;
+  --_from: 0;
+  --_to: 0;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: var(--_thumb);
+}
+
+.ds-slider[data-marks] {
+  margin-bottom: 26px;
+}
+
+/* trilho */
+.ds-slider::before,
+.ds-slider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 4px;
+  border-radius: var(--ds-radius-full);
+  translate: 0 -50%;
+}
+
+.ds-slider::before {
+  inset-inline: 0;
+  background: var(--ds-color-border-field);
+}
+
+/* parte preenchida: acompanha o centro do polegar */
+.ds-slider::after {
+  left: 0;
+  right: calc((1 - var(--_to)) * (100% - var(--_thumb)) + var(--_thumb) / 2);
+  background: var(--ds-color-brand-solid);
+}
+
+.ds-slider[data-range]::after {
+  left: calc(var(--_from) * (100% - var(--_thumb)) + var(--_thumb) / 2);
+}
+
+.ds-slider__input {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.ds-slider__input::-webkit-slider-runnable-track {
+  height: 100%;
+  background: none;
+}
+
+.ds-slider__input::-moz-range-track {
+  height: 100%;
+  background: none;
+}
+
+.ds-slider__input::-webkit-slider-thumb {
+  width: var(--_thumb);
+  height: var(--_thumb);
+  border: 2px solid var(--ds-color-brand-solid);
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-color-bg-raised);
+  appearance: none;
+  -webkit-appearance: none;
+  transition:
+    background-color var(--ds-duration-fast) var(--ds-easing-standard),
+    box-shadow var(--ds-duration-base) var(--ds-easing-standard);
+}
+
+.ds-slider__input::-moz-range-thumb {
+  box-sizing: border-box;
+  width: var(--_thumb);
+  height: var(--_thumb);
+  border: 2px solid var(--ds-color-brand-solid);
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-color-bg-raised);
+  transition:
+    background-color var(--ds-duration-fast) var(--ds-easing-standard),
+    box-shadow var(--ds-duration-base) var(--ds-easing-standard);
+}
+
+.ds-slider__input:hover::-webkit-slider-thumb,
+.ds-slider[data-state="hover"] .ds-slider__input::-webkit-slider-thumb {
+  background: var(--ds-color-brand-solid);
+}
+
+.ds-slider__input:hover::-moz-range-thumb,
+.ds-slider[data-state="hover"] .ds-slider__input::-moz-range-thumb {
+  background: var(--ds-color-brand-solid);
+}
+
+.ds-slider__input:focus-visible {
+  outline: none;
+}
+
+.ds-slider__input:focus-visible::-webkit-slider-thumb,
+.ds-slider[data-state="focus"] .ds-slider__input::-webkit-slider-thumb {
+  border-color: var(--ds-color-border-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ds-color-border-focus) 30%, transparent);
+}
+
+.ds-slider__input:focus-visible::-moz-range-thumb,
+.ds-slider[data-state="focus"] .ds-slider__input::-moz-range-thumb {
+  border-color: var(--ds-color-border-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ds-color-border-focus) 30%, transparent);
+}
+
+/* Faixa: só os polegares recebem o ponteiro, para os dois inputs dividirem o mesmo trilho */
+.ds-slider[data-range] .ds-slider__input {
+  pointer-events: none;
+}
+
+.ds-slider[data-range] .ds-slider__input::-webkit-slider-thumb {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.ds-slider[data-range] .ds-slider__input::-moz-range-thumb {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.ds-slider:has(.ds-slider__input:disabled) {
+  opacity: var(--ds-opacity-disabled);
+}
+
+.ds-slider__input:disabled {
+  cursor: not-allowed;
+}
+
+/* Rótulo e valor na mesma linha */
+.ds-slider__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--ds-space-200);
+}
+
+.ds-slider__value {
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Marcas */
+.ds-slider__marks {
+  position: absolute;
+  inset-inline: 0;
+  top: calc(100% + 6px);
+  height: 18px;
+}
+
+.ds-slider__mark {
+  position: absolute;
+  left: calc(var(--_at) * (100% - var(--_thumb)) + var(--_thumb) / 2);
+  translate: -50% 0;
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-caption);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.ds-slider__mark:first-child {
+  left: 0;
+  translate: 0 0;
+}
+
+.ds-slider__mark:last-child {
+  left: auto;
+  right: 0;
+  translate: 0 0;
+}

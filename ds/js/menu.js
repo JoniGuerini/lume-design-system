@@ -25,6 +25,7 @@
  * Colunas — listas longas viram uma grade em vez de rolar: maxRows é o máximo de itens por coluna;
  * passando disso, os itens seguem para a coluna do lado, equilibrados (16 itens com maxRows 5 → 4 × 4).
  *   attachMenu(botao, { label: 'Componentes', options, maxRows: 5, onChange });
+ * Com sectionColumns: true, cada { type: 'group' } abre uma coluna nova, com os itens que vêm depois dele.
  * ↑/↓ andam na ordem (desce a coluna e passa para a próxima); ←/→ pulam de coluna.
  * menu.destroy() ao sair da página.
  *
@@ -50,9 +51,9 @@ export function menuRows(count, maxRows) {
   return Math.ceil(count / Math.ceil(count / maxRows));
 }
 
-export function menuContent({ label, options = [], value, mode = 'radio', rows = 0 } = {}) {
+export function menuContent({ label, options = [], value, mode = 'radio', rows = 0, sectionColumns = false } = {}) {
   const radio = mode !== 'action';
-  const items = options
+  const render = (list) => list
       .map((o) => {
         if (o.type === 'separator') return '<div class="ds-menu__separator" role="separator"></div>';
         if (o.type === 'group') return `<p class="ds-menu__group" aria-hidden="true">${escape(o.label)}</p>`;
@@ -70,13 +71,25 @@ export function menuContent({ label, options = [], value, mode = 'radio', rows =
         </button>`;
       })
       .join('');
+  if (sectionColumns) {
+    const columns = [];
+    for (const o of options) {
+      if (o.type === 'group' || !columns.length) columns.push([]);
+      columns.at(-1).push(o);
+    }
+    return (
+      (label ? `<p class="ds-menu__label" aria-hidden="true">${escape(label)}</p>` : '') +
+      `<div class="ds-menu__sections">${columns.map((c) => `<div class="ds-menu__section">${render(c)}</div>`).join('')}</div>`
+    );
+  }
+  const items = render(options);
   return (
     (label ? `<p class="ds-menu__label" aria-hidden="true">${escape(label)}</p>` : '') +
     (rows ? `<div class="ds-menu__grid" style="--_rows:${rows}">${items}</div>` : items)
   );
 }
 
-export function attachMenu(trigger, { label, options, value, onChange, mode = 'radio', maxRows = 0 }) {
+export function attachMenu(trigger, { label, options, value, onChange, mode = 'radio', maxRows = 0, sectionColumns = false }) {
   const id = `ds-menu-${++uid}`;
   const menu = document.createElement('div');
   menu.className = 'ds-menu';
@@ -85,7 +98,7 @@ export function attachMenu(trigger, { label, options, value, onChange, mode = 'r
   if (label) menu.setAttribute('aria-label', label);
   if (mode === 'action') menu.dataset.mode = 'action';
   const rows = menuRows(options.filter((o) => !o.type).length, maxRows);
-  if (rows) menu.classList.add('ds-menu--columns');
+  if (rows || sectionColumns) menu.classList.add('ds-menu--columns');
   document.body.append(menu);
 
   trigger.setAttribute('aria-haspopup', 'menu');
@@ -96,7 +109,7 @@ export function attachMenu(trigger, { label, options, value, onChange, mode = 'r
   const items = () => [...menu.querySelectorAll('.ds-menu__item:not([aria-disabled="true"])')];
 
   function render() {
-    menu.innerHTML = menuContent({ label, options, value: current, mode, rows });
+    menu.innerHTML = menuContent({ label, options, value: current, mode, rows, sectionColumns });
   }
 
   function position() {
@@ -157,7 +170,18 @@ export function attachMenu(trigger, { label, options, value, onChange, mode = 'r
     const i = list.indexOf(document.activeElement);
     const move = { ArrowDown: i + 1, ArrowUp: i - 1, Home: 0, End: list.length - 1 }[event.key];
     const jump = rows ? { ArrowRight: i + rows, ArrowLeft: i - rows }[event.key] : undefined;
-    if (jump !== undefined) {
+    if (sectionColumns && (event.key === 'ArrowRight' || event.key === 'ArrowLeft')) {
+      // mesma altura na coluna vizinha (ou o último item dela, se for mais curta)
+      event.preventDefault();
+      const section = list[i]?.closest('.ds-menu__section');
+      const sections = [...menu.querySelectorAll('.ds-menu__section')];
+      const next = sections[sections.indexOf(section) + (event.key === 'ArrowRight' ? 1 : -1)];
+      if (next) {
+        const row = [...section.querySelectorAll('.ds-menu__item')].indexOf(list[i]);
+        const target = [...next.querySelectorAll('.ds-menu__item:not([aria-disabled="true"])')];
+        (target[row] ?? target.at(-1))?.focus();
+      }
+    } else if (jump !== undefined) {
       // ←/→ na grade: mesma linha da coluna vizinha (sem dar a volta)
       event.preventDefault();
       list[Math.min(Math.max(jump, 0), list.length - 1)].focus();

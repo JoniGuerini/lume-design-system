@@ -184,7 +184,8 @@ function navItem(item, large) {
 
 /**
  * Renderiza a navegação.
- * groups: [{ id, label?, items: [{ label, icon, href, dot? }] }] — o grupo sem label vira a navegação principal.
+ * groups: [{ id, label?, items: [{ label, icon, href, dot?, section? }] }] — o grupo sem label vira a navegação principal.
+ * section: rótulo pequeno que abre uma seção dentro do grupo (repita em cada item da seção).
  */
 export function renderSidebarNav(container, groups) {
   const openState = store.get(GROUPS_KEY, {});
@@ -202,7 +203,7 @@ export function renderSidebarNav(container, groups) {
           <span class="ds-nav-group__toggle" aria-hidden="true">${icon('chevron-down', { size: 16 })}</span>
         </button>
         <div class="ds-nav-group__items" id="${id}">
-          <ul class="ds-nav-list" role="list">${group.items.map((i) => navItem(i, false)).join('')}</ul>
+          <ul class="ds-nav-list" role="list">${group.items.map((i, n) => (i.section && i.section !== group.items[n - 1]?.section ? `<li class="ds-nav-section" aria-hidden="true">${escape(i.section)}</li>` : '') + navItem(i, false)).join('')}</ul>
         </div>
       </section>`;
     })
@@ -261,8 +262,9 @@ export function renderNavbarNav(container, groups, { attachMenu, go }) {
       button,
       menu: attachMenu(button, {
         label: group.label,
-        options: group.items.map((i) => ({ value: i.href, label: i.label, icon: i.icon })),
-        maxRows: 5, // grupos longos (Componentes tem 16 páginas) abrem em grade, sem rolagem
+        // com seções, cada uma vira uma coluna; sem elas, grupos longos abrem em grade (nos dois casos, sem rolagem)
+        options: group.items.flatMap((i, n) => [...(i.section && i.section !== group.items[n - 1]?.section ? [{ type: 'group', label: i.section }] : []), { value: i.href, label: i.label, icon: i.icon }]),
+        ...(group.items.some((i) => i.section) ? { sectionColumns: true } : { maxRows: 5 }),
         value: null,
         onChange: go,
       }),

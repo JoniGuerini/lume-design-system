@@ -285,6 +285,18 @@
   transition: opacity var(--ds-duration-base) var(--ds-easing-standard);
 }
 
+/* Rótulo de seção dentro de um grupo */
+.ds-nav-section {
+  padding: var(--ds-space-150) 13px var(--ds-space-050);
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-eyebrow);
+  white-space: nowrap;
+}
+
+.ds-nav-section:first-child {
+  padding-top: var(--ds-space-050);
+}
+
 .ds-nav-group__items {
   display: grid;
   grid-template-rows: 1fr;
@@ -656,6 +668,10 @@ button.ds-account {
 
   .ds-shell[data-sidebar="collapsed"] .ds-nav-group__header::after {
     opacity: 1;
+  }
+
+  .ds-shell[data-sidebar="collapsed"] .ds-nav-section {
+    display: none;
   }
 
   .ds-shell[data-sidebar="collapsed"] .ds-nav-group__items {

@@ -111,7 +111,7 @@ const navGroups = () =>
   navigation.map((group) => ({
     id: group.id,
     label: group.label,
-    items: group.items.map((item) => ({ label: item.label, icon: item.icon, href: `#${item.path}`, dot: item.dot && !newsSeen() })),
+    items: group.items.map((item) => ({ label: item.label, icon: item.icon, href: `#${item.path}`, dot: item.dot && !newsSeen(), section: group.sectionLabel(item.section) })),
   }));
 
 function renderSidebar() {

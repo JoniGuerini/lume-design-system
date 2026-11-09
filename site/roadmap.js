@@ -13,31 +13,10 @@ const GOAL = T('Meta', 'Goal', 'Meta');
 
 const STAGES = [
   {
-    version: '0.14',
+    version: '0.15',
     group: 'components',
     tone: 'brand',
     status: NEXT,
-    title: T('Formulários completos', 'Complete forms', 'Formularios completos'),
-    text: T(
-      'O que um formulário costuma pedir além de texto e seleção.',
-      'What forms usually need beyond text and select.',
-      'Lo que un formulario suele pedir además de texto y selector.',
-    ),
-    items: [
-      { name: T('Seletor de data e período', 'Date and range picker', 'Selector de fecha y período'), text: T('Um campo que abre o calendário, para um dia ou um intervalo.', 'A field that opens the calendar, for one day or a range.', 'Un campo que abre el calendario, para un día o un intervalo.') },
-      { name: T('Seletor de horário', 'Time picker', 'Selector de hora'), text: T('Horas e minutos, no formato do idioma.', 'Hours and minutes, in the locale’s format.', 'Horas y minutos, en el formato del idioma.') },
-      { name: T('Slider', 'Slider', 'Slider'), text: T('Um valor ou uma faixa dentro de um intervalo.', 'A value or a range within limits.', 'Un valor o un rango dentro de un intervalo.') },
-      { name: T('Campo numérico', 'Number field', 'Campo numérico'), text: T('Número com botões de − e +, limites e passo.', 'A number with − and + buttons, limits, and a step.', 'Número con botones − y +, límites y paso.') },
-      { name: T('Upload de arquivo', 'File upload', 'Carga de archivos'), text: T('Arrastar ou escolher, com progresso e erro por arquivo.', 'Drag or browse, with progress and errors per file.', 'Arrastrar o elegir, con progreso y error por archivo.') },
-      { name: T('Campo de tags', 'Tag field', 'Campo de etiquetas'), text: T('Vários valores livres dentro de um campo só.', 'Several free values inside one field.', 'Varios valores libres dentro de un solo campo.') },
-      { name: T('Código de verificação', 'Verification code', 'Código de verificación'), text: T('Um dígito por casa, para login em duas etapas.', 'One digit per box, for two-step sign-in.', 'Un dígito por casilla, para el inicio de sesión en dos pasos.') },
-    ],
-  },
-  {
-    version: '0.15',
-    group: 'components',
-    tone: 'neutral',
-    status: PLANNED,
     title: T('Navegação e estrutura', 'Navigation and structure', 'Navegación y estructura'),
     text: T(
       'Para percorrer listas longas, etapas e hierarquias.',

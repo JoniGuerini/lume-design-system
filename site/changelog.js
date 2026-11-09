@@ -8,10 +8,44 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.13.1';
+export const CURRENT_VERSION = '0.14.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.14.0',
+    date: '2026-11-08',
+    title: T('Formulários completos', 'Complete forms', 'Formularios completos'),
+    summary: T(
+      'Sete componentes novos para o que um formulário costuma pedir além de texto e seleção, e o menu de Componentes dividido por assunto.',
+      'Seven new components for what forms usually need beyond text and select, and the Components menu divided by subject.',
+      'Siete componentes nuevos para lo que un formulario suele pedir además de texto y selector, y el menú de Componentes dividido por tema.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['novo', T('Seletor de data: um dia ou um período, digitando ou no calendário', 'Date picker: a day or a range, typed or on the calendar', 'Selector de fecha: un día o un período, escribiendo o en el calendario'), '/componentes/seletor-de-data'],
+          ['novo', T('Seletor de horário: horas e minutos no formato do idioma', 'Time picker: hours and minutes in the language’s format', 'Selector de hora: horas y minutos en el formato del idioma'), '/componentes/seletor-de-horario'],
+          ['novo', T('Campo numérico: − e +, limites, passo, moeda, porcentagem e unidade', 'Number field: − and +, limits, a step, currency, percent, and unit', 'Campo numérico: − y +, límites, paso, moneda, porcentaje y unidad'), '/componentes/campo-numerico'],
+          ['novo', T('Slider: um valor ou uma faixa, sobre o controle nativo', 'Slider: a value or a range, on top of the native control', 'Slider: un valor o un rango, sobre el control nativo'), '/componentes/slider'],
+          ['novo', T('Campo de tags: vários valores livres em um campo só', 'Tag field: several free values in one field', 'Campo de etiquetas: varios valores libres en un solo campo'), '/componentes/campo-de-tags'],
+          ['novo', T('Upload de arquivo: arrastar ou escolher, com progresso e erro por arquivo', 'File upload: drag or browse, with progress and errors per file', 'Carga de archivos: arrastrar o elegir, con progreso y error por archivo'), '/componentes/upload'],
+          ['novo', T('Código de verificação: um dígito por casa, com preenchimento automático', 'Verification code: one digit per box, with autofill', 'Código de verificación: un dígito por casilla, con autocompletado'), '/componentes/codigo-de-verificacao'],
+        ],
+      },
+      {
+        name: T('Site', 'Site', 'Sitio'),
+        items: [
+          ['melhoria', T(
+            'Componentes dividido em Ações, Formulários, Navegação, Camadas, Feedback e Conteúdo, na sidebar e na navbar',
+            'Components divided into Actions, Forms, Navigation, Overlays, Feedback, and Content, in the sidebar and the navbar',
+            'Componentes dividido en Acciones, Formularios, Navegación, Capas, Feedback y Contenido, en la sidebar y la navbar',
+          ), '/componentes/botao'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.13.1',
     date: '2026-11-08',
