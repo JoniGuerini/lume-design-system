@@ -8,10 +8,29 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.22.0';
+export const CURRENT_VERSION = '0.22.1';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.22.1',
+    date: '2026-11-09',
+    title: T('Números do plugin no site', 'Plugin numbers on the site', 'Números del plugin en el sitio'),
+    summary: T(
+      'A página do plugin do Figma agora mostra blocos, variantes e ícones também no site publicado, sempre atualizados a cada publicação.',
+      'The Figma plugin page now shows blocks, variants, and icons on the published site too, updated with every release.',
+      'La página del plugin de Figma ahora muestra bloques, variantes e íconos también en el sitio publicado, siempre actualizados en cada publicación.',
+    ),
+    groups: [
+      {
+        name: T('Recursos', 'Resources', 'Recursos'),
+        items: [
+          ['correcao', T('Plugin do Figma: números e lista de blocos no site publicado', 'Figma plugin: numbers and block list on the published site', 'Plugin de Figma: números y lista de bloques en el sitio publicado'), '/recursos/figma'],
+          ['correcao', T('Plugin do Figma: o caminho da prévia não é mais um link quebrado no site publicado', 'Figma plugin: the preview path is no longer a broken link on the published site', 'Plugin de Figma: la ruta de la vista previa ya no es un enlace roto en el sitio publicado'), '/recursos/figma'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.22.0',
     date: '2026-11-09',

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Monta o site para publicar (Vercel) em dist/site/, só com o que o navegador usa:
- *   index.html, ds/, site/ e assets/favicon.svg
+ *   index.html, ds/, site/, assets/favicon.svg e o resumo do teste do plugin do Figma
  *
  * O resto do repositório (CLAUDE.md, README, scripts/, figma/, tokens/) fica de fora.
  * Arquivo novo que o site carregue fora dessas pastas entra na lista PUBLIC.
@@ -9,10 +9,10 @@
  * Também grava dist/site/version.json com a impressão digital do que vai para o ar (hash do
  * conteúdo): uma aba aberta compara com a dela e mostra o aviso de versão nova (site/update.js).
  *
- * Uso: npm run build (gera os tokens antes)
+ * Uso: npm run build (gera os tokens e roda o teste do plugin antes)
  */
 import { createHash } from 'node:crypto';
-import { cp, readdir, readFile, rm, stat, writeFile } from 'node:fs/promises';
+import { cp, mkdir, readdir, readFile, rm, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -25,6 +25,13 @@ for (const item of PUBLIC) {
   await stat(path.join(ROOT, item)); // falha se o caminho sumiu, em vez de publicar sem ele
   await cp(path.join(ROOT, item), path.join(OUT, item), { recursive: true });
 }
+
+// números do plugin para a página Recursos › Plugin do Figma. Só o resumo vai para o ar, não o plugin.
+// Sem generatedAt: a data mudaria a impressão digital a cada build e dispararia o aviso de versão nova.
+const { generatedAt, ...figmaSummary } = JSON.parse(await readFile(path.join(ROOT, 'dist', 'figma-plugin', 'summary.json'), 'utf8'));
+const figmaOut = path.join(OUT, 'dist', 'figma-plugin');
+await mkdir(figmaOut, { recursive: true });
+await writeFile(path.join(figmaOut, 'summary.json'), `${JSON.stringify(figmaSummary)}\n`);
 
 // impressão digital: muda quando qualquer arquivo publicado muda, e só nesse caso
 const files = (await readdir(OUT, { recursive: true, withFileTypes: true }))

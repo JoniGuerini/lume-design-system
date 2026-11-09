@@ -12,6 +12,13 @@ const SUMMARY_URL = 'dist/figma-plugin/summary.json';
 
 const ic = (s) => `<code class="ds-inline-code">${s}</code>`;
 
+// A prévia não vai para o ar: fora da máquina de quem desenvolve, o caminho é só texto, sem link.
+const PREVIEW_PATH = 'dist/figma-plugin/preview.html';
+const previewRef = () =>
+  ['localhost', '127.0.0.1'].includes(location.hostname)
+    ? `<a class="rf-link" href="${PREVIEW_PATH}" target="_blank" rel="noopener">${PREVIEW_PATH}</a>`
+    : ic(PREVIEW_PATH);
+
 const STEPS = () => [
   [L('Gere o plugin', 'Build the plugin', 'Genera el plugin'), L('Na pasta do projeto. Ele lê os tokens e os ícones atuais — rode de novo sempre que eles mudarem.', 'In the project folder. It reads the current tokens and icons — run it again whenever they change.', 'En la carpeta del proyecto. Lee los tokens y los íconos actuales — ejecútalo de nuevo cada vez que cambien.'), 'npm run figma'],
   [L('Abra o Figma para desktop', 'Open Figma for desktop', 'Abre Figma para escritorio'), L('Plugins de desenvolvimento só rodam no app. Abra o arquivo onde a biblioteca vai morar (de preferência um arquivo só para ela).', 'Development plugins only run in the app. Open the file where the library will live (ideally a file just for it).', 'Los plugins de desarrollo solo funcionan en la app. Abre el archivo donde vivirá la biblioteca (de preferencia, un archivo solo para ella).'), null],
@@ -201,7 +208,7 @@ export default function renderFigma(page) {
       L('Testar sem o Figma', 'Test without Figma', 'Probar sin Figma'),
       L('O teste roda o plugin numa imitação da API do Figma, com as mesmas regras (fonte carregada antes do texto, preencher só em auto layout, propriedades válidas), roda de novo para garantir que nada duplica e gera uma prévia.', 'The test runs the plugin against an imitation of the Figma API, with the same rules (font loaded before text, fill only in auto layout, valid properties), runs it again to make sure nothing duplicates, and generates a preview.', 'La prueba ejecuta el plugin en una imitación de la API de Figma, con las mismas reglas (fuente cargada antes del texto, rellenar solo en auto layout, propiedades válidas), lo ejecuta de nuevo para garantizar que nada se duplica y genera una vista previa.'),
       `${codeBlock('npm run figma:test')}
-      <p class="rf-note">${icon('eye', { size: 16 })}<span>${L('A prévia fica em <a class="rf-link" href="dist/figma-plugin/preview.html" target="_blank" rel="noopener">dist/figma-plugin/preview.html</a> — uma aproximação (auto layout vira flexbox). O Figma de verdade é a palavra final.', 'The preview is at <a class="rf-link" href="dist/figma-plugin/preview.html" target="_blank" rel="noopener">dist/figma-plugin/preview.html</a> — an approximation (auto layout becomes flexbox). The real Figma has the final word.', 'La vista previa queda en <a class="rf-link" href="dist/figma-plugin/preview.html" target="_blank" rel="noopener">dist/figma-plugin/preview.html</a> — una aproximación (auto layout se vuelve flexbox). El Figma de verdad tiene la última palabra.')}</span></p>`,
+      <p class="rf-note">${icon('eye', { size: 16 })}<span>${L(`A prévia fica em ${previewRef()} — uma aproximação (auto layout vira flexbox). O Figma de verdade é a palavra final.`, `The preview is at ${previewRef()} — an approximation (auto layout becomes flexbox). The real Figma has the final word.`, `La vista previa queda en ${previewRef()} — una aproximación (auto layout se vuelve flexbox). El Figma de verdad tiene la última palabra.`)}</span></p>`,
     )}
 
     ${section(
