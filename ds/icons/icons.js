@@ -76,7 +76,7 @@ const DEFINITIONS = [
   ['more-vertical', 'acoes', 'mais opções menu', `<g fill="currentColor">${circle(12, 6, 0.75)}${circle(12, 12, 0.75)}${circle(12, 18, 0.75)}</g>`],
   ['zap', 'acoes', 'raio rápido começar', path('M13 2.5 4.5 13.5H12l-1 8 8.5-11H12z')],
   ['play', 'acoes', 'tocar reproduzir iniciar animação', path('M7.5 4.8v14.4a1 1 0 0 0 1.5.86l11.2-7.2a1 1 0 0 0 0-1.72L9 3.94a1 1 0 0 0-1.5.86z')],
-  ['megaphone', 'acoes', 'novidades anúncio comunicado changelog', path('M4 10v4a1 1 0 0 0 1 1h2l6 4V5L7 9H5a1 1 0 0 0-1 1z') + path('M17 9a3.5 3.5 0 0 1 0 6M8 15.5V19a1.5 1.5 0 0 0 3 0v-2')],
+  ['megaphone', 'acoes', 'novidades anúncio comunicado changelog', path('M4 10v4a1 1 0 0 0 1 1h2l6 4V5L7 9H5a1 1 0 0 0-1 1z') + path('M17 9a3.5 3.5 0 0 1 0 6M8 15.67V19a1.5 1.5 0 0 0 3 0v-1.33')],
   ['slash', 'acoes', 'atalho comando barra', path('M15 4 9 20')],
   ['mic', 'acoes', 'microfone áudio voz', rect(9, 3, 6, 11, 3) + path('M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21')],
   ['video', 'acoes', 'vídeo câmera gravar cena', rect(2.5, 6, 13.5, 12, 2.5) + path('m16 10.5 5.5-3v9l-5.5-3')],

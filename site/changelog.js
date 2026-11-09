@@ -8,10 +8,28 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.19.0';
+export const CURRENT_VERSION = '0.19.1';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.19.1',
+    date: '2026-11-08',
+    title: T('Ícone de megafone', 'Megaphone icon', 'Ícono de megáfono'),
+    summary: T(
+      'O traço do pegador não atravessa mais o corpo do megafone.',
+      'The handle stroke no longer cuts through the body of the megaphone.',
+      'El trazo del mango ya no atraviesa el cuerpo del megáfono.',
+    ),
+    groups: [
+      {
+        name: T('Ícones', 'Icons', 'Íconos'),
+        items: [
+          ['correcao', T('Megafone: o pegador agora termina na borda do corpo', 'Megaphone: the handle now ends at the edge of the body', 'Megáfono: el mango ahora termina en el borde del cuerpo'), '/fundamentos/icones'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.19.0',
     date: '2026-11-08',
