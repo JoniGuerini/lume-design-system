@@ -51,7 +51,7 @@ const COPY = T(
       base: 'Fluxo normal da página.',
     },
     layersSection: { title: 'Camadas de superfície', desc: 'Cada degrau é uma superfície um pouco mais alta. Nos temas escuros, subir é clarear; nos claros, a camada mais alta é o branco.' },
-    shadows: { title: 'Sombras', desc: 'Seis sombras em duas camadas — uma curta e definida, outra longa e difusa. Nos escuros são pretas e densas; no Lume claro, uma ardósia bem suave; no Laranja claro, um marrom quente. Clique numa sombra para copiar.', values: 'Valores', valuesMeta: 'mesmo token, valor diferente em cada tema' },
+    shadows: { title: 'Sombras', desc: 'Seis sombras em duas camadas — uma curta e definida, outra longa e difusa. No escuro são pretas e densas; no Lume claro, uma ardósia bem suave. Clique numa sombra para copiar.', values: 'Valores', valuesMeta: 'mesmo token, valor diferente em cada tema' },
     when: { title: 'Quando elevar', desc: 'O que fica no fluxo usa só cor de superfície. Sombra é para o que se separa da página; sombra forte, só para o que flutua por cima de tudo.', head: ['Componente', 'Superfície', 'Sombra', 'Camada'] },
     stacking: { title: 'Empilhamento', desc: 'A ordem de quem fica por cima. Use sempre o token: os intervalos de 100 deixam espaço para casos especiais sem briga de números.' },
     usage: {
@@ -102,7 +102,7 @@ const COPY = T(
       base: 'Normal page flow.',
     },
     layersSection: { title: 'Surface layers', desc: 'Each step is a slightly higher surface. In the dark themes, going up means lighter; in the light ones, the highest layer is white.' },
-    shadows: { title: 'Shadows', desc: 'Six two-layer shadows — one short and defined, one long and diffuse. In the dark themes they’re black and dense; in Lume light, a very soft slate; in Orange light, a warm brown. Click a shadow to copy it.', values: 'Values', valuesMeta: 'same token, different value in each theme' },
+    shadows: { title: 'Shadows', desc: 'Six two-layer shadows — one short and defined, one long and diffuse. In the dark theme they’re black and dense; in Lume light, a very soft slate. Click a shadow to copy it.', values: 'Values', valuesMeta: 'same token, different value in each theme' },
     when: { title: 'When to elevate', desc: 'What stays in the flow uses surface color only. Shadows are for what separates from the page; strong shadows, only for what floats above everything.', head: ['Component', 'Surface', 'Shadow', 'Layer'] },
     stacking: { title: 'Stacking', desc: 'The order of who sits on top. Always use the token: the gaps of 100 leave room for special cases without a numbers fight.' },
     usage: {
@@ -153,7 +153,7 @@ const COPY = T(
       base: 'Flujo normal de la página.',
     },
     layersSection: { title: 'Capas de superficie', desc: 'Cada escalón es una superficie un poco más alta. En los temas oscuros, subir es aclarar; en los claros, la capa más alta es el blanco.' },
-    shadows: { title: 'Sombras', desc: 'Seis sombras en dos capas — una corta y definida, otra larga y difusa. En los oscuros son negras y densas; en Lume claro, una pizarra muy suave; en Naranja claro, un marrón cálido. Haz clic en una sombra para copiarla.', values: 'Valores', valuesMeta: 'mismo token, valor distinto en cada tema' },
+    shadows: { title: 'Sombras', desc: 'Seis sombras en dos capas — una corta y definida, otra larga y difusa. En el oscuro son negras y densas; en Lume claro, una pizarra muy suave. Haz clic en una sombra para copiarla.', values: 'Valores', valuesMeta: 'mismo token, valor distinto en cada tema' },
     when: { title: 'Cuándo elevar', desc: 'Lo que queda en el flujo usa solo color de superficie. La sombra es para lo que se separa de la página; la sombra fuerte, solo para lo que flota por encima de todo.', head: ['Componente', 'Superficie', 'Sombra', 'Capa'] },
     stacking: { title: 'Apilamiento', desc: 'El orden de quién queda encima. Usa siempre el token: los intervalos de 100 dejan espacio para casos especiales sin pelea de números.' },
     usage: {
@@ -172,7 +172,7 @@ const byName = new Map(tokens.map((t) => [t.name, t]));
 const shadows = tokens.filter((t) => t.name.startsWith('shadow.'));
 const zLayers = tokens.filter((t) => t.name.startsWith('z.')).sort((a, b) => Number(b.css) - Number(a.css));
 
-// dois temas por linha, na ordem dos seletores (Lume, depois Laranja)
+// um tema por coluna: claro e escuro
 const THEMES = THEME_IDS;
 
 // do fundo para cima

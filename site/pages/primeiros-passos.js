@@ -4,7 +4,6 @@ import { attachMenu } from '../../ds/js/menu.js';
 import { tr, locale } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, codeBlock } from '../component-doc.js';
-import { applyBrand, getBrand, brandOptions, brandLabel } from '../brand.js';
 import { T } from '../i18n.js';
 
 export const styles = ['site/component-doc.css', 'site/pages/primeiros-passos.css'];
@@ -23,7 +22,7 @@ const COPY = T(
     steps: [
       ['Copie o design system', `O Lume não tem dependências nem build obrigatório. Leve a pasta ${code('ds/')} para o seu projeto.`],
       ['Carregue o CSS', 'Um arquivo só traz as fontes, os tokens, a base e todos os componentes. As fontes vêm junto, em ds/fonts, com as licenças.'],
-      ['Escolha o tema', `${code('light')} é o Lume claro, ${code('dark')} o Lume escuro e ${code('orange')} o Laranja. Para seguir o sistema (o padrão do site), ${code('initTheme()')} escolhe o Lume claro ou o escuro.`],
+      ['Escolha o tema', `${code('light')} é o claro e ${code('dark')}, o escuro. Para seguir o sistema (o padrão do site), ${code('initTheme()')} escolhe um dos dois.`],
       ['Ligue só o JavaScript que usar', 'Componentes visuais funcionam só com CSS. Os interativos têm um módulo cada — importe e ligue os que a tela usa.'],
     ],
     first: { title: 'Sua primeira tela', desc: 'Escolha um ponto de partida, veja em cada tema e copie. O código abaixo é exatamente o que está no palco.' },
@@ -35,13 +34,10 @@ const COPY = T(
       title: 'Use a sua marca',
       desc: 'A marca inteira sai de um matiz. Mude um número e o build recria a paleta, ajusta ao sRGB e confere o contraste de novo.',
       steps: [
-        `Em ${code('tokens/palettes.json')}, troque o <strong>hue</strong> (e, se quiser, o <strong>chroma</strong>) da paleta ${code('brand')}.`,
+        `Em ${code('tokens/palettes.json')}, troque o <strong>hue</strong> (e, se quiser, o <strong>chroma</strong>) da paleta ${code('refugio')}.`,
         `Rode ${code('npm run tokens')} — ou deixe o ${code('npm run dev')} aberto, que ele refaz sozinho.`,
         'Veja o relatório de contraste no terminal. Se algo cair abaixo de 4,5:1, ajuste o token semântico.',
       ],
-      try: 'Experimente agora',
-      preview: ['Publicar', 'Novo', 'Ver detalhes'],
-      menu: 'Cor da marca',
     },
     structure: { title: 'Estrutura', desc: `Onde cada coisa mora. Você edita ${code('tokens/')}; o resto é consumido.` },
     tree: ['ponto de entrada: tokens + base + componentes', 'gerado a partir de tokens/*.json — não edite', 'reset, tipografia base, foco', 'um CSS por componente', 'um módulo por componente interativo', 'biblioteca de ícones', 'a fonte da verdade: cores, tipografia, espaço…', 'gera tokens.css e confere o contraste'],
@@ -69,7 +65,7 @@ const COPY = T(
     steps: [
       ['Copy the design system', `Lume has no dependencies and no required build. Take the ${code('ds/')} folder into your project.`],
       ['Load the CSS', 'A single file brings the fonts, the tokens, the base, and every component. The fonts ship in ds/fonts, with their licenses.'],
-      ['Pick the theme', `${code('light')} is Lume light, ${code('dark')} Lume dark, and ${code('orange')} Orange. To follow the system (the site’s default), ${code('initTheme()')} picks Lume light or dark.`],
+      ['Pick the theme', `${code('light')} is light and ${code('dark')} is dark. To follow the system (the site’s default), ${code('initTheme()')} picks one of them.`],
       ['Turn on only the JavaScript you use', 'Visual components work with CSS alone. Interactive ones have a module each — import and turn on the ones your screen uses.'],
     ],
     first: { title: 'Your first screen', desc: 'Pick a starting point, check it in each theme, and copy it. The code below is exactly what’s on the stage.' },
@@ -81,13 +77,10 @@ const COPY = T(
       title: 'Use your brand',
       desc: 'The whole brand comes from one hue. Change a number and the build recreates the palette, fits it to sRGB, and checks the contrast again.',
       steps: [
-        `In ${code('tokens/palettes.json')}, change the <strong>hue</strong> (and, if you like, the <strong>chroma</strong>) of the ${code('brand')} palette.`,
+        `In ${code('tokens/palettes.json')}, change the <strong>hue</strong> (and, if you like, the <strong>chroma</strong>) of the ${code('refugio')} palette.`,
         `Run ${code('npm run tokens')} — or keep ${code('npm run dev')} open, which rebuilds on its own.`,
         'Check the contrast report in the terminal. If anything drops below 4.5:1, adjust the semantic token.',
       ],
-      try: 'Try it now',
-      preview: ['Publish', 'New', 'See details'],
-      menu: 'Brand color',
     },
     structure: { title: 'Structure', desc: `Where everything lives. You edit ${code('tokens/')}; the rest is consumed.` },
     tree: ['entry point: tokens + base + components', 'generated from tokens/*.json — don’t edit', 'reset, base typography, focus', 'one CSS file per component', 'one module per interactive component', 'icon library', 'the source of truth: color, typography, space…', 'generates tokens.css and checks contrast'],
@@ -115,7 +108,7 @@ const COPY = T(
     steps: [
       ['Copia el design system', `Lume no tiene dependencias ni build obligatorio. Lleva la carpeta ${code('ds/')} a tu proyecto.`],
       ['Carga el CSS', 'Un solo archivo trae las fuentes, los tokens, la base y todos los componentes. Las fuentes vienen incluidas, en ds/fonts, con sus licencias.'],
-      ['Elige el tema', `${code('light')} es Lume claro, ${code('dark')} Lume oscuro y ${code('orange')} Naranja. Para seguir el sistema (lo predeterminado del sitio), ${code('initTheme()')} elige Lume claro u oscuro.`],
+      ['Elige el tema', `${code('light')} es el claro y ${code('dark')}, el oscuro. Para seguir el sistema (lo predeterminado del sitio), ${code('initTheme()')} elige uno de los dos.`],
       ['Activa solo el JavaScript que uses', 'Los componentes visuales funcionan solo con CSS. Los interactivos tienen un módulo cada uno — importa y activa los que use la pantalla.'],
     ],
     first: { title: 'Tu primera pantalla', desc: 'Elige un punto de partida, míralo en cada tema y cópialo. El código de abajo es exactamente lo que está en el escenario.' },
@@ -127,13 +120,10 @@ const COPY = T(
       title: 'Usa tu marca',
       desc: 'Toda la marca sale de un matiz. Cambia un número y el build recrea la paleta, la ajusta a sRGB y vuelve a comprobar el contraste.',
       steps: [
-        `En ${code('tokens/palettes.json')}, cambia el <strong>hue</strong> (y, si quieres, el <strong>chroma</strong>) de la paleta ${code('brand')}.`,
+        `En ${code('tokens/palettes.json')}, cambia el <strong>hue</strong> (y, si quieres, el <strong>chroma</strong>) de la paleta ${code('refugio')}.`,
         `Ejecuta ${code('npm run tokens')} — o deja ${code('npm run dev')} abierto, que lo rehace solo.`,
         'Mira el informe de contraste en la terminal. Si algo baja de 4,5:1, ajusta el token semántico.',
       ],
-      try: 'Pruébalo ahora',
-      preview: ['Publicar', 'Nuevo', 'Ver detalles'],
-      menu: 'Color de marca',
     },
     structure: { title: 'Estructura', desc: `Dónde vive cada cosa. Tú editas ${code('tokens/')}; el resto se consume.` },
     tree: ['punto de entrada: tokens + base + componentes', 'generado a partir de tokens/*.json — no lo edites', 'reset, tipografía base, foco', 'un CSS por componente', 'un módulo por componente interactivo', 'biblioteca de íconos', 'la fuente de verdad: color, tipografía, espacio…', 'genera tokens.css y comprueba el contraste'],
@@ -385,16 +375,7 @@ export default function renderPrimeirosPassos(page) {
           ${c.brand.steps.map((text, i) => `<li><span class="gs-brand__num">${i + 1}</span><p>${text}</p></li>`).join('')}
         </ol>
         <div class="gs-brand__try">
-          ${codeBlock('"brand": { "hue": 50, "chroma": 0.175 }')}
-          <div class="gs-brand__demo">
-            <p class="gs-brand__label">${c.brand.try}</p>
-            <button type="button" class="ds-chip" data-brand-chip><span class="ds-chip__icon">${icon('palette', { size: 16 })}</span><span data-label>${brandLabel(getBrand())}</span><span class="ds-chip__chevron">${icon('chevron-down', { size: 14 })}</span></button>
-            <div class="gs-brand__preview" inert>
-              <span class="ds-btn ds-btn--primary ds-btn--sm">${c.brand.preview[0]}</span>
-              <span class="ds-badge ds-badge--brand">${c.brand.preview[1]}</span>
-              <span class="gs-brand__link">${c.brand.preview[2]}</span>
-            </div>
-          </div>
+          ${codeBlock('"refugio": { "hue": 253, "chroma": 0.043 }')}
         </div>
       </div>
     </section>
@@ -445,22 +426,10 @@ export function mount(root) {
     code: (s) => EXAMPLES[s.example],
   });
 
-  const chip = root.querySelector('[data-brand-chip]');
-  const brandMenu = attachMenu(chip, {
-    label: c.brand.menu,
-    value: getBrand(),
-    options: brandOptions(),
-    onChange: (value) => {
-      applyBrand(value);
-      chip.querySelector('[data-label]').textContent = brandLabel(value);
-    },
-  });
-
   const unmountCopy = mountCodeCopy(root);
   const unmountNav = mountDocNav(root);
   return () => {
     unmountPlayground();
-    brandMenu.destroy();
     unmountCopy();
     unmountNav();
   };

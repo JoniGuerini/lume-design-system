@@ -3,7 +3,7 @@
  *
  *   playgroundMarkup(id)  → HTML do playground (palco + controles + código)
  *   mountPlayground(root, { id, controls, text?, render, code }) → liga tudo, devolve limpeza
- *   tokenTable(names)     → tabela "Tokens usados" com valores reais nos três temas
+ *   tokenTable(names)     → tabela "Tokens usados" com valores reais nos dois temas
  *   a11yList(items)       → checklist de acessibilidade
  *   codeBlock(code)       → bloco de código com botão copiar
  */

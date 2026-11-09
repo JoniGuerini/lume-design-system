@@ -19,12 +19,12 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PREFIX = 'ds';
-// três temas: Lume claro (light, o padrão), Lume escuro (dark) e Laranja (orange, o pêssego quente)
-const MODES = ['light', 'dark', 'orange'];
+// dois temas: claro (light, o padrão) e escuro (dark)
+const MODES = ['light', 'dark'];
 const DEFAULT_MODE = 'light';
 // token sem valor próprio num tema herda deste outro; o Lume escuro tem todos os valores
-const FALLBACK = { orange: 'dark', light: 'orange' };
-const SCHEME = { light: 'light', dark: 'dark', orange: 'light' };
+const FALLBACK = { light: 'dark' };
+const SCHEME = { light: 'light', dark: 'dark' };
 // recortes de um tema: valem só dentro de um seletor e não viram tema próprio (nem vão para Figma ou exportações).
 // No JSON, a chave do recorte só aparece nos tokens que mudam ali; o resto segue o tema de base.
 const SCOPES = { 'light-sidebar': { base: 'light', selector: '[data-theme="light"] :is(.ds-sidebar, .ds-navbar)', scheme: 'dark', over: 'color.bg.sidebar' } };
@@ -333,7 +333,7 @@ export async function buildTokens({ quiet = false } = {}) {
     })
     .join('\n');
 
-  // "system" é resolvido no JS (Lume claro ou Lume escuro): o CSS só conhece os três temas
+  // "system" é resolvido no JS (Lume claro ou Lume escuro): o CSS só conhece os dois temas
   const css = [
     `/**\n * Lume Design System — tokens\n * Gerado por scripts/build-tokens.mjs a partir de tokens/*.json. Não edite à mão.\n */`,
     cssBlock(':root', globalTokens, DEFAULT_MODE, emit),

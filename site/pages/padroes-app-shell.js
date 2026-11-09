@@ -32,7 +32,7 @@ const PARTS = () => [
   ['.ds-account', [1, 0.5, 0, 0], L('Cartão da conta', 'Account card', 'Tarjeta de la cuenta'), L('Fica preso no pé da sidebar: conta, versão ou workspace.', 'Pinned to the foot of the sidebar: account, version, or workspace.', 'Queda fija al pie de la sidebar: cuenta, versión o workspace.')],
   ['.ds-main', [0.94, 0.16, 0, 0], L('Painel principal', 'Main panel', 'Panel principal'), L(`O conteúdo da página, com respiro lateral de ${px('layout.gutter')} px e largura de leitura limitada.`, `The page content, with ${px('layout.gutter')} px side padding and a limited reading width.`, `El contenido de la página, con respiro lateral de ${px('layout.gutter')} px y ancho de lectura limitado.`)],
   ['#breadcrumb', [1, 0.5, 16, 0], L('Topbar e trilha', 'Top bar and breadcrumb', 'Barra superior y ruta'), L(`${px('layout.topbar')} px, fixa no topo do painel: transparente no início, opaca ao rolar.`, `${px('layout.topbar')} px, fixed at the top of the panel: transparent at first, opaque on scroll.`, `${px('layout.topbar')} px, fija arriba del panel: transparente al inicio, opaca al desplazarse.`), '.ds-topbar'],
-  ['.ds-topbar .ds-segmented', [0, 0.5, -16, 0], L('Tema', 'Theme', 'Tema'), L('Sistema (o padrão: Lume claro ou escuro, como o aparelho), Lume claro, Lume escuro ou Laranja. A escolha vale para o app inteiro.', 'System (the default: Lume light or dark, like the device), Lume light, Lume dark, or Orange. The choice applies to the whole app.', 'Sistema (el predeterminado: Lume claro u oscuro, como el dispositivo), Lume claro, Lume oscuro o Naranja. La elección vale para toda la app.')],
+  ['[data-theme-toggle]', [0, 0.5, -16, 0], L('Tema', 'Theme', 'Tema'), L('Um toggle de claro e escuro. Começa como o aparelho, e a escolha fica salva para o app inteiro.', 'A light and dark toggle. It starts like the device, and the choice is saved for the whole app.', 'Un toggle de claro y oscuro. Empieza como el dispositivo, y la elección queda guardada para toda la app.')],
 ];
 
 const SHORTCUTS = () => [
@@ -137,12 +137,12 @@ document.getElementById('shell')
   // → { sidebar: 'expanded' | 'collapsed', mobile: false, mobileOpen: false }`;
 
 const embedCode = () => `<!-- ${L('o app de verdade, sem gravar preferências', 'the real app, without saving preferences', 'la app de verdad, sin guardar preferencias')} -->
-<iframe src="index.html?embed&theme=orange&sidebar=collapsed#/"></iframe>
+<iframe src="index.html?embed&theme=dark&sidebar=collapsed#/"></iframe>
 
 <script type="module">
   const app = iframe.contentWindow.lumeEmbed;   // ${L('mesma origem', 'same origin', 'mismo origen')}
   app.shell.toggle();
-  app.setTheme('dark');          // light · dark · orange
+  app.setTheme('dark');          // light · dark
   app.setLocale('${locale()}');
   app.go('/componentes/botao');
 </script>`;

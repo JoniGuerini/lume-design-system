@@ -65,7 +65,6 @@ site/                ← o site de documentação (usa o DS)
   component-doc.*    peças das páginas de componente: playground com código, tokens usados, acessibilidade
   changelog.js       versões e o indicador de Novidades da sidebar
   roadmap.js         próximas etapas: página Roadmap e card do Início
-  brand.js           troca da cor da marca ao vivo (demonstração)
   chart-data.js      dados de exemplo (fixos) das páginas de gráficos
   pages/             páginas (cada uma com seu .css): home, primeiros-passos, novidades,
                      8 fundamentos, 24 componentes, 7 de gráficos, 6 padrões, 4 recursos,

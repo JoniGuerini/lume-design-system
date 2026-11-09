@@ -1,14 +1,16 @@
 /**
- * Tema: 'system' (padrão: segue o sistema entre o Lume claro e o Lume escuro), 'light' (Lume claro),
- * 'dark' (Lume escuro) ou 'orange' (Laranja, o pêssego quente). Salvo em ds-theme.
- * O <html data-theme> recebe o tema resolvido: light, dark ou orange — "system" só existe no JS.
+ * Tema: claro (light) ou escuro (dark). Até a pessoa escolher, segue o sistema (preferência 'system');
+ * a escolha fica salva em ds-theme. O <html data-theme> recebe sempre o tema resolvido: light ou dark.
+ *
+ *   toggleTheme();        // troca entre claro e escuro e salva
+ *   setTheme('system');   // volta a seguir o sistema
  */
 
 const KEY = 'ds-theme';
-// versão dos valores salvos: até a 0.9, 'light' era o pêssego (hoje Laranja) e 'refugio' era o Lume claro
+// versão dos valores salvos: sem versão, 'light' era o tema pêssego e 'refugio' era o claro de hoje; o tema orange saiu na 0.14.4
 const VERSION_KEY = 'ds-theme-v';
-const VERSION = '2';
-export const THEMES = ['light', 'dark', 'orange'];
+const VERSION = '3';
+export const THEMES = ['light', 'dark'];
 const PREFERENCES = ['system', ...THEMES];
 const DEFAULT = 'system';
 const root = document.documentElement;
@@ -29,15 +31,17 @@ const write = (key, value) => {
 
 export function getThemePreference() {
   let saved = read(KEY);
-  if (read(VERSION_KEY) !== VERSION) {
-    saved = { refugio: 'light', light: 'orange' }[saved] ?? saved;
-    if (PREFERENCES.includes(saved)) write(KEY, saved);
+  const version = read(VERSION_KEY);
+  if (version !== VERSION) {
+    if (!version) saved = { refugio: 'light', light: null }[saved] ?? saved;
+    // quem usava um tema que não existe mais volta a seguir o sistema
+    write(KEY, PREFERENCES.includes(saved) ? saved : DEFAULT);
     write(VERSION_KEY, VERSION);
   }
   return PREFERENCES.includes(saved) ? saved : DEFAULT;
 }
 
-/** Tema resolvido de uma preferência: "system" vira o Lume claro ou o Lume escuro. */
+/** Tema resolvido de uma preferência: "system" vira claro ou escuro, como o aparelho. */
 export function themeFor(preference) {
   if (preference === 'system') return darkQuery.matches ? 'dark' : 'light';
   return THEMES.includes(preference) ? preference : 'light';
@@ -69,6 +73,9 @@ function announce() {
   root.dispatchEvent(new CustomEvent('ds:themechange', { detail: { preference: getThemePreference(), resolved: resolvedTheme() } }));
 }
 
+/** Troca entre claro e escuro; a escolha fica salva e o tema deixa de seguir o sistema. */
+export const toggleTheme = () => setTheme(resolvedTheme() === 'dark' ? 'light' : 'dark');
+
 export function setTheme(preference) {
   if (!PREFERENCES.includes(preference)) return;
   write(KEY, preference);
@@ -79,43 +86,23 @@ export function setTheme(preference) {
 }
 
 function syncControls() {
-  const pref = getThemePreference();
-  document.querySelectorAll('[data-theme-option]').forEach((btn) => {
-    const checked = btn.dataset.themeOption === pref;
-    btn.setAttribute('aria-checked', String(checked));
-    btn.tabIndex = checked ? 0 : -1;
-  });
+  const dark = resolvedTheme() === 'dark';
+  document.querySelectorAll('[data-theme-toggle]').forEach((btn) => btn.setAttribute('aria-checked', String(dark)));
 }
 
-/** Liga botões [data-theme-option] (dentro de um role="radiogroup"). */
+/** Liga os botões [data-theme-toggle] (role="switch": ligado é o escuro). */
 export function bindThemeControls(scope = document) {
-  scope.querySelectorAll('[data-theme-option]').forEach((btn) => {
-    btn.addEventListener('click', () => setTheme(btn.dataset.themeOption));
-  });
-
-  scope.querySelectorAll('[role="radiogroup"]').forEach((group) => {
-    const options = [...group.querySelectorAll('[data-theme-option]')];
-    if (!options.length) return;
-    group.addEventListener('keydown', (event) => {
-      const delta = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[event.key];
-      if (!delta) return;
-      event.preventDefault();
-      const index = options.indexOf(document.activeElement);
-      const next = options[(index + delta + options.length) % options.length];
-      next.focus();
-      setTheme(next.dataset.themeOption);
-    });
-  });
-
+  scope.querySelectorAll('[data-theme-toggle]').forEach((btn) => btn.addEventListener('click', toggleTheme));
   syncControls();
 }
 
 export function initTheme() {
   root.dataset.theme = resolvedTheme();
-  // "Sistema": acompanha a troca de claro/escuro do sistema
+  // enquanto a pessoa não escolher, acompanha a troca de claro/escuro do sistema
   darkQuery.addEventListener('change', () => {
     if (getThemePreference() !== 'system') return;
     apply(resolvedTheme());
+    syncControls();
     announce();
   });
 }

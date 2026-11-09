@@ -36,27 +36,14 @@ if (EMBED) {
 function embedTheme(theme) {
   if (!THEMES.includes(theme)) return;
   document.documentElement.dataset.theme = theme;
-  document.querySelectorAll('[data-theme-option]').forEach((btn) => {
-    const on = btn.dataset.themeOption === theme;
-    btn.setAttribute('aria-checked', String(on));
-    btn.tabIndex = on ? 0 : -1;
-  });
+  document.querySelectorAll('[data-theme-toggle]').forEach((btn) => btn.setAttribute('aria-checked', String(theme === 'dark')));
   document.documentElement.dispatchEvent(new CustomEvent('ds:themechange', { detail: { preference: theme, resolved: theme } }));
 }
 /** Preferência (inclusive "Sistema") no exemplo, sem gravar nada. */
 const embedPreference = (preference) => embedTheme(themeFor(preference));
 
 function bindEmbedThemeControls() {
-  const options = [...document.querySelectorAll('[data-theme-option]')];
-  options.forEach((btn) => btn.addEventListener('click', () => embedPreference(btn.dataset.themeOption)));
-  options[0]?.closest('[role="radiogroup"]')?.addEventListener('keydown', (event) => {
-    const delta = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[event.key];
-    if (!delta) return;
-    event.preventDefault();
-    const next = options[(options.indexOf(document.activeElement) + delta + options.length) % options.length];
-    next.focus();
-    embedPreference(next.dataset.themeOption);
-  });
+  document.querySelectorAll('[data-theme-toggle]').forEach((btn) => btn.addEventListener('click', () => embedTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark')));
   embedTheme(THEMES.includes(params.get('theme')) ? params.get('theme') : document.documentElement.dataset.theme);
 }
 
@@ -161,9 +148,8 @@ const palette = createCommandPalette({
       hint: page.load ? undefined : t('soon'),
       perform: () => go(page.path),
     })),
-    { id: 'theme-light', label: t('useLight'), group: t('actions'), icon: 'sun', keywords: ['light', 'claro', 'lume', 'refúgio', 'ardósia', 'slate'], perform: () => applyTheme('light') },
-    { id: 'theme-dark', label: t('useDark'), group: t('actions'), icon: 'moon', keywords: ['dark', 'escuro', 'oscuro', 'lume'], perform: () => applyTheme('dark') },
-    { id: 'theme-orange', label: t('useOrange'), group: t('actions'), icon: 'palette', keywords: ['laranja', 'orange', 'naranja', 'pêssego', 'peach'], perform: () => applyTheme('orange') },
+    { id: 'theme-light', label: t('useLight'), group: t('actions'), icon: 'sun', keywords: ['light', 'claro', 'lume', 'tema', 'theme'], perform: () => applyTheme('light') },
+    { id: 'theme-dark', label: t('useDark'), group: t('actions'), icon: 'moon', keywords: ['dark', 'escuro', 'oscuro', 'lume', 'tema', 'theme'], perform: () => applyTheme('dark') },
     { id: 'theme-system', label: t('useSystem'), group: t('actions'), icon: 'monitor', keywords: ['system', 'sistema', 'automático'], perform: () => applyTheme('system') },
     ...LOCALES.map((l) => ({ id: `locale-${l}`, label: `${t('language')}: ${LOCALE_NAMES[l]}`, group: t('actions'), icon: 'globe', keywords: ['idioma', 'language', 'lenguaje'], perform: () => applyLocale(l) })),
     { id: 'layout-sidebar', label: t('layoutSidebarTip'), group: t('actions'), icon: 'panel-left', keywords: ['layout', 'sidebar', 'lateral'], perform: () => shell.setLayout('sidebar') },

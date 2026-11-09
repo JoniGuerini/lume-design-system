@@ -8,10 +8,29 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.14.3';
+export const CURRENT_VERSION = '0.14.4';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.14.4',
+    date: '2026-11-08',
+    title: T('Claro e escuro', 'Light and dark', 'Claro y oscuro'),
+    summary: T(
+      'Um toggle só na topbar. O site começa como o seu sistema, e a escolha fica salva. O tema Laranja saiu.',
+      'A single toggle in the top bar. The site starts like your system, and the choice is saved. The Orange theme is gone.',
+      'Un solo toggle en la barra superior. El sitio empieza como tu sistema, y la elección queda guardada. El tema Naranja salió.',
+    ),
+    groups: [
+      {
+        name: T('Temas', 'Themes', 'Temas'),
+        items: [
+          ['melhoria', T('Toggle de claro e escuro no lugar do seletor de quatro opções', 'A light and dark toggle replaces the four-option selector', 'Un toggle de claro y oscuro en lugar del selector de cuatro opciones'), '/fundamentos/cores'],
+          ['melhoria', T('O tema Laranja saiu dos tokens, do site e das comparações', 'The Orange theme is gone from the tokens, the site, and the comparisons', 'El tema Naranja salió de los tokens, del sitio y de las comparaciones'), '/fundamentos/cores'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.14.3',
     date: '2026-11-08',

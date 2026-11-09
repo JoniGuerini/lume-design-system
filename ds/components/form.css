@@ -253,6 +253,18 @@
   color: var(--ds-color-fg-default);
 }
 
+/* Toggle de claro e escuro: dois lados, o atual em destaque; um clique em qualquer lugar troca */
+.ds-theme-toggle {
+  cursor: pointer;
+}
+
+.ds-theme-toggle[aria-checked="false"] .ds-segmented__item:first-child,
+.ds-theme-toggle[aria-checked="true"] .ds-segmented__item:last-child {
+  border-color: var(--ds-color-border-default);
+  background: var(--ds-color-bg-field);
+  color: var(--ds-color-fg-default);
+}
+
 /*
  * Formulário — layout, seções e ações (o comportamento fica em ds/js/form.js)
  *
