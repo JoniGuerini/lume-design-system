@@ -11,7 +11,8 @@
     "figma": "node scripts/build-figma-plugin.mjs",
     "ia": "node scripts/build-ai-docs.mjs",
     "figma:test": "node scripts/test-figma-plugin.mjs",
-    "tokens:export": "node scripts/export-tokens.mjs"
+    "tokens:export": "node scripts/export-tokens.mjs",
+    "test:visual": "node scripts/test-visual.mjs"
   },
   "engines": {
     "node": ">=18"
