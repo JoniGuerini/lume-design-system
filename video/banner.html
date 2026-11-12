@@ -1,0 +1,65 @@
+<!doctype html>
+<!--
+  Banner do LinkedIn (1584×396). À esquerda fica a foto do perfil, por isso nada importante antes de x = 460.
+  ?tema=claro troca para a versão clara.
+-->
+<html lang="pt-BR" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <title>Banner do Lume</title>
+    <link rel="stylesheet" href="../ds/ds.css" />
+    <style>
+      html, body { margin: 0; width: 1584px; height: 396px; overflow: hidden; }
+      body { position: relative; background: var(--bg); color: var(--fg); --line: color-mix(in srgb, var(--fg) 20%, transparent); }
+      html[data-tema="escuro"] body { --bg: var(--ds-color-refugio-800); --fg: var(--ds-color-refugio-25); --muted: var(--ds-color-refugio-200); }
+      html[data-tema="claro"] body { --bg: var(--ds-color-refugio-200); --fg: var(--ds-color-refugio-800); --muted: var(--ds-color-refugio-650); }
+      .marca { position: absolute; left: 470px; top: 30px; display: flex; align-items: center; gap: 24px; }
+      .marca svg { width: 132px; height: 132px; }
+      .marca b { font: 400 172px/190px var(--ds-font-family-display); letter-spacing: -0.02em; }
+      .frase { position: absolute; left: 480px; top: 226px; margin: 0; color: var(--fg); font: 500 36px/46px var(--ds-font-family-sans); }
+      .url { position: absolute; left: 480px; top: 324px; margin: 0; color: var(--fg); font: 500 30px/38px var(--ds-font-family-sans); }
+      .grade { position: absolute; left: 1154px; top: -6px; width: 408px; height: 408px; overflow: visible; }
+      .grade line { stroke: var(--line); stroke-width: 0.1; }
+      .grade path { fill: none; stroke: #c97b63; stroke-width: 0.34; stroke-linejoin: round; stroke-linecap: round; }
+      .grade rect { fill: var(--bg); stroke: #c97b63; stroke-width: 0.2; }
+    </style>
+    <script>document.documentElement.dataset.tema = new URLSearchParams(location.search).get('tema') === 'claro' ? 'claro' : 'escuro';</script>
+  </head>
+  <body>
+    <svg class="grade" viewBox="0 0 24 24" data-grade></svg>
+    <div class="marca">
+      <svg viewBox="0 0 24 24">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.963 2.286a.75.75 0 0 0-1.071-.136 9.742 9.742 0 0 0-3.539 6.176 7.547 7.547 0 0 1-1.705-1.715.75.75 0 0 0-1.152-.082A9 9 0 1 0 15.68 4.534a7.46 7.46 0 0 1-2.717-2.248z" fill="#c97b63" />
+        <path d="M15.75 14.25a3.75 3.75 0 1 1-7.313-1.172c.628.465 1.35.81 2.133 1.001a5.99 5.99 0 0 1 1.925-3.546 3.75 3.75 0 0 1 3.255 3.717z" fill="#ffffff" opacity="0.28" />
+      </svg>
+      <b>Lume</b>
+    </div>
+    <p class="frase">Tokens, ícones e componentes<br />para produtos refinados.</p>
+    <p class="url">lumeui.dev</p>
+    <script>
+      // a chama em construção: a grade de 24 dos ícones, com um nó em cada vértice do traço
+      const NS = 'http://www.w3.org/2000/svg';
+      const g = document.querySelector('[data-grade]');
+      const add = (tag, attrs) => { const el = document.createElementNS(NS, tag); for (const k in attrs) el.setAttribute(k, attrs[k]); g.append(el); return el; };
+      for (let i = 0; i <= 24; i += 3) { add('line', { x1: 0, y1: i, x2: 24, y2: i }); add('line', { x1: i, y1: 0, x2: i, y2: 24 }); }
+      const D = ['M12.963 2.286a.75.75 0 0 0-1.071-.136 9.742 9.742 0 0 0-3.539 6.176 7.547 7.547 0 0 1-1.705-1.715.75.75 0 0 0-1.152-.082A9 9 0 1 0 15.68 4.534a7.46 7.46 0 0 1-2.717-2.248z', 'M15.75 14.25a3.75 3.75 0 1 1-7.313-1.172c.628.465 1.35.81 2.133 1.001a5.99 5.99 0 0 1 1.925-3.546 3.75 3.75 0 0 1 3.255 3.717z'];
+      for (const d of D) {
+        const el = add('path', { d });
+        let acc = '';
+        for (const cmd of d.match(/[a-zA-Z][^a-zA-Z]*/g)) {
+          if (/^z/i.test(cmd)) continue;
+          // um mesmo comando pode trazer vários arcos em sequência: cada um é um nó
+          const nums = cmd.slice(1).match(/-?\d*\.?\d+/g) ?? [];
+          const size = /a/i.test(cmd[0]) ? 7 : nums.length;
+          for (let i = 0; i < nums.length; i += size) {
+            acc += `${cmd[0]}${nums.slice(i, i + size).join(' ')}`;
+            const p = document.createElementNS(NS, 'path');
+            p.setAttribute('d', acc);
+            const pt = el.getPointAtLength(p.getTotalLength());
+            add('rect', { x: pt.x - 0.45, y: pt.y - 0.45, width: 0.9, height: 0.9 });
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
