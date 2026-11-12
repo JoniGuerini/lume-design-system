@@ -8,12 +8,11 @@ En números: dependencias: 0 · archivo de CSS: 1 · tokens: 383 · temas: 2.
 
 ## Instalación
 
-Cuatro pasos, sin terminal. ¿Prefieres tener los archivos en el proyecto? Descarga el zip de la versión y lleva la carpeta a tu proyecto.
+Tres pasos, sin terminal. ¿Prefieres tener los archivos en el proyecto? Descarga el zip de la versión y lleva la carpeta a tu proyecto.
 
-- Paso 1: — Elige la versión — Cada versión tiene una dirección fija: tu proyecto solo cambia cuando cambies el número. `https://lumeui.dev/ds/` siempre trae la más nueva. Licencia MIT. — `https://lumeui.dev/v/0.25/`
-- Paso 2: — Carga el CSS — Un solo archivo trae las fuentes, los tokens, la base y todos los componentes. — `<link rel="stylesheet" href="https://lumeui.dev/v/0.25/lume.css">`
-- Paso 3: — Elige el tema — `light` es el claro y `dark`, el oscuro. Para seguir el sistema (lo predeterminado del sitio), `initTheme()` elige uno de los dos. — `<html lang="es" data-theme="light">`
-- Paso 4: — Activa solo el JavaScript que uses — Los componentes visuales funcionan solo con CSS. Para los interactivos, importa de `lume.js` lo que use la pantalla. — `<script type="module"> import { initTooltips, mountSelects } from 'https://lumeui.dev/v/0.25/lume.js'; initTooltips(); mountSelects(document); </script>`
+- Paso 1: — Carga el CSS — Pega esta línea en el `<head>`: un solo archivo trae las fuentes, los tokens, la base y todos los componentes. El `0.25` en la dirección es la versión; tu proyecto solo cambia cuando cambies ese número. Licencia MIT. — `<link rel="stylesheet" href="https://lumeui.dev/v/0.25/lume.css">`
+- Paso 2: — Elige el tema — `light` es el claro y `dark`, el oscuro. Para seguir el sistema (lo predeterminado del sitio), `initTheme()` elige uno de los dos. — `<html lang="es" data-theme="light">`
+- Paso 3: — Activa solo el JavaScript que uses — Los componentes visuales funcionan solo con CSS. Para los interactivos, importa de `lume.js` lo que use la pantalla. — `<script type="module"> import { initTooltips, mountSelects } from 'https://lumeui.dev/v/0.25/lume.js'; initTooltips(); mountSelects(document); </script>`
 
 ## Tu primera pantalla
 

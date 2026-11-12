@@ -4,7 +4,7 @@ Lume section: Resources. Page: https://lumeui.dev/#/recursos/contribuir
 
 Lume grows with what teams need. This is the path from an idea to a version — with the house rules, the review checklist, and how to publish.
 
-In numbers: stages: 5 · review items: 17 · dependencies: 0 · current version: 0.25.0.
+In numbers: stages: 5 · review items: 17 · dependencies: 0 · current version: 0.25.1.
 
 ## The path of a change
 
@@ -14,7 +14,7 @@ Five stages, always in this order. A small fix can skip the proposal; a new piec
 - 02 — Proposal — The filled-in template: the problem, who uses it, what already exists, and the impact on tokens and accessibility. — Who — Whoever had the idea + someone from Lume — Comes out — Accepted, adjusted, or declined with a reason
 - 03 — Draft — Tokens, CSS, JS, and the page with a playground. States forced with data-state, in both themes. — Who — Whoever will build it — Comes out — A draft pull request
 - 04 — Review — One person looks at the design, another at the code. Both go through the same checklist. — Who — Two people, design and code — Comes out — Approved or change requests
-- 05 — Published — It goes into What’s new with a new version. The dot in the sidebar lets everyone know. — Who — Whoever maintains Lume — Comes out — A new version — today, 0.25.0
+- 05 — Published — It goes into What’s new with a new version. The dot in the sidebar lets everyone know. — Who — Whoever maintains Lume — Comes out — A new version — today, 0.25.1
 
 ## Propose
 
@@ -238,7 +238,7 @@ Every version comes from a single file: `site/changelog.js`. It feeds What’s n
 
 1.0.0 — Major — Changes something you use: a class name, a removed token. Comes with a migration guide. — 0.3.0 — Minor — New things without breaking anything: a section, a component, new tokens. — 0.3.1 — Patch — Tweaks and bugs. Nobody needs to change anything.
 
-While we’re on 0.x, a minor version can still bring a breaking change — always announced in What’s new. Every big delivery becomes a minor version: 0.1 First version, 0.2 Charts, 0.3 Patterns, 0.4 Resources, 0.4.1 Contrast sorted, 0.5 Figma plugin, 0.6 Complete plugin, 0.6.1 Plugin on the free plan, 0.7 Languages, 0.8 Lume, 0.9 Refúgio, 0.10 Lume theme, 0.11 Sign-in and sign-up, 0.11.1 New version notice, 0.12 Calendar, 0.13 Roadmap, 0.13.1 Updated fonts, 0.14 Complete forms, 0.14.1 Top bar on phones, 0.14.2 News only for returning visitors, 0.14.3 Latest version on Home, 0.14.4 Light and dark, 0.14.5 Theme button, 0.14.6 Fixed-height card, 0.15 Navigation and structure, 0.16 Overlays, 0.17 Feedback and loading, 0.18 Content, 0.19 Refinement, 0.19.1 Megaphone icon, 0.19.2 Icon review, 0.20 Scrollbar, 0.21 Back to top, 0.21.1 Navbar in smaller windows, 0.22 Figma plugin, 0.22.1 Plugin numbers on the site, 0.22.2 Visit counts, 0.23 Lume for AI, 0.23.1 AI docs in three languages, 0.24 Tests and API, 0.25 Package.
+While we’re on 0.x, a minor version can still bring a breaking change — always announced in What’s new. Every big delivery becomes a minor version: 0.1 First version, 0.2 Charts, 0.3 Patterns, 0.4 Resources, 0.4.1 Contrast sorted, 0.5 Figma plugin, 0.6 Complete plugin, 0.6.1 Plugin on the free plan, 0.7 Languages, 0.8 Lume, 0.9 Refúgio, 0.10 Lume theme, 0.11 Sign-in and sign-up, 0.11.1 New version notice, 0.12 Calendar, 0.13 Roadmap, 0.13.1 Updated fonts, 0.14 Complete forms, 0.14.1 Top bar on phones, 0.14.2 News only for returning visitors, 0.14.3 Latest version on Home, 0.14.4 Light and dark, 0.14.5 Theme button, 0.14.6 Fixed-height card, 0.15 Navigation and structure, 0.16 Overlays, 0.17 Feedback and loading, 0.18 Content, 0.19 Refinement, 0.19.1 Megaphone icon, 0.19.2 Icon review, 0.20 Scrollbar, 0.21 Back to top, 0.21.1 Navbar in smaller windows, 0.22 Figma plugin, 0.22.1 Plugin numbers on the site, 0.22.2 Visit counts, 0.23 Lume for AI, 0.23.1 AI docs in three languages, 0.24 Tests and API, 0.25 Package, 0.25.1 Clearer installation.
 
 ### An entry in What’s new
 
@@ -284,7 +284,7 @@ const RELEASES = [
 ### After publishing no manual step
 
 - The What’s new dot comes back in the sidebar for anyone who hasn’t seen the version yet.
-- The account card shows the new version — today, Lume 0.25.
+- The account card shows the new version — today, Lume 0.25.1.
 - The Home roadmap card reads the same files as What’s new and Roadmap; there’s nowhere else to update.
 
 No fixed schedule: a minor version ships when a delivery is ready; fixes ship as soon as they’re reviewed.

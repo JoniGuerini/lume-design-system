@@ -8,12 +8,11 @@ In numbers: dependencies: 0 · CSS file: 1 · tokens: 383 · themes: 2.
 
 ## Installation
 
-Four steps, no terminal. Prefer the files inside your project? Download the version’s zip and take the folder into your project.
+Three steps, no terminal. Prefer the files inside your project? Download the version’s zip and take the folder into your project.
 
-- Step 1: — Pick the version — Each version has a fixed address: your project only changes when you change the number. `https://lumeui.dev/ds/` always serves the newest. MIT license. — `https://lumeui.dev/v/0.25/`
-- Step 2: — Load the CSS — A single file brings the fonts, the tokens, the base, and every component. — `<link rel="stylesheet" href="https://lumeui.dev/v/0.25/lume.css">`
-- Step 3: — Pick the theme — `light` is light and `dark` is dark. To follow the system (the site’s default), `initTheme()` picks one of them. — `<html lang="en" data-theme="light">`
-- Step 4: — Turn on only the JavaScript you use — Visual components work with CSS alone. For interactive ones, import what your screen uses from `lume.js`. — `<script type="module"> import { initTooltips, mountSelects } from 'https://lumeui.dev/v/0.25/lume.js'; initTooltips(); mountSelects(document); </script>`
+- Step 1: — Load the CSS — Paste this line into the `<head>`: a single file brings the fonts, the tokens, the base, and every component. The `0.25` in the address is the version; your project only changes when you change that number. MIT license. — `<link rel="stylesheet" href="https://lumeui.dev/v/0.25/lume.css">`
+- Step 2: — Pick the theme — `light` is light and `dark` is dark. To follow the system (the site’s default), `initTheme()` picks one of them. — `<html lang="en" data-theme="light">`
+- Step 3: — Turn on only the JavaScript you use — Visual components work with CSS alone. For interactive ones, import what your screen uses from `lume.js`. — `<script type="module"> import { initTooltips, mountSelects } from 'https://lumeui.dev/v/0.25/lume.js'; initTooltips(); mountSelects(document); </script>`
 
 ## Your first screen
 

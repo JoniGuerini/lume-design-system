@@ -8,10 +8,28 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.25.0';
+export const CURRENT_VERSION = '0.25.1';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.25.1',
+    date: '2026-11-12',
+    title: T('Instalação mais clara', 'Clearer installation', 'Instalación más clara'),
+    summary: T(
+      'A instalação ficou em três passos: o endereço com versão aparece direto na linha do CSS, que é o que você cola no projeto.',
+      'Installation is now three steps: the versioned address shows up right in the CSS line, which is what you paste into your project.',
+      'La instalación quedó en tres pasos: la dirección con versión aparece directo en la línea del CSS, que es lo que pegas en el proyecto.',
+    ),
+    groups: [
+      {
+        name: T('Site', 'Site', 'Sitio'),
+        items: [
+          ['correcao', T('Primeiros passos: sai o passo que só mostrava o endereço da versão', 'Getting started: the step that only showed the version address is gone', 'Primeros pasos: sale el paso que solo mostraba la dirección de la versión'), '/primeiros-passos'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.25.0',
     date: '2026-11-12',

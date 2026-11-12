@@ -22,10 +22,9 @@ const COPY = T(
     stats: ['dependências', 'arquivo de CSS', 'tokens', 'temas'],
     onThisPage: 'Nesta página',
     nav: ['Instalação', 'Primeira tela', 'Tokens', 'JavaScript', 'Sua marca', 'Estrutura', 'Próximos passos'],
-    install: { title: 'Instalação', desc: `Quatro passos, sem terminal. Prefere ter os arquivos no projeto? <a href="https://lumeui.dev/v/${LINE}/lume-${LINE}.zip">Baixe o zip da versão</a> e leve a pasta para o seu projeto.`, step: (n) => `Passo ${n}: ` },
+    install: { title: 'Instalação', desc: `Três passos, sem terminal. Prefere ter os arquivos no projeto? <a href="https://lumeui.dev/v/${LINE}/lume-${LINE}.zip">Baixe o zip da versão</a> e leve a pasta para o seu projeto.`, step: (n) => `Passo ${n}: ` },
     steps: [
-      ['Escolha a versão', `Cada versão tem um endereço fixo: o seu projeto só muda quando você trocar o número. ${code('https://lumeui.dev/ds/')} sempre traz a mais nova. Licença MIT.`],
-      ['Carregue o CSS', 'Um arquivo só traz as fontes, os tokens, a base e todos os componentes.'],
+      ['Carregue o CSS', `Cole esta linha no ${code('&lt;head&gt;')}: um arquivo só traz as fontes, os tokens, a base e todos os componentes. O ${code(LINE)} no endereço é a versão; o seu projeto só muda quando você trocar esse número. Licença MIT.`],
       ['Escolha o tema', `${code('light')} é o claro e ${code('dark')}, o escuro. Para seguir o sistema (o padrão do site), ${code('initTheme()')} escolhe um dos dois.`],
       ['Ligue só o JavaScript que usar', `Componentes visuais funcionam só com CSS. Para os interativos, importe de ${code('lume.js')} o que a tela usa.`],
     ],
@@ -65,10 +64,9 @@ const COPY = T(
     stats: ['dependencies', 'CSS file', 'tokens', 'themes'],
     onThisPage: 'On this page',
     nav: ['Installation', 'First screen', 'Tokens', 'JavaScript', 'Your brand', 'Structure', 'Next steps'],
-    install: { title: 'Installation', desc: `Four steps, no terminal. Prefer the files inside your project? <a href="https://lumeui.dev/v/${LINE}/lume-${LINE}.zip">Download the version’s zip</a> and take the folder into your project.`, step: (n) => `Step ${n}: ` },
+    install: { title: 'Installation', desc: `Three steps, no terminal. Prefer the files inside your project? <a href="https://lumeui.dev/v/${LINE}/lume-${LINE}.zip">Download the version’s zip</a> and take the folder into your project.`, step: (n) => `Step ${n}: ` },
     steps: [
-      ['Pick the version', `Each version has a fixed address: your project only changes when you change the number. ${code('https://lumeui.dev/ds/')} always serves the newest. MIT license.`],
-      ['Load the CSS', 'A single file brings the fonts, the tokens, the base, and every component.'],
+      ['Load the CSS', `Paste this line into the ${code('&lt;head&gt;')}: a single file brings the fonts, the tokens, the base, and every component. The ${code(LINE)} in the address is the version; your project only changes when you change that number. MIT license.`],
       ['Pick the theme', `${code('light')} is light and ${code('dark')} is dark. To follow the system (the site’s default), ${code('initTheme()')} picks one of them.`],
       ['Turn on only the JavaScript you use', `Visual components work with CSS alone. For interactive ones, import what your screen uses from ${code('lume.js')}.`],
     ],
@@ -108,10 +106,9 @@ const COPY = T(
     stats: ['dependencias', 'archivo de CSS', 'tokens', 'temas'],
     onThisPage: 'En esta página',
     nav: ['Instalación', 'Primera pantalla', 'Tokens', 'JavaScript', 'Tu marca', 'Estructura', 'Siguientes pasos'],
-    install: { title: 'Instalación', desc: `Cuatro pasos, sin terminal. ¿Prefieres tener los archivos en el proyecto? <a href="https://lumeui.dev/v/${LINE}/lume-${LINE}.zip">Descarga el zip de la versión</a> y lleva la carpeta a tu proyecto.`, step: (n) => `Paso ${n}: ` },
+    install: { title: 'Instalación', desc: `Tres pasos, sin terminal. ¿Prefieres tener los archivos en el proyecto? <a href="https://lumeui.dev/v/${LINE}/lume-${LINE}.zip">Descarga el zip de la versión</a> y lleva la carpeta a tu proyecto.`, step: (n) => `Paso ${n}: ` },
     steps: [
-      ['Elige la versión', `Cada versión tiene una dirección fija: tu proyecto solo cambia cuando cambies el número. ${code('https://lumeui.dev/ds/')} siempre trae la más nueva. Licencia MIT.`],
-      ['Carga el CSS', 'Un solo archivo trae las fuentes, los tokens, la base y todos los componentes.'],
+      ['Carga el CSS', `Pega esta línea en el ${code('&lt;head&gt;')}: un solo archivo trae las fuentes, los tokens, la base y todos los componentes. El ${code(LINE)} en la dirección es la versión; tu proyecto solo cambia cuando cambies ese número. Licencia MIT.`],
       ['Elige el tema', `${code('light')} es el claro y ${code('dark')}, el oscuro. Para seguir el sistema (lo predeterminado del sitio), ${code('initTheme()')} elige uno de los dos.`],
       ['Activa solo el JavaScript que uses', `Los componentes visuales funcionan solo con CSS. Para los interactivos, importa de ${code('lume.js')} lo que use la pantalla.`],
     ],
@@ -154,7 +151,6 @@ const tokenCount = tokens.length + palettes.reduce((n, p) => n + p.steps.length,
 const countPrefix = (prefix) => tokens.filter((t) => t.name.startsWith(prefix)).length;
 
 const STEP_CODE = [
-  () => `https://lumeui.dev/v/${LINE}/`,
   () => `<link rel="stylesheet" href="https://lumeui.dev/v/${LINE}/lume.css">`,
   () => `<html lang="${locale()}" data-theme="light">`,
   () => `<script type="module">
