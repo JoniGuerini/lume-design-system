@@ -8,10 +8,31 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.22.2';
+export const CURRENT_VERSION = '0.23.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.23.0',
+    date: '2026-11-12',
+    title: T('Lume para IAs', 'Lume for AI', 'Lume para IA'),
+    summary: T(
+      'A documentação inteira em Markdown, no formato que as IAs leem, com regras para não inventarem classes, ícones nem cores. Tem índice llms.txt, AGENTS.md e uma skill para o Claude.',
+      'The whole documentation in Markdown, in the format AIs read, with rules so they don’t invent classes, icons, or colors. It comes with an llms.txt index, AGENTS.md, and a Claude skill.',
+      'Toda la documentación en Markdown, en el formato que leen las IAs, con reglas para que no inventen clases, íconos ni colores. Incluye el índice llms.txt, AGENTS.md y una skill para Claude.',
+    ),
+    groups: [
+      {
+        name: T('Recursos', 'Resources', 'Recursos'),
+        items: [
+          ['novo', T('Página Para IAs, com os três jeitos de usar o Lume numa IA', 'For AI page, with three ways to use Lume with an AI', 'Página Para IA, con las tres formas de usar Lume en una IA'), '/recursos/ia'],
+          ['novo', T('Um arquivo Markdown por página do site, gerado a partir dela', 'One Markdown file per site page, generated from it', 'Un archivo Markdown por página del sitio, generado a partir de ella'), '/recursos/ia'],
+          ['novo', T('Índice llms.txt, regras em AGENTS.md e skill para o Claude', 'llms.txt index, AGENTS.md rules, and a Claude skill', 'Índice llms.txt, reglas en AGENTS.md y skill para Claude'), '/recursos/ia'],
+          ['melhoria', T('O CSS e os módulos podem ser carregados direto de lumeui.dev em outros sites', 'The CSS and modules can be loaded straight from lumeui.dev on other sites', 'El CSS y los módulos se pueden cargar directamente desde lumeui.dev en otros sitios'), '/primeiros-passos'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.22.2',
     date: '2026-11-09',

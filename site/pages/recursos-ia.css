@@ -1,0 +1,62 @@
+/* Página: Recursos › Para IAs (prefixo ri-). Passos e notas vêm de recursos-figma.css (rf-). */
+
+.ri-files {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--ds-space-150);
+}
+
+.ri-file {
+  display: grid;
+  gap: var(--ds-space-075);
+  padding: var(--ds-space-250);
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-xl);
+  background: var(--ds-color-bg-surface);
+}
+
+.ri-file__name {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-100);
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-label-md);
+  font-family: var(--ds-font-family-mono);
+  text-decoration: none;
+}
+
+.ri-file__name:hover,
+.ri-file__name[data-state="hover"] {
+  text-decoration: underline;
+}
+
+.ri-file__text {
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+.ri-rules {
+  display: grid;
+  gap: var(--ds-space-100);
+  margin-bottom: var(--ds-space-200);
+}
+
+.ri-rules li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ds-space-100);
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-body-md);
+}
+
+.ri-rules .ds-icon {
+  flex: none;
+  margin-top: 3px;
+  color: var(--ds-color-brand-indicator);
+}
+
+@media (max-width: 720px) {
+  .ri-files {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -1,0 +1,139 @@
+import { icon } from '../../ds/icons/icons.js';
+import { mountDocNav } from '../doc-nav.js';
+import { mountCodeCopy, codeBlock } from '../component-doc.js';
+import { L } from '../i18n.js';
+
+// Reaproveita o visual dos passos e notas da página do plugin do Figma (rf-*)
+export const styles = ['site/component-doc.css', 'site/pages/recursos-figma.css', 'site/pages/recursos-ia.css'];
+
+const SITE = 'https://lumeui.dev';
+const ic = (s) => `<code class="ds-inline-code">${s}</code>`;
+const link = (href, text) => `<a class="rf-link" href="${href}" target="_blank" rel="noopener">${text}</a>`;
+
+/* ───────── Dados (textos no idioma atual: chame na renderização) ───────── */
+
+const NAV = () => [
+  ['ia-usar', L('Como usar', 'How to use', 'Cómo usar')],
+  ['ia-arquivos', L('Arquivos', 'Files', 'Archivos')],
+  ['ia-regras', L('Regras', 'Rules', 'Reglas')],
+  ['ia-manter', L('Para quem mantém', 'For maintainers', 'Para quien mantiene')],
+];
+
+const WAYS = () => [
+  [
+    L('Num chat', 'In a chat', 'En un chat'),
+    L('Mande o índice para a IA e peça a tela. Ela lê o LEIA-ME e o arquivo de cada componente antes de escrever o código.', 'Send the index to the AI and ask for the screen. It reads the LEIA-ME and each component’s file before writing code.', 'Envía el índice a la IA y pide la pantalla. Lee el LEIA-ME y el archivo de cada componente antes de escribir el código.'),
+    L(`Leia ${SITE}/llms.txt e crie uma tela de login com o Lume Design System.`, `Read ${SITE}/llms.txt and build a login screen with the Lume Design System.`, `Lee ${SITE}/llms.txt y crea una pantalla de inicio de sesión con Lume Design System.`),
+  ],
+  [
+    L('Num projeto', 'In a project', 'En un proyecto'),
+    L(`Copie o ${ic('AGENTS.md')} para a raiz do projeto, com o nome que a sua ferramenta lê (${ic('AGENTS.md')}, ${ic('CLAUDE.md')} ou o arquivo de regras do editor).`, `Copy ${ic('AGENTS.md')} to the project root, under the name your tool reads (${ic('AGENTS.md')}, ${ic('CLAUDE.md')}, or your editor’s rules file).`, `Copia ${ic('AGENTS.md')} a la raíz del proyecto, con el nombre que lee tu herramienta (${ic('AGENTS.md')}, ${ic('CLAUDE.md')} o el archivo de reglas del editor).`),
+    `curl -o AGENTS.md ${SITE}/ia/AGENTS.md`,
+  ],
+  [
+    L('Como skill do Claude', 'As a Claude skill', 'Como skill de Claude'),
+    L(`Baixe ${link('ia/lume-design-system.zip', 'lume-design-system.zip')} e envie na área de skills das configurações do Claude. No Claude Code, extraia em ${ic('~/.claude/skills/')}.`, `Download ${link('ia/lume-design-system.zip', 'lume-design-system.zip')} and upload it in the skills area of Claude’s settings. In Claude Code, extract it into ${ic('~/.claude/skills/')}.`, `Descarga ${link('ia/lume-design-system.zip', 'lume-design-system.zip')} y súbelo en el área de skills de la configuración de Claude. En Claude Code, extráelo en ${ic('~/.claude/skills/')}.`),
+    null,
+  ],
+];
+
+const FILES = () => [
+  ['llms.txt', 'llms.txt', L('O índice que as IAs procuram: um link para cada arquivo, com uma linha de descrição.', 'The index AIs look for: one link per file, with a one-line description.', 'El índice que buscan las IAs: un enlace por archivo, con una línea de descripción.')],
+  ['ia/LEIA-ME.md', 'LEIA-ME.md', L('A porta de entrada: instalação, regras gerais, direção visual e uma escolha rápida de componentes.', 'The entry point: installation, general rules, visual direction, and a quick component chooser.', 'La puerta de entrada: instalación, reglas generales, dirección visual y una elección rápida de componentes.')],
+  ['ia/AGENTS.md', 'AGENTS.md', L('As regras em poucas linhas, para copiar para um projeto.', 'The rules in a few lines, to copy into a project.', 'Las reglas en pocas líneas, para copiar a un proyecto.')],
+  ['ia/icones.md', 'icones.md', L('A lista exata dos 130 nomes de ícone. Nenhum outro existe.', 'The exact list of the 130 icon names. No other exists.', 'La lista exacta de los 130 nombres de ícono. No existe ningún otro.')],
+  ['ia/componentes/botao.md', 'componentes/*.md', L('Um arquivo por componente: exemplo, variantes com classes, estados, anatomia, acessibilidade, tokens e regras de uso.', 'One file per component: example, variants with classes, states, anatomy, accessibility, tokens, and usage rules.', 'Un archivo por componente: ejemplo, variantes con clases, estados, anatomía, accesibilidad, tokens y reglas de uso.')],
+  ['ia/padroes/login.md', 'fundamentos · gráficos · padrões', L('As demais páginas do site, no mesmo formato.', 'The rest of the site’s pages, in the same format.', 'Las demás páginas del sitio, en el mismo formato.')],
+];
+
+const RULES = () => [
+  L('Usar só classes, atributos e funções que estão na documentação.', 'Use only classes, attributes, and functions found in the docs.', 'Usar solo clases, atributos y funciones que están en la documentación.'),
+  L('Ícones só da lista; nada de SVG próprio no lugar.', 'Icons only from the list; no custom SVG instead.', 'Íconos solo de la lista; nada de SVG propio en su lugar.'),
+  L(`Cor, espaço, raio e texto só por token: ${ic('var(--ds-…)')}.`, `Color, spacing, radius, and text only through tokens: ${ic('var(--ds-…)')}.`, `Color, espacio, radio y texto solo por token: ${ic('var(--ds-…)')}.`),
+  L('Componente do Lume antes de código próprio.', 'A Lume component before custom code.', 'Componente de Lume antes que código propio.'),
+  L('Quando a documentação não cobre o caso, avisar em vez de inventar.', 'When the docs don’t cover a case, say so instead of inventing.', 'Cuando la documentación no cubre el caso, avisar en lugar de inventar.'),
+];
+
+function section(id, title, desc, body) {
+  return `<section class="doc-section" id="${id}" aria-labelledby="${id}-title">
+    <header class="doc-section__header"><div>
+      <h2 class="doc-section__title" id="${id}-title">${title}</h2>
+      ${desc ? `<p class="doc-section__desc">${desc}</p>` : ''}
+    </div></header>
+    ${body}
+  </section>`;
+}
+
+export default function renderIa(page) {
+  return `
+  <div class="page doc ri-page">
+    <header class="doc-header">
+      <div>
+        <p class="doc-header__eyebrow">${page.group}</p>
+        <h1 class="doc-header__title">${page.label}</h1>
+        <p class="doc-header__lead">${L('A documentação do Lume em Markdown, no formato que as IAs leem: cada página do site vira um arquivo, com as regras que impedem a IA de inventar classes, ícones e cores.', 'Lume’s documentation in Markdown, in the format AIs read: every page of the site becomes a file, with rules that keep the AI from inventing classes, icons, and colors.', 'La documentación de Lume en Markdown, en el formato que leen las IAs: cada página del sitio se vuelve un archivo, con reglas que impiden que la IA invente clases, íconos y colores.')}</p>
+      </div>
+      <dl class="doc-stats">
+        <div class="doc-stat"><dt class="doc-stat__label">${L('arquivos', 'files', 'archivos')}</dt><dd class="doc-stat__value">72</dd></div>
+        <div class="doc-stat"><dt class="doc-stat__label">${L('componentes', 'components', 'componentes')}</dt><dd class="doc-stat__value">44</dd></div>
+        <div class="doc-stat"><dt class="doc-stat__label">${L('ícones listados', 'icons listed', 'íconos listados')}</dt><dd class="doc-stat__value">130</dd></div>
+      </dl>
+    </header>
+
+    <nav class="doc-nav" aria-label="${L('Nesta página', 'On this page', 'En esta página')}">
+      ${NAV().map(([id, label]) => `<button type="button" class="doc-nav__link" data-target="${id}">${label}</button>`).join('')}
+    </nav>
+
+    ${section(
+      'ia-usar',
+      L('Como usar', 'How to use', 'Cómo usar'),
+      L('Três jeitos, do mais rápido ao mais permanente. Os arquivos estão em português; as IAs leem bem em qualquer idioma.', 'Three ways, from quickest to most permanent. The files are in Portuguese; AIs read them well in any language.', 'Tres formas, de la más rápida a la más permanente. Los archivos están en portugués; las IAs los leen bien en cualquier idioma.'),
+      `<ol class="rf-steps" role="list">
+        ${WAYS().map(
+          ([title, text, code], i) => `<li class="rf-step">
+            <p class="ds-section__head"><span class="ds-section__stamp">${String(i + 1).padStart(2, '0')}</span><span>${title}</span></p>
+            <p class="rf-step__text">${text}</p>
+            ${code ? codeBlock(code) : ''}
+          </li>`,
+        ).join('')}
+      </ol>`,
+    )}
+
+    ${section(
+      'ia-arquivos',
+      L('Arquivos', 'Files', 'Archivos'),
+      L(`Tudo publicado em ${ic(`${SITE}/ia/`)}, sem login.`, `Everything is published at ${ic(`${SITE}/ia/`)}, no login needed.`, `Todo publicado en ${ic(`${SITE}/ia/`)}, sin iniciar sesión.`),
+      `<ul class="ri-files" role="list">
+        ${FILES().map(([href, name, text]) => `<li class="ri-file">
+          <a class="ri-file__name" href="${href}" target="_blank" rel="noopener">${icon('file-text', { size: 18 })}<span>${name}</span></a>
+          <p class="ri-file__text">${text}</p>
+        </li>`).join('')}
+      </ul>`,
+    )}
+
+    ${section(
+      'ia-regras',
+      L('Regras', 'Rules', 'Reglas'),
+      L('O que a IA lê antes de qualquer tela. Também valem para quem escreve o código à mão.', 'What the AI reads before any screen. They also apply to anyone writing the code by hand.', 'Lo que la IA lee antes de cualquier pantalla. También valen para quien escribe el código a mano.'),
+      `<ul class="ri-rules" role="list">${RULES().map((r) => `<li>${icon('check', { size: 18 })}<span>${r}</span></li>`).join('')}</ul>
+      <p class="rf-note">${icon('info', { size: 16 })}<span>${L(`A IA carrega o CSS e os módulos direto de ${ic(`${SITE}/ds/`)}, que sempre trazem a versão mais nova. Para congelar uma versão, copie a pasta ${ic('ds/')} para o projeto.`, `The AI loads the CSS and modules straight from ${ic(`${SITE}/ds/`)}, which always serve the newest version. To pin a version, copy the ${ic('ds/')} folder into the project.`, `La IA carga el CSS y los módulos directamente desde ${ic(`${SITE}/ds/`)}, que siempre sirven la versión más nueva. Para fijar una versión, copia la carpeta ${ic('ds/')} al proyecto.`)}</span></p>`,
+    )}
+
+    ${section(
+      'ia-manter',
+      L('Para quem mantém', 'For maintainers', 'Para quien mantiene'),
+      L('Os arquivos de páginas saem do próprio site: um script abre cada página e converte o conteúdo. Mudou uma página, gere de novo.', 'The page files come from the site itself: a script opens each page and converts its content. Changed a page? Generate again.', 'Los archivos de páginas salen del propio sitio: un script abre cada página y convierte el contenido. ¿Cambió una página? Genera de nuevo.'),
+      `${codeBlock('npm run ia')}
+      <p class="rf-note">${icon('pencil', { size: 16 })}<span>${L(`${ic('ia/LEIA-ME.md')}, ${ic('ia/AGENTS.md')} e a skill são escritos à mão e o script não mexe neles.`, `${ic('ia/LEIA-ME.md')}, ${ic('ia/AGENTS.md')}, and the skill are written by hand, and the script leaves them alone.`, `${ic('ia/LEIA-ME.md')}, ${ic('ia/AGENTS.md')} y la skill se escriben a mano y el script no los toca.`)}</span></p>`,
+    )}
+  </div>`;
+}
+
+export function mount(root) {
+  const unmountNav = mountDocNav(root);
+  const unmountCopy = mountCodeCopy(root);
+  return () => {
+    unmountNav();
+    unmountCopy();
+  };
+}

@@ -13,7 +13,7 @@ const GOAL = T('Meta', 'Goal', 'Meta');
 
 const STAGES = [
   {
-    version: '0.23',
+    version: '0.24',
     group: 'release',
     tone: 'brand',
     status: NEXT,
@@ -25,7 +25,7 @@ const STAGES = [
     ],
   },
   {
-    version: '0.24',
+    version: '0.25',
     group: 'release',
     tone: 'neutral',
     status: PLANNED,

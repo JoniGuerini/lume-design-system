@@ -1,0 +1,81 @@
+# Lume Design System: guia para IAs
+
+Leia este arquivo antes de criar qualquer tela com o Lume. Ele diz como instalar, quais regras valem para todas as telas e o que você nunca deve inventar. O índice completo dos arquivos está em https://lumeui.dev/llms.txt.
+
+O Lume é um design system em HTML, CSS e JavaScript nativos, sem dependências. Ele reúne tokens, tipografia, 130 ícones próprios, 44 componentes, gráficos e padrões de tela, nos temas claro e escuro.
+
+## Antes de tudo
+
+1. **Use só o que está documentado.** Toda classe `ds-*`, todo atributo `data-*` e toda função JavaScript que você usar precisa aparecer em um arquivo desta documentação. Não invente classes, variantes, tamanhos nem propriedades.
+2. **Ícones só da lista.** Use `<ds-icon name="…">` com um nome de https://lumeui.dev/ia/icones.md. Se nenhum servir, escolha o mais próximo da lista e avise a pessoa. Nunca desenhe um SVG próprio no lugar.
+3. **Cor, espaço, raio e tipografia só por token.** Use `var(--ds-…)`, nunca um valor solto como `#3e5166` ou `13px`. Os tokens estão em https://lumeui.dev/ia/recursos/tokens.md e em cada arquivo de componente, na seção "Tokens usados".
+4. **Componente antes de código próprio.** Se existe um componente para a necessidade, use-o, mesmo que dê para fazer à mão.
+5. **Na dúvida, pergunte ou avise.** Se a documentação não cobre um caso, diga à pessoa o que faltou e qual foi a escolha mais próxima. Não preencha a lacuna com algo que pareça do Lume.
+6. **Siga as seções "Uso" e "Acessibilidade" de cada componente.** São regras, não sugestões.
+
+## Instalação
+
+O CSS e os módulos estão publicados em `https://lumeui.dev/ds/` e podem ser carregados direto de outro site.
+
+```html
+<html lang="pt-BR" data-theme="light">
+  <head>
+    <link rel="stylesheet" href="https://lumeui.dev/ds/ds.css">
+  </head>
+  <body>
+    <button type="button" class="ds-btn ds-btn--primary">Salvar</button>
+
+    <script type="module">
+      import 'https://lumeui.dev/ds/icons/icons.js';
+      import { initTooltips } from 'https://lumeui.dev/ds/js/tooltip.js';
+      initTooltips();
+    </script>
+  </body>
+</html>
+```
+
+- **Um CSS só:** `ds.css` traz as fontes, os tokens, a base e todos os componentes.
+- **Tema:** `data-theme="light"` (claro) ou `data-theme="dark"` (escuro) no `<html>`. Para seguir o sistema, chame `initTheme()` de `https://lumeui.dev/ds/js/theme.js`.
+- **JavaScript só onde precisa:** componentes visuais funcionam só com CSS. Os interativos têm um módulo em `https://lumeui.dev/ds/js/`. Importe só os que a tela usa, e o arquivo de cada componente mostra qual é.
+- **Ícones:** importe `https://lumeui.dev/ds/icons/icons.js` uma vez para que o `<ds-icon>` funcione.
+- **Versão:** o endereço sempre entrega a versão mais nova do Lume. Ainda não existe pacote com versão fixa; ele está no roadmap. Para congelar uma versão, copie a pasta `ds/` para o projeto e aponte para ela.
+
+## Direção visual
+
+- **Tudo plano.** Superfícies opacas, contornos finos, raios grandes. Sem degradê, sombra decorativa, vidro, desfoque, brilho ou textura.
+- **Sem imagens decorativas.** A personalidade vem da tipografia, dos contornos e da cor de destaque.
+- **Tipografia:** Geist Serif nos títulos, Geist Sans no texto e JetBrains Mono no código. Use os estilos de texto dos tokens (`--ds-text-…`), não tamanhos soltos.
+- **Uma ação primária por tela.** As outras ações ficam em secundário, ghost ou sutil.
+- **Menos é mais.** Prefira menos elementos bem resolvidos a enfeites. Não use ícone de brilho ("sparkles") para indicar novidade ou IA.
+
+## Textos
+
+- Português do Brasil, curto e direto. Rótulos de botão começam com verbo ("Salvar alterações", não "OK").
+- O componente já traz os textos de sistema nos três idiomas (português, inglês e espanhol). Não traduza à mão o que ele já resolve.
+
+## Acessibilidade
+
+O Lume segue a WCAG 2.2, nível AA, nos dois temas. Os componentes já vêm com teclado, foco visível e contraste medido. Continua sendo sua responsabilidade:
+
+- dar nome a botões só com ícone (`aria-label` e uma dica com o mesmo texto);
+- usar o elemento certo (`<button>` para ação, `<a>` para navegar);
+- não depender só de cor para passar informação;
+- respeitar as regras de cada componente na seção "Acessibilidade".
+
+## Onde está cada coisa
+
+- **Componentes:** um arquivo por componente em `https://lumeui.dev/ia/componentes/`. Cada um traz um exemplo de código, as variantes com suas classes, os estados, a anatomia, a acessibilidade, os tokens e as regras de uso.
+- **Fundamentos:** cores, tipografia, ícones, espaçamento, raios, elevação, movimento e layout, em `https://lumeui.dev/ia/fundamentos/`.
+- **Gráficos:** em `https://lumeui.dev/ia/graficos/`.
+- **Padrões de tela:** app shell, formulários, login, busca, estados vazios e conversa, em `https://lumeui.dev/ia/padroes/`. Comece por eles quando for montar uma tela inteira.
+- **Primeiros passos:** `https://lumeui.dev/ia/primeiros-passos.md`.
+
+## Escolha rápida
+
+- Ação → Botão; ação dentro de texto ou lista → Ação inline.
+- Uma opção entre poucas, sempre visíveis, com efeito imediato → Controle segmentado; escolher uma ou várias numa lista → Seleção.
+- Liga e desliga com efeito imediato → Switch; marcar para enviar depois → Checkbox.
+- Mensagem que some sozinha → Toast; que fica na tela → Alerta.
+- Decisão ou tarefa curta que interrompe o fluxo → Modal; detalhes ou tarefa sem sair da página → Gaveta lateral.
+- Agrupar conteúdo → Card; a superfície de uma tarefa do produto, com controles e seções → Painel.
+- Tarefa com progresso medível → Barra de progresso; espera curta → Spinner; conteúdo com forma conhecida carregando → Skeleton.
