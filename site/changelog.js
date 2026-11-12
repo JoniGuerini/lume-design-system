@@ -8,10 +8,32 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.24.0';
+export const CURRENT_VERSION = '0.25.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.25.0',
+    date: '2026-11-12',
+    title: T('Pacote', 'Package', 'Paquete'),
+    summary: T(
+      'Cada versão ganha um endereço fixo, lumeui.dev/v/0.25/, com o CSS num arquivo só, a API em lume.js e um zip. Licença MIT.',
+      'Each version gets a fixed address, lumeui.dev/v/0.25/, with the CSS in a single file, the API in lume.js, and a zip. MIT license.',
+      'Cada versión tiene una dirección fija, lumeui.dev/v/0.25/, con el CSS en un solo archivo, la API en lume.js y un zip. Licencia MIT.',
+    ),
+    groups: [
+      {
+        name: T('Pacote', 'Package', 'Paquete'),
+        items: [
+          ['novo', T('Endereços com versão: o projeto só muda quando você trocar o número', 'Versioned addresses: your project only changes when you change the number', 'Direcciones con versión: el proyecto solo cambia cuando cambias el número'), '/primeiros-passos'],
+          ['novo', T('lume.css: fontes, tokens, base e todos os componentes num arquivo só', 'lume.css: fonts, tokens, base, and every component in a single file', 'lume.css: fuentes, tokens, base y todos los componentes en un solo archivo'), '/primeiros-passos'],
+          ['novo', T('Zip de cada versão, para quem prefere os arquivos no projeto', 'A zip of every version, for those who prefer the files in their project', 'Zip de cada versión, para quien prefiere los archivos en el proyecto'), '/primeiros-passos'],
+          ['novo', T('Licença MIT; as fontes seguem na OFL', 'MIT license; the fonts stay under the OFL', 'Licencia MIT; las fuentes siguen bajo la OFL'), '/primeiros-passos'],
+          ['melhoria', T('Primeiros passos e os guias para IAs ensinam a instalar pela versão', 'Getting started and the AI guides teach installing by version', 'Primeros pasos y las guías para IA enseñan a instalar por versión'), '/primeiros-passos'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.24.0',
     date: '2026-11-12',

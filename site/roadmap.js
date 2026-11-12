@@ -13,22 +13,10 @@ const GOAL = T('Meta', 'Goal', 'Meta');
 
 const STAGES = [
   {
-    version: '0.25',
-    group: 'release',
-    tone: 'brand',
-    status: NEXT,
-    title: T('Pacote', 'Package', 'Paquete'),
-    text: T('Usar o Lume em outros projetos sem copiar arquivos.', 'Use Lume in other projects without copying files.', 'Usar Lume en otros proyectos sin copiar archivos.'),
-    items: [
-      { name: T('Build', 'Build', 'Build'), text: T('CSS único e uma versão só para tudo.', 'A single CSS file and one version for everything.', 'Un único CSS y una sola versión para todo.') },
-      { name: T('Instalação', 'Installation', 'Instalación'), text: T('Pelo GitHub, com licença definida.', 'From GitHub, with a defined license.', 'Desde GitHub, con licencia definida.') },
-    ],
-  },
-  {
     version: '1.0',
     group: 'release',
     tone: 'success',
-    status: GOAL,
+    status: NEXT,
     title: T('Estável', 'Stable', 'Estable'),
     text: T('API congelada e pronta para escalar.', 'A frozen API, ready to scale.', 'API congelada y lista para escalar.'),
     items: [

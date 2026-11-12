@@ -2,6 +2,9 @@ import { mountDocNav } from '../doc-nav.js';
 import { mountCodeCopy, codeBlock } from '../component-doc.js';
 import { L } from '../i18n.js';
 import { apiGroups, apiCount } from '../api.js';
+import { CURRENT_VERSION } from '../changelog.js';
+
+const LINE = CURRENT_VERSION.split('.').slice(0, 2).join('.');
 
 export const styles = ['site/component-doc.css', 'site/pages/recursos-api.css'];
 
@@ -59,10 +62,10 @@ export default function renderApi(page) {
       'api-importar',
       L('Importar', 'Import', 'Importar'),
       L(`Um arquivo, ${ic('ds/lume.js')}, reúne a API inteira. Os módulos de ${ic('ds/js/')} continuam podendo ser importados um a um, para carregar só o necessário.`, `One file, ${ic('ds/lume.js')}, gathers the whole API. The ${ic('ds/js/')} modules can still be imported one by one, to load only what you need.`, `Un archivo, ${ic('ds/lume.js')}, reúne toda la API. Los módulos de ${ic('ds/js/')} siguen pudiéndose importar uno a uno, para cargar solo lo necesario.`),
-      codeBlock(`<link rel="stylesheet" href="https://lumeui.dev/ds/ds.css">
+      codeBlock(`<link rel="stylesheet" href="https://lumeui.dev/v/${LINE}/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/ds/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/${LINE}/lume.js';
 
   initTheme();
   const modal = createModal({ title: '${L('Publicar alterações?', 'Publish changes?', '¿Publicar cambios?')}' });

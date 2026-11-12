@@ -13,6 +13,15 @@
       ]
     },
     {
+      "source": "/v/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    },
+    {
       "source": "/ia/(.*).md",
       "headers": [
         {

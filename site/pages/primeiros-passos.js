@@ -5,6 +5,10 @@ import { tr, locale } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, codeBlock } from '../component-doc.js';
 import { T } from '../i18n.js';
+import { CURRENT_VERSION } from '../changelog.js';
+
+// a linha atual (0.25, 0.26…): o endereço com versão que a instalação ensina
+const LINE = CURRENT_VERSION.split('.').slice(0, 2).join('.');
 
 export const styles = ['site/component-doc.css', 'site/pages/primeiros-passos.css'];
 
@@ -18,12 +22,12 @@ const COPY = T(
     stats: ['dependências', 'arquivo de CSS', 'tokens', 'temas'],
     onThisPage: 'Nesta página',
     nav: ['Instalação', 'Primeira tela', 'Tokens', 'JavaScript', 'Sua marca', 'Estrutura', 'Próximos passos'],
-    install: { title: 'Instalação', desc: 'Quatro passos. Nenhum precisa de terminal além do primeiro.', step: (n) => `Passo ${n}: ` },
+    install: { title: 'Instalação', desc: `Quatro passos, sem terminal. Prefere ter os arquivos no projeto? <a href="https://lumeui.dev/v/${LINE}/lume-${LINE}.zip">Baixe o zip da versão</a> e leve a pasta para o seu projeto.`, step: (n) => `Passo ${n}: ` },
     steps: [
-      ['Copie o design system', `O Lume não tem dependências nem build obrigatório. Leve a pasta ${code('ds/')} para o seu projeto.`],
-      ['Carregue o CSS', 'Um arquivo só traz as fontes, os tokens, a base e todos os componentes. As fontes vêm junto, em ds/fonts, com as licenças.'],
+      ['Escolha a versão', `Cada versão tem um endereço fixo: o seu projeto só muda quando você trocar o número. ${code('https://lumeui.dev/ds/')} sempre traz a mais nova. Licença MIT.`],
+      ['Carregue o CSS', 'Um arquivo só traz as fontes, os tokens, a base e todos os componentes.'],
       ['Escolha o tema', `${code('light')} é o claro e ${code('dark')}, o escuro. Para seguir o sistema (o padrão do site), ${code('initTheme()')} escolhe um dos dois.`],
-      ['Ligue só o JavaScript que usar', 'Componentes visuais funcionam só com CSS. Os interativos têm um módulo cada — importe e ligue os que a tela usa.'],
+      ['Ligue só o JavaScript que usar', `Componentes visuais funcionam só com CSS. Para os interativos, importe de ${code('lume.js')} o que a tela usa.`],
     ],
     first: { title: 'Sua primeira tela', desc: 'Escolha um ponto de partida, veja em cada tema e copie. O código abaixo é exatamente o que está no palco.' },
     tokens: { title: 'Usando tokens', desc: 'No seu CSS, use sempre um token semântico — nunca um valor solto. Assim o tema, a marca e a densidade mudam sem tocar no seu código.' },
@@ -61,12 +65,12 @@ const COPY = T(
     stats: ['dependencies', 'CSS file', 'tokens', 'themes'],
     onThisPage: 'On this page',
     nav: ['Installation', 'First screen', 'Tokens', 'JavaScript', 'Your brand', 'Structure', 'Next steps'],
-    install: { title: 'Installation', desc: 'Four steps. Only the first one needs a terminal.', step: (n) => `Step ${n}: ` },
+    install: { title: 'Installation', desc: `Four steps, no terminal. Prefer the files inside your project? <a href="https://lumeui.dev/v/${LINE}/lume-${LINE}.zip">Download the version’s zip</a> and take the folder into your project.`, step: (n) => `Step ${n}: ` },
     steps: [
-      ['Copy the design system', `Lume has no dependencies and no required build. Take the ${code('ds/')} folder into your project.`],
-      ['Load the CSS', 'A single file brings the fonts, the tokens, the base, and every component. The fonts ship in ds/fonts, with their licenses.'],
+      ['Pick the version', `Each version has a fixed address: your project only changes when you change the number. ${code('https://lumeui.dev/ds/')} always serves the newest. MIT license.`],
+      ['Load the CSS', 'A single file brings the fonts, the tokens, the base, and every component.'],
       ['Pick the theme', `${code('light')} is light and ${code('dark')} is dark. To follow the system (the site’s default), ${code('initTheme()')} picks one of them.`],
-      ['Turn on only the JavaScript you use', 'Visual components work with CSS alone. Interactive ones have a module each — import and turn on the ones your screen uses.'],
+      ['Turn on only the JavaScript you use', `Visual components work with CSS alone. For interactive ones, import what your screen uses from ${code('lume.js')}.`],
     ],
     first: { title: 'Your first screen', desc: 'Pick a starting point, check it in each theme, and copy it. The code below is exactly what’s on the stage.' },
     tokens: { title: 'Using tokens', desc: 'In your CSS, always use a semantic token — never a loose value. That way the theme, the brand, and the density change without touching your code.' },
@@ -104,12 +108,12 @@ const COPY = T(
     stats: ['dependencias', 'archivo de CSS', 'tokens', 'temas'],
     onThisPage: 'En esta página',
     nav: ['Instalación', 'Primera pantalla', 'Tokens', 'JavaScript', 'Tu marca', 'Estructura', 'Siguientes pasos'],
-    install: { title: 'Instalación', desc: 'Cuatro pasos. Solo el primero necesita terminal.', step: (n) => `Paso ${n}: ` },
+    install: { title: 'Instalación', desc: `Cuatro pasos, sin terminal. ¿Prefieres tener los archivos en el proyecto? <a href="https://lumeui.dev/v/${LINE}/lume-${LINE}.zip">Descarga el zip de la versión</a> y lleva la carpeta a tu proyecto.`, step: (n) => `Paso ${n}: ` },
     steps: [
-      ['Copia el design system', `Lume no tiene dependencias ni build obligatorio. Lleva la carpeta ${code('ds/')} a tu proyecto.`],
-      ['Carga el CSS', 'Un solo archivo trae las fuentes, los tokens, la base y todos los componentes. Las fuentes vienen incluidas, en ds/fonts, con sus licencias.'],
+      ['Elige la versión', `Cada versión tiene una dirección fija: tu proyecto solo cambia cuando cambies el número. ${code('https://lumeui.dev/ds/')} siempre trae la más nueva. Licencia MIT.`],
+      ['Carga el CSS', 'Un solo archivo trae las fuentes, los tokens, la base y todos los componentes.'],
       ['Elige el tema', `${code('light')} es el claro y ${code('dark')}, el oscuro. Para seguir el sistema (lo predeterminado del sitio), ${code('initTheme()')} elige uno de los dos.`],
-      ['Activa solo el JavaScript que uses', 'Los componentes visuales funcionan solo con CSS. Los interactivos tienen un módulo cada uno — importa y activa los que use la pantalla.'],
+      ['Activa solo el JavaScript que uses', `Los componentes visuales funcionan solo con CSS. Para los interactivos, importa de ${code('lume.js')} lo que use la pantalla.`],
     ],
     first: { title: 'Tu primera pantalla', desc: 'Elige un punto de partida, míralo en cada tema y cópialo. El código de abajo es exactamente lo que está en el escenario.' },
     tokens: { title: 'Usar tokens', desc: 'En tu CSS, usa siempre un token semántico — nunca un valor suelto. Así el tema, la marca y la densidad cambian sin tocar tu código.' },
@@ -150,13 +154,11 @@ const tokenCount = tokens.length + palettes.reduce((n, p) => n + p.steps.length,
 const countPrefix = (prefix) => tokens.filter((t) => t.name.startsWith(prefix)).length;
 
 const STEP_CODE = [
-  'cp -R lume/ds ./ds',
-  `<link rel="stylesheet" href="ds/ds.css">`,
+  () => `https://lumeui.dev/v/${LINE}/`,
+  () => `<link rel="stylesheet" href="https://lumeui.dev/v/${LINE}/lume.css">`,
   () => `<html lang="${locale()}" data-theme="light">`,
-  `<script type="module">
-  import './ds/icons/icons.js';
-  import { initTooltips } from './ds/js/tooltip.js';
-  import { mountSelects } from './ds/js/select.js';
+  () => `<script type="module">
+  import { initTooltips, mountSelects } from 'https://lumeui.dev/v/${LINE}/lume.js';
 
   initTooltips();
   mountSelects(document);

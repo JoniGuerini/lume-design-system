@@ -15,32 +15,31 @@ O Lume é um design system em HTML, CSS e JavaScript nativos, sem dependências.
 
 ## Instalação
 
-O CSS e os módulos estão publicados em `https://lumeui.dev/ds/` e podem ser carregados direto de outro site.
+O Lume está publicado com versão fixa em `https://lumeui.dev/v/0.25/` e pode ser carregado direto de outro site. Licença MIT.
 
 ```html
 <html lang="pt-BR" data-theme="light">
   <head>
-    <link rel="stylesheet" href="https://lumeui.dev/ds/ds.css">
+    <link rel="stylesheet" href="https://lumeui.dev/v/0.25/lume.css">
   </head>
   <body>
     <button type="button" class="ds-btn ds-btn--primary">Salvar</button>
 
     <script type="module">
-      import 'https://lumeui.dev/ds/icons/icons.js';
-      import { initTooltips } from 'https://lumeui.dev/ds/js/tooltip.js';
+      import { initTooltips } from 'https://lumeui.dev/v/0.25/lume.js';
       initTooltips();
     </script>
   </body>
 </html>
 ```
 
-- **Um CSS só:** `ds.css` traz as fontes, os tokens, a base e todos os componentes.
-- **Um JavaScript só, se preferir:** `https://lumeui.dev/ds/lume.js` reúne toda a API pública (`import { createModal, toast } from 'https://lumeui.dev/ds/lume.js'`). A lista e a convenção de nomes estão em `https://lumeui.dev/ia/recursos/api.md`. O que não está nele é interno: não use.
+- **Um CSS só:** `lume.css` traz as fontes, os tokens, a base e todos os componentes.
+- **Um JavaScript só, se preferir:** `lume.js` reúne toda a API pública (`import { createModal, toast } from 'https://lumeui.dev/v/0.25/lume.js'`). A lista e a convenção de nomes estão em `https://lumeui.dev/ia/recursos/api.md`. O que não está nele é interno: não use.
 - **Tema:** `data-theme="light"` (claro) ou `data-theme="dark"` (escuro) no `<html>`. Para seguir o sistema, chame `initTheme()` de `https://lumeui.dev/ds/js/theme.js`.
 - **JavaScript só onde precisa:** componentes visuais funcionam só com CSS. Os interativos têm um módulo em `https://lumeui.dev/ds/js/`. Importe só os que a tela usa, e o arquivo de cada componente mostra qual é.
 - **Ícones:** importe `https://lumeui.dev/ds/icons/icons.js` uma vez para que o `<ds-icon>` funcione.
 - **Idioma:** os textos de sistema dos componentes seguem o idioma do navegador (português, inglês ou espanhol; qualquer outro vira inglês). Para fixar um, chame `setLocale('pt-BR')` de `https://lumeui.dev/ds/js/i18n.js`.
-- **Versão:** o endereço sempre entrega a versão mais nova do Lume. Ainda não existe pacote com versão fixa; ele está no roadmap. Para congelar uma versão, copie a pasta `ds/` para o projeto e aponte para ela.
+- **Versão:** use o endereço com versão (`/v/0.25/`). A versão atual e a lista estão em `https://lumeui.dev/v/index.json`. `https://lumeui.dev/ds/` sempre traz a mais nova, e cada versão tem um zip para quem prefere os arquivos no projeto (`https://lumeui.dev/v/0.25/lume-0.25.zip`).
 
 ## Direção visual
 

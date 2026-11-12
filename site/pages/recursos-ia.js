@@ -125,7 +125,7 @@ export default function renderIa(page) {
       L('Regras', 'Rules', 'Reglas'),
       L('O que a IA lê antes de qualquer tela. Também valem para quem escreve o código à mão.', 'What the AI reads before any screen. They also apply to anyone writing the code by hand.', 'Lo que la IA lee antes de cualquier pantalla. También valen para quien escribe el código a mano.'),
       `<ul class="ri-rules" role="list">${RULES().map((r) => `<li>${icon('check', { size: 18 })}<span>${r}</span></li>`).join('')}</ul>
-      <p class="rf-note">${icon('info', { size: 16 })}<span>${L(`A IA carrega o CSS e os módulos direto de ${ic(`${SITE}/ds/`)}, que sempre trazem a versão mais nova. Para congelar uma versão, copie a pasta ${ic('ds/')} para o projeto.`, `The AI loads the CSS and modules straight from ${ic(`${SITE}/ds/`)}, which always serve the newest version. To pin a version, copy the ${ic('ds/')} folder into the project.`, `La IA carga el CSS y los módulos directamente desde ${ic(`${SITE}/ds/`)}, que siempre sirven la versión más nueva. Para fijar una versión, copia la carpeta ${ic('ds/')} al proyecto.`)}</span></p>`,
+      <p class="rf-note">${icon('info', { size: 16 })}<span>${L(`A IA carrega o Lume pelo endereço com versão, como ${ic(`${SITE}/v/0.25/`)}: o projeto só muda quando alguém trocar o número.`, `The AI loads Lume from the versioned address, like ${ic(`${SITE}/v/0.25/`)}: the project only changes when someone changes the number.`, `La IA carga Lume desde la dirección con versión, como ${ic(`${SITE}/v/0.25/`)}: el proyecto solo cambia cuando alguien cambie el número.`)}</span></p>`,
     )}
 
     ${section(
