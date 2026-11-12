@@ -92,7 +92,7 @@ function toastCode(state) {
   const handle = L('aviso', 'notice', 'aviso');
   const body = state.duration === 'sticky' ? `const ${handle} = ${call}\n// ${L('… depois', '… later', '… después')}: ${handle}.close();` : call;
   const appWide = state.position && state.position !== 'bottom-center' ? `\n\n// ${L('ou, para o app inteiro (salvo no navegador)', 'or, for the whole app (saved in the browser)', 'o, para toda la app (guardado en el navegador)')}:\n// setToastPosition('${state.position}');` : '';
-  return `import { toast } from './ds/js/toast.js';\n\n${body}${appWide}`;
+  return `import { toast } from 'https://lumeui.dev/v/0.25/lume.js';\n\n${body}${appWide}`;
 }
 
 /* ───────── Página ───────── */

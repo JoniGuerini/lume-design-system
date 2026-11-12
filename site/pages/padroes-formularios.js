@@ -362,7 +362,7 @@ const htmlCode = () => `<form class="ds-form" id="${L('projeto', 'project', 'pro
   </div>
 </form>`;
 
-const jsCode = () => `import { createForm } from './ds/js/form.js';
+const jsCode = () => `import { createForm } from 'https://lumeui.dev/v/0.25/lume.js';
 
 const form = createForm(document.querySelector('#${L('projeto', 'project', 'proyecto')}'), {
   rules: {

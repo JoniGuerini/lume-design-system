@@ -45,6 +45,7 @@
         var insights = document.createElement('script');
         insights.defer = true;
         insights.src = '/_vercel/insights/script.js';
+        insights.dataset.disableAutoTrack = '1'; // o site manda cada página (site/app.js), já que navega por #
         document.head.append(insights);
       }
     </script>

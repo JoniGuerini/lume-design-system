@@ -100,7 +100,7 @@ Each interactive component has its own module, with no dependencies between them
 
 | Module | What for | How to turn on |  |
 | --- | --- | --- | --- |
-|  `ds/icons/icons.js`  | Icons as <ds-icon> and the icon() function |  `import './ds/icons/icons.js'`  |  |
+|  `ds/icons/icons.js`  | Icons as <ds-icon> and the icon() function |  ``  |  |
 |  `ds/js/theme.js`  | Dark, light, or system theme |  `initTheme(); setTheme("light")`  |  |
 |  `ds/js/tooltip.js`  | Hints via data-ds-tooltip |  `initTooltips()`  |  |
 |  `ds/js/menu.js`  | Menus that open from a trigger |  `createMenu(botao, { options, onChange })`  |  |

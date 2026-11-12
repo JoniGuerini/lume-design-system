@@ -14,7 +14,7 @@ En números: función: 1 · grosor: 6 px · área de agarre: 12 px · desaparece
 </div>
 
 <script type="module">
-  import { initScrollbars } from './ds/js/scrollbar.js';
+  import { initScrollbars } from 'https://lumeui.dev/v/0.25/lume.js';
   initScrollbars();
 </script>
 ```
@@ -42,7 +42,7 @@ Marcado de los ejemplos de esta sección:
 Basta activarla una vez. Las áreas que entran después también reciben la barra.
 
 ```html
-import { initScrollbars } from './ds/js/scrollbar.js';
+import { initScrollbars } from 'https://lumeui.dev/v/0.25/lume.js';
 
 initScrollbars();
 

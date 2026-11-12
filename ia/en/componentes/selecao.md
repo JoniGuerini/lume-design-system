@@ -19,7 +19,7 @@ In numbers: types: 3 · sizes: 3 · ARIA pattern: combobox · without JS: native
 </div>
 
 <script type="module">
-  import { mountSelects } from './ds/js/select.js';
+  import { mountSelects } from 'https://lumeui.dev/v/0.25/lume.js';
   mountSelects(document);
 </script>
 ```

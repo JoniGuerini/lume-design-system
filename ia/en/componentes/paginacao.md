@@ -12,7 +12,7 @@ In numbers: height: 36 px · versions: 2 · sibling pages: your choice · role: 
 <nav class="ds-pagination"></nav>
 
 <script type="module">
-  import { createPagination } from './ds/js/pagination.js';
+  import { createPagination } from 'https://lumeui.dev/v/0.25/lume.js';
   createPagination(document.querySelector('.ds-pagination'), {
     total: 248,
     pageSizes: [10, 25, 50],
@@ -83,7 +83,7 @@ Markup of the examples in this section:
 `onChange` reports the page and size; you load the data.
 
 ```html
-import { createPagination } from './ds/js/pagination.js';
+import { createPagination } from 'https://lumeui.dev/v/0.25/lume.js';
 
 const pagination = createPagination(document.querySelector('.ds-pagination'), {
   total: 248,

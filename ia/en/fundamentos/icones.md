@@ -225,7 +225,7 @@ Two ways to use them: the `icon()` function in JavaScript or the `<ds-icon>` ele
 JavaScript
 
 ```html
-import { icon } from './ds/icons/icons.js';
+import { icon } from 'https://lumeui.dev/v/0.25/lume.js';
 
 button.innerHTML = icon('home', { size: 20 });
 // with a label for screen readers

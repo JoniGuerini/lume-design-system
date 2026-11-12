@@ -14,7 +14,7 @@ In numbers: ways to open: 3 · ARIA role: menu · long press: 500 ms · surface:
 </ul>
 
 <script type="module">
-  import { createContextMenu } from './ds/js/context-menu.js';
+  import { createContextMenu } from 'https://lumeui.dev/v/0.25/lume.js';
   createContextMenu(document.querySelector('#arquivos'), {
     selector: '[data-arquivo]',
     options: [
@@ -32,7 +32,7 @@ In numbers: ways to open: 3 · ARIA role: menu · long press: 500 ms · surface:
 With `selector`, one menu serves every row; `options` can change by item.
 
 ```html
-import { createContextMenu } from './ds/js/context-menu.js';
+import { createContextMenu } from 'https://lumeui.dev/v/0.25/lume.js';
 
 createContextMenu(document.querySelector('#arquivos'), {
   selector: '[data-arquivo]',

@@ -1,6 +1,6 @@
 # Lume Design System
 
-> Design system em HTML, CSS e JavaScript nativos, sem dependências: tokens, tipografia, 130 ícones próprios, componentes, gráficos e padrões de tela, nos temas claro e escuro. Versão 0.25.1.
+> Design system em HTML, CSS e JavaScript nativos, sem dependências: tokens, tipografia, 130 ícones próprios, componentes, gráficos e padrões de tela, nos temas claro e escuro. Versão 0.25.2.
 
 Comece por [LEIA-ME](https://lumeui.dev/ia/LEIA-ME.md): instalação, regras gerais e o que nunca inventar. Cada página do site tem um arquivo Markdown abaixo, gerado a partir dela.
 
@@ -97,7 +97,6 @@ Comece por [LEIA-ME](https://lumeui.dev/ia/LEIA-ME.md): instalação, regras ger
 - [Acessibilidade](https://lumeui.dev/ia/recursos/acessibilidade.md): Diretrizes para produtos que todo mundo consegue usar.
 - [Tokens para Figma](https://lumeui.dev/ia/recursos/tokens.md): Exportação dos tokens para Figma e outras ferramentas.
 - [API](https://lumeui.dev/ia/recursos/api.md): Tudo o que é público no JavaScript, com a convenção dos nomes.
-- [Como contribuir](https://lumeui.dev/ia/recursos/contribuir.md): Processo para propor e evoluir componentes.
 
 ## Outros idiomas
 

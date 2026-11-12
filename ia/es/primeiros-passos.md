@@ -100,7 +100,7 @@ Cada componente interactivo tiene su módulo, sin dependencias entre ellos. Impo
 
 | Módulo | Para qué | Cómo activarlo |  |
 | --- | --- | --- | --- |
-|  `ds/icons/icons.js`  | Íconos como <ds-icon> y la función icon() |  `import './ds/icons/icons.js'`  |  |
+|  `ds/icons/icons.js`  | Íconos como <ds-icon> y la función icon() |  ``  |  |
 |  `ds/js/theme.js`  | Tema oscuro, claro o del sistema |  `initTheme(); setTheme("light")`  |  |
 |  `ds/js/tooltip.js`  | Pistas con data-ds-tooltip |  `initTooltips()`  |  |
 |  `ds/js/menu.js`  | Menús que se abren desde un disparador |  `createMenu(botao, { options, onChange })`  |  |

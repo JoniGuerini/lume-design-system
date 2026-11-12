@@ -82,7 +82,7 @@ export default function renderIa(page) {
         <p class="doc-header__lead">${L('A documentação do Lume em Markdown, no formato que as IAs leem: cada página do site vira um arquivo, com as regras que impedem a IA de inventar classes, ícones e cores.', 'Lume’s documentation in Markdown, in the format AIs read: every page of the site becomes a file, with rules that keep the AI from inventing classes, icons, and colors.', 'La documentación de Lume en Markdown, en el formato que leen las IAs: cada página del sitio se vuelve un archivo, con reglas que impiden que la IA invente clases, íconos y colores.')}</p>
       </div>
       <dl class="doc-stats">
-        <div class="doc-stat"><dt class="doc-stat__label">${L('arquivos por idioma', 'files per language', 'archivos por idioma')}</dt><dd class="doc-stat__value">72</dd></div>
+        <div class="doc-stat"><dt class="doc-stat__label">${L('arquivos por idioma', 'files per language', 'archivos por idioma')}</dt><dd class="doc-stat__value">73</dd></div>
         <div class="doc-stat"><dt class="doc-stat__label">${L('idiomas', 'languages', 'idiomas')}</dt><dd class="doc-stat__value">3</dd></div>
         <div class="doc-stat"><dt class="doc-stat__label">${L('componentes', 'components', 'componentes')}</dt><dd class="doc-stat__value">44</dd></div>
         <div class="doc-stat"><dt class="doc-stat__label">${L('ícones listados', 'icons listed', 'íconos listados')}</dt><dd class="doc-stat__value">130</dd></div>

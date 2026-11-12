@@ -2,7 +2,7 @@
  * Gráficos — moldura, marcas, tooltip, legenda e figuras (indicador, sparkline, medidor).
  * Desenhados por ds/js/charts.js. Marcas usam --c (a cor da série); textos usam sempre fg.*.
  *
- * <div id="vendas"></div>  →  barChart(el, {...}) monta <figure class="ds-chart">
+ * <div id="vendas"></div>  →  createBarChart(el, {...}) monta <figure class="ds-chart">
  *
  * Modificadores: .ds-chart--card (superfície com contorno) · [data-texture] (hachura de reserva)
  * Personalize o anel dos pontos com --ds-chart-surface quando o gráfico estiver sobre outro fundo.

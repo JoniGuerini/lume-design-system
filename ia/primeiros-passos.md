@@ -100,7 +100,7 @@ Cada componente interativo tem o seu módulo, sem dependência entre eles. Impor
 
 | Módulo | Para quê | Como ligar |  |
 | --- | --- | --- | --- |
-|  `ds/icons/icons.js`  | Ícones como <ds-icon> e a função icon() |  `import './ds/icons/icons.js'`  |  |
+|  `ds/icons/icons.js`  | Ícones como <ds-icon> e a função icon() |  ``  |  |
 |  `ds/js/theme.js`  | Tema escuro, claro ou do sistema |  `initTheme(); setTheme("light")`  |  |
 |  `ds/js/tooltip.js`  | Dicas por data-ds-tooltip |  `initTooltips()`  |  |
 |  `ds/js/menu.js`  | Menus que abrem de um gatilho |  `createMenu(botao, { options, onChange })`  |  |

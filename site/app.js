@@ -277,6 +277,16 @@ async function route() {
   shell.closeMobile();
   if (!firstRender) content.focus({ preventScroll: true });
   firstRender = false;
+  trackPage(path);
+}
+
+// visitas por página (Vercel Web Analytics): o site navega por #, que o script não conta sozinho.
+// Só conta quando a página muda, não quando o idioma redesenha a mesma página.
+let trackedPath = null;
+function trackPage(path) {
+  if (path === trackedPath || typeof window.va !== 'function') return;
+  trackedPath = path;
+  window.va('pageview', { route: path, path });
 }
 
 addEventListener('hashchange', route);

@@ -8,10 +8,30 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.25.1';
+export const CURRENT_VERSION = '0.25.2';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.25.2',
+    date: '2026-11-12',
+    title: T('Arrumação', 'Tidy-up', 'Orden'),
+    summary: T(
+      'Os exemplos de código importam de lume.js, como a instalação ensina; a página Como contribuir saiu; e as visitas agora são contadas por página.',
+      'Code examples import from lume.js, as the installation teaches; the How to contribute page is gone; and visits are now counted per page.',
+      'Los ejemplos de código importan de lume.js, como enseña la instalación; la página Cómo contribuir salió; y las visitas ahora se cuentan por página.',
+    ),
+    groups: [
+      {
+        name: T('Site', 'Site', 'Sitio'),
+        items: [
+          ['correcao', T('Exemplos de código importam de lume.js, no endereço da versão', 'Code examples import from lume.js, at the versioned address', 'Los ejemplos de código importan de lume.js, en la dirección de la versión'), '/componentes/modal'],
+          ['melhoria', T('Sai a página Como contribuir: o processo era de um time que o Lume não tem', 'The How to contribute page is gone: it described a team process Lume doesn’t have', 'Sale la página Cómo contribuir: describía un proceso de equipo que Lume no tiene'), '/novidades'],
+          ['melhoria', T('Contagem de visitas por página', 'Visit counts per page', 'Conteo de visitas por página'), '/'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.25.1',
     date: '2026-11-12',
@@ -74,7 +94,7 @@ const RELEASES = [
       {
         name: T('Testes', 'Tests', 'Pruebas'),
         items: [
-          ['novo', T('Testes visuais: 422 fotos dos componentes nos dois temas, comparadas pixel a pixel', 'Visual tests: 422 shots of the components in both themes, compared pixel by pixel', 'Pruebas visuales: 422 fotos de los componentes en los dos temas, comparadas píxel a píxel'), '/recursos/contribuir'],
+          ['novo', T('Testes visuais: 422 fotos dos componentes nos dois temas, comparadas pixel a pixel', 'Visual tests: 422 shots of the components in both themes, compared pixel by pixel', 'Pruebas visuales: 422 fotos de los componentes en los dos temas, comparadas píxel a píxel'), '/recursos/api'],
         ],
       },
     ],
@@ -295,7 +315,7 @@ const RELEASES = [
           ['melhoria', T('Chip pequeno e aba pequena passam de 30 para 32 px', 'Small chip and small tab go from 30 to 32 px', 'Chip pequeño y pestaña pequeña pasan de 30 a 32 px'), '/componentes/chip'],
           ['melhoria', T('Campo de texto fora de um formulário passa de 44 para 40 px, a altura do botão e da seleção', 'Text field outside a form goes from 44 to 40 px, the height of the button and the select', 'Campo de texto fuera de un formulario pasa de 44 a 40 px, la altura del botón y de la selección'), '/componentes/campo-de-texto'],
           ['melhoria', T('Botão de ícone grande passa de 44 para 40 px; Código de verificação, de 52 para 48 px', 'Large icon button goes from 44 to 40 px; Verification code, from 52 to 48 px', 'Botón de ícono grande pasa de 44 a 40 px; Código de verificación, de 52 a 48 px'), '/componentes/botao'],
-          ['melhoria', T('Estados com data-state em todos os componentes interativos', 'States with data-state on every interactive component', 'Estados con data-state en todos los componentes interactivos'), '/recursos/contribuir'],
+          ['melhoria', T('Estados com data-state em todos os componentes interativos', 'States with data-state on every interactive component', 'Estados con data-state en todos los componentes interactivos'), '/novidades'],
           ['melhoria', T('Seção de estados em Abas, Menu, Paginação, Acordeão, Árvore e Card', 'States section in Tabs, Menu, Pagination, Accordion, Tree, and Card', 'Sección de estados en Pestañas, Menú, Paginación, Acordeón, Árbol y Tarjeta'), '/componentes/abas'],
           ['correcao', T('O anel de foco do Acordeão não encosta mais no texto', 'The Accordion focus ring no longer touches the text', 'El anillo de foco del Acordeón ya no toca el texto'), '/componentes/acordeao'],
         ],
@@ -976,7 +996,7 @@ const RELEASES = [
             'Como contribuir mostra como escrever um texto novo nos três idiomas',
             'How to contribute shows how to write new text in the three languages',
             'Cómo contribuir muestra cómo escribir un texto nuevo en los tres idiomas',
-          ), '/recursos/contribuir'],
+          ), '/novidades'],
         ],
       },
       {
@@ -1306,7 +1326,7 @@ const RELEASES = [
             'Como contribuir: do pedido à publicação, com modelo de proposta, “Isso é do design system?” e checklist de revisão',
             'How to contribute: from request to release, with a proposal template, “Does this belong in the design system?”, and a review checklist',
             'Cómo contribuir: del pedido a la publicación, con plantilla de propuesta, “¿Esto es del design system?” y checklist de revisión',
-          ), '/recursos/contribuir'],
+          ), '/novidades'],
         ],
       },
       {

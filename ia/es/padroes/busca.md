@@ -54,7 +54,7 @@ Cada elemento es un objeto. Pasa una función en `items` y la lista se lee de nu
 |  `perform()`  | Lo que pasa con Enter o con el clic. La paleta se cierra antes. |
 
 ```html
-import { createCommandPalette } from './ds/js/command-palette.js';
+import { createCommandPalette } from 'https://lumeui.dev/v/0.25/lume.js';
 
 const palette = createCommandPalette({
   placeholder: 'Buscar páginas y acciones…',
@@ -122,7 +122,7 @@ Un filtro que solo existe en la memoria se pierde al recargar y no se puede comp
 - Un valor que no existe (un estado borrado) se ignora, no rompe la página.
 
 ```html
-import { filtersToQuery, filtersFromQuery } from './ds/js/filters.js';
+import { filtersToQuery, filtersFromQuery } from 'https://lumeui.dev/v/0.25/lume.js';
 
 // al filtrar: cambia la URL sin apilar una entrada por letra escrita
 history.replaceState(null, '', '?' + filtersToQuery(filters.state, config));
@@ -204,7 +204,7 @@ La paleta y los filtros son módulos independientes; los dos solo piden datos y 
 ### Filtros
 
 ```html
-import { createFilters } from './ds/js/filters.js';
+import { createFilters } from 'https://lumeui.dev/v/0.25/lume.js';
 
 const filters = createFilters(document.querySelector('#filtros'), {
   label: 'Filtrar pedidos',

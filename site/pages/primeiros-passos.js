@@ -228,7 +228,7 @@ const TOKEN_GROUPS = [
 ];
 
 const MODULES = [
-  ['icons/icons.js', "import './ds/icons/icons.js'", '/fundamentos/icones'],
+  ['icons/icons.js', '<ds-icon name="search"> (vem com lume.js)', '/fundamentos/icones'],
   ['js/theme.js', 'initTheme(); setTheme("light")', '/fundamentos/cores'],
   ['js/tooltip.js', 'initTooltips()', '/componentes/tooltip'],
   ['js/menu.js', 'createMenu(botao, { options, onChange })', '/componentes/menu'],

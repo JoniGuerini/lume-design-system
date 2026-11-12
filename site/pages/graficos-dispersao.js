@@ -84,7 +84,7 @@ function playgroundCode(state) {
   const series = o.series.map((s, i) => `    { name: '${s.name}', points: ${varNames[i]} },`).join('\n');
   const point = `{ x, y, label${state.bubbles === 'on' ? ', size' : ''}${state.labels === 'on' ? ', showLabel' : ''} }`;
   const size = SIZE();
-  return `import { createScatterChart } from './ds/js/charts.js';
+  return `import { createScatterChart } from 'https://lumeui.dev/v/0.25/lume.js';
 
 // ${L('cada ponto', 'each point', 'cada punto')}: ${point}
 const chart = createScatterChart(document.querySelector('#${L('contas', 'accounts', 'cuentas')}'), {
@@ -329,7 +329,7 @@ export default function renderDispersao(page) {
       'api',
       'API',
       L('Uma função, com update, setLoading e destroy como em todos os gráficos.', 'One function, with update, setLoading, and destroy as in every chart.', 'Una función, con update, setLoading y destroy como en todos los gráficos.'),
-      `${codeBlock(`import { createScatterChart } from './ds/js/charts.js';
+      `${codeBlock(`import { createScatterChart } from 'https://lumeui.dev/v/0.25/lume.js';
 
 const chart = createScatterChart(document.querySelector('#${L('contas', 'accounts', 'cuentas')}'), {
   title: '${L('Custo × satisfação', 'Cost × satisfaction', 'Costo × satisfacción')}',
