@@ -70,7 +70,7 @@ export default function renderSeletorDeHorario(page) {
       {
         id: 'codigo',
         title: L('Código', 'Code', 'Código'),
-        desc: L(`Funciona com ${ic('enhanceForm')}, como os outros campos.`, `It works with ${ic('enhanceForm')}, like the other fields.`, `Funciona con ${ic('enhanceForm')}, como los otros campos.`),
+        desc: L(`Funciona com ${ic('createForm')}, como os outros campos.`, `It works with ${ic('createForm')}, like the other fields.`, `Funciona con ${ic('createForm')}, como los otros campos.`),
         html: codeBlock(`import { createTimePicker } from './ds/js/time-picker.js';
 
 const picker = createTimePicker(document.querySelector('#inicio'), {

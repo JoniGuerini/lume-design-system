@@ -9,9 +9,9 @@ En números: formatos: 2 · escalas: 2 · rangos: hasta 7 · respiro: 2 px.
 ## Ejemplo
 
 ```html
-import { heatmap } from './ds/js/charts.js';
+import { createHeatmap } from './ds/js/charts.js';
 
-const chart = heatmap(document.querySelector('#pedidos'), {
+const chart = createHeatmap(document.querySelector('#pedidos'), {
   title: 'Pedidos por hora',
   subtitle: 'Última semana',
   rows: ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'],
@@ -26,11 +26,11 @@ const chart = heatmap(document.querySelector('#pedidos'), {
 
 Matriz para patrones que se repiten (día de la semana × hora); calendario para el año entero de una vez.
 
-Matriz `heatmap()` — Filas y columnas con significado. El pico del mediodía y el valle de la madrugada saltan a la vista — sin leer un número.
+Matriz `createHeatmap()` — Filas y columnas con significado. El pico del mediodía y el valle de la madrugada saltan a la vista — sin leer un número.
 
 Divergente `scale: 'diverging'` — Frío por debajo de la media, cálido por encima, gris en el medio. El medio tiene que leerse como “nada”.
 
-Calendario `calendarHeatmap()` — Un cuadrado por día, una columna por semana. Abre en la semana más reciente; en pantallas estrechas, desplázate hacia el pasado. La tabla resume por mes.
+Calendario `createCalendarHeatmap()` — Un cuadrado por día, una columna por semana. Abre en la semana más reciente; en pantallas estrechas, desplázate hacia el pasado. La tabla resume por mes.
 
 ## Escala y rangos
 
@@ -108,9 +108,9 @@ El heatmap muestra un patrón, no un valor exacto. Úsalo cuando la pregunta es 
 Dos funciones con las mismas reglas de todos los gráficos de Lume: update, setLoading y destroy.
 
 ```html
-import { heatmap, calendarHeatmap } from './ds/js/charts.js';
+import { createHeatmap, createCalendarHeatmap } from './ds/js/charts.js';
 
-heatmap(document.querySelector('#pedidos'), {
+createHeatmap(document.querySelector('#pedidos'), {
   title: 'Pedidos por hora',
   rows: ['Lun', 'Mar', 'Mié'],
   columns: ['8 h', '9 h', '10 h'],
@@ -118,7 +118,7 @@ heatmap(document.querySelector('#pedidos'), {
   valueLabel: 'pedidos',
 });
 
-calendarHeatmap(document.querySelector('#actividad'), {
+createCalendarHeatmap(document.querySelector('#actividad'), {
   title: 'Actividad en el año',
   start: '2025-11-02',
   values: actividadPorDia, // un número por día
@@ -126,7 +126,7 @@ calendarHeatmap(document.querySelector('#actividad'), {
 });
 ```
 
-### heatmap()
+### createHeatmap()
 
 | Opción | Tipo | Predeterminado | Para qué |
 | --- | --- | --- | --- |
@@ -142,7 +142,7 @@ calendarHeatmap(document.querySelector('#actividad'), {
 | `scaleLegend · scaleLabels` | boolean · [string, string] | true · mín./máx. | Leyenda de escala abajo, con los extremos o “Menos/Más”. |
 | `title · subtitle · label · card · table` | — | — | Iguales a los de todos los gráficos. |
 
-### calendarHeatmap()
+### createCalendarHeatmap()
 
 | Opción | Tipo | Predeterminado | Para qué |
 | --- | --- | --- | --- |

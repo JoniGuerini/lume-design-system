@@ -1,5 +1,5 @@
 import { icon } from '../../ds/icons/icons.js';
-import { enhanceForm } from '../../ds/js/form.js';
+import { createForm } from '../../ds/js/form.js';
 import { toast } from '../../ds/js/toast.js';
 import { mountDocNav } from '../doc-nav.js';
 import { mountCodeCopy, codeBlock, a11yList, escapeHtml, siteTheme, followSiteTheme } from '../component-doc.js';
@@ -205,7 +205,7 @@ const htmlCode = () => `<form class="ds-form" id="${L('entrar', 'sign-in', 'entr
   <button type="submit" class="ds-btn ds-btn--primary">${signIn()}</button>
 </form>`;
 
-const jsCode = () => `import { enhanceForm } from './ds/js/form.js';
+const jsCode = () => `import { createForm } from './ds/js/form.js';
 
 // ${L('mostrar senha: troca o tipo do campo e marca o botão', 'show password: switches the field type and marks the button', 'mostrar contraseña: cambia el tipo del campo y marca el botón')}
 document.addEventListener('click', (event) => {
@@ -217,7 +217,7 @@ document.addEventListener('click', (event) => {
   button.setAttribute('aria-pressed', String(show));
 });
 
-enhanceForm(document.querySelector('#${L('entrar', 'sign-in', 'entrar')}'), {
+createForm(document.querySelector('#${L('entrar', 'sign-in', 'entrar')}'), {
   summary: false, // ${L('dois campos: o erro aparece em cada um', 'two fields: the error shows on each one', 'dos campos: el error aparece en cada uno')}
   async onSubmit(${L('dados', 'data', 'datos')}) {
     const ok = await ${L('entrar', 'signIn', 'entrar')}(${L('dados', 'data', 'datos')}.email, ${L('dados', 'data', 'datos')}.${L('senha', 'password', 'contrasena')});
@@ -321,7 +321,7 @@ export default function renderLogin(page) {
     ${section(
       'lc-codigo',
       L('Código', 'Code', 'Código'),
-      L(`O login é um formulário comum com ${ic('enhanceForm')}: os campos, o botão de mostrar senha e a resposta do servidor num alerta.`, `Sign-in is a regular form with ${ic('enhanceForm')}: the fields, the show-password button, and the server’s answer in an alert.`, `El inicio de sesión es un formulario común con ${ic('enhanceForm')}: los campos, el botón de mostrar contraseña y la respuesta del servidor en una alerta.`),
+      L(`O login é um formulário comum com ${ic('createForm')}: os campos, o botão de mostrar senha e a resposta do servidor num alerta.`, `Sign-in is a regular form with ${ic('createForm')}: the fields, the show-password button, and the server’s answer in an alert.`, `El inicio de sesión es un formulario común con ${ic('createForm')}: los campos, el botón de mostrar contraseña y la respuesta del servidor en una alerta.`),
       `${codeBlock(htmlCode())}
       ${codeBlock(jsCode())}`,
     )}
@@ -441,7 +441,7 @@ export function mount(root) {
   const loginSubmit = login.querySelector('[data-lc-submit]');
   const loginPassword = login.querySelector('#lc-login-senha');
   const clearAlert = () => (loginAlert.innerHTML = '');
-  const loginForm = enhanceForm(login, {
+  const loginForm = createForm(login, {
     summary: false,
     onSubmit(data) {
       clearAlert();
@@ -481,7 +481,7 @@ export function mount(root) {
     });
   };
   signupPassword.addEventListener('input', updateReqs);
-  const signupForm = enhanceForm(signup, {
+  const signupForm = createForm(signup, {
     summary: false,
     rules: {
       email: (value) => (TAKEN_EMAILS.has(value.trim().toLowerCase()) ? `${takenEmail()} ${L('Entre ou recupere a senha.', 'Sign in or reset your password.', 'Entra o recupera la contraseña.')}` : null),
@@ -513,7 +513,7 @@ export function mount(root) {
     recover.hidden = false;
     sent.hidden = true;
   }
-  const recoverForm = enhanceForm(recover, {
+  const recoverForm = createForm(recover, {
     summary: false,
     onSubmit(data) {
       const done = busy(recoverSubmit, sending());

@@ -9,7 +9,7 @@ Em números: fatias no máximo: 6 · espessura padrão: 24 px · respiro entre f
 ## Exemplo
 
 ```html
-import { donutChart } from './ds/js/charts.js';
+import { createDonutChart } from './ds/js/charts.js';
 
 donutChart(document.querySelector('#pagamentos'), {
   title: 'Pagamentos por método',
@@ -154,7 +154,7 @@ Uma chamada monta a rosca, a lista e a tabela; `update()` troca os itens.
 |  `categoryLabel · valueLabel`  | string | 'Categoria' · 'Valor' | Cabeçalhos das colunas da vista em tabela. |
 
 ```html
-const chart = donutChart(el, { title: 'Pagamentos', items, format: 'integer' });
+const chart = createDonutChart(el, { title: 'Pagamentos', items, format: 'integer' });
 
 chart.update({ items: novosItens });   // redesenha mantendo a moldura
 chart.setLoading(true);                 // meia opacidade enquanto busca

@@ -1,6 +1,6 @@
 import { icon } from '../../ds/icons/icons.js';
 import { contrast } from '../../ds/tokens.js';
-import { donutChart, barChart, meter } from '../../ds/js/charts.js';
+import { createDonutChart, createBarChart, meterHtml } from '../../ds/js/charts.js';
 import { formatNumber } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, codeBlock, tokenTable, a11yList } from '../component-doc.js';
@@ -75,7 +75,7 @@ function playCode(state) {
     o.texture && 'texture: true,',
   ].filter(Boolean);
   const fold = o.items.length > 6 ? `\n// ${L('Mais de 6 itens: os menores viram “Outros”, em cinza.', 'More than 6 items: the smallest become “Others”, in gray.', 'Más de 6 elementos: los menores se vuelven “Otros”, en gris.')}` : '';
-  return `import { donutChart } from './ds/js/charts.js';${fold}\n\ndonutChart(document.querySelector('#${L('pagamentos', 'payments', 'pagos')}'), {\n${lines.map((l) => `  ${l}`).join('\n')}\n});`;
+  return `import { createDonutChart } from './ds/js/charts.js';${fold}\n\ndonutChart(document.querySelector('#${L('pagamentos', 'payments', 'pagos')}'), {\n${lines.map((l) => `  ${l}`).join('\n')}\n});`;
 }
 
 /* ───────── Variantes ───────── */
@@ -388,7 +388,7 @@ export default function renderRosca(page) {
         </article>
         <article class="usage-card usage-card--dont">
           <p class="usage-card__head">${icon('x-circle', { size: 20 })}${L('Evite: rosca de duas fatias', 'Avoid: a two-slice donut', 'Evita: dona de dos porciones')}</p>
-          <div class="gr-usage__meter">${meter({ label: L('Cota de armazenamento', 'Storage quota', 'Cuota de almacenamiento'), value: 72, max: 100, format: (v) => `${v} GB` })}</div>
+          <div class="gr-usage__meter">${meterHtml({ label: L('Cota de armazenamento', 'Storage quota', 'Cuota de almacenamiento'), value: 72, max: 100, format: (v) => `${v} GB` })}</div>
           <p class="usage-card__text">${L('“72% usado” é uma razão contra um limite. Um medidor diz isso numa linha, sem pedir que ninguém leia ângulos.', '“72% used” is a ratio against a limit. A meter says it in one line, without asking anyone to read angles.', '“72% usado” es una razón contra un límite. Un medidor lo dice en una línea, sin pedir que nadie lea ángulos.')}</p>
         </article>
         <article class="usage-card usage-card--tip">
@@ -417,7 +417,7 @@ export default function renderRosca(page) {
           </div>`,
         ).join('')}
       </div>
-      <div class="gr-api__code">${codeBlock(`const chart = donutChart(el, { title: '${L('Pagamentos', 'Payments', 'Pagos')}', items, format: 'integer' });\n\nchart.update({ items: ${L('novosItens', 'nextItems', 'nuevosItems')} });   // ${L('redesenha mantendo a moldura', 'redraws keeping the frame', 'redibuja manteniendo el marco')}\nchart.setLoading(true);                 // ${L('meia opacidade enquanto busca', 'half opacity while fetching', 'media opacidad mientras busca')}\nchart.destroy();`)}</div>`,
+      <div class="gr-api__code">${codeBlock(`const chart = createDonutChart(el, { title: '${L('Pagamentos', 'Payments', 'Pagos')}', items, format: 'integer' });\n\nchart.update({ items: ${L('novosItens', 'nextItems', 'nuevosItems')} });   // ${L('redesenha mantendo a moldura', 'redraws keeping the frame', 'redibuja manteniendo el marco')}\nchart.setLoading(true);                 // ${L('meia opacidade enquanto busca', 'half opacity while fetching', 'media opacidad mientras busca')}\nchart.destroy();`)}</div>`,
     )}
   </div>`;
 }
@@ -438,24 +438,24 @@ export function mount(root) {
     ],
     render: () => '<div class="gr-play" data-chart></div>',
     mount: (preview, state) => {
-      const chart = donutChart(preview.querySelector('[data-chart]'), playOptions(state));
+      const chart = createDonutChart(preview.querySelector('[data-chart]'), playOptions(state));
       return () => chart.destroy();
     },
     code: playCode,
   });
 
-  for (const v of VARIANTS()) charts.push(donutChart(root.querySelector(`[data-variant="${v.id}"]`), { size: 176, ...v.options }));
+  for (const v of VARIANTS()) charts.push(createDonutChart(root.querySelector(`[data-variant="${v.id}"]`), { size: 176, ...v.options }));
 
   const layoutOptions = { title: byMethod(), items: pay.slice(0, 5), format: 'integer', centerLabel: transactions(), size: 176 };
-  charts.push(donutChart(root.querySelector('[data-layout-chart="side"]'), layoutOptions));
-  charts.push(donutChart(root.querySelector('[data-layout-chart="stack"]'), layoutOptions));
+  charts.push(createDonutChart(root.querySelector('[data-layout-chart="side"]'), layoutOptions));
+  charts.push(createDonutChart(root.querySelector('[data-layout-chart="stack"]'), layoutOptions));
 
   // Rosca × barras com valores próximos
   const regions = REGIONS();
   const byRegion = L('Clientes por região', 'Customers by region', 'Clientes por región');
-  charts.push(donutChart(root.querySelector('[data-compare="donut"]'), { label: byRegion, items: regions, format: 'integer', centerLabel: L('clientes', 'customers', 'clientes'), size: 160, table: false }));
+  charts.push(createDonutChart(root.querySelector('[data-compare="donut"]'), { label: byRegion, items: regions, format: 'integer', centerLabel: L('clientes', 'customers', 'clientes'), size: 160, table: false }));
   charts.push(
-    barChart(root.querySelector('[data-compare="bars"]'), {
+    createBarChart(root.querySelector('[data-compare="bars"]'), {
       label: byRegion,
       categories: regions.map((r) => r.name),
       series: [{ name: L('Clientes', 'Customers', 'Clientes'), values: regions.map((r) => r.value) }],
@@ -467,9 +467,9 @@ export function mount(root) {
 
   // Estados
   const stateEl = (id) => root.querySelector(`[data-state-chart="${id}"]`);
-  const hover = donutChart(stateEl('hover'), { title: byMethod(), items: pay.slice(0, 4), format: 'integer', centerLabel: transactions(), size: 160 });
-  const loading = donutChart(stateEl('carregando'), { title: byMethod(), items: pay.slice(0, 4), format: 'integer', centerLabel: transactions(), size: 160 });
-  const empty = donutChart(stateEl('vazio'), { title: byMethod(), items: [], size: 160, height: 220, empty: L('Nenhum pagamento neste período.', 'No payments in this period.', 'Ningún pago en este período.') });
+  const hover = createDonutChart(stateEl('hover'), { title: byMethod(), items: pay.slice(0, 4), format: 'integer', centerLabel: transactions(), size: 160 });
+  const loading = createDonutChart(stateEl('carregando'), { title: byMethod(), items: pay.slice(0, 4), format: 'integer', centerLabel: transactions(), size: 160 });
+  const empty = createDonutChart(stateEl('vazio'), { title: byMethod(), items: [], size: 160, height: 220, empty: L('Nenhum pagamento neste período.', 'No payments in this period.', 'Ningún pago en este período.') });
   charts.push(hover, loading, empty);
 
   const timers = [];

@@ -12,7 +12,7 @@
  *   </select>
  *
  *   const off = mountSelects(document);       // liga todo select[data-ds-select]; off() desfaz
- *   const s = enhanceSelect(el, { search: true, max: 3 });   // opções também podem vir por JS
+ *   const s = createSelect(el, { search: true, max: 3 });   // opções também podem vir por JS
  *   s.open(); s.close(); s.sync(); s.destroy(); s.trigger; s.control; s.select
  *
  * O <select> continua no DOM (escondido, fora do foco e da árvore de acessibilidade) e guarda o valor:
@@ -42,7 +42,7 @@ function highlight(label, query) {
   return `${escape(label.slice(0, at))}<span class="ds-select-popup__match">${escape(label.slice(at, at + query.length))}</span>${escape(label.slice(at + query.length))}`;
 }
 
-export function enhanceSelect(select, config = {}) {
+export function createSelect(select, config = {}) {
   if (instances.has(select)) return instances.get(select);
 
   const multiple = select.multiple;
@@ -779,6 +779,6 @@ export function enhanceSelect(select, config = {}) {
 
 /** Liga todo select[data-ds-select] dentro de root. Devolve uma função que desfaz tudo. */
 export function mountSelects(root = document) {
-  const list = [...root.querySelectorAll('select[data-ds-select]')].map((el) => enhanceSelect(el));
+  const list = [...root.querySelectorAll('select[data-ds-select]')].map((el) => createSelect(el));
   return () => list.forEach((s) => s.destroy());
 }

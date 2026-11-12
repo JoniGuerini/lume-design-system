@@ -9,9 +9,9 @@ En números: piezas: 3 · destacado por pantalla: 1 · sentidos de la variación
 ## Ejemplo
 
 ```html
-import { statTile } from './ds/js/charts.js';
+import { statTileHtml } from './ds/js/charts.js';
 
-el.innerHTML = statTile({
+el.innerHTML = statTileHtml({
   label: 'Ingresos',
   value: 1284000,
   format: 'currency-compact',
@@ -333,20 +333,20 @@ Cuando un número basta — y cómo no estropearlo.
 Tres funciones que devuelven HTML, sin estado — úsalas en cualquier lugar, incluso dentro de tablas y tarjetas.
 
 ```html
-import { statTile, sparkline, meter } from './ds/js/charts.js';
+import { statTileHtml, sparklineHtml, meterHtml } from './ds/js/charts.js';
 
 kpis.innerHTML = [
-  statTile({ label: 'Ingresos', value: 1284000, format: 'currency-compact',
+  statTileHtml({ label: 'Ingresos', value: 1284000, format: 'currency-compact',
              delta: 0.124, deltaLabel: 'vs. mes anterior', trend: ingresos }),
-  statTile({ label: 'Tiempo de respuesta', value: '182 ms',
+  statTileHtml({ label: 'Tiempo de respuesta', value: '182 ms',
              delta: 0.08, deltaLabel: 'vs. semana anterior', good: 'down' }),
 ].join('');
 
-celda.innerHTML = sparkline(ingresos, { width: 96, height: 24, area: false });
-uso.innerHTML = meter({ label: 'Almacenamiento', value: 72, max: 100, format: (v) => `${v} GB` });
+celda.innerHTML = sparklineHtml(ingresos, { width: 96, height: 24, area: false });
+uso.innerHTML = meterHtml({ label: 'Almacenamiento', value: 72, max: 100, format: (v) => `${v} GB` });
 ```
 
-`statTile(options)`
+`statTileHtml(options)`
 
 Indicador completo. Devuelve HTML.
 
@@ -360,7 +360,7 @@ Indicador completo. Devuelve HTML.
 |  `trend · trendLabel`  | Serie de la sparkline y su nombre accesible. |
 |  `hero · href`  | Versión destacada; con href, el indicador se vuelve enlace. |
 
-`sparkline(values, options)`
+`sparklineHtml(values, options)`
 
 Línea de tendencia sin ejes. Devuelve HTML que se estira al ancho del contenedor.
 
@@ -372,7 +372,7 @@ Línea de tendencia sin ejes. Devuelve HTML que se estira al ancho del contenedo
 |  `color · label`  | Color de la línea (predeterminado: chart.other) y el nombre accesible. |
 |  `domain`  | Escala fija [mín, máx]. Sin ella, la escala cubre al menos el 10% del valor — una serie estable no se vuelve sierra. |
 
-`meter(options)`
+`meterHtml(options)`
 
 Una razón contra un límite. Devuelve HTML con role="meter".
 

@@ -2,7 +2,7 @@
  * Menu (dropdown) ligado a um gatilho — um .ds-chip, botão ou botão de ícone.
  *
  * Seleção (padrão) — escolhe um valor, o item atual ganha a marca:
- *   const menu = attachMenu(chip, {
+ *   const menu = createMenu(chip, {
  *     label: 'Tema',
  *     options: [{ value: 'dark', label: 'Escuro', icon: 'moon' }, …],   // ou swatch: 'var(--cor)'
  *     value: 'dark',
@@ -10,7 +10,7 @@
  *   });
  *
  * Ação — dispara comandos, sem valor selecionado:
- *   attachMenu(botao, {
+ *   createMenu(botao, {
  *     mode: 'action',
  *     options: [
  *       { value: 'duplicate', label: 'Duplicar', icon: 'copy', shortcut: '⌘D' },
@@ -24,7 +24,7 @@
  *
  * Colunas — listas longas viram uma grade em vez de rolar: maxRows é o máximo de itens por coluna;
  * passando disso, os itens seguem para a coluna do lado, equilibrados (16 itens com maxRows 5 → 4 × 4).
- *   attachMenu(botao, { label: 'Componentes', options, maxRows: 5, onChange });
+ *   createMenu(botao, { label: 'Componentes', options, maxRows: 5, onChange });
  * Com sectionColumns: true, cada { type: 'group' } abre uma coluna nova, com os itens que vêm depois dele.
  * ↑/↓ andam na ordem (desce a coluna e passa para a próxima); ←/→ pulam de coluna.
  * menu.destroy() ao sair da página.
@@ -89,7 +89,7 @@ export function menuContent({ label, options = [], value, mode = 'radio', rows =
   );
 }
 
-export function attachMenu(trigger, { label, options, value, onChange, mode = 'radio', maxRows = 0, sectionColumns = false }) {
+export function createMenu(trigger, { label, options, value, onChange, mode = 'radio', maxRows = 0, sectionColumns = false }) {
   const id = `ds-menu-${++uid}`;
   const menu = document.createElement('div');
   menu.className = 'ds-menu';

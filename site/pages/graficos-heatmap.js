@@ -1,5 +1,5 @@
 import { icon } from '../../ds/icons/icons.js';
-import { heatmap, calendarHeatmap } from '../../ds/js/charts.js';
+import { createHeatmap, createCalendarHeatmap } from '../../ds/js/charts.js';
 import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, codeBlock, tokenTable, a11yList } from '../component-doc.js';
 import { weekdays, hours, ordersByHour, yearActivity, YEAR_START } from '../chart-data.js';
@@ -72,9 +72,9 @@ function playgroundCode(state) {
     o.valueLabel && `  valueLabel: '${o.valueLabel}',`,
     `  format: ${typeof o.format === 'string' ? `'${o.format}'` : SIGNED_CODE},`,
   ].filter(Boolean);
-  return `import { heatmap } from './ds/js/charts.js';
+  return `import { createHeatmap } from './ds/js/charts.js';
 
-const chart = heatmap(document.querySelector('#${L('pedidos', 'orders', 'pedidos')}'), {
+const chart = createHeatmap(document.querySelector('#${L('pedidos', 'orders', 'pedidos')}'), {
 ${lines.join('\n')}
 });`;
 }
@@ -204,7 +204,7 @@ export default function renderHeatmap(page) {
         <article class="gh-card">
           <div class="gh-card__chart" data-variant="matriz"></div>
           <div class="gh-card__body">
-            <p class="cd-example__name">${L('Matriz', 'Matrix', 'Matriz')}<code>heatmap()</code></p>
+            <p class="cd-example__name">${L('Matriz', 'Matrix', 'Matriz')}<code>createHeatmap()</code></p>
             <p class="cd-example__text">${L('Linhas e colunas com significado. O pico do meio-dia e o vale da madrugada saltam à vista — sem ler um número.', 'Rows and columns with meaning. The midday peak and the early-morning dip jump out — without reading a number.', 'Filas y columnas con significado. El pico del mediodía y el valle de la madrugada saltan a la vista — sin leer un número.')}</p>
           </div>
         </article>
@@ -218,7 +218,7 @@ export default function renderHeatmap(page) {
         <article class="gh-card gh-card--wide">
           <div class="gh-card__chart" data-variant="calendario"></div>
           <div class="gh-card__body">
-            <p class="cd-example__name">${L('Calendário', 'Calendar', 'Calendario')}<code>calendarHeatmap()</code></p>
+            <p class="cd-example__name">${L('Calendário', 'Calendar', 'Calendario')}<code>createCalendarHeatmap()</code></p>
             <p class="cd-example__text">${L('Um quadrado por dia, uma coluna por semana. Abre na semana mais recente; em telas estreitas, role para o passado. A tabela resume por mês.', 'One square per day, one column per week. It opens on the most recent week; on narrow screens, scroll back into the past. The table summarizes by month.', 'Un cuadrado por día, una columna por semana. Abre en la semana más reciente; en pantallas estrechas, desplázate hacia el pasado. La tabla resume por mes.')}</p>
           </div>
         </article>
@@ -305,9 +305,9 @@ export default function renderHeatmap(page) {
       'api',
       'API',
       L('Duas funções com as mesmas regras de todos os gráficos do Lume: update, setLoading e destroy.', 'Two functions with the same rules as every Lume chart: update, setLoading, and destroy.', 'Dos funciones con las mismas reglas de todos los gráficos de Lume: update, setLoading y destroy.'),
-      `${codeBlock(`import { heatmap, calendarHeatmap } from './ds/js/charts.js';
+      `${codeBlock(`import { createHeatmap, createCalendarHeatmap } from './ds/js/charts.js';
 
-heatmap(document.querySelector('#${L('pedidos', 'orders', 'pedidos')}'), {
+createHeatmap(document.querySelector('#${L('pedidos', 'orders', 'pedidos')}'), {
   title: '${ordersByHourTitle()}',
   rows: [${quote(wd.slice(0, 3))}],
   columns: [${quote(h.slice(8, 11))}],
@@ -315,15 +315,15 @@ heatmap(document.querySelector('#${L('pedidos', 'orders', 'pedidos')}'), {
   valueLabel: '${ordersLabel()}',
 });
 
-calendarHeatmap(document.querySelector('#${L('atividade', 'activity', 'actividad')}'), {
+createCalendarHeatmap(document.querySelector('#${L('atividade', 'activity', 'actividad')}'), {
   title: '${L('Atividade no ano', 'Activity this year', 'Actividad en el año')}',
   start: '2025-11-02',
   values: ${L('atividadePorDia', 'activityByDay', 'actividadPorDia')}, // ${L('um número por dia', 'one number per day', 'un número por día')}
   valueLabel: '${L('entregas', 'deliveries', 'entregas')}',
 });`)}
-      <h3 class="doc-subhead">heatmap()</h3>
+      <h3 class="doc-subhead">createHeatmap()</h3>
       ${apiTable(API())}
-      <h3 class="doc-subhead">calendarHeatmap()</h3>
+      <h3 class="doc-subhead">createCalendarHeatmap()</h3>
       ${apiTable(API_CAL())}`,
     )}
   </div>`;
@@ -341,7 +341,7 @@ export function mount(root) {
     ],
     render: () => '<div data-playground-chart></div>',
     mount(preview, state) {
-      const chart = heatmap(preview.querySelector('[data-playground-chart]'), playgroundOptions(state));
+      const chart = createHeatmap(preview.querySelector('[data-playground-chart]'), playgroundOptions(state));
       return () => chart.destroy();
     },
     code: playgroundCode,
@@ -351,9 +351,9 @@ export function mount(root) {
   const wd = weekdays();
   const h = hours();
   charts.push(
-    heatmap(at('matriz'), { title: ordersByHourTitle(), subtitle: lastWeek(), rows: wd, columns: h, values: ordersByHour, valueLabel: ordersLabel(), format: 'integer' }),
-    heatmap(at('divergente'), { title: L('Contra a média da hora', 'Against the hourly average', 'Contra la media de la hora'), subtitle: L('O fim de semana fica acima da média a partir das 10h', 'The weekend runs above average from 10:00 on', 'El fin de semana queda por encima de la media a partir de las 10 h'), rows: wd, columns: h, values: variation, scale: 'diverging', steps: 7, valueLabel: ordersLabel(), format: SIGNED }),
-    calendarHeatmap(at('calendario'), { title: L('Entregas no ano', 'Deliveries this year', 'Entregas en el año'), subtitle: L('Um quadrado por dia · novembro de 2025 a outubro de 2026', 'One square per day · November 2025 to October 2026', 'Un cuadrado por día · noviembre de 2025 a octubre de 2026'), start: YEAR_START, values: yearActivity, valueLabel: L('entregas', 'deliveries', 'entregas') }),
+    createHeatmap(at('matriz'), { title: ordersByHourTitle(), subtitle: lastWeek(), rows: wd, columns: h, values: ordersByHour, valueLabel: ordersLabel(), format: 'integer' }),
+    createHeatmap(at('divergente'), { title: L('Contra a média da hora', 'Against the hourly average', 'Contra la media de la hora'), subtitle: L('O fim de semana fica acima da média a partir das 10h', 'The weekend runs above average from 10:00 on', 'El fin de semana queda por encima de la media a partir de las 10 h'), rows: wd, columns: h, values: variation, scale: 'diverging', steps: 7, valueLabel: ordersLabel(), format: SIGNED }),
+    createCalendarHeatmap(at('calendario'), { title: L('Entregas no ano', 'Deliveries this year', 'Entregas en el año'), subtitle: L('Um quadrado por dia · novembro de 2025 a outubro de 2026', 'One square per day · November 2025 to October 2026', 'Un cuadrado por día · noviembre de 2025 a octubre de 2026'), start: YEAR_START, values: yearActivity, valueLabel: L('entregas', 'deliveries', 'entregas') }),
   );
 
   const unmountCopy = mountCodeCopy(root);

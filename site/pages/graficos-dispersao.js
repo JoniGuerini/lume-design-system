@@ -1,5 +1,5 @@
 import { icon } from '../../ds/icons/icons.js';
-import { scatterChart } from '../../ds/js/charts.js';
+import { createScatterChart } from '../../ds/js/charts.js';
 import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, codeBlock, tokenTable, a11yList } from '../component-doc.js';
 import { customers } from '../chart-data.js';
@@ -84,10 +84,10 @@ function playgroundCode(state) {
   const series = o.series.map((s, i) => `    { name: '${s.name}', points: ${varNames[i]} },`).join('\n');
   const point = `{ x, y, label${state.bubbles === 'on' ? ', size' : ''}${state.labels === 'on' ? ', showLabel' : ''} }`;
   const size = SIZE();
-  return `import { scatterChart } from './ds/js/charts.js';
+  return `import { createScatterChart } from './ds/js/charts.js';
 
 // ${L('cada ponto', 'each point', 'cada punto')}: ${point}
-const chart = scatterChart(document.querySelector('#${L('contas', 'accounts', 'cuentas')}'), {
+const chart = createScatterChart(document.querySelector('#${L('contas', 'accounts', 'cuentas')}'), {
   title: '${o.title}',
   subtitle: '${o.subtitle}',
   series: [
@@ -329,9 +329,9 @@ export default function renderDispersao(page) {
       'api',
       'API',
       L('Uma função, com update, setLoading e destroy como em todos os gráficos.', 'One function, with update, setLoading, and destroy as in every chart.', 'Una función, con update, setLoading y destroy como en todos los gráficos.'),
-      `${codeBlock(`import { scatterChart } from './ds/js/charts.js';
+      `${codeBlock(`import { createScatterChart } from './ds/js/charts.js';
 
-const chart = scatterChart(document.querySelector('#${L('contas', 'accounts', 'cuentas')}'), {
+const chart = createScatterChart(document.querySelector('#${L('contas', 'accounts', 'cuentas')}'), {
   title: '${L('Custo × satisfação', 'Cost × satisfaction', 'Costo × satisfacción')}',
   series: [{ name: '${customers()[0].name}', points: [{ x: 42, y: 61, label: '${L('Conta', 'Account', 'Cuenta')} 01' }, { x: 58, y: 47, label: '${L('Conta', 'Account', 'Cuenta')} 02' }] }],
   x: { label: '${X().label}', format: 'currency' },
@@ -356,7 +356,7 @@ export function mount(root) {
     ],
     render: () => '<div data-playground-chart></div>',
     mount(preview, state) {
-      const chart = scatterChart(preview.querySelector('[data-playground-chart]'), playgroundOptions(state));
+      const chart = createScatterChart(preview.querySelector('[data-playground-chart]'), playgroundOptions(state));
       return () => chart.destroy();
     },
     code: playgroundCode,
@@ -364,10 +364,10 @@ export function mount(root) {
 
   VARIANTS().forEach((v) => {
     const el = root.querySelector(`[data-variant="${v.id}"]`);
-    if (el) charts.push(scatterChart(el, { ...v.options(), height: 300 }));
+    if (el) charts.push(createScatterChart(el, { ...v.options(), height: 300 }));
   });
   const dense = root.querySelector('[data-dense]');
-  if (dense) charts.push(scatterChart(dense, { title: L('Todas as contas', 'All accounts', 'Todas las cuentas'), series: build(customers()), x: X(), y: Y(), height: 320 }));
+  if (dense) charts.push(createScatterChart(dense, { title: L('Todas as contas', 'All accounts', 'Todas las cuentas'), series: build(customers()), x: X(), y: Y(), height: 320 }));
 
   const unmountCopy = mountCodeCopy(root);
   const unmountNav = mountDocNav(root);

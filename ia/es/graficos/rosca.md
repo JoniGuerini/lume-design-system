@@ -9,7 +9,7 @@ En números: porciones como máximo: 6 · grosor predeterminado: 24 px · respir
 ## Ejemplo
 
 ```html
-import { donutChart } from './ds/js/charts.js';
+import { createDonutChart } from './ds/js/charts.js';
 
 donutChart(document.querySelector('#pagos'), {
   title: 'Pagos por método',
@@ -154,7 +154,7 @@ Una llamada monta la dona, la lista y la tabla; `update()` cambia los elementos.
 |  `categoryLabel · valueLabel`  | string | 'Categoría' · 'Valor' | Encabezados de las columnas de la vista en tabla. |
 
 ```html
-const chart = donutChart(el, { title: 'Pagos', items, format: 'integer' });
+const chart = createDonutChart(el, { title: 'Pagos', items, format: 'integer' });
 
 chart.update({ items: nuevosItems });   // redibuja manteniendo el marco
 chart.setLoading(true);                 // media opacidad mientras busca

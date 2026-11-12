@@ -9,10 +9,10 @@ Em números: séries: até 3 · ponto: 8 px · anel: 2 px · alvo do hover: 24 p
 ## Exemplo
 
 ```html
-import { scatterChart } from './ds/js/charts.js';
+import { createScatterChart } from './ds/js/charts.js';
 
 // cada ponto: { x, y, label }
-const chart = scatterChart(document.querySelector('#contas'), {
+const chart = createScatterChart(document.querySelector('#contas'), {
   title: 'Custo × satisfação por segmento',
   subtitle: 'Cada ponto é uma conta',
   series: [
@@ -92,9 +92,9 @@ Dispersão responde “uma coisa anda com a outra?”. Para o resto, há gráfic
 Uma função, com update, setLoading e destroy como em todos os gráficos.
 
 ```html
-import { scatterChart } from './ds/js/charts.js';
+import { createScatterChart } from './ds/js/charts.js';
 
-const chart = scatterChart(document.querySelector('#contas'), {
+const chart = createScatterChart(document.querySelector('#contas'), {
   title: 'Custo × satisfação',
   series: [{ name: 'Varejo', points: [{ x: 42, y: 61, label: 'Conta 01' }, { x: 58, y: 47, label: 'Conta 02' }] }],
   x: { label: 'Custo de aquisição', format: 'currency' },

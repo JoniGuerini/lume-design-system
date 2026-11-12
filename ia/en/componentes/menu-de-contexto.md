@@ -14,8 +14,8 @@ In numbers: ways to open: 3 · ARIA role: menu · long press: 500 ms · surface:
 </ul>
 
 <script type="module">
-  import { attachContextMenu } from './ds/js/context-menu.js';
-  attachContextMenu(document.querySelector('#arquivos'), {
+  import { createContextMenu } from './ds/js/context-menu.js';
+  createContextMenu(document.querySelector('#arquivos'), {
     selector: '[data-arquivo]',
     options: [
       { value: 'open', label: 'Open', icon: 'external-link' },
@@ -32,9 +32,9 @@ In numbers: ways to open: 3 · ARIA role: menu · long press: 500 ms · surface:
 With `selector`, one menu serves every row; `options` can change by item.
 
 ```html
-import { attachContextMenu } from './ds/js/context-menu.js';
+import { createContextMenu } from './ds/js/context-menu.js';
 
-attachContextMenu(document.querySelector('#arquivos'), {
+createContextMenu(document.querySelector('#arquivos'), {
   selector: '[data-arquivo]',
   label: 'File actions',
   options: [

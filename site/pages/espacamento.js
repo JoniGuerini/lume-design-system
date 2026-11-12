@@ -1,6 +1,6 @@
 import { icon } from '../../ds/icons/icons.js';
 import { tokens } from '../../ds/tokens.js';
-import { attachMenu } from '../../ds/js/menu.js';
+import { createMenu } from '../../ds/js/menu.js';
 import { copyText } from '../../ds/js/toast.js';
 import { tr, formatNumber } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
@@ -353,7 +353,7 @@ export function mount(root) {
   const densityChip = root.querySelector('[data-menu="density"]');
   const setLabel = () => (densityChip.querySelector('[data-label]').textContent = densityLabel(c));
   setLabel();
-  const densityMenu = attachMenu(densityChip, {
+  const densityMenu = createMenu(densityChip, {
     label: c.density,
     value: density,
     options: DENSITIES.map(({ value, icon: ic }, i) => ({ value, label: c.densities[i], icon: ic })),

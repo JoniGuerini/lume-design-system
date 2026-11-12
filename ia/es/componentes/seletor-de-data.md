@@ -105,7 +105,7 @@ Marcado de los ejemplos de esta sección:
 
 ## En formularios
 
-Funciona con `enhanceForm`: `required` y los errores de formato aparecen como en los otros campos. El valor en ISO va en un input oculto, con el `name` del campo.
+Funciona con `createForm`: `required` y los errores de formato aparecen como en los otros campos. El valor en ISO va en un input oculto, con el `name` del campo.
 
 ```html
 import { createDatePicker } from './ds/js/date-picker.js';

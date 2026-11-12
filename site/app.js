@@ -3,9 +3,9 @@
  */
 import '../ds/icons/icons.js';
 import { icon } from '../ds/icons/icons.js';
-import { initTheme, bindThemeControls, setTheme, themeFor, THEMES } from '../ds/js/theme.js';
+import { initTheme, mountThemeControls, setTheme, themeFor, THEMES } from '../ds/js/theme.js';
 import { initLocale, setLocale, getLocalePreference, locale, LOCALES, LOCALE_NAMES } from '../ds/js/i18n.js';
-import { attachMenu } from '../ds/js/menu.js';
+import { createMenu } from '../ds/js/menu.js';
 import { initTooltips } from '../ds/js/tooltip.js';
 import { initScrollbars } from '../ds/js/scrollbar.js';
 import { createBackToTop } from '../ds/js/back-to-top.js';
@@ -54,7 +54,7 @@ initTheme();
 initLocale();
 applyStrings();
 if (EMBED) bindEmbedThemeControls();
-else bindThemeControls();
+else mountThemeControls();
 initTooltips();
 initScrollbars();
 
@@ -131,7 +131,7 @@ let navbar = null;
 let activeHref = null;
 function renderNavbar() {
   navbar?.destroy();
-  navbar = renderNavbarNav(navbarEl, navGroups(), { attachMenu, go });
+  navbar = renderNavbarNav(navbarEl, navGroups(), { createMenu, go });
   if (activeHref) navbar.setActive(activeHref);
 }
 renderNavbar();
@@ -171,7 +171,7 @@ function renderLocaleMenu() {
   localeMenu?.destroy();
   localeChip.querySelector('[data-label]').textContent = SHORT[locale()];
   localeChip.setAttribute('aria-label', `${t('language')}: ${LOCALE_NAMES[locale()]}`);
-  localeMenu = attachMenu(localeChip, {
+  localeMenu = createMenu(localeChip, {
     label: t('language'),
     value: EMBED ? locale() : getLocalePreference(),
     options: [

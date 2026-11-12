@@ -115,7 +115,7 @@ Markup of the examples in this section:
 Each type has its own semantics. The look is the same; what the screen reader hears isn’t.
 
 - A filter is a toggle button — Enter Space — `<button aria-pressed>`: the reader announces “Web, toggle button, pressed”.
-- A picker opens a menu — ↓ Esc — `aria-haspopup="menu"` and `aria-expanded` — `attachMenu` handles both, plus the arrow keys.
+- A picker opens a menu — ↓ Esc — `aria-haspopup="menu"` and `aria-expanded` — `createMenu` handles both, plus the arrow keys.
 - Remove has a name — The remove button says what it removes (“Remove Tokens”). Afterwards, focus moves to the neighboring tag.
 - A named group — Wrap the chips in `role="group"` with an `aria-label` (“Filter by status”).
 - Not just color — An active filter shows a check, not just a background. The filter result is announced in a live region.

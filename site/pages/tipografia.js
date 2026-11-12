@@ -1,6 +1,6 @@
 import { icon } from '../../ds/icons/icons.js';
 import { tokens } from '../../ds/tokens.js';
-import { attachMenu } from '../../ds/js/menu.js';
+import { createMenu } from '../../ds/js/menu.js';
 import { copyText } from '../../ds/js/toast.js';
 import { tr, formatNumber } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
@@ -398,7 +398,7 @@ export function mount(root) {
 
   const chip = root.querySelector('[data-menu="copy-format"]');
   chip.querySelector('[data-label]').textContent = COPY_FORMATS.find((f) => f.value === copyFormat).label;
-  const menu = attachMenu(chip, {
+  const menu = createMenu(chip, {
     label: c.copyAs,
     value: copyFormat,
     options: COPY_FORMATS,

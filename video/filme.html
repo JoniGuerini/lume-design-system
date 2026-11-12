@@ -192,7 +192,7 @@
 
     <script type="module">
       import { iconList, icons } from '../ds/icons/icons.js';
-      import { barChart, lineChart, donutChart, statTile } from '../ds/js/charts.js';
+      import { createBarChart, createLineChart, createDonutChart, statTileHtml } from '../ds/js/charts.js';
 
       const $ = (s, r = document) => r.querySelector(s);
       const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -810,18 +810,18 @@
         const host = $('[data-charts]');
         const MONTHS = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out'];
         host.innerHTML = `
-          <div class="charts__stat">${statTile({ label: 'Receita', value: 174600, format: 'currency-compact', delta: 0.124, deltaLabel: 'mês anterior', trend: [12, 14, 13, 17, 16, 19, 21, 20, 24] })}</div>
-          <div class="charts__stat">${statTile({ label: 'Pedidos', value: 1934, format: 'integer', delta: 0.08, deltaLabel: 'mês anterior', trend: [9, 10, 12, 11, 13, 14, 13, 16, 17] })}</div>
-          <div class="charts__stat">${statTile({ label: 'Ticket médio', value: 90.3, format: 'number', delta: 0.031, deltaLabel: 'mês anterior', trend: [8, 8, 9, 9, 8, 10, 10, 11, 11] })}</div>
-          <div class="charts__stat">${statTile({ label: 'Conversão', value: 0.033, format: { style: 'percent', minimumFractionDigits: 1, maximumFractionDigits: 1 }, delta: 0.02, deltaLabel: 'mês anterior', trend: [5, 6, 5, 7, 6, 8, 7, 8, 9] })}</div>
+          <div class="charts__stat">${statTileHtml({ label: 'Receita', value: 174600, format: 'currency-compact', delta: 0.124, deltaLabel: 'mês anterior', trend: [12, 14, 13, 17, 16, 19, 21, 20, 24] })}</div>
+          <div class="charts__stat">${statTileHtml({ label: 'Pedidos', value: 1934, format: 'integer', delta: 0.08, deltaLabel: 'mês anterior', trend: [9, 10, 12, 11, 13, 14, 13, 16, 17] })}</div>
+          <div class="charts__stat">${statTileHtml({ label: 'Ticket médio', value: 90.3, format: 'number', delta: 0.031, deltaLabel: 'mês anterior', trend: [8, 8, 9, 9, 8, 10, 10, 11, 11] })}</div>
+          <div class="charts__stat">${statTileHtml({ label: 'Conversão', value: 0.033, format: { style: 'percent', minimumFractionDigits: 1, maximumFractionDigits: 1 }, delta: 0.02, deltaLabel: 'mês anterior', trend: [5, 6, 5, 7, 6, 8, 7, 8, 9] })}</div>
           <div class="charts__line" data-c-line></div>
           <div class="charts__side"><div data-c-bars></div><div data-c-donut></div></div>`;
-        lineChart($('[data-c-line]'), { card: true, title: 'Usuários ativos', subtitle: 'Por mês · 2026 contra 2025', categories: MONTHS, height: 400, series: [
+        createLineChart($('[data-c-line]'), { card: true, title: 'Usuários ativos', subtitle: 'Por mês · 2026 contra 2025', categories: MONTHS, height: 400, series: [
           { name: '2026', values: [12100, 13800, 13200, 17900, 20600, 23800, 23100, 26900, 29800, 31200] },
           { name: '2025', values: [10200, 10900, 11100, 12800, 14100, 15900, 16800, 17700, 18900, 20800] },
         ] });
-        barChart($('[data-c-bars]'), { card: true, title: 'Receita por canal', orientation: 'horizontal', format: 'integer', categoryLabel: 'Canal', height: 150, categories: ['Loja', 'App', 'Site', 'Parceiros'], series: [{ name: 'Receita', values: [55, 52, 28, 15] }] });
-        donutChart($('[data-c-donut]'), { card: true, title: 'Pedidos por pagamento', items: [{ name: 'Pix', value: 4210 }, { name: 'Crédito', value: 2630 }, { name: 'Boleto', value: 1100 }], format: 'integer', size: 120, thickness: 16, categoryLabel: 'Forma', valueLabel: 'Pedidos' });
+        createBarChart($('[data-c-bars]'), { card: true, title: 'Receita por canal', orientation: 'horizontal', format: 'integer', categoryLabel: 'Canal', height: 150, categories: ['Loja', 'App', 'Site', 'Parceiros'], series: [{ name: 'Receita', values: [55, 52, 28, 15] }] });
+        createDonutChart($('[data-c-donut]'), { card: true, title: 'Pedidos por pagamento', items: [{ name: 'Pix', value: 4210 }, { name: 'Crédito', value: 2630 }, { name: 'Boleto', value: 1100 }], format: 'integer', size: 120, thickness: 16, categoryLabel: 'Forma', valueLabel: 'Pedidos' });
         M.chartCards = [...host.children].flatMap((c) => (c.classList.contains('charts__side') ? [...c.children] : [c]));
       }
 

@@ -85,9 +85,9 @@ Nos estilos, consuma sempre tokens semânticos: `var(--ds-color-fg-muted)`, `var
 ### Gráficos
 
 ```js
-import { barChart } from './ds/js/charts.js';
+import { createBarChart } from './ds/js/charts.js';
 
-const chart = barChart(document.querySelector('#vendas'), {
+const chart = createBarChart(document.querySelector('#vendas'), {
   title: 'Vendas por mês',
   categories: ['Jan', 'Fev', 'Mar'],
   series: [{ name: 'Loja', values: [120, 180, 150] }],
@@ -113,11 +113,11 @@ createCalendar(document.querySelector('#agenda'), {
 ### Padrões
 
 ```js
-import { enhanceForm } from './ds/js/form.js';          // validação em português, a partir dos atributos nativos
+import { createForm } from './ds/js/form.js';          // validação em português, a partir dos atributos nativos
 import { createComposer } from './ds/js/composer.js';   // caixa de mensagem com anexos e comandos "/"
 import { createFilters } from './ds/js/filters.js';     // busca + filtros + pílulas ativas + contagem
 
-enhanceForm(document.querySelector('form'), { onSubmit: (data) => salvar(data) });
+createForm(document.querySelector('form'), { onSubmit: (data) => salvar(data) });
 ```
 
 O app shell aceita `createShell(el, { persist: false })` para demonstrações que não devem salvar preferências; abra o site com `?embed` para o mesmo efeito.

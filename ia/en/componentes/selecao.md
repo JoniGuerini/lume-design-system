@@ -34,7 +34,7 @@ Visits
 
 12,480 — visits
 
-Chip with menu `ds-chip + attachMenu` — In the filter. Changes the screen right away.
+Chip with menu `ds-chip + createMenu` — In the filter. Changes the screen right away.
 
 |  | Single | Searchable | Multiple | Filter chip |
 | --- | --- | --- | --- | --- |
@@ -42,7 +42,7 @@ Chip with menu `ds-chip + attachMenu` — In the filter. Changes the screen righ
 | Options | 5 to ~15 | 15 to hundreds | From few to hundreds (with search) | Up to ~7 |
 | Effect | Applies on submit | Applies on submit | Applies on submit | Immediate |
 | Value | A real `<select>` | A real `<select>` | A real `<select multiple>` | Screen state |
-| Attributes | `data-ds-select` | + `data-search` | + `multiple` | ds-chip + attachMenu |
+| Attributes | `data-ds-select` | + `data-search` | + `multiple` | ds-chip + createMenu |
 
 Markup of the examples in this section:
 

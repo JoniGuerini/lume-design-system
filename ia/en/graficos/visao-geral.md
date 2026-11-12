@@ -278,9 +278,9 @@ What goes wrong most often in charts — and what to do instead.
 One function per form, the same conversation in all of them: mount on an element, take options, and return controls.
 
 ```html
-import { barChart } from './ds/js/charts.js';
+import { createBarChart } from './ds/js/charts.js';
 
-const chart = barChart(document.querySelector('#sales'), {
+const chart = createBarChart(document.querySelector('#sales'), {
   title: 'Revenue by month',
   subtitle: 'In reais · 2026',
   categories: ['Jan', 'Feb', 'Mar'],

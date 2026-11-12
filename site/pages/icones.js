@@ -1,6 +1,6 @@
 import { icon, icons, iconList, iconCategories } from '../../ds/icons/icons.js';
 import { tokens } from '../../ds/tokens.js';
-import { attachMenu } from '../../ds/js/menu.js';
+import { createMenu } from '../../ds/js/menu.js';
 import { copyText } from '../../ds/js/toast.js';
 import { tr, formatNumber } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
@@ -503,7 +503,7 @@ export function mount(root) {
   const sizeChip = root.querySelector('[data-menu="size"]');
   const setSizeLabel = () => (sizeChip.querySelector('[data-label]').textContent = SIZES.find((s) => s.value === size).label);
   setSizeLabel();
-  const sizeMenu = attachMenu(sizeChip, {
+  const sizeMenu = createMenu(sizeChip, {
     label: c.previewSize,
     value: size,
     options: SIZES,

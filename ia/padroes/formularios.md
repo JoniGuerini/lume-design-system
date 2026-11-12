@@ -8,7 +8,7 @@ Em números: regras nativas: 9 · momentos de validar: 3 · ação principal: 1 
 
 ## Exemplo ao vivo
 
-Um formulário de verdade, com `enhanceForm`. Envie vazio, digite “ab” no nome, tente o endereço “pagamentos” — e veja o erro sumir enquanto corrige.
+Um formulário de verdade, com `createForm`. Envie vazio, digite “ab” no nome, tente o endereço “pagamentos” — e veja o erro sumir enquanto corrige.
 
 - Envie vazio: o resumo recebe o foco e cada link leva ao campo.
 - Erro só ao sair do campo — e some na primeira tecla certa.
@@ -231,7 +231,7 @@ Seções numeradas, ações fixas no rodapé e um status do que ainda não foi s
 
 ## Acessibilidade
 
-O que `enhanceForm` e os estilos garantem — e o que fica com você.
+O que `createForm` e os estilos garantem — e o que fica com você.
 
 - Rótulo visível e ligado ao campo — Todo campo tem `<label for>`. Placeholder não é rótulo: some ao digitar e tem contraste baixo.
 - Erro ligado ao campo — O texto do erro entra no `aria-describedby` e o campo ganha `aria-invalid="true"`. A dica continua ligada.
@@ -277,9 +277,9 @@ Estrutura em HTML com as classes do formulário; o comportamento vem de uma linh
 ### JavaScript
 
 ```html
-import { enhanceForm } from './ds/js/form.js';
+import { createForm } from './ds/js/form.js';
 
-const form = enhanceForm(document.querySelector('#projeto'), {
+const form = createForm(document.querySelector('#projeto'), {
   rules: {
     // regra sua: devolva a mensagem, ou null quando estiver tudo certo
     endereco: (valor) => (ocupados.has(valor) ? 'Esse endereço já está em uso.' : null),
@@ -292,7 +292,7 @@ const form = enhanceForm(document.querySelector('#projeto'), {
 });
 ```
 
-### enhanceForm(form, opções) ds/js/form.js
+### createForm(form, opções) ds/js/form.js
 
 | Opção ou método | Valor | O que faz |
 | --- | --- | --- |

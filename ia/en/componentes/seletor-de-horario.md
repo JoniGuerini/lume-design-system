@@ -106,7 +106,7 @@ Markup of the examples in this section:
 
 ## Code
 
-It works with `enhanceForm`, like the other fields.
+It works with `createForm`, like the other fields.
 
 ```html
 import { createTimePicker } from './ds/js/time-picker.js';

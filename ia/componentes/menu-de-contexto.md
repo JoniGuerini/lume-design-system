@@ -14,8 +14,8 @@ Em números: formas de abrir: 3 · papel ARIA: menu · toque longo: 500 ms · su
 </ul>
 
 <script type="module">
-  import { attachContextMenu } from './ds/js/context-menu.js';
-  attachContextMenu(document.querySelector('#arquivos'), {
+  import { createContextMenu } from './ds/js/context-menu.js';
+  createContextMenu(document.querySelector('#arquivos'), {
     selector: '[data-arquivo]',
     options: [
       { value: 'open', label: 'Abrir', icon: 'external-link' },
@@ -32,9 +32,9 @@ Em números: formas de abrir: 3 · papel ARIA: menu · toque longo: 500 ms · su
 Com `selector`, um único menu atende a todas as linhas; `options` pode mudar conforme o item.
 
 ```html
-import { attachContextMenu } from './ds/js/context-menu.js';
+import { createContextMenu } from './ds/js/context-menu.js';
 
-attachContextMenu(document.querySelector('#arquivos'), {
+createContextMenu(document.querySelector('#arquivos'), {
   selector: '[data-arquivo]',
   label: 'Ações do arquivo',
   options: [

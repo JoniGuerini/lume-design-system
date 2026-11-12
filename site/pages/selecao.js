@@ -1,5 +1,5 @@
 import { icon } from '../../ds/icons/icons.js';
-import { attachMenu } from '../../ds/js/menu.js';
+import { createMenu } from '../../ds/js/menu.js';
 import { mountSelects } from '../../ds/js/select.js';
 import { locale, formatNumber } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
@@ -75,7 +75,7 @@ const WHICH = () => [
   [L('Opções', 'Options', 'Opciones'), L('5 a ~15', '5 to ~15', '5 a ~15'), L('15 a centenas', '15 to hundreds', '15 a cientos'), L('De poucas a centenas (com busca)', 'From few to hundreds (with search)', 'De pocas a cientos (con búsqueda)'), L('Até ~7', 'Up to ~7', 'Hasta ~7')],
   [L('Efeito', 'Effect', 'Efecto'), L('Vale ao enviar', 'Applies on submit', 'Vale al enviar'), L('Vale ao enviar', 'Applies on submit', 'Vale al enviar'), L('Vale ao enviar', 'Applies on submit', 'Vale al enviar'), L('Imediato', 'Immediate', 'Inmediato')],
   [L('Valor', 'Value', 'Valor'), L(`${ic('&lt;select&gt;')} real`, `A real ${ic('&lt;select&gt;')}`, `${ic('&lt;select&gt;')} real`), L(`${ic('&lt;select&gt;')} real`, `A real ${ic('&lt;select&gt;')}`, `${ic('&lt;select&gt;')} real`), L(`${ic('&lt;select multiple&gt;')} real`, `A real ${ic('&lt;select multiple&gt;')}`, `${ic('&lt;select multiple&gt;')} real`), L('Estado da tela', 'Screen state', 'Estado de la pantalla')],
-  [L('Atributos', 'Attributes', 'Atributos'), ic('data-ds-select'), `+ ${ic('data-search')}`, `+ ${ic('multiple')}`, 'ds-chip + attachMenu'],
+  [L('Atributos', 'Attributes', 'Atributos'), ic('data-ds-select'), `+ ${ic('data-search')}`, `+ ${ic('multiple')}`, 'ds-chip + createMenu'],
 ];
 
 /* ───────── Seleção (playground, exemplos e código) ───────── */
@@ -263,7 +263,7 @@ export default function renderSelecao(page) {
             </div>
             <p class="sl-toolbar__value"><span data-period-value>${formatNumber(12480)}</span><span class="sl-toolbar__unit">${L('visitas', 'visits', 'visitas')}</span></p>
           </div>
-          <div class="cd-example__body"><p class="cd-example__name">${L('Chip com menu', 'Chip with menu', 'Chip con menú')}<code>ds-chip + attachMenu</code></p><p class="cd-example__text">${L('No filtro. Muda a tela na hora.', 'In the filter. Changes the screen right away.', 'En el filtro. Cambia la pantalla al instante.')}</p></div>
+          <div class="cd-example__body"><p class="cd-example__name">${L('Chip com menu', 'Chip with menu', 'Chip con menú')}<code>ds-chip + createMenu</code></p><p class="cd-example__text">${L('No filtro. Muda a tela na hora.', 'In the filter. Changes the screen right away.', 'En el filtro. Cambia la pantalla al instante.')}</p></div>
         </article>
       </div>
       <div class="doc-table sl-which">
@@ -525,7 +525,7 @@ export function mount(root) {
   const value = root.querySelector('[data-period-value]');
   const periods = PERIODS();
   const VISITS = { 7: 2904, 30: 12480, 90: 35112, year: 118640 };
-  const menu = attachMenu(chip, {
+  const menu = createMenu(chip, {
     label: L('Período', 'Period', 'Período'),
     value: '30',
     options: periods,

@@ -1,7 +1,7 @@
 /**
  * Lume — gráfico de barras (colunas e barras horizontais).
  *
- * barChart(host, {
+ * createBarChart(host, {
  *   categories: ['Jan', 'Fev', …],
  *   series: [{ name: 'Receita', values: [12, 18, …], color? }],
  *   orientation: 'vertical' | 'horizontal',
@@ -25,7 +25,7 @@ import { msg } from '../i18n.js';
 const GAP = 2;
 const MAX_BAR = 24;
 
-export function barChart(host, input) {
+export function createBarChart(host, input) {
   let source = input;
   let o = normalize(source);
   const hidden = new Set();

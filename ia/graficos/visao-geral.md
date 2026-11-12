@@ -278,9 +278,9 @@ O que mais dá errado em gráfico — e o que fazer no lugar.
 Uma função por forma, a mesma conversa em todas: monta num elemento, recebe opções e devolve controles.
 
 ```html
-import { barChart } from './ds/js/charts.js';
+import { createBarChart } from './ds/js/charts.js';
 
-const grafico = barChart(document.querySelector('#vendas'), {
+const grafico = createBarChart(document.querySelector('#vendas'), {
   title: 'Receita por mês',
   subtitle: 'Em reais · 2026',
   categories: ['Jan', 'Fev', 'Mar'],

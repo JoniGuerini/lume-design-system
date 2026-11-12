@@ -236,14 +236,14 @@ export function setActiveNavItem(container, href) {
 /**
  * Renderiza a navegação da navbar com os mesmos grupos da sidebar: o grupo sem label vira links;
  * cada grupo com label vira um botão que abre um menu com as páginas.
- *   const navbar = renderNavbarNav(container, groups, { attachMenu, go: (href) => (location.hash = href) });
+ *   const navbar = renderNavbarNav(container, groups, { createMenu, go: (href) => (location.hash = href) });
  *   navbar.setActive('#/componentes/botao');  navbar.destroy();
- * attachMenu vem de ds/js/menu.js (passado por quem chama, para o shell não depender do menu).
+ * createMenu vem de ds/js/menu.js (passado por quem chama, para o shell não depender do menu).
  *
  * Sem espaço para tudo, primeiro a busca da navbar vira só o ícone; se ainda faltar, os últimos itens
  * passam para um botão "Mais", que abre um menu com eles. Nada fica cortado nem por cima da busca.
  */
-export function renderNavbarNav(container, groups, { attachMenu, go }) {
+export function renderNavbarNav(container, groups, { createMenu, go }) {
   container.innerHTML = groups
     .map((group) =>
       group.label
@@ -264,7 +264,7 @@ export function renderNavbarNav(container, groups, { attachMenu, go }) {
     .map(({ group, button }) => ({
       group,
       button,
-      menu: attachMenu(button, {
+      menu: createMenu(button, {
         label: group.label,
         // com seções, cada uma vira uma coluna; sem elas, grupos longos abrem em grade (nos dois casos, sem rolagem)
         options: group.items.flatMap((i, n) => [...(i.section && i.section !== group.items[n - 1]?.section ? [{ type: 'group', label: i.section }] : []), { value: i.href, label: i.label, icon: i.icon }]),
@@ -300,7 +300,7 @@ export function renderNavbarNav(container, groups, { attachMenu, go }) {
     if (key === overflowKey) return;
     overflowKey = key;
     moreMenu?.destroy();
-    moreMenu = hidden.length ? attachMenu(more, { label: msg('shell.more'), options: overflowOptions(hidden), sectionColumns: true, value: null, onChange: go }) : null;
+    moreMenu = hidden.length ? createMenu(more, { label: msg('shell.more'), options: overflowOptions(hidden), sectionColumns: true, value: null, onChange: go }) : null;
     syncMoreCurrent();
   }
 

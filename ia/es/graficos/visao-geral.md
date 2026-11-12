@@ -278,9 +278,9 @@ Lo que más sale mal en un gráfico — y qué hacer en su lugar.
 Una función por forma, la misma conversación en todas: se monta en un elemento, recibe opciones y devuelve controles.
 
 ```html
-import { barChart } from './ds/js/charts.js';
+import { createBarChart } from './ds/js/charts.js';
 
-const grafico = barChart(document.querySelector('#ventas'), {
+const grafico = createBarChart(document.querySelector('#ventas'), {
   title: 'Ingresos por mes',
   subtitle: 'En reales · 2026',
   categories: ['Ene', 'Feb', 'Mar'],

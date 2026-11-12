@@ -105,7 +105,7 @@ Marcação dos exemplos desta seção:
 
 ## Código
 
-Funciona com `enhanceForm`: com `required`, ter pelo menos uma tag já basta.
+Funciona com `createForm`: com `required`, ter pelo menos uma tag já basta.
 
 ```html
 import { createTagField } from './ds/js/tag-field.js';

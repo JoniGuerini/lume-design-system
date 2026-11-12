@@ -9,9 +9,9 @@ Em números: peças: 3 · destaque por tela: 1 · sentidos da variação: 3 · t
 ## Exemplo
 
 ```html
-import { statTile } from './ds/js/charts.js';
+import { statTileHtml } from './ds/js/charts.js';
 
-el.innerHTML = statTile({
+el.innerHTML = statTileHtml({
   label: 'Receita',
   value: 1284000,
   format: 'currency-compact',
@@ -333,20 +333,20 @@ Quando um número basta — e como não estragá-lo.
 Três funções que devolvem HTML, sem estado — use em qualquer lugar, inclusive dentro de tabelas e cards.
 
 ```html
-import { statTile, sparkline, meter } from './ds/js/charts.js';
+import { statTileHtml, sparklineHtml, meterHtml } from './ds/js/charts.js';
 
 kpis.innerHTML = [
-  statTile({ label: 'Receita', value: 1284000, format: 'currency-compact',
+  statTileHtml({ label: 'Receita', value: 1284000, format: 'currency-compact',
              delta: 0.124, deltaLabel: 'vs. mês anterior', trend: receita }),
-  statTile({ label: 'Tempo de resposta', value: '182 ms',
+  statTileHtml({ label: 'Tempo de resposta', value: '182 ms',
              delta: 0.08, deltaLabel: 'vs. semana anterior', good: 'down' }),
 ].join('');
 
-celula.innerHTML = sparkline(receita, { width: 96, height: 24, area: false });
-uso.innerHTML = meter({ label: 'Armazenamento', value: 72, max: 100, format: (v) => `${v} GB` });
+celula.innerHTML = sparklineHtml(receita, { width: 96, height: 24, area: false });
+uso.innerHTML = meterHtml({ label: 'Armazenamento', value: 72, max: 100, format: (v) => `${v} GB` });
 ```
 
-`statTile(options)`
+`statTileHtml(options)`
 
 Indicador completo. Devolve HTML.
 
@@ -360,7 +360,7 @@ Indicador completo. Devolve HTML.
 |  `trend · trendLabel`  | Série da sparkline e o nome acessível dela. |
 |  `hero · href`  | Versão de destaque; com href, o indicador vira link. |
 
-`sparkline(values, options)`
+`sparklineHtml(values, options)`
 
 Linha de tendência sem eixos. Devolve HTML que estica na largura do contêiner.
 
@@ -372,7 +372,7 @@ Linha de tendência sem eixos. Devolve HTML que estica na largura do contêiner.
 |  `color · label`  | Cor da linha (padrão: chart.other) e o nome acessível. |
 |  `domain`  | Escala fixa [mín, máx]. Sem ela, a escala cobre ao menos 10% do valor — série estável não vira serra. |
 
-`meter(options)`
+`meterHtml(options)`
 
 Uma razão contra um limite. Devolve HTML com role="meter".
 

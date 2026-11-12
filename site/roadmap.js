@@ -13,22 +13,10 @@ const GOAL = T('Meta', 'Goal', 'Meta');
 
 const STAGES = [
   {
-    version: '0.24',
+    version: '0.25',
     group: 'release',
     tone: 'brand',
     status: NEXT,
-    title: T('Testes e API', 'Tests and API', 'Pruebas y API'),
-    text: T('Definir o que é público e proteger isso.', 'Define what’s public and protect it.', 'Definir qué es público y protegerlo.'),
-    items: [
-      { name: T('Testes visuais', 'Visual tests', 'Pruebas visuales'), text: T('Sem dependências, usando os estados.', 'With no dependencies, using the states.', 'Sin dependencias, usando los estados.') },
-      { name: T('API pública', 'Public API', 'API pública'), text: T('O que é público e uma convenção única no JavaScript.', 'What’s public and a single JavaScript convention.', 'Qué es público y una convención única en JavaScript.') },
-    ],
-  },
-  {
-    version: '0.25',
-    group: 'release',
-    tone: 'neutral',
-    status: PLANNED,
     title: T('Pacote', 'Package', 'Paquete'),
     text: T('Usar o Lume em outros projetos sem copiar arquivos.', 'Use Lume in other projects without copying files.', 'Usar Lume en otros proyectos sin copiar archivos.'),
     items: [

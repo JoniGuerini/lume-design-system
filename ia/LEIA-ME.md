@@ -35,6 +35,7 @@ O CSS e os módulos estão publicados em `https://lumeui.dev/ds/` e podem ser ca
 ```
 
 - **Um CSS só:** `ds.css` traz as fontes, os tokens, a base e todos os componentes.
+- **Um JavaScript só, se preferir:** `https://lumeui.dev/ds/lume.js` reúne toda a API pública (`import { createModal, toast } from 'https://lumeui.dev/ds/lume.js'`). A lista e a convenção de nomes estão em `https://lumeui.dev/ia/recursos/api.md`. O que não está nele é interno: não use.
 - **Tema:** `data-theme="light"` (claro) ou `data-theme="dark"` (escuro) no `<html>`. Para seguir o sistema, chame `initTheme()` de `https://lumeui.dev/ds/js/theme.js`.
 - **JavaScript só onde precisa:** componentes visuais funcionam só com CSS. Os interativos têm um módulo em `https://lumeui.dev/ds/js/`. Importe só os que a tela usa, e o arquivo de cada componente mostra qual é.
 - **Ícones:** importe `https://lumeui.dev/ds/icons/icons.js` uma vez para que o `<ds-icon>` funcione.

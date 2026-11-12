@@ -1,7 +1,7 @@
 /**
  * Lume — mapas de calor: matriz e calendário.
  *
- * heatmap(host, {
+ * createHeatmap(host, {
  *   rows: ['Seg', …], columns: ['0h', …], values: [[…], …],   values[linha][coluna]; null = sem dado
  *   scale: 'sequential' | 'diverging',                           sequencial = um tom; divergente = dois tons + meio neutro
  *   steps: 5 | 7, domain: [min, max], center: 0,
@@ -9,7 +9,7 @@
  *   title, subtitle, label, card, table,
  * })
  *
- * calendarHeatmap(host, { start: '2025-11-02', values: [...um por dia], format, valueLabel, … })
+ * createCalendarHeatmap(host, { start: '2025-11-02', values: [...um por dia], format, valueLabel, … })
  *
  * Ambos → { update(options), setLoading(bool), destroy(), el }. Até 7 faixas de cor; acima disso, use uma tabela.
  */
@@ -73,7 +73,7 @@ function scaleLegend(o, scale, fmt) {
 
 /* ───────── Matriz ───────── */
 
-export function heatmap(host, input) {
+export function createHeatmap(host, input) {
   let source = input;
   let o = normalize(source);
   const frame = createFrame(host, o, { kind: 'heatmap' });
@@ -234,7 +234,7 @@ const parseDay = (d) => {
   return new Date(y, m - 1, day);
 };
 
-export function calendarHeatmap(host, input) {
+export function createCalendarHeatmap(host, input) {
   let source = input;
   let o = normalize(source);
   const frame = createFrame(host, o, { kind: 'calendar' });

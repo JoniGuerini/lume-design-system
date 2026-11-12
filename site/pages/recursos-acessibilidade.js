@@ -2,8 +2,8 @@ import { icon } from '../../ds/icons/icons.js';
 import { tokens, contrast } from '../../ds/tokens.js';
 import { siteTheme, followSiteTheme } from '../component-doc.js';
 import { THEME_IDS, themeLabel, perTheme, themeSwitch, markThemeSwitch } from '../themes.js';
-import { mountSelects, enhanceSelect } from '../../ds/js/select.js';
-import { barChart, meter } from '../../ds/js/charts.js';
+import { mountSelects, createSelect } from '../../ds/js/select.js';
+import { createBarChart, meterHtml } from '../../ds/js/charts.js';
 import { typingHtml } from '../../ds/js/composer.js';
 import { formatNumber } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
@@ -656,8 +656,8 @@ export function mount(root) {
     ensure(bgSel, fg);
     fgSel.value = bg;
     bgSel.value = fg;
-    enhanceSelect(fgSel).sync();
-    enhanceSelect(bgSel).sync();
+    createSelect(fgSel).sync();
+    createSelect(bgSel).sync();
     renderResults();
   };
   swap.addEventListener('click', onSwap);
@@ -700,7 +700,7 @@ export function mount(root) {
 
   const chartData = { categories: weekdays().slice(0, 5), series: [{ name: L('Pedidos', 'Orders', 'Pedidos'), values: [32, 41, 38, 52, 47] }] };
   const charts = ['normal', 'reduced'].map((kind) =>
-    barChart(root.querySelector(`[data-ra-chart="${kind}"]`), { ...chartData, label: kind === 'normal' ? L('Exemplo com movimento', 'Example with motion', 'Ejemplo con movimiento') : L('Exemplo com movimento reduzido', 'Example with reduced motion', 'Ejemplo con movimiento reducido'), height: 132, table: false }),
+    createBarChart(root.querySelector(`[data-ra-chart="${kind}"]`), { ...chartData, label: kind === 'normal' ? L('Exemplo com movimento', 'Example with motion', 'Ejemplo con movimiento') : L('Exemplo com movimento reduzido', 'Example with reduced motion', 'Ejemplo con movimiento reducido'), height: 132, table: false }),
   );
   cleanups.push(() => charts.forEach((c) => c.destroy()));
 
@@ -732,7 +732,7 @@ export function mount(root) {
   const total = checks.length;
   const renderProgress = () => {
     const done = checks.filter((c) => c.checked).length;
-    progress.innerHTML = meter({
+    progress.innerHTML = meterHtml({
       label: done === total ? L('Tudo conferido', 'All checked', 'Todo revisado') : L('Conferido nesta tela', 'Checked on this screen', 'Revisado en esta pantalla'),
       value: done,
       max: total,

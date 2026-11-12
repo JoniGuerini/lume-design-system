@@ -4,14 +4,14 @@ Seção do Lume: Componentes. Página: https://lumeui.dev/#/componentes/menu
 
 Uma lista de opções que abre a partir de um gatilho. Serve para escolher um valor — como nos chips — ou para disparar ações.
 
-Em números: modos: 2 · tipos de item: 6 · teclas: 8 · função: attachMenu.
+Em números: modos: 2 · tipos de item: 6 · teclas: 8 · função: createMenu.
 
 ## Exemplo
 
 ```html
-import { attachMenu } from './ds/js/menu.js';
+import { createMenu } from './ds/js/menu.js';
 
-const menu = attachMenu(gatilho, {
+const menu = createMenu(gatilho, {
   label: 'Ordenar por',
   value: 'recent',
   options: [
@@ -49,7 +49,7 @@ Lista longa não rola nem vira um menu gigante: com maxRows, cada coluna leva no
 Em colunas `maxRows: 5` — 16 itens com até 5 por coluna viram 4 colunas de 4 — não 5, 5, 5 e 1. ↑/↓ descem a coluna e passam para a próxima; ←/→ pulam de coluna. Perto da borda, o menu desliza para caber na tela.
 
 ```html
-attachMenu(botao, {
+createMenu(botao, {
   label: 'Componentes',
   options: paginas.map((p) => ({ value: p.href, label: p.label, icon: p.icon })),
   maxRows: 5,   // no máximo 5 por coluna, equilibrado
@@ -136,7 +136,7 @@ Tudo que dá para fazer com o mouse dá para fazer sem ele.
 
 ## Acessibilidade
 
-attachMenu já liga os atributos ARIA no gatilho e no menu.
+createMenu já liga os atributos ARIA no gatilho e no menu.
 
 - Gatilho anunciado — Recebe `aria-haspopup="menu"`, `aria-expanded` e `aria-controls` — o leitor de tela sabe que abre algo.
 - Papéis certos — Seleção usa `menuitemradio` com `aria-checked`; ação usa `menuitem`.

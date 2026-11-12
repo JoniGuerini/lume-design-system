@@ -1,5 +1,5 @@
 import { icon } from '../../ds/icons/icons.js';
-import { statTile, sparkline, meter } from '../../ds/js/charts.js';
+import { statTileHtml, sparklineHtml, meterHtml } from '../../ds/js/charts.js';
 import { formatNumber } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, codeBlock, tokenTable, a11yList, escapeHtml } from '../component-doc.js';
@@ -55,7 +55,7 @@ function tileCode(s) {
   if (o.delta != null && o.good !== 'up') lines.push(`  good: '${o.good}',`);
   if (o.trend) lines.push(`  trend: [${o.trend.slice(0, 4).join(', ')}, …],`);
   if (o.hero) lines.push('  hero: true,');
-  return `import { statTile } from './ds/js/charts.js';\n\nel.innerHTML = statTile({\n${lines.join('\n')}\n});`;
+  return `import { statTileHtml } from './ds/js/charts.js';\n\nel.innerHTML = statTileHtml({\n${lines.join('\n')}\n});`;
 }
 
 const KPIS = () => [
@@ -117,7 +117,7 @@ const section = (id, title, desc, body) => `<section class="doc-section" id="${i
   </section>`;
 
 const anatomyTile = () =>
-  statTile({ label: activeCustomers(), value: 38210, format: 'integer', delta: 0.137, deltaLabel: vsLastMonth(), trend: activeUsers[2026] })
+  statTileHtml({ label: activeCustomers(), value: 38210, format: 'integer', delta: 0.137, deltaLabel: vsLastMonth(), trend: activeUsers[2026] })
     .replace('class="ds-stat__label"', 'class="ds-stat__label" data-num="1"')
     .replace('class="ds-stat__value"', 'class="ds-stat__value" data-num="2"')
     .replace('class="ds-stat__change"', 'class="ds-stat__change" data-num="3"')
@@ -127,7 +127,7 @@ const anatomyTile = () =>
 const fmtTable = (v) => (v === 0 ? formatNumber(0, { style: 'percent' }) : `${v > 0 ? '+' : '−'}${formatNumber(Math.abs(v), { style: 'percent', maximumFractionDigits: 1 })}`);
 
 const API = () => [
-  ['statTile(options)', L('Indicador completo. Devolve HTML.', 'A complete indicator. Returns HTML.', 'Indicador completo. Devuelve HTML.'), [
+  ['statTileHtml(options)', L('Indicador completo. Devolve HTML.', 'A complete indicator. Returns HTML.', 'Indicador completo. Devuelve HTML.'), [
     ['label', L('Rótulo, em caixa de frase e sem dois-pontos.', 'Label, in sentence case and without a colon.', 'Etiqueta, en mayúscula inicial y sin dos puntos.')],
     ['value · format', L('Número e formato (\'currency-compact\', \'integer\'…) — ou um texto pronto, como \'182 ms\'.', 'Number and format (\'currency-compact\', \'integer\'…) — or ready-made text, like \'182 ms\'.', 'Número y formato (\'currency-compact\', \'integer\'…) — o un texto listo, como \'182 ms\'.')],
     ['delta · deltaFormat', L(`Variação (razão: ${formatNumber(0.124)} = ${signedPct(0.124)}) e como mostrá-la. Padrão: porcentagem.`, `Change (ratio: ${formatNumber(0.124)} = ${signedPct(0.124)}) and how to show it. Default: percentage.`, `Variación (razón: ${formatNumber(0.124)} = ${signedPct(0.124)}) y cómo mostrarla. Predeterminado: porcentaje.`)],
@@ -136,14 +136,14 @@ const API = () => [
     ['trend · trendLabel', L('Série da sparkline e o nome acessível dela.', 'The sparkline series and its accessible name.', 'Serie de la sparkline y su nombre accesible.')],
     ['hero · href', L('Versão de destaque; com href, o indicador vira link.', 'Hero version; with href, the indicator becomes a link.', 'Versión destacada; con href, el indicador se vuelve enlace.')],
   ]],
-  ['sparkline(values, options)', L('Linha de tendência sem eixos. Devolve HTML que estica na largura do contêiner.', 'A trend line without axes. Returns HTML that stretches to the container width.', 'Línea de tendencia sin ejes. Devuelve HTML que se estira al ancho del contenedor.'), [
+  ['sparklineHtml(values, options)', L('Linha de tendência sem eixos. Devolve HTML que estica na largura do contêiner.', 'A trend line without axes. Returns HTML that stretches to the container width.', 'Línea de tendencia sin ejes. Devuelve HTML que se estira al ancho del contenedor.'), [
     ['width · height', L('Tamanho padrão quando nada manda nele (112 × 32).', 'Default size when nothing else sets it (112 × 32).', 'Tamaño predeterminado cuando nada lo define (112 × 32).')],
     ['area · curve', L('Lavagem sob a linha (padrão) e \'smooth\' ou \'linear\'.', 'Wash under the line (default) and \'smooth\' or \'linear\'.', 'Lavado bajo la línea (predeterminado) y \'smooth\' o \'linear\'.')],
     ['highlight', L('\'last\' marca o ponto atual; \'none\' tira o ponto.', '\'last\' marks the current point; \'none\' removes the dot.', '\'last\' marca el punto actual; \'none\' quita el punto.')],
     ['color · label', L('Cor da linha (padrão: chart.other) e o nome acessível.', 'Line color (default: chart.other) and the accessible name.', 'Color de la línea (predeterminado: chart.other) y el nombre accesible.')],
     ['domain', L('Escala fixa [mín, máx]. Sem ela, a escala cobre ao menos 10% do valor — série estável não vira serra.', 'Fixed scale [min, max]. Without it, the scale covers at least 10% of the value — a flat series doesn’t turn into a saw.', 'Escala fija [mín, máx]. Sin ella, la escala cubre al menos el 10% del valor — una serie estable no se vuelve sierra.')],
   ]],
-  ['meter(options)', L('Uma razão contra um limite. Devolve HTML com role="meter".', 'A ratio against a limit. Returns HTML with role="meter".', 'Una razón contra un límite. Devuelve HTML con role="meter".'), [
+  ['meterHtml(options)', L('Uma razão contra um limite. Devolve HTML com role="meter".', 'A ratio against a limit. Returns HTML with role="meter".', 'Una razón contra un límite. Devuelve HTML con role="meter".'), [
     ['label · value · max · min', L('O que mede e em que faixa.', 'What it measures and in which range.', 'Qué mide y en qué rango.')],
     ['format', L('Formato do valor; sem ele, mostra a porcentagem.', 'Value format; without it, shows the percentage.', 'Formato del valor; sin él, muestra el porcentaje.')],
     ['thresholds', L('Onde vira atenção e crítico. Padrão: { warning: 0.75, danger: 0.9 }.', 'Where it turns warning and critical. Default: { warning: 0.75, danger: 0.9 }.', 'Dónde pasa a atención y crítico. Predeterminado: { warning: 0.75, danger: 0.9 }.')],
@@ -202,7 +202,7 @@ export default function renderIndicadores(page) {
       'in-kpis',
       L('Linha de indicadores', 'Indicator row', 'Fila de indicadores'),
       L('Os números que abrem um painel. Mesma estrutura, mesmo período de comparação, do mais importante para o menos.', 'The numbers that open a dashboard. Same structure, same comparison period, from most to least important.', 'Los números que abren un panel. Misma estructura, mismo período de comparación, del más importante al menos.'),
-      `<div class="gi-kpis">${KPIS().map((k) => statTile(k)).join('')}</div>
+      `<div class="gi-kpis">${KPIS().map((k) => statTileHtml(k)).join('')}</div>
       <ul class="gi-rules" role="list">
         <li>${icon('check', { size: 16 })}${L('De 2 a 5 por linha. Mais que isso vira tabela.', '2 to 5 per row. More than that becomes a table.', 'De 2 a 5 por fila. Más que eso se vuelve tabla.')}</li>
         <li>${icon('check', { size: 16 })}${L('Todos comparados com o mesmo período — ou cada um diz o seu.', 'All compared with the same period — or each one says its own.', 'Todos comparados con el mismo período — o cada uno dice el suyo.')}</li>
@@ -215,7 +215,7 @@ export default function renderIndicadores(page) {
       L('Número de destaque', 'Hero number', 'Número destacado'),
       L('O número que a tela inteira existe para mostrar. Um só por vista, na mesma sans do resto — fonte de display ou serifada parece enfeite.', 'The number the whole screen exists to show. Only one per view, in the same sans as the rest — a display or serif font looks like decoration.', 'El número que toda la pantalla existe para mostrar. Uno solo por vista, en la misma sans del resto — una fuente display o serif parece adorno.'),
       `<div class="gi-hero">
-        <div class="gi-hero__tile">${statTile({ label: L('Receita em 2026', 'Revenue in 2026', 'Ingresos en 2026'), value: yearTotal, format: 'currency-compact', delta: yearTotal / prevTotal - 1, deltaLabel: 'vs. 2025', trend: revenue[2026], hero: true })}</div>
+        <div class="gi-hero__tile">${statTileHtml({ label: L('Receita em 2026', 'Revenue in 2026', 'Ingresos en 2026'), value: yearTotal, format: 'currency-compact', delta: yearTotal / prevTotal - 1, deltaLabel: 'vs. 2025', trend: revenue[2026], hero: true })}</div>
         <div class="gi-figures">
           <p class="gi-figures__title">${L('Algarismos proporcionais no número grande', 'Proportional figures in the big number', 'Cifras proporcionales en el número grande')}</p>
           <div class="gi-figures__compare">
@@ -234,7 +234,7 @@ export default function renderIndicadores(page) {
       `<div class="gi-sparks">
         ${SPARKS().map(
           ([name, text, opts]) => `<article class="gi-spark">
-            <div class="gi-spark__preview">${sparkline(activeUsers[2026], { height: 48, ...opts })}</div>
+            <div class="gi-spark__preview">${sparklineHtml(activeUsers[2026], { height: 48, ...opts })}</div>
             <div class="gi-spark__body"><p class="gi-spark__name">${name}</p><p class="gi-spark__text">${text}</p></div>
           </article>`,
         ).join('')}
@@ -250,7 +250,7 @@ export default function renderIndicadores(page) {
               return `<tr>
                 <th scope="row">${name}</th>
                 <td class="ds-table__num">${escapeHtml(brl(value))}</td>
-                <td>${sparkline(trend, { width: 96, height: 24, area: false, label: L(`Receita de ${name} nos últimos 12 meses`, `${name} revenue over the last 12 months`, `Ingresos de ${name} en los últimos 12 meses`) })}</td>
+                <td>${sparklineHtml(trend, { width: 96, height: 24, area: false, label: L(`Receita de ${name} nos últimos 12 meses`, `${name} revenue over the last 12 months`, `Ingresos de ${name} en los últimos 12 meses`) })}</td>
                 <td class="ds-table__num"><span class="ds-stat__delta gi-delta" data-tone="${tone}"><span class="ds-stat__change">${icon(glyph, { size: 16 })}${fmtTable(delta)}</span></span></td>
               </tr>`;
             }).join('')}
@@ -264,11 +264,11 @@ export default function renderIndicadores(page) {
       L('Medidor', 'Meter', 'Medidor'),
       L('Uma razão contra um limite. O preenchimento carrega a gravidade — marca, atenção, crítico — e a trilha é um tom mais claro da mesma cor. A partir da atenção, ganha ícone.', 'A ratio against a limit. The fill carries the severity — brand, warning, critical — and the track is a lighter tint of the same color. From warning on, it gets an icon.', 'Una razón contra un límite. El relleno lleva la gravedad — marca, atención, crítico — y el riel es un tono más claro del mismo color. A partir de la atención, recibe ícono.'),
       `<div class="gi-meters">
-        <div class="gi-meters__card">${METERS().map((m) => meter(m)).join('')}</div>
+        <div class="gi-meters__card">${METERS().map((m) => meterHtml(m)).join('')}</div>
         <div class="gi-meters__card">
-          ${meter({ label: L('Meta de vendas', 'Sales goal', 'Meta de ventas'), value: 112, max: 100, format: 'integer', tone: 'success', caption: L('Meta batida — tom de sucesso forçado com tone', 'Goal met — success tone forced with tone', 'Meta cumplida — tono de éxito forzado con tone') })}
-          ${meter({ label: 'Onboarding', value: 3, max: 5, format: (v) => L(`${v} etapas`, `${v} steps`, `${v} etapas`), size: 'sm' })}
-          ${meter({ label: L('Espaço do time', 'Team space', 'Espacio del equipo'), value: 0.86, max: 1, thresholds: { warning: 0.6, danger: 0.85 }, size: 'sm', caption: L('Limites próprios: atenção em 60%, crítico em 85%', 'Custom thresholds: warning at 60%, critical at 85%', 'Límites propios: atención en 60%, crítico en 85%') })}
+          ${meterHtml({ label: L('Meta de vendas', 'Sales goal', 'Meta de ventas'), value: 112, max: 100, format: 'integer', tone: 'success', caption: L('Meta batida — tom de sucesso forçado com tone', 'Goal met — success tone forced with tone', 'Meta cumplida — tono de éxito forzado con tone') })}
+          ${meterHtml({ label: 'Onboarding', value: 3, max: 5, format: (v) => L(`${v} etapas`, `${v} steps`, `${v} etapas`), size: 'sm' })}
+          ${meterHtml({ label: L('Espaço do time', 'Team space', 'Espacio del equipo'), value: 0.86, max: 1, thresholds: { warning: 0.6, danger: 0.85 }, size: 'sm', caption: L('Limites próprios: atenção em 60%, crítico em 85%', 'Custom thresholds: warning at 60%, critical at 85%', 'Límites propios: atención en 60%, crítico en 85%') })}
         </div>
       </div>
       <p class="gi-note">${L('Duas fatias de pizza são um medidor. Para várias partes de um todo, use a <a href="#/graficos/rosca">rosca</a> ou barras empilhadas.', 'Two pie slices are a meter. For several parts of a whole, use the <a href="#/graficos/rosca">donut</a> or stacked bars.', 'Dos porciones de torta son un medidor. Para varias partes de un todo, usa la <a href="#/graficos/rosca">dona</a> o barras apiladas.')}</p>`,
@@ -281,7 +281,7 @@ export default function renderIndicadores(page) {
       `<div class="gi-variations">
         ${VARIATIONS().map(
           ([label, value, delta, good, text]) => `<div class="gi-variation">
-            ${statTile({ label, value, delta, good, deltaLabel: good === 'none' ? L('vs. ontem', 'vs. yesterday', 'vs. ayer') : vsLastMonth() })}
+            ${statTileHtml({ label, value, delta, good, deltaLabel: good === 'none' ? L('vs. ontem', 'vs. yesterday', 'vs. ayer') : vsLastMonth() })}
             <p class="gi-variation__text">${text}</p>
           </div>`,
         ).join('')}
@@ -353,17 +353,17 @@ export default function renderIndicadores(page) {
       'in-api',
       'API',
       L('Três funções que devolvem HTML, sem estado — use em qualquer lugar, inclusive dentro de tabelas e cards.', 'Three functions that return HTML, with no state — use them anywhere, including inside tables and cards.', 'Tres funciones que devuelven HTML, sin estado — úsalas en cualquier lugar, incluso dentro de tablas y tarjetas.'),
-      `${codeBlock(`import { statTile, sparkline, meter } from './ds/js/charts.js';
+      `${codeBlock(`import { statTileHtml, sparklineHtml, meterHtml } from './ds/js/charts.js';
 
 kpis.innerHTML = [
-  statTile({ label: '${revenueLabel()}', value: 1284000, format: 'currency-compact',
+  statTileHtml({ label: '${revenueLabel()}', value: 1284000, format: 'currency-compact',
              delta: 0.124, deltaLabel: '${vsLastMonth()}', trend: ${L('receita', 'revenue', 'ingresos')} }),
-  statTile({ label: '${responseTime()}', value: '182 ms',
+  statTileHtml({ label: '${responseTime()}', value: '182 ms',
              delta: 0.08, deltaLabel: '${vsLastWeek()}', good: 'down' }),
 ].join('');
 
-${L('celula', 'cell', 'celda')}.innerHTML = sparkline(${L('receita', 'revenue', 'ingresos')}, { width: 96, height: 24, area: false });
-${L('uso', 'usage', 'uso')}.innerHTML = meter({ label: '${L('Armazenamento', 'Storage', 'Almacenamiento')}', value: 72, max: 100, format: (v) => \`\${v} GB\` });`)}
+${L('celula', 'cell', 'celda')}.innerHTML = sparklineHtml(${L('receita', 'revenue', 'ingresos')}, { width: 96, height: 24, area: false });
+${L('uso', 'usage', 'uso')}.innerHTML = meterHtml({ label: '${L('Armazenamento', 'Storage', 'Almacenamiento')}', value: 72, max: 100, format: (v) => \`\${v} GB\` });`)}
       <div class="gi-api">
         ${API().map(
           ([fn, text, rows]) => `<div class="gi-api__fn">
@@ -384,7 +384,7 @@ export function mount(root) {
     id: 'indicador',
     controls: CONTROLS(),
     text: { id: 'label', label: L('Rótulo', 'Label', 'Etiqueta'), value: revenueLabel() },
-    render: (s) => `<div class="gi-preview${s.size === 'hero' ? ' gi-preview--hero' : ''}">${statTile(tileOptions(s))}</div>`,
+    render: (s) => `<div class="gi-preview${s.size === 'hero' ? ' gi-preview--hero' : ''}">${statTileHtml(tileOptions(s))}</div>`,
     code: tileCode,
   });
   const unCopy = mountCodeCopy(root);

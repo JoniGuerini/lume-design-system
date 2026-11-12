@@ -1,6 +1,6 @@
 import { icon } from '../../ds/icons/icons.js';
 import { contrast } from '../../ds/tokens.js';
-import { enhanceForm } from '../../ds/js/form.js';
+import { createForm } from '../../ds/js/form.js';
 import { mountSelects } from '../../ds/js/select.js';
 import { toast } from '../../ds/js/toast.js';
 import { msg, dateFormat } from '../../ds/js/i18n.js';
@@ -362,9 +362,9 @@ const htmlCode = () => `<form class="ds-form" id="${L('projeto', 'project', 'pro
   </div>
 </form>`;
 
-const jsCode = () => `import { enhanceForm } from './ds/js/form.js';
+const jsCode = () => `import { createForm } from './ds/js/form.js';
 
-const form = enhanceForm(document.querySelector('#${L('projeto', 'project', 'proyecto')}'), {
+const form = createForm(document.querySelector('#${L('projeto', 'project', 'proyecto')}'), {
   rules: {
     // ${L('regra sua: devolva a mensagem, ou null quando estiver tudo certo', 'your own rule: return the message, or null when everything’s fine', 'regla tuya: devuelve el mensaje, o null cuando todo esté bien')}
     ${L('endereco', 'address', 'direccion')}: (${L('valor', 'value', 'valor')}) => (${L('ocupados', 'taken', 'ocupadas')}.has(${L('valor', 'value', 'valor')}) ? '${L('Esse endereço já está em uso.', 'That address is already in use.', 'Esa dirección ya está en uso.')}' : null),
@@ -425,7 +425,7 @@ export default function renderFormularios(page) {
     ${section(
       'pf-exemplo',
       L('Exemplo ao vivo', 'Live example', 'Ejemplo en vivo'),
-      L(`Um formulário de verdade, com ${ic('enhanceForm')}. Envie vazio, digite “ab” no nome, tente o endereço “${takenExample()}” — e veja o erro sumir enquanto corrige.`, `A real form, with ${ic('enhanceForm')}. Submit it empty, type “ab” in the name, try the address “${takenExample()}” — and watch the error disappear as you fix it.`, `Un formulario de verdad, con ${ic('enhanceForm')}. Envíalo vacío, escribe “ab” en el nombre, prueba la dirección “${takenExample()}” — y mira cómo el error desaparece mientras corriges.`),
+      L(`Um formulário de verdade, com ${ic('createForm')}. Envie vazio, digite “ab” no nome, tente o endereço “${takenExample()}” — e veja o erro sumir enquanto corrige.`, `A real form, with ${ic('createForm')}. Submit it empty, type “ab” in the name, try the address “${takenExample()}” — and watch the error disappear as you fix it.`, `Un formulario de verdad, con ${ic('createForm')}. Envíalo vacío, escribe “ab” en el nombre, prueba la dirección “${takenExample()}” — y mira cómo el error desaparece mientras corriges.`),
       `<div class="pf-stage">
         <div class="ds-panel pf-demo">${demoForm()}</div>
       </div>
@@ -540,7 +540,7 @@ export default function renderFormularios(page) {
     ${section(
       'pf-acessibilidade',
       L('Acessibilidade', 'Accessibility', 'Accesibilidad'),
-      L(`O que ${ic('enhanceForm')} e os estilos garantem — e o que fica com você.`, `What ${ic('enhanceForm')} and the styles guarantee — and what’s left to you.`, `Lo que ${ic('enhanceForm')} y los estilos garantizan — y lo que queda contigo.`),
+      L(`O que ${ic('createForm')} e os estilos garantem — e o que fica com você.`, `What ${ic('createForm')} and the styles guarantee — and what’s left to you.`, `Lo que ${ic('createForm')} y los estilos garantizan — y lo que queda contigo.`),
       a11yList([
         [L('Rótulo visível e ligado ao campo', 'A visible label tied to the field', 'Etiqueta visible y vinculada al campo'), L(`Todo campo tem ${ic('&lt;label for&gt;')}. Placeholder não é rótulo: some ao digitar e tem contraste baixo.`, `Every field has a ${ic('&lt;label for&gt;')}. A placeholder isn’t a label: it disappears on typing and has low contrast.`, `Todo campo tiene ${ic('&lt;label for&gt;')}. El placeholder no es etiqueta: desaparece al escribir y tiene contraste bajo.`)],
         [L('Erro ligado ao campo', 'An error tied to the field', 'Error vinculado al campo'), L(`O texto do erro entra no ${ic('aria-describedby')} e o campo ganha ${ic('aria-invalid="true"')}. A dica continua ligada.`, `The error text goes into ${ic('aria-describedby')} and the field gets ${ic('aria-invalid="true"')}. The hint stays connected.`, `El texto del error entra en el ${ic('aria-describedby')} y el campo recibe ${ic('aria-invalid="true"')}. La pista sigue vinculada.`)],
@@ -560,7 +560,7 @@ export default function renderFormularios(page) {
         <div><h3 class="doc-subhead">HTML</h3>${codeBlock(htmlCode())}</div>
         <div><h3 class="doc-subhead">JavaScript</h3>${codeBlock(jsCode())}</div>
       </div>
-      <h3 class="doc-subhead">${L('enhanceForm(form, opções)', 'enhanceForm(form, options)', 'enhanceForm(form, opciones)')} <span class="doc-subhead__meta">ds/js/form.js</span></h3>
+      <h3 class="doc-subhead">${L('createForm(form, opções)', 'createForm(form, options)', 'createForm(form, opciones)')} <span class="doc-subhead__meta">ds/js/form.js</span></h3>
       <div class="doc-table pf-api" style="--doc-table-cols: minmax(130px, 0.6fr) minmax(0, 1fr) minmax(0, 1.4fr)">
         <div class="doc-table__head" aria-hidden="true"><span>${L('Opção ou método', 'Option or method', 'Opción o método')}</span><span>${L('Valor', 'Value', 'Valor')}</span><span>${L('O que faz', 'What it does', 'Qué hace')}</span></div>
         ${API().map(([name, value, text]) => `<div class="doc-table__row"><code class="ds-inline-code">${escapeHtml(name)}</code><code class="pf-api__value">${escapeHtml(value)}</code><span class="pf-api__text">${escapeHtml(text)}</span></div>`).join('')}
@@ -601,7 +601,7 @@ export function mount(root) {
   /* Exemplo ao vivo */
   const demo = root.querySelector('#pf-demo');
   const submit = demo.querySelector('[data-demo-submit]');
-  const demoForm = enhanceForm(demo, {
+  const demoForm = createForm(demo, {
     rules: {
       endereco: (value) => (TAKEN.has(value) ? L(`Esse endereço já está em uso. Que tal ${value}-2?`, `That address is already in use. How about ${value}-2?`, `Esa dirección ya está en uso. ¿Qué tal ${value}-2?`) : null),
     },
@@ -636,7 +636,7 @@ export function mount(root) {
   let valCtrl = null;
   const setMode = (mode, focus) => {
     valCtrl?.destroy();
-    valCtrl = enhanceForm(valForm, {
+    valCtrl = createForm(valForm, {
       validateOn: mode,
       summary: false,
       onSubmit: () => toast(L('E-mail aceito', 'Email accepted', 'Correo aceptado'), { tone: 'success' }),

@@ -1,6 +1,6 @@
 import { icon } from '../../ds/icons/icons.js';
 import { contrast } from '../../ds/tokens.js';
-import { barChart } from '../../ds/js/charts.js';
+import { createBarChart } from '../../ds/js/charts.js';
 import { locale, dateFormat } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, codeBlock, tokenTable, a11yList } from '../component-doc.js';
@@ -43,7 +43,7 @@ const revenueLabel = () => L('Receita', 'Revenue', 'Ingresos');
 const salesByChannel = () => L('Vendas por canal', 'Sales by channel', 'Ventas por canal');
 const thousandUnits = () => L('Mil unidades', 'Thousand units', 'Miles de unidades');
 
-/** Código JS legível de uma chamada de barChart. */
+/** Código JS legível de uma chamada de createBarChart. */
 const list = (arr) => `[${arr.map((v) => (typeof v === 'string' ? `'${v}'` : v)).join(', ')}]`;
 
 function chartCode(fn, target, lines) {
@@ -71,7 +71,7 @@ function playOptions(state) {
 
 function playCode(state) {
   const o = playOptions(state);
-  return chartCode('barChart', `#${L('vendas', 'sales', 'ventas')}`, [
+  return chartCode('createBarChart', `#${L('vendas', 'sales', 'ventas')}`, [
     `title: '${o.title}',`,
     `subtitle: '${o.subtitle}',`,
     `categories: ${list(o.categories)},`,
@@ -420,7 +420,7 @@ export default function renderBarras(page) {
           </div>`,
         ).join('')}
       </div>
-      <div class="gb-api__code">${codeBlock(`const chart = barChart(el, { title: '${L('Vendas', 'Sales', 'Ventas')}', categories, series });\n\nchart.update({ series: ${L('novasSeries', 'nextSeries', 'nuevasSeries')} });   // ${L('redesenha mantendo legenda e tabela', 'redraws keeping legend and table', 'redibuja manteniendo leyenda y tabla')}\nchart.setLoading(true);                   // ${L('meia opacidade enquanto busca', 'half opacity while fetching', 'media opacidad mientras busca')}\nchart.destroy();                          // ${L('remove tudo e os observadores', 'removes everything and the observers', 'quita todo y los observadores')}`)}</div>`,
+      <div class="gb-api__code">${codeBlock(`const chart = createBarChart(el, { title: '${L('Vendas', 'Sales', 'Ventas')}', categories, series });\n\nchart.update({ series: ${L('novasSeries', 'nextSeries', 'nuevasSeries')} });   // ${L('redesenha mantendo legenda e tabela', 'redraws keeping legend and table', 'redibuja manteniendo leyenda y tabla')}\nchart.setLoading(true);                   // ${L('meia opacidade enquanto busca', 'half opacity while fetching', 'media opacidad mientras busca')}\nchart.destroy();                          // ${L('remove tudo e os observadores', 'removes everything and the observers', 'quita todo y los observadores')}`)}</div>`,
     )}
   </div>`;
 }
@@ -483,23 +483,23 @@ export function mount(root) {
     ],
     render: () => '<div class="gb-play" data-chart></div>',
     mount: (preview, state) => {
-      const chart = barChart(preview.querySelector('[data-chart]'), playOptions(state));
+      const chart = createBarChart(preview.querySelector('[data-chart]'), playOptions(state));
       return () => chart.destroy();
     },
     code: playCode,
   });
 
   for (const v of VARIANTS()) {
-    charts.push(barChart(root.querySelector(`[data-variant="${v.id}"]`), { height: 240, ...v.options }));
+    charts.push(createBarChart(root.querySelector(`[data-variant="${v.id}"]`), { height: 240, ...v.options }));
   }
 
   // Estados: os dois primeiros começam aplicados, como um data-state.
   const stateEl = (id) => root.querySelector(`[data-state-chart="${id}"]`);
   const ch = channels();
-  const hover = barChart(stateEl('hover'), { title: salesByChannel(), categories: ch.categories, series: ch.series.slice(0, 2), height: 220 });
-  const hidden = barChart(stateEl('escondida'), { title: salesByChannel(), categories: ch.categories, series: ch.series.slice(0, 3), height: 220 });
-  const loading = barChart(stateEl('carregando'), { title: L('Receita por mês', 'Revenue by month', 'Ingresos por mes'), categories: months().slice(6), series: [{ name: revenueLabel(), values: revenue[2026].slice(6) }], format: 'currency', height: 220 });
-  const empty = barChart(stateEl('vazio'), { title: L('Vendas na semana', 'Sales this week', 'Ventas de la semana'), categories: [], series: [], height: 220, empty: L('Nenhuma venda neste período.', 'No sales in this period.', 'Ninguna venta en este período.') });
+  const hover = createBarChart(stateEl('hover'), { title: salesByChannel(), categories: ch.categories, series: ch.series.slice(0, 2), height: 220 });
+  const hidden = createBarChart(stateEl('escondida'), { title: salesByChannel(), categories: ch.categories, series: ch.series.slice(0, 3), height: 220 });
+  const loading = createBarChart(stateEl('carregando'), { title: L('Receita por mês', 'Revenue by month', 'Ingresos por mes'), categories: months().slice(6), series: [{ name: revenueLabel(), values: revenue[2026].slice(6) }], format: 'currency', height: 220 });
+  const empty = createBarChart(stateEl('vazio'), { title: L('Vendas na semana', 'Sales this week', 'Ventas de la semana'), categories: [], series: [], height: 220, empty: L('Nenhuma venda neste período.', 'No sales in this period.', 'Ninguna venta en este período.') });
   charts.push(hover, hidden, loading, empty);
 
   const timers = [];

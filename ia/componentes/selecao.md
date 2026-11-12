@@ -34,7 +34,7 @@ Visitas
 
 12.480 — visitas
 
-Chip com menu `ds-chip + attachMenu` — No filtro. Muda a tela na hora.
+Chip com menu `ds-chip + createMenu` — No filtro. Muda a tela na hora.
 
 |  | Única | Com busca | Múltipla | Chip de filtro |
 | --- | --- | --- | --- | --- |
@@ -42,7 +42,7 @@ Chip com menu `ds-chip + attachMenu` — No filtro. Muda a tela na hora.
 | Opções | 5 a ~15 | 15 a centenas | De poucas a centenas (com busca) | Até ~7 |
 | Efeito | Vale ao enviar | Vale ao enviar | Vale ao enviar | Imediato |
 | Valor | `<select>` real | `<select>` real | `<select multiple>` real | Estado da tela |
-| Atributos | `data-ds-select` | + `data-search` | + `multiple` | ds-chip + attachMenu |
+| Atributos | `data-ds-select` | + `data-search` | + `multiple` | ds-chip + createMenu |
 
 Marcação dos exemplos desta seção:
 

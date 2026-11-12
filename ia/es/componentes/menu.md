@@ -4,14 +4,14 @@ Sección de Lume: Componentes. Página: https://lumeui.dev/#/componentes/menu
 
 Una lista de opciones que se abre desde un disparador. Sirve para elegir un valor — como en los chips — o para ejecutar acciones.
 
-En números: modos: 2 · tipos de elemento: 6 · teclas: 8 · función: attachMenu.
+En números: modos: 2 · tipos de elemento: 6 · teclas: 8 · función: createMenu.
 
 ## Ejemplo
 
 ```html
-import { attachMenu } from './ds/js/menu.js';
+import { createMenu } from './ds/js/menu.js';
 
-const menu = attachMenu(disparador, {
+const menu = createMenu(disparador, {
   label: 'Ordenar por',
   value: 'recent',
   options: [
@@ -49,7 +49,7 @@ Una lista larga no se desplaza ni se vuelve un menú gigante: con maxRows, cada 
 En columnas `maxRows: 5` — 16 elementos con hasta 5 por columna se vuelven 4 columnas de 4 — no 5, 5, 5 y 1. ↑/↓ bajan por la columna y pasan a la siguiente; ←/→ saltan de columna. Cerca del borde, el menú se desliza para caber en la pantalla.
 
 ```html
-attachMenu(boton, {
+createMenu(boton, {
   label: 'Componentes',
   options: paginas.map((p) => ({ value: p.href, label: p.label, icon: p.icon })),
   maxRows: 5,   // como máximo 5 por columna, equilibrado
@@ -136,7 +136,7 @@ Todo lo que se puede hacer con el ratón se puede hacer sin él.
 
 ## Accesibilidad
 
-attachMenu ya pone los atributos ARIA en el disparador y en el menú.
+createMenu ya pone los atributos ARIA en el disparador y en el menú.
 
 - Disparador anunciado — Recibe `aria-haspopup="menu"`, `aria-expanded` y `aria-controls` — el lector de pantalla sabe que abre algo.
 - Los roles correctos — La selección usa `menuitemradio` con `aria-checked`; la acción usa `menuitem`.

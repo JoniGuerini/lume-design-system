@@ -14,7 +14,7 @@
  *
  * No celular, a gaveta ocupa a largura toda e as de lado continuam entrando pela borda.
  */
-import { modalContent, enhanceModal } from './modal.js';
+import { modalHtml, enhanceModal } from './modal.js';
 
 let uid = 0;
 
@@ -26,7 +26,7 @@ export function createDrawer(options = {}) {
   if (theme) dialog.dataset.theme = theme;
   dialog.setAttribute('aria-labelledby', `${id}-title`);
   const hasBody = options.body !== undefined && options.body !== null;
-  dialog.innerHTML = modalContent({ ...options, id, tone: undefined, icon: undefined });
+  dialog.innerHTML = modalHtml({ ...options, id, tone: undefined, icon: undefined });
   if (hasBody && typeof options.body !== 'string') dialog.querySelector('.ds-modal__body').append(options.body);
   document.body.append(dialog);
   const api = enhanceModal(dialog, { dismissible: options.dismissible ?? true, onClose: options.onClose });

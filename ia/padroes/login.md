@@ -140,7 +140,7 @@ Entrar não pode depender de memória, visão perfeita ou pressa. A WCAG 2.2 tem
 
 ## Código
 
-O login é um formulário comum com `enhanceForm`: os campos, o botão de mostrar senha e a resposta do servidor num alerta.
+O login é um formulário comum com `createForm`: os campos, o botão de mostrar senha e a resposta do servidor num alerta.
 
 ```html
 <form class="ds-form" id="entrar" novalidate>
@@ -167,7 +167,7 @@ O login é um formulário comum com `enhanceForm`: os campos, o botão de mostra
 ```
 
 ```html
-import { enhanceForm } from './ds/js/form.js';
+import { createForm } from './ds/js/form.js';
 
 // mostrar senha: troca o tipo do campo e marca o botão
 document.addEventListener('click', (event) => {
@@ -179,7 +179,7 @@ document.addEventListener('click', (event) => {
   button.setAttribute('aria-pressed', String(show));
 });
 
-enhanceForm(document.querySelector('#entrar'), {
+createForm(document.querySelector('#entrar'), {
   summary: false, // dois campos: o erro aparece em cada um
   async onSubmit(dados) {
     const ok = await entrar(dados.email, dados.senha);

@@ -4,7 +4,7 @@ Sección de Lume: Recursos. Página: https://lumeui.dev/#/recursos/contribuir
 
 Lume crece con lo que los equipos necesitan. Este es el camino de una idea hasta convertirse en versión — con las reglas de la casa, el checklist de la revisión y cómo publicar.
 
-En números: etapas: 5 · ítems en la revisión: 17 · dependencias: 0 · versión actual: 0.23.1.
+En números: etapas: 5 · ítems en la revisión: 17 · dependencias: 0 · versión actual: 0.24.0.
 
 ## El camino de un cambio
 
@@ -14,7 +14,7 @@ Cinco etapas, siempre en este orden. Una corrección pequeña puede saltarse la 
 - 02 — Propuesta — La plantilla completa: el problema, quién lo usa, lo que ya existe y el impacto en tokens y accesibilidad. — Quién — Quien tuvo la idea + alguien de Lume — Sale de aquí — Aceptada, ajustada o rechazada con motivo
 - 03 — Borrador — Tokens, CSS, JS y la página con playground. Estados forzados con data-state, en los dos temas. — Quién — Quien lo va a construir — Sale de aquí — Pull request en borrador
 - 04 — Revisión — Una persona mira el diseño, otra el código. Los dos pasan por el mismo checklist. — Quién — Dos personas, diseño y código — Sale de aquí — Aprobado o pedidos de ajuste
-- 05 — Publicado — Entra en Novedades con una versión nueva. El puntito de la sidebar avisa a todo el mundo. — Quién — Quien mantiene Lume — Sale de aquí — Versión nueva — hoy, 0.23.1
+- 05 — Publicado — Entra en Novedades con una versión nueva. El puntito de la sidebar avisa a todo el mundo. — Quién — Quien mantiene Lume — Sale de aquí — Versión nueva — hoy, 0.24.0
 
 ## Proponer
 
@@ -238,7 +238,7 @@ Toda versión sale de un solo archivo: `site/changelog.js`. Alimenta Novedades, 
 
 1.0.0 — Mayor — Cambia algo que usas: un nombre de clase, un token eliminado. Viene con guía de migración. — 0.3.0 — Menor — Cosas nuevas sin romper nada: una sección, un componente, tokens nuevos. — 0.3.1 — Parche — Ajustes y bugs. Nadie necesita cambiar nada.
 
-Mientras estemos en 0.x, una versión menor todavía puede traer un cambio que rompe — siempre avisado en Novedades. Cada entrega grande se convierte en una versión menor: 0.1 Primera versión, 0.2 Gráficos, 0.3 Patrones, 0.4 Recursos, 0.4.1 Contraste al día, 0.5 Plugin de Figma, 0.6 Plugin completo, 0.6.1 Plugin en el plan gratuito, 0.7 Idiomas, 0.8 Lume, 0.9 Refúgio, 0.10 Tema Lume, 0.11 Inicio de sesión y registro, 0.11.1 Aviso de versión nueva, 0.12 Calendario, 0.13 Roadmap, 0.13.1 Fuentes actualizadas, 0.14 Formularios completos, 0.14.1 Barra superior en el móvil, 0.14.2 Novedades solo para quien vuelve, 0.14.3 Última versión en el Inicio, 0.14.4 Claro y oscuro, 0.14.5 Botón de tema, 0.14.6 Tarjeta con altura fija, 0.15 Navegación y estructura, 0.16 Capas, 0.17 Feedback y carga, 0.18 Contenido, 0.19 Refinamiento, 0.19.1 Ícono de megáfono, 0.19.2 Revisión de íconos, 0.20 Barra de desplazamiento, 0.21 Volver arriba, 0.21.1 Navbar en ventanas más pequeñas, 0.22 Plugin de Figma, 0.22.1 Números del plugin en el sitio, 0.22.2 Conteo de visitas, 0.23 Lume para IA, 0.23.1 IA en tres idiomas.
+Mientras estemos en 0.x, una versión menor todavía puede traer un cambio que rompe — siempre avisado en Novedades. Cada entrega grande se convierte en una versión menor: 0.1 Primera versión, 0.2 Gráficos, 0.3 Patrones, 0.4 Recursos, 0.4.1 Contraste al día, 0.5 Plugin de Figma, 0.6 Plugin completo, 0.6.1 Plugin en el plan gratuito, 0.7 Idiomas, 0.8 Lume, 0.9 Refúgio, 0.10 Tema Lume, 0.11 Inicio de sesión y registro, 0.11.1 Aviso de versión nueva, 0.12 Calendario, 0.13 Roadmap, 0.13.1 Fuentes actualizadas, 0.14 Formularios completos, 0.14.1 Barra superior en el móvil, 0.14.2 Novedades solo para quien vuelve, 0.14.3 Última versión en el Inicio, 0.14.4 Claro y oscuro, 0.14.5 Botón de tema, 0.14.6 Tarjeta con altura fija, 0.15 Navegación y estructura, 0.16 Capas, 0.17 Feedback y carga, 0.18 Contenido, 0.19 Refinamiento, 0.19.1 Ícono de megáfono, 0.19.2 Revisión de íconos, 0.20 Barra de desplazamiento, 0.21 Volver arriba, 0.21.1 Navbar en ventanas más pequeñas, 0.22 Plugin de Figma, 0.22.1 Números del plugin en el sitio, 0.22.2 Conteo de visitas, 0.23 Lume para IA, 0.23.1 IA en tres idiomas, 0.24 Pruebas y API.
 
 ### Una entrada en Novedades
 
@@ -284,7 +284,7 @@ const RELEASES = [
 ### Después de publicar sin paso manual
 
 - El puntito de Novedades vuelve a la sidebar para quien todavía no vio la versión.
-- La tarjeta de la cuenta muestra la versión nueva — hoy, Lume 0.23.1.
+- La tarjeta de la cuenta muestra la versión nueva — hoy, Lume 0.24.
 - La tarjeta de roadmap del Inicio lee los mismos archivos que Novedades y Roadmap; no hay otro lugar que actualizar.
 
 Sin calendario fijo: una versión menor sale cuando una entrega está lista; las correcciones salen en cuanto están revisadas.

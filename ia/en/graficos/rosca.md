@@ -9,7 +9,7 @@ In numbers: max slices: 6 · default thickness: 24 px · gap between slices: 2 p
 ## Example
 
 ```html
-import { donutChart } from './ds/js/charts.js';
+import { createDonutChart } from './ds/js/charts.js';
 
 donutChart(document.querySelector('#payments'), {
   title: 'Payments by method',
@@ -154,7 +154,7 @@ One call mounts the donut, the list, and the table; `update()` swaps the items.
 |  `categoryLabel · valueLabel`  | string | 'Category' · 'Value' | Column headers of the table view. |
 
 ```html
-const chart = donutChart(el, { title: 'Payments', items, format: 'integer' });
+const chart = createDonutChart(el, { title: 'Payments', items, format: 'integer' });
 
 chart.update({ items: nextItems });   // redraws keeping the frame
 chart.setLoading(true);                 // half opacity while fetching

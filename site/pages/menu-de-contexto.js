@@ -1,5 +1,5 @@
 import { icon } from '../../ds/icons/icons.js';
-import { attachContextMenu } from '../../ds/js/context-menu.js';
+import { createContextMenu } from '../../ds/js/context-menu.js';
 import { toast } from '../../ds/js/toast.js';
 import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, codeBlock, tokenTable, a11yList } from '../component-doc.js';
@@ -40,9 +40,9 @@ export default function renderMenuDeContexto(page) {
         id: 'codigo',
         title: L('Código', 'Code', 'Código'),
         desc: L(`Com ${ic('selector')}, um único menu atende a todas as linhas; ${ic('options')} pode mudar conforme o item.`, `With ${ic('selector')}, one menu serves every row; ${ic('options')} can change by item.`, `Con ${ic('selector')}, un solo menú atiende a todas las filas; ${ic('options')} puede cambiar según el elemento.`),
-        html: codeBlock(`import { attachContextMenu } from './ds/js/context-menu.js';
+        html: codeBlock(`import { createContextMenu } from './ds/js/context-menu.js';
 
-attachContextMenu(document.querySelector('#arquivos'), {
+createContextMenu(document.querySelector('#arquivos'), {
   selector: '[data-arquivo]',
   label: '${L('Ações do arquivo', 'File actions', 'Acciones del archivo')}',
   options: [
@@ -97,7 +97,7 @@ export function mount(root) {
     controls: [{ id: 'danger', label: L('Ação de perigo', 'Danger action', 'Acción de peligro'), value: 'on', options: [{ value: 'on', label: L('Com', 'With', 'Con') }, { value: 'off', label: L('Sem', 'Without', 'Sin') }] }],
     render: () => `<div class="fc-tree">${list()}</div>`,
     mount: (preview, s) => {
-      const menu = attachContextMenu(preview.querySelector('.fc-files'), {
+      const menu = createContextMenu(preview.querySelector('.fc-files'), {
         selector: '[data-file]',
         label: L('Ações do arquivo', 'File actions', 'Acciones del archivo'),
         options: () => OPTIONS(s.danger === 'on'),
@@ -110,8 +110,8 @@ export function mount(root) {
 </ul>
 
 <script type="module">
-  import { attachContextMenu } from './ds/js/context-menu.js';
-  attachContextMenu(document.querySelector('#arquivos'), {
+  import { createContextMenu } from './ds/js/context-menu.js';
+  createContextMenu(document.querySelector('#arquivos'), {
     selector: '[data-arquivo]',
     options: [
       { value: 'open', label: '${L('Abrir', 'Open', 'Abrir')}', icon: 'external-link' },${s.danger === 'on' ? `\n      { type: 'separator' },\n      { value: 'delete', label: '${L('Excluir', 'Delete', 'Eliminar')}', icon: 'trash', tone: 'danger' },` : ''}

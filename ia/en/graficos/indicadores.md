@@ -9,9 +9,9 @@ In numbers: pieces: 3 · hero per screen: 1 · change directions: 3 · meter ton
 ## Example
 
 ```html
-import { statTile } from './ds/js/charts.js';
+import { statTileHtml } from './ds/js/charts.js';
 
-el.innerHTML = statTile({
+el.innerHTML = statTileHtml({
   label: 'Revenue',
   value: 1284000,
   format: 'currency-compact',
@@ -333,20 +333,20 @@ When a number is enough — and how not to ruin it.
 Three functions that return HTML, with no state — use them anywhere, including inside tables and cards.
 
 ```html
-import { statTile, sparkline, meter } from './ds/js/charts.js';
+import { statTileHtml, sparklineHtml, meterHtml } from './ds/js/charts.js';
 
 kpis.innerHTML = [
-  statTile({ label: 'Revenue', value: 1284000, format: 'currency-compact',
+  statTileHtml({ label: 'Revenue', value: 1284000, format: 'currency-compact',
              delta: 0.124, deltaLabel: 'vs. last month', trend: revenue }),
-  statTile({ label: 'Response time', value: '182 ms',
+  statTileHtml({ label: 'Response time', value: '182 ms',
              delta: 0.08, deltaLabel: 'vs. last week', good: 'down' }),
 ].join('');
 
-cell.innerHTML = sparkline(revenue, { width: 96, height: 24, area: false });
-usage.innerHTML = meter({ label: 'Storage', value: 72, max: 100, format: (v) => `${v} GB` });
+cell.innerHTML = sparklineHtml(revenue, { width: 96, height: 24, area: false });
+usage.innerHTML = meterHtml({ label: 'Storage', value: 72, max: 100, format: (v) => `${v} GB` });
 ```
 
-`statTile(options)`
+`statTileHtml(options)`
 
 A complete indicator. Returns HTML.
 
@@ -360,7 +360,7 @@ A complete indicator. Returns HTML.
 |  `trend · trendLabel`  | The sparkline series and its accessible name. |
 |  `hero · href`  | Hero version; with href, the indicator becomes a link. |
 
-`sparkline(values, options)`
+`sparklineHtml(values, options)`
 
 A trend line without axes. Returns HTML that stretches to the container width.
 
@@ -372,7 +372,7 @@ A trend line without axes. Returns HTML that stretches to the container width.
 |  `color · label`  | Line color (default: chart.other) and the accessible name. |
 |  `domain`  | Fixed scale [min, max]. Without it, the scale covers at least 10% of the value — a flat series doesn’t turn into a saw. |
 
-`meter(options)`
+`meterHtml(options)`
 
 A ratio against a limit. Returns HTML with role="meter".
 

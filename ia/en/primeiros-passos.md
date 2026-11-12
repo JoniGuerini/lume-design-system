@@ -104,7 +104,7 @@ Each interactive component has its own module, with no dependencies between them
 |  `ds/icons/icons.js`  | Icons as <ds-icon> and the icon() function |  `import './ds/icons/icons.js'`  |  |
 |  `ds/js/theme.js`  | Dark, light, or system theme |  `initTheme(); setTheme("light")`  |  |
 |  `ds/js/tooltip.js`  | Hints via data-ds-tooltip |  `initTooltips()`  |  |
-|  `ds/js/menu.js`  | Menus that open from a trigger |  `attachMenu(botao, { options, onChange })`  |  |
+|  `ds/js/menu.js`  | Menus that open from a trigger |  `createMenu(botao, { options, onChange })`  |  |
 |  `ds/js/select.js`  | Select with its own list |  `mountSelects(document)`  |  |
 |  `ds/js/tabs.js`  | Tabs with keyboard support |  `mountTabs(document)`  |  |
 |  `ds/js/modal.js`  | Modal and confirmation |  `await confirmModal({ title })`  |  |

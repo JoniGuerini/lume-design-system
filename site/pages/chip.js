@@ -1,5 +1,5 @@
 import { icon } from '../../ds/icons/icons.js';
-import { attachMenu } from '../../ds/js/menu.js';
+import { createMenu } from '../../ds/js/menu.js';
 import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, tokenTable, a11yList, escapeHtml } from '../component-doc.js';
 import { L } from '../i18n.js';
@@ -83,7 +83,7 @@ function chipCode(state) {
   }
   const dis = state.state === 'disabled' ? ' disabled' : '';
   if (state.type === 'select') {
-    return `<button type="button" class="${cls}" aria-haspopup="menu" aria-expanded="${state.state === 'selected'}"${dis}>${glyph}\n  ${label}\n  <span class="ds-chip__chevron"><ds-icon name="chevron-down" size="14"></ds-icon></span>\n</button>\n<!-- ${L('o menu', 'the menu', 'el menú')}: attachMenu(chip, { options, value, onChange }) -->`;
+    return `<button type="button" class="${cls}" aria-haspopup="menu" aria-expanded="${state.state === 'selected'}"${dis}>${glyph}\n  ${label}\n  <span class="ds-chip__chevron"><ds-icon name="chevron-down" size="14"></ds-icon></span>\n</button>\n<!-- ${L('o menu', 'the menu', 'el menú')}: createMenu(chip, { options, value, onChange }) -->`;
   }
   return `<button type="button" class="${cls}" aria-pressed="${state.state === 'selected'}"${dis}>\n  <span class="ds-chip__check"><ds-icon name="check" size="14"></ds-icon></span>${glyph}\n  ${label}\n</button>`;
 }
@@ -248,7 +248,7 @@ export default function renderChip(page) {
       </header>
       ${a11yList([
         [L('Filtro é um botão de alternância', 'A filter is a toggle button', 'El filtro es un botón de alternancia'), L(`${ic('&lt;button aria-pressed&gt;')}: o leitor anuncia “Web, botão de alternância, pressionado”.`, `${ic('&lt;button aria-pressed&gt;')}: the reader announces “Web, toggle button, pressed”.`, `${ic('&lt;button aria-pressed&gt;')}: el lector anuncia “Web, botón de alternancia, presionado”.`), ['Enter', L('Espaço', 'Space', 'Espacio')]],
-        [L('Seletor abre um menu', 'A picker opens a menu', 'El selector abre un menú'), L(`${ic('aria-haspopup="menu"')} e ${ic('aria-expanded')} — o ${ic('attachMenu')} cuida dos dois e das setas.`, `${ic('aria-haspopup="menu"')} and ${ic('aria-expanded')} — ${ic('attachMenu')} handles both, plus the arrow keys.`, `${ic('aria-haspopup="menu"')} y ${ic('aria-expanded')} — ${ic('attachMenu')} se encarga de los dos y de las flechas.`), ['↓', 'Esc']],
+        [L('Seletor abre um menu', 'A picker opens a menu', 'El selector abre un menú'), L(`${ic('aria-haspopup="menu"')} e ${ic('aria-expanded')} — o ${ic('createMenu')} cuida dos dois e das setas.`, `${ic('aria-haspopup="menu"')} and ${ic('aria-expanded')} — ${ic('createMenu')} handles both, plus the arrow keys.`, `${ic('aria-haspopup="menu"')} y ${ic('aria-expanded')} — ${ic('createMenu')} se encarga de los dos y de las flechas.`), ['↓', 'Esc']],
         [L('Remover tem nome', 'Remove has a name', 'Quitar tiene nombre'), L('O botão de remover diz o que remove (“Remover Tokens”). Depois, o foco vai para a etiqueta vizinha.', 'The remove button says what it removes (“Remove Tokens”). Afterwards, focus moves to the neighboring tag.', 'El botón de quitar dice qué quita (“Quitar Tokens”). Después, el foco pasa a la etiqueta vecina.')],
         [L('Grupo com nome', 'A named group', 'Grupo con nombre'), L(`Envolva os chips em ${ic('role="group"')} com ${ic('aria-label')} (“Filtrar por status”).`, `Wrap the chips in ${ic('role="group"')} with an ${ic('aria-label')} (“Filter by status”).`, `Envuelve los chips en ${ic('role="group"')} con ${ic('aria-label')} (“Filtrar por estado”).`)],
         [L('Não só cor', 'Not just color', 'No solo color'), L('O filtro ligado mostra um check, além do fundo. O resultado do filtro é anunciado numa região viva.', 'An active filter shows a check, not just a background. The filter result is announced in a live region.', 'El filtro activo muestra un check, además del fondo. El resultado del filtro se anuncia en una región viva.')],
@@ -327,7 +327,7 @@ export function mount(root) {
   // seletor (Tipos)
   const sortChip = root.querySelector('[data-sort-chip]');
   const sortCaption = root.querySelector('[data-sort-caption]');
-  const sortMenu = attachMenu(sortChip, {
+  const sortMenu = createMenu(sortChip, {
     label: L('Ordenar por', 'Sort by', 'Ordenar por'),
     value: 'recent',
     options: sorts,

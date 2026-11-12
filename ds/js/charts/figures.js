@@ -3,10 +3,10 @@
  *
  * Geram HTML (string), sem estado — use em qualquer lugar:
  *
- *   sparkline([12, 14, 13, 18, 21], { width: 112, height: 32, label: 'Receita nos últimos 12 meses' })
- *   statTile({ label: 'Receita', value: 128400, format: 'currency-compact',
+ *   sparklineHtml([12, 14, 13, 18, 21], { width: 112, height: 32, label: 'Receita nos últimos 12 meses' })
+ *   statTileHtml({ label: 'Receita', value: 128400, format: 'currency-compact',
  *              delta: 0.124, deltaLabel: 'vs. mês anterior', good: 'up', trend: [...] })
- *   meter({ label: 'Armazenamento', value: 72, max: 100, format: v => `${v} GB`, thresholds: { warning: 0.75, danger: 0.9 } })
+ *   meterHtml({ label: 'Armazenamento', value: 72, max: 100, format: v => `${v} GB`, thresholds: { warning: 0.75, danger: 0.9 } })
  *
  * O valor grande usa algarismos proporcionais; tabular só em colunas que precisam alinhar.
  */
@@ -18,7 +18,7 @@ import { msg } from '../i18n.js';
  * Linha de tendência sem eixos: tom de contexto, o ponto atual na cor de destaque.
  * Estica na largura do contêiner (width é o padrão quando nada manda nele).
  */
-export function sparkline(values, { width = 112, height = 32, label, area = true, curve = 'smooth', color, highlight = 'last', domain, className = '' } = {}) {
+export function sparklineHtml(values, { width = 112, height = 32, label, area = true, curve = 'smooth', color, highlight = 'last', domain, className = '' } = {}) {
   const vals = values.map((v) => (v == null ? null : +v));
   const present = vals.filter((v) => v != null);
   if (present.length < 2) return '';
@@ -50,7 +50,7 @@ export function sparkline(values, { width = 112, height = 32, label, area = true
  * Indicador: rótulo · valor · variação (opcional) · tendência (opcional).
  * good: 'up' (subir é bom) | 'down' (cair é bom) | 'none' (neutro).
  */
-export function statTile({ label, value, format = 'number', delta, deltaFormat = 'percent', deltaLabel, good = 'up', trend, trendLabel, hero = false, href, className = '' } = {}) {
+export function statTileHtml({ label, value, format = 'number', delta, deltaFormat = 'percent', deltaLabel, good = 'up', trend, trendLabel, hero = false, href, className = '' } = {}) {
   const shown = typeof value === 'number' ? formatter(format)(value) : value;
   let deltaHtml = '';
   if (delta != null) {
@@ -65,7 +65,7 @@ export function statTile({ label, value, format = 'number', delta, deltaFormat =
       ${deltaLabel ? `<span class="ds-stat__period">${escapeHtml(deltaLabel)}</span>` : ''}
     </p>`;
   }
-  const spark = trend?.length ? `<div class="ds-stat__trend">${sparkline(trend, { width: hero ? 160 : 112, height: hero ? 44 : 32, label: trendLabel ?? msg('chart.trendOf', label) })}</div>` : '';
+  const spark = trend?.length ? `<div class="ds-stat__trend">${sparklineHtml(trend, { width: hero ? 160 : 112, height: hero ? 44 : 32, label: trendLabel ?? msg('chart.trendOf', label) })}</div>` : '';
   const tagName = href ? 'a' : 'article';
   return `<${tagName} class="ds-stat${hero ? ' ds-stat--hero' : ''}${className ? ` ${className}` : ''}"${href ? ` href="${escapeHtml(href)}"` : ''}>
     <p class="ds-stat__label">${escapeHtml(label)}</p>
@@ -79,7 +79,7 @@ export function statTile({ label, value, format = 'number', delta, deltaFormat =
  * Medidor: uma razão contra um limite. O preenchimento carrega a gravidade (marca → alerta → perigo)
  * e a trilha é um tom mais claro da mesma rampa.
  */
-export function meter({ label, value, max = 1, min = 0, format, thresholds = { warning: 0.75, danger: 0.9 }, tone, caption, size = 'md', className = '' } = {}) {
+export function meterHtml({ label, value, max = 1, min = 0, format, thresholds = { warning: 0.75, danger: 0.9 }, tone, caption, size = 'md', className = '' } = {}) {
   const ratio = clamp((value - min) / (max - min || 1), 0, 1);
   const t = tone ?? (thresholds?.danger != null && ratio >= thresholds.danger ? 'danger' : thresholds?.warning != null && ratio >= thresholds.warning ? 'warning' : 'brand');
   const fmt = format ? formatter(format) : (v) => formatter('percent')((v - min) / (max - min || 1));

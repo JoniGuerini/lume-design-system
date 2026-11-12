@@ -115,7 +115,7 @@ Marcado de los ejemplos de esta sección:
 Cada tipo tiene su semántica. El aspecto es el mismo; lo que oye el lector de pantalla, no.
 
 - El filtro es un botón de alternancia — Enter Espacio — `<button aria-pressed>`: el lector anuncia “Web, botón de alternancia, presionado”.
-- El selector abre un menú — ↓ Esc — `aria-haspopup="menu"` y `aria-expanded` — `attachMenu` se encarga de los dos y de las flechas.
+- El selector abre un menú — ↓ Esc — `aria-haspopup="menu"` y `aria-expanded` — `createMenu` se encarga de los dos y de las flechas.
 - Quitar tiene nombre — El botón de quitar dice qué quita (“Quitar Tokens”). Después, el foco pasa a la etiqueta vecina.
 - Grupo con nombre — Envuelve los chips en `role="group"` con `aria-label` (“Filtrar por estado”).
 - No solo color — El filtro activo muestra un check, además del fondo. El resultado del filtro se anuncia en una región viva.

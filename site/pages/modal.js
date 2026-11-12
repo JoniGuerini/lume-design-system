@@ -1,5 +1,5 @@
 import { icon } from '../../ds/icons/icons.js';
-import { openModal, confirmModal, modalContent, modalClasses } from '../../ds/js/modal.js';
+import { openModal, confirmModal, modalHtml, modalClasses } from '../../ds/js/modal.js';
 import { toast } from '../../ds/js/toast.js';
 import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, codeBlock, tokenTable, a11yList } from '../component-doc.js';
@@ -67,7 +67,7 @@ function optionsFrom(state) {
 }
 
 function inlineModal(opts) {
-  return `<div class="${modalClasses(opts)} ds-modal--inline" role="presentation" inert>${modalContent({ ...opts, id: `md-prev-${Math.random().toString(36).slice(2, 7)}` })}</div>`;
+  return `<div class="${modalClasses(opts)} ds-modal--inline" role="presentation" inert>${modalHtml({ ...opts, id: `md-prev-${Math.random().toString(36).slice(2, 7)}` })}</div>`;
 }
 
 function modalCode(state) {

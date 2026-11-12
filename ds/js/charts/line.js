@@ -1,7 +1,7 @@
 /**
  * Lume — gráfico de linhas e de áreas.
  *
- * lineChart(host, {
+ * createLineChart(host, {
  *   categories: ['01/10', '02/10', …],
  *   series: [{ name, values, color?, muted? }],   muted: série de contexto (ex.: período anterior), em cinza
  *   area: false, stacked: false,                   área = lavagem de 10% sob a linha; empilhada = faixas somadas
@@ -22,7 +22,7 @@ import {
 } from './core.js';
 import { msg } from '../i18n.js';
 
-export function lineChart(host, input) {
+export function createLineChart(host, input) {
   let source = input;
   let o = normalize(source);
   const hidden = new Set();

@@ -1,5 +1,5 @@
 import { icon } from '../../ds/icons/icons.js';
-import { attachMenu, menuContent } from '../../ds/js/menu.js';
+import { createMenu, menuContent } from '../../ds/js/menu.js';
 import { toast } from '../../ds/js/toast.js';
 import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, tokenTable, a11yList, codeBlock } from '../component-doc.js';
@@ -80,9 +80,9 @@ function menuCode(state) {
     return `    { ${parts.join(', ')} },`;
   };
   return [
-    "import { attachMenu } from './ds/js/menu.js';",
+    "import { createMenu } from './ds/js/menu.js';",
     '',
-    `const menu = attachMenu(${L('gatilho', 'trigger', 'disparador')}, {`,
+    `const menu = createMenu(${L('gatilho', 'trigger', 'disparador')}, {`,
     action ? "  mode: 'action'," : null,
     state.label === 'yes' ? `  label: '${action ? actionsLabel() : sortBy()}',` : null,
     action ? null : "  value: 'recent',",
@@ -114,7 +114,7 @@ export default function renderMenu(page) {
         <div class="doc-stat"><dt class="doc-stat__label">${L('modos', 'modes', 'modos')}</dt><dd class="doc-stat__value">2</dd></div>
         <div class="doc-stat"><dt class="doc-stat__label">${L('tipos de item', 'item types', 'tipos de elemento')}</dt><dd class="doc-stat__value">6</dd></div>
         <div class="doc-stat"><dt class="doc-stat__label">${L('teclas', 'keys', 'teclas')}</dt><dd class="doc-stat__value">8</dd></div>
-        <div class="doc-stat"><dt class="doc-stat__label">${L('função', 'function', 'función')}</dt><dd class="doc-stat__value">attachMenu</dd></div>
+        <div class="doc-stat"><dt class="doc-stat__label">${L('função', 'function', 'función')}</dt><dd class="doc-stat__value">createMenu</dd></div>
       </dl>
     </header>
 
@@ -189,7 +189,7 @@ export default function renderMenu(page) {
           <p class="cd-example__text">${L('16 itens com até 5 por coluna viram 4 colunas de 4 — não 5, 5, 5 e 1. ↑/↓ descem a coluna e passam para a próxima; ←/→ pulam de coluna. Perto da borda, o menu desliza para caber na tela.', '16 items with up to 5 per column become 4 columns of 4 — not 5, 5, 5, and 1. ↑/↓ go down the column and on to the next; ←/→ jump between columns. Near the edge, the menu slides to fit on screen.', '16 elementos con hasta 5 por columna se vuelven 4 columnas de 4 — no 5, 5, 5 y 1. ↑/↓ bajan por la columna y pasan a la siguiente; ←/→ saltan de columna. Cerca del borde, el menú se desliza para caber en la pantalla.')}</p>
         </div>
       </article>
-      ${codeBlock(`attachMenu(${L('botao', 'button', 'boton')}, {
+      ${codeBlock(`createMenu(${L('botao', 'button', 'boton')}, {
   label: '${navigation.find((g) => g.id === 'componentes').label}',
   options: ${L('paginas', 'pages', 'paginas')}.map((p) => ({ value: p.href, label: p.label, icon: p.icon })),
   maxRows: 5,   // ${L('no máximo 5 por coluna, equilibrado', 'at most 5 per column, balanced', 'como máximo 5 por columna, equilibrado')}
@@ -282,7 +282,7 @@ export default function renderMenu(page) {
       <header class="doc-section__header">
         <div>
           <h2 class="doc-section__title" id="a11y-title">${L('Acessibilidade', 'Accessibility', 'Accesibilidad')}</h2>
-          <p class="doc-section__desc">${L('attachMenu já liga os atributos ARIA no gatilho e no menu.', 'attachMenu already sets the ARIA attributes on the trigger and the menu.', 'attachMenu ya pone los atributos ARIA en el disparador y en el menú.')}</p>
+          <p class="doc-section__desc">${L('createMenu já liga os atributos ARIA no gatilho e no menu.', 'createMenu already sets the ARIA attributes on the trigger and the menu.', 'createMenu ya pone los atributos ARIA en el disparador y en el menú.')}</p>
         </div>
       </header>
       ${a11yList([
@@ -359,7 +359,7 @@ export function mount(root) {
     if (!trig || !state) return;
     const action = state.mode === 'action';
     const options = optionsFor(state);
-    previewMenu = attachMenu(trig, {
+    previewMenu = createMenu(trig, {
       mode: action ? 'action' : 'radio',
       label: state.label === 'yes' ? (action ? actionsLabel() : sortBy()) : undefined,
       value: sortValue,
@@ -404,19 +404,19 @@ export function mount(root) {
   const demoColumns = root.querySelector('[data-mn-demo="columns"]');
   const componentsGroup = navigation.find((g) => g.id === 'componentes');
   const modeMenus = [
-    attachMenu(demoColumns, {
+    createMenu(demoColumns, {
       label: componentsGroup.label,
       options: componentsGroup.items.map((i) => ({ value: i.path, label: i.label, icon: i.icon })),
       maxRows: 5,
       onChange: (path) => (location.hash = path),
     }),
-    attachMenu(demoRadio, {
+    createMenu(demoRadio, {
       label: sortBy(),
       value: 'recent',
       options: sort,
       onChange: (value) => (demoRadio.querySelector('[data-mn-label]').textContent = labelOf(sort, value)),
     }),
-    attachMenu(demoAction, {
+    createMenu(demoAction, {
       mode: 'action',
       options: actions,
       onChange: (value) => toast(done(labelOf(actions, value)), { tone: value === 'delete' ? 'danger' : 'neutral', icon: actions.find((o) => o.value === value)?.icon }),

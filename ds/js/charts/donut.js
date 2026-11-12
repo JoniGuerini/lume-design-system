@@ -1,7 +1,7 @@
 /**
  * Lume — gráfico de rosca (parte do todo).
  *
- * donutChart(host, {
+ * createDonutChart(host, {
  *   items: [{ name: 'Pix', value: 420, color? }],
  *   format: 'number',
  *   center: 'total' | { value, label } | false,   o miolo mostra o total e, no hover, a fatia
@@ -18,7 +18,7 @@ import { msg } from '../i18n.js';
 
 const GAP = 2;
 
-export function donutChart(host, input) {
+export function createDonutChart(host, input) {
   let source = input;
   let o = normalize(source);
   const frame = createFrame(host, o, { kind: 'donut' });

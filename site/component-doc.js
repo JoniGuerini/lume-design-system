@@ -9,7 +9,7 @@
  */
 import { icon } from '../ds/icons/icons.js';
 import { tokens } from '../ds/tokens.js';
-import { attachMenu } from '../ds/js/menu.js';
+import { createMenu } from '../ds/js/menu.js';
 import { resolvedTheme } from '../ds/js/theme.js';
 import { THEME_IDS, themeLabel, themeSwitch, markThemeSwitch } from './themes.js';
 import { copyText } from '../ds/js/toast.js';
@@ -112,7 +112,7 @@ export function mountPlayground(root, { id, controls, text, render, code, mount 
 
   const menus = controls.map((c) => {
     const chip = controlsEl.querySelector(`[data-control="${c.id}"]`);
-    return attachMenu(chip, {
+    return createMenu(chip, {
       label: c.label,
       value: c.value,
       options: c.options,

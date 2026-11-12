@@ -105,7 +105,7 @@ Markup of the examples in this section:
 
 ## In forms
 
-It works with `enhanceForm`: `required` and format errors show up as in the other fields. The ISO value goes in a hidden input, with the field’s `name`.
+It works with `createForm`: `required` and format errors show up as in the other fields. The ISO value goes in a hidden input, with the field’s `name`.
 
 ```html
 import { createDatePicker } from './ds/js/date-picker.js';

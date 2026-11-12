@@ -9,10 +9,10 @@ In numbers: series: up to 3 · dot: 8 px · ring: 2 px · hover target: 24 px.
 ## Example
 
 ```html
-import { scatterChart } from './ds/js/charts.js';
+import { createScatterChart } from './ds/js/charts.js';
 
 // each point: { x, y, label }
-const chart = scatterChart(document.querySelector('#accounts'), {
+const chart = createScatterChart(document.querySelector('#accounts'), {
   title: 'Cost × satisfaction by segment',
   subtitle: 'Each point is an account',
   series: [
@@ -92,9 +92,9 @@ A scatter answers “does one thing move with the other?”. For everything else
 One function, with update, setLoading, and destroy as in every chart.
 
 ```html
-import { scatterChart } from './ds/js/charts.js';
+import { createScatterChart } from './ds/js/charts.js';
 
-const chart = scatterChart(document.querySelector('#accounts'), {
+const chart = createScatterChart(document.querySelector('#accounts'), {
   title: 'Cost × satisfaction',
   series: [{ name: 'Retail', points: [{ x: 42, y: 61, label: 'Account 01' }, { x: 58, y: 47, label: 'Account 02' }] }],
   x: { label: 'Acquisition cost', format: 'currency' },

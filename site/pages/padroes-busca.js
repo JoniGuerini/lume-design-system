@@ -1,7 +1,7 @@
 import { icon } from '../../ds/icons/icons.js';
 import { createCommandPalette, scoreCommand } from '../../ds/js/command-palette.js';
 import { createFilters, filtersToQuery, filtersFromQuery } from '../../ds/js/filters.js';
-import { attachMenu } from '../../ds/js/menu.js';
+import { createMenu } from '../../ds/js/menu.js';
 import { toast, copyText } from '../../ds/js/toast.js';
 import { locale, dateFormat, numberFormat } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
@@ -562,7 +562,7 @@ export function mount(root) {
     search: L('Buscar', 'Search', 'Buscar'),
     archive: L('Arquivar', 'Archive', 'Archivar'),
   };
-  const shortcutMenu = attachMenu(root.querySelector('[data-shortcut-menu]'), {
+  const shortcutMenu = createMenu(root.querySelector('[data-shortcut-menu]'), {
     label: L('Pedido', 'Order', 'Pedido'),
     mode: 'action',
     options: [

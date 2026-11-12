@@ -1,6 +1,6 @@
 import { icon } from '../../ds/icons/icons.js';
 import { tokens, palettes } from '../../ds/tokens.js';
-import { attachMenu } from '../../ds/js/menu.js';
+import { createMenu } from '../../ds/js/menu.js';
 import { tr, locale } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, codeBlock } from '../component-doc.js';
@@ -233,7 +233,7 @@ const MODULES = [
   ['icons/icons.js', "import './ds/icons/icons.js'", '/fundamentos/icones'],
   ['js/theme.js', 'initTheme(); setTheme("light")', '/fundamentos/cores'],
   ['js/tooltip.js', 'initTooltips()', '/componentes/tooltip'],
-  ['js/menu.js', 'attachMenu(botao, { options, onChange })', '/componentes/menu'],
+  ['js/menu.js', 'createMenu(botao, { options, onChange })', '/componentes/menu'],
   ['js/select.js', 'mountSelects(document)', '/componentes/selecao'],
   ['js/tabs.js', 'mountTabs(document)', '/componentes/abas'],
   ['js/modal.js', 'await confirmModal({ title })', '/componentes/modal'],

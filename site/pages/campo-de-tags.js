@@ -58,7 +58,7 @@ export default function renderCampoDeTags(page) {
       {
         id: 'codigo',
         title: L('Código', 'Code', 'Código'),
-        desc: L(`Funciona com ${ic('enhanceForm')}: com ${ic('required')}, ter pelo menos uma tag já basta.`, `It works with ${ic('enhanceForm')}: with ${ic('required')}, having at least one tag is enough.`, `Funciona con ${ic('enhanceForm')}: con ${ic('required')}, tener al menos una etiqueta ya basta.`),
+        desc: L(`Funciona com ${ic('createForm')}: com ${ic('required')}, ter pelo menos uma tag já basta.`, `It works with ${ic('createForm')}: with ${ic('required')}, having at least one tag is enough.`, `Funciona con ${ic('createForm')}: con ${ic('required')}, tener al menos una etiqueta ya basta.`),
         html: codeBlock(`import { createTagField } from './ds/js/tag-field.js';
 
 const tags = createTagField(document.querySelector('#assuntos'), {

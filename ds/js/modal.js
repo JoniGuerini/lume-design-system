@@ -27,7 +27,7 @@ function exitDuration(el) {
 }
 
 /** HTML interno do modal — usado pela API e pelas prévias estáticas da documentação. */
-export function modalContent({ id = `ds-modal-${++uid}`, eyebrow, title, body, tone, icon: glyph, actions = [], dismissible = true, closeLabel = msg('common.close') } = {}) {
+export function modalHtml({ id = `ds-modal-${++uid}`, eyebrow, title, body, tone, icon: glyph, actions = [], dismissible = true, closeLabel = msg('common.close') } = {}) {
   const lead = glyph ?? (tone === 'danger' ? 'alert-triangle' : null);
   return `
     <header class="ds-modal__header">
@@ -144,7 +144,7 @@ export function createModal(options = {}) {
   dialog.setAttribute('aria-labelledby', `${id}-title`);
   const hasBody = options.body !== undefined && options.body !== null;
   if (hasBody) dialog.setAttribute('aria-describedby', `${id}-body`);
-  dialog.innerHTML = modalContent({ ...options, id });
+  dialog.innerHTML = modalHtml({ ...options, id });
   if (hasBody && typeof options.body !== 'string') dialog.querySelector('.ds-modal__body').append(options.body);
   document.body.append(dialog);
   const api = enhanceModal(dialog, { dismissible: options.dismissible ?? true, onClose: options.onClose });

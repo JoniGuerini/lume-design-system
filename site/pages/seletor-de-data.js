@@ -75,7 +75,7 @@ export default function renderSeletorDeData(page) {
       {
         id: 'formulario',
         title: L('Em formulários', 'In forms', 'En formularios'),
-        desc: L(`Funciona com ${ic('enhanceForm')}: ${ic('required')} e os erros de formato aparecem como nos outros campos. O valor em ISO vai num input oculto, com o ${ic('name')} do campo.`, `It works with ${ic('enhanceForm')}: ${ic('required')} and format errors show up as in the other fields. The ISO value goes in a hidden input, with the field’s ${ic('name')}.`, `Funciona con ${ic('enhanceForm')}: ${ic('required')} y los errores de formato aparecen como en los otros campos. El valor en ISO va en un input oculto, con el ${ic('name')} del campo.`),
+        desc: L(`Funciona com ${ic('createForm')}: ${ic('required')} e os erros de formato aparecem como nos outros campos. O valor em ISO vai num input oculto, com o ${ic('name')} do campo.`, `It works with ${ic('createForm')}: ${ic('required')} and format errors show up as in the other fields. The ISO value goes in a hidden input, with the field’s ${ic('name')}.`, `Funciona con ${ic('createForm')}: ${ic('required')} y los errores de formato aparecen como en los otros campos. El valor en ISO va en un input oculto, con el ${ic('name')} del campo.`),
         html: codeBlock(`import { createDatePicker } from './ds/js/date-picker.js';
 
 const picker = createDatePicker(document.querySelector('#entrega'), {

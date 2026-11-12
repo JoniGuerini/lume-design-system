@@ -9,9 +9,9 @@ In numbers: layouts: 3 · orientations: 2 · max thickness: 24 px · minimum con
 ## Example
 
 ```html
-import { barChart } from './ds/js/charts.js';
+import { createBarChart } from './ds/js/charts.js';
 
-barChart(document.querySelector('#sales'), {
+createBarChart(document.querySelector('#sales'), {
   title: 'Sales by channel',
   subtitle: 'Thousand units · 1st half',
   categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
@@ -156,7 +156,7 @@ One call mounts the chart; `update()` swaps the data without recreating the fram
 |  `card · table · texture`  | boolean | false · true · false | Outlined surface, table button, and backup hatching. |
 
 ```html
-const chart = barChart(el, { title: 'Sales', categories, series });
+const chart = createBarChart(el, { title: 'Sales', categories, series });
 
 chart.update({ series: nextSeries });   // redraws keeping legend and table
 chart.setLoading(true);                   // half opacity while fetching

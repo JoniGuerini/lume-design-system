@@ -9,9 +9,9 @@ En números: variantes: 8 · trazo: 2 px · nombres al final: hasta 4 · eje y: 
 ## Ejemplo
 
 ```html
-import { lineChart } from './ds/js/charts.js';
+import { createLineChart } from './ds/js/charts.js';
 
-const chart = lineChart(document.querySelector('#usuarios'), {
+const chart = createLineChart(document.querySelector('#usuarios'), {
   title: 'Usuarios activos',
   subtitle: 'Por mes · 2026',
   categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sept', 'Oct', 'Nov', 'Dic'],
@@ -113,9 +113,9 @@ Elige la línea cuando la pregunta tiene “cuándo” o “desde”. Cuatro cui
 Una función, las mismas reglas de todos los gráficos de Lume.
 
 ```html
-import { lineChart } from './ds/js/charts.js';
+import { createLineChart } from './ds/js/charts.js';
 
-const chart = lineChart(document.querySelector('#ingresos'), {
+const chart = createLineChart(document.querySelector('#ingresos'), {
   title: 'Ingresos',
   categories: ['Ene', 'Feb', 'Mar'],
   series: [{ name: 'Ingresos', values: [82000, 91000, 88000] }],

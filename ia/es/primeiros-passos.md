@@ -104,7 +104,7 @@ Cada componente interactivo tiene su módulo, sin dependencias entre ellos. Impo
 |  `ds/icons/icons.js`  | Íconos como <ds-icon> y la función icon() |  `import './ds/icons/icons.js'`  |  |
 |  `ds/js/theme.js`  | Tema oscuro, claro o del sistema |  `initTheme(); setTheme("light")`  |  |
 |  `ds/js/tooltip.js`  | Pistas con data-ds-tooltip |  `initTooltips()`  |  |
-|  `ds/js/menu.js`  | Menús que se abren desde un disparador |  `attachMenu(botao, { options, onChange })`  |  |
+|  `ds/js/menu.js`  | Menús que se abren desde un disparador |  `createMenu(botao, { options, onChange })`  |  |
 |  `ds/js/select.js`  | Selector con lista propia |  `mountSelects(document)`  |  |
 |  `ds/js/tabs.js`  | Pestañas con teclado |  `mountTabs(document)`  |  |
 |  `ds/js/modal.js`  | Modal y confirmación |  `await confirmModal({ title })`  |  |

@@ -19,7 +19,7 @@
  */
 import { icon } from '../icons/icons.js';
 import { msg, numberFormat } from './i18n.js';
-import { attachMenu } from './menu.js';
+import { createMenu } from './menu.js';
 
 const escape = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 
@@ -82,7 +82,7 @@ export function createPagination(root, options = {}) {
     sizeMenu = null;
     const chip = root.querySelector('[data-size]');
     if (!chip) return;
-    sizeMenu = attachMenu(chip, {
+    sizeMenu = createMenu(chip, {
       label: msg('pagination.pageSize'),
       value: String(pageSize),
       options: o.pageSizes.map((v) => ({ value: String(v), label: msg('pagination.perPage', v) })),

@@ -9,9 +9,9 @@ In numbers: variants: 8 · stroke: 2 px · end labels: up to 4 · y axis: 1.
 ## Example
 
 ```html
-import { lineChart } from './ds/js/charts.js';
+import { createLineChart } from './ds/js/charts.js';
 
-const chart = lineChart(document.querySelector('#users'), {
+const chart = createLineChart(document.querySelector('#users'), {
   title: 'Active users',
   subtitle: 'By month · 2026',
   categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -113,9 +113,9 @@ Choose a line when the question has “when” or “since”. Four precautions 
 One function, the same rules as every Lume chart.
 
 ```html
-import { lineChart } from './ds/js/charts.js';
+import { createLineChart } from './ds/js/charts.js';
 
-const chart = lineChart(document.querySelector('#revenue'), {
+const chart = createLineChart(document.querySelector('#revenue'), {
   title: 'Revenue',
   categories: ['Jan', 'Feb', 'Mar'],
   series: [{ name: 'Revenue', values: [82000, 91000, 88000] }],

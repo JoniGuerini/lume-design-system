@@ -91,9 +91,11 @@ function syncControls() {
 }
 
 /** Liga os botões [data-theme-toggle]: cada clique troca o tema (aria-pressed: o escuro está ligado). */
-export function bindThemeControls(scope = document) {
-  scope.querySelectorAll('[data-theme-toggle]').forEach((btn) => btn.addEventListener('click', toggleTheme));
+export function mountThemeControls(scope = document) {
+  const buttons = [...scope.querySelectorAll('[data-theme-toggle]')];
+  buttons.forEach((btn) => btn.addEventListener('click', toggleTheme));
   syncControls();
+  return () => buttons.forEach((btn) => btn.removeEventListener('click', toggleTheme));
 }
 
 export function initTheme() {

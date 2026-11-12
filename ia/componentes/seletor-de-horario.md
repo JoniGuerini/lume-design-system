@@ -106,7 +106,7 @@ Marcação dos exemplos desta seção:
 
 ## Código
 
-Funciona com `enhanceForm`, como os outros campos.
+Funciona com `createForm`, como os outros campos.
 
 ```html
 import { createTimePicker } from './ds/js/time-picker.js';

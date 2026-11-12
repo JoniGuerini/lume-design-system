@@ -1,0 +1,36 @@
+/* Página: Recursos › API (prefixo ra-) */
+
+.ra-verbs {
+  --doc-table-cols: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1.4fr);
+}
+
+.ra-items {
+  --doc-table-cols: minmax(0, 1.1fr) minmax(0, 2.2fr) minmax(0, 0.9fr);
+  margin-bottom: var(--ds-space-300);
+}
+
+.ra-page .doc-table__row {
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-body-sm);
+}
+
+.ra-muted {
+  color: var(--ds-color-fg-muted);
+}
+
+.ra-note {
+  margin-top: var(--ds-space-200);
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+@media (max-width: 720px) {
+  .ra-verbs,
+  .ra-items {
+    --doc-table-cols: minmax(0, 1fr);
+  }
+
+  .ra-page .doc-table__head {
+    display: none;
+  }
+}

@@ -1,7 +1,7 @@
 /**
  * Validação de formulários — acessível, em português e sem pressa.
  *
- *   const form = enhanceForm(document.querySelector('#projeto'), {
+ *   const form = createForm(document.querySelector('#projeto'), {
  *     rules: { slug: (value) => (taken.has(value) ? 'Esse endereço já está em uso.' : null) },
  *     messages: { nome: { required: 'Dê um nome ao projeto.' } },
  *     onSubmit: (data) => salvar(data),
@@ -24,7 +24,7 @@
  * resumo no topo que recebe o foco no envio, com links que levam a cada campo.
  */
 import { icon } from '../icons/icons.js';
-import { enhanceSelect } from './select.js';
+import { createSelect } from './select.js';
 import { msg } from './i18n.js';
 
 const escape = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
@@ -47,7 +47,7 @@ const DEFAULTS = {
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-export function enhanceForm(form, options = {}) {
+export function createForm(form, options = {}) {
   const o = { validateOn: 'blur', summary: true, ...options };
   const rules = o.rules ?? {};
   const messages = o.messages ?? {};
@@ -211,7 +211,7 @@ export function enhanceForm(form, options = {}) {
     err.innerHTML = `${icon('alert-circle', { size: 16 })}<span>${escape(message)}</span>`;
     // a dica dá lugar ao erro (continua ligada por aria-describedby)
     hintsOf(field).forEach((h) => (h.hidden = true));
-    if (field.kind === 'select' && field.el.matches('[data-enhanced]')) enhanceSelect(field.el).sync();
+    if (field.kind === 'select' && field.el.matches('[data-enhanced]')) createSelect(field.el).sync();
   }
 
   function clearError(field) {
@@ -221,7 +221,7 @@ export function enhanceForm(form, options = {}) {
     setDescribedby(field, false);
     document.getElementById(field.errorId)?.remove();
     hintsOf(field).forEach((h) => (h.hidden = false));
-    if (field.kind === 'select' && field.el.matches('[data-enhanced]')) enhanceSelect(field.el).sync();
+    if (field.kind === 'select' && field.el.matches('[data-enhanced]')) createSelect(field.el).sync();
   }
 
   const hintsOf = (field) => [...(field.container?.querySelectorAll('.ds-form-field__hint, .ds-choice-group__hint') ?? [])];

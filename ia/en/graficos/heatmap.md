@@ -9,9 +9,9 @@ In numbers: formats: 2 · scales: 2 · bands: up to 7 · gap: 2 px.
 ## Example
 
 ```html
-import { heatmap } from './ds/js/charts.js';
+import { createHeatmap } from './ds/js/charts.js';
 
-const chart = heatmap(document.querySelector('#orders'), {
+const chart = createHeatmap(document.querySelector('#orders'), {
   title: 'Orders by hour',
   subtitle: 'Last week',
   rows: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -26,11 +26,11 @@ const chart = heatmap(document.querySelector('#orders'), {
 
 A matrix for repeating patterns (weekday × hour); a calendar for the whole year at once.
 
-Matrix `heatmap()` — Rows and columns with meaning. The midday peak and the early-morning dip jump out — without reading a number.
+Matrix `createHeatmap()` — Rows and columns with meaning. The midday peak and the early-morning dip jump out — without reading a number.
 
 Diverging `scale: 'diverging'` — Cool below the average, warm above, gray in the middle. The middle has to read as “nothing”.
 
-Calendar `calendarHeatmap()` — One square per day, one column per week. It opens on the most recent week; on narrow screens, scroll back into the past. The table summarizes by month.
+Calendar `createCalendarHeatmap()` — One square per day, one column per week. It opens on the most recent week; on narrow screens, scroll back into the past. The table summarizes by month.
 
 ## Scale and bands
 
@@ -108,9 +108,9 @@ A heatmap shows a pattern, not an exact value. Use it when the question is “wh
 Two functions with the same rules as every Lume chart: update, setLoading, and destroy.
 
 ```html
-import { heatmap, calendarHeatmap } from './ds/js/charts.js';
+import { createHeatmap, createCalendarHeatmap } from './ds/js/charts.js';
 
-heatmap(document.querySelector('#orders'), {
+createHeatmap(document.querySelector('#orders'), {
   title: 'Orders by hour',
   rows: ['Mon', 'Tue', 'Wed'],
   columns: ['8:00', '9:00', '10:00'],
@@ -118,7 +118,7 @@ heatmap(document.querySelector('#orders'), {
   valueLabel: 'orders',
 });
 
-calendarHeatmap(document.querySelector('#activity'), {
+createCalendarHeatmap(document.querySelector('#activity'), {
   title: 'Activity this year',
   start: '2025-11-02',
   values: activityByDay, // one number per day
@@ -126,7 +126,7 @@ calendarHeatmap(document.querySelector('#activity'), {
 });
 ```
 
-### heatmap()
+### createHeatmap()
 
 | Option | Type | Default | What for |
 | --- | --- | --- | --- |
@@ -142,7 +142,7 @@ calendarHeatmap(document.querySelector('#activity'), {
 | `scaleLegend · scaleLabels` | boolean · [string, string] | true · min./max. | Scale legend at the bottom, with the extremes or “Less/More”. |
 | `title · subtitle · label · card · table` | — | — | Same as every chart. |
 
-### calendarHeatmap()
+### createCalendarHeatmap()
 
 | Option | Type | Default | What for |
 | --- | --- | --- | --- |

@@ -105,7 +105,7 @@ Markup of the examples in this section:
 
 ## Code
 
-It works with `enhanceForm`: with `required`, having at least one tag is enough.
+It works with `createForm`: with `required`, having at least one tag is enough.
 
 ```html
 import { createTagField } from './ds/js/tag-field.js';

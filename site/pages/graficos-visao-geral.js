@@ -1,6 +1,6 @@
 import { icon } from '../../ds/icons/icons.js';
 import { tokens, contrast } from '../../ds/tokens.js';
-import { barChart, lineChart, donutChart, statTile, formatter } from '../../ds/js/charts.js';
+import { createBarChart, createLineChart, createDonutChart, statTileHtml, formatter } from '../../ds/js/charts.js';
 import { locale, dateFormat, formatNumber } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
 import { mountCodeCopy, codeBlock, tokenTable, a11yList, escapeHtml } from '../component-doc.js';
@@ -155,10 +155,10 @@ function kpis(d) {
   const convBefore = d.before.orders / d.before.visits;
   const change = (a, b) => a / b - 1;
   return [
-    statTile({ label: revenueLabel(), value: d.now.revenue, format: 'currency-compact', delta: change(d.now.revenue, d.before.revenue), deltaLabel: d.range.prev, trend: d.revenue }),
-    statTile({ label: L('Pedidos', 'Orders', 'Pedidos'), value: d.now.orders, format: 'integer', delta: change(d.now.orders, d.before.orders), deltaLabel: d.range.prev, trend: d.ordersTrend }),
-    statTile({ label: L('Ticket médio', 'Average order', 'Ticket medio'), value: ticket, format: TICKET, delta: change(ticket, ticketBefore), deltaLabel: d.range.prev, trend: d.ticketTrend }),
-    statTile({ label: L('Conversão', 'Conversion', 'Conversión'), value: conv, format: { style: 'percent', minimumFractionDigits: 1, maximumFractionDigits: 1 }, delta: conv - convBefore, deltaFormat: PP, deltaLabel: d.range.prev, trend: d.conversionTrend }),
+    statTileHtml({ label: revenueLabel(), value: d.now.revenue, format: 'currency-compact', delta: change(d.now.revenue, d.before.revenue), deltaLabel: d.range.prev, trend: d.revenue }),
+    statTileHtml({ label: L('Pedidos', 'Orders', 'Pedidos'), value: d.now.orders, format: 'integer', delta: change(d.now.orders, d.before.orders), deltaLabel: d.range.prev, trend: d.ordersTrend }),
+    statTileHtml({ label: L('Ticket médio', 'Average order', 'Ticket medio'), value: ticket, format: TICKET, delta: change(ticket, ticketBefore), deltaLabel: d.range.prev, trend: d.ticketTrend }),
+    statTileHtml({ label: L('Conversão', 'Conversion', 'Conversión'), value: conv, format: { style: 'percent', minimumFractionDigits: 1, maximumFractionDigits: 1 }, delta: conv - convBefore, deltaFormat: PP, deltaLabel: d.range.prev, trend: d.conversionTrend }),
   ].join('');
 }
 
@@ -614,9 +614,9 @@ export default function renderVisaoGeral(page) {
       'vg-api',
       'API',
       L('Uma função por forma, a mesma conversa em todas: monta num elemento, recebe opções e devolve controles.', 'One function per form, the same conversation in all of them: mount on an element, take options, and return controls.', 'Una función por forma, la misma conversación en todas: se monta en un elemento, recibe opciones y devuelve controles.'),
-      `${codeBlock(`import { barChart } from './ds/js/charts.js';
+      `${codeBlock(`import { createBarChart } from './ds/js/charts.js';
 
-const ${L('grafico', 'chart', 'grafico')} = barChart(document.querySelector('#${L('vendas', 'sales', 'ventas')}'), {
+const ${L('grafico', 'chart', 'grafico')} = createBarChart(document.querySelector('#${L('vendas', 'sales', 'ventas')}'), {
   title: '${L('Receita por mês', 'Revenue by month', 'Ingresos por mes')}',
   subtitle: '${L('Em reais · 2026', 'In reais · 2026', 'En reales · 2026')}',
   categories: [${months().slice(0, 3).map((m) => `'${m}'`).join(', ')}],
@@ -645,12 +645,12 @@ ${L('grafico', 'chart', 'grafico')}.destroy();                  // ${L('limpa tu
       </div>
       <div class="gv-api__forms">
         ${[
-          ['barChart', '/graficos/barras'],
-          ['lineChart', '/graficos/linhas'],
-          ['donutChart', '/graficos/rosca'],
-          ['heatmap · calendarHeatmap', '/graficos/heatmap'],
-          ['scatterChart', '/graficos/dispersao'],
-          ['statTile · sparkline · meter', '/graficos/indicadores'],
+          ['createBarChart', '/graficos/barras'],
+          ['createLineChart', '/graficos/linhas'],
+          ['createDonutChart', '/graficos/rosca'],
+          ['heatmap · createCalendarHeatmap', '/graficos/heatmap'],
+          ['createScatterChart', '/graficos/dispersao'],
+          ['statTileHtml · sparkline · meter', '/graficos/indicadores'],
         ]
           .map(([fn, href]) => `<a class="gv-api__form" href="#${href}"><code>${fn}</code>${icon('arrow-right', { size: 16 })}</a>`)
           .join('')}
@@ -692,9 +692,9 @@ export function mount(root) {
     curve: data.range.bucket === 'day' ? 'linear' : 'smooth',
     height: 260,
   });
-  const line = lineChart($('[data-dash-line]'), { card: true, ...lineOpts() });
-  const bars = barChart($('[data-dash-bars]'), { card: true, title: L('Receita por canal', 'Revenue by channel', 'Ingresos por canal'), subtitle: data.range.label, orientation: 'horizontal', format: 'currency-compact', categoryLabel: L('Canal', 'Channel', 'Canal'), ...channelData(data) });
-  const donut = donutChart($('[data-dash-donut]'), { card: true, title: L('Pedidos por forma de pagamento', 'Orders by payment method', 'Pedidos por forma de pago'), subtitle: data.range.label, items: paymentData(data), format: 'integer', size: 168, thickness: 20, categoryLabel: L('Forma de pagamento', 'Payment method', 'Forma de pago'), valueLabel: L('Pedidos', 'Orders', 'Pedidos') });
+  const line = createLineChart($('[data-dash-line]'), { card: true, ...lineOpts() });
+  const bars = createBarChart($('[data-dash-bars]'), { card: true, title: L('Receita por canal', 'Revenue by channel', 'Ingresos por canal'), subtitle: data.range.label, orientation: 'horizontal', format: 'currency-compact', categoryLabel: L('Canal', 'Channel', 'Canal'), ...channelData(data) });
+  const donut = createDonutChart($('[data-dash-donut]'), { card: true, title: L('Pedidos por forma de pagamento', 'Orders by payment method', 'Pedidos por forma de pago'), subtitle: data.range.label, items: paymentData(data), format: 'integer', size: 168, thickness: 20, categoryLabel: L('Forma de pagamento', 'Payment method', 'Forma de pago'), valueLabel: L('Pedidos', 'Orders', 'Pedidos') });
   charts.push(line, bars, donut);
   const dashCharts = [line, bars, donut];
 
@@ -744,7 +744,7 @@ export function mount(root) {
   /* A cor segue a entidade */
   const ch = channels();
   charts.push(
-    barChart($('[data-color-demo]'), {
+    createBarChart($('[data-color-demo]'), {
       card: true,
       title: L('Vendas por canal', 'Sales by channel', 'Ventas por canal'),
       subtitle: L('Mil unidades · esconda uma série na legenda: as outras mantêm a cor', 'Thousand units · hide a series in the legend: the others keep their color', 'Miles de unidades · oculta una serie en la leyenda: las demás mantienen el color'),
@@ -759,7 +759,7 @@ export function mount(root) {
   const anatomyEl = $('[data-anatomy]');
   const pins = $('[data-anatomy-pins]');
   const stage = $('[data-anatomy-stage]');
-  const anatomy = lineChart(anatomyEl, {
+  const anatomy = createLineChart(anatomyEl, {
     title: L('Usuários ativos', 'Active users', 'Usuarios activos'),
     subtitle: L('Por mês · 2026 contra 2025', 'By month · 2026 vs. 2025', 'Por mes · 2026 contra 2025'),
     categories: months().slice(0, 10),
@@ -822,7 +822,7 @@ export function mount(root) {
 
   /* Interação */
   charts.push(
-    lineChart($('[data-interact-chart]'), {
+    createLineChart($('[data-interact-chart]'), {
       card: true,
       title: L('Pedidos por canal', 'Orders by channel', 'Pedidos por canal'),
       subtitle: L('Passe o mouse, use Tab e as setas, ou clique na legenda', 'Hover, use Tab and the arrows, or click the legend', 'Pasa el mouse, usa Tab y las flechas, o haz clic en la leyenda'),

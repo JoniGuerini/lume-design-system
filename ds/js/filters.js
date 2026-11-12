@@ -21,7 +21,7 @@
  * A ordenação muda a ordem, não o conjunto: não aparece em "Filtros ativos" nem conta para "Limpar tudo".
  */
 import { icon } from '../icons/icons.js';
-import { attachMenu } from './menu.js';
+import { createMenu } from './menu.js';
 import { msg, formatNumber } from './i18n.js';
 
 let uid = 0;
@@ -127,7 +127,7 @@ export function createFilters(host, config) {
 
   const menus = fields.map((f) => {
     const chip = root.querySelector(`[data-filter-field="${CSS.escape(f.id)}"]`);
-    const menu = attachMenu(chip, {
+    const menu = createMenu(chip, {
       label: f.label,
       value: state[f.id],
       options: [{ value: '', label: f.allLabel ?? msg('filters.all') }, ...f.options],
@@ -139,7 +139,7 @@ export function createFilters(host, config) {
   let sortMenu = null;
   if (sort) {
     const chip = root.querySelector('[data-filter-sort]');
-    sortMenu = attachMenu(chip, { label: sort.label ?? msg('filters.sort'), value: state[sort.id], options: sort.options, onChange: (value) => set({ [sort.id]: value }) });
+    sortMenu = createMenu(chip, { label: sort.label ?? msg('filters.sort'), value: state[sort.id], options: sort.options, onChange: (value) => set({ [sort.id]: value }) });
   }
 
   /** Filtros ativos: busca, escolhas e liga/desliga (a ordenação fica de fora). */

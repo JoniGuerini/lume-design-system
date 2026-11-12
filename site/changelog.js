@@ -8,10 +8,37 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.23.1';
+export const CURRENT_VERSION = '0.24.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.24.0',
+    date: '2026-11-12',
+    title: T('Testes e API', 'Tests and API', 'Pruebas y API'),
+    summary: T(
+      'A API pública num arquivo só, ds/lume.js, com uma convenção de nomes, e testes visuais que mostram o que mudou antes de publicar.',
+      'The public API in a single file, ds/lume.js, with a naming convention, plus visual tests that show what changed before publishing.',
+      'La API pública en un solo archivo, ds/lume.js, con una convención de nombres, y pruebas visuales que muestran qué cambió antes de publicar.',
+    ),
+    groups: [
+      {
+        name: T('API', 'API', 'API'),
+        items: [
+          ['novo', T('ds/lume.js reúne os 83 itens públicos', 'ds/lume.js gathers the 83 public items', 'ds/lume.js reúne los 83 ítems públicos'), '/recursos/api'],
+          ['novo', T('Página Recursos › API, com a convenção e tudo o que é público', 'Resources › API page, with the convention and everything public', 'Página Recursos › API, con la convención y todo lo público'), '/recursos/api'],
+          ['melhoria', T('Nomes na convenção: createMenu, createSelect, createForm, createContextMenu, mountThemeControls e modalHtml', 'Names follow the convention: createMenu, createSelect, createForm, createContextMenu, mountThemeControls, and modalHtml', 'Nombres en la convención: createMenu, createSelect, createForm, createContextMenu, mountThemeControls y modalHtml'), '/recursos/api'],
+          ['melhoria', T('Gráficos também: createBarChart, createLineChart e os demais; statTileHtml, sparklineHtml e meterHtml', 'Charts too: createBarChart, createLineChart, and the rest; statTileHtml, sparklineHtml, and meterHtml', 'Gráficos también: createBarChart, createLineChart y los demás; statTileHtml, sparklineHtml y meterHtml'), '/graficos/visao-geral'],
+        ],
+      },
+      {
+        name: T('Testes', 'Tests', 'Pruebas'),
+        items: [
+          ['novo', T('Testes visuais: 422 fotos dos componentes nos dois temas, comparadas pixel a pixel', 'Visual tests: 422 shots of the components in both themes, compared pixel by pixel', 'Pruebas visuales: 422 fotos de los componentes en los dos temas, comparadas píxel a píxel'), '/recursos/contribuir'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.23.1',
     date: '2026-11-12',

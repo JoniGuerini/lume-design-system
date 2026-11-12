@@ -4,14 +4,14 @@ Lume section: Components. Page: https://lumeui.dev/#/componentes/menu
 
 A list of options that opens from a trigger. It’s for picking a value — like in chips — or for running actions.
 
-In numbers: modes: 2 · item types: 6 · keys: 8 · function: attachMenu.
+In numbers: modes: 2 · item types: 6 · keys: 8 · function: createMenu.
 
 ## Example
 
 ```html
-import { attachMenu } from './ds/js/menu.js';
+import { createMenu } from './ds/js/menu.js';
 
-const menu = attachMenu(trigger, {
+const menu = createMenu(trigger, {
   label: 'Sort by',
   value: 'recent',
   options: [
@@ -49,7 +49,7 @@ A long list doesn’t scroll or turn into a giant menu: with maxRows, each colum
 In columns `maxRows: 5` — 16 items with up to 5 per column become 4 columns of 4 — not 5, 5, 5, and 1. ↑/↓ go down the column and on to the next; ←/→ jump between columns. Near the edge, the menu slides to fit on screen.
 
 ```html
-attachMenu(button, {
+createMenu(button, {
   label: 'Components',
   options: pages.map((p) => ({ value: p.href, label: p.label, icon: p.icon })),
   maxRows: 5,   // at most 5 per column, balanced
@@ -136,7 +136,7 @@ Everything you can do with the mouse, you can do without it.
 
 ## Accessibility
 
-attachMenu already sets the ARIA attributes on the trigger and the menu.
+createMenu already sets the ARIA attributes on the trigger and the menu.
 
 - An announced trigger — Gets `aria-haspopup="menu"`, `aria-expanded`, and `aria-controls` — the screen reader knows it opens something.
 - The right roles — Selection uses `menuitemradio` with `aria-checked`; action uses `menuitem`.

@@ -1,0 +1,122 @@
+/**
+ * A API pública do Lume: o que está em ds/lume.js, por grupo, com uma linha do que cada item faz.
+ * Fonte da página Recursos › API. Item novo em ds/lume.js = linha nova aqui (nos três idiomas).
+ */
+import { tr } from '../ds/js/i18n.js';
+
+const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
+
+const GROUPS = [
+  {
+    title: T('Componentes', 'Components', 'Componentes'),
+    items: [
+      ['createBackToTop', 'back-to-top.js', T('Botão de voltar ao topo de uma área que rola.', 'Back-to-top button for a scrolling area.', 'Botón de volver arriba para un área con desplazamiento.')],
+      ['createCalendar', 'calendar.js', T('Calendário com visões de mês, semana e dia.', 'Calendar with month, week, and day views.', 'Calendario con vistas de mes, semana y día.')],
+      ['createCommandPalette', 'command-palette.js', T('Busca de comandos aberta com ⌘K.', 'Command search opened with ⌘K.', 'Búsqueda de comandos que se abre con ⌘K.')],
+      ['createComposer', 'composer.js', T('Campo de mensagem de uma conversa, com anexos.', 'Chat message field, with attachments.', 'Campo de mensaje de una conversación, con adjuntos.')],
+      ['createContextMenu', 'context-menu.js', T('Menu do botão direito numa área.', 'Right-click menu for an area.', 'Menú del botón derecho en un área.')],
+      ['createDatePicker', 'date-picker.js', T('Seletor de data ligado a um campo.', 'Date picker attached to a field.', 'Selector de fecha ligado a un campo.')],
+      ['createDrawer', 'drawer.js', T('Gaveta lateral que você abre e fecha quando quiser.', 'Drawer you open and close whenever you want.', 'Panel lateral que abres y cierras cuando quieras.')],
+      ['createFileUpload', 'file-upload.js', T('Área de envio de arquivos, com lista e progresso.', 'File upload area, with list and progress.', 'Área de carga de archivos, con lista y progreso.')],
+      ['createFilters', 'filters.js', T('Barra de filtros que guarda o estado no endereço.', 'Filter bar that keeps its state in the URL.', 'Barra de filtros que guarda el estado en la dirección.')],
+      ['createForm', 'form.js', T('Validação, erros e resumo de erros de um formulário.', 'Validation, errors, and error summary for a form.', 'Validación, errores y resumen de errores de un formulario.')],
+      ['createMenu', 'menu.js', T('Menu ligado a um botão, com escolha única ou múltipla.', 'Menu attached to a button, with single or multiple choice.', 'Menú ligado a un botón, con elección única o múltiple.')],
+      ['createModal', 'modal.js', T('Modal que você abre e fecha quando quiser.', 'Modal you open and close whenever you want.', 'Modal que abres y cierras cuando quieras.')],
+      ['createNumberField', 'number-field.js', T('Campo numérico com – e +.', 'Number field with – and +.', 'Campo numérico con – y +.')],
+      ['createOtpField', 'otp-field.js', T('Campo de código de verificação.', 'Verification code field.', 'Campo de código de verificación.')],
+      ['createPagination', 'pagination.js', T('Paginação de uma lista ou tabela.', 'Pagination for a list or table.', 'Paginación de una lista o tabla.')],
+      ['createPopover', 'popover.js', T('Painel que abre preso a um botão.', 'Panel that opens attached to a button.', 'Panel que se abre sujeto a un botón.')],
+      ['createSegmented', 'segmented.js', T('Controle segmentado.', 'Segmented control.', 'Control segmentado.')],
+      ['createSelect', 'select.js', T('Seleção do Lume sobre um select nativo.', 'Lume select on top of a native select.', 'Selector de Lume sobre un select nativo.')],
+      ['mountSelects', 'select.js', T('Liga todas as seleções de uma área.', 'Sets up every select in an area.', 'Activa todos los selectores de un área.')],
+      ['createShell', 'shell.js', T('App shell: sidebar ou navbar, recolher e gaveta no celular.', 'App shell: sidebar or navbar, collapse, and drawer on mobile.', 'App shell: sidebar o navbar, contraer y panel en el móvil.')],
+      ['renderSidebarNav', 'shell.js', T('Monta os grupos de navegação da sidebar.', 'Builds the sidebar navigation groups.', 'Arma los grupos de navegación de la sidebar.')],
+      ['renderNavbarNav', 'shell.js', T('Monta os grupos de navegação da navbar.', 'Builds the navbar navigation groups.', 'Arma los grupos de navegación de la navbar.')],
+      ['setActiveNavItem', 'shell.js', T('Marca o item de navegação da página atual.', 'Marks the current page’s navigation item.', 'Marca el ítem de navegación de la página actual.')],
+      ['LAYOUTS', 'shell.js', T('Os layouts do app shell.', 'The app shell layouts.', 'Los layouts del app shell.')],
+      ['createSlider', 'slider.js', T('Slider de um valor ou de uma faixa.', 'Slider for a value or a range.', 'Slider de un valor o de un rango.')],
+      ['createStepper', 'stepper.js', T('Etapas de um processo.', 'Steps of a process.', 'Etapas de un proceso.')],
+      ['mountTabs', 'tabs.js', T('Liga todas as abas de uma área.', 'Sets up every tab set in an area.', 'Activa todas las pestañas de un área.')],
+      ['selectTab', 'tabs.js', T('Escolhe uma aba pelo código.', 'Selects a tab from code.', 'Elige una pestaña desde el código.')],
+      ['createTagField', 'tag-field.js', T('Campo de tags.', 'Tag field.', 'Campo de etiquetas.')],
+      ['createTimePicker', 'time-picker.js', T('Seletor de horário ligado a um campo.', 'Time picker attached to a field.', 'Selector de hora ligado a un campo.')],
+      ['createTree', 'tree.js', T('Árvore que expande e recolhe.', 'Tree that expands and collapses.', 'Árbol que se expande y contrae.')],
+    ],
+  },
+  {
+    title: T('Ações imediatas', 'Immediate actions', 'Acciones inmediatas'),
+    items: [
+      ['openModal', 'modal.js', T('Abre um modal e devolve a resposta quando ele fecha.', 'Opens a modal and returns the answer when it closes.', 'Abre un modal y devuelve la respuesta cuando se cierra.')],
+      ['confirmModal', 'modal.js', T('Pede uma confirmação e devolve sim ou não.', 'Asks for confirmation and returns yes or no.', 'Pide una confirmación y devuelve sí o no.')],
+      ['openDrawer', 'drawer.js', T('Abre uma gaveta lateral e devolve a resposta.', 'Opens a drawer and returns the answer.', 'Abre un panel lateral y devuelve la respuesta.')],
+      ['toast', 'toast.js', T('Mostra um toast; devolve um controle com close().', 'Shows a toast; returns a controller with close().', 'Muestra un toast; devuelve un control con close().')],
+      ['clearToasts', 'toast.js', T('Fecha todos os toasts.', 'Closes every toast.', 'Cierra todos los toasts.')],
+      ['copyText', 'toast.js', T('Copia um texto e confirma com um toast.', 'Copies text and confirms with a toast.', 'Copia un texto y lo confirma con un toast.')],
+      ['getToastPosition', 'toast.js', T('Lê a posição dos toasts.', 'Reads the toast position.', 'Lee la posición de los toasts.')],
+      ['setToastPosition', 'toast.js', T('Muda a posição dos toasts.', 'Changes the toast position.', 'Cambia la posición de los toasts.')],
+      ['TOAST_POSITIONS', 'toast.js', T('As posições possíveis dos toasts.', 'The possible toast positions.', 'Las posiciones posibles de los toasts.')],
+    ],
+  },
+  {
+    title: T('Gráficos', 'Charts', 'Gráficos'),
+    items: [
+      ['createBarChart', 'charts.js', T('Gráfico de barras.', 'Bar chart.', 'Gráfico de barras.')],
+      ['createLineChart', 'charts.js', T('Gráfico de linhas e áreas.', 'Line and area chart.', 'Gráfico de líneas y áreas.')],
+      ['createDonutChart', 'charts.js', T('Gráfico de rosca.', 'Donut chart.', 'Gráfico de dona.')],
+      ['createHeatmap', 'charts.js', T('Mapa de calor em matriz.', 'Matrix heatmap.', 'Mapa de calor en matriz.')],
+      ['createCalendarHeatmap', 'charts.js', T('Mapa de calor em calendário.', 'Calendar heatmap.', 'Mapa de calor en calendario.')],
+      ['createScatterChart', 'charts.js', T('Gráfico de dispersão.', 'Scatter chart.', 'Gráfico de dispersión.')],
+      ['statTileHtml', 'charts.js', T('Indicador com valor, variação e tendência.', 'Stat tile with value, change, and trend.', 'Indicador con valor, variación y tendencia.')],
+      ['sparklineHtml', 'charts.js', T('Minigráfico de linha.', 'Sparkline.', 'Minigráfico de línea.')],
+      ['meterHtml', 'charts.js', T('Medidor de uma quantidade com limites.', 'Meter for an amount with thresholds.', 'Medidor de una cantidad con límites.')],
+      ['formatter', 'charts.js', T('Formata números como os gráficos formatam.', 'Formats numbers the way the charts do.', 'Formatea números como lo hacen los gráficos.')],
+    ],
+  },
+  {
+    title: T('Marcação em texto', 'Markup as text', 'Marcado como texto'),
+    items: [
+      ['modalHtml', 'modal.js', T('O HTML de um modal.', 'A modal’s HTML.', 'El HTML de un modal.')],
+      ['composerHtml', 'composer.js', T('O HTML do campo de mensagem.', 'The message field’s HTML.', 'El HTML del campo de mensaje.')],
+      ['messageHtml', 'composer.js', T('O HTML de uma mensagem da conversa.', 'A chat message’s HTML.', 'El HTML de un mensaje de la conversación.')],
+      ['attachmentHtml', 'composer.js', T('O HTML de um anexo.', 'An attachment’s HTML.', 'El HTML de un adjunto.')],
+      ['typingHtml', 'composer.js', T('O HTML do “digitando…”.', 'The “typing…” HTML.', 'El HTML del “escribiendo…”.')],
+      ['streamText', 'composer.js', T('Escreve uma resposta aos poucos, como um assistente.', 'Writes a reply bit by bit, like an assistant.', 'Escribe una respuesta poco a poco, como un asistente.')],
+      ['codeBlockHtml', 'code-block.js', T('O HTML de um bloco de código.', 'A code block’s HTML.', 'El HTML de un bloque de código.')],
+      ['mountCodeBlocks', 'code-block.js', T('Liga o botão de copiar dos blocos de código de uma área.', 'Sets up the copy button of the code blocks in an area.', 'Activa el botón de copiar de los bloques de código de un área.')],
+    ],
+  },
+  {
+    title: T('Página: tema, idioma e ícones', 'Page: theme, language, and icons', 'Página: tema, idioma e íconos'),
+    items: [
+      ['initTheme', 'theme.js', T('Aplica o tema salvo ou o do sistema.', 'Applies the saved theme or the system one.', 'Aplica el tema guardado o el del sistema.')],
+      ['setTheme', 'theme.js', T('Escolhe claro, escuro ou sistema.', 'Chooses light, dark, or system.', 'Elige claro, oscuro o sistema.')],
+      ['toggleTheme', 'theme.js', T('Alterna entre claro e escuro.', 'Switches between light and dark.', 'Alterna entre claro y oscuro.')],
+      ['resolvedTheme', 'theme.js', T('O tema em uso agora.', 'The theme in use now.', 'El tema en uso ahora.')],
+      ['getThemePreference', 'theme.js', T('A escolha salva: claro, escuro ou sistema.', 'The saved choice: light, dark, or system.', 'La elección guardada: claro, oscuro o sistema.')],
+      ['mountThemeControls', 'theme.js', T('Liga os botões de tema de uma área.', 'Sets up the theme buttons in an area.', 'Activa los botones de tema de un área.')],
+      ['THEMES', 'theme.js', T('Os temas disponíveis.', 'The available themes.', 'Los temas disponibles.')],
+      ['initLocale', 'i18n.js', T('Aplica o idioma salvo ou o do sistema.', 'Applies the saved language or the system one.', 'Aplica el idioma guardado o el del sistema.')],
+      ['setLocale', 'i18n.js', T('Escolhe o idioma dos componentes.', 'Chooses the components’ language.', 'Elige el idioma de los componentes.')],
+      ['locale', 'i18n.js', T('O idioma em uso agora.', 'The language in use now.', 'El idioma en uso ahora.')],
+      ['getLocalePreference', 'i18n.js', T('A escolha de idioma salva.', 'The saved language choice.', 'La elección de idioma guardada.')],
+      ['tr', 'i18n.js', T('Escolhe o texto do idioma atual em { pt-BR, en, es }.', 'Picks the current language’s text from { pt-BR, en, es }.', 'Elige el texto del idioma actual en { pt-BR, en, es }.')],
+      ['msg', 'i18n.js', T('Um texto de sistema dos componentes, no idioma atual.', 'A component system text, in the current language.', 'Un texto de sistema de los componentes, en el idioma actual.')],
+      ['formatNumber', 'i18n.js', T('Formata um número no idioma atual.', 'Formats a number in the current language.', 'Formatea un número en el idioma actual.')],
+      ['numberFormat', 'i18n.js', T('Intl.NumberFormat no idioma atual.', 'Intl.NumberFormat in the current language.', 'Intl.NumberFormat en el idioma actual.')],
+      ['dateFormat', 'i18n.js', T('Intl.DateTimeFormat no idioma atual.', 'Intl.DateTimeFormat in the current language.', 'Intl.DateTimeFormat en el idioma actual.')],
+      ['LOCALES', 'i18n.js', T('Os idiomas do Lume.', 'Lume’s languages.', 'Los idiomas de Lume.')],
+      ['LOCALE_NAMES', 'i18n.js', T('O nome de cada idioma.', 'Each language’s name.', 'El nombre de cada idioma.')],
+      ['initTooltips', 'tooltip.js', T('Liga as dicas de todos os data-ds-tooltip da página.', 'Sets up the tooltips for every data-ds-tooltip on the page.', 'Activa las ayudas de todos los data-ds-tooltip de la página.')],
+      ['initScrollbars', 'scrollbar.js', T('Liga a barra de rolagem sobreposta.', 'Sets up the overlay scrollbar.', 'Activa la barra de desplazamiento superpuesta.')],
+      ['icon', 'icons/icons.js', T('O SVG de um ícone, como texto.', 'An icon’s SVG, as text.', 'El SVG de un ícono, como texto.')],
+      ['icons', 'icons/icons.js', T('Os 130 ícones, por nome.', 'The 130 icons, by name.', 'Los 130 íconos, por nombre.')],
+      ['iconList', 'icons/icons.js', T('Os 130 ícones, em lista.', 'The 130 icons, as a list.', 'Los 130 íconos, en lista.')],
+      ['filtersToQuery', 'filters.js', T('Transforma o estado dos filtros em endereço.', 'Turns the filter state into a URL query.', 'Convierte el estado de los filtros en dirección.')],
+      ['filtersFromQuery', 'filters.js', T('Lê o estado dos filtros de um endereço.', 'Reads the filter state from a URL query.', 'Lee el estado de los filtros de una dirección.')],
+    ],
+  },
+];
+
+/** Os grupos, no idioma atual: [{ title, items: [{ name, module, text }] }]. */
+export const apiGroups = () => GROUPS.map((g) => ({ title: tr(g.title), items: g.items.map(([name, module, text]) => ({ name, module, text: tr(text) })) }));
+export const apiCount = GROUPS.reduce((n, g) => n + g.items.length, 0);

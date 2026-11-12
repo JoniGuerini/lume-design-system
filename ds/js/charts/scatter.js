@@ -1,7 +1,7 @@
 /**
  * Lume — dispersão e bolhas.
  *
- * scatterChart(host, {
+ * createScatterChart(host, {
  *   series: [{ name, color?, points: [{ x, y, size?, label? }] }],   até 3 séries (todas as cores se tocam)
  *   x: { label, format, zero: false, reference, referenceLabel },
  *   y: { label, format, zero: false, reference, referenceLabel },
@@ -18,7 +18,7 @@ import { msg } from '../i18n.js';
 const HIT = 24;
 let warned = false;
 
-export function scatterChart(host, input) {
+export function createScatterChart(host, input) {
   let source = input;
   let o = normalize(source);
   const hidden = new Set();

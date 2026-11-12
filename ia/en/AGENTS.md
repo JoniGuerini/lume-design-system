@@ -4,7 +4,7 @@ This project uses the Lume Design System (https://lumeui.dev). Before creating o
 
 Rules that always apply:
 
-- Use only `ds-*` classes, attributes, and functions that appear in Lume's documentation. Don't invent variants, sizes, or properties.
+- Use only `ds-*` classes, attributes, and functions that appear in Lume's documentation; in JavaScript, only what `https://lumeui.dev/ds/lume.js` exports. Don't invent variants, sizes, or properties.
 - Icons only with `<ds-icon name="…">` and names from the list in https://lumeui.dev/ia/en/icons.md.
 - Color, spacing, radius, and typography only through tokens (`var(--ds-…)`), never loose values.
 - If Lume has a component for the need, use it instead of building your own.

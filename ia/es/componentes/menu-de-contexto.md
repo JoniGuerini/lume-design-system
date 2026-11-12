@@ -14,8 +14,8 @@ En números: formas de abrir: 3 · rol ARIA: menu · toque largo: 500 ms · supe
 </ul>
 
 <script type="module">
-  import { attachContextMenu } from './ds/js/context-menu.js';
-  attachContextMenu(document.querySelector('#arquivos'), {
+  import { createContextMenu } from './ds/js/context-menu.js';
+  createContextMenu(document.querySelector('#arquivos'), {
     selector: '[data-arquivo]',
     options: [
       { value: 'open', label: 'Abrir', icon: 'external-link' },
@@ -32,9 +32,9 @@ En números: formas de abrir: 3 · rol ARIA: menu · toque largo: 500 ms · supe
 Con `selector`, un solo menú atiende a todas las filas; `options` puede cambiar según el elemento.
 
 ```html
-import { attachContextMenu } from './ds/js/context-menu.js';
+import { createContextMenu } from './ds/js/context-menu.js';
 
-attachContextMenu(document.querySelector('#arquivos'), {
+createContextMenu(document.querySelector('#arquivos'), {
   selector: '[data-arquivo]',
   label: 'Acciones del archivo',
   options: [

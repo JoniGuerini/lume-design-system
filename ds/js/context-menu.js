@@ -1,7 +1,7 @@
 /**
  * Menu de contexto — ações de um item, com o botão direito, o teclado ou um toque longo.
  *
- *   const menu = attachContextMenu(document.querySelector('#arquivos'), {
+ *   const menu = createContextMenu(document.querySelector('#arquivos'), {
  *     selector: '[data-arquivo]',      // só nessas linhas (delegação); sem ele, vale o elemento inteiro
  *     label: 'Ações do arquivo',
  *     options: (alvo) => [             // lista fixa, ou função que recebe o item clicado
@@ -24,7 +24,7 @@ let current = null;
 let uid = 0;
 const normalize = (s) => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 
-export function attachContextMenu(root, config = {}) {
+export function createContextMenu(root, config = {}) {
   const menu = document.createElement('div');
   menu.className = 'ds-menu ds-context-menu';
   menu.id = `ds-context-menu-${++uid}`;

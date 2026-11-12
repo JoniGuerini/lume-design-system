@@ -1,6 +1,6 @@
 import { icon } from '../../ds/icons/icons.js';
 import { contrast } from '../../ds/tokens.js';
-import { lineChart } from '../../ds/js/charts.js';
+import { createLineChart } from '../../ds/js/charts.js';
 import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, codeBlock, tokenTable, a11yList } from '../component-doc.js';
 import { months, revenue, activeUsers } from '../chart-data.js';
@@ -82,9 +82,9 @@ function playgroundCode(state) {
   ]
     .filter(Boolean)
     .join('\n');
-  return `import { lineChart } from './ds/js/charts.js';
+  return `import { createLineChart } from './ds/js/charts.js';
 
-const chart = lineChart(document.querySelector('#${L('usuarios', 'users', 'usuarios')}'), {
+const chart = createLineChart(document.querySelector('#${L('usuarios', 'users', 'usuarios')}'), {
   title: '${o.title}',
   subtitle: '${o.subtitle}',
   categories: ${list(o.categories.map((m) => `'${m}'`))},
@@ -384,9 +384,9 @@ export default function renderLinhas(page) {
       'api',
       'API',
       L('Uma função, as mesmas regras de todos os gráficos do Lume.', 'One function, the same rules as every Lume chart.', 'Una función, las mismas reglas de todos los gráficos de Lume.'),
-      `${codeBlock(`import { lineChart } from './ds/js/charts.js';
+      `${codeBlock(`import { createLineChart } from './ds/js/charts.js';
 
-const chart = lineChart(document.querySelector('#${L('receita', 'revenue', 'ingresos')}'), {
+const chart = createLineChart(document.querySelector('#${L('receita', 'revenue', 'ingresos')}'), {
   title: '${revenueLabel()}',
   categories: [${months().slice(0, 3).map((m) => `'${m}'`).join(', ')}],
   series: [{ name: '${revenueLabel()}', values: [82000, 91000, 88000] }],
@@ -401,7 +401,7 @@ chart.update({ target: { value: 90000, label: '${goal()}' } });`)}
 
 export function mount(root) {
   const charts = [];
-  const make = (el, options) => el && charts.push(lineChart(el, options));
+  const make = (el, options) => el && charts.push(createLineChart(el, options));
   const without = L('Sem', 'Without', 'Sin');
   const withOpt = L('Com', 'With', 'Con');
 
@@ -417,7 +417,7 @@ export function mount(root) {
     ],
     render: () => '<div class="gl-stage" data-playground-chart></div>',
     mount(preview, state) {
-      const chart = lineChart(preview.querySelector('[data-playground-chart]'), { ...playgroundOptions(state), height: 300 });
+      const chart = createLineChart(preview.querySelector('[data-playground-chart]'), { ...playgroundOptions(state), height: 300 });
       return () => chart.destroy();
     },
     code: playgroundCode,

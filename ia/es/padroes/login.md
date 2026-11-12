@@ -140,7 +140,7 @@ Entrar no puede depender de la memoria, de una visión perfecta ni de la prisa. 
 
 ## Código
 
-El inicio de sesión es un formulario común con `enhanceForm`: los campos, el botón de mostrar contraseña y la respuesta del servidor en una alerta.
+El inicio de sesión es un formulario común con `createForm`: los campos, el botón de mostrar contraseña y la respuesta del servidor en una alerta.
 
 ```html
 <form class="ds-form" id="entrar" novalidate>
@@ -167,7 +167,7 @@ El inicio de sesión es un formulario común con `enhanceForm`: los campos, el b
 ```
 
 ```html
-import { enhanceForm } from './ds/js/form.js';
+import { createForm } from './ds/js/form.js';
 
 // mostrar contraseña: cambia el tipo del campo y marca el botón
 document.addEventListener('click', (event) => {
@@ -179,7 +179,7 @@ document.addEventListener('click', (event) => {
   button.setAttribute('aria-pressed', String(show));
 });
 
-enhanceForm(document.querySelector('#entrar'), {
+createForm(document.querySelector('#entrar'), {
   summary: false, // dos campos: el error aparece en cada uno
   async onSubmit(datos) {
     const ok = await entrar(datos.email, datos.contrasena);

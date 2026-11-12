@@ -140,7 +140,7 @@ Signing in can’t depend on memory, perfect vision, or speed. WCAG 2.2 has a cr
 
 ## Code
 
-Sign-in is a regular form with `enhanceForm`: the fields, the show-password button, and the server’s answer in an alert.
+Sign-in is a regular form with `createForm`: the fields, the show-password button, and the server’s answer in an alert.
 
 ```html
 <form class="ds-form" id="sign-in" novalidate>
@@ -167,7 +167,7 @@ Sign-in is a regular form with `enhanceForm`: the fields, the show-password butt
 ```
 
 ```html
-import { enhanceForm } from './ds/js/form.js';
+import { createForm } from './ds/js/form.js';
 
 // show password: switches the field type and marks the button
 document.addEventListener('click', (event) => {
@@ -179,7 +179,7 @@ document.addEventListener('click', (event) => {
   button.setAttribute('aria-pressed', String(show));
 });
 
-enhanceForm(document.querySelector('#sign-in'), {
+createForm(document.querySelector('#sign-in'), {
   summary: false, // two fields: the error shows on each one
   async onSubmit(data) {
     const ok = await signIn(data.email, data.password);

@@ -1,6 +1,6 @@
 import { icon } from '../../ds/icons/icons.js';
 import { palettes, tokens, contrast } from '../../ds/tokens.js';
-import { attachMenu } from '../../ds/js/menu.js';
+import { createMenu } from '../../ds/js/menu.js';
 import { copyText } from '../../ds/js/toast.js';
 import { tr, formatNumber } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
@@ -480,7 +480,7 @@ export function mount(root) {
 
   // formato exibido/copiado
   const formatChip = root.querySelector('[data-menu="format"]');
-  const formatMenu = attachMenu(formatChip, {
+  const formatMenu = createMenu(formatChip, {
     label: c.format,
     value: format,
     options: FORMATS,

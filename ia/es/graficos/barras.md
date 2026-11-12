@@ -9,9 +9,9 @@ En números: layouts: 3 · orientaciones: 2 · grosor máximo: 24 px · contrast
 ## Ejemplo
 
 ```html
-import { barChart } from './ds/js/charts.js';
+import { createBarChart } from './ds/js/charts.js';
 
-barChart(document.querySelector('#ventas'), {
+createBarChart(document.querySelector('#ventas'), {
   title: 'Ventas por canal',
   subtitle: 'Miles de unidades · 1.er semestre',
   categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
@@ -156,7 +156,7 @@ Una llamada monta el gráfico; `update()` cambia los datos sin recrear el marco.
 |  `card · table · texture`  | boolean | false · true · false | Superficie con contorno, botón de tabla y rayado de reserva. |
 
 ```html
-const chart = barChart(el, { title: 'Ventas', categories, series });
+const chart = createBarChart(el, { title: 'Ventas', categories, series });
 
 chart.update({ series: nuevasSeries });   // redibuja manteniendo leyenda y tabla
 chart.setLoading(true);                   // media opacidad mientras busca
