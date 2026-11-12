@@ -8,10 +8,29 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.23.0';
+export const CURRENT_VERSION = '0.23.1';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.23.1',
+    date: '2026-11-12',
+    title: T('IAs em três idiomas', 'AI docs in three languages', 'IA en tres idiomas'),
+    summary: T(
+      'A documentação para IAs agora também existe em inglês e espanhol, com guia, AGENTS.md, skill e índice próprios em cada idioma.',
+      'The AI documentation now also exists in English and Spanish, with its own guide, AGENTS.md, skill, and index in each language.',
+      'La documentación para IA ahora también existe en inglés y español, con guía, AGENTS.md, skill e índice propios en cada idioma.',
+    ),
+    groups: [
+      {
+        name: T('Recursos', 'Resources', 'Recursos'),
+        items: [
+          ['melhoria', T('Arquivos para IAs em inglês (ia/en/) e espanhol (ia/es/)', 'AI files in English (ia/en/) and Spanish (ia/es/)', 'Archivos para IA en inglés (ia/en/) y español (ia/es/)'), '/recursos/ia'],
+          ['melhoria', T('A página Para IAs aponta para os arquivos do idioma escolhido', 'The For AI page points to the files in the chosen language', 'La página Para IA apunta a los archivos del idioma elegido'), '/recursos/ia'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.23.0',
     date: '2026-11-12',

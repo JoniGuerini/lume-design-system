@@ -41,11 +41,11 @@ Marcação dos exemplos desta seção:
 <header class="ds-modal__header">
 <div class="ds-modal__heading">
 <p class="ds-modal__eyebrow">Projeto</p>
-<h2 class="ds-modal__title" id="md-prev-bdhsy-title">Publicar alterações?</h2>
+<h2 class="ds-modal__title" id="md-prev-title">Publicar alterações?</h2>
 </div>
 <button type="button" class="ds-icon-btn ds-icon-btn--muted ds-modal__close" data-ds-modal-close="" aria-label="Fechar"><ds-icon name="x"></ds-icon></button>
 </header>
-<div class="ds-modal__body" id="md-prev-bdhsy-body">As mudanças ficam visíveis para toda a equipe assim que você publicar.</div>
+<div class="ds-modal__body" id="md-prev-body">As mudanças ficam visíveis para toda a equipe assim que você publicar.</div>
 <footer class="ds-modal__footer"><button type="button" class="ds-btn ds-btn--secondary" data-ds-modal-close="cancel">Cancelar</button><button type="button" class="ds-btn ds-btn--primary" data-ds-modal-close="confirm">Publicar</button></footer></div>
 ```
 
@@ -100,11 +100,11 @@ Marcação dos exemplos desta seção:
 <header class="ds-modal__header">
 <span class="ds-modal__icon"><ds-icon name="alert-triangle"></ds-icon></span>
 <div class="ds-modal__heading">
-<h2 class="ds-modal__title" id="md-prev-uebg8-title">Excluir “Lançamento 0.1”?</h2>
+<h2 class="ds-modal__title" id="md-prev-title">Excluir “Lançamento 0.1”?</h2>
 </div>
 <button type="button" class="ds-icon-btn ds-icon-btn--muted ds-modal__close" data-ds-modal-close="" aria-label="Fechar"><ds-icon name="x"></ds-icon></button>
 </header>
-<div class="ds-modal__body" id="md-prev-uebg8-body">O projeto e os 12 arquivos dele serão apagados. Não dá para desfazer.</div>
+<div class="ds-modal__body" id="md-prev-body">O projeto e os 12 arquivos dele serão apagados. Não dá para desfazer.</div>
 <footer class="ds-modal__footer"><button type="button" class="ds-btn ds-btn--secondary" data-ds-modal-close="cancel">Cancelar</button><button type="button" class="ds-btn ds-btn--danger" data-ds-modal-close="confirm">Excluir projeto</button></footer></div>
 
 <button type="button" class="ds-icon-btn ds-icon-btn--sm ds-icon-btn--muted" data-copy-code="" aria-label="Copiar código" data-ds-tooltip="Copiar código"><ds-icon name="copy"></ds-icon></button>

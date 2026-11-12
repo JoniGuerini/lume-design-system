@@ -1,0 +1,104 @@
+# Lume Design System
+
+> A design system in native HTML, CSS, and JavaScript, with no dependencies: tokens, typography, 130 custom icons, components, charts, and screen patterns, in light and dark themes. Version 0.23.1.
+
+Start with [README](https://lumeui.dev/ia/en/README.md): installation, general rules, and what never to invent. Every page of the site has a Markdown file below, generated from it.
+
+## Getting started
+
+- [README](https://lumeui.dev/ia/en/README.md): rules for AIs, installation, and visual direction
+- [AGENTS.md](https://lumeui.dev/ia/en/AGENTS.md): short rules to copy into a project root
+- [Icons](https://lumeui.dev/ia/en/icons.md): the exact list of names `<ds-icon>` accepts
+- [Claude skill](https://lumeui.dev/ia/en/lume-design-system.zip): the same guidance as a skill
+
+## Lume
+
+- [Getting started](https://lumeui.dev/ia/en/primeiros-passos.md): How to install, import the styles, and use the tokens in your project.
+
+## Foundations
+
+- [Color](https://lumeui.dev/ia/en/fundamentos/cores.md): OKLCH palettes, semantic tokens, and dark and light themes.
+- [Typography](https://lumeui.dev/ia/en/fundamentos/tipografia.md): Geist Serif for headings, Geist Sans for reading, and 19 text styles.
+- [Icons](https://lumeui.dev/ia/en/fundamentos/icones.md): A custom library on a 24 px grid with a 1.5 stroke.
+- [Spacing](https://lumeui.dev/ia/en/fundamentos/espacamento.md): A 4 px scale for rhythm and alignment.
+- [Radius](https://lumeui.dev/ia/en/fundamentos/raios.md): Generous corners — from subtle to pill.
+- [Elevation](https://lumeui.dev/ia/en/fundamentos/elevacao.md): Surface layers and shadows that create hierarchy.
+- [Motion](https://lumeui.dev/ia/en/fundamentos/movimento.md): Durations and curves for purposeful transitions.
+- [Layout](https://lumeui.dev/ia/en/fundamentos/layout.md): Breakpoints, grid, and app shell dimensions.
+
+## Components
+
+- [Button](https://lumeui.dev/ia/en/componentes/botao.md): Triggers an action. Primary, secondary, ghost, subtle, and danger.
+- [Inline action](https://lumeui.dev/ia/en/componentes/acao-inline.md): The quietest action: inside the content, with + or →.
+- [Chip](https://lumeui.dev/ia/en/componentes/chip.md): A pill to filter, choose, and show selections.
+- [Menu](https://lumeui.dev/ia/en/componentes/menu.md): A list that opens from a trigger, to pick a value or run actions.
+- [Text field](https://lumeui.dev/ia/en/componentes/campo-de-texto.md): Label, hint, error, and counter — single line or multiline.
+- [Select](https://lumeui.dev/ia/en/componentes/selecao.md): Single, searchable, or multiple — a list that looks like a menu, with a real select underneath.
+- [Checkbox and radio](https://lumeui.dev/ia/en/componentes/checkbox-radio.md): Many choices or just one, with groups and an indeterminate state.
+- [Switch](https://lumeui.dev/ia/en/componentes/switch.md): Turns something on or off, right away.
+- [Date picker](https://lumeui.dev/ia/en/componentes/seletor-de-data.md): A day or a range, typed or picked from the calendar.
+- [Time picker](https://lumeui.dev/ia/en/componentes/seletor-de-horario.md): Hours and minutes in the locale’s format, typed or from the list.
+- [Number field](https://lumeui.dev/ia/en/componentes/campo-numerico.md): A number with − and +, limits, a step, and the locale’s format.
+- [Slider](https://lumeui.dev/ia/en/componentes/slider.md): A value or a range, when position matters more than the exact number.
+- [Tag field](https://lumeui.dev/ia/en/componentes/campo-de-tags.md): Several free values inside one field.
+- [File upload](https://lumeui.dev/ia/en/componentes/upload.md): Drag or browse, with progress and errors per file.
+- [Verification code](https://lumeui.dev/ia/en/componentes/codigo-de-verificacao.md): One digit per box, for two-step sign-in.
+- [Tabs](https://lumeui.dev/ia/en/componentes/abas.md): Switch between views of the same subject. Underlined or segmented.
+- [Segmented control](https://lumeui.dev/ia/en/componentes/controle-segmentado.md): A few options side by side, one selected.
+- [Breadcrumb](https://lumeui.dev/ia/en/componentes/breadcrumb.md): The path to the current page.
+- [Pagination](https://lumeui.dev/ia/en/componentes/paginacao.md): Pages of a list or table, with a total and items per page.
+- [Stepper](https://lumeui.dev/ia/en/componentes/stepper.md): The steps of a flow and where the person is.
+- [Accordion](https://lumeui.dev/ia/en/componentes/acordeao.md): Sections that open and close in place.
+- [Tree](https://lumeui.dev/ia/en/componentes/arvore.md): Folders and nested levels, with keyboard support.
+- [Scrollbar](https://lumeui.dev/ia/en/componentes/barra-de-rolagem.md): A single bar that appears while people scroll.
+- [Back to top](https://lumeui.dev/ia/en/componentes/voltar-ao-topo.md): Takes you back to the start on long pages.
+- [Modal](https://lumeui.dev/ia/en/componentes/modal.md): Interrupts for a decision or short task, with destructive confirmation.
+- [Drawer](https://lumeui.dev/ia/en/componentes/gaveta-lateral.md): Details or a task without leaving the page.
+- [Popover](https://lumeui.dev/ia/en/componentes/popover.md): Free content that opens on click, attached to its trigger.
+- [Context menu](https://lumeui.dev/ia/en/componentes/menu-de-contexto.md): Item actions, with a right-click or the keyboard.
+- [Tooltip](https://lumeui.dev/ia/en/componentes/tooltip.md): A short hint on hover and focus — names icons and teaches shortcuts.
+- [Alert](https://lumeui.dev/ia/en/componentes/alerta.md): A message on the page itself, in the status tones.
+- [Toast](https://lumeui.dev/ia/en/componentes/toast.md): Confirms what happened without interrupting; tones, undo, and six positions.
+- [Badge](https://lumeui.dev/ia/en/componentes/badge.md): A short status or count label — never decoration.
+- [Progress bar](https://lumeui.dev/ia/en/componentes/barra-de-progresso.md): How much of a task is done.
+- [Spinner](https://lumeui.dev/ia/en/componentes/spinner.md): A short wait, inside buttons too.
+- [Skeleton](https://lumeui.dev/ia/en/componentes/skeleton.md): The shape of the content before it arrives.
+- [Card](https://lumeui.dev/ia/en/componentes/card.md): The basic surface for grouping content.
+- [Panel](https://lumeui.dev/ia/en/componentes/painel.md): The surface of a task: label, title, controls, and sections.
+- [Avatar](https://lumeui.dev/ia/en/componentes/avatar.md): A person or account: photo, initials in a stable tone, status, and group.
+- [Table](https://lumeui.dev/ia/en/componentes/tabela.md): Data in rows and columns, with sorting and selection.
+- [Calendar](https://lumeui.dev/ia/en/componentes/calendario.md): Month, week, and day, with events and keyboard.
+- [Timeline](https://lumeui.dev/ia/en/componentes/linha-do-tempo.md): Events in order, like an activity history.
+- [Description list](https://lumeui.dev/ia/en/componentes/lista-de-definicoes.md): Label and value pairs, as on a details sheet.
+- [Code block](https://lumeui.dev/ia/en/componentes/bloco-de-codigo.md): Code with a copy button.
+- [Keyboard key](https://lumeui.dev/ia/en/componentes/tecla.md): Keyboard shortcuts within text.
+
+## Charts
+
+- [Overview](https://lumeui.dev/ia/en/graficos/visao-geral.md): Which chart to use, colorblind-safe colors, anatomy, interaction, and accessibility.
+- [Bars](https://lumeui.dev/ia/en/graficos/barras.md): Columns and horizontal bars: grouped, stacked, 100%, diverging, and funnel.
+- [Lines and areas](https://lumeui.dev/ia/en/graficos/linhas.md): Trends over time, with a crosshair, end-of-line labels, goals, and stacked areas.
+- [Donut](https://lumeui.dev/ia/en/graficos/rosca.md): Part of a whole at a glance, with up to 6 slices and the total in the middle.
+- [Heatmap](https://lumeui.dev/ia/en/graficos/heatmap.md): Intensity on a grid or a calendar, on a sequential or diverging scale.
+- [Scatter](https://lumeui.dev/ia/en/graficos/dispersao.md): The relationship between two measures, with bubbles, reference lines, and selective labels.
+- [Indicators](https://lumeui.dev/ia/en/graficos/indicadores.md): When the chart is a number: stat, hero number, sparkline, and meter.
+
+## Patterns
+
+- [App shell](https://lumeui.dev/ia/en/padroes/app-shell.md): Floating sidebar, main panel, top bar, and ⌘K search.
+- [Chat and composer](https://lumeui.dev/ia/en/padroes/conversa.md): Bubbles, responses, attachments, and the message box.
+- [Forms](https://lumeui.dev/ia/en/padroes/formularios.md): Fields, validation, and error messages that help people move on.
+- [Sign-in and sign-up](https://lumeui.dev/ia/en/padroes/login.md): Sign in, create an account, and reset the password — short and trap-free.
+- [Empty states](https://lumeui.dev/ia/en/padroes/estados-vazios.md): First use, no results, and errors — always with a next step.
+- [Search and commands](https://lumeui.dev/ia/en/padroes/busca.md): ⌘K palette, filters, and keyboard shortcuts.
+
+## Resources
+
+- [Accessibility](https://lumeui.dev/ia/en/recursos/acessibilidade.md): Guidelines for products everyone can use.
+- [Tokens for Figma](https://lumeui.dev/ia/en/recursos/tokens.md): Token export for Figma and other tools.
+- [How to contribute](https://lumeui.dev/ia/en/recursos/contribuir.md): How to propose and evolve components.
+
+## Other languages
+
+- [Português](https://lumeui.dev/llms.txt)
+- [Español](https://lumeui.dev/ia/es/llms.txt)

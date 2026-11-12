@@ -38,6 +38,7 @@ O CSS e os módulos estão publicados em `https://lumeui.dev/ds/` e podem ser ca
 - **Tema:** `data-theme="light"` (claro) ou `data-theme="dark"` (escuro) no `<html>`. Para seguir o sistema, chame `initTheme()` de `https://lumeui.dev/ds/js/theme.js`.
 - **JavaScript só onde precisa:** componentes visuais funcionam só com CSS. Os interativos têm um módulo em `https://lumeui.dev/ds/js/`. Importe só os que a tela usa, e o arquivo de cada componente mostra qual é.
 - **Ícones:** importe `https://lumeui.dev/ds/icons/icons.js` uma vez para que o `<ds-icon>` funcione.
+- **Idioma:** os textos de sistema dos componentes seguem o idioma do navegador (português, inglês ou espanhol; qualquer outro vira inglês). Para fixar um, chame `setLocale('pt-BR')` de `https://lumeui.dev/ds/js/i18n.js`.
 - **Versão:** o endereço sempre entrega a versão mais nova do Lume. Ainda não existe pacote com versão fixa; ele está no roadmap. Para congelar uma versão, copie a pasta `ds/` para o projeto e aponte para ela.
 
 ## Direção visual

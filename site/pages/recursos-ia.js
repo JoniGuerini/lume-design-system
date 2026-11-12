@@ -2,12 +2,20 @@ import { icon } from '../../ds/icons/icons.js';
 import { mountDocNav } from '../doc-nav.js';
 import { mountCodeCopy, codeBlock } from '../component-doc.js';
 import { L } from '../i18n.js';
+import { locale } from '../../ds/js/i18n.js';
 
 // Reaproveita o visual dos passos e notas da página do plugin do Figma (rf-*)
 export const styles = ['site/component-doc.css', 'site/pages/recursos-figma.css', 'site/pages/recursos-ia.css'];
 
 const SITE = 'https://lumeui.dev';
 const ic = (s) => `<code class="ds-inline-code">${s}</code>`;
+// os arquivos existem nos três idiomas; a página aponta para os do idioma escolhido
+const FILES_BY_LOCALE = {
+  'pt-BR': { dir: 'ia', llms: 'llms.txt', readme: 'LEIA-ME.md', icons: 'icones.md' },
+  en: { dir: 'ia/en', llms: 'ia/en/llms.txt', readme: 'README.md', icons: 'icons.md' },
+  es: { dir: 'ia/es', llms: 'ia/es/llms.txt', readme: 'LEEME.md', icons: 'iconos.md' },
+};
+const P = () => FILES_BY_LOCALE[locale()] ?? FILES_BY_LOCALE.en;
 const link = (href, text) => `<a class="rf-link" href="${href}" target="_blank" rel="noopener">${text}</a>`;
 
 /* ───────── Dados (textos no idioma atual: chame na renderização) ───────── */
@@ -23,27 +31,27 @@ const WAYS = () => [
   [
     L('Num chat', 'In a chat', 'En un chat'),
     L('Mande o índice para a IA e peça a tela. Ela lê o LEIA-ME e o arquivo de cada componente antes de escrever o código.', 'Send the index to the AI and ask for the screen. It reads the LEIA-ME and each component’s file before writing code.', 'Envía el índice a la IA y pide la pantalla. Lee el LEIA-ME y el archivo de cada componente antes de escribir el código.'),
-    L(`Leia ${SITE}/llms.txt e crie uma tela de login com o Lume Design System.`, `Read ${SITE}/llms.txt and build a login screen with the Lume Design System.`, `Lee ${SITE}/llms.txt y crea una pantalla de inicio de sesión con Lume Design System.`),
+    L(`Leia ${SITE}/${P().llms} e crie uma tela de login com o Lume Design System.`, `Read ${SITE}/${P().llms} and build a login screen with the Lume Design System.`, `Lee ${SITE}/${P().llms} y crea una pantalla de inicio de sesión con Lume Design System.`),
   ],
   [
     L('Num projeto', 'In a project', 'En un proyecto'),
     L(`Copie o ${ic('AGENTS.md')} para a raiz do projeto, com o nome que a sua ferramenta lê (${ic('AGENTS.md')}, ${ic('CLAUDE.md')} ou o arquivo de regras do editor).`, `Copy ${ic('AGENTS.md')} to the project root, under the name your tool reads (${ic('AGENTS.md')}, ${ic('CLAUDE.md')}, or your editor’s rules file).`, `Copia ${ic('AGENTS.md')} a la raíz del proyecto, con el nombre que lee tu herramienta (${ic('AGENTS.md')}, ${ic('CLAUDE.md')} o el archivo de reglas del editor).`),
-    `curl -o AGENTS.md ${SITE}/ia/AGENTS.md`,
+    `curl -o AGENTS.md ${SITE}/${P().dir}/AGENTS.md`,
   ],
   [
     L('Como skill do Claude', 'As a Claude skill', 'Como skill de Claude'),
-    L(`Baixe ${link('ia/lume-design-system.zip', 'lume-design-system.zip')} e envie na área de skills das configurações do Claude. No Claude Code, extraia em ${ic('~/.claude/skills/')}.`, `Download ${link('ia/lume-design-system.zip', 'lume-design-system.zip')} and upload it in the skills area of Claude’s settings. In Claude Code, extract it into ${ic('~/.claude/skills/')}.`, `Descarga ${link('ia/lume-design-system.zip', 'lume-design-system.zip')} y súbelo en el área de skills de la configuración de Claude. En Claude Code, extráelo en ${ic('~/.claude/skills/')}.`),
+    L(`Baixe ${link(`${P().dir}/lume-design-system.zip`, 'lume-design-system.zip')} e envie na área de skills das configurações do Claude. No Claude Code, extraia em ${ic('~/.claude/skills/')}.`, `Download ${link(`${P().dir}/lume-design-system.zip`, 'lume-design-system.zip')} and upload it in the skills area of Claude’s settings. In Claude Code, extract it into ${ic('~/.claude/skills/')}.`, `Descarga ${link(`${P().dir}/lume-design-system.zip`, 'lume-design-system.zip')} y súbelo en el área de skills de la configuración de Claude. En Claude Code, extráelo en ${ic('~/.claude/skills/')}.`),
     null,
   ],
 ];
 
 const FILES = () => [
-  ['llms.txt', 'llms.txt', L('O índice que as IAs procuram: um link para cada arquivo, com uma linha de descrição.', 'The index AIs look for: one link per file, with a one-line description.', 'El índice que buscan las IAs: un enlace por archivo, con una línea de descripción.')],
-  ['ia/LEIA-ME.md', 'LEIA-ME.md', L('A porta de entrada: instalação, regras gerais, direção visual e uma escolha rápida de componentes.', 'The entry point: installation, general rules, visual direction, and a quick component chooser.', 'La puerta de entrada: instalación, reglas generales, dirección visual y una elección rápida de componentes.')],
-  ['ia/AGENTS.md', 'AGENTS.md', L('As regras em poucas linhas, para copiar para um projeto.', 'The rules in a few lines, to copy into a project.', 'Las reglas en pocas líneas, para copiar a un proyecto.')],
-  ['ia/icones.md', 'icones.md', L('A lista exata dos 130 nomes de ícone. Nenhum outro existe.', 'The exact list of the 130 icon names. No other exists.', 'La lista exacta de los 130 nombres de ícono. No existe ningún otro.')],
-  ['ia/componentes/botao.md', 'componentes/*.md', L('Um arquivo por componente: exemplo, variantes com classes, estados, anatomia, acessibilidade, tokens e regras de uso.', 'One file per component: example, variants with classes, states, anatomy, accessibility, tokens, and usage rules.', 'Un archivo por componente: ejemplo, variantes con clases, estados, anatomía, accesibilidad, tokens y reglas de uso.')],
-  ['ia/padroes/login.md', 'fundamentos · gráficos · padrões', L('As demais páginas do site, no mesmo formato.', 'The rest of the site’s pages, in the same format.', 'Las demás páginas del sitio, en el mismo formato.')],
+  [P().llms, 'llms.txt', L('O índice que as IAs procuram: um link para cada arquivo, com uma linha de descrição.', 'The index AIs look for: one link per file, with a one-line description.', 'El índice que buscan las IAs: un enlace por archivo, con una línea de descripción.')],
+  [`${P().dir}/${P().readme}`, P().readme, L('A porta de entrada: instalação, regras gerais, direção visual e uma escolha rápida de componentes.', 'The entry point: installation, general rules, visual direction, and a quick component chooser.', 'La puerta de entrada: instalación, reglas generales, dirección visual y una elección rápida de componentes.')],
+  [`${P().dir}/AGENTS.md`, 'AGENTS.md', L('As regras em poucas linhas, para copiar para um projeto.', 'The rules in a few lines, to copy into a project.', 'Las reglas en pocas líneas, para copiar a un proyecto.')],
+  [`${P().dir}/${P().icons}`, P().icons, L('A lista exata dos 130 nomes de ícone. Nenhum outro existe.', 'The exact list of the 130 icon names. No other exists.', 'La lista exacta de los 130 nombres de ícono. No existe ningún otro.')],
+  [`${P().dir}/componentes/botao.md`, 'componentes/*.md', L('Um arquivo por componente: exemplo, variantes com classes, estados, anatomia, acessibilidade, tokens e regras de uso.', 'One file per component: example, variants with classes, states, anatomy, accessibility, tokens, and usage rules.', 'Un archivo por componente: ejemplo, variantes con clases, estados, anatomía, accesibilidad, tokens y reglas de uso.')],
+  [`${P().dir}/padroes/login.md`, 'fundamentos · graficos · padroes', L('As demais páginas do site, no mesmo formato.', 'The rest of the site’s pages, in the same format.', 'Las demás páginas del sitio, en el mismo formato.')],
 ];
 
 const RULES = () => [
@@ -74,7 +82,8 @@ export default function renderIa(page) {
         <p class="doc-header__lead">${L('A documentação do Lume em Markdown, no formato que as IAs leem: cada página do site vira um arquivo, com as regras que impedem a IA de inventar classes, ícones e cores.', 'Lume’s documentation in Markdown, in the format AIs read: every page of the site becomes a file, with rules that keep the AI from inventing classes, icons, and colors.', 'La documentación de Lume en Markdown, en el formato que leen las IAs: cada página del sitio se vuelve un archivo, con reglas que impiden que la IA invente clases, íconos y colores.')}</p>
       </div>
       <dl class="doc-stats">
-        <div class="doc-stat"><dt class="doc-stat__label">${L('arquivos', 'files', 'archivos')}</dt><dd class="doc-stat__value">72</dd></div>
+        <div class="doc-stat"><dt class="doc-stat__label">${L('arquivos por idioma', 'files per language', 'archivos por idioma')}</dt><dd class="doc-stat__value">72</dd></div>
+        <div class="doc-stat"><dt class="doc-stat__label">${L('idiomas', 'languages', 'idiomas')}</dt><dd class="doc-stat__value">3</dd></div>
         <div class="doc-stat"><dt class="doc-stat__label">${L('componentes', 'components', 'componentes')}</dt><dd class="doc-stat__value">44</dd></div>
         <div class="doc-stat"><dt class="doc-stat__label">${L('ícones listados', 'icons listed', 'íconos listados')}</dt><dd class="doc-stat__value">130</dd></div>
       </dl>
@@ -87,7 +96,7 @@ export default function renderIa(page) {
     ${section(
       'ia-usar',
       L('Como usar', 'How to use', 'Cómo usar'),
-      L('Três jeitos, do mais rápido ao mais permanente. Os arquivos estão em português; as IAs leem bem em qualquer idioma.', 'Three ways, from quickest to most permanent. The files are in Portuguese; AIs read them well in any language.', 'Tres formas, de la más rápida a la más permanente. Los archivos están en portugués; las IAs los leen bien en cualquier idioma.'),
+      L('Três jeitos, do mais rápido ao mais permanente. Os arquivos existem em português, inglês e espanhol, e os links abaixo seguem o idioma do site.', 'Three ways, from quickest to most permanent. The files exist in Portuguese, English, and Spanish, and the links below follow the site’s language.', 'Tres formas, de la más rápida a la más permanente. Los archivos existen en portugués, inglés y español, y los enlaces de abajo siguen el idioma del sitio.'),
       `<ol class="rf-steps" role="list">
         ${WAYS().map(
           ([title, text, code], i) => `<li class="rf-step">
@@ -102,7 +111,7 @@ export default function renderIa(page) {
     ${section(
       'ia-arquivos',
       L('Arquivos', 'Files', 'Archivos'),
-      L(`Tudo publicado em ${ic(`${SITE}/ia/`)}, sem login.`, `Everything is published at ${ic(`${SITE}/ia/`)}, no login needed.`, `Todo publicado en ${ic(`${SITE}/ia/`)}, sin iniciar sesión.`),
+      L(`Tudo publicado em ${ic(`${SITE}/${P().dir}/`)}, sem login. Os caminhos ficam em português, como os endereços do site.`, `Everything is published at ${ic(`${SITE}/${P().dir}/`)}, no login needed. Paths stay in Portuguese, like the site’s addresses.`, `Todo publicado en ${ic(`${SITE}/${P().dir}/`)}, sin iniciar sesión. Las rutas quedan en portugués, como las direcciones del sitio.`),
       `<ul class="ri-files" role="list">
         ${FILES().map(([href, name, text]) => `<li class="ri-file">
           <a class="ri-file__name" href="${href}" target="_blank" rel="noopener">${icon('file-text', { size: 18 })}<span>${name}</span></a>
@@ -124,7 +133,7 @@ export default function renderIa(page) {
       L('Para quem mantém', 'For maintainers', 'Para quien mantiene'),
       L('Os arquivos de páginas saem do próprio site: um script abre cada página e converte o conteúdo. Mudou uma página, gere de novo.', 'The page files come from the site itself: a script opens each page and converts its content. Changed a page? Generate again.', 'Los archivos de páginas salen del propio sitio: un script abre cada página y convierte el contenido. ¿Cambió una página? Genera de nuevo.'),
       `${codeBlock('npm run ia')}
-      <p class="rf-note">${icon('pencil', { size: 16 })}<span>${L(`${ic('ia/LEIA-ME.md')}, ${ic('ia/AGENTS.md')} e a skill são escritos à mão e o script não mexe neles.`, `${ic('ia/LEIA-ME.md')}, ${ic('ia/AGENTS.md')}, and the skill are written by hand, and the script leaves them alone.`, `${ic('ia/LEIA-ME.md')}, ${ic('ia/AGENTS.md')} y la skill se escriben a mano y el script no los toca.`)}</span></p>`,
+      <p class="rf-note">${icon('pencil', { size: 16 })}<span>${L(`O guia (${ic('LEIA-ME.md')}, ${ic('README.md')}, ${ic('LEEME.md')}), o ${ic('AGENTS.md')} e a skill de cada idioma são escritos à mão e o script não mexe neles.`, `The guide (${ic('LEIA-ME.md')}, ${ic('README.md')}, ${ic('LEEME.md')}), ${ic('AGENTS.md')}, and each language’s skill are written by hand, and the script leaves them alone.`, `La guía (${ic('LEIA-ME.md')}, ${ic('README.md')}, ${ic('LEEME.md')}), el ${ic('AGENTS.md')} y la skill de cada idioma se escriben a mano y el script no los toca.`)}</span></p>`,
     )}
   </div>`;
 }

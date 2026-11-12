@@ -1,0 +1,104 @@
+# Lume Design System
+
+> Design system en HTML, CSS y JavaScript nativos, sin dependencias: tokens, tipografía, 130 íconos propios, componentes, gráficos y patrones de pantalla, en los temas claro y oscuro. Versión 0.23.1.
+
+Empieza por [LEEME](https://lumeui.dev/ia/es/LEEME.md): instalación, reglas generales y lo que nunca inventar. Cada página del sitio tiene un archivo Markdown abajo, generado a partir de ella.
+
+## Para empezar
+
+- [LEEME](https://lumeui.dev/ia/es/LEEME.md): reglas para IAs, instalación y dirección visual
+- [AGENTS.md](https://lumeui.dev/ia/es/AGENTS.md): reglas cortas para copiar a la raíz de un proyecto
+- [Íconos](https://lumeui.dev/ia/es/iconos.md): la lista exacta de nombres que acepta `<ds-icon>`
+- [Skill para Claude](https://lumeui.dev/ia/es/lume-design-system.zip): la misma orientación en formato de skill
+
+## Lume
+
+- [Primeros pasos](https://lumeui.dev/ia/es/primeiros-passos.md): Cómo instalar, importar los estilos y usar los tokens en tu proyecto.
+
+## Fundamentos
+
+- [Color](https://lumeui.dev/ia/es/fundamentos/cores.md): Paletas en OKLCH, tokens semánticos y temas oscuro y claro.
+- [Tipografía](https://lumeui.dev/ia/es/fundamentos/tipografia.md): Geist Serif para títulos, Geist Sans para lectura y 19 estilos de texto.
+- [Íconos](https://lumeui.dev/ia/es/fundamentos/icones.md): Biblioteca propia en una cuadrícula de 24 px con trazo de 1,5.
+- [Espaciado](https://lumeui.dev/ia/es/fundamentos/espacamento.md): Escala de 4 en 4 px para ritmo y alineación.
+- [Radios](https://lumeui.dev/ia/es/fundamentos/raios.md): Esquinas generosas — de sutil a píldora.
+- [Elevación](https://lumeui.dev/ia/es/fundamentos/elevacao.md): Capas de superficie y sombras para dar jerarquía.
+- [Movimiento](https://lumeui.dev/ia/es/fundamentos/movimento.md): Duraciones y curvas para transiciones con propósito.
+- [Layout](https://lumeui.dev/ia/es/fundamentos/layout.md): Breakpoints, cuadrícula y dimensiones del app shell.
+
+## Componentes
+
+- [Botón](https://lumeui.dev/ia/es/componentes/botao.md): Dispara una acción. Primario, secundario, ghost, sutil y peligro.
+- [Acción en línea](https://lumeui.dev/ia/es/componentes/acao-inline.md): La acción más discreta: dentro del contenido, con + o →.
+- [Chip](https://lumeui.dev/ia/es/componentes/chip.md): Píldora para filtrar, elegir y mostrar selecciones.
+- [Menú](https://lumeui.dev/ia/es/componentes/menu.md): Lista que se abre desde un disparador, para elegir un valor o ejecutar acciones.
+- [Campo de texto](https://lumeui.dev/ia/es/componentes/campo-de-texto.md): Etiqueta, pista, error y contador — en una línea o en varias.
+- [Selector](https://lumeui.dev/ia/es/componentes/selecao.md): Única, con búsqueda o múltiple — lista con el estilo de los menús y un select real debajo.
+- [Checkbox y radio](https://lumeui.dev/ia/es/componentes/checkbox-radio.md): Varias opciones o una sola, con grupos y estado indeterminado.
+- [Switch](https://lumeui.dev/ia/es/componentes/switch.md): Enciende y apaga con efecto inmediato.
+- [Selector de fecha](https://lumeui.dev/ia/es/componentes/seletor-de-data.md): Un día o un período, escribiendo o eligiendo en el calendario.
+- [Selector de hora](https://lumeui.dev/ia/es/componentes/seletor-de-horario.md): Horas y minutos en el formato del idioma, escribiendo o de la lista.
+- [Campo numérico](https://lumeui.dev/ia/es/componentes/campo-numerico.md): Número con − y +, límites, paso y formato del idioma.
+- [Slider](https://lumeui.dev/ia/es/componentes/slider.md): Un valor o un rango, cuando la posición importa más que el número exacto.
+- [Campo de etiquetas](https://lumeui.dev/ia/es/componentes/campo-de-tags.md): Varios valores libres dentro de un solo campo.
+- [Carga de archivos](https://lumeui.dev/ia/es/componentes/upload.md): Arrastrar o elegir, con progreso y error por archivo.
+- [Código de verificación](https://lumeui.dev/ia/es/componentes/codigo-de-verificacao.md): Un dígito por casilla, para el inicio de sesión en dos pasos.
+- [Pestañas](https://lumeui.dev/ia/es/componentes/abas.md): Alternan vistas del mismo tema. Subrayadas o segmentadas.
+- [Control segmentado](https://lumeui.dev/ia/es/componentes/controle-segmentado.md): Pocas opciones lado a lado, una elegida.
+- [Breadcrumb](https://lumeui.dev/ia/es/componentes/breadcrumb.md): El camino hasta la página actual.
+- [Paginación](https://lumeui.dev/ia/es/componentes/paginacao.md): Páginas de una lista o tabla, con total y elementos por página.
+- [Stepper](https://lumeui.dev/ia/es/componentes/stepper.md): Las etapas de un flujo y dónde está la persona.
+- [Acordeón](https://lumeui.dev/ia/es/componentes/acordeao.md): Secciones que se abren y se cierran en su lugar.
+- [Árbol](https://lumeui.dev/ia/es/componentes/arvore.md): Carpetas y niveles anidados, con teclado.
+- [Barra de desplazamiento](https://lumeui.dev/ia/es/componentes/barra-de-rolagem.md): Una sola barra que aparece mientras la persona se desplaza.
+- [Volver arriba](https://lumeui.dev/ia/es/componentes/voltar-ao-topo.md): Lleva de vuelta al inicio en páginas largas.
+- [Modal](https://lumeui.dev/ia/es/componentes/modal.md): Interrumpe para una decisión o tarea corta, con confirmación destructiva.
+- [Panel lateral](https://lumeui.dev/ia/es/componentes/gaveta-lateral.md): Detalles o una tarea sin salir de la página.
+- [Popover](https://lumeui.dev/ia/es/componentes/popover.md): Contenido libre que se abre al hacer clic, unido a su disparador.
+- [Menú contextual](https://lumeui.dev/ia/es/componentes/menu-de-contexto.md): Acciones del elemento, con clic derecho o teclado.
+- [Tooltip](https://lumeui.dev/ia/es/componentes/tooltip.md): Pista corta al pasar el cursor y al enfocar — nombra íconos y enseña atajos.
+- [Alerta](https://lumeui.dev/ia/es/componentes/alerta.md): Un mensaje en la propia página, en los tonos de estado.
+- [Toast](https://lumeui.dev/ia/es/componentes/toast.md): Confirma lo que pasó sin interrumpir; tonos, deshacer y seis posiciones.
+- [Badge](https://lumeui.dev/ia/es/componentes/badge.md): Etiqueta corta de estado o conteo — nunca adorno.
+- [Barra de progreso](https://lumeui.dev/ia/es/componentes/barra-de-progresso.md): Cuánto de una tarea ya está hecho.
+- [Spinner](https://lumeui.dev/ia/es/componentes/spinner.md): Espera corta, también dentro de botones.
+- [Skeleton](https://lumeui.dev/ia/es/componentes/skeleton.md): La forma del contenido antes de que llegue.
+- [Tarjeta](https://lumeui.dev/ia/es/componentes/card.md): La superficie básica para agrupar contenido.
+- [Panel](https://lumeui.dev/ia/es/componentes/painel.md): La superficie de una tarea: etiqueta, título, controles y secciones.
+- [Avatar](https://lumeui.dev/ia/es/componentes/avatar.md): Persona o cuenta: foto, iniciales en un tono estable, estado y grupo.
+- [Tabla](https://lumeui.dev/ia/es/componentes/tabela.md): Datos en filas y columnas, con orden y selección.
+- [Calendario](https://lumeui.dev/ia/es/componentes/calendario.md): Mes, semana y día, con eventos y teclado.
+- [Línea de tiempo](https://lumeui.dev/ia/es/componentes/linha-do-tempo.md): Eventos en orden, como un historial de actividad.
+- [Lista de definiciones](https://lumeui.dev/ia/es/componentes/lista-de-definicoes.md): Pares de etiqueta y valor, como en una ficha de detalles.
+- [Bloque de código](https://lumeui.dev/ia/es/componentes/bloco-de-codigo.md): Código con botón de copiar.
+- [Tecla](https://lumeui.dev/ia/es/componentes/tecla.md): Atajos de teclado en medio del texto.
+
+## Gráficos
+
+- [Visión general](https://lumeui.dev/ia/es/graficos/visao-geral.md): Qué gráfico usar, colores validados para daltonismo, anatomía, interacción y accesibilidad.
+- [Barras](https://lumeui.dev/ia/es/graficos/barras.md): Columnas y barras horizontales: agrupadas, apiladas, 100%, divergentes y embudo.
+- [Líneas y áreas](https://lumeui.dev/ia/es/graficos/linhas.md): Tendencia en el tiempo, con mira, etiquetas al final de la línea, meta y áreas apiladas.
+- [Dona](https://lumeui.dev/ia/es/graficos/rosca.md): Parte del todo de un vistazo, con hasta 6 porciones y el total en el centro.
+- [Mapa de calor](https://lumeui.dev/ia/es/graficos/heatmap.md): Intensidad en una cuadrícula o un calendario, en escala secuencial o divergente.
+- [Dispersión](https://lumeui.dev/ia/es/graficos/dispersao.md): Relación entre dos medidas, con burbujas, referencias y etiquetas selectivas.
+- [Indicadores](https://lumeui.dev/ia/es/graficos/indicadores.md): Cuando el gráfico es un número: indicador, número destacado, sparkline y medidor.
+
+## Patrones
+
+- [App shell](https://lumeui.dev/ia/es/padroes/app-shell.md): Sidebar flotante, panel principal, barra superior y búsqueda ⌘K.
+- [Conversación y composer](https://lumeui.dev/ia/es/padroes/conversa.md): Burbujas, respuestas, adjuntos y la caja de mensaje.
+- [Formularios](https://lumeui.dev/ia/es/padroes/formularios.md): Campos, validación y mensajes de error que ayudan a seguir.
+- [Inicio de sesión y registro](https://lumeui.dev/ia/es/padroes/login.md): Entrar, crear cuenta y recuperar la contraseña — corto y sin trampas.
+- [Estados vacíos](https://lumeui.dev/ia/es/padroes/estados-vazios.md): Primer uso, sin resultados y error — siempre con un siguiente paso.
+- [Búsqueda y comandos](https://lumeui.dev/ia/es/padroes/busca.md): Paleta ⌘K, filtros y atajos de teclado.
+
+## Recursos
+
+- [Accesibilidad](https://lumeui.dev/ia/es/recursos/acessibilidade.md): Pautas para productos que todo el mundo puede usar.
+- [Tokens para Figma](https://lumeui.dev/ia/es/recursos/tokens.md): Exportación de los tokens para Figma y otras herramientas.
+- [Cómo contribuir](https://lumeui.dev/ia/es/recursos/contribuir.md): Proceso para proponer y evolucionar componentes.
+
+## Otros idiomas
+
+- [Português](https://lumeui.dev/llms.txt)
+- [English](https://lumeui.dev/ia/en/llms.txt)

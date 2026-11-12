@@ -1,0 +1,179 @@
+# Íconos de Lume
+
+Son 130 íconos dibujados para Lume: cuadrícula de 24, trazo de 1,5, puntas redondeadas. Usa solo estos nombres, en `<ds-icon name="…">` (con https://lumeui.dev/ds/icons/icons.js importado) o en la función `icon(name)` del mismo módulo. No existe ningún otro nombre.
+
+```html
+<ds-icon name="search" size="20"></ds-icon>
+```
+
+El tamaño predeterminado es 20 px; el trazo pasa a 1,75 por debajo de 16 px. El ícono hereda el color del texto. En botones solo con ícono, nombra el botón con aria-label.
+
+## Navegación
+
+| Nombre | Palabras clave |
+| --- | --- |
+| `home` | casa, inicio, principal |
+| `menu` | hamburguesa, navegación, lista |
+| `panel-left` | barra, lateral, contraer, panel |
+| `panel-top` | navbar, barra, superior, diseño |
+| `chevron-down` | flecha, abajo, expandir |
+| `chevron-up` | flecha, arriba, contraer |
+| `chevron-left` | flecha, izquierda, volver |
+| `chevron-right` | flecha, derecha, avanzar |
+| `chevrons-up-down` | selector, ordenar |
+| `arrow-right` | flecha, siguiente |
+| `arrow-left` | flecha, anterior, volver |
+| `arrow-up` | flecha, enviar, arriba |
+| `arrow-up-right` | diagonal, abrir, enlace |
+| `arrow-down` | flecha, abajo, bajar |
+| `external-link` | enlace, externo, abrir, nueva, pestaña |
+| `corner-down-left` | enter, confirmar, volver |
+| `log-out` | salir, cerrar, sesión, desconectar |
+| `compass` | explorar, brújula, descubrir |
+
+## Acciones
+
+| Nombre | Palabras clave |
+| --- | --- |
+| `search` | buscar, encontrar, lupa |
+| `search-x` | sin, resultados, búsqueda, vacía, nada, encontrado |
+| `send` | enviar, mensaje, avión |
+| `paperclip` | adjuntar, archivo, clip, adjunto |
+| `stop-circle` | detener, interrumpir, generar |
+| `thumbs-up` | me, gusta, útil, positivo, valorar |
+| `thumbs-down` | no, me, gusta, negativo, valorar |
+| `at-sign` | arroba, mencionar, correo |
+| `plus` | añadir, nuevo, crear, más |
+| `minus` | quitar, menos |
+| `x` | cerrar, cancelar, quitar |
+| `check` | confirmar, ok, hecho |
+| `pencil` | editar, crear, escribir, lápiz |
+| `copy` | copiar, duplicar |
+| `trash` | eliminar, borrar, papelera |
+| `download` | descargar, exportar |
+| `upload` | subir, importar |
+| `link` | enlace, url, cadena |
+| `filter` | filtrar, embudo |
+| `refresh` | actualizar, recargar, sincronizar |
+| `more-horizontal` | más, opciones, puntos, suspensivos |
+| `more-vertical` | más, opciones, menú |
+| `zap` | rayo, rápido, empezar |
+| `play` | reproducir, iniciar, animación |
+| `megaphone` | novedades, anuncio, comunicado, changelog |
+| `slash` | atajo, comando, barra |
+| `mic` | micrófono, audio, voz |
+| `video` | video, cámara, grabar, escena |
+
+## Estado y feedback
+
+| Nombre | Palabras clave |
+| --- | --- |
+| `info` | información, ayuda |
+| `alert-circle` | alerta, error, atención |
+| `alert-triangle` | aviso, peligro, atención |
+| `check-circle` | éxito, hecho, ok |
+| `x-circle` | error, falla, cancelar |
+| `help-circle` | ayuda, pregunta, duda |
+| `bell` | notificación, campana, alerta |
+| `loader` | cargando, spinner, progreso |
+| `clock` | tiempo, hora, reloj |
+| `history` | historial, changelog, versiones |
+| `shield` | seguridad, protección |
+| `lock` | bloqueado, privado, contraseña |
+| `wifi-off` | sin, conexión, offline, internet, red |
+| `star` | favorito, destacado, ejemplo |
+| `heart` | me, gusta, favorito, amor |
+| `flag` | bandera, hito, denunciar |
+
+## Interfaz
+
+| Nombre | Palabras clave |
+| --- | --- |
+| `settings` | configuración, engranaje, ajustes |
+| `sliders` | ajustes, controles, preferencias |
+| `sun` | tema, claro, día |
+| `moon` | tema, oscuro, noche |
+| `cabin` | cabaña, refugio, tema, casa |
+| `mountain` | montaña, naturaleza |
+| `monitor` | sistema, pantalla, escritorio |
+| `scrollbar` | barra, de, desplazamiento, desplazar, scroll |
+| `eye` | ver, mostrar, visualizar |
+| `eye-off` | ocultar, esconder, contraseña |
+| `keyboard` | teclado, atajos, teclas |
+| `command` | comando, cmd, atajo, mac |
+| `app-shell` | layout, estructura, ventana, barra, lateral |
+| `layout` | tablero, cuadrícula, bloques |
+| `button` | botón, acción, cta |
+| `input` | campo, texto, formulario |
+| `check-square` | casilla, selección, marcar |
+| `radio` | opción, única, radio |
+| `toggle` | interruptor, alternar, encender |
+| `tag` | insignia, etiqueta |
+| `card` | tarjeta, bloque, contenido |
+| `dialog` | modal, ventana, diálogo |
+| `tabs` | pestañas, navegación |
+| `tooltip` | pista, globo, ayuda |
+| `table` | tabla, datos, cuadrícula |
+| `list` | lista, elementos |
+| `message-square` | mensaje, toast, chat, comentario |
+| `stack` | contenidos, colección, pila |
+
+## Objetos
+
+| Nombre | Palabras clave |
+| --- | --- |
+| `calendar` | calendario, fecha, agenda, evento |
+| `file-text` | documento, archivo, página |
+| `folder` | carpeta, directorio |
+| `inbox` | bandeja, de, entrada, vacío |
+| `image` | imagen, foto, multimedia |
+| `package` | paquete, versión, lanzamiento |
+| `book-open` | documentación, guía, libro |
+| `code` | código, desarrollo |
+| `terminal` | línea, de, comandos, consola, terminal |
+| `git-branch` | rama, versión |
+| `git-pull-request` | contribuir, pull, request, revisión |
+| `mail` | correo, mensaje, carta |
+| `globe` | mundo, idioma, web |
+| `target` | objetivo, meta, foco |
+| `hash` | número, etiqueta, canal |
+
+## Gráficos
+
+| Nombre | Palabras clave |
+| --- | --- |
+| `dashboard` | panel, visión, general, indicadores, gráficos |
+| `bar-chart` | gráfico, barras, columnas, resultados, métricas |
+| `line-chart` | gráfico, línea, tendencia, serie, temporal |
+| `area-chart` | gráfico, área, volumen, acumulado |
+| `donut` | gráfico, dona, pastel, proporción, parte, del, todo |
+| `heatmap` | mapa, de, calor, matriz, intensidad, calendario |
+| `scatter` | dispersión, puntos, correlación, burbujas |
+| `gauge` | indicador, medidor, progreso, kpi |
+| `trending-up` | alza, subir, crecimiento, variación |
+| `trending-down` | baja, bajar, caída, variación |
+
+## Diseño
+
+| Nombre | Palabras clave |
+| --- | --- |
+| `palette` | colores, paleta, pintura |
+| `droplet` | color, gota, relleno |
+| `type` | tipografía, texto, fuente |
+| `shapes` | íconos, formas, geometría |
+| `grid` | cuadrícula, layout, columnas |
+| `layers` | capas, componentes, contexto |
+| `component` | componente, biblioteca, símbolo |
+| `spacing` | espaciado, distancia, medida |
+| `radius` | radio, esquina, redondeado, borde |
+| `elevation` | elevación, sombra, profundidad |
+| `motion` | movimiento, animación, onda |
+| `accessibility` | accesibilidad, a11y, inclusión |
+
+## Personas
+
+| Nombre | Palabras clave |
+| --- | --- |
+| `user` | usuario, persona, perfil |
+| `user-circle` | avatar, cuenta, perfil |
+| `users` | equipo, grupo, personas |
