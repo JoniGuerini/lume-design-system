@@ -8,10 +8,30 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.25.2';
+export const CURRENT_VERSION = '0.25.3';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.25.3',
+    date: '2026-11-13',
+    title: T('Storybook', 'Storybook', 'Storybook'),
+    summary: T(
+      'Os 44 componentes no Storybook, com o CSS real, tema claro e escuro e os três idiomas. O link fica no topo do site.',
+      'All 44 components in Storybook, with the real CSS, light and dark themes, and the three languages. The link is at the top of the site.',
+      'Los 44 componentes en Storybook, con el CSS real, tema claro y oscuro y los tres idiomas. El enlace está arriba en el sitio.',
+    ),
+    groups: [
+      {
+        name: T('Recursos', 'Resources', 'Recursos'),
+        items: [
+          ['novo', T('Storybook em lumeui.dev/storybook: uma história por seção de cada página de componente', 'Storybook at lumeui.dev/storybook: one story per section of each component page', 'Storybook en lumeui.dev/storybook: una historia por sección de cada página de componente'), '/'],
+          ['novo', T('Botão, Badge, Alerta e Switch com controles para montar ao vivo', 'Button, Badge, Alert, and Switch with controls to build live', 'Botón, Badge, Alerta y Switch con controles para armar en vivo'), '/'],
+          ['melhoria', T('Ícone do Storybook no topo do site', 'Storybook icon at the top of the site', 'Ícono de Storybook arriba en el sitio'), '/'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.25.2',
     date: '2026-11-12',

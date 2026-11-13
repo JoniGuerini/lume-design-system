@@ -1,0 +1,16 @@
+{
+  "name": "lume-storybook",
+  "private": true,
+  "description": "Storybook do Lume. Fica numa pasta própria para o design system continuar sem dependências.",
+  "type": "module",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build -o ../dist/site/storybook --quiet"
+  },
+  "devDependencies": {
+    "@storybook/addon-docs": "10.6.5",
+    "@storybook/html-vite": "10.6.5",
+    "storybook": "10.6.5",
+    "vite": "7.3.7"
+  }
+}

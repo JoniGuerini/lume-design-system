@@ -724,3 +724,32 @@
 .ds-topbar__locale .ds-chip__icon {
   color: var(--ds-color-fg-muted);
 }
+
+/* Links externos na topbar (Storybook): só o ícone, sem fundo, e um divisor antes dos controles */
+.site-toplink {
+  display: inline-grid;
+  place-items: center;
+  width: var(--ds-size-control-compact);
+  height: var(--ds-size-control-compact);
+  border-radius: var(--ds-radius-full);
+  transition: opacity var(--ds-duration-fast) var(--ds-easing-standard);
+}
+
+.site-toplink:hover,
+.site-toplink[data-state="hover"] {
+  opacity: 0.8;
+}
+
+.site-topdivider {
+  width: 1px;
+  height: 20px;
+  margin-inline: var(--ds-space-050);
+  background: var(--ds-color-border-default);
+}
+
+@media (max-width: 640px) {
+  .site-toplink,
+  .site-topdivider {
+    display: none;
+  }
+}

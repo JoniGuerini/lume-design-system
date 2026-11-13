@@ -1,0 +1,30 @@
+// Gerado por scripts/build-stories.mjs a partir de https://lumeui.dev/#/componentes/card. Não edite: rode npm run stories.
+export default {
+  title: "Componentes/Conteúdo/Card",
+  id: "componentes-card",
+  parameters: { docs: { description: { component: "A superfície básica para agrupar conteúdo. Separa uma coisa da outra com fundo e contorno finos, sem sombra.\n\nDocumentação completa: https://lumeui.dev/#/componentes/card" } } },
+};
+
+export const Playground = {
+  name: "Playground",
+  parameters: { docs: { description: { story: "Só CSS. Para uma tarefa com rótulo, título e controles, use o Painel." } } },
+  render: () => "<div class=\"cd-playground__preview\" style=\"min-height:0\"><div class=\"fc-stage\"><div class=\"ds-card\"><p class=\"ds-card__title\">Relatório mensal</p><p class=\"ds-card__text\">Receita, novos clientes e o que mudou desde o mês passado.</p></div></div></div>",
+};
+
+export const Variantes = {
+  name: "Variantes",
+  parameters: { docs: { description: { story: "Um card é só um contêiner; o clicável é um link inteiro." } } },
+  render: () => "<div class=\"fc-grid fc-grid--3\"><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><div class=\"ds-card\"><p class=\"ds-card__title\">Relatório mensal</p><p class=\"ds-card__text\">Receita, novos clientes e o que mudou desde o mês passado.</p></div></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">Simples<code>ds-card</code></p><p class=\"cd-example__text\">Agrupa conteúdo relacionado.</p></div>\n  </article><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><a class=\"ds-card ds-card--link\" href=\"#/componentes/card\" data-inert=\"\"><p class=\"ds-card__title\">Relatório mensal</p><p class=\"ds-card__text\">Receita, novos clientes e o que mudou desde o mês passado.</p></a></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">Clicável<code>ds-card--link</code></p><p class=\"cd-example__text\">O contorno reforça no hover. O destino é um só.</p></div>\n  </article><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><div class=\"ds-card\"><p class=\"ds-card__title\">Relatório mensal</p><p class=\"ds-card__text\">Receita, novos clientes e o que mudou desde o mês passado.</p><div style=\"margin-top:var(--ds-space-200)\"><button type=\"button\" class=\"ds-btn ds-btn--secondary ds-btn--sm\"><svg class=\"ds-icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"M12 4v11M7 10.5l5 5 5-5M4.5 20h15\"></path></svg>Baixar</button></div></div></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">Com ação<code>dentro do card</code></p><p class=\"cd-example__text\">Botões dentro de um card comum, sem o card inteiro ser link.</p></div>\n  </article></div>",
+};
+
+export const Estados = {
+  name: "Estados",
+  parameters: { docs: { description: { story: "Só o clicável muda. Hover e foco podem ser forçados com data-state." } } },
+  render: () => "<div class=\"fc-states\"><div class=\"fc-states__item\"><div class=\"fc-states__sample\"><a class=\"ds-card ds-card--link\" href=\"#/componentes/card\"><p class=\"ds-card__title\">Relatório mensal</p><p class=\"ds-card__text\">Receita, novos clientes e o que mudou desde o mês passado.</p></a></div><span class=\"fc-states__label\">Normal</span></div><div class=\"fc-states__item\"><div class=\"fc-states__sample\"><a class=\"ds-card ds-card--link\" href=\"#/componentes/card\" data-state=\"hover\"><p class=\"ds-card__title\">Relatório mensal</p><p class=\"ds-card__text\">Receita, novos clientes e o que mudou desde o mês passado.</p></a></div><span class=\"fc-states__label\">Hover</span></div><div class=\"fc-states__item\"><div class=\"fc-states__sample\"><a class=\"ds-card ds-card--link\" href=\"#/componentes/card\" data-state=\"focus\"><p class=\"ds-card__title\">Relatório mensal</p><p class=\"ds-card__text\">Receita, novos clientes e o que mudou desde o mês passado.</p></a></div><span class=\"fc-states__label\">Foco</span></div></div>",
+};
+
+export const Uso = {
+  name: "Uso",
+  parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
+  render: () => "<div class=\"usage-grid\">\n    <article class=\"usage-card usage-card--do\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"></circle><path d=\"m8.5 12 2.5 2.5 4.5-5\"></path></svg>Faça: grupos que se repetem</p><p class=\"usage-card__text\">Uma grade de projetos, resultados ou opções.</p></article><article class=\"usage-card usage-card--dont\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"></circle><path d=\"m9 9 6 6M15 9l-6 6\"></path></svg>Evite: card dentro de card</p><p class=\"usage-card__text\">Camadas demais pesam. Dentro de um card, separe com espaço ou com uma linha.</p></article><article class=\"usage-card usage-card--tip\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"M13 2.5 4.5 13.5H12l-1 8 8.5-11H12z\"></path></svg>Card, Painel ou Modal?</p><p class=\"usage-card__text\">Card agrupa; Painel é a superfície de uma tarefa; Modal interrompe.</p></article>\n  </div>",
+};
