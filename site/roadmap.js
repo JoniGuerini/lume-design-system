@@ -13,22 +13,10 @@ const GOAL = T('Meta', 'Goal', 'Meta');
 
 const STAGES = [
   {
-    version: '0.28',
+    version: '0.29',
     group: 'release',
     tone: 'brand',
     status: NEXT,
-    title: T('React: navegação e camadas', 'React: navigation and layers', 'React: navegación y capas'),
-    text: T('Os 15 componentes que abrem, fecham e trocam de estado.', 'The 15 components that open, close, and change state.', 'Los 15 componentes que abren, cierran y cambian de estado.'),
-    items: [
-      { name: T('Navegação', 'Navigation', 'Navegación'), text: T('Menu, Abas, Controle segmentado, Paginação, Stepper, Acordeão, Árvore, Barra de rolagem e Voltar ao topo.', 'Menu, Tabs, Segmented control, Pagination, Stepper, Accordion, Tree, Scrollbar, and Back to top.', 'Menú, Pestañas, Control segmentado, Paginación, Stepper, Acordeón, Árbol, Barra de desplazamiento y Volver arriba.') },
-      { name: T('Camadas', 'Layers', 'Capas'), text: T('Modal, Gaveta lateral, Popover, Menu de contexto, Tooltip e Toast, com abrir e fechar pelo estado.', 'Modal, Drawer, Popover, Context menu, Tooltip, and Toast, opened and closed through state.', 'Modal, Panel lateral, Popover, Menú contextual, Tooltip y Toast, que abren y cierran por estado.') },
-    ],
-  },
-  {
-    version: '0.29',
-    group: 'release',
-    tone: 'neutral',
-    status: PLANNED,
     title: T('React: conteúdo, gráficos e app shell', 'React: content, charts, and app shell', 'React: contenido, gráficos y app shell'),
     text: T('Os componentes mais ricos, que fecham os 44.', 'The richest components, completing all 44.', 'Los componentes más ricos, que completan los 44.'),
     items: [

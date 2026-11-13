@@ -71,6 +71,51 @@ export declare function mountSelects(root?: ParentNode): () => void;
 `,
   form: `export declare function createForm(form: HTMLFormElement, options?: Record<string, unknown>): { validate(): boolean; data(): Record<string, any>; errors(): Array<{ name: string; label: string; message: string }>; reset(): void; destroy(): void };
 `,
+  menu: `export declare function createMenu(trigger: HTMLElement, config: Record<string, unknown>): { open(): void; close(returnFocus?: boolean): void; isOpen: boolean; value: string; setValue(value: string): void; destroy(): void };
+export declare function menuRows(count: number, maxRows: number): number;
+export declare function menuContent(config?: Record<string, unknown>): string;
+`,
+  pagination: `export declare function createPagination(root: HTMLElement, options?: Record<string, unknown>): { page: number; pageSize: number; setPage(page: number): void; setTotal(total: number): void; destroy(): void };
+export declare function pageRange(page: number, pages: number, siblings?: number): Array<number | string>;
+`,
+  stepper: `export declare function createStepper(root: HTMLElement, options?: Record<string, unknown>): { current: number; setCurrent(index: number): void; next(): void; prev(): void; destroy(): void };
+`,
+  tree: `export declare function createTree(root: HTMLElement, options?: Record<string, unknown>): { selected: string | null; select(id: string): void; expand(id: string): void; collapse(id: string): void; setItems(items: any[]): void; destroy(): void };
+`,
+  'back-to-top': `export declare function createBackToTop(scroller: HTMLElement, options?: Record<string, unknown>): { element: HTMLButtonElement; update(): void; destroy(): void };
+`,
+  scrollbar: `export declare function initScrollbars(): void;
+`,
+  modal: `export declare function enhanceModal(dialog: HTMLDialogElement, options?: { dismissible?: boolean; onClose?: (value?: string) => void }): { el: HTMLDialogElement; open(): Promise<string | undefined>; close(value?: string): void; destroy(): void; readonly isOpen: boolean };
+export declare function createModal(options?: Record<string, unknown>): { el: HTMLDialogElement; open(): Promise<string | undefined>; close(value?: string): void; destroy(): void; readonly isOpen: boolean };
+export declare function openModal(options?: Record<string, unknown>): Promise<string | undefined>;
+export declare function confirmModal(options?: Record<string, unknown>): Promise<boolean>;
+export declare function modalHtml(options?: Record<string, unknown>): string;
+export declare function modalClasses(options?: { size?: string; tone?: string }): string;
+`,
+  popover: `export declare function createPopover(trigger: HTMLElement, options?: Record<string, unknown>): { el: HTMLElement; readonly isOpen: boolean; open(): void; close(returnFocus?: boolean): void; toggle(): void; reposition(): void; destroy(): void };
+`,
+  'context-menu': `export declare function createContextMenu(root: HTMLElement, config?: Record<string, unknown>): { open(...args: unknown[]): void; close(returnFocus?: boolean): void; readonly isOpen: boolean; destroy(): void };
+`,
+  tooltip: `export declare function initTooltips(): void;
+`,
+  toast: `export type ToastPosition = 'top-start' | 'top-center' | 'top-end' | 'bottom-start' | 'bottom-center' | 'bottom-end';
+export interface ToastOptions {
+  icon?: string;
+  tone?: 'neutral' | 'success' | 'warning' | 'danger' | 'info';
+  action?: { label: string; onClick: () => void };
+  duration?: number;
+  position?: ToastPosition;
+}
+export declare const TOAST_POSITIONS: ToastPosition[];
+export declare function toast(message: string, options?: ToastOptions): { close(): void };
+export declare function clearToasts(): void;
+export declare function copyText(text: string, label?: string, options?: { echo?: boolean }): Promise<boolean>;
+export declare function getToastPosition(): ToastPosition;
+export declare function setToastPosition(position: ToastPosition): ToastPosition;
+export declare function toastContent(message: string, options?: ToastOptions & { dismissible?: boolean }): string;
+export declare function toastClasses(options?: { tone?: string }): string;
+`,
 };
 for (const [name, body] of Object.entries(MODULES)) {
   await writeFile(path.join(ROOT, 'ds', 'js', `${name}.d.ts`), `// Gerado por scripts/build-react.mjs. Não edite.

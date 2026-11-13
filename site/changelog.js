@@ -8,10 +8,30 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.27.0';
+export const CURRENT_VERSION = '0.28.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.28.0',
+    date: '2026-11-13',
+    title: T('React: navegação e camadas', 'React: navigation and layers', 'React: navegación y capas'),
+    summary: T(
+      'Os 15 componentes que abrem, fecham e trocam de estado, agora em React: de Abas e Paginação a Modal, Popover e Toast.',
+      'The 15 components that open, close, and change state, now in React: from Tabs and Pagination to Modal, Popover, and Toast.',
+      'Los 15 componentes que abren, cierran y cambian de estado, ahora en React: de Pestañas y Paginación a Modal, Popover y Toast.',
+    ),
+    groups: [
+      {
+        name: T('React', 'React', 'React'),
+        items: [
+          ['novo', T('Navegação: Menu, Abas, Controle segmentado, Paginação, Stepper, Acordeão, Árvore, Barra de rolagem e Voltar ao topo', 'Navigation: Menu, Tabs, Segmented control, Pagination, Stepper, Accordion, Tree, Scrollbar, and Back to top', 'Navegación: Menú, Pestañas, Control segmentado, Paginación, Stepper, Acordeón, Árbol, Barra de desplazamiento y Volver arriba'), '/recursos/react'],
+          ['novo', T('Camadas: Modal, Gaveta lateral, Popover, Menu de contexto, Tooltip e Toast, abertos e fechados pelo estado', 'Layers: Modal, Drawer, Popover, Context menu, Tooltip, and Toast, opened and closed through state', 'Capas: Modal, Panel lateral, Popover, Menú contextual, Tooltip y Toast, abiertos y cerrados por el estado'), '/recursos/react'],
+          ['novo', T('Menu, Popover e Menu de contexto se ligam a qualquer gatilho por triggerRef', 'Menu, Popover, and Context menu attach to any trigger through triggerRef', 'Menú, Popover y Menú contextual se conectan a cualquier disparador con triggerRef'), '/recursos/react'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.27.0',
     date: '2026-11-13',

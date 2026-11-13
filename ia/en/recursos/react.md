@@ -4,11 +4,11 @@ Lume section: Resources. Page: https://lumeui.dev/#/recursos/react
 
 .tsx components to copy into your project, on top of Lume’s same CSS and JavaScript. No package to install: the folder comes in each version’s zip.
 
-In numbers: of the 44 components: 26 · React: 18+ · dependencies: 0.
+In numbers: of the 44 components: 41 · React: 18+ · dependencies: 0.
 
 ## Install
 
-Download the 0.27 zip, unzip it, and move the folder into `src/` named `lume`. The components are in `lume/react/` and import the JavaScript and icons from that same folder. It works with Vite, Next.js, and any React 18 or newer project.
+Download the 0.28 zip, unzip it, and move the folder into `src/` named `lume`. The components are in `lume/react/` and import the JavaScript and icons from that same folder. It works with Vite, Next.js, and any React 18 or newer project.
 
 ```html
 src/
@@ -103,6 +103,32 @@ What’s already in React. Each name leads to the component’s page, with the u
 | `OtpField` | One box per digit; onComplete on the last one. | Controls.tsx |
 | `Form` | Lume’s validation, with custom rules and the error summary. | Form.tsx |
 
+### Navigation
+
+| Component | What it does | File |
+| --- | --- | --- |
+| `Menu` | Attaches the list to any trigger (triggerRef): choice or actions. | Navigation.tsx |
+| `Tabs` | ARIA tabs with arrows, Home and End; underlined or segmented. | Navigation.tsx |
+| `SegmentedControl` | A few options side by side, one chosen. | Navigation.tsx |
+| `Pagination` | Page and page size in state; optional links. | Navigation.tsx |
+| `Stepper` | Steps, the current one, and going back with onChange. | Navigation.tsx |
+| `Accordion` | Built on native details; single keeps one open at a time. | Navigation.tsx |
+| `Tree` | Nested levels, with keyboard and the selected item. | Navigation.tsx |
+| `useScrollbars` | Turns on the overlay scrollbar for the whole app. | Navigation.tsx |
+| `BackToTop` | A button pinned to the corner of the scrolling area. | Navigation.tsx |
+
+### Layers
+
+| Component | What it does | File |
+| --- | --- | --- |
+| `Modal` | open and onClose with the action value; focus trap and Esc from the native dialog. | Layers.tsx |
+| `Drawer` | The same Modal, sliding in from the edge. | Layers.tsx |
+| `Popover` | React content pinned to the trigger. | Layers.tsx |
+| `ContextMenu` | Right click, Shift+F10 or long press in an area. | Layers.tsx |
+| `Tooltip` | Wraps an element; takes a placement and a shortcut. | Layers.tsx |
+| `toast` | A function, not a component: toast(text, options). | toast.js |
+| `useDisclosure` | Open, closed and the functions, for Modal and Drawer. | Layers.tsx |
+
 ### Feedback and loading
 
 | Component | What it does | File |
@@ -133,7 +159,7 @@ What’s already in React. Each name leads to the component’s page, with the u
 | Your files | The .tsx files live in your project, as with shadcn: you can read, change, and delete what you don’t use. No npm. |
 | TypeScript | Typed, commented props, with a link to each component’s page. `IconName` lists the 130 icons: a wrong name won’t compile. |
 | Language | The text a component writes on its own ("Close", "Loading") follows Lume’s language and changes with `setLocale`. `useLocale()` does the same for yours. |
-| Versions | The `react/` folder ships with every line: `/v/0.27/react/`. Updating means swapping the Lume folder for the new line’s. |
+| Versions | The `react/` folder ships with every line: `/v/0.28/react/`. Updating means swapping the Lume folder for the new line’s. |
 
 ## What’s next
 
@@ -141,5 +167,4 @@ One stage per version, up to all 44 components. Until a component arrives, use t
 
 |   |   |   |
 | --- | --- | --- |
-| `0.28` | React: navigation and layers: The 15 components that open, close, and change state. | Next |
-| `0.29` | React: content, charts, and app shell: The richest components, completing all 44. | Planned |
+| `0.29` | React: content, charts, and app shell: The richest components, completing all 44. | Next |

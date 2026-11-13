@@ -4,11 +4,11 @@ Seção do Lume: Recursos. Página: https://lumeui.dev/#/recursos/react
 
 Componentes .tsx para copiar no projeto, por cima do mesmo CSS e JavaScript do Lume. Sem pacote para instalar: a pasta vem no zip de cada versão.
 
-Em números: dos 44 componentes: 26 · React: 18+ · dependências: 0.
+Em números: dos 44 componentes: 41 · React: 18+ · dependências: 0.
 
 ## Instalar
 
-Baixe o zip da versão 0.27, descompacte e leve a pasta para dentro de `src/` com o nome `lume`. Os componentes estão em `lume/react/` e importam o JavaScript e os ícones da própria pasta. Funciona com Vite, Next.js e qualquer projeto React 18 ou mais novo.
+Baixe o zip da versão 0.28, descompacte e leve a pasta para dentro de `src/` com o nome `lume`. Os componentes estão em `lume/react/` e importam o JavaScript e os ícones da própria pasta. Funciona com Vite, Next.js e qualquer projeto React 18 ou mais novo.
 
 ```html
 src/
@@ -103,6 +103,32 @@ O que já está em React. Cada nome leva à página do componente, onde estão o
 | `OtpField` | Uma casa por dígito; onComplete na última. | Controls.tsx |
 | `Form` | A validação do Lume, com regras próprias e o resumo de erros. | Form.tsx |
 
+### Navegação
+
+| Componente | O que faz | Arquivo |
+| --- | --- | --- |
+| `Menu` | Liga a lista a qualquer gatilho (triggerRef): escolha ou ações. | Navigation.tsx |
+| `Tabs` | Abas ARIA com setas, Home e End; sublinhadas ou segmentadas. | Navigation.tsx |
+| `SegmentedControl` | Poucas opções lado a lado, uma escolhida. | Navigation.tsx |
+| `Pagination` | Página e itens por página no estado; links opcionais. | Navigation.tsx |
+| `Stepper` | Etapas, a atual e volta às feitas com onChange. | Navigation.tsx |
+| `Accordion` | Sobre details nativo; single deixa um aberto por vez. | Navigation.tsx |
+| `Tree` | Níveis aninhados, com teclado e o item escolhido. | Navigation.tsx |
+| `useScrollbars` | Liga a barra de rolagem sobreposta no app inteiro. | Navigation.tsx |
+| `BackToTop` | Botão preso ao canto da área que rola. | Navigation.tsx |
+
+### Camadas
+
+| Componente | O que faz | Arquivo |
+| --- | --- | --- |
+| `Modal` | open e onClose com o valor da ação; foco preso e Esc pelo dialog nativo. | Layers.tsx |
+| `Drawer` | O mesmo Modal, entrando pela borda. | Layers.tsx |
+| `Popover` | Conteúdo em React preso ao gatilho. | Layers.tsx |
+| `ContextMenu` | Botão direito, Shift+F10 ou toque longo numa área. | Layers.tsx |
+| `Tooltip` | Envolve um elemento; aceita posição e atalho. | Layers.tsx |
+| `toast` | Função, não componente: toast(texto, opções). | toast.js |
+| `useDisclosure` | Aberto, fechado e as funções, para Modal e Drawer. | Layers.tsx |
+
 ### Feedback e carregamento
 
 | Componente | O que faz | Arquivo |
@@ -133,7 +159,7 @@ O que já está em React. Cada nome leva à página do componente, onde estão o
 | Seus arquivos | Os .tsx ficam no seu projeto, como no shadcn: dá para ler, mudar e apagar o que não usar. Nada de npm. |
 | TypeScript | Props tipadas e comentadas, com o link da página de cada componente. `IconName` lista os 130 ícones: nome errado não compila. |
 | Idioma | Os textos que o componente escreve sozinho ("Fechar", "Carregando") seguem o idioma do Lume e mudam com `setLocale`. `useLocale()` faz o mesmo nos seus. |
-| Versões | A pasta `react/` vai em cada linha: `/v/0.27/react/`. Atualizar é trocar a pasta do Lume pela da linha nova. |
+| Versões | A pasta `react/` vai em cada linha: `/v/0.28/react/`. Atualizar é trocar a pasta do Lume pela da linha nova. |
 
 ## O que vem
 
@@ -141,5 +167,4 @@ Uma etapa por versão, até os 44 componentes. Enquanto um componente não chega
 
 |   |   |   |
 | --- | --- | --- |
-| `0.28` | React: navegação e camadas: Os 15 componentes que abrem, fecham e trocam de estado. | Próximo |
-| `0.29` | React: conteúdo, gráficos e app shell: Os componentes mais ricos, que fecham os 44. | Planejado |
+| `0.29` | React: conteúdo, gráficos e app shell: Os componentes mais ricos, que fecham os 44. | Próximo |

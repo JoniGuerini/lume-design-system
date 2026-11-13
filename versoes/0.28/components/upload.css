@@ -1,0 +1,181 @@
+/*
+ * Upload de arquivo
+ * <div class="ds-upload"><input class="ds-upload__input" type="file" …></div>  (a área e a lista vêm de ds/js/file-upload.js)
+ * Estados forçáveis com data-state="hover|focus" e data-dragging no .ds-upload, para documentação e testes.
+ */
+.ds-upload {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--ds-space-100);
+  min-width: 0;
+}
+
+/* o input fica por cima da área: clicar, arrastar e o teclado são dele */
+.ds-upload__input,
+.ds-upload__zone {
+  grid-area: 1 / 1;
+}
+
+.ds-upload__input {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.ds-upload__zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-space-050);
+  min-height: 136px;
+  padding: var(--ds-space-300);
+  border: 1px dashed var(--ds-color-border-strong);
+  border-radius: var(--ds-radius-lg);
+  background: var(--ds-color-bg-field);
+  text-align: center;
+  transition:
+    border-color var(--ds-duration-fast) var(--ds-easing-standard),
+    background-color var(--ds-duration-fast) var(--ds-easing-standard),
+    box-shadow var(--ds-duration-base) var(--ds-easing-standard);
+}
+
+.ds-upload__input:hover + .ds-upload__zone,
+.ds-upload[data-state="hover"] .ds-upload__zone,
+.ds-upload__input[data-state="hover"] + .ds-upload__zone {
+  background: var(--ds-color-bg-field-hover);
+}
+
+.ds-upload__input:focus-visible + .ds-upload__zone,
+.ds-upload[data-state="focus"] .ds-upload__zone,
+.ds-upload__input[data-state="focus"] + .ds-upload__zone {
+  border-color: var(--ds-color-border-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ds-color-border-focus) 22%, transparent);
+}
+
+.ds-upload[data-dragging] .ds-upload__zone {
+  border-style: solid;
+  border-color: var(--ds-color-brand-border);
+  background: var(--ds-color-brand-subtle);
+}
+
+.ds-upload__input:disabled {
+  cursor: not-allowed;
+}
+
+.ds-upload:has(.ds-upload__input:disabled) .ds-upload__zone {
+  opacity: var(--ds-opacity-disabled);
+  background: var(--ds-color-bg-field);
+}
+
+.ds-upload__icon {
+  display: grid;
+  place-items: center;
+  margin-bottom: var(--ds-space-050);
+  color: var(--ds-color-fg-subtle);
+}
+
+.ds-upload__title {
+  font: var(--ds-text-label-md);
+  letter-spacing: var(--ds-text-label-md-tracking);
+}
+
+.ds-upload__hint {
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-body-sm);
+}
+
+.ds-upload__hint[hidden] {
+  display: none;
+}
+
+/* Lista */
+.ds-upload__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-050);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-upload__list[hidden] {
+  display: none;
+}
+
+.ds-upload__item {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-150);
+  min-width: 0;
+  padding: var(--ds-space-100) var(--ds-space-100) var(--ds-space-100) var(--ds-space-150);
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-md);
+}
+
+.ds-upload__file {
+  flex: none;
+  display: grid;
+  place-items: center;
+  color: var(--ds-color-fg-subtle);
+}
+
+.ds-upload__item[data-status="done"] .ds-upload__file {
+  color: var(--ds-color-success-fg);
+}
+
+.ds-upload__item[data-status="error"] .ds-upload__file,
+.ds-upload__item[data-status="error"] .ds-upload__status {
+  color: var(--ds-color-danger-fg);
+}
+
+.ds-upload__item[data-status="error"] {
+  border-color: var(--ds-color-danger-border);
+}
+
+.ds-upload__meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.ds-upload__name {
+  overflow: hidden;
+  font: var(--ds-text-label-sm);
+  letter-spacing: var(--ds-text-label-sm-tracking);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ds-upload__status {
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-caption);
+  font-variant-numeric: tabular-nums;
+}
+
+.ds-upload__bar {
+  display: block;
+  height: 4px;
+  margin-top: var(--ds-space-050);
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-color-bg-muted);
+  overflow: hidden;
+}
+
+.ds-upload__bar > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--ds-color-brand-solid);
+  transition: width var(--ds-duration-base) var(--ds-easing-standard);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-upload__bar > span {
+    transition: none;
+  }
+}

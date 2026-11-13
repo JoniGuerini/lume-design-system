@@ -41,6 +41,32 @@ export const REACT_GROUPS = () => [
     ],
   },
   {
+    title: L('Navegação', 'Navigation', 'Navegación'),
+    items: [
+      ['Menu', 'Navigation.tsx', '/componentes/menu', '0.28', L('Liga a lista a qualquer gatilho (triggerRef): escolha ou ações.', 'Attaches the list to any trigger (triggerRef): choice or actions.', 'Conecta la lista a cualquier disparador (triggerRef): elección o acciones.')],
+      ['Tabs', 'Navigation.tsx', '/componentes/abas', '0.28', L('Abas ARIA com setas, Home e End; sublinhadas ou segmentadas.', 'ARIA tabs with arrows, Home and End; underlined or segmented.', 'Pestañas ARIA con flechas, Home y End; subrayadas o segmentadas.')],
+      ['SegmentedControl', 'Navigation.tsx', '/componentes/controle-segmentado', '0.28', L('Poucas opções lado a lado, uma escolhida.', 'A few options side by side, one chosen.', 'Pocas opciones lado a lado, una elegida.')],
+      ['Pagination', 'Navigation.tsx', '/componentes/paginacao', '0.28', L('Página e itens por página no estado; links opcionais.', 'Page and page size in state; optional links.', 'Página y elementos por página en el estado; enlaces opcionales.')],
+      ['Stepper', 'Navigation.tsx', '/componentes/stepper', '0.28', L('Etapas, a atual e volta às feitas com onChange.', 'Steps, the current one, and going back with onChange.', 'Etapas, la actual y volver a las hechas con onChange.')],
+      ['Accordion', 'Navigation.tsx', '/componentes/acordeao', '0.28', L('Sobre details nativo; single deixa um aberto por vez.', 'Built on native details; single keeps one open at a time.', 'Sobre details nativo; single deja uno abierto a la vez.')],
+      ['Tree', 'Navigation.tsx', '/componentes/arvore', '0.28', L('Níveis aninhados, com teclado e o item escolhido.', 'Nested levels, with keyboard and the selected item.', 'Niveles anidados, con teclado y el ítem elegido.')],
+      ['useScrollbars', 'Navigation.tsx', '/componentes/barra-de-rolagem', '0.28', L('Liga a barra de rolagem sobreposta no app inteiro.', 'Turns on the overlay scrollbar for the whole app.', 'Activa la barra de desplazamiento superpuesta en toda la app.')],
+      ['BackToTop', 'Navigation.tsx', '/componentes/voltar-ao-topo', '0.28', L('Botão preso ao canto da área que rola.', 'A button pinned to the corner of the scrolling area.', 'Botón fijo en la esquina del área que se desplaza.')],
+    ],
+  },
+  {
+    title: L('Camadas', 'Layers', 'Capas'),
+    items: [
+      ['Modal', 'Layers.tsx', '/componentes/modal', '0.28', L('open e onClose com o valor da ação; foco preso e Esc pelo dialog nativo.', 'open and onClose with the action value; focus trap and Esc from the native dialog.', 'open y onClose con el valor de la acción; foco atrapado y Esc por el dialog nativo.')],
+      ['Drawer', 'Layers.tsx', '/componentes/gaveta-lateral', '0.28', L('O mesmo Modal, entrando pela borda.', 'The same Modal, sliding in from the edge.', 'El mismo Modal, entrando por el borde.')],
+      ['Popover', 'Layers.tsx', '/componentes/popover', '0.28', L('Conteúdo em React preso ao gatilho.', 'React content pinned to the trigger.', 'Contenido en React fijo al disparador.')],
+      ['ContextMenu', 'Layers.tsx', '/componentes/menu-de-contexto', '0.28', L('Botão direito, Shift+F10 ou toque longo numa área.', 'Right click, Shift+F10 or long press in an area.', 'Clic derecho, Shift+F10 o toque largo en un área.')],
+      ['Tooltip', 'Layers.tsx', '/componentes/tooltip', '0.28', L('Envolve um elemento; aceita posição e atalho.', 'Wraps an element; takes a placement and a shortcut.', 'Envuelve un elemento; acepta posición y atajo.')],
+      ['toast', 'toast.js', '/componentes/toast', '0.28', L('Função, não componente: toast(texto, opções).', 'A function, not a component: toast(text, options).', 'Función, no componente: toast(texto, opciones).')],
+      ['useDisclosure', 'Layers.tsx', null, '0.28', L('Aberto, fechado e as funções, para Modal e Drawer.', 'Open, closed and the functions, for Modal and Drawer.', 'Abierto, cerrado y las funciones, para Modal y Drawer.')],
+    ],
+  },
+  {
     title: L('Feedback e carregamento', 'Feedback and loading', 'Feedback y carga'),
     items: [
       ['Badge', 'Badge.tsx', '/componentes/badge', '0.26', L('Seis tons, ponto e contador.', 'Six tones, dot and counter.', 'Seis tonos, punto y contador.')],

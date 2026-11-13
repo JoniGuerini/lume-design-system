@@ -39,3 +39,18 @@ export {
 } from './Pickers';
 export { Slider, FileUpload, OtpField, type SliderProps, type FileUploadProps, type FileUploadHandle, type OtpFieldProps } from './Controls';
 export { Form, type FormProps, type FormHandle, type FormError, type FormData } from './Form';
+
+// Navegação
+export {
+  Menu, Tabs, SegmentedControl, Pagination, Stepper, Accordion, Tree, BackToTop, useScrollbars,
+  type MenuProps, type MenuOption, type TabsProps, type TabItem, type SegmentedControlProps, type SegmentedOption,
+  type PaginationProps, type StepperProps, type AccordionProps, type AccordionItem, type TreeProps, type TreeItem, type BackToTopProps,
+} from './Navigation';
+
+// Camadas
+export {
+  Modal, Drawer, Popover, ContextMenu, Tooltip, useTooltips, useDisclosure,
+  type ModalProps, type DrawerProps, type DialogAction, type PopoverProps, type ContextMenuProps, type TooltipProps,
+} from './Layers';
+/** Toast: funções, não componentes. toast('Link copiado', { tone: 'success' }). https://lumeui.dev/#/componentes/toast */
+export { toast, copyText, clearToasts, setToastPosition, getToastPosition, type ToastOptions, type ToastPosition } from '../js/toast.js';

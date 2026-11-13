@@ -4,11 +4,11 @@ Sección de Lume: Recursos. Página: https://lumeui.dev/#/recursos/react
 
 Componentes .tsx para copiar al proyecto, sobre el mismo CSS y JavaScript de Lume. Sin paquete que instalar: la carpeta viene en el zip de cada versión.
 
-En números: de los 44 componentes: 26 · React: 18+ · dependencias: 0.
+En números: de los 44 componentes: 41 · React: 18+ · dependencias: 0.
 
 ## Instalar
 
-Descarga el zip de la versión 0.27, descomprímelo y lleva la carpeta dentro de `src/` con el nombre `lume`. Los componentes están en `lume/react/` e importan el JavaScript y los íconos de la misma carpeta. Funciona con Vite, Next.js y cualquier proyecto React 18 o más nuevo.
+Descarga el zip de la versión 0.28, descomprímelo y lleva la carpeta dentro de `src/` con el nombre `lume`. Los componentes están en `lume/react/` e importan el JavaScript y los íconos de la misma carpeta. Funciona con Vite, Next.js y cualquier proyecto React 18 o más nuevo.
 
 ```html
 src/
@@ -103,6 +103,32 @@ Lo que ya está en React. Cada nombre lleva a la página del componente, con los
 | `OtpField` | Una casilla por dígito; onComplete en la última. | Controls.tsx |
 | `Form` | La validación de Lume, con reglas propias y el resumen de errores. | Form.tsx |
 
+### Navegación
+
+| Componente | Qué hace | Archivo |
+| --- | --- | --- |
+| `Menu` | Conecta la lista a cualquier disparador (triggerRef): elección o acciones. | Navigation.tsx |
+| `Tabs` | Pestañas ARIA con flechas, Home y End; subrayadas o segmentadas. | Navigation.tsx |
+| `SegmentedControl` | Pocas opciones lado a lado, una elegida. | Navigation.tsx |
+| `Pagination` | Página y elementos por página en el estado; enlaces opcionales. | Navigation.tsx |
+| `Stepper` | Etapas, la actual y volver a las hechas con onChange. | Navigation.tsx |
+| `Accordion` | Sobre details nativo; single deja uno abierto a la vez. | Navigation.tsx |
+| `Tree` | Niveles anidados, con teclado y el ítem elegido. | Navigation.tsx |
+| `useScrollbars` | Activa la barra de desplazamiento superpuesta en toda la app. | Navigation.tsx |
+| `BackToTop` | Botón fijo en la esquina del área que se desplaza. | Navigation.tsx |
+
+### Capas
+
+| Componente | Qué hace | Archivo |
+| --- | --- | --- |
+| `Modal` | open y onClose con el valor de la acción; foco atrapado y Esc por el dialog nativo. | Layers.tsx |
+| `Drawer` | El mismo Modal, entrando por el borde. | Layers.tsx |
+| `Popover` | Contenido en React fijo al disparador. | Layers.tsx |
+| `ContextMenu` | Clic derecho, Shift+F10 o toque largo en un área. | Layers.tsx |
+| `Tooltip` | Envuelve un elemento; acepta posición y atajo. | Layers.tsx |
+| `toast` | Función, no componente: toast(texto, opciones). | toast.js |
+| `useDisclosure` | Abierto, cerrado y las funciones, para Modal y Drawer. | Layers.tsx |
+
 ### Feedback y carga
 
 | Componente | Qué hace | Archivo |
@@ -133,7 +159,7 @@ Lo que ya está en React. Cada nombre lleva a la página del componente, con los
 | Tus archivos | Los .tsx quedan en tu proyecto, como en shadcn: puedes leer, cambiar y borrar lo que no uses. Nada de npm. |
 | TypeScript | Props tipadas y comentadas, con el enlace a la página de cada componente. `IconName` lista los 130 íconos: un nombre equivocado no compila. |
 | Idioma | Los textos que el componente escribe solo ("Cerrar", "Cargando") siguen el idioma de Lume y cambian con `setLocale`. `useLocale()` hace lo mismo en los tuyos. |
-| Versiones | La carpeta `react/` va en cada línea: `/v/0.27/react/`. Actualizar es cambiar la carpeta de Lume por la de la línea nueva. |
+| Versiones | La carpeta `react/` va en cada línea: `/v/0.28/react/`. Actualizar es cambiar la carpeta de Lume por la de la línea nueva. |
 
 ## Lo que viene
 
@@ -141,5 +167,4 @@ Una etapa por versión, hasta los 44 componentes. Mientras un componente no lleg
 
 |   |   |   |
 | --- | --- | --- |
-| `0.28` | React: navegación y capas: Los 15 componentes que abren, cierran y cambian de estado. | Próximo |
-| `0.29` | React: contenido, gráficos y app shell: Los componentes más ricos, que completan los 44. | Planificado |
+| `0.29` | React: contenido, gráficos y app shell: Los componentes más ricos, que completan los 44. | Próximo |
