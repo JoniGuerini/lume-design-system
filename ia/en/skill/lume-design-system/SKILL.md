@@ -5,7 +5,7 @@ description: Builds and reviews interfaces with the Lume Design System (lumeui.d
 
 # Lume Design System
 
-Lume is a design system with no dependencies: one CSS file (`https://lumeui.dev/v/0.25/lume.css`), optional JavaScript modules, and 130 custom icons. The documentation for AIs is published at `https://lumeui.dev/ia/en/`.
+Lume is a design system with no dependencies: one CSS file (`https://lumeui.dev/v/0.26/lume.css`), optional JavaScript modules, and 130 custom icons. The documentation for AIs is published at `https://lumeui.dev/ia/en/`.
 
 ## How to work
 
@@ -13,7 +13,8 @@ Lume is a design system with no dependencies: one CSS file (`https://lumeui.dev/
 2. Open the index `https://lumeui.dev/ia/en/llms.txt` and read the file for each component you'll use (`https://lumeui.dev/ia/en/componentes/<name>.md`). For a whole screen, start with the patterns in `https://lumeui.dev/ia/en/padroes/`.
 3. Write the interface using only what appears in those files: the `ds-*` classes, the attributes, the module functions, and the `var(--ds-…)` tokens.
 4. For icons, check the name in `https://lumeui.dev/ia/en/icons.md`.
-5. Before delivering, review the screen against the "Usage" and "Accessibility" sections of the components used.
+5. In a React project, use the components in `lume/react/` (React section of the README); anything without a component yet uses the HTML markup with `className`.
+6. Before delivering, review the screen against the "Usage" and "Accessibility" sections of the components used.
 
 ## Never
 

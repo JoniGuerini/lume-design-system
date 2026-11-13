@@ -15,7 +15,7 @@ In numbers: modes: 2 · languages: 3 · value sent: ISO · ARIA role: dialog.
 </div>
 
 <script type="module">
-  import { createDatePicker } from 'https://lumeui.dev/v/0.25/lume.js';
+  import { createDatePicker } from 'https://lumeui.dev/v/0.26/lume.js';
   createDatePicker(document.querySelector('#entrega'), {
   });
 </script>
@@ -53,7 +53,7 @@ Markup of the examples in this section:
 
 <div class="ds-form-field">
 <label class="ds-form-field__label" for="dp-filled">Delivery date</label>
-<div class="ds-field"><input class="ds-field__input" id="dp-filled" type="text" autocomplete="off" placeholder="mm/dd/yyyy"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-haspopup="dialog" aria-expanded="false" aria-controls="ds-datepicker-5" aria-label="Open calendar"><ds-icon name="calendar"></ds-icon></button><input type="hidden" name="dp-filled" value="2026-11-15"></div>
+<div class="ds-field"><input class="ds-field__input" id="dp-filled" type="text" autocomplete="off" placeholder="mm/dd/yyyy"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-haspopup="dialog" aria-expanded="false" aria-controls="ds-datepicker-5" aria-label="Open calendar"><ds-icon name="calendar"></ds-icon></button><input type="hidden" name="dp-filled" value="2026-11-16"></div>
 </div>
 ```
 
@@ -108,7 +108,7 @@ Markup of the examples in this section:
 It works with `createForm`: `required` and format errors show up as in the other fields. The ISO value goes in a hidden input, with the field’s `name`.
 
 ```html
-import { createDatePicker } from 'https://lumeui.dev/v/0.25/lume.js';
+import { createDatePicker } from 'https://lumeui.dev/v/0.26/lume.js';
 
 const picker = createDatePicker(document.querySelector('#entrega'), {
   min: new Date(),

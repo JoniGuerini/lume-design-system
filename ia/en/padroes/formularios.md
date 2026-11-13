@@ -277,7 +277,7 @@ Structure in HTML with the form classes; the behavior comes from one line of JS.
 ### JavaScript
 
 ```html
-import { createForm } from 'https://lumeui.dev/v/0.25/lume.js';
+import { createForm } from 'https://lumeui.dev/v/0.26/lume.js';
 
 const form = createForm(document.querySelector('#project'), {
   rules: {

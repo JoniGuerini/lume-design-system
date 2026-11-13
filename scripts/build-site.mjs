@@ -51,6 +51,8 @@ async function bundleCss(file) {
 const lumeCss = `/* Lume Design System ${version} · MIT · https://lumeui.dev */\n${await bundleCss(path.join(ROOT, 'ds', 'ds.css'))}`;
 await writeFile(path.join(OUT, 'ds', 'lume.css'), lumeCss);
 await cp(path.join(ROOT, 'LICENSE'), path.join(OUT, 'ds', 'LICENSE'));
+// React (0.26): os .tsx vão dentro da pasta do Lume (react/), ao lado de js/ e icons/, que eles importam
+await cp(path.join(ROOT, 'react'), path.join(OUT, 'ds', 'react'), { recursive: true });
 
 // uma versão por linha (0.25, 0.26…): a da linha atual sai do ds/ de agora e recebe as correções (0.25.1, 0.25.2…);
 // as anteriores ficam congeladas em versoes/, no git. Mudança que quebra só em versão maior (página API).
@@ -59,6 +61,7 @@ async function snapshot(dir) {
   await cp(path.join(ROOT, 'ds'), dir, { recursive: true });
   await writeFile(path.join(dir, 'lume.css'), lumeCss);
   await cp(path.join(ROOT, 'LICENSE'), path.join(dir, 'LICENSE'));
+  await cp(path.join(ROOT, 'react'), path.join(dir, 'react'), { recursive: true });
 }
 const VERSIONS = path.join(ROOT, 'versoes');
 // fora da Vercel (no computador), a linha atual também é gravada em versoes/, para congelar quando a próxima começar

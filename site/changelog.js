@@ -8,10 +8,37 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.25.4';
+export const CURRENT_VERSION = '0.26.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.26.0',
+    date: '2026-11-13',
+    title: T('React: base e componentes visuais', 'React: foundation and visual components', 'React: base y componentes visuales'),
+    summary: T(
+      'O Lume chega ao React: componentes .tsx para copiar no projeto, por cima do mesmo CSS. Os primeiros 15 são os visuais, de Botão a Breadcrumb.',
+      'Lume comes to React: .tsx components to copy into your project, on top of the same CSS. The first 15 are the visual ones, from Button to Breadcrumb.',
+      'Lume llega a React: componentes .tsx para copiar al proyecto, sobre el mismo CSS. Los primeros 15 son los visuales, de Botón a Breadcrumb.',
+    ),
+    groups: [
+      {
+        name: T('React', 'React', 'React'),
+        items: [
+          ['novo', T('Página Recursos › Usar com React: instalação, exemplo e a lista dos componentes', 'Resources › Use with React page: installation, an example, and the list of components', 'Página Recursos › Usar con React: instalación, ejemplo y la lista de componentes'), '/recursos/react'],
+          ['novo', T('15 componentes em .tsx: Botão, Ação inline, Chip, Badge, Alerta, Barra de progresso, Spinner, Skeleton, Card, Painel, Avatar, Tecla, Lista de definições, Linha do tempo e Breadcrumb', '15 components in .tsx: Button, Inline action, Chip, Badge, Alert, Progress bar, Spinner, Skeleton, Card, Panel, Avatar, Key, Description list, Timeline, and Breadcrumb', '15 componentes en .tsx: Botón, Acción inline, Chip, Badge, Alerta, Barra de progreso, Spinner, Skeleton, Card, Panel, Avatar, Tecla, Lista de definiciones, Línea de tiempo y Breadcrumb'), '/recursos/react'],
+          ['novo', T('Ícones tipados: o TypeScript recusa um nome que não existe', 'Typed icons: TypeScript rejects a name that doesn’t exist', 'Íconos tipados: TypeScript rechaza un nombre que no existe'), '/recursos/react'],
+          ['novo', T('A pasta react/ vai no zip e no endereço de cada versão, como /v/0.26/react/', 'The react/ folder ships in each version’s zip and address, like /v/0.26/react/', 'La carpeta react/ va en el zip y en la dirección de cada versión, como /v/0.26/react/'), '/recursos/react'],
+        ],
+      },
+      {
+        name: T('Para IAs', 'For AI', 'Para IA'),
+        items: [
+          ['melhoria', T('Guias e skills com a seção React: o que usar e o que fazer quando o componente ainda não existe', 'Guides and skills with a React section: what to use and what to do when a component doesn’t exist yet', 'Guías y skills con la sección React: qué usar y qué hacer cuando el componente aún no existe'), '/recursos/ia'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.25.4',
     date: '2026-11-13',

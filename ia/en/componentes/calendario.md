@@ -9,7 +9,7 @@ In numbers: views: 3 · event tones: 6 · week starts: Sunday · dependencies: 0
 ## Example
 
 ```html
-import { createCalendar } from 'https://lumeui.dev/v/0.25/lume.js';
+import { createCalendar } from 'https://lumeui.dev/v/0.26/lume.js';
 
 createCalendar(document.querySelector('#calendar'), {
   events: [

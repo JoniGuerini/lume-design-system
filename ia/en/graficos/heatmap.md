@@ -9,7 +9,7 @@ In numbers: formats: 2 · scales: 2 · bands: up to 7 · gap: 2 px.
 ## Example
 
 ```html
-import { createHeatmap } from 'https://lumeui.dev/v/0.25/lume.js';
+import { createHeatmap } from 'https://lumeui.dev/v/0.26/lume.js';
 
 const chart = createHeatmap(document.querySelector('#orders'), {
   title: 'Orders by hour',
@@ -108,7 +108,7 @@ A heatmap shows a pattern, not an exact value. Use it when the question is “wh
 Two functions with the same rules as every Lume chart: update, setLoading, and destroy.
 
 ```html
-import { createHeatmap, createCalendarHeatmap } from 'https://lumeui.dev/v/0.25/lume.js';
+import { createHeatmap, createCalendarHeatmap } from 'https://lumeui.dev/v/0.26/lume.js';
 
 createHeatmap(document.querySelector('#orders'), {
   title: 'Orders by hour',

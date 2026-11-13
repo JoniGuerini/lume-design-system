@@ -1,0 +1,129 @@
+# Use with React
+
+Lume section: Resources. Page: https://lumeui.dev/#/recursos/react
+
+.tsx components to copy into your project, on top of Lume’s same CSS and JavaScript. No package to install: the folder comes in each version’s zip.
+
+In numbers: of the 44 components: 15 · React: 18+ · dependencies: 0.
+
+## Install
+
+Download the 0.26 zip, unzip it, and move the folder into `src/` named `lume`. The components are in `lume/react/` and import the JavaScript and icons from that same folder. It works with Vite, Next.js, and any React 18 or newer project.
+
+```html
+src/
+  lume/                 ← the whole folder from the zip
+    lume.css
+    lume.js
+    js/  icons/  fonts/
+    react/              ← the .tsx components
+  main.tsx
+```
+
+Markup of the examples in this section:
+
+```html
+<button type="button" class="ds-icon-btn ds-icon-btn--sm ds-icon-btn--muted" data-copy-code="" aria-label="Copy code" data-ds-tooltip="Copy code"><ds-icon name="copy"></ds-icon></button>
+```
+
+## Use
+
+Import `lume.css` once, at the app’s entry, and the components from `./lume/react`.
+
+```html
+import { createRoot } from 'react-dom/client';
+import './lume/lume.css';
+import { initTheme } from './lume/lume.js';
+import { App } from './App';
+
+initTheme();
+createRoot(document.getElementById('root')!).render(<App />);
+```
+
+```html
+import { useState } from 'react';
+import { Alert, Badge, Button, Panel } from './lume/react';
+
+export function App() {
+  const [saving, setSaving] = useState(false);
+  return (
+    <Panel eyebrow="Order" title="Order #1042" actions={<Badge tone="success" dot>Paid</Badge>}>
+      <Alert tone="info" title="Delivery expected on Friday" />
+      <Button variant="primary" icon="check" busy={saving} onClick={() => setSaving(true)}>
+        {saving ? 'Saving' : 'Confirm'}
+      </Button>
+    </Panel>
+  );
+}
+```
+
+With an AI: point it to `https://lumeui.dev/llms.txt` and say the project uses the components in `lume/react`.
+
+Markup of the examples in this section:
+
+```html
+<button type="button" class="ds-icon-btn ds-icon-btn--sm ds-icon-btn--muted" data-copy-code="" aria-label="Copy code" data-ds-tooltip="Copy code"><ds-icon name="copy"></ds-icon></button>
+```
+
+## Components
+
+What’s already in React. Each name leads to the component’s page, with the uses, variants, and accessibility, which apply here just the same.
+
+### Base
+
+| Component | What it does | File |
+| --- | --- | --- |
+| `Icon` | The 130 icons, with the name checked by TypeScript. | Icon.tsx |
+| `useLocale` | Lume’s language; re-renders when it changes. | useLocale.ts |
+| `cx` | Joins classes, skipping anything falsy. | cx.ts |
+
+### Actions
+
+| Component | What it does | File |
+| --- | --- | --- |
+| `Button · ButtonLink` | Variant, size, icons and busy. ButtonLink is the same look on a link. | Button.tsx |
+| `IconButton` | Icon only; the screen reader label is required. | IconButton.tsx |
+| `InlineAction` | Minimal action within content ("In scene +"). | InlineAction.tsx |
+| `Chip · RemovableChip · ChipGroup` | Filter (pressed), selector (chevron) and removable (onRemove). | Chip.tsx |
+
+### Feedback and loading
+
+| Component | What it does | File |
+| --- | --- | --- |
+| `Badge` | Six tones, dot and counter. | Badge.tsx |
+| `Alert` | Tone with the right icon, actions and the × (onClose). | Alert.tsx |
+| `Progress` | Bar with label and percentage; without a value, indeterminate. | Loading.tsx |
+| `Spinner` | Three sizes, with the "Loading" label built in. | Loading.tsx |
+| `Skeleton` | Block, text line and circle. | Loading.tsx |
+
+### Content
+
+| Component | What it does | File |
+| --- | --- | --- |
+| `Card · CardLink` | Simple surface; CardLink is the whole card as a link. | Panel.tsx |
+| `Panel · Section` | Header, toolbar, body and footer in the right order, through props. | Panel.tsx |
+| `Avatar · AvatarGroup` | Initials and tone from the name, photo falling back to initials, status and "+N". | Avatar.tsx |
+| `Kbd` | One key or a combination (keys). | Content.tsx |
+| `DescriptionList` | Label and value pairs from a list. | Content.tsx |
+| `Timeline` | Events with tone, icon and date. | Content.tsx |
+| `Breadcrumb` | Items with links; renderLink for your router’s link. | Content.tsx |
+
+## How it works
+
+|   |   |
+| --- | --- |
+| A thin layer | Each component only builds Lume’s markup, with the same classes. The look comes from `lume.css`; fix it there, it’s fixed in React. |
+| Your files | The .tsx files live in your project, as with shadcn: you can read, change, and delete what you don’t use. No npm. |
+| TypeScript | Typed, commented props, with a link to each component’s page. `IconName` lists the 130 icons: a wrong name won’t compile. |
+| Language | The text a component writes on its own ("Close", "Loading") follows Lume’s language and changes with `setLocale`. `useLocale()` does the same for yours. |
+| Versions | The `react/` folder ships with every line: `/v/0.26/react/`. Updating means swapping the Lume folder for the new line’s. |
+
+## What’s next
+
+One stage per version, up to all 44 components. Until a component arrives, use the HTML markup from its page with className: the CSS is the same.
+
+|   |   |   |
+| --- | --- | --- |
+| `0.27` | React: forms: The 11 form controls, with the value controlled by React and validation. | Next |
+| `0.28` | React: navigation and layers: The 15 components that open, close, and change state. | Planned |
+| `0.29` | React: content, charts, and app shell: The richest components, completing all 44. | Planned |

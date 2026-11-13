@@ -5,7 +5,7 @@ description: Cria e revisa interfaces com o Lume Design System (lumeui.dev), um 
 
 # Lume Design System
 
-O Lume é um design system sem dependências: um CSS (`https://lumeui.dev/v/0.25/lume.css`), módulos JavaScript opcionais e 130 ícones próprios. A documentação para IAs está publicada em `https://lumeui.dev/ia/`.
+O Lume é um design system sem dependências: um CSS (`https://lumeui.dev/v/0.26/lume.css`), módulos JavaScript opcionais e 130 ícones próprios. A documentação para IAs está publicada em `https://lumeui.dev/ia/`.
 
 ## Como trabalhar
 
@@ -13,7 +13,8 @@ O Lume é um design system sem dependências: um CSS (`https://lumeui.dev/v/0.25
 2. Abra o índice `https://lumeui.dev/llms.txt` e leia o arquivo de cada componente que for usar (`https://lumeui.dev/ia/componentes/<nome>.md`). Para uma tela inteira, comece pelos padrões em `https://lumeui.dev/ia/padroes/`.
 3. Escreva a interface só com o que aparece nesses arquivos: as classes `ds-*`, os atributos, as funções dos módulos e os tokens `var(--ds-…)`.
 4. Para ícones, confira o nome em `https://lumeui.dev/ia/icones.md`.
-5. Antes de entregar, revise a tela contra as seções "Uso" e "Acessibilidade" dos componentes usados.
+5. Em projeto React, use os componentes de `lume/react/` (seção React do LEIA-ME); o que ainda não tem componente usa a marcação HTML com `className`.
+6. Antes de entregar, revise a tela contra as seções "Uso" e "Acessibilidade" dos componentes usados.
 
 ## Nunca
 

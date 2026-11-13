@@ -1,12 +1,13 @@
 {
   "name": "lume-design-system",
-  "version": "0.25.4",
+  "version": "0.26.0",
   "private": true,
   "description": "Lume Design System — tokens, ícones, componentes e documentação.",
   "type": "module",
   "scripts": {
     "dev": "node scripts/serve.mjs",
-    "build": "node scripts/build-tokens.mjs && node scripts/test-figma-plugin.mjs && node scripts/build-site.mjs",
+    "build": "node scripts/build-tokens.mjs && node scripts/build-react.mjs && node scripts/test-figma-plugin.mjs && node scripts/build-site.mjs",
+    "react": "node scripts/build-react.mjs",
     "tokens": "node scripts/build-tokens.mjs",
     "figma": "node scripts/build-figma-plugin.mjs",
     "ia": "node scripts/build-ai-docs.mjs",

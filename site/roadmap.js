@@ -13,22 +13,10 @@ const GOAL = T('Meta', 'Goal', 'Meta');
 
 const STAGES = [
   {
-    version: '0.26',
+    version: '0.27',
     group: 'release',
     tone: 'brand',
     status: NEXT,
-    title: T('React: base e componentes visuais', 'React: foundation and visual components', 'React: base y componentes visuales'),
-    text: T('O formato dos componentes React, para copiar no projeto, e os 15 que só trocam classes.', 'The format of the React components, to copy into a project, and the 15 that only switch classes.', 'El formato de los componentes React, para copiar al proyecto, y los 15 que solo cambian clases.'),
-    items: [
-      { name: T('Usar com React', 'Use with React', 'Usar con React'), text: T('Página com instalação, exemplos e onde copiar os arquivos .tsx de cada versão.', 'A page with installation, examples, and where to copy each version’s .tsx files.', 'Página con instalación, ejemplos y dónde copiar los archivos .tsx de cada versión.') },
-      { name: T('15 componentes', '15 components', '15 componentes'), text: T('Botão, Ação inline, Chip, Badge, Alerta, Barra de progresso, Spinner, Skeleton, Card, Painel, Avatar, Tecla, Lista de definições, Linha do tempo e Breadcrumb.', 'Button, Inline action, Chip, Badge, Alert, Progress bar, Spinner, Skeleton, Card, Panel, Avatar, Key, Definition list, Timeline, and Breadcrumb.', 'Botón, Acción en línea, Chip, Badge, Alerta, Barra de progreso, Spinner, Skeleton, Tarjeta, Panel, Avatar, Tecla, Lista de definiciones, Línea de tiempo y Breadcrumb.') },
-    ],
-  },
-  {
-    version: '0.27',
-    group: 'release',
-    tone: 'neutral',
-    status: PLANNED,
     title: T('React: formulários', 'React: forms', 'React: formularios'),
     text: T('Os 11 controles de formulário, com valor controlado pelo React e validação.', 'The 11 form controls, with the value controlled by React and validation.', 'Los 11 controles de formulario, con el valor controlado por React y validación.'),
     items: [
