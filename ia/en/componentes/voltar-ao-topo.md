@@ -9,7 +9,7 @@ In numbers: size: 40 px · appears after: 1 screen · anchor: container · funct
 ## Example
 
 ```html
-import { createBackToTop } from 'https://lumeui.dev/v/0.28/lume.js';
+import { createBackToTop } from 'https://lumeui.dev/v/0.29/lume.js';
 
 createBackToTop(document.querySelector('.painel__rolagem'));
 ```
@@ -29,7 +29,7 @@ Markup of the examples in this section:
 The button goes into `parent`, which needs a `position`.
 
 ```html
-import { createBackToTop } from 'https://lumeui.dev/v/0.28/lume.js';
+import { createBackToTop } from 'https://lumeui.dev/v/0.29/lume.js';
 
 const back = createBackToTop(document.querySelector('.painel__rolagem'), {
   parent: document.querySelector('.painel'),

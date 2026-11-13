@@ -8,10 +8,37 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.28.0';
+export const CURRENT_VERSION = '0.29.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.29.0',
+    date: '2026-11-13',
+    title: T('React: conteúdo, gráficos e app shell', 'React: content, charts, and app shell', 'React: contenido, gráficos y app shell'),
+    summary: T(
+      'Os 44 componentes já têm versão React: chegam Tabela, Calendário, Bloco de código, os gráficos e o app shell. O Storybook ganhou a seção React.',
+      'All 44 components now have a React version: Table, Calendar, Code block, the charts, and the app shell arrive. Storybook gained a React section.',
+      'Los 44 componentes ya tienen versión React: llegan Tabla, Calendario, Bloque de código, los gráficos y el app shell. Storybook ganó la sección React.',
+    ),
+    groups: [
+      {
+        name: T('React', 'React', 'React'),
+        items: [
+          ['novo', T('Tabela com ordenação e seleção no estado, Calendário e Bloco de código', 'Table with sorting and selection in state, Calendar, and Code block', 'Tabla con orden y selección en el estado, Calendario y Bloque de código'), '/recursos/react'],
+          ['novo', T('Gráficos: barras, linhas, rosca, heatmap, calendário, dispersão e os indicadores', 'Charts: bar, line, donut, heatmap, calendar, scatter, and the indicators', 'Gráficos: barras, líneas, dona, heatmap, calendario, dispersión y los indicadores'), '/recursos/react'],
+          ['novo', T('AppShell, ThemeToggle e useTheme', 'AppShell, ThemeToggle, and useTheme', 'AppShell, ThemeToggle y useTheme'), '/recursos/react'],
+          ['novo', T('Storybook: seção React, com as histórias em .tsx', 'Storybook: a React section, with stories in .tsx', 'Storybook: sección React, con las historias en .tsx'), '/recursos/react'],
+        ],
+      },
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['melhoria', T('App shell: createShell ganhou destroy(), para apps que montam e desmontam o shell', 'App shell: createShell gained destroy(), for apps that mount and unmount the shell', 'App shell: createShell ganó destroy(), para apps que montan y desmontan el shell'), '/padroes/app-shell'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.28.0',
     date: '2026-11-13',

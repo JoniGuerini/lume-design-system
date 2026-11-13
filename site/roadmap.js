@@ -13,18 +13,6 @@ const GOAL = T('Meta', 'Goal', 'Meta');
 
 const STAGES = [
   {
-    version: '0.29',
-    group: 'release',
-    tone: 'brand',
-    status: NEXT,
-    title: T('React: conteúdo, gráficos e app shell', 'React: content, charts, and app shell', 'React: contenido, gráficos y app shell'),
-    text: T('Os componentes mais ricos, que fecham os 44.', 'The richest components, completing all 44.', 'Los componentes más ricos, que completan los 44.'),
-    items: [
-      { name: T('Conteúdo', 'Content', 'Contenido'), text: T('Tabela, Calendário e Bloco de código.', 'Table, Calendar, and Code block.', 'Tabla, Calendario y Bloque de código.') },
-      { name: T('Gráficos e app shell', 'Charts and app shell', 'Gráficos y app shell'), text: T('Os gráficos e o app shell como componentes React, e a versão React no Storybook.', 'The charts and the app shell as React components, plus the React version in Storybook.', 'Los gráficos y el app shell como componentes React, y la versión React en Storybook.') },
-    ],
-  },
-  {
     version: '1.0',
     group: 'release',
     tone: 'success',

@@ -5,6 +5,7 @@
  *
  *   const shell = createShell(document.getElementById('shell'));
  *   createShell(el, { persist: false, initial: 'collapsed' });   // demos: nada vai para o localStorage
+ *   shell.destroy();                                                  // desliga tudo (apps que desmontam o shell)
  *
  * A cada mudança, o shell dispara "ds:shellchange" com { sidebar, mobile, mobileOpen }.
  */
@@ -84,11 +85,8 @@ export function createShell(root, { persist = true, initial, layout } = {}) {
     else setCollapsed(!isCollapsed());
   }
 
-  toggles.forEach((btn) => btn.addEventListener('click', toggle));
-  scrim?.addEventListener('click', () => setMobileOpen(false));
-  document.documentElement.addEventListener('ds:localechange', sync);
-
-  document.addEventListener('keydown', (event) => {
+  const onScrim = () => setMobileOpen(false);
+  const onKey = (event) => {
     if (event.key === 'Escape' && isMobile() && isMobileOpen()) {
       setMobileOpen(false);
       root.querySelector('.ds-topbar [data-shell-toggle]')?.focus();
@@ -97,21 +95,22 @@ export function createShell(root, { persist = true, initial, layout } = {}) {
       event.preventDefault();
       toggle();
     }
-  });
-
-  mobileQuery.addEventListener('change', () => {
+  };
+  const onMedia = () => {
     root.dataset.mobileOpen = 'false';
     sync();
-  });
+  };
+  const onScroll = () => main.toggleAttribute('data-scrolled', scroller.scrollTop > 4);
 
-  scroller?.addEventListener(
-    'scroll',
-    () => main.toggleAttribute('data-scrolled', scroller.scrollTop > 4),
-    { passive: true },
-  );
+  toggles.forEach((btn) => btn.addEventListener('click', toggle));
+  scrim?.addEventListener('click', onScrim);
+  document.documentElement.addEventListener('ds:localechange', sync);
+  document.addEventListener('keydown', onKey);
+  mobileQuery.addEventListener('change', onMedia);
+  scroller?.addEventListener('scroll', onScroll, { passive: true });
 
   // Grupos recolhíveis
-  root.addEventListener('click', (event) => {
+  const onGroupClick = (event) => {
     const header = event.target.closest('.ds-nav-group__header');
     if (!header) return;
     const group = header.closest('.ds-nav-group');
@@ -121,7 +120,8 @@ export function createShell(root, { persist = true, initial, layout } = {}) {
     const state = store.get(GROUPS_KEY, {});
     state[group.dataset.group] = open;
     save(GROUPS_KEY, state);
-  });
+  };
+  root.addEventListener('click', onGroupClick);
 
   // Layout: sidebar ou navbar. Botões [data-layout-option] dentro do shell (role="radio" num radiogroup)
   const layoutOptions = () => [...root.querySelectorAll('[data-layout-option]')];
@@ -139,11 +139,11 @@ export function createShell(root, { persist = true, initial, layout } = {}) {
     syncLayout();
     sync();
   }
-  root.addEventListener('click', (event) => {
+  const onLayoutClick = (event) => {
     const btn = event.target.closest('[data-layout-option]');
     if (btn) setLayout(btn.dataset.layoutOption);
-  });
-  root.addEventListener('keydown', (event) => {
+  };
+  const onLayoutKey = (event) => {
     const options = layoutOptions();
     const index = options.indexOf(document.activeElement);
     const delta = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[event.key];
@@ -152,7 +152,9 @@ export function createShell(root, { persist = true, initial, layout } = {}) {
     const next = options[(index + delta + options.length) % options.length];
     next.focus();
     setLayout(next.dataset.layoutOption);
-  });
+  };
+  root.addEventListener('click', onLayoutClick);
+  root.addEventListener('keydown', onLayoutKey);
   syncLayout();
 
   sync();
@@ -169,6 +171,18 @@ export function createShell(root, { persist = true, initial, layout } = {}) {
     isMobile,
     isMobileOpen,
     scrollToTop: () => scroller?.scrollTo({ top: 0 }),
+    /** Desliga tudo o que o shell ligou (para apps que montam e desmontam o shell, como no React). */
+    destroy() {
+      toggles.forEach((btn) => btn.removeEventListener('click', toggle));
+      scrim?.removeEventListener('click', onScrim);
+      document.documentElement.removeEventListener('ds:localechange', sync);
+      document.removeEventListener('keydown', onKey);
+      mobileQuery.removeEventListener('change', onMedia);
+      scroller?.removeEventListener('scroll', onScroll);
+      root.removeEventListener('click', onGroupClick);
+      root.removeEventListener('click', onLayoutClick);
+      root.removeEventListener('keydown', onLayoutKey);
+    },
   };
 }
 

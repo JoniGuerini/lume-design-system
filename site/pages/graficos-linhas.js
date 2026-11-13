@@ -82,7 +82,7 @@ function playgroundCode(state) {
   ]
     .filter(Boolean)
     .join('\n');
-  return `import { createLineChart } from 'https://lumeui.dev/v/0.28/lume.js';
+  return `import { createLineChart } from 'https://lumeui.dev/v/0.29/lume.js';
 
 const chart = createLineChart(document.querySelector('#${L('usuarios', 'users', 'usuarios')}'), {
   title: '${o.title}',
@@ -384,7 +384,7 @@ export default function renderLinhas(page) {
       'api',
       'API',
       L('Uma função, as mesmas regras de todos os gráficos do Lume.', 'One function, the same rules as every Lume chart.', 'Una función, las mismas reglas de todos los gráficos de Lume.'),
-      `${codeBlock(`import { createLineChart } from 'https://lumeui.dev/v/0.28/lume.js';
+      `${codeBlock(`import { createLineChart } from 'https://lumeui.dev/v/0.29/lume.js';
 
 const chart = createLineChart(document.querySelector('#${L('receita', 'revenue', 'ingresos')}'), {
   title: '${revenueLabel()}',

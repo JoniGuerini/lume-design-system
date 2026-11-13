@@ -116,6 +116,39 @@ export declare function setToastPosition(position: ToastPosition): ToastPosition
 export declare function toastContent(message: string, options?: ToastOptions & { dismissible?: boolean }): string;
 export declare function toastClasses(options?: { tone?: string }): string;
 `,
+  shell: `export declare const LAYOUTS: Array<'sidebar' | 'navbar'>;
+export declare function createShell(root: HTMLElement, options?: { persist?: boolean; initial?: 'expanded' | 'collapsed'; layout?: 'sidebar' | 'navbar' }): { toggle(): void; setCollapsed(collapsed: boolean): void; setLayout(layout: 'sidebar' | 'navbar'): void; layout(): string; setMobileOpen(open: boolean): void; closeMobile(): void; isCollapsed(): boolean; isMobile(): boolean; isMobileOpen(): boolean; scrollToTop(): void; destroy(): void };
+export declare function renderSidebarNav(container: HTMLElement, groups: any[]): void;
+export declare function setActiveNavItem(container: HTMLElement, href: string): void;
+export declare function renderNavbarNav(container: HTMLElement, groups: any[], options: Record<string, unknown>): void;
+`,
+  theme: `export declare const THEMES: Array<'light' | 'dark'>;
+export declare function getThemePreference(): 'system' | 'light' | 'dark';
+export declare function themeFor(preference: string): 'light' | 'dark';
+export declare function resolvedTheme(): 'light' | 'dark';
+export declare function toggleTheme(): void;
+export declare function setTheme(preference: 'system' | 'light' | 'dark'): void;
+export declare function mountThemeControls(scope?: ParentNode): () => void;
+export declare function initTheme(): void;
+`,
+  calendar: `export declare function localeWeekStart(tag?: string): number;
+export declare function createCalendar(root: HTMLElement, options?: Record<string, unknown>): { view: 'month' | 'week' | 'day'; date: Date; setView(view: string): void; setDate(date: Date): void; today(): void; prev(): void; next(): void; setEvents(events: any[]): void; destroy(): void };
+`,
+  'code-block': `export declare function codeBlockHtml(code: string, options?: { small?: boolean }): string;
+export declare function mountCodeBlocks(root?: ParentNode): () => void;
+`,
+  charts: `type Chart = { update(options: any): void; setLoading(on: boolean): void; destroy(): void; el: HTMLElement };
+export declare function createBarChart(host: HTMLElement, options: any): Chart;
+export declare function createLineChart(host: HTMLElement, options: any): Chart;
+export declare function createDonutChart(host: HTMLElement, options: any): Chart;
+export declare function createHeatmap(host: HTMLElement, options: any): Chart;
+export declare function createCalendarHeatmap(host: HTMLElement, options: any): Chart;
+export declare function createScatterChart(host: HTMLElement, options: any): Chart;
+export declare function sparklineHtml(values: number[], options?: Record<string, unknown>): string;
+export declare function statTileHtml(options: Record<string, unknown>): string;
+export declare function meterHtml(options: Record<string, unknown>): string;
+export declare function formatter(format: unknown): (value: number) => string;
+`,
 };
 for (const [name, body] of Object.entries(MODULES)) {
   await writeFile(path.join(ROOT, 'ds', 'js', `${name}.d.ts`), `// Gerado por scripts/build-react.mjs. Não edite.

@@ -86,6 +86,24 @@ export const REACT_GROUPS = () => [
       ['DescriptionList', 'Content.tsx', '/componentes/lista-de-definicoes', '0.26', L('Pares de rótulo e valor a partir de uma lista.', 'Label and value pairs from a list.', 'Pares de etiqueta y valor a partir de una lista.')],
       ['Timeline', 'Content.tsx', '/componentes/linha-do-tempo', '0.26', L('Eventos com tom, ícone e data.', 'Events with tone, icon and date.', 'Eventos con tono, ícono y fecha.')],
       ['Breadcrumb', 'Content.tsx', '/componentes/breadcrumb', '0.26', L('Itens com link; renderLink para o link do seu roteador.', 'Items with links; renderLink for your router’s link.', 'Ítems con enlace; renderLink para el enlace de tu enrutador.')],
+      ['Table', 'Table.tsx', '/componentes/tabela', '0.29', L('Colunas, ordenação e seleção no estado; vazio e carregando.', 'Columns, sorting and selection in state; empty and loading.', 'Columnas, orden y selección en el estado; vacío y cargando.')],
+      ['Calendar', 'Calendar.tsx', '/componentes/calendario', '0.29', L('Mês, semana e dia, com eventos; visão e data no estado.', 'Month, week and day, with events; view and date in state.', 'Mes, semana y día, con eventos; vista y fecha en el estado.')],
+      ['CodeBlock', 'Calendar.tsx', '/componentes/bloco-de-codigo', '0.29', L('Código com o botão de copiar.', 'Code with the copy button.', 'Código con el botón de copiar.')],
+    ],
+  },
+  {
+    title: L('Gráficos', 'Charts', 'Gráficos'),
+    items: [
+      ['BarChart · LineChart · DonutChart', 'Charts.tsx', '/graficos/barras', '0.29', L('As opções do gráfico viram props; mudou, ele atualiza.', 'The chart options become props; when they change, it updates.', 'Las opciones del gráfico son props; si cambian, se actualiza.')],
+      ['Heatmap · CalendarHeatmap · ScatterChart', 'Charts.tsx', '/graficos/heatmap', '0.29', L('Matriz, calendário de um ano e dispersão.', 'Matrix, a year calendar and scatter.', 'Matriz, calendario de un año y dispersión.')],
+      ['StatTile · Sparkline · Meter', 'Charts.tsx', '/graficos/indicadores', '0.29', L('O número com variação, a linha de tendência e o medidor.', 'The number with change, the trend line and the meter.', 'El número con variación, la línea de tendencia y el medidor.')],
+    ],
+  },
+  {
+    title: L('App shell e tema', 'App shell and theme', 'App shell y tema'),
+    items: [
+      ['AppShell', 'AppShell.tsx', '/padroes/app-shell', '0.29', L('Sidebar que recolhe, gaveta no celular e topbar; onNavigate liga ao seu roteador.', 'Collapsing sidebar, drawer on phones and top bar; onNavigate hooks into your router.', 'Sidebar que se contrae, cajón en el móvil y barra superior; onNavigate se conecta a tu enrutador.')],
+      ['ThemeToggle · useTheme', 'AppShell.tsx', '/fundamentos/cores', '0.29', L('O botão de claro e escuro e o tema em uso.', 'The light and dark button and the theme in use.', 'El botón de claro y oscuro y el tema en uso.')],
     ],
   },
 ];

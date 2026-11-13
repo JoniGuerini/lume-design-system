@@ -4,11 +4,11 @@ Sección de Lume: Recursos. Página: https://lumeui.dev/#/recursos/react
 
 Componentes .tsx para copiar al proyecto, sobre el mismo CSS y JavaScript de Lume. Sin paquete que instalar: la carpeta viene en el zip de cada versión.
 
-En números: de los 44 componentes: 41 · React: 18+ · dependencias: 0.
+En números: de los 44 componentes: 44 · React: 18+ · dependencias: 0.
 
 ## Instalar
 
-Descarga el zip de la versión 0.28, descomprímelo y lleva la carpeta dentro de `src/` con el nombre `lume`. Los componentes están en `lume/react/` e importan el JavaScript y los íconos de la misma carpeta. Funciona con Vite, Next.js y cualquier proyecto React 18 o más nuevo.
+Descarga el zip de la versión 0.29, descomprímelo y lleva la carpeta dentro de `src/` con el nombre `lume`. Los componentes están en `lume/react/` e importan el JavaScript y los íconos de la misma carpeta. Funciona con Vite, Next.js y cualquier proyecto React 18 o más nuevo.
 
 ```html
 src/
@@ -150,6 +150,24 @@ Lo que ya está en React. Cada nombre lleva a la página del componente, con los
 | `DescriptionList` | Pares de etiqueta y valor a partir de una lista. | Content.tsx |
 | `Timeline` | Eventos con tono, ícono y fecha. | Content.tsx |
 | `Breadcrumb` | Ítems con enlace; renderLink para el enlace de tu enrutador. | Content.tsx |
+| `Table` | Columnas, orden y selección en el estado; vacío y cargando. | Table.tsx |
+| `Calendar` | Mes, semana y día, con eventos; vista y fecha en el estado. | Calendar.tsx |
+| `CodeBlock` | Código con el botón de copiar. | Calendar.tsx |
+
+### Gráficos
+
+| Componente | Qué hace | Archivo |
+| --- | --- | --- |
+| `BarChart · LineChart · DonutChart` | Las opciones del gráfico son props; si cambian, se actualiza. | Charts.tsx |
+| `Heatmap · CalendarHeatmap · ScatterChart` | Matriz, calendario de un año y dispersión. | Charts.tsx |
+| `StatTile · Sparkline · Meter` | El número con variación, la línea de tendencia y el medidor. | Charts.tsx |
+
+### App shell y tema
+
+| Componente | Qué hace | Archivo |
+| --- | --- | --- |
+| `AppShell` | Sidebar que se contrae, cajón en el móvil y barra superior; onNavigate se conecta a tu enrutador. | AppShell.tsx |
+| `ThemeToggle · useTheme` | El botón de claro y oscuro y el tema en uso. | AppShell.tsx |
 
 ## Cómo funciona
 
@@ -159,12 +177,8 @@ Lo que ya está en React. Cada nombre lleva a la página del componente, con los
 | Tus archivos | Los .tsx quedan en tu proyecto, como en shadcn: puedes leer, cambiar y borrar lo que no uses. Nada de npm. |
 | TypeScript | Props tipadas y comentadas, con el enlace a la página de cada componente. `IconName` lista los 130 íconos: un nombre equivocado no compila. |
 | Idioma | Los textos que el componente escribe solo ("Cerrar", "Cargando") siguen el idioma de Lume y cambian con `setLocale`. `useLocale()` hace lo mismo en los tuyos. |
-| Versiones | La carpeta `react/` va en cada línea: `/v/0.28/react/`. Actualizar es cambiar la carpeta de Lume por la de la línea nueva. |
+| Versiones | La carpeta `react/` va en cada línea: `/v/0.29/react/`. Actualizar es cambiar la carpeta de Lume por la de la línea nueva. |
 
 ## Lo que viene
 
-Una etapa por versión, hasta los 44 componentes. Mientras un componente no llega, usa el marcado HTML de su página con className: el CSS es el mismo.
-
-|   |   |   |
-| --- | --- | --- |
-| `0.29` | React: contenido, gráficos y app shell: Los componentes más ricos, que completan los 44. | Próximo |
+Los 44 componentes ya están en React.

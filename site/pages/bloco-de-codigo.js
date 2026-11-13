@@ -86,7 +86,7 @@ export function mount(root) {
 </div>
 
 <script type="module">
-  import { mountCodeBlocks } from 'https://lumeui.dev/v/0.28/lume.js';
+  import { mountCodeBlocks } from 'https://lumeui.dev/v/0.29/lume.js';
   mountCodeBlocks(document);
 </script>`,
   });

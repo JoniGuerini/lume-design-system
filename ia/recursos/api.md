@@ -11,10 +11,10 @@ Em números: itens públicos: 83 · verbos: 5 · dependências: 0.
 Um arquivo, `ds/lume.js`, reúne a API inteira. Os módulos de `ds/js/` continuam podendo ser importados um a um, para carregar só o necessário.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/0.28/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/0.29/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.28/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.29/lume.js';
 
   initTheme();
   const modal = createModal({ title: 'Publicar alterações?' });

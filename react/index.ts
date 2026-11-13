@@ -54,3 +54,17 @@ export {
 } from './Layers';
 /** Toast: funções, não componentes. toast('Link copiado', { tone: 'success' }). https://lumeui.dev/#/componentes/toast */
 export { toast, copyText, clearToasts, setToastPosition, getToastPosition, type ToastOptions, type ToastPosition } from '../js/toast.js';
+
+// Conteúdo e dados
+export { Table, type TableProps, type TableColumn, type SortDirection } from './Table';
+export { Calendar, CodeBlock, type CalendarProps, type CalendarEvent, type CalendarView, type CodeBlockProps } from './Calendar';
+
+// Gráficos
+export {
+  BarChart, LineChart, DonutChart, Heatmap, CalendarHeatmap, ScatterChart, StatTile, Sparkline, Meter,
+  type BarChartProps, type LineChartProps, type DonutChartProps, type HeatmapProps, type CalendarHeatmapProps, type ScatterChartProps,
+  type StatTileProps, type SparklineProps, type MeterProps, type Series, type ChartBase,
+} from './Charts';
+
+// App shell e tema
+export { AppShell, ThemeToggle, useTheme, type AppShellProps, type NavGroup, type NavItem, type ThemeToggleProps } from './AppShell';

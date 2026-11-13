@@ -43,7 +43,7 @@ export default {
     layout: 'padded',
     controls: { expanded: true },
     backgrounds: { disable: true },
-    options: { storySort: { order: ['Lume', 'Componentes', 'Padrões'] } },
+    options: { storySort: { order: ['Lume', 'Componentes', 'React', 'Padrões'] } },
   },
   tags: ['autodocs'],
 };

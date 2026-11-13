@@ -63,7 +63,7 @@ export default function renderArvore(page) {
         id: 'codigo',
         title: L('Código', 'Code', 'Código'),
         desc: L(`O ${ic('aria-label')} do ${ic('.ds-tree')} dá nome à árvore para o leitor de tela.`, `The ${ic('aria-label')} on ${ic('.ds-tree')} names the tree for screen readers.`, `El ${ic('aria-label')} de ${ic('.ds-tree')} da nombre al árbol para el lector de pantalla.`),
-        html: codeBlock(`import { createTree } from 'https://lumeui.dev/v/0.28/lume.js';
+        html: codeBlock(`import { createTree } from 'https://lumeui.dev/v/0.29/lume.js';
 
 const tree = createTree(document.querySelector('.ds-tree'), {
   items: [
@@ -130,7 +130,7 @@ export function mount(root) {
     code: (s) => `<div class="ds-tree" aria-label="${L('Arquivos', 'Files', 'Archivos')}"></div>
 
 <script type="module">
-  import { createTree } from 'https://lumeui.dev/v/0.28/lume.js';
+  import { createTree } from 'https://lumeui.dev/v/0.29/lume.js';
   createTree(document.querySelector('.ds-tree'), {
     items: arquivos,${s.open === 'open' ? "\n    expanded: ['docs', 'contratos']," : ''}
     onSelect: (item) => abrir(item.id),
