@@ -8,10 +8,36 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.26.0';
+export const CURRENT_VERSION = '0.27.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.27.0',
+    date: '2026-11-13',
+    title: T('React: formulários', 'React: forms', 'React: formularios'),
+    summary: T(
+      'Os 11 controles de formulário em React, com o valor no estado do React, e o Form com a validação do Lume.',
+      'The 11 form controls in React, with the value in React state, and Form with Lume’s validation.',
+      'Los 11 controles de formulario en React, con el valor en el estado de React, y Form con la validación de Lume.',
+    ),
+    groups: [
+      {
+        name: T('React', 'React', 'React'),
+        items: [
+          ['novo', T('Campo de texto, Seleção, Checkbox e radio, Switch, Seletor de data, Seletor de horário, Campo numérico, Slider, Campo de tags, Upload e Código de verificação', 'Text field, Select, Checkbox and radio, Switch, Date picker, Time picker, Number field, Slider, Tag field, Upload, and Verification code', 'Campo de texto, Selección, Checkbox y radio, Switch, Selector de fecha, Selector de hora, Campo numérico, Slider, Campo de etiquetas, Carga y Código de verificación'), '/recursos/react'],
+          ['novo', T('Field liga rótulo, dica, erro e contador a qualquer controle', 'Field wires label, hint, error and counter to any control', 'Field conecta etiqueta, pista, error y contador a cualquier control'), '/recursos/react'],
+          ['novo', T('Form: a validação do Lume, com regras próprias e o resumo de erros', 'Form: Lume’s validation, with custom rules and the error summary', 'Form: la validación de Lume, con reglas propias y el resumen de errores'), '/recursos/react'],
+        ],
+      },
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['correcao', T('Upload: destroy() tira a área e a lista que o componente criou', 'Upload: destroy() removes the area and list the component created', 'Carga: destroy() quita el área y la lista que creó el componente'), '/componentes/upload'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.26.0',
     date: '2026-11-13',

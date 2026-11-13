@@ -221,6 +221,10 @@ export function createFileUpload(root, options = {}) {
       root.removeEventListener('drop', onDrop);
       root.removeEventListener('click', onClick);
       document.documentElement.removeEventListener('ds:localechange', onLocale);
+      zone.remove();
+      list.remove();
+      live.remove();
+      input.removeAttribute('aria-describedby');
     },
   };
 }

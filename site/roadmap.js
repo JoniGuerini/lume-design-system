@@ -13,22 +13,10 @@ const GOAL = T('Meta', 'Goal', 'Meta');
 
 const STAGES = [
   {
-    version: '0.27',
+    version: '0.28',
     group: 'release',
     tone: 'brand',
     status: NEXT,
-    title: T('React: formulários', 'React: forms', 'React: formularios'),
-    text: T('Os 11 controles de formulário, com valor controlado pelo React e validação.', 'The 11 form controls, with the value controlled by React and validation.', 'Los 11 controles de formulario, con el valor controlado por React y validación.'),
-    items: [
-      { name: T('11 componentes', '11 components', '11 componentes'), text: T('Campo de texto, Seleção, Checkbox e radio, Switch, Seletor de data, Seletor de horário, Campo numérico, Slider, Campo de tags, Upload e Código de verificação.', 'Text field, Select, Checkbox and radio, Switch, Date picker, Time picker, Number field, Slider, Tag field, Upload, and Verification code.', 'Campo de texto, Selector, Checkbox y radio, Switch, Selector de fecha, Selector de hora, Campo numérico, Slider, Campo de etiquetas, Carga y Código de verificación.') },
-      { name: T('Formulário', 'Form', 'Formulario'), text: T('Validação e resumo de erros do jeito do React.', 'Validation and error summary, the React way.', 'Validación y resumen de errores al estilo de React.') },
-    ],
-  },
-  {
-    version: '0.28',
-    group: 'release',
-    tone: 'neutral',
-    status: PLANNED,
     title: T('React: navegação e camadas', 'React: navigation and layers', 'React: navegación y capas'),
     text: T('Os 15 componentes que abrem, fecham e trocam de estado.', 'The 15 components that open, close, and change state.', 'Los 15 componentes que abren, cierran y cambian de estado.'),
     items: [

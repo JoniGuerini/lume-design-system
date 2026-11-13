@@ -1,0 +1,138 @@
+/* Popover, gaveta lateral e menu de contexto */
+
+/* ───────── Popover ───────── */
+
+.ds-popover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--ds-z-popover);
+  width: max-content;
+  max-width: min(340px, calc(100vw - 16px));
+  padding: var(--ds-space-200);
+  border-radius: var(--ds-radius-lg);
+  background: var(--ds-color-bg-raised);
+  border: 1px solid var(--ds-color-border-strong);
+  box-shadow: var(--ds-shadow-xl);
+  color: var(--ds-color-fg-default);
+  outline: none;
+  animation: ds-popover-in var(--ds-duration-fast) var(--ds-easing-standard);
+}
+
+@keyframes ds-popover-in {
+  from { opacity: 0; }
+}
+
+.ds-popover__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-200);
+  margin: -2px -4px var(--ds-space-100) 0;
+}
+
+.ds-popover__title {
+  font: var(--ds-text-label-md);
+  letter-spacing: var(--ds-text-label-md-tracking);
+}
+
+.ds-popover__body {
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+  letter-spacing: var(--ds-text-body-sm-tracking);
+}
+
+.ds-popover__body > * + * {
+  margin-top: var(--ds-space-150);
+}
+
+/* ───────── Gaveta lateral ─────────
+ * Um .ds-modal que entra pela borda: flutua como os painéis do shell, com o mesmo respiro em volta.
+ */
+.ds-drawer {
+  --_w: 480px;
+  --_gap: var(--ds-layout-frame-gap, 10px);
+  position: fixed;
+  width: min(var(--_w), calc(100vw - 2 * var(--_gap)));
+  height: calc(100dvh - 2 * var(--_gap));
+  max-width: none;
+  max-height: none;
+  margin: var(--_gap);
+  border-radius: var(--ds-radius-xl);
+}
+
+.ds-drawer--sm { --_w: 360px; }
+.ds-drawer--lg { --_w: 640px; }
+
+.ds-drawer--right {
+  inset: 0 0 0 auto;
+}
+
+.ds-drawer--left {
+  inset: 0 auto 0 0;
+}
+
+.ds-drawer--bottom {
+  inset: auto 0 0;
+  width: calc(100vw - 2 * var(--_gap));
+  height: auto;
+  max-height: min(70dvh, 560px);
+  margin-inline: auto;
+}
+
+.ds-drawer .ds-modal__body {
+  padding-bottom: var(--ds-space-300);
+}
+
+.ds-drawer .ds-modal__footer {
+  border-top: 1px solid var(--ds-color-border-subtle);
+  padding-block: var(--ds-space-250);
+}
+
+.ds-drawer--right[open] { animation-name: ds-drawer-in-right; }
+.ds-drawer--left[open] { animation-name: ds-drawer-in-left; }
+.ds-drawer--bottom[open] { animation-name: ds-drawer-in-bottom; }
+.ds-drawer--right[data-closing] { animation-name: ds-drawer-out-right; }
+.ds-drawer--left[data-closing] { animation-name: ds-drawer-out-left; }
+.ds-drawer--bottom[data-closing] { animation-name: ds-drawer-out-bottom; }
+
+@keyframes ds-drawer-in-right { from { transform: translateX(32px); opacity: 0; } }
+@keyframes ds-drawer-in-left { from { transform: translateX(-32px); opacity: 0; } }
+@keyframes ds-drawer-in-bottom { from { transform: translateY(32px); opacity: 0; } }
+@keyframes ds-drawer-out-right { to { transform: translateX(24px); opacity: 0; } }
+@keyframes ds-drawer-out-left { to { transform: translateX(-24px); opacity: 0; } }
+@keyframes ds-drawer-out-bottom { to { transform: translateY(24px); opacity: 0; } }
+
+@media (max-width: 767.98px) {
+  .ds-drawer:not(.ds-drawer--bottom) {
+    width: calc(100vw - 2 * var(--_gap));
+    max-height: none;
+  }
+
+  .ds-drawer .ds-modal__footer {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .ds-drawer .ds-modal__footer > .ds-btn {
+    width: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-popover,
+  .ds-drawer[open],
+  .ds-drawer[data-closing] {
+    animation: none;
+  }
+}
+
+/* ───────── Menu de contexto ───────── */
+
+.ds-context-menu {
+  transition: opacity var(--ds-duration-fast) var(--ds-easing-standard);
+}
+
+.ds-context-menu[data-open] {
+  transform: none;
+}

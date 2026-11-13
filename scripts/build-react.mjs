@@ -52,6 +52,25 @@ export declare function numberFormat(options?: Intl.NumberFormatOptions): Intl.N
 export declare function dateFormat(options?: Intl.DateTimeFormatOptions): Intl.DateTimeFormat;
 export declare function formatNumber(n: number, options?: Intl.NumberFormatOptions): string;
 `,
+  select: `export declare function createSelect(select: HTMLSelectElement, config?: Record<string, unknown>): { select: HTMLSelectElement; trigger: HTMLElement; control: HTMLElement; open(): void; close(): void; sync(): void; destroy(): void };
+export declare function mountSelects(root?: ParentNode): () => void;
+`,
+  'date-picker': `export declare function createDatePicker(input: HTMLInputElement, options?: Record<string, unknown>): { value: any; setValue(value: any): void; open(): void; close(): void; destroy(): void };
+`,
+  'time-picker': `export declare function createTimePicker(input: HTMLInputElement, options?: Record<string, unknown>): { value: string | null; setValue(value: string | null): void; open(): void; close(): void; destroy(): void };
+`,
+  'number-field': `export declare function createNumberField(input: HTMLInputElement, options?: Record<string, unknown>): { value: number | null; setValue(value: number | null): void; destroy(): void };
+`,
+  'tag-field': `export declare function createTagField(input: HTMLInputElement, options?: Record<string, unknown>): { value: string[]; setValue(value: string[]): void; add(text: string): void; remove(text: string): void; destroy(): void };
+`,
+  slider: `export declare function createSlider(root: HTMLElement, options?: Record<string, unknown>): { value: any; setValue(value: any): void; refresh(): void; destroy(): void };
+`,
+  'file-upload': `export declare function createFileUpload(root: HTMLElement, options?: Record<string, unknown>): { files: File[]; add(files: File[] | FileList): void; clear(): void; destroy(): void };
+`,
+  'otp-field': `export declare function createOtpField(root: HTMLElement, options?: Record<string, unknown>): { value: string; setValue(value: string): void; clear(): void; setError(on?: boolean): void; focus(): void; destroy(): void };
+`,
+  form: `export declare function createForm(form: HTMLFormElement, options?: Record<string, unknown>): { validate(): boolean; data(): Record<string, any>; errors(): Array<{ name: string; label: string; message: string }>; reset(): void; destroy(): void };
+`,
 };
 for (const [name, body] of Object.entries(MODULES)) {
   await writeFile(path.join(ROOT, 'ds', 'js', `${name}.d.ts`), `// Gerado por scripts/build-react.mjs. Não edite.

@@ -12,7 +12,7 @@ In numbers: sides: 4 · alignments: 3 · max width: 340 px · ARIA role: dialog.
 <button type="button" class="ds-btn ds-btn--secondary" id="detalhes">Open popover</button>
 
 <script type="module">
-  import { createPopover } from 'https://lumeui.dev/v/0.26/lume.js';
+  import { createPopover } from 'https://lumeui.dev/v/0.27/lume.js';
   createPopover(document.querySelector('#detalhes'), {
     title: 'Details',
     content: '<p>Free content that stays open until the person leaves.</p>',
@@ -47,7 +47,7 @@ Markup of the examples in this section:
 With `data-popover-close`, a button inside also closes the panel.
 
 ```html
-import { createPopover } from 'https://lumeui.dev/v/0.26/lume.js';
+import { createPopover } from 'https://lumeui.dev/v/0.27/lume.js';
 
 const popover = createPopover(document.querySelector('#detalhes'), {
   title: 'Details',

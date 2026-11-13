@@ -72,7 +72,7 @@ function playgroundCode(state) {
     o.valueLabel && `  valueLabel: '${o.valueLabel}',`,
     `  format: ${typeof o.format === 'string' ? `'${o.format}'` : SIGNED_CODE},`,
   ].filter(Boolean);
-  return `import { createHeatmap } from 'https://lumeui.dev/v/0.26/lume.js';
+  return `import { createHeatmap } from 'https://lumeui.dev/v/0.27/lume.js';
 
 const chart = createHeatmap(document.querySelector('#${L('pedidos', 'orders', 'pedidos')}'), {
 ${lines.join('\n')}
@@ -305,7 +305,7 @@ export default function renderHeatmap(page) {
       'api',
       'API',
       L('Duas funções com as mesmas regras de todos os gráficos do Lume: update, setLoading e destroy.', 'Two functions with the same rules as every Lume chart: update, setLoading, and destroy.', 'Dos funciones con las mismas reglas de todos los gráficos de Lume: update, setLoading y destroy.'),
-      `${codeBlock(`import { createHeatmap, createCalendarHeatmap } from 'https://lumeui.dev/v/0.26/lume.js';
+      `${codeBlock(`import { createHeatmap, createCalendarHeatmap } from 'https://lumeui.dev/v/0.27/lume.js';
 
 createHeatmap(document.querySelector('#${L('pedidos', 'orders', 'pedidos')}'), {
   title: '${ordersByHourTitle()}',

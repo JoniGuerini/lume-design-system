@@ -77,7 +77,7 @@ export default function renderUpload(page) {
         id: 'codigo',
         title: L('Código', 'Code', 'Código'),
         desc: L(`A função ${ic('upload')} recebe o arquivo, avisa o progresso (de 0 a 1) e devolve uma promessa. O erro que ela lançar aparece na linha do arquivo.`, `The ${ic('upload')} function receives the file, reports progress (0 to 1), and returns a promise. Any error it throws shows on the file’s row.`, `La función ${ic('upload')} recibe el archivo, avisa el progreso (de 0 a 1) y devuelve una promesa. El error que lance aparece en la fila del archivo.`),
-        html: codeBlock(`import { createFileUpload } from 'https://lumeui.dev/v/0.26/lume.js';
+        html: codeBlock(`import { createFileUpload } from 'https://lumeui.dev/v/0.27/lume.js';
 
 createFileUpload(document.querySelector('.ds-upload'), {
   accept: ['image/*', '.pdf'],
@@ -159,7 +159,7 @@ export function mount(root) {
 </div>
 
 <script type="module">
-  import { createFileUpload } from 'https://lumeui.dev/v/0.26/lume.js';
+  import { createFileUpload } from 'https://lumeui.dev/v/0.27/lume.js';
   createFileUpload(document.querySelector('.ds-upload'), {${s.type === 'image' ? "\n    accept: ['image/*']," : ''}
     maxSize: 5 * 1024 * 1024,${s.count === 'many' ? '\n    maxFiles: 3,' : ''}${s.send === 'on' ? '\n    upload: enviar,' : ''}
   });

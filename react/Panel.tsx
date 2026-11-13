@@ -1,4 +1,5 @@
-import { useId, type AnchorHTMLAttributes, type HTMLAttributes, type ReactNode } from 'react';
+import { type AnchorHTMLAttributes, type HTMLAttributes, type ReactNode } from 'react';
+import { useSafeId } from './useController';
 import { cx } from './cx';
 
 export interface CardProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
@@ -64,7 +65,7 @@ export interface PanelProps extends Omit<HTMLAttributes<HTMLElement>, 'title'> {
 export function Panel({
   eyebrow, title, actions, aside, toolbar, footer, variant = 'default', titleLevel = 2, className, children, ...rest
 }: PanelProps) {
-  const id = useId();
+  const id = useSafeId('p');
   const Heading = `h${titleLevel}` as 'h2';
   const hasHeader = eyebrow || title || actions || aside;
   return (

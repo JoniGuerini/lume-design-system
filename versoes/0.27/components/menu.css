@@ -1,0 +1,180 @@
+/* Menu (dropdown) — posicionado por ds/js/menu.js, abre a partir de um .ds-chip ou botão */
+
+.ds-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--ds-z-popover);
+  min-width: 208px;
+  max-width: 320px;
+  padding: 6px;
+  border-radius: var(--ds-radius-lg);
+  background: var(--ds-color-bg-raised);
+  border: 1px solid var(--ds-color-border-strong);
+  box-shadow: var(--ds-shadow-xl);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition:
+    opacity var(--ds-duration-fast) var(--ds-easing-standard),
+    transform var(--ds-duration-base) var(--ds-easing-emphasized),
+    visibility 0s var(--ds-duration-fast);
+}
+
+.ds-menu[data-open] {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition:
+    opacity var(--ds-duration-fast) var(--ds-easing-standard),
+    transform var(--ds-duration-base) var(--ds-easing-emphasized);
+}
+
+/* Colunas: lista longa vira grade (até --_rows itens por coluna), sem rolagem */
+.ds-menu--columns {
+  max-width: calc(100vw - 16px);
+}
+
+.ds-menu__grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(var(--_rows), auto);
+  grid-auto-columns: minmax(184px, 1fr);
+  column-gap: 2px;
+}
+
+/* Uma coluna por seção (sectionColumns) */
+.ds-menu__sections {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  column-gap: var(--ds-space-050);
+}
+
+.ds-menu__section > .ds-menu__group:first-child {
+  padding-top: var(--ds-space-050);
+}
+
+.ds-menu__section {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ds-menu__label {
+  padding: var(--ds-space-100) var(--ds-space-150) var(--ds-space-075);
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-eyebrow);
+}
+
+.ds-menu__item {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-150);
+  width: 100%;
+  height: var(--ds-size-control-compact);
+  padding-inline: var(--ds-space-150);
+  border-radius: 10px;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-label-md);
+  letter-spacing: var(--ds-text-label-md-tracking);
+  text-align: start;
+}
+
+.ds-menu__item:hover,
+.ds-menu__item:focus-visible,
+.ds-menu__item[data-state="hover"],
+.ds-menu__item[data-state="focus"] {
+  outline: none;
+  background: var(--ds-color-bg-hover);
+  color: var(--ds-color-fg-default);
+}
+
+.ds-menu__item[aria-checked="true"] {
+  color: var(--ds-color-fg-default);
+}
+
+.ds-menu__item .ds-icon {
+  color: var(--ds-color-fg-subtle);
+}
+
+.ds-menu__check {
+  margin-inline-start: auto;
+  opacity: 0;
+}
+
+.ds-menu__item[aria-checked="true"] .ds-menu__check {
+  opacity: 1;
+  color: var(--ds-color-fg-brand);
+}
+
+.ds-menu__swatch {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border-radius: var(--ds-radius-full);
+}
+
+/* ───────── Extensões: grupos, separadores, atalhos, perigo, desativado ───────── */
+
+.ds-menu__text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ds-menu__group {
+  padding: var(--ds-space-150) var(--ds-space-150) var(--ds-space-050);
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-caption);
+}
+
+.ds-menu__label + .ds-menu__group,
+.ds-menu > .ds-menu__group:first-child {
+  padding-top: var(--ds-space-050);
+}
+
+.ds-menu__separator {
+  height: 1px;
+  margin: 6px -6px;
+  background: var(--ds-color-border-subtle);
+}
+
+.ds-menu__shortcut {
+  margin-inline-start: auto;
+  padding-inline-start: var(--ds-space-200);
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-caption);
+  font-variant-numeric: tabular-nums;
+}
+
+/* No modo ação, os itens já nascem com a cor do texto (não há "selecionado") */
+.ds-menu[data-mode="action"] .ds-menu__item {
+  color: var(--ds-color-fg-default);
+}
+
+.ds-menu__item--danger,
+.ds-menu[data-mode="action"] .ds-menu__item--danger,
+.ds-menu__item--danger .ds-icon {
+  color: var(--ds-color-danger-fg);
+}
+
+.ds-menu__item--danger:hover,
+.ds-menu__item--danger:focus-visible,
+.ds-menu__item--danger[data-state="hover"],
+.ds-menu__item--danger[data-state="focus"] {
+  background: var(--ds-color-danger-subtle);
+  color: var(--ds-color-danger-fg);
+}
+
+.ds-menu__item[aria-disabled="true"] {
+  opacity: var(--ds-opacity-disabled);
+  cursor: not-allowed;
+}
+
+.ds-menu__item[aria-disabled="true"]:hover,
+.ds-menu__item[aria-disabled="true"][data-state="hover"] {
+  background: transparent;
+}

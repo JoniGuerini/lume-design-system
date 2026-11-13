@@ -4,11 +4,11 @@ Sección de Lume: Recursos. Página: https://lumeui.dev/#/recursos/react
 
 Componentes .tsx para copiar al proyecto, sobre el mismo CSS y JavaScript de Lume. Sin paquete que instalar: la carpeta viene en el zip de cada versión.
 
-En números: de los 44 componentes: 15 · React: 18+ · dependencias: 0.
+En números: de los 44 componentes: 26 · React: 18+ · dependencias: 0.
 
 ## Instalar
 
-Descarga el zip de la versión 0.26, descomprímelo y lleva la carpeta dentro de `src/` con el nombre `lume`. Los componentes están en `lume/react/` e importan el JavaScript y los íconos de la misma carpeta. Funciona con Vite, Next.js y cualquier proyecto React 18 o más nuevo.
+Descarga el zip de la versión 0.27, descomprímelo y lleva la carpeta dentro de `src/` con el nombre `lume`. Los componentes están en `lume/react/` e importan el JavaScript y los íconos de la misma carpeta. Funciona con Vite, Next.js y cualquier proyecto React 18 o más nuevo.
 
 ```html
 src/
@@ -86,6 +86,23 @@ Lo que ya está en React. Cada nombre lleva a la página del componente, con los
 | `InlineAction` | Acción mínima dentro del contenido ("En escena +"). | InlineAction.tsx |
 | `Chip · RemovableChip · ChipGroup` | Filtro (pressed), selector (chevron) y removible (onRemove). | Chip.tsx |
 
+### Formularios
+
+| Componente | Qué hace | Archivo |
+| --- | --- | --- |
+| `Field · Input · Textarea · TextField` | Etiqueta, pista, error y contador conectados al control; TextField lo junta todo. | Field.tsx |
+| `Select` | Una o varias opciones, con grupos, búsqueda y límite. | Select.tsx |
+| `Checkbox · Radio · RadioGroup · CheckboxGroup` | Opciones sueltas o en grupo, con el valor controlado. | Choice.tsx |
+| `Switch` | Enciende y apaga, con descripción y dos tamaños. | Choice.tsx |
+| `DatePicker` | Fecha o período, valor en Date; el formulario recibe ISO. | Pickers.tsx |
+| `TimePicker` | Hora en HH:MM, con lista y escritura libre. | Pickers.tsx |
+| `NumberField` | Número con − y +, límites y formato (moneda, porcentaje). | Pickers.tsx |
+| `Slider` | Un valor o un rango; onChange mientras arrastras, onCommit al soltar. | Controls.tsx |
+| `TagField` | Lista de valores libres, con límite y validación. | Pickers.tsx |
+| `FileUpload` | Arrastrar o elegir, con envío, progreso y error por archivo. | Controls.tsx |
+| `OtpField` | Una casilla por dígito; onComplete en la última. | Controls.tsx |
+| `Form` | La validación de Lume, con reglas propias y el resumen de errores. | Form.tsx |
+
 ### Feedback y carga
 
 | Componente | Qué hace | Archivo |
@@ -116,7 +133,7 @@ Lo que ya está en React. Cada nombre lleva a la página del componente, con los
 | Tus archivos | Los .tsx quedan en tu proyecto, como en shadcn: puedes leer, cambiar y borrar lo que no uses. Nada de npm. |
 | TypeScript | Props tipadas y comentadas, con el enlace a la página de cada componente. `IconName` lista los 130 íconos: un nombre equivocado no compila. |
 | Idioma | Los textos que el componente escribe solo ("Cerrar", "Cargando") siguen el idioma de Lume y cambian con `setLocale`. `useLocale()` hace lo mismo en los tuyos. |
-| Versiones | La carpeta `react/` va en cada línea: `/v/0.26/react/`. Actualizar es cambiar la carpeta de Lume por la de la línea nueva. |
+| Versiones | La carpeta `react/` va en cada línea: `/v/0.27/react/`. Actualizar es cambiar la carpeta de Lume por la de la línea nueva. |
 
 ## Lo que viene
 
@@ -124,6 +141,5 @@ Una etapa por versión, hasta los 44 componentes. Mientras un componente no lleg
 
 |   |   |   |
 | --- | --- | --- |
-| `0.27` | React: formularios: Los 11 controles de formulario, con el valor controlado por React y validación. | Próximo |
-| `0.28` | React: navegación y capas: Los 15 componentes que abren, cierran y cambian de estado. | Planificado |
+| `0.28` | React: navegación y capas: Los 15 componentes que abren, cierran y cambian de estado. | Próximo |
 | `0.29` | React: contenido, gráficos y app shell: Los componentes más ricos, que completan los 44. | Planificado |

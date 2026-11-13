@@ -34,6 +34,8 @@ export const MESSAGES = {
     'form.min': (v) => `Use um valor a partir de ${v}.`,
     'form.max': (v) => `Use um valor até ${v}.`,
     'form.pattern': 'Confira o formato.',
+    'form.optional': 'opcional',
+    'form.clear': 'Limpar',
     'form.groupMin': (n) => `Marque pelo menos ${BR(n)}.`,
     'form.summary': (n) => `Revise ${BR(n)} ${n === 1 ? 'campo' : 'campos'} para continuar`,
 
@@ -129,6 +131,8 @@ export const MESSAGES = {
 
     'number.increase': 'Aumentar',
     'number.decrease': 'Diminuir',
+    'slider.min': 'Mínimo',
+    'slider.max': 'Máximo',
 
     'tags.added': (name) => `${name} adicionada`,
     'tags.removed': (name) => `${name} removida`,
@@ -252,6 +256,8 @@ export const MESSAGES = {
     'form.min': (v) => `Use a value of ${v} or more.`,
     'form.max': (v) => `Use a value of ${v} or less.`,
     'form.pattern': 'Check the format.',
+    'form.optional': 'optional',
+    'form.clear': 'Clear',
     'form.groupMin': (n) => `Check at least ${EN(n)}.`,
     'form.summary': (n) => `Review ${EN(n)} ${n === 1 ? 'field' : 'fields'} to continue`,
 
@@ -347,6 +353,8 @@ export const MESSAGES = {
 
     'number.increase': 'Increase',
     'number.decrease': 'Decrease',
+    'slider.min': 'Minimum',
+    'slider.max': 'Maximum',
 
     'tags.added': (name) => `${name} added`,
     'tags.removed': (name) => `${name} removed`,
@@ -470,6 +478,8 @@ export const MESSAGES = {
     'form.min': (v) => `Usa un valor desde ${v}.`,
     'form.max': (v) => `Usa un valor hasta ${v}.`,
     'form.pattern': 'Revisa el formato.',
+    'form.optional': 'opcional',
+    'form.clear': 'Borrar',
     'form.groupMin': (n) => `Marca al menos ${ES(n)}.`,
     'form.summary': (n) => `Revisa ${ES(n)} ${n === 1 ? 'campo' : 'campos'} para continuar`,
 
@@ -565,6 +575,8 @@ export const MESSAGES = {
 
     'number.increase': 'Aumentar',
     'number.decrease': 'Disminuir',
+    'slider.min': 'Mínimo',
+    'slider.max': 'Máximo',
 
     'tags.added': (name) => `${name} agregada`,
     'tags.removed': (name) => `${name} eliminada`,

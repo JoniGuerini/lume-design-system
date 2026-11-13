@@ -1,6 +1,7 @@
-import { useId, type CSSProperties, type HTMLAttributes, type ReactNode } from 'react';
+import { type CSSProperties, type HTMLAttributes, type ReactNode } from 'react';
 import { formatNumber, msg } from '../js/i18n.js';
 import { useLocale } from './useLocale';
+import { useSafeId } from './useController';
 import { cx } from './cx';
 
 export interface ProgressProps extends Omit<HTMLAttributes<HTMLProgressElement>, 'children'> {
@@ -23,7 +24,7 @@ export interface ProgressProps extends Omit<HTMLAttributes<HTMLProgressElement>,
  * https://lumeui.dev/#/componentes/barra-de-progresso
  */
 export function Progress({ value, max = 100, tone = 'brand', large, label, showValue = true, className, ...rest }: ProgressProps) {
-  const id = useId();
+  const id = useSafeId('pg');
   const bar = (
     <progress
       className={cx('ds-progress', tone !== 'brand' && `ds-progress--${tone}`, large && 'ds-progress--lg', !label && className)}
