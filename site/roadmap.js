@@ -13,10 +13,58 @@ const GOAL = T('Meta', 'Goal', 'Meta');
 
 const STAGES = [
   {
+    version: '0.26',
+    group: 'release',
+    tone: 'brand',
+    status: NEXT,
+    title: T('React: base e componentes visuais', 'React: foundation and visual components', 'React: base y componentes visuales'),
+    text: T('O formato dos componentes React, para copiar no projeto, e os 15 que só trocam classes.', 'The format of the React components, to copy into a project, and the 15 that only switch classes.', 'El formato de los componentes React, para copiar al proyecto, y los 15 que solo cambian clases.'),
+    items: [
+      { name: T('Usar com React', 'Use with React', 'Usar con React'), text: T('Página com instalação, exemplos e onde copiar os arquivos .tsx de cada versão.', 'A page with installation, examples, and where to copy each version’s .tsx files.', 'Página con instalación, ejemplos y dónde copiar los archivos .tsx de cada versión.') },
+      { name: T('15 componentes', '15 components', '15 componentes'), text: T('Botão, Ação inline, Chip, Badge, Alerta, Barra de progresso, Spinner, Skeleton, Card, Painel, Avatar, Tecla, Lista de definições, Linha do tempo e Breadcrumb.', 'Button, Inline action, Chip, Badge, Alert, Progress bar, Spinner, Skeleton, Card, Panel, Avatar, Key, Definition list, Timeline, and Breadcrumb.', 'Botón, Acción en línea, Chip, Badge, Alerta, Barra de progreso, Spinner, Skeleton, Tarjeta, Panel, Avatar, Tecla, Lista de definiciones, Línea de tiempo y Breadcrumb.') },
+    ],
+  },
+  {
+    version: '0.27',
+    group: 'release',
+    tone: 'neutral',
+    status: PLANNED,
+    title: T('React: formulários', 'React: forms', 'React: formularios'),
+    text: T('Os 11 controles de formulário, com valor controlado pelo React e validação.', 'The 11 form controls, with the value controlled by React and validation.', 'Los 11 controles de formulario, con el valor controlado por React y validación.'),
+    items: [
+      { name: T('11 componentes', '11 components', '11 componentes'), text: T('Campo de texto, Seleção, Checkbox e radio, Switch, Seletor de data, Seletor de horário, Campo numérico, Slider, Campo de tags, Upload e Código de verificação.', 'Text field, Select, Checkbox and radio, Switch, Date picker, Time picker, Number field, Slider, Tag field, Upload, and Verification code.', 'Campo de texto, Selector, Checkbox y radio, Switch, Selector de fecha, Selector de hora, Campo numérico, Slider, Campo de etiquetas, Carga y Código de verificación.') },
+      { name: T('Formulário', 'Form', 'Formulario'), text: T('Validação e resumo de erros do jeito do React.', 'Validation and error summary, the React way.', 'Validación y resumen de errores al estilo de React.') },
+    ],
+  },
+  {
+    version: '0.28',
+    group: 'release',
+    tone: 'neutral',
+    status: PLANNED,
+    title: T('React: navegação e camadas', 'React: navigation and layers', 'React: navegación y capas'),
+    text: T('Os 15 componentes que abrem, fecham e trocam de estado.', 'The 15 components that open, close, and change state.', 'Los 15 componentes que abren, cierran y cambian de estado.'),
+    items: [
+      { name: T('Navegação', 'Navigation', 'Navegación'), text: T('Menu, Abas, Controle segmentado, Paginação, Stepper, Acordeão, Árvore, Barra de rolagem e Voltar ao topo.', 'Menu, Tabs, Segmented control, Pagination, Stepper, Accordion, Tree, Scrollbar, and Back to top.', 'Menú, Pestañas, Control segmentado, Paginación, Stepper, Acordeón, Árbol, Barra de desplazamiento y Volver arriba.') },
+      { name: T('Camadas', 'Layers', 'Capas'), text: T('Modal, Gaveta lateral, Popover, Menu de contexto, Tooltip e Toast, com abrir e fechar pelo estado.', 'Modal, Drawer, Popover, Context menu, Tooltip, and Toast, opened and closed through state.', 'Modal, Panel lateral, Popover, Menú contextual, Tooltip y Toast, que abren y cierran por estado.') },
+    ],
+  },
+  {
+    version: '0.29',
+    group: 'release',
+    tone: 'neutral',
+    status: PLANNED,
+    title: T('React: conteúdo, gráficos e app shell', 'React: content, charts, and app shell', 'React: contenido, gráficos y app shell'),
+    text: T('Os componentes mais ricos, que fecham os 44.', 'The richest components, completing all 44.', 'Los componentes más ricos, que completan los 44.'),
+    items: [
+      { name: T('Conteúdo', 'Content', 'Contenido'), text: T('Tabela, Calendário e Bloco de código.', 'Table, Calendar, and Code block.', 'Tabla, Calendario y Bloque de código.') },
+      { name: T('Gráficos e app shell', 'Charts and app shell', 'Gráficos y app shell'), text: T('Os gráficos e o app shell como componentes React, e a versão React no Storybook.', 'The charts and the app shell as React components, plus the React version in Storybook.', 'Los gráficos y el app shell como componentes React, y la versión React en Storybook.') },
+    ],
+  },
+  {
     version: '1.0',
     group: 'release',
     tone: 'success',
-    status: NEXT,
+    status: GOAL,
     title: T('Estável', 'Stable', 'Estable'),
     text: T('API congelada e pronta para escalar.', 'A frozen API, ready to scale.', 'API congelada y lista para escalar.'),
     items: [

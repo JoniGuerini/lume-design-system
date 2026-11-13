@@ -8,10 +8,28 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.25.3';
+export const CURRENT_VERSION = '0.25.4';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.25.4',
+    date: '2026-11-13',
+    title: T('Roadmap do React', 'React roadmap', 'Roadmap de React'),
+    summary: T(
+      'O roadmap ganhou quatro etapas para levar os 44 componentes ao React, no formato de copiar para o projeto, antes da 1.0.',
+      'The roadmap gained four stages to bring all 44 components to React, in a copy-into-your-project format, before 1.0.',
+      'El roadmap ganó cuatro etapas para llevar los 44 componentes a React, en formato de copiar al proyecto, antes de la 1.0.',
+    ),
+    groups: [
+      {
+        name: T('Roadmap', 'Roadmap', 'Roadmap'),
+        items: [
+          ['novo', T('Etapas 0.26 a 0.29: componentes React em .tsx, por grupo', 'Stages 0.26 to 0.29: React components in .tsx, by group', 'Etapas 0.26 a 0.29: componentes React en .tsx, por grupo'), '/roadmap'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.25.3',
     date: '2026-11-13',
