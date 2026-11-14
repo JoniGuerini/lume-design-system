@@ -842,20 +842,20 @@ async function docBlock(def, content) {
   LUME.registry[key] = block;
   setMode(block, 'Claro');
 
-  // cabeçalho: primitivas de propósito — escuro nos dois modos, como uma capa
-  var head = box('Cabeçalho', { dir: 'V', gap: 10, pad: [36, 40, 36, 40], fill: 'color/neutral/950', radius: 24 });
+  // cabeçalho: primitivas de propósito, as da sidebar do Lume claro (ardósia escura), iguais nos dois modos, como uma capa
+  var head = box('Cabeçalho', { dir: 'V', gap: 10, pad: [36, 40, 36, 40], fill: 'color/refugio/800', radius: 24 });
   add(block, head, { fillW: true });
-  add(head, await text(L(def.group).toUpperCase(), { style: 'overline', color: 'color/brand/400', name: 'Grupo', raw: true }));
-  add(head, await text(def.title, { style: 'heading-xl', color: 'color/neutral/50', name: 'Título' }));
+  add(head, await text(L(def.group).toUpperCase(), { style: 'overline', color: 'color/terracotta/400', name: 'Grupo', raw: true }));
+  add(head, await text(def.title, { style: 'heading-xl', color: 'color/refugio/25', name: 'Título' }));
   var row = box('Descrição e tags', { dir: 'H', gap: 24, cross: 'end', align: 'between' });
   add(head, row, { fillW: true });
   // a descrição ocupa o que sobra: com três tags ela encolhe em vez de empurrar as tags para fora
-  add(row, await text(def.description, { style: 'body-sm', color: 'color/neutral/400', w: w - 14 * 2 - 80 - 260, name: 'Descrição' }), { grow: true });
+  add(row, await text(def.description, { style: 'body-sm', color: 'color/refugio/200', w: w - 14 * 2 - 80 - 260, name: 'Descrição' }), { grow: true });
   var tags = box('Tags', { dir: 'H', gap: 8 });
   for (var t of def.tags || ['Componente', 'Claro · Escuro']) {
     if (t === 'Claro · Escuro') t = LUME.active.join(' · ');
-    var pill = box('Tag', { dir: 'H', pad: [5, 12], radius: 'radius/full', fill: 'color/neutral/900', stroke: 'color/neutral/800' });
-    add(pill, await text(t, { style: 'caption', color: 'color/neutral/300' }));
+    var pill = box('Tag', { dir: 'H', pad: [5, 12], radius: 'radius/full', fill: 'color/refugio/750', stroke: 'color/refugio/700' });
+    add(pill, await text(t, { style: 'caption', color: 'color/refugio/200' }));
     add(tags, pill);
   }
   add(row, tags);

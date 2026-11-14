@@ -8,10 +8,29 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.40.0';
+export const CURRENT_VERSION = '0.40.1';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.40.1',
+    date: '2026-11-14',
+    title: T('Plugin com a cara do Lume', 'A plugin that looks like Lume', 'Plugin con la cara de Lume'),
+    summary: T(
+      'A janela do plugin e os cabeçalhos dos blocos no Figma deixaram as cores do Órbita: agora usam a ardósia da sidebar do Lume, a Geist e os componentes do próprio site.',
+      'The plugin window and the block headers in Figma left Órbita’s colors behind: they now use the slate of Lume’s sidebar, Geist, and the site’s own components.',
+      'La ventana del plugin y los encabezados de los bloques en Figma dejaron los colores de Órbita: ahora usan la pizarra de la sidebar de Lume, Geist y los componentes del propio sitio.',
+    ),
+    groups: [
+      {
+        name: T('Plugin do Figma', 'Figma plugin', 'Plugin de Figma'),
+        items: [
+          ['melhoria', T('Janela do plugin refeita com os tokens, as fontes, o checkbox, o controle segmentado e os botões do Lume, no tema claro ou escuro do Figma', 'Plugin window rebuilt with Lume’s tokens, fonts, checkbox, segmented control, and buttons, in Figma’s light or dark theme', 'Ventana del plugin rehecha con los tokens, las fuentes, el checkbox, el control segmentado y los botones de Lume, en el tema claro u oscuro de Figma'), '/recursos/figma'],
+          ['melhoria', T('Cabeçalho dos blocos e capas na ardósia da sidebar do Lume claro, com o grupo em terracota', 'Block headers and covers in the slate of Lume’s light sidebar, with the group in terracotta', 'Encabezado de los bloques y portadas en la pizarra de la sidebar de Lume claro, con el grupo en terracota'), '/recursos/figma'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.40.0',
     date: '2026-11-14',

@@ -57,11 +57,11 @@ async function cover(page, id) {
     var old = live(k);
     if (old) old.remove();
   });
-  var c = box('Lume · Capa', { dir: 'V', gap: 20, pad: [56, 64], w: 1120, fill: 'color/neutral/950', radius: 36 });
+  var c = box('Lume · Capa', { dir: 'V', gap: 20, pad: [56, 64], w: 1120, fill: 'color/refugio/800', radius: 36 });
   c.setPluginData(KEY, key);
   LUME.registry[key] = c;
-  add(c, await text('LUME DESIGN SYSTEM · ' + META.version, { style: 'overline', color: 'color/brand/400', raw: true }));
-  add(c, await text(id, { style: 'display-md', color: 'color/neutral/50' }));
+  add(c, await text('LUME DESIGN SYSTEM · ' + META.version, { style: 'overline', color: 'color/terracotta/400', raw: true }));
+  add(c, await text(id, { style: 'display-md', color: 'color/refugio/25' }));
   var modes = LUME.active.length > 1
     ? L3('nos modos Claro e Escuro', 'in Light and Dark modes', 'en los modos Claro y Oscuro')
     : L3('no modo ', 'in ', 'en el modo ') + L(LUME.active[0]) + L3('', ' mode', '');
@@ -70,7 +70,7 @@ async function cover(page, id) {
     'Each block is a component: the variant set, examples built with instances, and the same example {modos}. Colors, sizes, and text come from the file’s variables and styles.',
     'Cada bloque es un componente: el conjunto de variantes, ejemplos armados con instancias y el mismo ejemplo {modos}. Colores, medidas y textos vienen de las variables y los estilos del archivo.',
   );
-  add(c, await text(intro.replace('{modos}', modes), { style: 'body-lg', color: 'color/neutral/400', w: 880, raw: true }));
+  add(c, await text(intro.replace('{modos}', modes), { style: 'body-lg', color: 'color/refugio/200', w: 880, raw: true }));
   var facts = box('Fatos', { dir: 'H', gap: 40, pad: [12, 0, 0, 0] });
   // contado na própria página: vale também quando os blocos foram gerados em partes
   var sets = page.findAll(function (n) { return n.type === 'COMPONENT_SET'; });
@@ -84,8 +84,8 @@ async function cover(page, id) {
   ];
   for (var s of stats) {
     var f = box('Fato', { dir: 'V', gap: 2 });
-    add(f, await text(s[0], { style: 'heading-lg', color: 'color/neutral/100', raw: true }));
-    add(f, await text(s[1], { style: 'caption', color: 'color/neutral/500' }));
+    add(f, await text(s[0], { style: 'heading-lg', color: 'color/refugio/25', raw: true }));
+    add(f, await text(s[1], { style: 'caption', color: 'color/refugio/300' }));
     add(facts, f);
   }
   add(c, facts);
@@ -208,6 +208,8 @@ if (typeof __LUME_TEST__ === 'undefined') {
     });
     figma.ui.onmessage = function (msg) {
       if (msg.type === 'cancel') return figma.closePlugin();
+      // a janela mede o próprio conteúdo (muda com o idioma) e pede a altura certa
+      if (msg.type === 'resize') return figma.ui.resize(380, Math.max(320, Math.min(900, Math.ceil(msg.height))));
       if (msg.type === 'locale') return figma.clientStorage.setAsync('orbita-locale', msg.preference);
       if (msg.type !== 'run') return;
       figma.clientStorage.setAsync('orbita-modes', msg.modes);

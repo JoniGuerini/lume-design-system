@@ -1,89 +1,107 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 <head>
 <meta charset="utf-8">
+<!--
+  Janela do plugin. O build (scripts/build-figma-plugin.mjs) troca os marcadores @lume:* por:
+  css     as fontes do Lume embutidas (OFL 1.1) + tokens, base, botão, checkbox e controle segmentado do ds/
+  version a versão do changelog
+  A janela segue o tema do Figma (classe figma-light/figma-dark no <html>) com os temas claro e escuro do Lume.
+-->
+<style>/* @lume:css */</style>
 <style>
-  :root {
-    --bg: var(--figma-color-bg, #1e1e1e);
-    --fg: var(--figma-color-text, #f3ede5);
-    --muted: var(--figma-color-text-secondary, #9c9792);
-    --line: var(--figma-color-border, #3d3b38);
-    --brand: #ff945e;
-    --on-brand: #451400;
-  }
-  * { box-sizing: border-box; margin: 0; }
-  body { padding: 20px; background: var(--bg); color: var(--fg); font: 400 12px/1.5 Inter, system-ui, sans-serif; }
-  .eyebrow { color: var(--brand); font-weight: 600; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
-  h1 { margin-top: 6px; font: 600 20px/1.2 "Inter Tight", Inter, sans-serif; letter-spacing: -.02em; }
-  p.lead { margin-top: 8px; color: var(--muted); }
-  fieldset { margin-top: 18px; padding: 0; border: 0; display: grid; gap: 8px; }
-  legend { margin-bottom: 8px; color: var(--muted); font-weight: 500; }
-  label.opt { display: grid; grid-template-columns: 18px 1fr; gap: 10px; align-items: start; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; cursor: pointer; }
-  label.opt strong { display: block; font-weight: 600; }
-  label.opt span span { color: var(--muted); }
-  input[type="checkbox"] { width: 16px; height: 16px; margin: 1px 0 0; accent-color: var(--brand); }
-  .seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 4px; border: 1px solid var(--line); border-radius: 12px; }
-  .seg--4 { grid-template-columns: repeat(4, 1fr); }
-  .seg label { position: relative; display: grid; cursor: pointer; }
-  .seg input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
-  .seg span { display: grid; place-items: center; height: 30px; border-radius: 8px; color: var(--muted); font-weight: 500; }
-  .seg input:checked + span { background: var(--figma-color-bg-secondary, #2c2a27); color: var(--fg); }
-  .seg input:focus-visible + span { outline: 2px solid var(--brand); outline-offset: 1px; }
-  .hint { color: var(--muted); }
-  .actions { display: flex; gap: 8px; margin-top: 18px; }
-  button { flex: 1; height: 36px; border-radius: 10px; border: 1px solid var(--line); background: transparent; color: var(--fg); font: 500 12px Inter, sans-serif; cursor: pointer; }
-  button.primary { border: 0; background: var(--brand); color: var(--on-brand); font-weight: 600; }
-  button:disabled { opacity: .5; cursor: default; }
-  .log { margin-top: 16px; min-height: 40px; padding: 10px 12px; border-radius: 12px; background: var(--figma-color-bg-secondary, #2c2a27); color: var(--muted); }
-  .log[data-tone="done"] { color: var(--fg); }
-  .log[data-tone="error"] { color: #ff9087; }
+  body { min-height: 0; padding: var(--ds-space-250) var(--ds-space-250) var(--ds-space-200); font: var(--ds-text-body-sm); letter-spacing: var(--ds-text-body-sm-tracking); }
+
+  .brand { display: flex; align-items: center; gap: var(--ds-space-100); }
+  .brand svg { width: 22px; height: 22px; flex: none; }
+  .brand__name { font: 400 24px/1 var(--ds-font-family-display); letter-spacing: -0.02em; }
+  .brand__version { margin-left: auto; padding: 2px var(--ds-space-100); border: 1px solid var(--ds-color-border-default); border-radius: var(--ds-radius-full); color: var(--ds-color-fg-muted); font: var(--ds-text-caption); font-variant-numeric: tabular-nums; }
+
+  h1 { margin-top: var(--ds-space-250); font: var(--ds-text-heading-md); letter-spacing: var(--ds-text-heading-md-tracking); }
+  .lead { margin-top: var(--ds-space-075); color: var(--ds-color-fg-muted); }
+
+  section { margin-top: var(--ds-space-250); }
+  .label { display: flex; gap: var(--ds-space-075); margin-bottom: var(--ds-space-100); color: var(--ds-color-fg-muted); font: var(--ds-text-label-sm); }
+  .label span { color: var(--ds-color-fg-subtle); font-variant-numeric: tabular-nums; }
+  .hint { margin-top: var(--ds-space-100); color: var(--ds-color-fg-muted); font: var(--ds-text-caption); }
+
+  /* o que gerar: uma lista com linhas, não três caixas */
+  .choices { border: 1px solid var(--ds-color-border-subtle); border-radius: var(--ds-radius-lg); background: var(--ds-color-bg-surface); }
+  .choices .ds-checkbox { display: flex; padding: var(--ds-space-150) var(--ds-space-200); }
+  .choices .ds-choice__label { font: var(--ds-text-label-md); }
+  .choices .ds-choice__description { font: var(--ds-text-body-sm); }
+  .choices .ds-checkbox + .ds-checkbox { border-top: 1px solid var(--ds-color-border-subtle); }
+
+  .ds-segmented { display: flex; }
+  .ds-segmented__item { flex: 1; height: var(--ds-size-control-sm); font: var(--ds-text-label-sm); }
+
+  .actions { display: flex; gap: var(--ds-space-100); margin-top: var(--ds-space-300); }
+  .actions .ds-btn { flex: 1; }
+  .actions .ds-btn:disabled { opacity: var(--ds-opacity-disabled); cursor: default; }
+
+  .status { display: flex; gap: var(--ds-space-100); align-items: baseline; margin-top: var(--ds-space-200); padding: var(--ds-space-150) var(--ds-space-200); border-radius: var(--ds-radius-lg); background: var(--ds-color-bg-sunken); color: var(--ds-color-fg-muted); font: var(--ds-text-caption); }
+  .status::before { content: ""; flex: none; width: 6px; height: 6px; border-radius: var(--ds-radius-full); background: var(--ds-color-fg-subtle); transform: translateY(-1px); }
+  .status[data-tone="busy"]::before { background: var(--ds-color-brand-indicator); animation: pulse 1s var(--ds-easing-standard) infinite alternate; }
+  .status[data-tone="done"] { color: var(--ds-color-fg-default); }
+  .status[data-tone="done"]::before { background: var(--ds-color-success-solid); }
+  .status[data-tone="error"] { color: var(--ds-color-danger-fg); }
+  .status[data-tone="error"]::before { background: var(--ds-color-danger-solid); }
+  @keyframes pulse { to { opacity: 0.3; } }
+  @media (prefers-reduced-motion: reduce) { .status[data-tone="busy"]::before { animation: none; } }
 </style>
 </head>
 <body>
-  <p class="eyebrow">Lume Design System</p>
+  <div class="brand">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.963 2.286a.75.75 0 0 0-1.071-.136 9.742 9.742 0 0 0-3.539 6.176 7.547 7.547 0 0 1-1.705-1.715.75.75 0 0 0-1.152-.082A9 9 0 1 0 15.68 4.534a7.46 7.46 0 0 1-2.717-2.248z" fill="#c97b63"/><path d="M15.75 14.25a3.75 3.75 0 1 1-7.313-1.172c.628.465 1.35.81 2.133 1.001a5.99 5.99 0 0 1 1.925-3.546 3.75 3.75 0 0 1 3.255 3.717z" fill="#ffffff" opacity="0.28"/></svg>
+    <span class="brand__name">Lume</span>
+    <span class="brand__version">@lume:version</span>
+  </div>
+
   <h1 data-t="title">Gerar a biblioteca</h1>
-  <p class="lead" data-t="lead">Cria ou atualiza variáveis, estilos e componentes neste arquivo. Rodar de novo atualiza sem duplicar — instâncias que você já usou continuam ligadas.</p>
+  <p class="lead" data-t="lead"></p>
 
-  <fieldset>
-    <legend data-t="what">O que gerar</legend>
-    <label class="opt"><input type="checkbox" value="Fundamentos" checked><span><strong data-t="foundations">Fundamentos</strong><span data-t="foundationsText">Cores, tipografia, espaço, raio e sombra</span></span></label>
-    <label class="opt"><input type="checkbox" value="Ícones" checked><span><strong data-t="icons">Ícones</strong><span data-t="iconsText">Todos os ícones como componentes de 24 px</span></span></label>
-    <label class="opt"><input type="checkbox" value="Componentes" checked><span><strong data-t="components">Componentes</strong><span data-t="componentsText">Blocos com variantes, exemplos e prévias em cada modo</span></span></label>
-  </fieldset>
+  <section>
+    <p class="label" id="what-label"><span>01</span><b data-t="what"></b></p>
+    <div class="choices" role="group" aria-labelledby="what-label">
+      <label class="ds-checkbox"><input type="checkbox" class="ds-checkbox__input" value="Fundamentos" checked><span class="ds-choice__text"><span class="ds-choice__label" data-t="foundations"></span><span class="ds-choice__description" data-t="foundationsText"></span></span></label>
+      <label class="ds-checkbox"><input type="checkbox" class="ds-checkbox__input" value="Ícones" checked><span class="ds-choice__text"><span class="ds-choice__label" data-t="icons"></span><span class="ds-choice__description" data-t="iconsText"></span></span></label>
+      <label class="ds-checkbox"><input type="checkbox" class="ds-checkbox__input" value="Componentes" checked><span class="ds-choice__text"><span class="ds-choice__label" data-t="components"></span><span class="ds-choice__description" data-t="componentsText"></span></span></label>
+    </div>
+  </section>
 
-  <fieldset>
-    <legend data-t="modes">Modos</legend>
-    <div class="seg">
-      <label><input type="radio" name="modes" value="Claro,Escuro" checked><span data-t="both">Claro e Escuro</span></label>
-      <label><input type="radio" name="modes" value="Escuro"><span data-t="darkOnly">Só Escuro</span></label>
-      <label><input type="radio" name="modes" value="Claro"><span data-t="lightOnly">Só Claro</span></label>
+  <section>
+    <p class="label" id="modes-label"><span>02</span><b data-t="modes"></b></p>
+    <div class="ds-segmented" role="radiogroup" aria-labelledby="modes-label" data-group="modes">
+      <button type="button" class="ds-segmented__item" role="radio" data-value="Claro,Escuro" aria-checked="true" data-t="both"></button>
+      <button type="button" class="ds-segmented__item" role="radio" data-value="Escuro" aria-checked="false" data-t="darkOnly"></button>
+      <button type="button" class="ds-segmented__item" role="radio" data-value="Claro" aria-checked="false" data-t="lightOnly"></button>
     </div>
     <p class="hint" data-hint></p>
-  </fieldset>
+  </section>
 
-  <fieldset>
-    <legend data-t="language">Idioma</legend>
-    <div class="seg seg--4">
-      <label><input type="radio" name="locale" value="system" checked><span data-t="system">Sistema</span></label>
-      <label><input type="radio" name="locale" value="pt-BR"><span>Português</span></label>
-      <label><input type="radio" name="locale" value="en"><span>English</span></label>
-      <label><input type="radio" name="locale" value="es"><span>Español</span></label>
+  <section>
+    <p class="label" id="locale-label"><span>03</span><b data-t="language"></b></p>
+    <div class="ds-segmented" role="radiogroup" aria-labelledby="locale-label" data-group="locale">
+      <button type="button" class="ds-segmented__item" role="radio" data-value="system" aria-checked="true" data-t="system"></button>
+      <button type="button" class="ds-segmented__item" role="radio" data-value="pt-BR" aria-checked="false" lang="pt-BR">Português</button>
+      <button type="button" class="ds-segmented__item" role="radio" data-value="en" aria-checked="false" lang="en">English</button>
+      <button type="button" class="ds-segmented__item" role="radio" data-value="es" aria-checked="false" lang="es">Español</button>
     </div>
-    <p class="hint" data-t="languageHint">Nomes, textos e descrições de tudo o que o plugin cria. Trocar e rodar de novo renomeia o que já existe.</p>
-  </fieldset>
+    <p class="hint" data-t="languageHint"></p>
+  </section>
 
   <div class="actions">
-    <button type="button" data-cancel data-t="close">Fechar</button>
-    <button type="button" class="primary" data-run>Gerar no arquivo</button>
+    <button type="button" class="ds-btn ds-btn--secondary" data-cancel data-t="close"></button>
+    <button type="button" class="ds-btn ds-btn--primary" data-run></button>
   </div>
-  <p class="log" data-log aria-live="polite"></p>
+  <p class="status" data-log aria-live="polite"></p>
 
 <script>
   // textos da janela nas três línguas; o idioma “Sistema” segue o do computador (o que não for português nem espanhol vira inglês)
   const STRINGS = {
     'pt-BR': {
       title: 'Gerar a biblioteca',
-      lead: 'Cria ou atualiza variáveis, estilos e componentes neste arquivo. Rodar de novo atualiza sem duplicar — instâncias que você já usou continuam ligadas.',
+      lead: 'Cria ou atualiza variáveis, estilos e componentes neste arquivo. Rodar de novo atualiza sem duplicar, e as instâncias que você já usou continuam ligadas.',
       what: 'O que gerar',
       foundations: 'Fundamentos', foundationsText: 'Cores, tipografia, espaço, raio e sombra',
       icons: 'Ícones', iconsText: 'Todos os ícones como componentes de 24 px',
@@ -98,7 +116,7 @@
     },
     en: {
       title: 'Generate the library',
-      lead: 'Creates or updates variables, styles, and components in this file. Running again updates without duplicating — instances you already use stay linked.',
+      lead: 'Creates or updates variables, styles, and components in this file. Running again updates without duplicating, and the instances you already use stay linked.',
       what: 'What to generate',
       foundations: 'Foundations', foundationsText: 'Colors, typography, space, radius, and shadow',
       icons: 'Icons', iconsText: 'Every icon as a 24 px component',
@@ -113,7 +131,7 @@
     },
     es: {
       title: 'Generar la biblioteca',
-      lead: 'Crea o actualiza variables, estilos y componentes en este archivo. Ejecutarlo de nuevo actualiza sin duplicar — las instancias que ya usas siguen vinculadas.',
+      lead: 'Crea o actualiza variables, estilos y componentes en este archivo. Ejecutarlo de nuevo actualiza sin duplicar, y las instancias que ya usas siguen vinculadas.',
       what: 'Qué generar',
       foundations: 'Fundamentos', foundationsText: 'Colores, tipografía, espacio, radio y sombra',
       icons: 'Íconos', iconsText: 'Todos los íconos como componentes de 24 px',
@@ -128,13 +146,49 @@
     },
   };
 
+  // tema: o do Figma (themeColors põe figma-light ou figma-dark no <html>)
+  const root = document.documentElement;
+  const syncTheme = () => { root.dataset.theme = root.classList.contains('figma-light') ? 'light' : 'dark'; };
+  syncTheme();
+  new MutationObserver(syncTheme).observe(root, { attributes: true, attributeFilter: ['class'] });
+
+  // controle segmentado do Lume: rádios com Tab único e setas
+  const group = (name) => document.querySelector(`[data-group="${name}"]`);
+  const items = (name) => [...group(name).querySelectorAll('[role="radio"]')];
+  const value = (name) => items(name).find((i) => i.getAttribute('aria-checked') === 'true').dataset.value;
+  const select = (name, val) => {
+    items(name).forEach((i) => {
+      const on = i.dataset.value === val;
+      i.setAttribute('aria-checked', String(on));
+      i.tabIndex = on ? 0 : -1;
+    });
+  };
+  const onSelect = {};
+  ['modes', 'locale'].forEach((name) => {
+    select(name, value(name));
+    group(name).addEventListener('click', (e) => {
+      const item = e.target.closest('[role="radio"]');
+      if (!item) return;
+      select(name, item.dataset.value);
+      onSelect[name]();
+    });
+    group(name).addEventListener('keydown', (e) => {
+      const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+      if (!step) return;
+      e.preventDefault();
+      const list = items(name);
+      const next = list[(list.findIndex((i) => i.getAttribute('aria-checked') === 'true') + step + list.length) % list.length];
+      select(name, next.dataset.value);
+      next.focus();
+      onSelect[name]();
+    });
+  });
+
   const log = document.querySelector('[data-log]');
   const run = document.querySelector('[data-run]');
   const hint = document.querySelector('[data-hint]');
-  const modeInputs = [...document.querySelectorAll('input[name="modes"]')];
-  const localeInputs = [...document.querySelectorAll('input[name="locale"]')];
-  const chosenModes = () => modeInputs.find((i) => i.checked).value.split(',');
-  const preference = () => localeInputs.find((i) => i.checked).value;
+  const chosenModes = () => value('modes').split(',');
+  const preference = () => value('locale');
   const systemLocale = () => {
     for (const tag of navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language]) {
       const t = String(tag).toLowerCase();
@@ -147,30 +201,33 @@
   const locale = () => (preference() === 'system' ? systemLocale() : preference());
   const s = () => STRINGS[locale()];
   let ran = false;
-  let idle = true; // o log mostra a frase de espera até a primeira mensagem do plugin
+  let idle = true; // o status mostra a frase de espera até a primeira mensagem do plugin
 
+  // pede ao Figma a altura do conteúdo, para a janela não sobrar nem rolar
+  const fit = () => requestAnimationFrame(() => parent.postMessage({ pluginMessage: { type: 'resize', height: document.body.scrollHeight } }, '*'));
   const showHint = () => {
     hint.textContent = chosenModes().length > 1 ? s().bothHint : s().oneHint;
   };
   const apply = () => {
-    document.documentElement.lang = locale();
+    root.lang = locale();
     document.querySelectorAll('[data-t]').forEach((el) => (el.textContent = s()[el.dataset.t]));
     run.textContent = ran ? s().again : s().run;
     if (idle) log.textContent = s().ready;
     showHint();
+    fit();
   };
-  modeInputs.forEach((i) => i.addEventListener('change', showHint));
-  localeInputs.forEach((i) => i.addEventListener('change', () => {
+  onSelect.modes = () => { showHint(); fit(); };
+  onSelect.locale = () => {
     apply();
     parent.postMessage({ pluginMessage: { type: 'locale', preference: preference() } }, '*');
-  }));
+  };
   apply();
 
   run.addEventListener('click', () => {
     const pages = [...document.querySelectorAll('input[type="checkbox"]:checked')].map((i) => i.value);
     run.disabled = true;
     idle = false;
-    log.dataset.tone = '';
+    log.dataset.tone = 'busy';
     log.textContent = s().starting;
     parent.postMessage({ pluginMessage: { type: 'run', pages, modes: chosenModes(), locale: locale() } }, '*');
   });
@@ -179,17 +236,15 @@
     const msg = event.data.pluginMessage;
     if (!msg) return;
     if (msg.type === 'init') {
-      const savedModes = msg.modes && modeInputs.find((i) => i.value === msg.modes.join(','));
-      if (savedModes) savedModes.checked = true;
-      const savedLocale = localeInputs.find((i) => i.value === msg.locale);
-      if (savedLocale) savedLocale.checked = true;
+      if (msg.modes && items('modes').some((i) => i.dataset.value === msg.modes.join(','))) select('modes', msg.modes.join(','));
+      if (items('locale').some((i) => i.dataset.value === msg.locale)) select('locale', msg.locale);
       apply();
       return;
     }
     idle = false;
     log.textContent = msg.message;
+    log.dataset.tone = msg.type === 'done' || msg.type === 'error' ? msg.type : 'busy';
     if (msg.type === 'done' || msg.type === 'error') {
-      log.dataset.tone = msg.type;
       run.disabled = false;
       ran = true;
       run.textContent = s().again;

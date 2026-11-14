@@ -80,8 +80,27 @@ export async function buildFigmaPlugin({ only, out } = {}) {
   await mkdir(outDir, { recursive: true });
   await writeFile(path.join(outDir, 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`);
   await writeFile(path.join(outDir, 'code.js'), code);
-  await writeFile(path.join(outDir, 'ui.html'), await readFile(path.join(ROOT, 'figma', 'ui.html'), 'utf8'));
+  await writeFile(path.join(outDir, 'ui.html'), await buildUi(version));
   return { outDir, files, bytes: Buffer.byteLength(code), icons: icons.length, version };
+}
+
+/**
+ * Janela do plugin com a cara do Lume: as fontes vão embutidas (o plugin não acessa a rede) e o CSS é o do próprio ds/.
+ * As fontes são OFL 1.1: embutir é permitido, e o aviso de licença vai junto no comentário.
+ */
+async function buildUi(version) {
+  const font = async (family, file, weight) => {
+    const data = (await readFile(path.join(ROOT, 'ds', 'fonts', file))).toString('base64');
+    return `@font-face { font-family: "${family}"; src: url(data:font/woff2;base64,${data}) format("woff2"); font-weight: ${weight}; font-style: normal; }`;
+  };
+  const css = [
+    '/* Geist e Geist Serif: Vercel, SIL Open Font License 1.1 */',
+    await font('Geist', 'Geist-Variable.woff2', '100 900'),
+    await font('Geist Serif', 'GeistSerif-Regular.woff2', '400'),
+    ...(await Promise.all(['tokens.css', 'base.css', 'components/button.css', 'components/checkbox.css', 'components/form.css'].map((f) => readFile(path.join(ROOT, 'ds', f), 'utf8')))),
+  ].join('\n');
+  const html = await readFile(path.join(ROOT, 'figma', 'ui.html'), 'utf8');
+  return html.replace('/* @lume:css */', () => css).replace('@lume:version', version);
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
