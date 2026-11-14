@@ -8247,7 +8247,23 @@ button.ds-calendar__col-head[data-state="hover"] {
   display: none;
 }
 
-.ds-banner--brand { --_bg: var(--ds-color-brand-subtle); --_border: var(--ds-color-brand-border); --_icon: var(--ds-color-brand-fg); }
+.ds-banner--brand { --_bg: var(--ds-color-brand-solid); --_border: var(--ds-color-brand-solid); --_icon: var(--ds-color-brand-on-solid); color: var(--ds-color-brand-on-solid); }
+
+/* novidade: faixa sólida; o × e o link seguem a cor do texto */
+.ds-banner--brand .ds-banner__close {
+  color: inherit;
+}
+
+.ds-banner--brand .ds-banner__close:hover,
+.ds-banner--brand .ds-banner__close[data-state="hover"] {
+  background: color-mix(in srgb, currentColor 14%, transparent);
+  color: inherit;
+}
+
+.ds-banner--brand .ds-link:hover,
+.ds-banner--brand .ds-link[data-state="hover"] {
+  color: inherit;
+}
 .ds-banner--info { --_bg: var(--ds-color-info-subtle); --_border: var(--ds-color-info-border); --_icon: var(--ds-color-info-fg); }
 .ds-banner--warning { --_bg: var(--ds-color-warning-subtle); --_border: var(--ds-color-warning-border); --_icon: var(--ds-color-warning-fg); }
 .ds-banner--danger { --_bg: var(--ds-color-danger-subtle); --_border: var(--ds-color-danger-border); --_icon: var(--ds-color-danger-fg); }

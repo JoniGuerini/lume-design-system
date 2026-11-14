@@ -25,7 +25,7 @@ Em números: tons: 5 · por vez: 1 · lembra: localStorage · papel ARIA: region
 
 O tom diz o tipo de recado; o ícone e o texto dizem o mesmo que a cor.
 
-Novidade `ds-banner--brand` — Uma versão nova, um recurso que chegou. O tom da marca, para o que é bom de saber.
+Novidade `ds-banner--brand` — Uma versão nova, um recurso que chegou. Faixa sólida no tom da marca: o único tom que se destaca de verdade.
 
 Neutro `ds-banner` — Um recado sem urgência, que não precisa chamar atenção.
 
@@ -123,8 +123,8 @@ Os mesmos tons do alerta.
 | Token | Papel | Lume claro | Lume escuro |
 | --- | --- | --- | --- |
 | color.bg.surface (`--ds-color-bg-surface`) | Fundo neutro | #FFFFFF | #24221F |
-| color.brand.subtle (`--ds-color-brand-subtle`) | Fundo da novidade | #EEF2F6 | #C0CAD624 |
-| color.brand.fg (`--ds-color-brand-fg`) | Ícone da novidade | #3E5166 | #DAE0E8 |
+| color.brand.solid (`--ds-color-brand-solid`) | Fundo da novidade | #3E5166 | #C0CAD6 |
+| color.brand.on-solid (`--ds-color-brand-on-solid`) | Texto e ícone da novidade | #F8FAFD | #1D2734 |
 | color.info.subtle (`--ds-color-info-subtle`) | Fundo de informação | #F0F8FF | #6ABCFF21 |
 | color.warning.subtle (`--ds-color-warning-subtle`) | Fundo de atenção | #FFF9F0 | #FFB85121 |
 | color.danger.subtle (`--ds-color-danger-subtle`) | Fundo de erro | #FFF4F3 | #FF908721 |

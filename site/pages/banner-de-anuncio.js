@@ -45,7 +45,7 @@ export default function renderBanner(page) {
         desc: L('O tom diz o tipo de recado; o ícone e o texto dizem o mesmo que a cor.', 'The tone says what kind of message it is; the icon and text say the same as the color.', 'El tono dice el tipo de mensaje; el ícono y el texto dicen lo mismo que el color.'),
         html: examples(
           [
-            example(L('Novidade', 'News', 'Novedad'), 'ds-banner--brand', L('Uma versão nova, um recurso que chegou. O tom da marca, para o que é bom de saber.', 'A new version, a feature that arrived. The brand tone, for what’s good to know.', 'Una versión nueva, una función que llegó. El tono de la marca, para lo que es bueno saber.'), banner(release())),
+            example(L('Novidade', 'News', 'Novedad'), 'ds-banner--brand', L('Uma versão nova, um recurso que chegou. Faixa sólida no tom da marca: o único tom que se destaca de verdade.', 'A new version, a feature that arrived. A solid strip in the brand tone: the only tone that truly stands out.', 'Una versión nueva, una función que llegó. Franja sólida en el tono de la marca: el único tono que destaca de verdad.'), banner(release())),
             example(L('Neutro', 'Neutral', 'Neutro'), 'ds-banner', L('Um recado sem urgência, que não precisa chamar atenção.', 'A message with no urgency that doesn’t need to draw attention.', 'Un mensaje sin urgencia, que no necesita llamar la atención.'), banner({ text: L('O Storybook do Lume agora também mostra os componentes React.', 'Lume’s Storybook now also shows the React components.', 'El Storybook de Lume ahora también muestra los componentes React.'), link: 'Storybook', href: '#/recursos/react' })),
             example(L('Informação', 'Information', 'Información'), 'ds-banner--info', L('Algo que ajuda a entender o que mudou.', 'Something that helps people understand what changed.', 'Algo que ayuda a entender qué cambió.'), banner({ tone: 'info', text: L('Cada linha do Lume fica congelada em /v/0.xx/: atualize quando quiser.', 'Each Lume line stays frozen at /v/0.xx/: update whenever you want.', 'Cada línea de Lume queda congelada en /v/0.xx/: actualiza cuando quieras.'), link: L('Instalação', 'Installation', 'Instalación'), href: '#/primeiros-passos' })),
             example(L('Atenção', 'Warning', 'Atención'), 'ds-banner--warning', L('Uma mudança que pede ação antes de uma data. Sem fechar, enquanto a ação não for feita.', 'A change that needs action before a date. Not closable until the action is done.', 'Un cambio que pide acción antes de una fecha. Sin cerrar, mientras la acción no esté hecha.'), banner({ tone: 'warning', text: L('Na 1.0, nomes públicos só mudam com aviso no console.', 'From 1.0, public names only change with a console warning.', 'Desde la 1.0, los nombres públicos solo cambian con aviso en la consola.'), link: 'API', href: '#/recursos/api', closable: false })),
@@ -93,8 +93,8 @@ export default function renderBanner(page) {
         desc: L('Os mesmos tons do alerta.', 'The same tones as the alert.', 'Los mismos tonos de la alerta.'),
         html: tokenTable([
           ['color.bg.surface', L('Fundo neutro', 'Neutral background', 'Fondo neutro')],
-          ['color.brand.subtle', L('Fundo da novidade', 'News background', 'Fondo de novedad')],
-          ['color.brand.fg', L('Ícone da novidade', 'News icon', 'Ícono de novedad')],
+          ['color.brand.solid', L('Fundo da novidade', 'News background', 'Fondo de novedad')],
+          ['color.brand.on-solid', L('Texto e ícone da novidade', 'News text and icon', 'Texto e ícono de novedad')],
           ['color.info.subtle', L('Fundo de informação', 'Information background', 'Fondo de información')],
           ['color.warning.subtle', L('Fundo de atenção', 'Warning background', 'Fondo de atención')],
           ['color.danger.subtle', L('Fundo de erro', 'Error background', 'Fondo de error')],

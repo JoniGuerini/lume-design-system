@@ -25,7 +25,7 @@ En números: tonos: 5 · a la vez: 1 · recuerda: localStorage · rol ARIA: regi
 
 El tono dice el tipo de mensaje; el ícono y el texto dicen lo mismo que el color.
 
-Novedad `ds-banner--brand` — Una versión nueva, una función que llegó. El tono de la marca, para lo que es bueno saber.
+Novedad `ds-banner--brand` — Una versión nueva, una función que llegó. Franja sólida en el tono de la marca: el único tono que destaca de verdad.
 
 Neutro `ds-banner` — Un mensaje sin urgencia, que no necesita llamar la atención.
 
@@ -123,8 +123,8 @@ Los mismos tonos de la alerta.
 | Token | Función | Lume claro | Lume oscuro |
 | --- | --- | --- | --- |
 | color.bg.surface (`--ds-color-bg-surface`) | Fondo neutro | #FFFFFF | #24221F |
-| color.brand.subtle (`--ds-color-brand-subtle`) | Fondo de novedad | #EEF2F6 | #C0CAD624 |
-| color.brand.fg (`--ds-color-brand-fg`) | Ícono de novedad | #3E5166 | #DAE0E8 |
+| color.brand.solid (`--ds-color-brand-solid`) | Fondo de novedad | #3E5166 | #C0CAD6 |
+| color.brand.on-solid (`--ds-color-brand-on-solid`) | Texto e ícono de novedad | #F8FAFD | #1D2734 |
 | color.info.subtle (`--ds-color-info-subtle`) | Fondo de información | #F0F8FF | #6ABCFF21 |
 | color.warning.subtle (`--ds-color-warning-subtle`) | Fondo de atención | #FFF9F0 | #FFB85121 |
 | color.danger.subtle (`--ds-color-danger-subtle`) | Fondo de error | #FFF4F3 | #FF908721 |

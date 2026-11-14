@@ -25,7 +25,7 @@ In numbers: tones: 5 · at a time: 1 · remembers: localStorage · ARIA role: re
 
 The tone says what kind of message it is; the icon and text say the same as the color.
 
-News `ds-banner--brand` — A new version, a feature that arrived. The brand tone, for what’s good to know.
+News `ds-banner--brand` — A new version, a feature that arrived. A solid strip in the brand tone: the only tone that truly stands out.
 
 Neutral `ds-banner` — A message with no urgency that doesn’t need to draw attention.
 
@@ -123,8 +123,8 @@ The same tones as the alert.
 | Token | Role | Lume light | Lume dark |
 | --- | --- | --- | --- |
 | color.bg.surface (`--ds-color-bg-surface`) | Neutral background | #FFFFFF | #24221F |
-| color.brand.subtle (`--ds-color-brand-subtle`) | News background | #EEF2F6 | #C0CAD624 |
-| color.brand.fg (`--ds-color-brand-fg`) | News icon | #3E5166 | #DAE0E8 |
+| color.brand.solid (`--ds-color-brand-solid`) | News background | #3E5166 | #C0CAD6 |
+| color.brand.on-solid (`--ds-color-brand-on-solid`) | News text and icon | #F8FAFD | #1D2734 |
 | color.info.subtle (`--ds-color-info-subtle`) | Information background | #F0F8FF | #6ABCFF21 |
 | color.warning.subtle (`--ds-color-warning-subtle`) | Warning background | #FFF9F0 | #FFB85121 |
 | color.danger.subtle (`--ds-color-danger-subtle`) | Error background | #FFF4F3 | #FF908721 |
