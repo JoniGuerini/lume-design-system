@@ -753,3 +753,15 @@
     display: none;
   }
 }
+
+/* bolinha de página nova no cabeçalho do grupo: só com o grupo fechado (aberto, a bolinha está no item) */
+.site-group-dot {
+  display: inline-block;
+  margin-inline-start: var(--ds-space-100);
+  vertical-align: middle;
+}
+
+.ds-nav-group[data-open="true"] .site-group-dot,
+.ds-shell[data-sidebar="collapsed"] .site-group-dot {
+  display: none;
+}

@@ -12,7 +12,7 @@ import { createBackToTop } from '../ds/js/back-to-top.js';
 import { createShell, renderSidebarNav, renderNavbarNav, setActiveNavItem } from '../ds/js/shell.js';
 import { createCommandPalette } from '../ds/js/command-palette.js';
 import { navigation, pages, findPage } from './nav.js';
-import { CURRENT_VERSION, SEEN_KEY } from './changelog.js';
+import { CURRENT_VERSION, SEEN_KEY, releases } from './changelog.js';
 import { t, applyStrings } from './i18n.js';
 import { watchForUpdates } from './update.js';
 import { toast } from '../ds/js/toast.js';
@@ -59,13 +59,48 @@ initTooltips();
 initScrollbars();
 
 /**
- * Na primeira visita tudo é novidade, então nada é destacado: a versão atual já conta como vista.
- * Quem volta depois de uma versão nova vê a bolinha e o cartão, até abrir Novidades.
+ * Na primeira visita tudo é novidade, então nada é destacado: a versão atual e todas as páginas já contam como vistas.
+ * Quem volta depois de uma versão nova vê a bolinha em Novidades, até abrir a página; e cada página que chegou
+ * depois da última visita ganha a sua bolinha, até a pessoa abrir aquela página.
  */
+const PAGES_KEY = 'ds-paginas-vistas';
+const navPaths = () => navigation.flatMap((group) => group.items.map((item) => item.path));
+const versionParts = (v) => String(v).split('.').map(Number);
+const newerThan = (a, b) => {
+  const [x, y] = [versionParts(a), versionParts(b)];
+  for (let i = 0; i < 3; i++) if ((x[i] ?? 0) !== (y[i] ?? 0)) return (x[i] ?? 0) > (y[i] ?? 0);
+  return false;
+};
+let seenPages = null; // null: sem memória, nada é destacado
 if (!EMBED) {
   try {
-    if (localStorage.getItem(SEEN_KEY) === null) localStorage.setItem(SEEN_KEY, CURRENT_VERSION);
+    const firstVisit = localStorage.getItem(SEEN_KEY) === null;
+    const lastVersion = localStorage.getItem(SEEN_KEY);
+    if (firstVisit) localStorage.setItem(SEEN_KEY, CURRENT_VERSION);
+    const stored = localStorage.getItem(PAGES_KEY);
+    if (stored) seenPages = new Set(JSON.parse(stored));
+    else {
+      // quem já visitava antes desta memória existir: só as páginas que apareceram no changelog pela primeira vez
+      // depois da versão que a pessoa viu (ícones e API novos não fazem da página Ícones uma página nova)
+      const firstSeen = new Map();
+      [...releases].reverse().forEach((r) => r.groups.forEach((g) => g.items.forEach(([, , href]) => href && !firstSeen.has(href) && firstSeen.set(href, r.version))));
+      const added = firstVisit ? new Set() : new Set([...firstSeen].filter(([, version]) => newerThan(version, lastVersion)).map(([href]) => href));
+      seenPages = new Set(navPaths().filter((path) => !added.has(path)));
+      localStorage.setItem(PAGES_KEY, JSON.stringify([...seenPages]));
+    }
+  } catch {
+    seenPages = null;
+  }
+}
+const pageIsNew = (path) => Boolean(seenPages) && path !== '/' && path !== '/novidades' && !seenPages.has(path);
+function markPageSeen(path) {
+  if (!pageIsNew(path)) return;
+  seenPages.add(path);
+  try {
+    localStorage.setItem(PAGES_KEY, JSON.stringify([...seenPages]));
   } catch {}
+  document.querySelectorAll(`.ds-sidebar .ds-nav-item[href="#${CSS.escape(path)}"] .ds-dot`).forEach((d) => d.remove());
+  markGroups();
 }
 
 const newsSeen = () => {
@@ -76,15 +111,15 @@ const newsSeen = () => {
   }
 };
 
-// o cartão da conta mostra a versão atual (Lume 0.7) e só aparece enquanto ela não foi vista;
-// nos exemplos embutidos do App shell ele fica sempre, porque a anatomia aponta para ele
+// o cartão da conta (Lume 0.31 · Ver o que há de novo) só aparece nos exemplos embutidos do App shell, porque a
+// anatomia aponta para ele; no site, a novidade é a bolinha em Novidades
 const shortVersion = CURRENT_VERSION.replace(/\.0$/, '');
 function renderAccount() {
   document.querySelectorAll('.ds-account:not([data-update])').forEach((card) => {
     card.dataset.dsTooltip = t('accountTooltip', shortVersion);
     const title = card.querySelector('.ds-account__title');
     if (title) title.textContent = `Lume ${shortVersion}`;
-    card.hidden = !EMBED && newsSeen();
+    card.hidden = !EMBED;
   });
   // o rodapé some quando não sobra cartão nenhum (novidades vistas e sem versão nova)
   document.querySelectorAll('.ds-sidebar__footer').forEach((footer) => {
@@ -108,11 +143,28 @@ const navGroups = () =>
   navigation.map((group) => ({
     id: group.id,
     label: group.label,
-    items: group.items.map((item) => ({ label: item.label, icon: item.icon, href: `#${item.path}`, dot: item.dot && !newsSeen(), section: group.sectionLabel(item.section) })),
+    items: group.items.map((item) => ({ label: item.label, icon: item.icon, href: `#${item.path}`, dot: item.path === '/novidades' ? !newsSeen() : pageIsNew(item.path), section: group.sectionLabel(item.section) })),
   }));
 
 function renderSidebar() {
   renderSidebarNav(navEl, navGroups());
+  markGroups();
+}
+
+// grupo com página nova: a bolinha também no cabeçalho do grupo (só aparece com ele fechado) e no botão da navbar
+function markGroups() {
+  const fresh = new Set(navGroups().filter((g) => g.items.some((i) => i.dot)).map((g) => g.id));
+  document.querySelectorAll('.ds-sidebar .ds-nav-group').forEach((group) => {
+    const label = group.querySelector('.ds-nav-group__label');
+    const dot = label?.querySelector('.ds-dot');
+    if (fresh.has(group.dataset.group) && !dot) label?.insertAdjacentHTML('beforeend', '<span class="ds-dot site-group-dot" aria-hidden="true"></span>');
+    if (!fresh.has(group.dataset.group)) dot?.remove();
+  });
+  document.querySelectorAll('[data-navbar-group]').forEach((button) => {
+    const dot = button.querySelector('.ds-dot');
+    if (fresh.has(button.dataset.navbarGroup) && !dot) button.querySelector('span')?.insertAdjacentHTML('afterend', '<span class="ds-dot" aria-hidden="true"></span>');
+    if (!fresh.has(button.dataset.navbarGroup)) dot?.remove();
+  });
 }
 renderSidebar();
 
@@ -133,6 +185,7 @@ function renderNavbar() {
   navbar?.destroy();
   navbar = renderNavbarNav(navbarEl, navGroups(), { createMenu, go });
   if (activeHref) navbar.setActive(activeHref);
+  markGroups();
 }
 renderNavbar();
 
@@ -278,6 +331,7 @@ async function route() {
   if (!firstRender) content.focus({ preventScroll: true });
   firstRender = false;
   trackPage(path);
+  if (page) markPageSeen(page.path);
 }
 
 // visitas por página (Vercel Web Analytics): o site navega por #, que o script não conta sozinho.
