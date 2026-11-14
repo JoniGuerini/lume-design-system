@@ -10,17 +10,20 @@
 -->
 <style>/* @lume:css */</style>
 <style>
-  body { min-height: 0; padding: var(--ds-space-250) var(--ds-space-250) var(--ds-space-200); font: var(--ds-text-body-sm); letter-spacing: var(--ds-text-body-sm-tracking); }
+  /* deitada: à esquerda a marca, o título e as ações; à direita as três escolhas */
+  body { min-height: 0; display: grid; grid-template-columns: 250px 1fr; grid-template-rows: auto 1fr; column-gap: var(--ds-space-400); padding: var(--ds-space-300); font: var(--ds-text-body-sm); letter-spacing: var(--ds-text-body-sm-tracking); }
 
   .brand { display: flex; align-items: center; gap: var(--ds-space-100); }
   .brand svg { width: 22px; height: 22px; flex: none; }
   .brand__name { font: 400 24px/1 var(--ds-font-family-display); letter-spacing: -0.02em; }
   .brand__version { margin-left: auto; padding: 2px var(--ds-space-100); border: 1px solid var(--ds-color-border-default); border-radius: var(--ds-radius-full); color: var(--ds-color-fg-muted); font: var(--ds-text-caption); font-variant-numeric: tabular-nums; }
 
-  h1 { margin-top: var(--ds-space-250); font: var(--ds-text-heading-md); letter-spacing: var(--ds-text-heading-md-tracking); }
+  .intro { grid-column: 1; grid-row: 1; min-width: 0; }
+  .options { grid-column: 2; grid-row: 1 / 3; display: flex; flex-direction: column; gap: var(--ds-space-250); min-width: 0; }
+  .footer { grid-column: 1; grid-row: 2; align-self: end; padding-top: var(--ds-space-300); }
+  h1 { margin-top: var(--ds-space-300); font: var(--ds-text-heading-md); letter-spacing: var(--ds-text-heading-md-tracking); }
   .lead { margin-top: var(--ds-space-075); color: var(--ds-color-fg-muted); }
 
-  section { margin-top: var(--ds-space-250); }
   .label { display: flex; gap: var(--ds-space-075); margin-bottom: var(--ds-space-100); color: var(--ds-color-fg-muted); font: var(--ds-text-label-sm); }
   .label span { color: var(--ds-color-fg-subtle); font-variant-numeric: tabular-nums; }
   .hint { margin-top: var(--ds-space-100); color: var(--ds-color-fg-muted); font: var(--ds-text-caption); }
@@ -35,8 +38,8 @@
   .ds-segmented { display: flex; }
   .ds-segmented__item { flex: 1; height: var(--ds-size-control-sm); font: var(--ds-text-label-sm); }
 
-  .actions { display: flex; gap: var(--ds-space-100); margin-top: var(--ds-space-300); }
-  .actions .ds-btn { flex: 1; }
+  .actions { display: flex; flex-direction: column; gap: var(--ds-space-100); }
+  .actions .ds-btn { width: 100%; }
   .actions .ds-btn:disabled { opacity: var(--ds-opacity-disabled); cursor: default; }
 
   .status { display: flex; gap: var(--ds-space-100); align-items: baseline; margin-top: var(--ds-space-200); padding: var(--ds-space-150) var(--ds-space-200); border-radius: var(--ds-radius-lg); background: var(--ds-color-bg-sunken); color: var(--ds-color-fg-muted); font: var(--ds-text-caption); }
@@ -51,6 +54,7 @@
 </style>
 </head>
 <body>
+  <div class="intro">
   <div class="brand">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.963 2.286a.75.75 0 0 0-1.071-.136 9.742 9.742 0 0 0-3.539 6.176 7.547 7.547 0 0 1-1.705-1.715.75.75 0 0 0-1.152-.082A9 9 0 1 0 15.68 4.534a7.46 7.46 0 0 1-2.717-2.248z" fill="#c97b63"/><path d="M15.75 14.25a3.75 3.75 0 1 1-7.313-1.172c.628.465 1.35.81 2.133 1.001a5.99 5.99 0 0 1 1.925-3.546 3.75 3.75 0 0 1 3.255 3.717z" fill="#ffffff" opacity="0.28"/></svg>
     <span class="brand__name">Lume</span>
@@ -59,6 +63,9 @@
 
   <h1 data-t="title">Gerar a biblioteca</h1>
   <p class="lead" data-t="lead"></p>
+  </div>
+
+  <div class="options">
 
   <section>
     <p class="label" id="what-label"><span>01</span><b data-t="what"></b></p>
@@ -89,12 +96,16 @@
     </div>
     <p class="hint" data-t="languageHint"></p>
   </section>
-
-  <div class="actions">
-    <button type="button" class="ds-btn ds-btn--secondary" data-cancel data-t="close"></button>
-    <button type="button" class="ds-btn ds-btn--primary" data-run></button>
   </div>
-  <p class="status" data-log aria-live="polite"></p>
+
+  <!-- depois das escolhas na ordem do Tab; no grid, embaixo da coluna da esquerda -->
+  <div class="footer">
+    <div class="actions">
+      <button type="button" class="ds-btn ds-btn--primary" data-run></button>
+      <button type="button" class="ds-btn ds-btn--secondary" data-cancel data-t="close"></button>
+    </div>
+    <p class="status" data-log aria-live="polite"></p>
+  </div>
 
 <script>
   // textos da janela nas três línguas; o idioma “Sistema” segue o do computador (o que não for português nem espanhol vira inglês)
@@ -204,7 +215,7 @@
   let idle = true; // o status mostra a frase de espera até a primeira mensagem do plugin
 
   // pede ao Figma a altura do conteúdo, para a janela não sobrar nem rolar
-  const fit = () => requestAnimationFrame(() => parent.postMessage({ pluginMessage: { type: 'resize', height: document.body.scrollHeight } }, '*'));
+  const fit = () => requestAnimationFrame(() => parent.postMessage({ pluginMessage: { type: 'resize', width: 760, height: document.body.scrollHeight } }, '*'));
   const showHint = () => {
     hint.textContent = chosenModes().length > 1 ? s().bothHint : s().oneHint;
   };
@@ -234,7 +245,7 @@
   document.querySelector('[data-cancel]').addEventListener('click', () => parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*'));
   onmessage = (event) => {
     const msg = event.data.pluginMessage;
-    if (!msg) return;
+    if (!msg || msg.type === 'resize') return; // fora do Figma, o pedido de altura volta para a própria janela
     if (msg.type === 'init') {
       if (msg.modes && items('modes').some((i) => i.dataset.value === msg.modes.join(','))) select('modes', msg.modes.join(','));
       if (items('locale').some((i) => i.dataset.value === msg.locale)) select('locale', msg.locale);

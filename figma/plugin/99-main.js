@@ -200,7 +200,7 @@ async function main(options) {
 
 if (typeof __LUME_TEST__ === 'undefined') {
   if (typeof __html__ !== 'undefined') {
-    figma.showUI(__html__, { width: 380, height: 780, themeColors: true });
+    figma.showUI(__html__, { width: 760, height: 520, themeColors: true });
     LUME.progress = function (msg) { figma.ui.postMessage({ type: 'progress', message: msg }); };
     // modos e idioma ficam guardados neste computador: num arquivo de plano gratuito, não precisa escolher toda vez
     Promise.all([figma.clientStorage.getAsync('orbita-modes'), figma.clientStorage.getAsync('orbita-locale')]).then(function (saved) {
@@ -209,7 +209,7 @@ if (typeof __LUME_TEST__ === 'undefined') {
     figma.ui.onmessage = function (msg) {
       if (msg.type === 'cancel') return figma.closePlugin();
       // a janela mede o próprio conteúdo (muda com o idioma) e pede a altura certa
-      if (msg.type === 'resize') return figma.ui.resize(380, Math.max(320, Math.min(900, Math.ceil(msg.height))));
+      if (msg.type === 'resize') return figma.ui.resize(msg.width || 760, Math.max(320, Math.min(900, Math.ceil(msg.height))));
       if (msg.type === 'locale') return figma.clientStorage.setAsync('orbita-locale', msg.preference);
       if (msg.type !== 'run') return;
       figma.clientStorage.setAsync('orbita-modes', msg.modes);
