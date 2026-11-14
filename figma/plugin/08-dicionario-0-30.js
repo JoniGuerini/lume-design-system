@@ -199,8 +199,6 @@ Object.assign(DICT, {
   // 98-introducao
   'Lume · Introdução': ['Lume · Introduction', 'Lume · Introducción'],
   'Introdução': ['Introduction', 'Introducción'],
-  'Modos': ['Modes', 'Modos'],
-  'Instâncias': ['Instances', 'Instancias'],
-  'Atualizar': ['Updating', 'Actualizar'],
-  'Fontes': ['Fonts', 'Fuentes'],
+  'Superfícies': ['Surfaces', 'Superficies'],
+  'Temas': ['Themes', 'Temas'],
 });

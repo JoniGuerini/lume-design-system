@@ -74,7 +74,11 @@ async function introSection(title, lead, cards, cols, inner) {
   var gap = 24;
   var cw = Math.floor((inner - gap * (cols - 1)) / cols);
   var grid = box('Cartões', { dir: 'H', wrap: true, gap: gap, rowGap: gap, w: inner });
-  for (var c of cards) add(grid, await introCard(c, cw));
+  var made = [];
+  for (var c of cards) made.push(add(grid, await introCard(c, cw)));
+  // cartões da mesma seção com a mesma altura: em linha, a diferença de uma linha de texto aparece
+  var tallest = Math.max.apply(null, made.map(function (m) { return m.height; }));
+  made.forEach(function (m) { m.resize(cw, tallest); m.primaryAxisSizingMode = 'FIXED'; });
   add(sec, grid);
   return sec;
 }
@@ -103,9 +107,9 @@ async function introduction() {
   add(brand, await text('Lume', { style: 'display-lg', color: 'color/refugio/25', raw: true, name: 'Nome' }));
   add(hero, brand);
   add(hero, await text(L3(
-    'Tokens, componentes e padrões do Lume, os mesmos do site e do código. Cada peça deste arquivo tem o nome, as medidas e as cores que tem em lumeui.dev, então o que se desenha aqui já existe para quem programa.',
-    'Lume’s tokens, components, and patterns, the same ones as on the site and in code. Every piece in this file has the name, sizes, and colors it has on lumeui.dev, so what you design here already exists for whoever builds it.',
-    'Tokens, componentes y patrones de Lume, los mismos del sitio y del código. Cada pieza de este archivo tiene el nombre, las medidas y los colores que tiene en lumeui.dev, así que lo que se diseña aquí ya existe para quien programa.',
+    'O design system do Lume, do token ao padrão de tela. Tudo o que está neste arquivo existe igual no site e no código: os mesmos nomes, as mesmas medidas e as mesmas cores.',
+    'Lume’s design system, from token to screen pattern. Everything in this file exists the same way on the site and in code: the same names, the same sizes, and the same colors.',
+    'El design system de Lume, del token al patrón de pantalla. Todo lo que está en este archivo existe igual en el sitio y en el código: los mismos nombres, las mismas medidas y los mismos colores.',
   ), { style: 'body-lg', color: 'color/refugio/200', w: 820, raw: true, name: 'Resumo' }));
   var facts = box('Fatos', { dir: 'H', gap: 48, pad: [16, 0, 0, 0] });
   var stats = [
@@ -131,62 +135,78 @@ async function introduction() {
   add(body, await introSection(
     L3('O que tem neste arquivo', 'What’s in this file', 'Qué hay en este archivo'),
     own
-      ? L3('Além desta, três páginas, nesta ordem. Fundamentos e Componentes são organizados em linhas por categoria, com os blocos lado a lado.', 'Besides this one, three pages, in this order. Foundations and Components are arranged in rows by category, with the blocks side by side.', 'Además de esta, tres páginas, en este orden. Fundamentos y Componentes están organizados en filas por categoría, con los bloques lado a lado.')
-      : L3('Três páginas, nesta ordem. No plano gratuito do Figma esta introdução fica no topo de Fundamentos.', 'Three pages, in this order. On Figma’s free plan this introduction sits at the top of Foundations.', 'Tres páginas, en este orden. En el plan gratuito de Figma esta introducción queda arriba de Fundamentos.'),
+      ? L3('Além desta, três páginas, para ler na ordem: das decisões de base aos componentes prontos. Em cada uma, uma linha por categoria, com os blocos lado a lado.', 'Besides this one, three pages, meant to be read in order: from the base decisions to the finished components. On each, one row per category, with the blocks side by side.', 'Además de esta, tres páginas, para leer en orden: de las decisiones de base a los componentes listos. En cada una, una fila por categoría, con los bloques lado a lado.')
+      : L3('Três páginas, para ler na ordem: das decisões de base aos componentes prontos. Esta introdução fica no topo de Fundamentos.', 'Three pages, meant to be read in order: from the base decisions to the finished components. This introduction sits at the top of Foundations.', 'Tres páginas, para leer en orden: de las decisiones de base a los componentes listos. Esta introducción queda arriba de Fundamentos.'),
     [
       {
         name: 'Fundamentos', kicker: '01', title: L('Lume · Fundamentos'),
-        body: L3('Cores, tipografia, espaçamento, raios, sombras, movimento e layout. As variáveis e os estilos do arquivo, vistos de perto e com o nome de cada token.', 'Color, typography, spacing, radii, shadows, motion, and layout. The file’s variables and styles, up close and with each token’s name.', 'Color, tipografía, espaciado, radios, sombras, movimiento y layout. Las variables y los estilos del archivo, de cerca y con el nombre de cada token.'),
+        body: L3('Comece por aqui. Cores, tipografia, espaçamento, raios, sombras, movimento e layout: as decisões de que todo o resto é feito, com o nome de cada token.', 'Start here. Color, typography, spacing, radii, shadows, motion, and layout: the decisions everything else is made of, with each token’s name.', 'Empieza aquí. Color, tipografía, espaciado, radios, sombras, movimiento y layout: las decisiones de las que está hecho todo lo demás, con el nombre de cada token.'),
         foot: n.fundamentos + L3(' blocos', ' blocks', ' bloques'),
       },
       {
         name: 'Ícones', kicker: '02', title: L('Lume · Ícones'),
-        body: L3('A biblioteca inteira, um componente por ícone, em 24 px com traço de 2. Nos componentes, o ícone é uma propriedade da instância: troque sem perder a cor.', 'The whole library, one component per icon, at 24 px with a 2 px stroke. In components, the icon is an instance property: swap it without losing the color.', 'La biblioteca completa, un componente por ícono, en 24 px con trazo de 2. En los componentes, el ícono es una propiedad de la instancia: cámbialo sin perder el color.'),
+        body: L3('A biblioteca inteira, desenhada na mesma grade de 24 px e com o mesmo traço, para conviver com a Geist sem chamar mais atenção que o texto.', 'The whole library, drawn on the same 24 px grid with the same stroke, to sit alongside Geist without drawing more attention than the text.', 'La biblioteca completa, dibujada en la misma cuadrícula de 24 px y con el mismo trazo, para convivir con Geist sin llamar más la atención que el texto.'),
         foot: n.icons + L3(' ícones', ' icons', ' íconos'),
       },
       {
         name: 'Componentes', kicker: '03', title: L('Lume · Componentes'),
         body: both
-          ? L3('Cada bloco é um componente: o conjunto de variantes, exemplos montados com instâncias e o mesmo exemplo nos modos Claro e Escuro.', 'Each block is a component: the variant set, examples built with instances, and the same example in Light and Dark modes.', 'Cada bloque es un componente: el conjunto de variantes, ejemplos armados con instancias y el mismo ejemplo en los modos Claro y Oscuro.')
-          : L3('Cada bloco é um componente: o conjunto de variantes, exemplos montados com instâncias e o mesmo exemplo no modo das variáveis.', 'Each block is a component: the variant set, examples built with instances, and the same example in the variables’ mode.', 'Cada bloque es un componente: el conjunto de variantes, ejemplos armados con instancias y el mismo ejemplo en el modo de las variables.'),
+          ? L3('Das ações aos padrões de tela, um bloco por componente, com todas as variantes e estados e o mesmo exemplo em claro e escuro, lado a lado.', 'From actions to screen patterns, one block per component, with every variant and state and the same example in light and dark, side by side.', 'De las acciones a los patrones de pantalla, un bloque por componente, con todas las variantes y estados y el mismo ejemplo en claro y oscuro, lado a lado.')
+          : L3('Das ações aos padrões de tela, um bloco por componente, com todas as variantes e estados.', 'From actions to screen patterns, one block per component, with every variant and state.', 'De las acciones a los patrones de pantalla, un bloque por componente, con todas las variantes y estados.'),
         foot: n.componentes + L3(' blocos · ', ' blocks · ', ' bloques · ') + n.variants + L3(' variantes', ' variants', ' variantes'),
       },
     ], 3, inner));
 
   add(body, await introSection(
-    L3('Como usar', 'How to use it', 'Cómo usarlo'),
-    null,
+    L3('Princípios', 'Principles', 'Principios'),
+    L3('O que se repete em cada peça e dá ao Lume a cara que ele tem.', 'What repeats in every piece and gives Lume its look.', 'Lo que se repite en cada pieza y le da a Lume la cara que tiene.'),
     [
       {
-        name: 'Variáveis', kicker: L3('VARIÁVEIS', 'VARIABLES', 'VARIABLES'), title: L3('Use as semânticas', 'Use the semantic ones', 'Usa las semánticas'),
-        body: L3('A coleção Semânticos diz o papel da cor (fundo, texto, contorno, marca) e muda com o modo. As Primitivas existem para ela; Dimensões guarda espaços, raios e alturas.', 'The Semantic collection says what a color is for (background, text, border, brand) and changes with the mode. Primitives exist to feed it; Dimensions holds spacing, radii, and heights.', 'La colección Semánticos dice para qué es el color (fondo, texto, contorno, marca) y cambia con el modo. Las Primitivas existen para ella; Dimensiones guarda espacios, radios y alturas.'),
+        name: 'Superfícies', kicker: '01', title: L3('Tudo plano', 'Everything flat', 'Todo plano'),
+        body: L3('Superfícies opacas e lisas, contornos finos. Sem vidro, brilho, desfoque ou degradê de fundo: a personalidade vem da forma, não do efeito.', 'Opaque, smooth surfaces and thin borders. No glass, glow, blur, or background gradient: personality comes from form, not effects.', 'Superficies opacas y lisas, contornos finos. Sin vidrio, brillo, desenfoque ni degradado de fondo: la personalidad viene de la forma, no del efecto.'),
       },
       {
-        name: 'Modos', kicker: L3('MODOS', 'MODES', 'MODOS'), title: both ? L3('Claro e Escuro', 'Light and Dark', 'Claro y Oscuro') : L(LUME.active[0]),
-        body: both
-          ? L3('Os dois temas são modos da mesma variável. Para trocar, escolha o modo no frame, em Aparência: tudo que está dentro acompanha.', 'Both themes are modes of the same variable. To switch, pick the mode on the frame, under Appearance: everything inside follows.', 'Los dos temas son modos de la misma variable. Para cambiar, elige el modo en el frame, en Apariencia: todo lo que está dentro lo sigue.')
-          : L3('O plano gratuito do Figma aceita um modo por coleção. Num plano pago, rode de novo com Claro e Escuro: o outro modo entra sem duplicar nada.', 'Figma’s free plan allows one mode per collection. On a paid plan, run it again with Light and Dark: the other mode is added without duplicating anything.', 'El plan gratuito de Figma admite un modo por colección. En un plan de pago, ejecútalo de nuevo con Claro y Oscuro: el otro modo entra sin duplicar nada.'),
+        name: 'Cor', kicker: '02', title: L3('Ardósia e terracota', 'Slate and terracotta', 'Pizarra y terracota'),
+        body: L3('Uma ardósia azulada no fundo e no texto, e a terracota da chama só onde é preciso apontar: o indicador, o item ativo, a nota acesa.', 'A bluish slate for backgrounds and text, and the flame’s terracotta only where something needs pointing out: the indicator, the active item, the lit rating.', 'Una pizarra azulada en el fondo y en el texto, y la terracota de la llama solo donde hace falta señalar: el indicador, el elemento activo, la nota encendida.'),
       },
       {
-        name: 'Instâncias', kicker: L3('INSTÂNCIAS', 'INSTANCES', 'INSTANCIAS'), title: L3('Arraste da aba Assets', 'Drag from the Assets tab', 'Arrastra desde la pestaña Assets'),
-        body: L3('As propriedades da instância trocam a variante, o texto e o ícone. Evite desanexar: a instância ligada recebe as correções da próxima versão.', 'Instance properties swap the variant, the text, and the icon. Avoid detaching: a linked instance gets the next version’s fixes.', 'Las propiedades de la instancia cambian la variante, el texto y el ícono. Evita desvincular: la instancia vinculada recibe las correcciones de la próxima versión.'),
+        name: 'Tipografia', kicker: '03', title: L3('Serifa no título, sans no texto', 'Serif for headings, sans for text', 'Serif en el título, sans en el texto'),
+        body: L3('Geist Serif dá voz aos títulos; Geist Sans cuida da leitura e da interface; JetBrains Mono fica com o código.', 'Geist Serif gives headings their voice; Geist Sans handles reading and the interface; JetBrains Mono takes the code.', 'Geist Serif da voz a los títulos; Geist Sans se ocupa de la lectura y de la interfaz; JetBrains Mono se queda con el código.'),
       },
       {
-        name: 'Atualizar', kicker: L3('ATUALIZAR', 'UPDATING', 'ACTUALIZAR'), title: L3('Rode o plugin de novo', 'Run the plugin again', 'Ejecuta el plugin de nuevo'),
-        body: L3('Tudo é refeito no lugar, sem duplicar e com os mesmos ids, então as instâncias continuam ligadas. Outro idioma na janela renomeia páginas, componentes e variáveis.', 'Everything is rebuilt in place, without duplicating and with the same ids, so instances stay linked. Another language in the window renames pages, components, and variables.', 'Todo se rehace en el lugar, sin duplicar y con los mismos ids, así que las instancias siguen vinculadas. Otro idioma en la ventana renombra páginas, componentes y variables.'),
+        name: 'Temas', kicker: '04', title: L3('Claro e escuro, juntos', 'Light and dark, together', 'Claro y oscuro, juntos'),
+        body: L3('Os dois temas nascem dos mesmos tokens e são vistos lado a lado. Cada par de texto e fundo passa no contraste da WCAG nos dois.', 'Both themes come from the same tokens and are shown side by side. Every text and background pair passes WCAG contrast in both.', 'Los dos temas nacen de los mismos tokens y se ven lado a lado. Cada par de texto y fondo pasa el contraste de la WCAG en los dos.'),
       },
     ], 2, inner));
 
-  // rodapé: fontes e onde está o resto
-  var foot = box('Rodapé', { dir: 'H', gap: 48, pad: [32, 0, 0, 0], w: inner });
-  var fonts = box('Fontes', { dir: 'V', gap: 4 });
-  add(fonts, await text(L3('Fontes', 'Fonts', 'Fuentes'), { style: 'label-md', color: 'color/fg/default', raw: true }));
-  add(fonts, await text(L3('Geist Serif nos títulos, Geist Sans no texto e JetBrains Mono no código. Instale as três antes de rodar; sem elas, o plugin usa a Inter e avisa.', 'Geist Serif for headings, Geist Sans for text, and JetBrains Mono for code. Install all three before running; without them, the plugin uses Inter and warns you.', 'Geist Serif en los títulos, Geist Sans en el texto y JetBrains Mono en el código. Instala las tres antes de ejecutarlo; sin ellas, el plugin usa Inter y avisa.'), { style: 'body-sm', color: 'color/fg/muted', w: 620, raw: true }));
-  add(foot, fonts);
-  var site = box('Site', { dir: 'V', gap: 4 });
-  add(site, await text(L3('Documentação e código', 'Docs and code', 'Documentación y código'), { style: 'label-md', color: 'color/fg/default', raw: true }));
-  add(site, await text(L3('Uso, acessibilidade, React e a API de cada componente em lumeui.dev.', 'Usage, accessibility, React, and each component’s API on lumeui.dev.', 'Uso, accesibilidad, React y la API de cada componente en lumeui.dev.'), { style: 'body-sm', color: 'color/fg/muted', w: 560, raw: true }));
-  add(foot, site);
+  add(body, await introSection(
+    L3('Como ler cada bloco', 'How to read each block', 'Cómo leer cada bloque'),
+    null,
+    [
+      {
+        name: 'Cabeçalho', kicker: '01', title: L3('Cabeçalho', 'Header', 'Encabezado'),
+        body: L3('A categoria, o nome do componente e para que ele serve, em uma frase.', 'The category, the component’s name, and what it’s for, in one sentence.', 'La categoría, el nombre del componente y para qué sirve, en una frase.'),
+      },
+      {
+        name: 'Variantes', kicker: '02', title: L3('Variantes', 'Variants', 'Variantes'),
+        body: L3('Todas as combinações de tamanho, tipo e estado, em uma grade com rótulos.', 'Every combination of size, type, and state, in a labeled grid.', 'Todas las combinaciones de tamaño, tipo y estado, en una cuadrícula con etiquetas.'),
+      },
+      {
+        name: 'Exemplos', kicker: '03', title: L3('Exemplos', 'Examples', 'Ejemplos'),
+        body: L3('O componente em uso, montado como aparece nas telas do site.', 'The component in use, put together the way it appears on the site’s screens.', 'El componente en uso, armado como aparece en las pantallas del sitio.'),
+      },
+      {
+        name: 'Temas', kicker: '04', title: both ? L3('Claro e escuro', 'Light and dark', 'Claro y oscuro') : L(LUME.active[0]),
+        body: both
+          ? L3('No fim, o mesmo exemplo nos dois temas, um ao lado do outro.', 'At the end, the same example in both themes, next to each other.', 'Al final, el mismo ejemplo en los dos temas, uno al lado del otro.')
+          : L3('No fim, o mesmo exemplo no tema das variáveis.', 'At the end, the same example in the variables’ theme.', 'Al final, el mismo ejemplo en el tema de las variables.'),
+      },
+    ], 4, inner));
+
+  // rodapé: onde ver tudo funcionando
+  var foot = box('Rodapé', { dir: 'V', gap: 4, pad: [8, 0, 0, 0], w: inner });
+  add(foot, await text(L3('Veja funcionando', 'See it working', 'Míralo funcionando'), { style: 'label-md', color: 'color/fg/default', raw: true }));
+  add(foot, await text(L3('Em lumeui.dev cada componente está ao vivo, com teclado, acessibilidade e os três idiomas.', 'On lumeui.dev every component is live, with keyboard, accessibility, and all three languages.', 'En lumeui.dev cada componente está en vivo, con teclado, accesibilidad y los tres idiomas.'), { style: 'body-sm', color: 'color/fg/muted', w: 760, raw: true }));
   add(body, foot);
 
   page.appendChild(frame);

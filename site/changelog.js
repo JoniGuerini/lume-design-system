@@ -17,15 +17,15 @@ const RELEASES = [
     date: '2026-11-14',
     title: T('Introdução no Figma', 'Introduction in Figma', 'Introducción en Figma'),
     summary: T(
-      'O arquivo do Figma ganhou uma página de abertura, antes de Fundamentos: o que é o Lume, o que tem em cada página e como usar variáveis, modos e instâncias.',
-      'The Figma file got an opening page, before Foundations: what Lume is, what each page holds, and how to use variables, modes, and instances.',
-      'El archivo de Figma ganó una página de apertura, antes de Fundamentos: qué es Lume, qué hay en cada página y cómo usar variables, modos e instancias.',
+      'O arquivo do Figma ganhou uma página de abertura, antes de Fundamentos: o que é o Lume, o que tem em cada página, os princípios visuais e como ler cada bloco.',
+      'The Figma file got an opening page, before Foundations: what Lume is, what each page holds, the visual principles, and how to read each block.',
+      'El archivo de Figma ganó una página de apertura, antes de Fundamentos: qué es Lume, qué hay en cada página, los principios visuales y cómo leer cada bloque.',
     ),
     groups: [
       {
         name: T('Plugin do Figma', 'Figma plugin', 'Plugin de Figma'),
         items: [
-          ['novo', T('Página Lume · Introdução, a primeira do arquivo, com a chama, os números do arquivo, as três páginas e como usar', 'Lume · Introduction page, the first in the file, with the flame, the file’s numbers, the three pages, and how to use them', 'Página Lume · Introducción, la primera del archivo, con la llama, los números del archivo, las tres páginas y cómo usarlas'), '/recursos/figma'],
+          ['novo', T('Página Lume · Introdução, a primeira do arquivo, com a chama, os números do arquivo, as três páginas, os princípios e como ler cada bloco', 'Lume · Introduction page, the first in the file, with the flame, the file’s numbers, the three pages, the principles, and how to read each block', 'Página Lume · Introducción, la primera del archivo, con la llama, los números del archivo, las tres páginas, los principios y cómo leer cada bloque'), '/recursos/figma'],
           ['melhoria', T('No plano gratuito do Figma, que aceita 3 páginas, a introdução fica no topo de Fundamentos e muda para a página própria quando o arquivo vai para um plano pago', 'On Figma’s free plan, which allows 3 pages, the introduction sits at the top of Foundations and moves to its own page when the file moves to a paid plan', 'En el plan gratuito de Figma, que admite 3 páginas, la introducción queda arriba de Fundamentos y pasa a su propia página cuando el archivo pasa a un plan de pago'), '/recursos/figma'],
         ],
       },
