@@ -53,7 +53,7 @@ function releaseSection(r, isCurrent) {
                       return `<li class="nv-item" data-type="${type}">
                         <span class="ds-badge ds-badge--sm ds-badge--${tone} nv-item__type">${label}</span>
                         <span class="nv-item__text">${text}</span>
-                        <a class="ds-inline-action nv-item__link" href="#${href}" aria-label="${L('Ver', 'See', 'Ver')}: ${text}">${L('Ver', 'See', 'Ver')}${icon('arrow-right', { size: 14 })}</a>
+                        ${href ? `<a class="ds-inline-action nv-item__link" href="#${href}" aria-label="${L('Ver', 'See', 'Ver')}: ${text}">${L('Ver', 'See', 'Ver')}${icon('arrow-right', { size: 14 })}</a>` : ''}
                       </li>`;
                     })
                     .join('')}

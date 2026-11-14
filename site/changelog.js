@@ -28,14 +28,14 @@ const RELEASES = [
           ['novo', T('Divisor: página própria, com vertical, rótulo no meio ou no começo e esmaecido', 'Divider: its own page, with vertical, label in the middle or at the start, and faded', 'Divisor: página propia, con vertical, etiqueta en el medio o al inicio y difuminado'), '/componentes/divisor'],
           ['novo', T('Link: no texto, solto com seta, apagado e externo, com ícone e aviso de nova aba para o leitor de tela', 'Link: inline, standalone with an arrow, muted, and external, with an icon and a new-tab notice for screen readers', 'Enlace: en el texto, suelto con flecha, apagado y externo, con ícono y aviso de pestaña nueva para el lector de pantalla'), '/componentes/link'],
           ['novo', T('Progresso circular: três tamanhos, os tons da barra e indeterminado', 'Circular progress: three sizes, the bar’s tones, and indeterminate', 'Progreso circular: tres tamaños, los tonos de la barra e indeterminado'), '/componentes/progresso-circular'],
-          ['novo', T('progressRingHtml e setProgressRing na API; Link, Divider e ProgressRing no React', 'progressRingHtml and setProgressRing in the API; Link, Divider, and ProgressRing in React', 'progressRingHtml y setProgressRing en la API; Link, Divider y ProgressRing en React')],
-          ['melhoria', T('O divisor perdeu a margem padrão do navegador: o espaço vem do contêiner', 'The divider dropped the browser’s default margin: spacing comes from the container', 'El divisor perdió el margen predeterminado del navegador: el espacio viene del contenedor')],
+          ['novo', T('progressRingHtml e setProgressRing na API; Link, Divider e ProgressRing no React', 'progressRingHtml and setProgressRing in the API; Link, Divider, and ProgressRing in React', 'progressRingHtml y setProgressRing en la API; Link, Divider y ProgressRing en React'), '/recursos/api'],
+          ['melhoria', T('O divisor perdeu a margem padrão do navegador: o espaço vem do contêiner', 'The divider dropped the browser’s default margin: spacing comes from the container', 'El divisor perdió el margen predeterminado del navegador: el espacio viene del contenedor'), '/componentes/divisor'],
         ],
       },
       {
         name: T('Ícones', 'Icons', 'Íconos'),
         items: [
-          ['novo', T('2 ícones novos: divisor e progresso circular', '2 new icons: divider and circular progress', '2 íconos nuevos: divisor y progreso circular')],
+          ['novo', T('2 ícones novos: divisor e progresso circular', '2 new icons: divider and circular progress', '2 íconos nuevos: divisor y progreso circular'), '/fundamentos/icones'],
         ],
       },
     ],
