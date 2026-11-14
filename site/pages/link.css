@@ -1,0 +1,38 @@
+/* Página: Link (prefixo lk-) */
+
+.lk-text {
+  margin: 0;
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-body-md);
+  letter-spacing: var(--ds-text-body-md-tracking);
+  text-wrap: pretty;
+}
+
+.lk-text--muted {
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+  letter-spacing: var(--ds-text-body-sm-tracking);
+}
+
+.lk-play {
+  max-width: 320px;
+}
+
+.lk-card {
+  display: grid;
+  justify-items: start;
+  gap: var(--ds-space-100);
+}
+
+.lk-card__title {
+  margin: 0;
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-label-md);
+  letter-spacing: var(--ds-text-label-md-tracking);
+}
+
+.lk-card .lk-text {
+  margin-bottom: var(--ds-space-100);
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}

@@ -20,6 +20,7 @@ export const REACT_GROUPS = () => [
       ['Button · ButtonLink', 'Button.tsx', '/componentes/botao', '0.26', L('Variante, tamanho, ícones e ocupado (busy). ButtonLink é o mesmo visual num link.', 'Variant, size, icons and busy. ButtonLink is the same look on a link.', 'Variante, tamaño, íconos y ocupado (busy). ButtonLink es el mismo aspecto en un enlace.')],
       ['IconButton', 'IconButton.tsx', '/componentes/botao', '0.26', L('Só o ícone; o rótulo para leitores de tela é obrigatório.', 'Icon only; the screen reader label is required.', 'Solo el ícono; la etiqueta para lectores de pantalla es obligatoria.')],
       ['InlineAction', 'InlineAction.tsx', '/componentes/acao-inline', '0.26', L('Ação mínima no meio do conteúdo ("Na cena +").', 'Minimal action within content ("In scene +").', 'Acción mínima dentro del contenido ("En escena +").')],
+      ['Link', 'Link.tsx', '/componentes/link', '0.34', L('No texto ou solto (variant), apagado (muted) e externo, com ícone e aviso de nova aba.', 'Inline or standalone (variant), muted, and external, with icon and new-tab notice.', 'En el texto o suelto (variant), apagado (muted) y externo, con ícono y aviso de pestaña nueva.')],
       ['Chip · RemovableChip · ChipGroup', 'Chip.tsx', '/componentes/chip', '0.26', L('Filtro (pressed), seletor (chevron) e removível (onRemove).', 'Filter (pressed), selector (chevron) and removable (onRemove).', 'Filtro (pressed), selector (chevron) y removible (onRemove).')],
     ],
   },
@@ -73,6 +74,7 @@ export const REACT_GROUPS = () => [
       ['Badge', 'Badge.tsx', '/componentes/badge', '0.26', L('Seis tons, ponto e contador.', 'Six tones, dot and counter.', 'Seis tonos, punto y contador.')],
       ['Alert', 'Alert.tsx', '/componentes/alerta', '0.26', L('Tom com o ícone certo, ações e o × (onClose).', 'Tone with the right icon, actions and the × (onClose).', 'Tono con el ícono correcto, acciones y la × (onClose).')],
       ['Progress', 'Loading.tsx', '/componentes/barra-de-progresso', '0.26', L('Barra com rótulo e porcentagem; sem valor, indeterminada.', 'Bar with label and percentage; without a value, indeterminate.', 'Barra con etiqueta y porcentaje; sin valor, indeterminada.')],
+      ['ProgressRing', 'Loading.tsx', '/componentes/progresso-circular', '0.34', L('Anel com a porcentagem; sem valor, indeterminado. Três tamanhos e os tons da barra.', 'Ring with the percentage; without a value, indeterminate. Three sizes and the bar’s tones.', 'Anillo con el porcentaje; sin valor, indeterminado. Tres tamaños y los tonos de la barra.')],
       ['Spinner', 'Loading.tsx', '/componentes/spinner', '0.26', L('Três tamanhos, já com o rótulo "Carregando".', 'Three sizes, with the "Loading" label built in.', 'Tres tamaños, ya con la etiqueta "Cargando".')],
       ['Skeleton', 'Loading.tsx', '/componentes/skeleton', '0.26', L('Bloco, linha de texto e círculo.', 'Block, text line and circle.', 'Bloque, línea de texto y círculo.')],
     ],
@@ -94,6 +96,7 @@ export const REACT_GROUPS = () => [
       ['ResizablePanels', 'Resizable.tsx', '/componentes/paineis-redimensionaveis', '0.32', L('Um ResizablePanel por parte, com size, min, max e collapsible; as divisórias entram sozinhas. storageKey guarda o tamanho.', 'One ResizablePanel per part, with size, min, max and collapsible; dividers are added for you. storageKey keeps the size.', 'Un ResizablePanel por parte, con size, min, max y collapsible; los divisores se agregan solos. storageKey guarda el tamaño.')],
       ['Rating', 'Rating.tsx', '/componentes/avaliacao', '0.33', L('Dar nota, com name, value e onChange; RatingDisplay só mostra, com meia estrela.', 'Give a score, with name, value and onChange; RatingDisplay only shows one, with half stars.', 'Calificar, con name, value y onChange; RatingDisplay solo muestra, con media estrella.')],
       ['Toolbar', 'Toolbar.tsx', '/componentes/barra-de-ferramentas', '0.33', L('ToolbarGroup, ToolbarSeparator e ToolbarButton; pressed no estado e onToggle na barra.', 'ToolbarGroup, ToolbarSeparator and ToolbarButton; pressed in state and onToggle on the bar.', 'ToolbarGroup, ToolbarSeparator y ToolbarButton; pressed en el estado y onToggle en la barra.')],
+      ['Divider', 'Link.tsx', '/componentes/divisor', '0.34', L('Horizontal, vertical, esmaecido ou com rótulo no meio ou no começo.', 'Horizontal, vertical, faded, or with a label in the middle or at the start.', 'Horizontal, vertical, difuminado o con etiqueta en el medio o al inicio.')],
     ],
   },
   {

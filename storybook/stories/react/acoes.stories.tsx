@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, IconButton, InlineAction, Chip, ChipGroup, Badge, Alert, Avatar, AvatarGroup, Progress, Spinner, Panel, Section, Breadcrumb, Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarButton } from '../../../react';
+import { Button, IconButton, InlineAction, Chip, ChipGroup, Badge, Alert, Avatar, AvatarGroup, Progress, Spinner, Panel, Section, Breadcrumb, Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarButton, Link, Divider, ProgressRing } from '../../../react';
 import { mount } from './mount';
 
 export default {
@@ -103,3 +103,31 @@ function Formatacao() {
 }
 
 export const BarraDeFerramentas = { name: 'Toolbar', render: () => mount(<Formatacao />) };
+
+function PecasPequenas() {
+  const [v, setV] = useState(62);
+  return (
+    <div style={{ display: 'grid', gap: 20, maxWidth: 420 }}>
+      <p style={{ margin: 0 }}>
+        Os componentes usam só tokens semânticos. Veja as <Link href="#">cores</Link> e a fonte <Link href="https://vercel.com/font" external>Geist</Link>.
+      </p>
+      <Link variant="standalone" href="#">Ver todas as versões</Link>
+      <Divider />
+      <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+        <span>Lume 0.34</span>
+        <Divider vertical />
+        <span>52 componentes</span>
+      </div>
+      <Divider label="ou" />
+      <div style={{ display: 'flex', gap: 24, alignItems: 'center' }}>
+        <ProgressRing size="sm" value={v} label="Enviando arquivos" />
+        <ProgressRing value={v} label="Enviando arquivos" />
+        <ProgressRing size="lg" value={v} tone={v === 100 ? 'success' : 'brand'} label="Enviando arquivos" />
+        <ProgressRing label="Preparando" />
+        <button type="button" className="ds-btn ds-btn--sm" onClick={() => setV((x) => (x >= 100 ? 0 : Math.min(100, x + 19)))}>Avançar</button>
+      </div>
+    </div>
+  );
+}
+
+export const LinkDivisorProgresso = { name: 'Link, divisor e progresso circular', render: () => mount(<PecasPequenas />) };

@@ -1,0 +1,56 @@
+/* Página: Divisor (prefixo dv-) */
+
+.dv-card,
+.dv-list,
+.dv-play {
+  display: grid;
+  gap: var(--ds-space-200);
+}
+
+.dv-card,
+.dv-list {
+  width: 100%;
+}
+
+.dv-card__title,
+.dv-play__text {
+  margin: 0;
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-label-md);
+  letter-spacing: var(--ds-text-label-md-tracking);
+}
+
+.dv-card__text,
+.dv-list__item {
+  margin: calc(var(--ds-space-150) * -1) 0 0;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+  letter-spacing: var(--ds-text-body-sm-tracking);
+}
+
+.dv-list__item {
+  margin: 0;
+}
+
+.dv-list__item strong {
+  margin-inline-end: var(--ds-space-050);
+  color: var(--ds-color-fg-default);
+  font-weight: var(--ds-font-weight-medium);
+  font-variant-numeric: tabular-nums;
+}
+
+.dv-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--ds-space-150);
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+  letter-spacing: var(--ds-text-body-sm-tracking);
+}
+
+.dv-fade {
+  display: grid;
+  width: 100%;
+  padding-block: var(--ds-space-300);
+}

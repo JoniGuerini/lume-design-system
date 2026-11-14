@@ -10,9 +10,9 @@ En números: dependencias: 0 · archivo de CSS: 1 · tokens: 383 · temas: 2.
 
 Tres pasos, sin terminal. ¿Prefieres tener los archivos en el proyecto? Descarga el zip de la versión y lleva la carpeta a tu proyecto.
 
-- Paso 1: — Carga el CSS — Pega esta línea en el `<head>`: un solo archivo trae las fuentes, los tokens, la base y todos los componentes. El `0.33` en la dirección es la versión; tu proyecto solo cambia cuando cambies ese número. Licencia MIT. — `<link rel="stylesheet" href="https://lumeui.dev/v/0.33/lume.css">`
+- Paso 1: — Carga el CSS — Pega esta línea en el `<head>`: un solo archivo trae las fuentes, los tokens, la base y todos los componentes. El `0.34` en la dirección es la versión; tu proyecto solo cambia cuando cambies ese número. Licencia MIT. — `<link rel="stylesheet" href="https://lumeui.dev/v/0.34/lume.css">`
 - Paso 2: — Elige el tema — `light` es el claro y `dark`, el oscuro. Para seguir el sistema (lo predeterminado del sitio), `initTheme()` elige uno de los dos. — `<html lang="es" data-theme="light">`
-- Paso 3: — Activa solo el JavaScript que uses — Los componentes visuales funcionan solo con CSS. Para los interactivos, importa de `lume.js` lo que use la pantalla. — `<script type="module"> import { initTooltips, mountSelects } from 'https://lumeui.dev/v/0.33/lume.js'; initTooltips(); mountSelects(document); </script>`
+- Paso 3: — Activa solo el JavaScript que uses — Los componentes visuales funcionan solo con CSS. Para los interactivos, importa de `lume.js` lo que use la pantalla. — `<script type="module"> import { initTooltips, mountSelects } from 'https://lumeui.dev/v/0.34/lume.js'; initTooltips(); mountSelects(document); </script>`
 
 ## Tu primera pantalla
 

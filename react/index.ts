@@ -11,12 +11,13 @@ export { Icon, type IconName, type IconProps } from './Icon';
 export { Button, ButtonLink, type ButtonProps, type ButtonLinkProps, type ButtonVariant, type ButtonSize } from './Button';
 export { IconButton, type IconButtonProps } from './IconButton';
 export { InlineAction, type InlineActionProps } from './InlineAction';
+export { Link, Divider, type LinkProps, type DividerProps } from './Link';
 export { Chip, RemovableChip, ChipGroup, type ChipProps, type RemovableChipProps, type ChipGroupProps } from './Chip';
 
 // Feedback e carregamento
 export { Badge, type BadgeProps, type Tone } from './Badge';
 export { Alert, type AlertProps, type AlertTone } from './Alert';
-export { Progress, Spinner, Skeleton, type ProgressProps, type SpinnerProps, type SkeletonProps } from './Loading';
+export { Progress, ProgressRing, Spinner, Skeleton, type ProgressProps, type ProgressRingProps, type SpinnerProps, type SkeletonProps } from './Loading';
 
 // Conteúdo
 export { Card, CardLink, Panel, PanelSpacer, PanelMeta, Section, type CardProps, type CardLinkProps, type PanelProps, type SectionProps } from './Panel';

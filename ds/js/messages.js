@@ -189,6 +189,8 @@ export const MESSAGES = {
     'carousel.play': 'Retomar',
 
     'resizable.handle': 'Redimensionar painéis',
+    'progress.label': 'Progresso',
+    'link.external': '(abre em nova aba)',
     'rating.star': (n) => `${BR(n)} ${n === 1 ? 'estrela' : 'estrelas'}`,
     'rating.value': (v, max) => `Nota ${v} de ${BR(max)}`,
 
@@ -440,6 +442,8 @@ export const MESSAGES = {
     'carousel.play': 'Resume',
 
     'resizable.handle': 'Resize panels',
+    'progress.label': 'Progress',
+    'link.external': '(opens in a new tab)',
     'rating.star': (n) => `${EN(n)} ${n === 1 ? 'star' : 'stars'}`,
     'rating.value': (v, max) => `Rated ${v} out of ${EN(max)}`,
 
@@ -691,6 +695,8 @@ export const MESSAGES = {
     'carousel.play': 'Reanudar',
 
     'resizable.handle': 'Redimensionar paneles',
+    'progress.label': 'Progreso',
+    'link.external': '(se abre en una pestaña nueva)',
     'rating.star': (n) => `${ES(n)} ${n === 1 ? 'estrella' : 'estrellas'}`,
     'rating.value': (v, max) => `Calificación ${v} de ${ES(max)}`,
 

@@ -1,0 +1,80 @@
+/*
+ * Barra de ferramentas — botões de ícone agrupados, com setas para andar entre eles.
+ *
+ *   <div class="ds-toolbar" aria-label="Formatação">
+ *     <div class="ds-toolbar__group">
+ *       <button class="ds-icon-btn" aria-label="Negrito" aria-pressed="false">…</button> …
+ *     </div>
+ *     <div class="ds-toolbar__separator"></div>
+ *     <div class="ds-toolbar__group" data-exclusive> (só um apertado por vez, como o alinhamento) … </div>
+ *   </div>
+ *
+ * createToolbar (ds/js/toolbar.js) põe role="toolbar", um Tab só para a barra toda e as setas entre os botões.
+ *   .ds-toolbar--plain: sem contorno nem fundo, para quando a barra já está dentro de uma superfície
+ *   aria-orientation="vertical": um embaixo do outro
+ */
+.ds-toolbar {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--ds-space-025);
+  padding: var(--ds-space-050);
+  border: 1px solid var(--ds-color-border-control);
+  border-radius: var(--ds-radius-md);
+  background: var(--ds-color-bg-surface);
+}
+
+.ds-toolbar--plain {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.ds-toolbar[aria-orientation="vertical"] {
+  flex-direction: column;
+}
+
+.ds-toolbar__group {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-025);
+}
+
+.ds-toolbar[aria-orientation="vertical"] .ds-toolbar__group {
+  flex-direction: column;
+}
+
+.ds-toolbar__separator {
+  flex: none;
+  align-self: center;
+  width: 1px;
+  height: var(--ds-size-icon-md);
+  margin-inline: var(--ds-space-050);
+  background: var(--ds-color-border-default);
+}
+
+.ds-toolbar[aria-orientation="vertical"] .ds-toolbar__separator {
+  width: var(--ds-size-icon-md);
+  height: 1px;
+  margin: var(--ds-space-050) 0;
+}
+
+/* botão que fica apertado (negrito ligado, alinhamento escolhido) */
+.ds-toolbar .ds-icon-btn[aria-pressed="true"] {
+  background-color: var(--ds-color-bg-selected);
+  color: var(--ds-color-fg-default);
+}
+
+.ds-toolbar .ds-icon-btn[aria-pressed="true"]:hover,
+.ds-toolbar .ds-icon-btn[aria-pressed="true"][data-state="hover"] {
+  background-color: var(--ds-color-bg-selected);
+}
+
+/* botão com texto (“Inserir”), mesma altura dos de ícone */
+.ds-toolbar .ds-btn {
+  height: var(--ds-size-control-compact);
+}
+
+.ds-toolbar__spacer {
+  flex: 1;
+}

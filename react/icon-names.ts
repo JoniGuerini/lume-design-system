@@ -101,6 +101,8 @@ export type IconName =
   | 'list-ordered'
   | 'undo'
   | 'redo'
+  | 'divider'
+  | 'progress-ring'
   | 'toolbar'
   | 'message-square'
   | 'stack'

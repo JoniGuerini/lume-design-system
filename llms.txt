@@ -1,6 +1,6 @@
 # Lume Design System
 
-> Design system em HTML, CSS e JavaScript nativos, sem dependências: tokens, tipografia, 130 ícones próprios, componentes, gráficos e padrões de tela, nos temas claro e escuro. Versão 0.33.0.
+> Design system em HTML, CSS e JavaScript nativos, sem dependências: tokens, tipografia, 130 ícones próprios, componentes, gráficos e padrões de tela, nos temas claro e escuro. Versão 0.34.0.
 
 Comece por [LEIA-ME](https://lumeui.dev/ia/LEIA-ME.md): instalação, regras gerais e o que nunca inventar. Cada página do site tem um arquivo Markdown abaixo, gerado a partir dela.
 
@@ -49,6 +49,7 @@ Comece por [LEIA-ME](https://lumeui.dev/ia/LEIA-ME.md): instalação, regras ger
 - [Abas](https://lumeui.dev/ia/componentes/abas.md): Alternam vistas do mesmo assunto. Sublinhada ou segmentada.
 - [Controle segmentado](https://lumeui.dev/ia/componentes/controle-segmentado.md): Poucas opções lado a lado, uma escolhida.
 - [Breadcrumb](https://lumeui.dev/ia/componentes/breadcrumb.md): O caminho até a página atual.
+- [Link](https://lumeui.dev/ia/componentes/link.md): Link no texto e solto, com aviso de link externo.
 - [Paginação](https://lumeui.dev/ia/componentes/paginacao.md): Páginas de uma lista ou tabela, com total e itens por página.
 - [Stepper](https://lumeui.dev/ia/componentes/stepper.md): As etapas de um fluxo e onde a pessoa está.
 - [Acordeão](https://lumeui.dev/ia/componentes/acordeao.md): Seções que abrem e fecham no lugar.
@@ -64,12 +65,14 @@ Comece por [LEIA-ME](https://lumeui.dev/ia/LEIA-ME.md): instalação, regras ger
 - [Toast](https://lumeui.dev/ia/componentes/toast.md): Confirma o que aconteceu sem interromper; tons, desfazer e seis posições.
 - [Badge](https://lumeui.dev/ia/componentes/badge.md): Rótulo curto de status ou contagem — nunca enfeite.
 - [Barra de progresso](https://lumeui.dev/ia/componentes/barra-de-progresso.md): Quanto de uma tarefa já foi feito.
+- [Progresso circular](https://lumeui.dev/ia/componentes/progresso-circular.md): O progresso num anel, para quando a barra não cabe.
 - [Spinner](https://lumeui.dev/ia/componentes/spinner.md): Espera curta, também dentro de botões.
 - [Skeleton](https://lumeui.dev/ia/componentes/skeleton.md): A forma do conteúdo antes de ele chegar.
 - [Card](https://lumeui.dev/ia/componentes/card.md): A superfície básica para agrupar conteúdo.
 - [Carrossel](https://lumeui.dev/ia/componentes/carrossel.md): Destaques que passam um por vez, com setas, pontos e arrastar.
 - [Painel](https://lumeui.dev/ia/componentes/painel.md): A superfície de uma tarefa: rótulo, título, controles e seções.
 - [Painéis redimensionáveis](https://lumeui.dev/ia/componentes/paineis-redimensionaveis.md): Áreas que a pessoa ajusta arrastando a divisória, com teclado e tamanho salvo.
+- [Divisor](https://lumeui.dev/ia/componentes/divisor.md): Linha entre blocos, na horizontal e na vertical, com rótulo opcional.
 - [Avatar](https://lumeui.dev/ia/componentes/avatar.md): Pessoa ou conta: foto, iniciais num tom estável, status e grupo.
 - [Tabela](https://lumeui.dev/ia/componentes/tabela.md): Dados em linhas e colunas, com ordenação e seleção.
 - [Calendário](https://lumeui.dev/ia/componentes/calendario.md): Mês, semana e dia, com eventos e teclado.

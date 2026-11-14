@@ -101,6 +101,8 @@ export const ICON_KEYWORDS = {
   'list-ordered': ['ordered numbered list items', 'lista numerada ordenada'],
   undo: ['undo back', 'deshacer'],
   redo: ['redo forward', 'rehacer'],
+  divider: ['divider separator line between blocks rule', 'divisor separador línea entre bloques'],
+  'progress-ring': ['circular progress ring percentage', 'progreso circular anillo porcentaje'],
   toolbar: ['toolbar grouped actions', 'barra de herramientas acciones agrupadas'],
   resizable: ['resizable panels split divider drag resize', 'paneles redimensionables dividir arrastrar divisor'],
   tooltip: ['hint balloon help tooltip', 'pista globo ayuda'],

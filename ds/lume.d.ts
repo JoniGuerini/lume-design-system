@@ -9,6 +9,8 @@ export declare const createCarousel: any;
 export declare const createResizable: any;
 export declare const createRating: any;
 export declare const ratingHtml: any;
+export declare const progressRingHtml: any;
+export declare const setProgressRing: any;
 export declare const createToolbar: any;
 export declare const createBarChart: any;
 export declare const createLineChart: any;

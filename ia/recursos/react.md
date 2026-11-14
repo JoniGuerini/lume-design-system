@@ -4,11 +4,11 @@ Seção do Lume: Recursos. Página: https://lumeui.dev/#/recursos/react
 
 Componentes .tsx para copiar no projeto, por cima do mesmo CSS e JavaScript do Lume. Sem pacote para instalar: a pasta vem no zip de cada versão.
 
-Em números: dos 49 componentes: 49 · React: 18+ · dependências: 0.
+Em números: dos 52 componentes: 52 · React: 18+ · dependências: 0.
 
 ## Instalar
 
-Baixe o zip da versão 0.33, descompacte e leve a pasta para dentro de `src/` com o nome `lume`. Os componentes estão em `lume/react/` e importam o JavaScript e os ícones da própria pasta. Funciona com Vite, Next.js e qualquer projeto React 18 ou mais novo.
+Baixe o zip da versão 0.34, descompacte e leve a pasta para dentro de `src/` com o nome `lume`. Os componentes estão em `lume/react/` e importam o JavaScript e os ícones da própria pasta. Funciona com Vite, Next.js e qualquer projeto React 18 ou mais novo.
 
 ```html
 src/
@@ -84,6 +84,7 @@ O que já está em React. Cada nome leva à página do componente, onde estão o
 | `Button · ButtonLink` | Variante, tamanho, ícones e ocupado (busy). ButtonLink é o mesmo visual num link. | Button.tsx |
 | `IconButton` | Só o ícone; o rótulo para leitores de tela é obrigatório. | IconButton.tsx |
 | `InlineAction` | Ação mínima no meio do conteúdo ("Na cena +"). | InlineAction.tsx |
+| `Link` | No texto ou solto (variant), apagado (muted) e externo, com ícone e aviso de nova aba. | Link.tsx |
 | `Chip · RemovableChip · ChipGroup` | Filtro (pressed), seletor (chevron) e removível (onRemove). | Chip.tsx |
 
 ### Formulários
@@ -137,6 +138,7 @@ O que já está em React. Cada nome leva à página do componente, onde estão o
 | `Badge` | Seis tons, ponto e contador. | Badge.tsx |
 | `Alert` | Tom com o ícone certo, ações e o × (onClose). | Alert.tsx |
 | `Progress` | Barra com rótulo e porcentagem; sem valor, indeterminada. | Loading.tsx |
+| `ProgressRing` | Anel com a porcentagem; sem valor, indeterminado. Três tamanhos e os tons da barra. | Loading.tsx |
 | `Spinner` | Três tamanhos, já com o rótulo "Carregando". | Loading.tsx |
 | `Skeleton` | Bloco, linha de texto e círculo. | Loading.tsx |
 
@@ -158,6 +160,7 @@ O que já está em React. Cada nome leva à página do componente, onde estão o
 | `ResizablePanels` | Um ResizablePanel por parte, com size, min, max e collapsible; as divisórias entram sozinhas. storageKey guarda o tamanho. | Resizable.tsx |
 | `Rating` | Dar nota, com name, value e onChange; RatingDisplay só mostra, com meia estrela. | Rating.tsx |
 | `Toolbar` | ToolbarGroup, ToolbarSeparator e ToolbarButton; pressed no estado e onToggle na barra. | Toolbar.tsx |
+| `Divider` | Horizontal, vertical, esmaecido ou com rótulo no meio ou no começo. | Link.tsx |
 
 ### Gráficos
 
@@ -180,10 +183,10 @@ O que já está em React. Cada nome leva à página do componente, onde estão o
 | --- | --- |
 | Uma camada fina | Cada componente só monta a marcação do Lume, com as mesmas classes. O visual vem do `lume.css`; corrigiu lá, corrigiu no React. |
 | Seus arquivos | Os .tsx ficam no seu projeto, como no shadcn: dá para ler, mudar e apagar o que não usar. Nada de npm. |
-| TypeScript | Props tipadas e comentadas, com o link da página de cada componente. `IconName` lista os 144 ícones: nome errado não compila. |
+| TypeScript | Props tipadas e comentadas, com o link da página de cada componente. `IconName` lista os 146 ícones: nome errado não compila. |
 | Idioma | Os textos que o componente escreve sozinho ("Fechar", "Carregando") seguem o idioma do Lume e mudam com `setLocale`. `useLocale()` faz o mesmo nos seus. |
-| Versões | A pasta `react/` vai em cada linha: `/v/0.33/react/`. Atualizar é trocar a pasta do Lume pela da linha nova. |
+| Versões | A pasta `react/` vai em cada linha: `/v/0.34/react/`. Atualizar é trocar a pasta do Lume pela da linha nova. |
 
 ## O que vem
 
-Os 49 componentes já estão em React.
+Os 52 componentes já estão em React.

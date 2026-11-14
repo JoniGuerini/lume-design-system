@@ -1,0 +1,35 @@
+/* Página: Progresso circular (prefixo pr-) */
+
+.pr-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--ds-space-300);
+}
+
+.pr-list {
+  display: grid;
+  gap: var(--ds-space-150);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.pr-list__item {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-150);
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-body-sm);
+  letter-spacing: var(--ds-text-body-sm-tracking);
+}
+
+.pr-list__name {
+  flex: 1;
+  min-width: 0;
+}
+
+.pr-list__value {
+  color: var(--ds-color-fg-muted);
+  font-variant-numeric: tabular-nums;
+}

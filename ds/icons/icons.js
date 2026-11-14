@@ -141,6 +141,8 @@ const DEFINITIONS = [
   ['list-ordered', 'interface', 'lista numerada ordenada itens', path('M10 6h10M10 12h10M10 18h10M4 4.5l1.5-1V9M3.5 14c.2-.6.8-1 1.5-1 .8 0 1.5.6 1.5 1.4 0 1.4-3 2.1-3 3.6h3')],
   ['undo', 'acoes', 'desfazer voltar', path('M9 13.5 4.5 9 9 4.5M4.5 9h10a5 5 0 0 1 0 10H11')],
   ['redo', 'acoes', 'refazer avançar', path('M15 13.5 19.5 9 15 4.5M19.5 9h-10a5 5 0 0 0 0 10H13')],
+  ['divider', 'interface', 'divisor separador linha entre blocos', rect(4.5, 3.5, 15, 5, 1.5) + path('M3 12h18') + rect(4.5, 15.5, 15, 5, 1.5)],
+  ['progress-ring', 'status', 'progresso circular anel porcentagem', path('M12 3.5a8.5 8.5 0 1 1-8.5 8.5') + path('M9.5 14.5l5-5') + dot(9.5, 9.5) + dot(14.5, 14.5)],
   ['toolbar', 'interface', 'barra de ferramentas ações agrupadas', rect(3, 7, 18, 10, 3) + path('M12 9.5v5') + dot(7.5, 12) + dot(16.5, 12)],
   ['message-square', 'interface', 'mensagem toast chat comentário', path('M20.5 15a2 2 0 0 1-2 2H8l-4.5 3.5V5.5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z')],
   ['stack', 'interface', 'conteúdos coleção pilha', rect(3.5, 8.5, 17, 12, 2.5) + path('M5.5 5.5h13M7.5 3h9')],

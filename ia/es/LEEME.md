@@ -2,7 +2,7 @@
 
 Lee este archivo antes de crear cualquier pantalla con Lume. Explica cómo instalarlo, qué reglas valen para todas las pantallas y qué no debes inventar nunca. El índice completo de archivos está en https://lumeui.dev/ia/es/llms.txt.
 
-Lume es un design system en HTML, CSS y JavaScript nativos, sin dependencias. Reúne tokens, tipografía, 144 íconos propios, 49 componentes, gráficos y patrones de pantalla, en los temas claro y oscuro.
+Lume es un design system en HTML, CSS y JavaScript nativos, sin dependencias. Reúne tokens, tipografía, 146 íconos propios, 52 componentes, gráficos y patrones de pantalla, en los temas claro y oscuro.
 
 ## Antes que nada
 
@@ -15,18 +15,18 @@ Lume es un design system en HTML, CSS y JavaScript nativos, sin dependencias. Re
 
 ## Instalación
 
-Lume está publicado con versión fija en `https://lumeui.dev/v/0.33/` y se puede cargar directamente desde otro sitio. Licencia MIT.
+Lume está publicado con versión fija en `https://lumeui.dev/v/0.34/` y se puede cargar directamente desde otro sitio. Licencia MIT.
 
 ```html
 <html lang="es" data-theme="light">
   <head>
-    <link rel="stylesheet" href="https://lumeui.dev/v/0.33/lume.css">
+    <link rel="stylesheet" href="https://lumeui.dev/v/0.34/lume.css">
   </head>
   <body>
     <button type="button" class="ds-btn ds-btn--primary">Guardar</button>
 
     <script type="module">
-      import { initTooltips } from 'https://lumeui.dev/v/0.33/lume.js';
+      import { initTooltips } from 'https://lumeui.dev/v/0.34/lume.js';
       initTooltips();
     </script>
   </body>
@@ -34,16 +34,16 @@ Lume está publicado con versión fija en `https://lumeui.dev/v/0.33/` y se pued
 ```
 
 - **Un solo CSS:** `lume.css` trae las fuentes, los tokens, la base y todos los componentes.
-- **Un solo JavaScript, si prefieres:** `lume.js` reúne toda la API pública (`import { createModal, toast } from 'https://lumeui.dev/v/0.33/lume.js'`). La lista y la convención de nombres están en `https://lumeui.dev/ia/es/recursos/api.md`. Lo que no está en él es interno: no lo uses.
+- **Un solo JavaScript, si prefieres:** `lume.js` reúne toda la API pública (`import { createModal, toast } from 'https://lumeui.dev/v/0.34/lume.js'`). La lista y la convención de nombres están en `https://lumeui.dev/ia/es/recursos/api.md`. Lo que no está en él es interno: no lo uses.
 - **Tema:** `data-theme="light"` (claro) o `data-theme="dark"` (oscuro) en `<html>`. Para seguir el sistema, llama a `initTheme()` de `https://lumeui.dev/ds/js/theme.js`.
 - **JavaScript solo donde hace falta:** los componentes visuales funcionan solo con CSS. Los interactivos tienen un módulo en `https://lumeui.dev/ds/js/`. Importa solo los que usa la pantalla; el archivo de cada componente indica cuál.
 - **Íconos:** importa `https://lumeui.dev/ds/icons/icons.js` una vez para que `<ds-icon>` funcione.
 - **Idioma:** los textos de sistema de los componentes siguen el idioma del navegador (portugués, inglés o español; cualquier otro pasa a inglés). Para fijar uno, llama a `setLocale('es')` de `https://lumeui.dev/ds/js/i18n.js`.
-- **Versión:** usa la dirección con versión (`/v/0.33/`). La versión actual y la lista están en `https://lumeui.dev/v/index.json`. `https://lumeui.dev/ds/` siempre trae la más nueva, y cada versión tiene un zip para quien prefiere los archivos en el proyecto (`https://lumeui.dev/v/0.33/lume-0.33.zip`).
+- **Versión:** usa la dirección con versión (`/v/0.34/`). La versión actual y la lista están en `https://lumeui.dev/v/index.json`. `https://lumeui.dev/ds/` siempre trae la más nueva, y cada versión tiene un zip para quien prefiere los archivos en el proyecto (`https://lumeui.dev/v/0.34/lume-0.34.zip`).
 
 ## React
 
-En proyectos React, usa los componentes de `lume/react/`, que vienen en el zip de cada versión (`https://lumeui.dev/v/0.33/lume-0.33.zip`). La carpeta del zip va entera a `src/lume/`; la app importa `./lume/lume.css` una vez y los componentes de `./lume/react`.
+En proyectos React, usa los componentes de `lume/react/`, que vienen en el zip de cada versión (`https://lumeui.dev/v/0.34/lume-0.34.zip`). La carpeta del zip va entera a `src/lume/`; la app importa `./lume/lume.css` una vez y los componentes de `./lume/react`.
 
 ```tsx
 import './lume/lume.css';

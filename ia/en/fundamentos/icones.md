@@ -4,7 +4,7 @@ Lume section: Foundations. Page: https://lumeui.dev/#/fundamentos/icones
 
 A custom library, drawn on the same grid with the same stroke. Thin outlines, round caps, and color inherited from the text.
 
-In numbers: icons: 144 · categories: 8 · grid: 24 px · stroke: 1.5.
+In numbers: icons: 146 · categories: 8 · grid: 24 px · stroke: 1.5.
 
 ## Library
 
@@ -111,6 +111,8 @@ Search by name or by words in English, Portuguese, or Spanish. Click an icon to 
 - list-ordered
 - undo
 - redo
+- divider
+- progress-ring
 - toolbar
 - message-square
 - stack
@@ -166,15 +168,15 @@ Markup of the examples in this section:
 
 <button type="button" class="ds-chip" data-menu="size" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-10"><span class="ds-chip__icon"><ds-icon name="spacing"></ds-icon></span><span data-label="">24 px</span><span class="ds-chip__chevron"><ds-icon name="chevron-down"></ds-icon></span></button>
 
-<button type="button" class="ds-chip ds-chip--sm" data-category="all" aria-pressed="true">All<span>144</span></button>
+<button type="button" class="ds-chip ds-chip--sm" data-category="all" aria-pressed="true">All<span>146</span></button>
 
 <button type="button" class="ds-chip ds-chip--sm" data-category="navegacao" aria-pressed="false">Navigation<span>18</span></button>
 
 <button type="button" class="ds-chip ds-chip--sm" data-category="acoes" aria-pressed="false">Actions<span>31</span></button>
 
-<button type="button" class="ds-chip ds-chip--sm" data-category="status" aria-pressed="false">Status and feedback<span>16</span></button>
+<button type="button" class="ds-chip ds-chip--sm" data-category="status" aria-pressed="false">Status and feedback<span>17</span></button>
 
-<button type="button" class="ds-chip ds-chip--sm" data-category="interface" aria-pressed="false">Interface<span>39</span></button>
+<button type="button" class="ds-chip ds-chip--sm" data-category="interface" aria-pressed="false">Interface<span>40</span></button>
 
 <button type="button" class="ds-chip ds-chip--sm" data-category="objetos" aria-pressed="false">Objects<span>15</span></button>
 ```
@@ -239,7 +241,7 @@ Two ways to use them: the `icon()` function in JavaScript or the `<ds-icon>` ele
 JavaScript
 
 ```html
-import { icon } from 'https://lumeui.dev/v/0.33/lume.js';
+import { icon } from 'https://lumeui.dev/v/0.34/lume.js';
 
 button.innerHTML = icon('home', { size: 20 });
 // with a label for screen readers

@@ -1,6 +1,6 @@
 {
   "name": "lume-design-system",
-  "version": "0.33.0",
+  "version": "0.34.0",
   "private": true,
   "description": "Lume Design System — tokens, ícones, componentes e documentação.",
   "type": "module",

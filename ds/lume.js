@@ -22,6 +22,7 @@ export { createCalendar } from './js/calendar.js';
 export { createCarousel } from './js/carousel.js';
 export { createResizable } from './js/resizable.js';
 export { createRating, ratingHtml } from './js/rating.js';
+export { progressRingHtml, setProgressRing } from './js/progress-ring.js';
 export { createToolbar } from './js/toolbar.js';
 export {
   createBarChart, createLineChart, createDonutChart, createHeatmap, createCalendarHeatmap, createScatterChart,

@@ -4,17 +4,17 @@ Sección de Lume: Recursos. Página: https://lumeui.dev/#/recursos/api
 
 Todo lo que puedes llamar desde JavaScript, en un solo archivo. Lo que está aquí es público y estable; el resto es interno y puede cambiar.
 
-En números: ítems públicos: 91 · verbos: 5 · dependencias: 0.
+En números: ítems públicos: 93 · verbos: 5 · dependencias: 0.
 
 ## Importar
 
 Un archivo, `ds/lume.js`, reúne toda la API. Los módulos de `ds/js/` siguen pudiéndose importar uno a uno, para cargar solo lo necesario.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/0.33/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/0.34/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.33/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.34/lume.js';
 
   initTheme();
   const modal = createModal({ title: '¿Publicar cambios?' });
@@ -43,7 +43,7 @@ El estado sigue `get…` y `set…`; las constantes van en mayúsculas, como `TH
 
 ## Todo lo público
 
-Los 91 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
+Los 93 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 
 ### Componentes
 
@@ -69,6 +69,8 @@ Los 91 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 | `createOtpField` | Campo de código de verificación. | otp-field.js |
 | `createPagination` | Paginación de una lista o tabla. | pagination.js |
 | `createPopover` | Panel que se abre sujeto a un botón. | popover.js |
+| `progressRingHtml` | Marcado del progreso circular, con el porcentaje en el centro; sin valor, indeterminado. | progress-ring.js |
+| `setProgressRing` | Cambia el valor de un progreso circular ya dibujado. | progress-ring.js |
 | `createRating` | Valoración con estrellas para calificar; cada estrella es un radio nativo. | rating.js |
 | `ratingHtml` | Marcado de una nota solo para mostrar, con media estrella. | rating.js |
 | `createResizable` | Paneles redimensionables: divisor que se arrastra, con teclado, límites y tamaño guardado. | resizable.js |

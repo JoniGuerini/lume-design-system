@@ -48,6 +48,49 @@ export function Progress({ value, max = 100, tone = 'brand', large, label, showV
   );
 }
 
+export interface ProgressRingProps extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
+  /** De 0 a max. Sem valor, o arco gira: indeterminado. */
+  value?: number;
+  /** Padrão: 100. */
+  max?: number;
+  /** sm (20 px, sem número) · md (56, padrão) · lg (80). */
+  size?: 'sm' | 'md' | 'lg';
+  /** Tom do resultado, como na barra. */
+  tone?: 'brand' | 'success' | 'warning' | 'danger';
+  /** O que está progredindo, para o leitor de tela. Padrão: "Progresso", no idioma do Lume. */
+  label?: string;
+  /** Mostra a porcentagem no meio (md e lg). Padrão: sim. */
+  showValue?: boolean;
+}
+
+/**
+ * Progresso circular: o anel da barra, para quando a barra não cabe.
+ * https://lumeui.dev/#/componentes/progresso-circular
+ */
+export function ProgressRing({ value, max = 100, size = 'md', tone = 'brand', label, showValue = true, className, style, ...rest }: ProgressRingProps) {
+  useLocale();
+  const on = value !== undefined && value !== null;
+  const v = on ? Math.max(0, Math.min(max, value)) : 0;
+  return (
+    <div
+      className={cx('ds-progress-ring', size !== 'md' && `ds-progress-ring--${size}`, tone !== 'brand' && `ds-progress-ring--${tone}`, className)}
+      role="progressbar"
+      aria-label={label ?? msg('progress.label')}
+      {...(on ? { 'aria-valuemin': 0, 'aria-valuemax': max, 'aria-valuenow': v } : {})}
+      style={{ ...(on ? { '--ds-progress-value': (v / max) * 100 } : {}), ...style } as CSSProperties}
+      {...rest}
+    >
+      <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+        <circle className="ds-progress-ring__track" cx="20" cy="20" r="18" />
+        <circle className="ds-progress-ring__bar" cx="20" cy="20" r="18" pathLength={100} />
+      </svg>
+      {on && showValue && size !== 'sm' && (
+        <span className="ds-progress-ring__value" aria-hidden="true">{formatNumber(v / max, { style: 'percent', maximumFractionDigits: 0 })}</span>
+      )}
+    </div>
+  );
+}
+
 export interface SpinnerProps extends HTMLAttributes<HTMLSpanElement> {
   /** Padrão: md (24 px). sm (16) dentro de botões. */
   size?: 'sm' | 'md' | 'lg';

@@ -11,12 +11,51 @@
 /* Divisor */
 .ds-divider {
   height: 1px;
+  margin: 0;
   border: 0;
   background: var(--ds-color-border-subtle);
 }
 
 .ds-divider--fade {
   background: var(--ds-gradient-divider);
+}
+
+/*
+ * Divisor — <hr class="ds-divider"> entre blocos.
+ *   na vertical, dentro de um flex: <span class="ds-divider ds-divider--vertical" role="separator" aria-orientation="vertical"></span>
+ *   com rótulo: <div class="ds-divider ds-divider--label"><span>ou</span></div> (--start: rótulo no começo)
+ *   sem margem: o espaço vem do gap de quem o contém.
+ */
+.ds-divider--vertical {
+  flex: none;
+  align-self: stretch;
+  width: 1px;
+  height: auto;
+  min-height: 1em;
+}
+
+.ds-divider--label {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-150);
+  height: auto;
+  background: none;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-label-sm);
+  letter-spacing: var(--ds-text-label-sm-tracking);
+  white-space: nowrap;
+}
+
+.ds-divider--label::before,
+.ds-divider--label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--ds-color-border-subtle);
+}
+
+.ds-divider--start::before {
+  display: none;
 }
 
 /* Indicador (pontinho de novidade) */

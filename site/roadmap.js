@@ -15,12 +15,7 @@ const C = (version, status, tone, title, text, items) => ({ version, group: 'com
 const I = (name, text, doc) => ({ name, text, doc });
 
 const STAGES = [
-  C('0.34', NEXT, 'brand', T('Peças pequenas', 'Small pieces', 'Piezas pequeñas'), T('Três peças simples que fazem falta.', 'Three simple pieces that are missing.', 'Tres piezas simples que hacen falta.'), [
-    I(T('Divisor', 'Divider', 'Divisor'), T('Linha entre blocos, na horizontal e na vertical, com rótulo opcional.', 'A line between blocks, horizontal and vertical, with an optional label.', 'Línea entre bloques, horizontal y vertical, con etiqueta opcional.'), true),
-    I(T('Link', 'Link', 'Enlace'), T('Link no texto e solto, com ícone de link externo.', 'Inline and standalone links, with an external-link icon.', 'Enlace en el texto y suelto, con ícono de enlace externo.'), true),
-    I(T('Progresso circular', 'Circular progress', 'Progreso circular'), T('Anel com a porcentagem, para quando a barra não cabe.', 'A ring with the percentage, for when the bar doesn’t fit.', 'Anillo con el porcentaje, para cuando la barra no cabe.')),
-  ]),
-  C('0.35', PLANNED, 'neutral', T('Avisos', 'Notices', 'Avisos'), T('Recados para todo mundo e para cada pessoa.', 'Messages for everyone and for each person.', 'Mensajes para todos y para cada persona.'), [
+  C('0.35', NEXT, 'brand', T('Avisos', 'Notices', 'Avisos'), T('Recados para todo mundo e para cada pessoa.', 'Messages for everyone and for each person.', 'Mensajes para todos y para cada persona.'), [
     I(T('Banner de anúncio', 'Announcement banner', 'Banner de anuncio'), T('Faixa fixa no topo do app, que a pessoa pode fechar.', 'A strip fixed at the top of the app that people can close.', 'Franja fija arriba de la app, que la persona puede cerrar.')),
     I(T('Central de notificações', 'Notification center', 'Centro de notificaciones'), T('Lista de notificações com lidas e não lidas, aberta pelo sino.', 'A list of notifications, read and unread, opened from the bell.', 'Lista de notificaciones leídas y no leídas, abierta desde la campana.')),
   ]),

@@ -4,17 +4,17 @@ Lume section: Resources. Page: https://lumeui.dev/#/recursos/api
 
 Everything you can call from JavaScript, in a single file. What’s here is public and stable; the rest is internal and may change.
 
-In numbers: public items: 91 · verbs: 5 · dependencies: 0.
+In numbers: public items: 93 · verbs: 5 · dependencies: 0.
 
 ## Import
 
 One file, `ds/lume.js`, gathers the whole API. The `ds/js/` modules can still be imported one by one, to load only what you need.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/0.33/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/0.34/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.33/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.34/lume.js';
 
   initTheme();
   const modal = createModal({ title: 'Publish changes?' });
@@ -43,7 +43,7 @@ State follows `get…` and `set…`; constants are uppercase, like `THEMES`.
 
 ## Everything public
 
-The 91 items in `ds/lume.js`, with the module each one comes from.
+The 93 items in `ds/lume.js`, with the module each one comes from.
 
 ### Components
 
@@ -69,6 +69,8 @@ The 91 items in `ds/lume.js`, with the module each one comes from.
 | `createOtpField` | Verification code field. | otp-field.js |
 | `createPagination` | Pagination for a list or table. | pagination.js |
 | `createPopover` | Panel that opens attached to a button. | popover.js |
+| `progressRingHtml` | Circular progress markup, with the percentage in the middle; with no value, indeterminate. | progress-ring.js |
+| `setProgressRing` | Changes the value of a circular progress already on the page. | progress-ring.js |
 | `createRating` | Star rating for giving a score; each star is a native radio. | rating.js |
 | `ratingHtml` | Markup for a display-only score, with half stars. | rating.js |
 | `createResizable` | Resizable panels: a draggable divider, with keyboard, limits, and saved size. | resizable.js |
