@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { ColorField, ColorPicker, Rating, RatingDisplay } from '../../../react';
+import { StrictMode, useState } from 'react';
+import { ColorField, ColorPicker, Rating, RatingDisplay, RichTextEditor } from '../../../react';
 import {
   Button, Form, Field, TextField, Select, DatePicker, TimePicker, NumberField, TagField, Slider, Switch, Checkbox, RadioGroup,
 } from '../../../react';
@@ -81,3 +81,23 @@ function Avaliacao() {
 }
 
 export const Avaliacao_ = { name: 'Rating', render: () => mount(<Avaliacao />) };
+
+function Editor() {
+  const [html, setHtml] = useState('<h2>Lume 0.38</h2><p>Escrever com <strong>formatação</strong>, sem dependências.</p>');
+  return (
+    <div style={{ width: 'min(640px, 100%)', display: 'grid', gap: 12 }}>
+      <RichTextEditor label="Nota da versão" value={html} onChange={setHtml} placeholder="Escreva a nota da versão…" name="nota" />
+      <pre data-html style={{ margin: 0, whiteSpace: 'pre-wrap', color: 'var(--ds-color-fg-muted)', font: 'var(--ds-text-code-sm)' }}>{html}</pre>
+    </div>
+  );
+}
+
+export const EditorDeTextoRico = {
+  name: 'RichTextEditor',
+  render: () =>
+    mount(
+      <StrictMode>
+        <Editor />
+      </StrictMode>,
+    ),
+};

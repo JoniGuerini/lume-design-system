@@ -83,7 +83,7 @@ export default function renderNotifications(page) {
         html: codeBlock(`<button type="button" class="ds-icon-btn"><ds-icon name="bell"></ds-icon></button>
 
 <script type="module">
-  import { createNotificationCenter } from 'https://lumeui.dev/v/0.37/lume.js';
+  import { createNotificationCenter } from 'https://lumeui.dev/v/0.38/lume.js';
 
   const center = createNotificationCenter(document.querySelector('.ds-icon-btn'), {
     items: [
@@ -171,7 +171,7 @@ export function mount(root) {
     code: (s) => `<button type="button" class="ds-icon-btn"><ds-icon name="bell"></ds-icon></button>
 
 <script type="module">
-  import { createNotificationCenter } from 'https://lumeui.dev/v/0.37/lume.js';
+  import { createNotificationCenter } from 'https://lumeui.dev/v/0.38/lume.js';
 
   createNotificationCenter(document.querySelector('.ds-icon-btn'), {
     items: ${s.start === 'empty' ? '[]' : `[

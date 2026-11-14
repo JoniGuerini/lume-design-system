@@ -8,10 +8,36 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.37.0';
+export const CURRENT_VERSION = '0.38.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.38.0',
+    date: '2026-11-14',
+    title: T('Editor de texto rico', 'Rich text editor', 'Editor de texto enriquecido'),
+    summary: T(
+      'Escrever com formatação, sem dependências: negrito, itálico, títulos, listas, citação, alinhamento e links, com a barra de ferramentas do Lume e atalhos de Markdown. O que é colado sai limpo, e o HTML guardado só tem as tags que o editor conhece.',
+      'Write with formatting, with no dependencies: bold, italic, headings, lists, quotes, alignment, and links, with Lume’s toolbar and Markdown shortcuts. Pasted content comes out clean, and the saved HTML only has the tags the editor knows.',
+      'Escribir con formato, sin dependencias: negrita, cursiva, títulos, listas, cita, alineación y enlaces, con la barra de herramientas de Lume y atajos de Markdown. Lo que se pega sale limpio, y el HTML guardado solo tiene las etiquetas que el editor conoce.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['novo', T('Editor de texto rico: barra completa ou mínima, sem contorno, desativado, link com ⌘K e envio no formulário', 'Rich text editor: full or minimal toolbar, borderless, disabled, links with ⌘K, and form submission', 'Editor de texto enriquecido: barra completa o mínima, sin contorno, desactivado, enlace con ⌘K y envío en el formulario'), '/componentes/editor-de-texto-rico'],
+          ['novo', T('createEditor e sanitizeHtml na API; RichTextEditor no React', 'createEditor and sanitizeHtml in the API; RichTextEditor in React', 'createEditor y sanitizeHtml en la API; RichTextEditor en React'), '/recursos/api'],
+          ['melhoria', T('A busca ⌘K não abre quando um componente já usa o atalho', 'The ⌘K search doesn’t open when a component already uses the shortcut', 'La búsqueda ⌘K no se abre cuando un componente ya usa el atajo'), '/padroes/busca'],
+        ],
+      },
+      {
+        name: T('Ícones', 'Icons', 'Íconos'),
+        items: [
+          ['novo', T('2 ícones novos: heading e quote', '2 new icons: heading and quote', '2 íconos nuevos: heading y quote'), '/fundamentos/icones'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.37.0',
     date: '2026-11-14',

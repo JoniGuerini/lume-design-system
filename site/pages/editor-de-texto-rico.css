@@ -1,0 +1,50 @@
+/* Página: Editor de texto rico (prefixo ed-) */
+
+.fc-preview:has(.ds-editor) {
+  width: 100%;
+}
+
+.ed-play {
+  display: grid;
+  gap: var(--ds-space-200);
+  width: min(680px, 100%);
+  margin-inline: auto;
+}
+
+.ed-out summary {
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-code-sm);
+  cursor: pointer;
+}
+
+.ed-out pre {
+  margin: var(--ds-space-100) 0 0;
+  padding: var(--ds-space-150);
+  overflow-x: auto;
+  border-radius: var(--ds-radius-md);
+  background: var(--ds-color-bg-muted);
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-code-sm);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.ed-paper {
+  width: 100%;
+  padding: var(--ds-space-100);
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-lg);
+  background: var(--ds-color-bg-surface);
+}
+
+.ed-paper .ds-editor__content {
+  min-height: 120px;
+}
+
+.ds-editor.ed-state {
+  width: 260px;
+}
+
+.ed-state .ds-editor__content {
+  min-height: 0;
+}

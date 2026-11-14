@@ -4,11 +4,11 @@ Seção do Lume: Recursos. Página: https://lumeui.dev/#/recursos/react
 
 Componentes .tsx para copiar no projeto, por cima do mesmo CSS e JavaScript do Lume. Sem pacote para instalar: a pasta vem no zip de cada versão.
 
-Em números: dos 57 componentes: 57 · React: 18+ · dependências: 0.
+Em números: dos 58 componentes: 58 · React: 18+ · dependências: 0.
 
 ## Instalar
 
-Baixe o zip da versão 0.37, descompacte e leve a pasta para dentro de `src/` com o nome `lume`. Os componentes estão em `lume/react/` e importam o JavaScript e os ícones da própria pasta. Funciona com Vite, Next.js e qualquer projeto React 18 ou mais novo.
+Baixe o zip da versão 0.38, descompacte e leve a pasta para dentro de `src/` com o nome `lume`. Os componentes estão em `lume/react/` e importam o JavaScript e os ícones da própria pasta. Funciona com Vite, Next.js e qualquer projeto React 18 ou mais novo.
 
 ```html
 src/
@@ -103,6 +103,7 @@ O que já está em React. Cada nome leva à página do componente, onde estão o
 | `TagField` | Lista de valores livres, com limite e validação. | Pickers.tsx |
 | `FileUpload` | Arrastar ou escolher, com envio, progresso e erro por arquivo. | Controls.tsx |
 | `OtpField` | Uma casa por dígito; onComplete na última. | Controls.tsx |
+| `RichTextEditor` | label, value e onChange com o HTML limpo; tools, placeholder, name e disabled. O editor é dono do próprio DOM. | Editor.tsx |
 | `Form` | A validação do Lume, com regras próprias e o resumo de erros. | Form.tsx |
 
 ### Navegação
@@ -188,10 +189,10 @@ O que já está em React. Cada nome leva à página do componente, onde estão o
 | --- | --- |
 | Uma camada fina | Cada componente só monta a marcação do Lume, com as mesmas classes. O visual vem do `lume.css`; corrigiu lá, corrigiu no React. |
 | Seus arquivos | Os .tsx ficam no seu projeto, como no shadcn: dá para ler, mudar e apagar o que não usar. Nada de npm. |
-| TypeScript | Props tipadas e comentadas, com o link da página de cada componente. `IconName` lista os 152 ícones: nome errado não compila. |
+| TypeScript | Props tipadas e comentadas, com o link da página de cada componente. `IconName` lista os 154 ícones: nome errado não compila. |
 | Idioma | Os textos que o componente escreve sozinho ("Fechar", "Carregando") seguem o idioma do Lume e mudam com `setLocale`. `useLocale()` faz o mesmo nos seus. |
-| Versões | A pasta `react/` vai em cada linha: `/v/0.37/react/`. Atualizar é trocar a pasta do Lume pela da linha nova. |
+| Versões | A pasta `react/` vai em cada linha: `/v/0.38/react/`. Atualizar é trocar a pasta do Lume pela da linha nova. |
 
 ## O que vem
 
-Os 57 componentes já estão em React.
+Os 58 componentes já estão em React.

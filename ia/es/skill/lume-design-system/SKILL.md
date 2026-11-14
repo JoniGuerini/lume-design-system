@@ -5,7 +5,7 @@ description: Crea y revisa interfaces con Lume Design System (lumeui.dev), un de
 
 # Lume Design System
 
-Lume es un design system sin dependencias: un CSS (`https://lumeui.dev/v/0.37/lume.css`), módulos de JavaScript opcionales y 152 íconos propios. La documentación para IAs está publicada en `https://lumeui.dev/ia/es/`.
+Lume es un design system sin dependencias: un CSS (`https://lumeui.dev/v/0.38/lume.css`), módulos de JavaScript opcionales y 154 íconos propios. La documentación para IAs está publicada en `https://lumeui.dev/ia/es/`.
 
 ## Cómo trabajar
 

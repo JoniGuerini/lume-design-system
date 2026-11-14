@@ -1,6 +1,6 @@
 # Lume Design System
 
-> Design system em HTML, CSS e JavaScript nativos, sem dependências: tokens, tipografia, 130 ícones próprios, componentes, gráficos e padrões de tela, nos temas claro e escuro. Versão 0.37.0.
+> Design system em HTML, CSS e JavaScript nativos, sem dependências: tokens, tipografia, 130 ícones próprios, componentes, gráficos e padrões de tela, nos temas claro e escuro. Versão 0.38.0.
 
 Comece por [LEIA-ME](https://lumeui.dev/ia/LEIA-ME.md): instalação, regras gerais e o que nunca inventar. Cada página do site tem um arquivo Markdown abaixo, gerado a partir dela.
 
@@ -46,6 +46,7 @@ Comece por [LEIA-ME](https://lumeui.dev/ia/LEIA-ME.md): instalação, regras ger
 - [Avaliação](https://lumeui.dev/ia/componentes/avaliacao.md): Estrelas para dar nota ou mostrar a média, com meia estrela.
 - [Upload de arquivo](https://lumeui.dev/ia/componentes/upload.md): Arrastar ou escolher, com progresso e erro por arquivo.
 - [Código de verificação](https://lumeui.dev/ia/componentes/codigo-de-verificacao.md): Um dígito por casa, para login em duas etapas.
+- [Editor de texto rico](https://lumeui.dev/ia/componentes/editor-de-texto-rico.md): Um campo que formata: títulos, listas, citações e links, com a barra do Lume.
 - [Abas](https://lumeui.dev/ia/componentes/abas.md): Alternam vistas do mesmo assunto. Sublinhada ou segmentada.
 - [Controle segmentado](https://lumeui.dev/ia/componentes/controle-segmentado.md): Poucas opções lado a lado, uma escolhida.
 - [Breadcrumb](https://lumeui.dev/ia/componentes/breadcrumb.md): O caminho até a página atual.

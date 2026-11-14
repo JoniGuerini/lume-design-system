@@ -4,17 +4,17 @@ Seção do Lume: Recursos. Página: https://lumeui.dev/#/recursos/api
 
 Tudo o que você pode chamar pelo JavaScript, num arquivo só. O que está aqui é público e estável; o resto é interno e pode mudar.
 
-Em números: itens públicos: 100 · verbos: 5 · dependências: 0.
+Em números: itens públicos: 102 · verbos: 5 · dependências: 0.
 
 ## Importar
 
 Um arquivo, `ds/lume.js`, reúne a API inteira. Os módulos de `ds/js/` continuam podendo ser importados um a um, para carregar só o necessário.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/0.37/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/0.38/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.37/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.38/lume.js';
 
   initTheme();
   const modal = createModal({ title: 'Publicar alterações?' });
@@ -43,7 +43,7 @@ Estado segue `get…` e `set…`; constantes ficam em maiúsculas, como `THEMES`
 
 ## Tudo o que é público
 
-Os 100 itens de `ds/lume.js`, com o módulo de onde cada um vem.
+Os 102 itens de `ds/lume.js`, com o módulo de onde cada um vem.
 
 ### Componentes
 
@@ -61,6 +61,8 @@ Os 100 itens de `ds/lume.js`, com o módulo de onde cada um vem.
 | `createContextMenu` | Menu do botão direito numa área. | context-menu.js |
 | `createDatePicker` | Seletor de data ligado a um campo. | date-picker.js |
 | `createDrawer` | Gaveta lateral que você abre e fecha quando quiser. | drawer.js |
+| `createEditor` | Editor de texto rico: barra do Lume, atalhos, Markdown no começo da linha, colar limpo e o HTML para o formulário. | editor.js |
+| `sanitizeHtml` | Limpa um HTML para o que o editor aceita: parágrafos, títulos, listas, citações, marcas e links seguros. | editor.js |
 | `createFileUpload` | Área de envio de arquivos, com lista e progresso. | file-upload.js |
 | `createFilters` | Barra de filtros que guarda o estado no endereço. | filters.js |
 | `createForm` | Validação, erros e resumo de erros de um formulário. | form.js |

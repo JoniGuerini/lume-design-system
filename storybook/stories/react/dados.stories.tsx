@@ -145,7 +145,7 @@ export const VisualizadorDeImagem = { name: 'ImageGallery', render: () => mount(
 const FUNDAMENTOS = [
   { id: 'cores', nome: 'Cores', meta: '15 paletas' },
   { id: 'tipografia', nome: 'Tipografia', meta: 'Geist' },
-  { id: 'icones', nome: 'Ícones', meta: '152 ícones' },
+  { id: 'icones', nome: 'Ícones', meta: '154 ícones' },
   { id: 'espacamento', nome: 'Espaçamento', meta: 'base 8' },
 ];
 

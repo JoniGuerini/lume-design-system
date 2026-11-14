@@ -16,7 +16,7 @@ En números: tonos: 5 · a la vez: 1 · recuerda: localStorage · rol ARIA: regi
 </div>
 
 <script type="module">
-  import { createBanner } from 'https://lumeui.dev/v/0.37/lume.js';
+  import { createBanner } from 'https://lumeui.dev/v/0.38/lume.js';
   createBanner(document.querySelector('.ds-banner'), { id: 'lume-0.35' });
 </script>
 ```
@@ -94,7 +94,7 @@ El marcado es el banner entero; el JavaScript solo lo cierra y lo recuerda.
 </div>
 
 <script type="module">
-  import { createBanner } from 'https://lumeui.dev/v/0.37/lume.js';
+  import { createBanner } from 'https://lumeui.dev/v/0.38/lume.js';
 
   // id nuevo en cada anuncio: quien cerró el anterior ve este
   createBanner(document.querySelector('.ds-banner'), { id: 'lume-0.35' });

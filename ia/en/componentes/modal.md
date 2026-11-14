@@ -9,7 +9,7 @@ In numbers: sizes: 3 · tones: 2 · closes with: Esc · built on: <dialog>.
 ## Example
 
 ```html
-import { openModal } from 'https://lumeui.dev/v/0.37/lume.js';
+import { openModal } from 'https://lumeui.dev/v/0.38/lume.js';
 
 const choice = await openModal({
   eyebrow: 'Project',

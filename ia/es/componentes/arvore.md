@@ -12,7 +12,7 @@ En números: niveles: sin límite · atajos: 8 · sangría: 20 px · rol ARIA: t
 <div class="ds-tree" aria-label="Archivos"></div>
 
 <script type="module">
-  import { createTree } from 'https://lumeui.dev/v/0.37/lume.js';
+  import { createTree } from 'https://lumeui.dev/v/0.38/lume.js';
   createTree(document.querySelector('.ds-tree'), {
     items: arquivos,
     expanded: ['docs', 'contratos'],
@@ -46,7 +46,7 @@ Marcado de los ejemplos de esta sección:
 El `aria-label` de `.ds-tree` da nombre al árbol para el lector de pantalla.
 
 ```html
-import { createTree } from 'https://lumeui.dev/v/0.37/lume.js';
+import { createTree } from 'https://lumeui.dev/v/0.38/lume.js';
 
 const tree = createTree(document.querySelector('.ds-tree'), {
   items: [

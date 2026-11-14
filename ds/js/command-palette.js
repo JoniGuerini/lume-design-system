@@ -203,7 +203,7 @@ export function createCommandPalette({ items, placeholder, label, hotkeys = true
   });
 
   const onKey = (event) => {
-    if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+    if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k' && !event.defaultPrevented) {
       event.preventDefault();
       dialog.open ? close() : open();
     } else if (event.key === '/' && !dialog.open && !isTyping(event.target)) {

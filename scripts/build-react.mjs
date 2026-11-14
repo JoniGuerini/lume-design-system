@@ -119,6 +119,11 @@ export interface SortableController { el: HTMLElement; readonly horizontal: bool
 export declare function createSortable(list: HTMLElement, options?: { group?: string | symbol; orientation?: 'vertical' | 'horizontal'; handle?: string; onChange?: (change: SortChange) => void }): SortableController;
 export declare function createKanban(board: HTMLElement, options?: { onChange?: (change: SortChange, columns: Record<string, string[]>) => void }): { el: HTMLElement; toObject(): Record<string, string[]>; refresh(): void; destroy(): void };
 `,
+  editor: `export type EditorTool = 'history' | 'marks' | 'blocks' | 'align' | 'link';
+export interface EditorController { el: HTMLElement; content: HTMLElement; getHTML(): string; setHTML(html: string): void; getText(): string; isEmpty(): boolean; focus(): void; setDisabled(disabled: boolean): void; destroy(): void }
+export declare function createEditor(root: HTMLElement, options?: { tools?: EditorTool[]; placeholder?: string; name?: string; value?: string; onChange?: (html: string) => void }): EditorController;
+export declare function sanitizeHtml(html: string): string;
+`,
   popover: `export declare function createPopover(trigger: HTMLElement, options?: Record<string, unknown>): { el: HTMLElement; readonly isOpen: boolean; open(): void; close(returnFocus?: boolean): void; toggle(): void; reposition(): void; destroy(): void };
 `,
   'context-menu': `export declare function createContextMenu(root: HTMLElement, config?: Record<string, unknown>): { open(...args: unknown[]): void; close(returnFocus?: boolean): void; readonly isOpen: boolean; destroy(): void };

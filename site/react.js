@@ -39,6 +39,7 @@ export const REACT_GROUPS = () => [
       ['TagField', 'Pickers.tsx', '/componentes/campo-de-tags', '0.27', L('Lista de valores livres, com limite e validação.', 'A list of free values, with a limit and validation.', 'Lista de valores libres, con límite y validación.')],
       ['FileUpload', 'Controls.tsx', '/componentes/upload', '0.27', L('Arrastar ou escolher, com envio, progresso e erro por arquivo.', 'Drag or pick, with upload, progress and per-file errors.', 'Arrastrar o elegir, con envío, progreso y error por archivo.')],
       ['OtpField', 'Controls.tsx', '/componentes/codigo-de-verificacao', '0.27', L('Uma casa por dígito; onComplete na última.', 'One box per digit; onComplete on the last one.', 'Una casilla por dígito; onComplete en la última.')],
+      ['RichTextEditor', 'Editor.tsx', '/componentes/editor-de-texto-rico', '0.38', L('label, value e onChange com o HTML limpo; tools, placeholder, name e disabled. O editor é dono do próprio DOM.', 'label, value, and onChange with clean HTML; tools, placeholder, name, and disabled. The editor owns its own DOM.', 'label, value y onChange con el HTML limpio; tools, placeholder, name y disabled. El editor es dueño de su propio DOM.')],
       ['Form', 'Form.tsx', '/padroes/formularios', '0.27', L('A validação do Lume, com regras próprias e o resumo de erros.', 'Lume’s validation, with custom rules and the error summary.', 'La validación de Lume, con reglas propias y el resumen de errores.')],
     ],
   },

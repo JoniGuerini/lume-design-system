@@ -144,6 +144,8 @@ const DEFINITIONS = [
   ['align-center', 'interface', 'centralizar alinhar centro texto parágrafo', path('M4 6h16M7 12h10M5.5 18h13')],
   ['align-right', 'interface', 'alinhar direita texto parágrafo', path('M4 6h16M10 12h10M7 18h13')],
   ['list-ordered', 'interface', 'lista numerada ordenada itens', path('M10 6h10M10 12h10M10 18h10M4 4.5l1.5-1V9M3.5 14c.2-.6.8-1 1.5-1 .8 0 1.5.6 1.5 1.4 0 1.4-3 2.1-3 3.6h3')],
+  ['heading', 'interface', 'título cabeçalho texto editor formatação', path('M6 5v14M18 5v14M6 12h12')],
+  ['quote', 'interface', 'citação aspas texto editor formatação', path('M5 18.5c2.5-1 4-3 4-6V7H5v5h4M15 18.5c2.5-1 4-3 4-6V7h-4v5h4')],
   ['undo', 'acoes', 'desfazer voltar', path('M9 13.5 4.5 9 9 4.5M4.5 9h10a5 5 0 0 1 0 10H11')],
   ['redo', 'acoes', 'refazer avançar', path('M15 13.5 19.5 9 15 4.5M19.5 9h-10a5 5 0 0 0 0 10H13')],
   ['divider', 'interface', 'divisor separador linha entre blocos', rect(4.5, 3.5, 15, 5, 1.5) + path('M3 12h18') + rect(4.5, 15.5, 15, 5, 1.5)],

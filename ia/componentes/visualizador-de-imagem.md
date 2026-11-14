@@ -23,7 +23,7 @@ Em números: zoom máximo: 4× · formas de abrir: 2 · atalhos: 8 · papel ARIA
 </a>
 
 <script type="module">
-  import { mountImageViewer } from 'https://lumeui.dev/v/0.37/lume.js';
+  import { mountImageViewer } from 'https://lumeui.dev/v/0.38/lume.js';
   mountImageViewer(document);
 </script>
 ```
@@ -81,7 +81,7 @@ A miniatura é um link para a imagem grande: sem JavaScript, ela ainda abre. `mo
 </a>
 
 <script type="module">
-  import { mountImageViewer, openImageViewer } from 'https://lumeui.dev/v/0.37/lume.js';
+  import { mountImageViewer, openImageViewer } from 'https://lumeui.dev/v/0.38/lume.js';
 
   // clicar numa miniatura abre a galeria do mesmo data-ds-viewer
   mountImageViewer(document);

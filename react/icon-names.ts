@@ -104,6 +104,8 @@ export type IconName =
   | 'align-center'
   | 'align-right'
   | 'list-ordered'
+  | 'heading'
+  | 'quote'
   | 'undo'
   | 'redo'
   | 'divider'

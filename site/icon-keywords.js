@@ -108,6 +108,8 @@ export const ICON_KEYWORDS = {
   'zoom-in': ['zoom in magnify enlarge plus', 'acercar zoom ampliar lupa más'],
   'zoom-out': ['zoom out reduce minus', 'alejar zoom reducir lupa menos'],
   maximize: ['maximize fullscreen expand fit', 'maximizar pantalla completa expandir ajustar'],
+  heading: ['heading title header text editor formatting', 'título encabezado texto editor formato'],
+  quote: ['quote blockquote citation text editor formatting', 'cita comillas texto editor formato'],
   toolbar: ['toolbar grouped actions', 'barra de herramientas acciones agrupadas'],
   resizable: ['resizable panels split divider drag resize', 'paneles redimensionables dividir arrastrar divisor'],
   kanban: ['kanban board columns cards tasks', 'kanban tablero columnas tarjetas tareas'],

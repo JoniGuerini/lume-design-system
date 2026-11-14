@@ -15,9 +15,6 @@ const C = (version, status, tone, title, text, items) => ({ version, group: 'com
 const I = (name, text, doc) => ({ name, text, doc });
 
 const STAGES = [
-  C('0.38', NEXT, 'brand', T('Editor de texto rico', 'Rich text editor', 'Editor de texto enriquecido'), T('Escrever com formatação, sem dependências.', 'Write with formatting, with no dependencies.', 'Escribir con formato, sin dependencias.'), [
-    I(T('Editor de texto rico', 'Rich text editor', 'Editor de texto enriquecido'), T('Negrito, itálico, listas, links e títulos, com a barra de ferramentas do Lume.', 'Bold, italic, lists, links, and headings, with Lume’s toolbar.', 'Negrita, cursiva, listas, enlaces y títulos, con la barra de herramientas de Lume.')),
-  ]),
   {
     version: '1.0',
     group: 'release',

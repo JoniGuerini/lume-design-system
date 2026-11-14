@@ -1,6 +1,6 @@
 # Lume icons
 
-There are 152 icons drawn for Lume: a 24 grid, a 1.5 stroke, round caps. Use only these names, in `<ds-icon name="…">` (with https://lumeui.dev/ds/icons/icons.js imported) or in the `icon(name)` function from the same module. No other name exists.
+There are 154 icons drawn for Lume: a 24 grid, a 1.5 stroke, round caps. Use only these names, in `<ds-icon name="…">` (with https://lumeui.dev/ds/icons/icons.js imported) or in the `icon(name)` function from the same module. No other name exists.
 
 ```html
 <ds-icon name="search" size="20"></ds-icon>
@@ -134,6 +134,8 @@ The default size is 20 px; the stroke becomes 1.75 below 16 px. The icon inherit
 | `align-center` | align, center, text, paragraph |
 | `align-right` | align, right, text, paragraph |
 | `list-ordered` | ordered, numbered, list, items |
+| `heading` | heading, title, header, text, editor, formatting |
+| `quote` | quote, blockquote, citation, text, editor, formatting |
 | `divider` | divider, separator, line, between, blocks, rule |
 | `banner` | banner, announcement, strip, top, notice |
 | `toolbar` | toolbar, grouped, actions |

@@ -12,7 +12,7 @@ export const styles = ['site/component-doc.css', 'site/pages/form-controls.css',
 const FOUNDATIONS = () => [
   ['cores', L('Cores', 'Colors', 'Colores'), L('15 paletas', '15 palettes', '15 paletas')],
   ['tipografia', L('Tipografia', 'Typography', 'Tipografía'), 'Geist'],
-  ['icones', L('Ícones', 'Icons', 'Íconos'), L('152 ícones', '152 icons', '152 íconos')],
+  ['icones', L('Ícones', 'Icons', 'Íconos'), L('154 ícones', '154 icons', '154 íconos')],
   ['espacamento', L('Espaçamento', 'Spacing', 'Espaciado'), L('base 8', 'base 8', 'base 8')],
   ['raios', L('Raios', 'Radii', 'Radios'), 'xs–full'],
 ];
@@ -97,7 +97,7 @@ export default function renderSortable(page) {
 </ul>
 
 <script type="module">
-  import { createSortable } from 'https://lumeui.dev/v/0.37/lume.js';
+  import { createSortable } from 'https://lumeui.dev/v/0.38/lume.js';
 
   const sortable = createSortable(document.querySelector('.ds-sortable'), {
     onChange: () => salvar(sortable.toArray()), // ['tipografia', 'cores']
@@ -172,7 +172,7 @@ ${rows.map(([id, label]) => `  <li class="ds-sortable__item" data-id="${id}">${s
 </ul>
 
 <script type="module">
-  import { createSortable } from 'https://lumeui.dev/v/0.37/lume.js';
+  import { createSortable } from 'https://lumeui.dev/v/0.38/lume.js';
   createSortable(document.querySelector('.ds-sortable'), { onChange: (e) => console.log(e.id, e.newIndex) });
 </script>`;
     },

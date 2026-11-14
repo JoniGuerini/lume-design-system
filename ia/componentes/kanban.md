@@ -10,7 +10,7 @@ Em números: colunas: 3–5 · largura mínima: 240 px · atalhos: 9 · dependê
 
 ```html
 <script type="module">
-  import { createKanban } from 'https://lumeui.dev/v/0.37/lume.js';
+  import { createKanban } from 'https://lumeui.dev/v/0.38/lume.js';
   createKanban(document.querySelector('.ds-kanban'), { onChange: (_, colunas) => console.log(colunas) });
 </script>
 ```
@@ -89,7 +89,7 @@ O `data-id` da coluna e o de cada cartão formam o que `toObject()` devolve.
 </div>
 
 <script type="module">
-  import { createKanban } from 'https://lumeui.dev/v/0.37/lume.js';
+  import { createKanban } from 'https://lumeui.dev/v/0.38/lume.js';
 
   createKanban(document.querySelector('.ds-kanban'), {
     // { andamento: [], feito: ['kanban', …] }

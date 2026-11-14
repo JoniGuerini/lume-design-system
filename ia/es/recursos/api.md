@@ -4,17 +4,17 @@ Sección de Lume: Recursos. Página: https://lumeui.dev/#/recursos/api
 
 Todo lo que puedes llamar desde JavaScript, en un solo archivo. Lo que está aquí es público y estable; el resto es interno y puede cambiar.
 
-En números: ítems públicos: 100 · verbos: 5 · dependencias: 0.
+En números: ítems públicos: 102 · verbos: 5 · dependencias: 0.
 
 ## Importar
 
 Un archivo, `ds/lume.js`, reúne toda la API. Los módulos de `ds/js/` siguen pudiéndose importar uno a uno, para cargar solo lo necesario.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/0.37/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/0.38/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.37/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.38/lume.js';
 
   initTheme();
   const modal = createModal({ title: '¿Publicar cambios?' });
@@ -43,7 +43,7 @@ El estado sigue `get…` y `set…`; las constantes van en mayúsculas, como `TH
 
 ## Todo lo público
 
-Los 100 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
+Los 102 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 
 ### Componentes
 
@@ -61,6 +61,8 @@ Los 100 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 | `createContextMenu` | Menú del botón derecho en un área. | context-menu.js |
 | `createDatePicker` | Selector de fecha ligado a un campo. | date-picker.js |
 | `createDrawer` | Panel lateral que abres y cierras cuando quieras. | drawer.js |
+| `createEditor` | Editor de texto enriquecido: barra de Lume, atajos, Markdown al comienzo de la línea, pegado limpio y el HTML para el formulario. | editor.js |
+| `sanitizeHtml` | Limpia un HTML a lo que acepta el editor: párrafos, títulos, listas, citas, marcas y enlaces seguros. | editor.js |
 | `createFileUpload` | Área de carga de archivos, con lista y progreso. | file-upload.js |
 | `createFilters` | Barra de filtros que guarda el estado en la dirección. | filters.js |
 | `createForm` | Validación, errores y resumen de errores de un formulario. | form.js |

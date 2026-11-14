@@ -18,6 +18,8 @@ export declare const openImageViewer: any;
 export declare const mountImageViewer: any;
 export declare const createSortable: any;
 export declare const createKanban: any;
+export declare const createEditor: any;
+export declare const sanitizeHtml: any;
 export declare const createToolbar: any;
 export declare const createBarChart: any;
 export declare const createLineChart: any;
