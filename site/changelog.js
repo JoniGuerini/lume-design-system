@@ -8,10 +8,29 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.31.0';
+export const CURRENT_VERSION = '0.31.1';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.31.1',
+    date: '2026-11-14',
+    title: T('Pontos do carrossel', 'Carousel dots', 'Puntos del carrusel'),
+    summary: T(
+      'Os pontos do carrossel piscavam ao trocar de slide: o atual voltava ao anterior por um instante. Agora a troca é uma animação só, e os vizinhos deslizam junto.',
+      'The carousel dots flickered when changing slides: the current one jumped back to the previous for a moment. Now the change is a single animation, and the neighbors slide along.',
+      'Los puntos del carrusel parpadeaban al cambiar de diapositiva: el actual volvía al anterior por un instante. Ahora el cambio es una sola animación, y los vecinos se deslizan juntos.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['correcao', T('Carrossel: os pontos não piscam mais durante a rolagem animada', 'Carousel: the dots no longer flicker during the animated scroll', 'Carrusel: los puntos ya no parpadean durante el desplazamiento animado'), '/componentes/carrossel'],
+          ['melhoria', T('Carrossel: o ponto atual cresce sem empurrar os vizinhos de uma vez', 'Carousel: the current dot grows without pushing its neighbors all at once', 'Carrusel: el punto actual crece sin empujar a los vecinos de golpe'), '/componentes/carrossel'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.31.0',
     date: '2026-11-14',

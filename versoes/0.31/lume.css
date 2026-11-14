@@ -1,4 +1,4 @@
-/* Lume Design System 0.31.0 · MIT · https://lumeui.dev */
+/* Lume Design System 0.31.1 · MIT · https://lumeui.dev */
 /* Lume Design System — ponto de entrada CSS */
 /*
  * Fontes do Lume, servidas daqui (sem Google Fonts nem CDN): a mesma letra em qualquer aparelho e rede.
@@ -7447,6 +7447,8 @@ button.ds-calendar__col-head[data-state="hover"] {
   border-radius: var(--ds-radius-full);
   background: none;
   cursor: pointer;
+  /* o botão cresce junto com o ponto, para os vizinhos deslizarem em vez de pular */
+  transition: width var(--ds-duration-base) var(--ds-easing-standard);
 }
 
 .ds-carousel__dot::before {
@@ -7528,6 +7530,11 @@ button.ds-calendar__col-head[data-state="hover"] {
 @media (prefers-reduced-motion: reduce) {
   .ds-carousel__viewport {
     scroll-behavior: auto;
+  }
+
+  .ds-carousel__dot,
+  .ds-carousel__dot::before {
+    transition: none;
   }
 }
 /*

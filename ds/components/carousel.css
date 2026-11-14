@@ -83,6 +83,8 @@
   border-radius: var(--ds-radius-full);
   background: none;
   cursor: pointer;
+  /* o botão cresce junto com o ponto, para os vizinhos deslizarem em vez de pular */
+  transition: width var(--ds-duration-base) var(--ds-easing-standard);
 }
 
 .ds-carousel__dot::before {
@@ -164,5 +166,10 @@
 @media (prefers-reduced-motion: reduce) {
   .ds-carousel__viewport {
     scroll-behavior: auto;
+  }
+
+  .ds-carousel__dot,
+  .ds-carousel__dot::before {
+    transition: none;
   }
 }
