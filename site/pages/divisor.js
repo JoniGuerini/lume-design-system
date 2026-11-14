@@ -29,9 +29,9 @@ const releases = () => `<div class="dv-list">
 </div>`;
 
 const more = () => `<div class="dv-list">
-  <p class="dv-list__item"><strong>${L('Carregar', 'Load', 'Cargar')}</strong> lumeui.dev/v/0.39/lume.css</p>
+  <p class="dv-list__item"><strong>${L('Carregar', 'Load', 'Cargar')}</strong> lumeui.dev/v/0.40/lume.css</p>
   ${label(L('ou', 'or', 'o'))}
-  <p class="dv-list__item"><strong>${L('Baixar', 'Download', 'Descargar')}</strong> lume-0.39.zip</p>
+  <p class="dv-list__item"><strong>${L('Baixar', 'Download', 'Descargar')}</strong> lume-0.40.zip</p>
 </div>`;
 
 export default function renderDivider(page) {

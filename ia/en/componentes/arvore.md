@@ -12,7 +12,7 @@ In numbers: levels: unlimited · shortcuts: 8 · indent: 20 px · ARIA role: tre
 <div class="ds-tree" aria-label="Files"></div>
 
 <script type="module">
-  import { createTree } from 'https://lumeui.dev/v/0.39/lume.js';
+  import { createTree } from 'https://lumeui.dev/v/0.40/lume.js';
   createTree(document.querySelector('.ds-tree'), {
     items: arquivos,
     expanded: ['docs', 'contratos'],
@@ -46,7 +46,7 @@ Markup of the examples in this section:
 The `aria-label` on `.ds-tree` names the tree for screen readers.
 
 ```html
-import { createTree } from 'https://lumeui.dev/v/0.39/lume.js';
+import { createTree } from 'https://lumeui.dev/v/0.40/lume.js';
 
 const tree = createTree(document.querySelector('.ds-tree'), {
   items: [

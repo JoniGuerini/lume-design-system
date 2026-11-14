@@ -221,8 +221,25 @@ const WEIGHT = { Regular: 400, Medium: 500, 'Semi Bold': 600, Bold: 700, 'Extra 
 const JUSTIFY = { MIN: 'flex-start', CENTER: 'center', MAX: 'flex-end', SPACE_BETWEEN: 'space-between' };
 const ALIGN = { MIN: 'flex-start', CENTER: 'center', MAX: 'flex-end', BASELINE: 'baseline' };
 
+function rgba(c) {
+  return `rgba(${Math.round(c.r * 255)},${Math.round(c.g * 255)},${Math.round(c.b * 255)},${c.a ?? 1})`;
+}
+
+/** Degradê linear (o seletor de cor): o sentido sai da primeira linha da matriz. */
+function gradient(p) {
+  const dir = Math.abs(p.gradientTransform?.[0]?.[0] ?? 1) > 0.5 ? 'to right' : 'to bottom';
+  return `linear-gradient(${dir}, ${p.gradientStops.map((st) => `${rgba(st.color)} ${round(st.position * 100)}%`).join(', ')})`;
+}
+
+/** Fundo com várias pinturas: no Figma a última fica por cima; no CSS, a primeira. */
+function background(fills) {
+  if (fills.every((f) => f.type === 'SOLID')) return color(fills[0]);
+  return fills.slice().reverse().map((f) => (f.type === 'GRADIENT_LINEAR' ? gradient(f) : `linear-gradient(${color(f)}, ${color(f)})`)).join(', ');
+}
+
 function color(p) {
   if (!p) return 'transparent';
+  if (p.type === 'GRADIENT_LINEAR') return 'transparent';
   const base = p._var ? cssVar(p._var) : `rgba(${Math.round(p.color.r * 255)},${Math.round(p.color.g * 255)},${Math.round(p.color.b * 255)},${p.color.a ?? 1})`;
   // a transparência da própria variável já vem no var(--ds-…): só a opacidade pedida a mais entra aqui
   const alpha = figma._variables.find((v) => v.id === p.boundVariables?.color?.id)?._resolve()?.a ?? 1;
@@ -258,7 +275,7 @@ function boxStyle(n, parent) {
   }
   s.push('box-sizing:border-box');
   const fills = (n.fills ?? []).filter((f) => f.visible !== false);
-  if (fills.length && n.type !== 'TEXT' && n.type !== 'VECTOR') s.push(`background:${color(fills[0])}`);
+  if (fills.length && n.type !== 'TEXT' && n.type !== 'VECTOR') s.push(`background:${background(fills)}`);
   const stroke = (n.strokes ?? [])[0];
   if (stroke && n.type !== 'VECTOR') {
     const w = n.strokeWeight ?? 1;
@@ -319,7 +336,17 @@ function nodeHtml(n, parent) {
   if (n.type === 'TEXT') return textHtml(n, parent);
   if (n.children?.length && n.children.every((c) => c.type === 'VECTOR')) return iconHtml(n, parent);
   if (n.type === 'RECTANGLE' || n.type === 'ELLIPSE') {
-    const extra = n.type === 'ELLIPSE' ? ';border-radius:50%' : '';
+    let extra = n.type === 'ELLIPSE' ? ';border-radius:50%' : '';
+    const arc = n.type === 'ELLIPSE' && n.arcData;
+    if (arc && (arc.endingAngle - arc.startingAngle < 2 * Math.PI - 0.001 || arc.innerRadius > 0)) {
+      // arco do Figma (radianos, 0 = 3 horas, sentido horário) → conic-gradient (0 = 12 horas) com furo no meio
+      const fill = (n.fills ?? []).find((f) => f.visible !== false);
+      const deg = ((arc.endingAngle - arc.startingAngle) * 180) / Math.PI;
+      const from = (arc.startingAngle * 180) / Math.PI + 90;
+      const hole = round((arc.innerRadius ?? 0) * 100);
+      extra += `;background:conic-gradient(from ${round(from)}deg, ${color(fill)} 0 ${round(deg)}deg, transparent 0)`;
+      if (hole > 0) extra += `;-webkit-mask:radial-gradient(closest-side, transparent ${hole}%, #000 ${hole}%);mask:radial-gradient(closest-side, transparent ${hole}%, #000 ${hole}%)`;
+    }
     return `<div style="${boxStyle(n, parent)}${extra}"></div>`;
   }
   let attrs = '';

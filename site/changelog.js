@@ -8,10 +8,31 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.39.0';
+export const CURRENT_VERSION = '0.40.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.40.0',
+    date: '2026-11-14',
+    title: T('Plugin do Figma', 'Figma plugin', 'Plugin de Figma'),
+    summary: T(
+      'O Figma alcançou o site de novo: os componentes da 0.30 à 0.38 viraram blocos no plugin, com variantes, exemplos e prévias claro e escuro, nos três idiomas. Os 154 ícones também estão lá.',
+      'Figma caught up with the site again: the components from 0.30 to 0.38 became blocks in the plugin, with variants, examples, and light and dark previews, in all three languages. All 154 icons are there too.',
+      'Figma alcanzó al sitio de nuevo: los componentes de la 0.30 a la 0.38 se volvieron bloques en el plugin, con variantes, ejemplos y vistas previas clara y oscura, en los tres idiomas. Los 154 íconos también están.',
+    ),
+    groups: [
+      {
+        name: T('Plugin do Figma', 'Figma plugin', 'Plugin de Figma'),
+        items: [
+          ['novo', T('Barra de ferramentas, seletor de cor, avaliação e editor de texto rico', 'Toolbar, color picker, rating, and rich text editor', 'Barra de herramientas, selector de color, valoración y editor de texto enriquecido'), '/recursos/figma'],
+          ['novo', T('Link, banner de anúncio, central de notificações e progresso circular', 'Link, announcement banner, notification center, and progress ring', 'Enlace, banner de anuncio, centro de notificaciones y progreso circular'), '/recursos/figma'],
+          ['novo', T('Carrossel, visualizador de imagem, lista arrastável, kanban, painéis redimensionáveis e divisor com rótulo', 'Carousel, image viewer, sortable list, kanban, resizable panels, and labeled divider', 'Carrusel, visor de imágenes, lista arrastrable, kanban, paneles redimensionables y divisor con etiqueta'), '/recursos/figma'],
+          ['melhoria', T('Os 154 ícones do site, todos com troca de ícone', 'All 154 icons from the site, all swappable', 'Los 154 íconos del sitio, todos intercambiables'), '/fundamentos/icones'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.39.0',
     date: '2026-11-14',

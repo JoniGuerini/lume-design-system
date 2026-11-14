@@ -126,7 +126,7 @@ Manual `data-activation="manual"` — As setas movem o foco; Enter ou Espaço at
 ### Em código
 
 ```html
-import { mountTabs } from 'https://lumeui.dev/v/0.39/lume.js';
+import { mountTabs } from 'https://lumeui.dev/v/0.40/lume.js';
 
 // liga todas as abas [data-ds-tabs] da página — inclusive as que entrarem depois
 const unmount = mountTabs(document);

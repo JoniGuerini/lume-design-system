@@ -16,16 +16,14 @@ const I = (name, text, doc) => ({ name, text, doc });
 
 const STAGES = [
   {
-    version: '0.40',
+    version: '0.41',
     group: 'release',
     tone: 'brand',
     status: NEXT,
-    title: T('Plugin do Figma', 'Figma plugin', 'Plugin de Figma'),
-    text: T('O Figma igual ao site, de novo.', 'Figma matching the site again.', 'Figma igual al sitio, de nuevo.'),
+    title: T('Storybook', 'Storybook', 'Storybook'),
+    text: T('Melhorias no Storybook do Lume.', 'Improvements to Lume’s Storybook.', 'Mejoras en el Storybook de Lume.'),
     items: [
-      I(T('Componentes novos', 'New components', 'Componentes nuevos'), T('Os da 0.30 à 0.38 viram blocos, com variantes e prévias claro e escuro.', 'The ones from 0.30 to 0.38 become blocks, with variants and light and dark previews.', 'Los de la 0.30 a la 0.38 se vuelven bloques, con variantes y vistas previas clara y oscura.')),
-      I(T('Ícones', 'Icons', 'Íconos'), T('Os 154 ícones do site.', 'All 154 icons from the site.', 'Los 154 íconos del sitio.')),
-      I(T('Revisão geral', 'Full review', 'Revisión general'), T('Tokens, temas e os três idiomas conferidos de novo contra o site.', 'Tokens, themes, and the three languages checked against the site again.', 'Tokens, temas y los tres idiomas revisados de nuevo contra el sitio.')),
+      I(T('Melhorias', 'Improvements', 'Mejoras'), T('O que entra ainda está sendo definido.', 'What goes in is still being decided.', 'Lo que entra todavía se está definiendo.')),
     ],
   },
   {
