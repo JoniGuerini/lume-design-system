@@ -4,17 +4,17 @@ Sección de Lume: Recursos. Página: https://lumeui.dev/#/recursos/api
 
 Todo lo que puedes llamar desde JavaScript, en un solo archivo. Lo que está aquí es público y estable; el resto es interno y puede cambiar.
 
-En números: ítems públicos: 96 · verbos: 5 · dependencias: 0.
+En números: ítems públicos: 98 · verbos: 5 · dependencias: 0.
 
 ## Importar
 
 Un archivo, `ds/lume.js`, reúne toda la API. Los módulos de `ds/js/` siguen pudiéndose importar uno a uno, para cargar solo lo necesario.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/0.35/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/0.36/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.35/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.36/lume.js';
 
   initTheme();
   const modal = createModal({ title: '¿Publicar cambios?' });
@@ -43,7 +43,7 @@ El estado sigue `get…` y `set…`; las constantes van en mayúsculas, como `TH
 
 ## Todo lo público
 
-Los 96 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
+Los 98 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 
 ### Componentes
 
@@ -64,6 +64,8 @@ Los 96 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 | `createFileUpload` | Área de carga de archivos, con lista y progreso. | file-upload.js |
 | `createFilters` | Barra de filtros que guarda el estado en la dirección. | filters.js |
 | `createForm` | Validación, errores y resumen de errores de un formulario. | form.js |
+| `openImageViewer` | Abre el visor de imágenes con una lista de imágenes: zoom, arrastre, flechas y leyenda. | image-viewer.js |
+| `mountImageViewer` | Conecta los enlaces con data-ds-viewer de un área: el mismo valor forma una galería. | image-viewer.js |
 | `createMenu` | Menú ligado a un botón, con elección única o múltiple. | menu.js |
 | `createModal` | Modal que abres y cierras cuando quieras. | modal.js |
 | `createNotificationCenter` | Centro de notificaciones en la campana: lista, sin leer, marcar todas y aviso de las nuevas. | notifications.js |

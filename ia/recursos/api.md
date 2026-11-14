@@ -4,17 +4,17 @@ Seção do Lume: Recursos. Página: https://lumeui.dev/#/recursos/api
 
 Tudo o que você pode chamar pelo JavaScript, num arquivo só. O que está aqui é público e estável; o resto é interno e pode mudar.
 
-Em números: itens públicos: 96 · verbos: 5 · dependências: 0.
+Em números: itens públicos: 98 · verbos: 5 · dependências: 0.
 
 ## Importar
 
 Um arquivo, `ds/lume.js`, reúne a API inteira. Os módulos de `ds/js/` continuam podendo ser importados um a um, para carregar só o necessário.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/0.35/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/0.36/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.35/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.36/lume.js';
 
   initTheme();
   const modal = createModal({ title: 'Publicar alterações?' });
@@ -43,7 +43,7 @@ Estado segue `get…` e `set…`; constantes ficam em maiúsculas, como `THEMES`
 
 ## Tudo o que é público
 
-Os 96 itens de `ds/lume.js`, com o módulo de onde cada um vem.
+Os 98 itens de `ds/lume.js`, com o módulo de onde cada um vem.
 
 ### Componentes
 
@@ -64,6 +64,8 @@ Os 96 itens de `ds/lume.js`, com o módulo de onde cada um vem.
 | `createFileUpload` | Área de envio de arquivos, com lista e progresso. | file-upload.js |
 | `createFilters` | Barra de filtros que guarda o estado no endereço. | filters.js |
 | `createForm` | Validação, erros e resumo de erros de um formulário. | form.js |
+| `openImageViewer` | Abre o visualizador de imagem com uma lista de imagens: zoom, arrastar, setas e legenda. | image-viewer.js |
+| `mountImageViewer` | Liga os links com data-ds-viewer de uma área: o mesmo valor vira uma galeria. | image-viewer.js |
 | `createMenu` | Menu ligado a um botão, com escolha única ou múltipla. | menu.js |
 | `createModal` | Modal que você abre e fecha quando quiser. | modal.js |
 | `createNotificationCenter` | Central de notificações no sino: lista, não lidas, marcar todas e anúncio das novas. | notifications.js |

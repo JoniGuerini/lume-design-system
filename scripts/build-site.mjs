@@ -22,7 +22,7 @@ import { zip } from './zip.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'dist', 'site');
-const PUBLIC = ['index.html', 'ds', 'site', 'assets/favicon.svg', 'ia', 'llms.txt'];
+const PUBLIC = ['index.html', 'ds', 'site', 'assets/favicon.svg', 'assets/capturas', 'ia', 'llms.txt'];
 
 await rm(OUT, { recursive: true, force: true });
 for (const item of PUBLIC) {

@@ -14,6 +14,8 @@ export declare const setProgressRing: any;
 export declare const createBanner: any;
 export declare const createNotificationCenter: any;
 export declare const relativeTime: any;
+export declare const openImageViewer: any;
+export declare const mountImageViewer: any;
 export declare const createToolbar: any;
 export declare const createBarChart: any;
 export declare const createLineChart: any;

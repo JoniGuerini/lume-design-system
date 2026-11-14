@@ -99,6 +99,7 @@ export const REACT_GROUPS = () => [
       ['Rating', 'Rating.tsx', '/componentes/avaliacao', '0.33', L('Dar nota, com name, value e onChange; RatingDisplay só mostra, com meia estrela.', 'Give a score, with name, value and onChange; RatingDisplay only shows one, with half stars.', 'Calificar, con name, value y onChange; RatingDisplay solo muestra, con media estrella.')],
       ['Toolbar', 'Toolbar.tsx', '/componentes/barra-de-ferramentas', '0.33', L('ToolbarGroup, ToolbarSeparator e ToolbarButton; pressed no estado e onToggle na barra.', 'ToolbarGroup, ToolbarSeparator and ToolbarButton; pressed in state and onToggle on the bar.', 'ToolbarGroup, ToolbarSeparator y ToolbarButton; pressed en el estado y onToggle en la barra.')],
       ['Divider', 'Link.tsx', '/componentes/divisor', '0.34', L('Horizontal, vertical, esmaecido ou com rótulo no meio ou no começo.', 'Horizontal, vertical, faded, or with a label in the middle or at the start.', 'Horizontal, vertical, difuminado o con etiqueta en el medio o al inicio.')],
+      ['ImageGallery', 'ImageViewer.tsx', '/componentes/visualizador-de-imagem', '0.36', L('Miniaturas que abrem o visualizador; images com src, thumb, alt e caption. openImageViewer abre de qualquer lugar.', 'Thumbnails that open the viewer; images with src, thumb, alt, and caption. openImageViewer opens it from anywhere.', 'Miniaturas que abren el visor; images con src, thumb, alt y caption. openImageViewer lo abre desde cualquier lugar.')],
     ],
   },
   {

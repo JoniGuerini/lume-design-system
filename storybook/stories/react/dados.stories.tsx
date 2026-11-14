@@ -1,11 +1,11 @@
 import { useMemo, useState } from 'react';
-import { Table, Badge, BarChart, LineChart, DonutChart, StatTile, Calendar, CodeBlock, Carousel, ResizablePanels, ResizablePanel, type SortDirection, type CalendarView } from '../../../react';
+import { Table, Badge, BarChart, LineChart, DonutChart, StatTile, Calendar, CodeBlock, Carousel, ResizablePanels, ResizablePanel, ImageGallery, type SortDirection, type CalendarView } from '../../../react';
 import { mount } from './mount';
 
 export default {
   title: 'React/Dados e gráficos',
   id: 'react-dados',
-  parameters: { docs: { description: { component: 'Tabela, gráficos, calendário, carrossel, painéis redimensionáveis e bloco de código em React.\n\nDocumentação: https://lumeui.dev/#/recursos/react' } } },
+  parameters: { docs: { description: { component: 'Tabela, gráficos, calendário, carrossel, painéis redimensionáveis, visualizador de imagem e bloco de código em React.\n\nDocumentação: https://lumeui.dev/#/recursos/react' } } },
 };
 
 type Row = { id: string; nome: string; status: string; telas: number };
@@ -121,3 +121,23 @@ function Paineis() {
 }
 
 export const PaineisRedimensionaveis = { name: 'ResizablePanels', render: () => mount(<Paineis />) };
+
+const CAPTURAS = 'https://lumeui.dev/assets/capturas/';
+const SHOTS = [
+  ['inicio', 'Início · tema claro', 'A página inicial do Lume no tema claro.'],
+  ['cores', 'Cores · tema escuro', 'A página Cores do Lume no tema escuro.'],
+  ['botao', 'Botão · tema claro', 'A página Botão do Lume no tema claro.'],
+  ['graficos', 'Gráficos · tema escuro', 'A página Gráficos do Lume no tema escuro.'],
+].map(([id, caption, alt]) => ({ src: `${CAPTURAS}${id}.jpg`, thumb: `${CAPTURAS}${id}-mini.jpg`, caption, alt }));
+
+function Galeria() {
+  const [index, setIndex] = useState<number | null>(null);
+  return (
+    <div style={{ width: 'min(560px, 100%)' }}>
+      <ImageGallery images={SHOTS} onChange={setIndex} onClose={() => setIndex(null)} style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 12 }} />
+      <p style={{ ...label, marginTop: 12 }}>{index === null ? 'Clique numa captura.' : `onChange: ${index}`}</p>
+    </div>
+  );
+}
+
+export const VisualizadorDeImagem = { name: 'ImageGallery', render: () => mount(<Galeria />) };

@@ -46,7 +46,7 @@ export default function renderPaginacao(page) {
         id: 'codigo',
         title: L('Código', 'Code', 'Código'),
         desc: L(`${ic('onChange')} avisa a página e o tamanho; quem carrega os dados é você.`, `${ic('onChange')} reports the page and size; you load the data.`, `${ic('onChange')} avisa la página y el tamaño; quien carga los datos eres tú.`),
-        html: codeBlock(`import { createPagination } from 'https://lumeui.dev/v/0.35/lume.js';
+        html: codeBlock(`import { createPagination } from 'https://lumeui.dev/v/0.36/lume.js';
 
 const pagination = createPagination(document.querySelector('.ds-pagination'), {
   total: 248,
@@ -111,7 +111,7 @@ export function mount(root) {
     code: (s) => `<nav class="ds-pagination"></nav>
 
 <script type="module">
-  import { createPagination } from 'https://lumeui.dev/v/0.35/lume.js';
+  import { createPagination } from 'https://lumeui.dev/v/0.36/lume.js';
   createPagination(document.querySelector('.ds-pagination'), {
     total: ${s.total},${s.sizes === 'on' ? '\n    pageSizes: [10, 25, 50],' : ''}${s.siblings === '1' ? '' : `\n    siblings: ${s.siblings},`}
     onChange: ({ page, pageSize }) => carregar(page, pageSize),

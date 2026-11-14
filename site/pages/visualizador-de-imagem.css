@@ -1,0 +1,33 @@
+/* Página: Visualizador de imagem (prefixo iv-) */
+
+.fc-preview:has(.iv-grid),
+.fc-preview:has(.iv-play) {
+  width: 100%;
+}
+
+.iv-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--ds-space-150);
+  width: 100%;
+}
+
+.iv-play {
+  width: min(560px, 100%);
+  margin-inline: auto;
+}
+
+.iv-single {
+  width: min(320px, 100%);
+  margin-inline: auto;
+}
+
+.iv-state {
+  width: 200px;
+}
+
+.iv-grid .ds-viewer-thumb,
+.iv-single .ds-viewer-thumb,
+.iv-state .ds-viewer-thumb {
+  aspect-ratio: 16 / 10;
+}

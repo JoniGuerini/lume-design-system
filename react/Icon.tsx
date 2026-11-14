@@ -6,7 +6,7 @@ import { cx } from './cx';
 export type { IconName };
 
 export interface IconProps extends Omit<SVGAttributes<SVGSVGElement>, 'name'> {
-  /** Um dos 147 ícones do Lume. */
+  /** Um dos 150 ícones do Lume. */
   name: IconName;
   /** Tamanho em px. Padrão: 20. Abaixo de 16 px o traço engrossa para 1,75. */
   size?: number;

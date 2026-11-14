@@ -8,10 +8,35 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.35.0';
+export const CURRENT_VERSION = '0.36.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.36.0',
+    date: '2026-11-14',
+    title: T('Visualizador de imagem', 'Image viewer', 'Visor de imágenes'),
+    summary: T(
+      'A imagem grande por cima da página, com zoom no ponto do cursor, arrastar, pinça no celular e as outras da galeria. Os exemplos usam capturas do próprio Lume.',
+      'The large image over the page, with zoom at the cursor, panning, pinch on phones, and the rest of the gallery. The examples use captures of Lume itself.',
+      'La imagen grande sobre la página, con zoom en el punto del cursor, arrastre, pellizco en el celular y las demás de la galería. Los ejemplos usan capturas del propio Lume.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['novo', T('Visualizador de imagem: galeria por links com data-ds-viewer, zoom até 4×, arrastar, teclado, legenda, carregando e erro', 'Image viewer: galleries from links with data-ds-viewer, zoom up to 4×, panning, keyboard, caption, loading, and error', 'Visor de imágenes: galerías con enlaces data-ds-viewer, zoom hasta 4×, arrastre, teclado, leyenda, carga y error'), '/componentes/visualizador-de-imagem'],
+          ['novo', T('openImageViewer e mountImageViewer na API; ImageGallery no React', 'openImageViewer and mountImageViewer in the API; ImageGallery in React', 'openImageViewer y mountImageViewer en la API; ImageGallery en React'), '/recursos/api'],
+        ],
+      },
+      {
+        name: T('Ícones', 'Icons', 'Íconos'),
+        items: [
+          ['novo', T('3 ícones novos: zoom-in, zoom-out e maximize', '3 new icons: zoom-in, zoom-out, and maximize', '3 íconos nuevos: zoom-in, zoom-out y maximize'), '/fundamentos/icones'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.35.0',
     date: '2026-11-14',

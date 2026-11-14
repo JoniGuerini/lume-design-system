@@ -4,17 +4,17 @@ Lume section: Resources. Page: https://lumeui.dev/#/recursos/api
 
 Everything you can call from JavaScript, in a single file. What’s here is public and stable; the rest is internal and may change.
 
-In numbers: public items: 96 · verbs: 5 · dependencies: 0.
+In numbers: public items: 98 · verbs: 5 · dependencies: 0.
 
 ## Import
 
 One file, `ds/lume.js`, gathers the whole API. The `ds/js/` modules can still be imported one by one, to load only what you need.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/0.35/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/0.36/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.35/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.36/lume.js';
 
   initTheme();
   const modal = createModal({ title: 'Publish changes?' });
@@ -43,7 +43,7 @@ State follows `get…` and `set…`; constants are uppercase, like `THEMES`.
 
 ## Everything public
 
-The 96 items in `ds/lume.js`, with the module each one comes from.
+The 98 items in `ds/lume.js`, with the module each one comes from.
 
 ### Components
 
@@ -64,6 +64,8 @@ The 96 items in `ds/lume.js`, with the module each one comes from.
 | `createFileUpload` | File upload area, with list and progress. | file-upload.js |
 | `createFilters` | Filter bar that keeps its state in the URL. | filters.js |
 | `createForm` | Validation, errors, and error summary for a form. | form.js |
+| `openImageViewer` | Opens the image viewer with a list of images: zoom, panning, arrows, and caption. | image-viewer.js |
+| `mountImageViewer` | Wires the links with data-ds-viewer in an area: the same value becomes one gallery. | image-viewer.js |
 | `createMenu` | Menu attached to a button, with single or multiple choice. | menu.js |
 | `createModal` | Modal you open and close whenever you want. | modal.js |
 | `createNotificationCenter` | Notification center on the bell: list, unread, mark all, and announcing new ones. | notifications.js |

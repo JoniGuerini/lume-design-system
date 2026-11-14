@@ -52,6 +52,9 @@ const DEFINITIONS = [
   ['compass', 'navegacao', 'explorar bússola descobrir', circle(12, 12, 8.5) + path('m15.5 8.5-2 5-5 2 2-5z')],
 
   // Ações
+  ['zoom-in', 'acoes', 'aproximar zoom ampliar lupa mais', circle(11, 11, 6.5) + path('m20 20-4.2-4.2M11 8.5v5M8.5 11h5')],
+  ['zoom-out', 'acoes', 'afastar zoom reduzir lupa menos', circle(11, 11, 6.5) + path('m20 20-4.2-4.2M8.5 11h5')],
+  ['maximize', 'acoes', 'ampliar tela cheia expandir ajustar', path('M8.5 3.5H5a1.5 1.5 0 0 0-1.5 1.5v3.5M15.5 3.5H19a1.5 1.5 0 0 1 1.5 1.5v3.5M8.5 20.5H5A1.5 1.5 0 0 1 3.5 19v-3.5M15.5 20.5H19a1.5 1.5 0 0 0 1.5-1.5v-3.5')],
   ['search', 'acoes', 'buscar procurar lupa', circle(11, 11, 6.5) + path('m20 20-4.2-4.2')],
   ['search-x', 'acoes', 'sem resultados busca vazia nada encontrado', circle(11, 11, 6.5) + path('m20 20-4.2-4.2M8.8 8.8l4.4 4.4M13.2 8.8l-4.4 4.4')],
   ['send', 'acoes', 'enviar mensagem avião', path('M20.5 3.5 10 14M20.5 3.5 14 20.5l-4-6.5-6.5-4z')],

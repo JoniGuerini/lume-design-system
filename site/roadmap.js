@@ -15,10 +15,7 @@ const C = (version, status, tone, title, text, items) => ({ version, group: 'com
 const I = (name, text, doc) => ({ name, text, doc });
 
 const STAGES = [
-  C('0.36', NEXT, 'brand', T('Visualizador de imagem', 'Image viewer', 'Visor de imágenes'), T('Ver uma imagem grande, com zoom.', 'View an image large, with zoom.', 'Ver una imagen en grande, con zoom.'), [
-    I(T('Visualizador de imagem', 'Image viewer', 'Visor de imágenes'), T('Abre por cima da página, com zoom, arrastar e anterior e próxima.', 'Opens over the page, with zoom, panning, and previous and next.', 'Se abre sobre la página, con zoom, arrastre y anterior y siguiente.')),
-  ]),
-  C('0.37', PLANNED, 'neutral', T('Arrastar e soltar', 'Drag and drop', 'Arrastrar y soltar'), T('Mudar a ordem e o lugar das coisas.', 'Change the order and place of things.', 'Cambiar el orden y el lugar de las cosas.'), [
+  C('0.37', NEXT, 'brand', T('Arrastar e soltar', 'Drag and drop', 'Arrastrar y soltar'), T('Mudar a ordem e o lugar das coisas.', 'Change the order and place of things.', 'Cambiar el orden y el lugar de las cosas.'), [
     I(T('Lista arrastável', 'Sortable list', 'Lista ordenable'), T('Reordenar itens com o mouse, o toque ou o teclado.', 'Reorder items with the mouse, touch, or keyboard.', 'Reordenar elementos con el ratón, el toque o el teclado.')),
     I(T('Kanban', 'Kanban', 'Kanban'), T('Colunas de cartões que passam de uma para outra.', 'Columns of cards that move from one to another.', 'Columnas de tarjetas que pasan de una a otra.')),
   ]),

@@ -110,6 +110,10 @@ export declare function modalClasses(options?: { size?: string; tone?: string })
 export declare function relativeTime(date: Date | string | number, now?: Date): string;
 export declare function createNotificationCenter(trigger: HTMLElement, options?: { items?: NotificationItem[]; onSelect?: (item: NotificationItem) => void; onChange?: (items: NotificationItem[], unread: number) => void; badge?: boolean; placement?: 'bottom' | 'top' | 'left' | 'right'; align?: 'start' | 'center' | 'end' }): { readonly items: NotificationItem[]; readonly unread: number; readonly isOpen: boolean; open(): void; close(): void; setItems(items: NotificationItem[], options?: { announce?: boolean }): void; add(item: NotificationItem): void; markRead(id: string, read?: boolean): void; markUnread(id: string): void; markAllRead(): void; destroy(): void };
 `,
+  'image-viewer': `export interface ViewerImage { src: string; alt?: string; caption?: string }
+export declare function openImageViewer(images: Array<ViewerImage | string>, options?: { index?: number; onChange?: (index: number) => void; onClose?: () => void }): { el: HTMLDialogElement; readonly index: number; readonly zoom: number; go(index: number): void; next(): void; prev(): void; zoomIn(): void; zoomOut(): void; fit(): void; close(): void };
+export declare function mountImageViewer(area?: ParentNode & EventTarget, options?: { selector?: string; onChange?: (index: number) => void; onClose?: () => void }): () => void;
+`,
   popover: `export declare function createPopover(trigger: HTMLElement, options?: Record<string, unknown>): { el: HTMLElement; readonly isOpen: boolean; open(): void; close(returnFocus?: boolean): void; toggle(): void; reposition(): void; destroy(): void };
 `,
   'context-menu': `export declare function createContextMenu(root: HTMLElement, config?: Record<string, unknown>): { open(...args: unknown[]): void; close(returnFocus?: boolean): void; readonly isOpen: boolean; destroy(): void };
