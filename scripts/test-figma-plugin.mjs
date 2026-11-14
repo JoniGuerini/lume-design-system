@@ -101,6 +101,8 @@ try {
   if (stages(free, 'Claro') || !stages(free, 'Escuro')) problems.push(`plano gratuito: prévias Claro ${stages(free, 'Claro')}, Escuro ${stages(free, 'Escuro')}`);
   const soloOverflows = overflowsIn(free);
   if (soloOverflows.length) problems.push(`plano gratuito: conteúdo vazando da linha: ${soloOverflows.slice(0, 10).join('; ')}`);
+  const introOn = (fig) => fig.root.children.filter((p) => p.children.some((n) => n.getPluginData('orbita-key') === 'intro')).map((p) => p.getPluginData('orbita-page'));
+  if (introOn(free).join() !== 'Fundamentos') problems.push(`plano gratuito: a introdução devia ficar no topo de Fundamentos (está em ${introOn(free).join(', ') || 'nenhuma'})`);
   let refused = '';
   try { await run('Dois modos no plano gratuito', free); } catch (err) { refused = err.message; }
   if (!/Só Escuro/.test(refused)) problems.push(`plano gratuito: pedir os dois modos devia explicar a recusa (veio: ${refused || 'nada'})`);
@@ -114,6 +116,7 @@ try {
   free._maxPages = Infinity;
   await run('Plano pago', free);
   const f2 = census(free);
+  if (introOn(free).join() !== 'Introdução' || free.root.children[0].getPluginData('orbita-page') !== 'Introdução') problems.push(`plano pago: a introdução devia ir para a primeira página, só ela (está em ${introOn(free).join(', ')})`);
   const moved = Object.keys(f1.keys).filter((k) => (k.startsWith('cmp/') || k.startsWith('set/') || k.startsWith('icon/')) && f2.keys[k] !== f1.keys[k]);
   if (semModes(free) !== 'Escuro · Claro') problems.push(`plano pago: Semânticos ficou com os modos ${semModes(free)}`);
   if (stages(free, 'Claro') !== stages(free, 'Escuro')) problems.push(`plano pago: prévias Claro ${stages(free, 'Claro')}, Escuro ${stages(free, 'Escuro')}`);
@@ -125,9 +128,9 @@ try {
   // páginas, coleções, modos, sombras, componentes e propriedades — sem duplicar nem trocar ids, e nenhum
   // texto fica sem tradução (o que não está em figma/plugin/02-dicionario.js aparece em missing.json).
   const LANG_NAMES = {
-    en: { pages: 'Lume · Foundations · Lume · Icons · Lume · Components', sem: 'Semantic', modes: 'Dark · Light', icon: 'Icon', stage: 'Light mode' },
-    es: { pages: 'Lume · Fundamentos · Lume · Íconos · Lume · Componentes', sem: 'Semánticos', modes: 'Oscuro · Claro', icon: 'Ícono', stage: 'Modo Claro' },
-    'pt-BR': { pages: 'Lume · Fundamentos · Lume · Ícones · Lume · Componentes', sem: 'Semânticos', modes: 'Escuro · Claro', icon: 'Ícone', stage: 'Modo Claro' },
+    en: { pages: 'Lume · Introduction · Lume · Foundations · Lume · Icons · Lume · Components', sem: 'Semantic', modes: 'Dark · Light', icon: 'Icon', stage: 'Light mode' },
+    es: { pages: 'Lume · Introducción · Lume · Fundamentos · Lume · Íconos · Lume · Componentes', sem: 'Semánticos', modes: 'Oscuro · Claro', icon: 'Ícono', stage: 'Modo Claro' },
+    'pt-BR': { pages: 'Lume · Introdução · Lume · Fundamentos · Lume · Ícones · Lume · Componentes', sem: 'Semânticos', modes: 'Escuro · Claro', icon: 'Ícone', stage: 'Modo Claro' },
   };
   const missing = {};
   const langRuns = [];

@@ -145,7 +145,7 @@ async function main(options) {
   await loadFonts();
 
   // a página de ícones vem primeiro: os outros componentes usam os ícones
-  for (var k of Object.keys(PAGES)) await ensurePage(k);
+  for (var k of MAIN_PAGES) await ensurePage(k);
 
   var order = ['Ícones', 'Fundamentos', 'Componentes'];
   for (var pageId of order) {
@@ -183,8 +183,13 @@ async function main(options) {
     if (ic && ic.getPluginData('orbita-lang') !== LANG) nameIcon(ic, i);
   });
 
-  var first = LUME.pages[wanted[wanted.length - 1]] || LUME.pages.Componentes;
+  say(L3('Introdução…', 'Introduction…', 'Introducción…'));
+  LUME.block = 'introdução';
+  var intro = await introduction();
+  // termina na Introdução (página própria ou topo de Fundamentos): é o começo do arquivo
+  var first = intro ? intro.parent : LUME.pages[wanted[wanted.length - 1]] || LUME.pages.Componentes;
   await figma.setCurrentPageAsync(first);
+  if (intro && figma.viewport) figma.viewport.scrollAndZoomIntoView([intro]);
   var r = LUME.report;
   var counts = L3(
     r.blocos + ' blocos, ' + r.componentes + ' componentes (' + r.variantes + ' variantes), ' + r.icones + ' ícones, ' + r.variaveis + ' variáveis',

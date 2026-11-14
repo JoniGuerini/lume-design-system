@@ -56,9 +56,9 @@ Markup of the examples in this section:
 
 Two grid patterns cover the site. Drag to change the container width and watch how each one rearranges. The space between items is always space.150 (12 px).
 
-Container width — 1020 px
+Container width — 1040 px
 
-Fixed columns that collapse — 4 columns — auto-fill with a minimum — 3 columns
+Fixed columns that collapse — 4 columns — auto-fill with a minimum — 4 columns
 
 ```html
 /* fixed columns: cards of equal importance */

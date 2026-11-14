@@ -196,4 +196,11 @@ Object.assign(DICT, {
   'Sem margem: o espaço vem do gap de quem está em volta.': ['No margin: the spacing comes from the surrounding gap.', 'Sin margen: el espacio viene del gap de lo que está alrededor.'],
   'Uma linha fina que separa grupos. Na horizontal, na vertical entre ações ou com um rótulo no meio, como o “ou” de um login.': ['A thin line that separates groups. Horizontal, vertical between actions, or with a label in the middle, like the “or” of a sign-in.', 'Una línea fina que separa grupos. En horizontal, en vertical entre acciones o con una etiqueta en el medio, como el “o” de un inicio de sesión.'],
   'A linha simples é o Divisor do bloco Painel e cartão. O esmaecido do site não entra: o Figma não liga variáveis às cores de um degradê.': ['The plain line is the Divider in the Panel and card block. The site’s faded version is left out: Figma can’t bind variables to gradient colors.', 'La línea simple es el Divisor del bloque Panel y tarjeta. El atenuado del sitio no entra: Figma no vincula variables a los colores de un degradado.'],
+  // 98-introducao
+  'Lume · Introdução': ['Lume · Introduction', 'Lume · Introducción'],
+  'Introdução': ['Introduction', 'Introducción'],
+  'Modos': ['Modes', 'Modos'],
+  'Instâncias': ['Instances', 'Instancias'],
+  'Atualizar': ['Updating', 'Actualizar'],
+  'Fontes': ['Fonts', 'Fuentes'],
 });

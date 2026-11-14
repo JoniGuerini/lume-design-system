@@ -418,7 +418,10 @@ function exposes(node, field, propName) {
  * Páginas do Lume: id ('Componentes') → nome em português ('Lume · Componentes'), traduzido por L().
  * A página guarda o id (pluginData orbita-page); as de versões antigas são achadas pelo nome, em qualquer idioma.
  */
-var PAGES = { Fundamentos: 'Lume · Fundamentos', 'Ícones': 'Lume · Ícones', Componentes: 'Lume · Componentes' };
+var PAGES = { 'Introdução': 'Lume · Introdução', Fundamentos: 'Lume · Fundamentos', 'Ícones': 'Lume · Ícones', Componentes: 'Lume · Componentes' };
+
+/** As 3 páginas que todo arquivo tem; a Introdução só ganha página própria quando o plano permite (98-introducao.js). */
+var MAIN_PAGES = ['Fundamentos', 'Ícones', 'Componentes'];
 
 function pageId(page) {
   var id = page.getPluginData(PAGE);

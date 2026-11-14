@@ -56,9 +56,9 @@ Marcado de los ejemplos de esta sección:
 
 Dos patrones de cuadrícula cubren el sitio. Arrastra para cambiar el ancho del contenedor y mira cómo se reorganiza cada uno. El espacio entre elementos es siempre space.150 (12 px).
 
-Ancho del contenedor — 1020 px
+Ancho del contenedor — 1040 px
 
-Columnas fijas que colapsan — 4 columnas — auto-fill con mínimo — 3 columnas
+Columnas fijas que colapsan — 4 columnas — auto-fill con mínimo — 4 columnas
 
 ```html
 /* columnas fijas: tarjetas de igual importancia */

@@ -400,7 +400,15 @@ export function createMockFigma({ missingFonts = [], maxModes = Infinity, maxPag
   const reg = (n) => { figma._all.set(n.id, n); return n; };
   const firstPage = reg(new PageNode(figma, 'Page 1'));
   firstPage._loaded = true;
-  figma.root = { type: 'DOCUMENT', children: [firstPage] };
+  figma.root = {
+    type: 'DOCUMENT',
+    children: [firstPage],
+    insertChild(i, p) {
+      const at = this.children.indexOf(p);
+      if (at >= 0) this.children.splice(at, 1);
+      this.children.splice(i, 0, p);
+    },
+  };
   figma.currentPage = firstPage;
 
   figma._byId = (id) => figma._all.get(id) ?? null;
