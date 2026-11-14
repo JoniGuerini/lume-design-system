@@ -15,10 +15,7 @@ const C = (version, status, tone, title, text, items) => ({ version, group: 'com
 const I = (name, text, doc) => ({ name, text, doc });
 
 const STAGES = [
-  C('0.31', NEXT, 'brand', T('Seletor de cor', 'Color picker', 'Selector de color'), T('Escolher uma cor livre ou da paleta dos tokens.', 'Pick a free color or one from the token palette.', 'Elegir un color libre o de la paleta de tokens.'), [
-    I(T('Seletor de cor', 'Color picker', 'Selector de color'), T('Área de saturação, matiz, campo hexadecimal e amostras da paleta.', 'Saturation area, hue, hex field, and palette swatches.', 'Área de saturación, matiz, campo hexadecimal y muestras de la paleta.')),
-  ]),
-  C('0.32', PLANNED, 'neutral', T('Painéis redimensionáveis', 'Resizable panels', 'Paneles redimensionables'), T('Dividir a tela em partes que a pessoa ajusta.', 'Split the screen into parts people can adjust.', 'Dividir la pantalla en partes que la persona ajusta.'), [
+  C('0.32', NEXT, 'brand', T('Painéis redimensionáveis', 'Resizable panels', 'Paneles redimensionables'), T('Dividir a tela em partes que a pessoa ajusta.', 'Split the screen into parts people can adjust.', 'Dividir la pantalla en partes que la persona ajusta.'), [
     I(T('Painéis redimensionáveis', 'Resizable panels', 'Paneles redimensionables'), T('Divisória que arrasta, com teclado, tamanho mínimo e tamanho salvo.', 'A draggable divider, with keyboard, minimum size, and saved size.', 'Divisor que se arrastra, con teclado, tamaño mínimo y tamaño guardado.')),
   ]),
   C('0.33', PLANNED, 'neutral', T('Avaliação e barra de ferramentas', 'Rating and toolbar', 'Valoración y barra de herramientas'), T('Dar nota e agrupar ações de um editor.', 'Give a score and group an editor’s actions.', 'Dar una nota y agrupar las acciones de un editor.'), [

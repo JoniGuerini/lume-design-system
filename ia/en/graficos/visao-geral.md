@@ -278,7 +278,7 @@ What goes wrong most often in charts — and what to do instead.
 One function per form, the same conversation in all of them: mount on an element, take options, and return controls.
 
 ```html
-import { createBarChart } from 'https://lumeui.dev/v/0.30/lume.js';
+import { createBarChart } from 'https://lumeui.dev/v/0.31/lume.js';
 
 const chart = createBarChart(document.querySelector('#sales'), {
   title: 'Revenue by month',

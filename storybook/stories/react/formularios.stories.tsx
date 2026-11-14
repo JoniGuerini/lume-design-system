@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ColorField, ColorPicker } from '../../../react';
 import {
   Button, Form, Field, TextField, Select, DatePicker, TimePicker, NumberField, TagField, Slider, Switch, Checkbox, RadioGroup,
 } from '../../../react';
@@ -53,3 +54,17 @@ function Cadastro() {
 }
 
 export const Formulario = { name: 'Form completo', render: () => mount(<Cadastro />) };
+
+const PALETA = ['#d95c0a', '#2a8ed6', '#d0578f', '#a66700', '#009b8d', '#e04848', '#9370db', '#2f9e5b'];
+
+function Cor() {
+  const [cor, setCor] = useState<string | null>('#c97b63');
+  return (
+    <div style={{ display: 'grid', gap: 16, width: 280 }}>
+      <ColorField aria-label="Cor da marca" value={cor} onChange={setCor} swatches={PALETA} />
+      <ColorPicker value={cor ?? '#000000'} onChange={setCor} swatches={PALETA} />
+    </div>
+  );
+}
+
+export const SeletorDeCor = { name: 'ColorPicker · ColorField', render: () => mount(<Cor />) };

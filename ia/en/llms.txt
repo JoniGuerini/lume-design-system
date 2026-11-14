@@ -1,6 +1,6 @@
 # Lume Design System
 
-> A design system in native HTML, CSS, and JavaScript, with no dependencies: tokens, typography, 130 custom icons, components, charts, and screen patterns, in light and dark themes. Version 0.30.0.
+> A design system in native HTML, CSS, and JavaScript, with no dependencies: tokens, typography, 130 custom icons, components, charts, and screen patterns, in light and dark themes. Version 0.31.0.
 
 Start with [README](https://lumeui.dev/ia/en/README.md): installation, general rules, and what never to invent. Every page of the site has a Markdown file below, generated from it.
 
@@ -41,6 +41,7 @@ Start with [README](https://lumeui.dev/ia/en/README.md): installation, general r
 - [Number field](https://lumeui.dev/ia/en/componentes/campo-numerico.md): A number with − and +, limits, a step, and the locale’s format.
 - [Slider](https://lumeui.dev/ia/en/componentes/slider.md): A value or a range, when position matters more than the exact number.
 - [Tag field](https://lumeui.dev/ia/en/componentes/campo-de-tags.md): Several free values inside one field.
+- [Color picker](https://lumeui.dev/ia/en/componentes/seletor-de-cor.md): A free color or one from the palette, with hex and keyboard.
 - [File upload](https://lumeui.dev/ia/en/componentes/upload.md): Drag or browse, with progress and errors per file.
 - [Verification code](https://lumeui.dev/ia/en/componentes/codigo-de-verificacao.md): One digit per box, for two-step sign-in.
 - [Tabs](https://lumeui.dev/ia/en/componentes/abas.md): Switch between views of the same subject. Underlined or segmented.

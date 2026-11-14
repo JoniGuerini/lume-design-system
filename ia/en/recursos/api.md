@@ -4,17 +4,17 @@ Lume section: Resources. Page: https://lumeui.dev/#/recursos/api
 
 Everything you can call from JavaScript, in a single file. What’s here is public and stable; the rest is internal and may change.
 
-In numbers: public items: 84 · verbs: 5 · dependencies: 0.
+In numbers: public items: 87 · verbs: 5 · dependencies: 0.
 
 ## Import
 
 One file, `ds/lume.js`, gathers the whole API. The `ds/js/` modules can still be imported one by one, to load only what you need.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/0.30/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/0.31/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.30/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.31/lume.js';
 
   initTheme();
   const modal = createModal({ title: 'Publish changes?' });
@@ -43,7 +43,7 @@ State follows `get…` and `set…`; constants are uppercase, like `THEMES`.
 
 ## Everything public
 
-The 84 items in `ds/lume.js`, with the module each one comes from.
+The 87 items in `ds/lume.js`, with the module each one comes from.
 
 ### Components
 
@@ -52,6 +52,9 @@ The 84 items in `ds/lume.js`, with the module each one comes from.
 | `createBackToTop` | Back-to-top button for a scrolling area. | back-to-top.js |
 | `createCalendar` | Calendar with month, week, and day views. | calendar.js |
 | `createCarousel` | Carousel with arrows, dots, keyboard, and autoplay with pause. | carousel.js |
+| `createColorPicker` | Standalone color picker: area, hue, hex, and swatches. | color-picker.js |
+| `createColorField` | Color field with a swatch that opens the picker. | color-picker.js |
+| `parseHex` | Reads a hex color (3 or 6 digits, with or without #). | color-picker.js |
 | `createCommandPalette` | Command search opened with ⌘K. | command-palette.js |
 | `createComposer` | Chat message field, with attachments. | composer.js |
 | `createContextMenu` | Right-click menu for an area. | context-menu.js |

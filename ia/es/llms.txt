@@ -1,6 +1,6 @@
 # Lume Design System
 
-> Design system en HTML, CSS y JavaScript nativos, sin dependencias: tokens, tipografía, 130 íconos propios, componentes, gráficos y patrones de pantalla, en los temas claro y oscuro. Versión 0.30.0.
+> Design system en HTML, CSS y JavaScript nativos, sin dependencias: tokens, tipografía, 130 íconos propios, componentes, gráficos y patrones de pantalla, en los temas claro y oscuro. Versión 0.31.0.
 
 Empieza por [LEEME](https://lumeui.dev/ia/es/LEEME.md): instalación, reglas generales y lo que nunca inventar. Cada página del sitio tiene un archivo Markdown abajo, generado a partir de ella.
 
@@ -41,6 +41,7 @@ Empieza por [LEEME](https://lumeui.dev/ia/es/LEEME.md): instalación, reglas gen
 - [Campo numérico](https://lumeui.dev/ia/es/componentes/campo-numerico.md): Número con − y +, límites, paso y formato del idioma.
 - [Slider](https://lumeui.dev/ia/es/componentes/slider.md): Un valor o un rango, cuando la posición importa más que el número exacto.
 - [Campo de etiquetas](https://lumeui.dev/ia/es/componentes/campo-de-tags.md): Varios valores libres dentro de un solo campo.
+- [Selector de color](https://lumeui.dev/ia/es/componentes/seletor-de-cor.md): Color libre o de la paleta, con hexadecimal y teclado.
 - [Carga de archivos](https://lumeui.dev/ia/es/componentes/upload.md): Arrastrar o elegir, con progreso y error por archivo.
 - [Código de verificación](https://lumeui.dev/ia/es/componentes/codigo-de-verificacao.md): Un dígito por casilla, para el inicio de sesión en dos pasos.
 - [Pestañas](https://lumeui.dev/ia/es/componentes/abas.md): Alternan vistas del mismo tema. Subrayadas o segmentadas.

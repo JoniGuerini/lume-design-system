@@ -9,7 +9,7 @@ En números: series: hasta 3 · punto: 8 px · anillo: 2 px · objetivo del hove
 ## Ejemplo
 
 ```html
-import { createScatterChart } from 'https://lumeui.dev/v/0.30/lume.js';
+import { createScatterChart } from 'https://lumeui.dev/v/0.31/lume.js';
 
 // cada punto: { x, y, label }
 const chart = createScatterChart(document.querySelector('#cuentas'), {
@@ -92,7 +92,7 @@ La dispersión responde “¿una cosa va con la otra?”. Para el resto, hay gr�
 Una función, con update, setLoading y destroy como en todos los gráficos.
 
 ```html
-import { createScatterChart } from 'https://lumeui.dev/v/0.30/lume.js';
+import { createScatterChart } from 'https://lumeui.dev/v/0.31/lume.js';
 
 const chart = createScatterChart(document.querySelector('#cuentas'), {
   title: 'Costo × satisfacción',

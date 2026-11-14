@@ -4,17 +4,17 @@ Seção do Lume: Recursos. Página: https://lumeui.dev/#/recursos/api
 
 Tudo o que você pode chamar pelo JavaScript, num arquivo só. O que está aqui é público e estável; o resto é interno e pode mudar.
 
-Em números: itens públicos: 84 · verbos: 5 · dependências: 0.
+Em números: itens públicos: 87 · verbos: 5 · dependências: 0.
 
 ## Importar
 
 Um arquivo, `ds/lume.js`, reúne a API inteira. Os módulos de `ds/js/` continuam podendo ser importados um a um, para carregar só o necessário.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/0.30/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/0.31/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.30/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.31/lume.js';
 
   initTheme();
   const modal = createModal({ title: 'Publicar alterações?' });
@@ -43,7 +43,7 @@ Estado segue `get…` e `set…`; constantes ficam em maiúsculas, como `THEMES`
 
 ## Tudo o que é público
 
-Os 84 itens de `ds/lume.js`, com o módulo de onde cada um vem.
+Os 87 itens de `ds/lume.js`, com o módulo de onde cada um vem.
 
 ### Componentes
 
@@ -52,6 +52,9 @@ Os 84 itens de `ds/lume.js`, com o módulo de onde cada um vem.
 | `createBackToTop` | Botão de voltar ao topo de uma área que rola. | back-to-top.js |
 | `createCalendar` | Calendário com visões de mês, semana e dia. | calendar.js |
 | `createCarousel` | Carrossel com setas, pontos, teclado e passagem automática com pausa. | carousel.js |
+| `createColorPicker` | Seletor de cor solto: área, matiz, hexadecimal e amostras. | color-picker.js |
+| `createColorField` | Campo de cor com amostra que abre o seletor. | color-picker.js |
+| `parseHex` | Lê uma cor em hexadecimal (3 ou 6 dígitos, com ou sem #). | color-picker.js |
 | `createCommandPalette` | Busca de comandos aberta com ⌘K. | command-palette.js |
 | `createComposer` | Campo de mensagem de uma conversa, com anexos. | composer.js |
 | `createContextMenu` | Menu do botão direito numa área. | context-menu.js |

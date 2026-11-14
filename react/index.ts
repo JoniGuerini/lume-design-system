@@ -37,6 +37,7 @@ export {
   DatePicker, TimePicker, NumberField, TagField,
   type DatePickerProps, type DateRange, type TimePickerProps, type NumberFieldProps, type TagFieldProps,
 } from './Pickers';
+export { ColorPicker, ColorField, type ColorPickerProps, type ColorFieldProps, type ColorSwatch } from './ColorPicker';
 export { Slider, FileUpload, OtpField, type SliderProps, type FileUploadProps, type FileUploadHandle, type OtpFieldProps } from './Controls';
 export { Form, type FormProps, type FormHandle, type FormError, type FormData } from './Form';
 

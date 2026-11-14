@@ -80,7 +80,7 @@ export default function renderReact(page) {
         <p class="doc-header__lead">${L('Componentes .tsx para copiar no projeto, por cima do mesmo CSS e JavaScript do Lume. Sem pacote para instalar: a pasta vem no zip de cada versão.', '.tsx components to copy into your project, on top of Lume’s same CSS and JavaScript. No package to install: the folder comes in each version’s zip.', 'Componentes .tsx para copiar al proyecto, sobre el mismo CSS y JavaScript de Lume. Sin paquete que instalar: la carpeta viene en el zip de cada versión.')}</p>
       </div>
       <dl class="doc-stats">
-        <div class="doc-stat"><dt class="doc-stat__label">${L('dos 45 componentes', 'of the 45 components', 'de los 45 componentes')}</dt><dd class="doc-stat__value">${reactCount()}</dd></div>
+        <div class="doc-stat"><dt class="doc-stat__label">${L('dos 46 componentes', 'of the 46 components', 'de los 46 componentes')}</dt><dd class="doc-stat__value">${reactCount()}</dd></div>
         <div class="doc-stat"><dt class="doc-stat__label">React</dt><dd class="doc-stat__value">18+</dd></div>
         <div class="doc-stat"><dt class="doc-stat__label">${L('dependências', 'dependencies', 'dependencias')}</dt><dd class="doc-stat__value">0</dd></div>
       </dl>
@@ -129,8 +129,8 @@ export default function renderReact(page) {
       'react-proximos',
       L('O que vem', 'What’s next', 'Lo que viene'),
       next.length
-        ? L('Uma etapa por versão, até os 45 componentes. Enquanto um componente não chega, use a marcação HTML da página dele com className: o CSS é o mesmo.', 'One stage per version, up to all 45 components. Until a component arrives, use the HTML markup from its page with className: the CSS is the same.', 'Una etapa por versión, hasta los 45 componentes. Mientras un componente no llega, usa el marcado HTML de su página con className: el CSS es el mismo.')
-        : L('Os 45 componentes já estão em React.', 'All 45 components are already in React.', 'Los 45 componentes ya están en React.'),
+        ? L('Uma etapa por versão, até os 46 componentes. Enquanto um componente não chega, use a marcação HTML da página dele com className: o CSS é o mesmo.', 'One stage per version, up to all 46 components. Until a component arrives, use the HTML markup from its page with className: the CSS is the same.', 'Una etapa por versión, hasta los 46 componentes. Mientras un componente no llega, usa el marcado HTML de su página con className: el CSS es el mismo.')
+        : L('Os 46 componentes já estão em React.', 'All 46 components are already in React.', 'Los 46 componentes ya están en React.'),
       next.length
         ? `<div class="doc-table ra-items">
         ${next.map((s) => `<div class="doc-table__row"><span>${ic(s.version)}</span><span>${s.title}: ${s.text}</span><span class="ra-muted">${s.status}</span></div>`).join('')}

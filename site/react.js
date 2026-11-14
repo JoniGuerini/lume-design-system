@@ -32,6 +32,7 @@ export const REACT_GROUPS = () => [
       ['Switch', 'Choice.tsx', '/componentes/switch', '0.27', L('Liga e desliga, com descrição e dois tamanhos.', 'On and off, with a description and two sizes.', 'Enciende y apaga, con descripción y dos tamaños.')],
       ['DatePicker', 'Pickers.tsx', '/componentes/seletor-de-data', '0.27', L('Data ou período, valor em Date; o formulário recebe ISO.', 'Date or range, value as Date; the form gets ISO.', 'Fecha o período, valor en Date; el formulario recibe ISO.')],
       ['TimePicker', 'Pickers.tsx', '/componentes/seletor-de-horario', '0.27', L('Horário em HH:MM, com lista e digitação livre.', 'Time as HH:MM, with a list and free typing.', 'Hora en HH:MM, con lista y escritura libre.')],
+      ['ColorPicker · ColorField', 'ColorPicker.tsx', '/componentes/seletor-de-cor', '0.31', L('O seletor solto e o campo que o abre; o hexadecimal fica no estado.', 'The standalone picker and the field that opens it; the hex stays in state.', 'El selector suelto y el campo que lo abre; el hexadecimal queda en el estado.')],
       ['NumberField', 'Pickers.tsx', '/componentes/campo-numerico', '0.27', L('Número com − e +, limites e formato (moeda, porcentagem).', 'Number with − and +, limits and format (currency, percent).', 'Número con − y +, límites y formato (moneda, porcentaje).')],
       ['Slider', 'Controls.tsx', '/componentes/slider', '0.27', L('Um valor ou uma faixa; onChange enquanto arrasta, onCommit ao soltar.', 'A value or a range; onChange while dragging, onCommit on release.', 'Un valor o un rango; onChange mientras arrastras, onCommit al soltar.')],
       ['TagField', 'Pickers.tsx', '/componentes/campo-de-tags', '0.27', L('Lista de valores livres, com limite e validação.', 'A list of free values, with a limit and validation.', 'Lista de valores libres, con límite y validación.')],
@@ -109,5 +110,5 @@ export const REACT_GROUPS = () => [
   },
 ];
 
-/** Quantos dos 45 componentes do Lume já têm versão React (uma página de componente conta uma vez). */
+/** Quantos dos 46 componentes do Lume já têm versão React (uma página de componente conta uma vez). */
 export const reactCount = () => new Set(REACT_GROUPS().flatMap((g) => g.items.map((i) => i[2])).filter((r) => r?.startsWith('/componentes/'))).size;

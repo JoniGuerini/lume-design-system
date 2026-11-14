@@ -8,10 +8,29 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.30.0';
+export const CURRENT_VERSION = '0.31.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.31.0',
+    date: '2026-11-14',
+    title: T('Seletor de cor', 'Color picker', 'Selector de color'),
+    summary: T(
+      'Escolha uma cor livre ou da paleta: área de saturação e brilho, matiz, hexadecimal e amostras. Vem solto ou num campo que abre o seletor.',
+      'Pick a free color or one from the palette: saturation and brightness area, hue, hex, and swatches. It comes standalone or in a field that opens the picker.',
+      'Elige un color libre o de la paleta: área de saturación y brillo, matiz, hexadecimal y muestras. Viene suelto o en un campo que abre el selector.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['novo', T('Seletor de cor: solto ou no campo, com teclado nas duas alças, hexadecimal de 3 ou 6 dígitos e amostras com nome', 'Color picker: standalone or in a field, with keyboard on both thumbs, 3- or 6-digit hex, and named swatches', 'Selector de color: suelto o en el campo, con teclado en los dos tiradores, hexadecimal de 3 o 6 dígitos y muestras con nombre'), '/componentes/seletor-de-cor'],
+          ['novo', T('createColorPicker, createColorField e parseHex na API; ColorPicker e ColorField no React', 'createColorPicker, createColorField, and parseHex in the API; ColorPicker and ColorField in React', 'createColorPicker, createColorField y parseHex en la API; ColorPicker y ColorField en React'), '/recursos/api'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.30.0',
     date: '2026-11-14',

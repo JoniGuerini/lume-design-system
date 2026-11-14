@@ -78,6 +78,10 @@ export declare function menuContent(config?: Record<string, unknown>): string;
   pagination: `export declare function createPagination(root: HTMLElement, options?: Record<string, unknown>): { page: number; pageSize: number; setPage(page: number): void; setTotal(total: number): void; destroy(): void };
 export declare function pageRange(page: number, pages: number, siblings?: number): Array<number | string>;
 `,
+  'color-picker': `export declare function parseHex(text: string): string | null;
+export declare function createColorPicker(root: HTMLElement, options?: Record<string, unknown>): { value: string; setValue(value: string | null): void; setSwatches(list: unknown[]): void; focus(): void; destroy(): void };
+export declare function createColorField(input: HTMLInputElement, options?: Record<string, unknown>): { value: string | null; setValue(value: string | null): void; open(): void; close(): void; destroy(): void };
+`,
   carousel: `export declare function createCarousel(root: HTMLElement, options?: Record<string, unknown>): { index: number; paused: boolean; goTo(index: number): void; next(): void; prev(): void; pause(): void; play(): void; destroy(): void };
 `,
   stepper: `export declare function createStepper(root: HTMLElement, options?: Record<string, unknown>): { current: number; setCurrent(index: number): void; next(): void; prev(): void; destroy(): void };

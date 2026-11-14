@@ -18,7 +18,7 @@ In numbers: per view: 1+ · keys: 4 · dot: 6 px · swipe: native.
 </section>
 
 <script type="module">
-  import { createCarousel } from 'https://lumeui.dev/v/0.30/lume.js';
+  import { createCarousel } from 'https://lumeui.dev/v/0.31/lume.js';
   createCarousel(document.querySelector('.ds-carousel'));
 </script>
 ```
@@ -71,7 +71,7 @@ The slides are yours; the carousel adds the bottom bar, the keyboard, and the la
 </section>
 
 <script type="module">
-  import { createCarousel } from 'https://lumeui.dev/v/0.30/lume.js';
+  import { createCarousel } from 'https://lumeui.dev/v/0.31/lume.js';
 
   const carousel = createCarousel(document.querySelector('.ds-carousel'), {
     loop: true,

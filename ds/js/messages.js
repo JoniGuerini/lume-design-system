@@ -169,6 +169,16 @@ export const MESSAGES = {
 
     'stepper.done': 'concluída',
 
+    'color.picker': 'Seletor de cor',
+    'color.area': 'Saturação e brilho',
+    'color.areaValue': (s, v) => `Saturação ${BR(s)}%, brilho ${BR(v)}%`,
+    'color.hue': 'Matiz',
+    'color.hex': 'Cor em hexadecimal',
+    'color.swatches': 'Amostras',
+    'color.open': 'Escolher cor',
+    'color.openWith': (hex) => `Escolher cor, atual ${hex}`,
+    'color.invalid': 'Use uma cor em hexadecimal, como #C97B63.',
+
     'carousel.label': 'carrossel',
     'carousel.slide': 'slide',
     'carousel.position': (i, n) => `${BR(i)} de ${BR(n)}`,
@@ -406,6 +416,16 @@ export const MESSAGES = {
 
     'stepper.done': 'completed',
 
+    'color.picker': 'Color picker',
+    'color.area': 'Saturation and brightness',
+    'color.areaValue': (s, v) => `Saturation ${EN(s)}%, brightness ${EN(v)}%`,
+    'color.hue': 'Hue',
+    'color.hex': 'Hex color',
+    'color.swatches': 'Swatches',
+    'color.open': 'Choose color',
+    'color.openWith': (hex) => `Choose color, current ${hex}`,
+    'color.invalid': 'Use a hex color, like #C97B63.',
+
     'carousel.label': 'carousel',
     'carousel.slide': 'slide',
     'carousel.position': (i, n) => `${EN(i)} of ${EN(n)}`,
@@ -642,6 +662,16 @@ export const MESSAGES = {
     'pagination.pageSize': 'Elementos por página',
 
     'stepper.done': 'completada',
+
+    'color.picker': 'Selector de color',
+    'color.area': 'Saturación y brillo',
+    'color.areaValue': (s, v) => `Saturación ${ES(s)}%, brillo ${ES(v)}%`,
+    'color.hue': 'Matiz',
+    'color.hex': 'Color en hexadecimal',
+    'color.swatches': 'Muestras',
+    'color.open': 'Elegir color',
+    'color.openWith': (hex) => `Elegir color, actual ${hex}`,
+    'color.invalid': 'Usa un color en hexadecimal, como #C97B63.',
 
     'carousel.label': 'carrusel',
     'carousel.slide': 'diapositiva',

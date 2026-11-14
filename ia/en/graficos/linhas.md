@@ -9,7 +9,7 @@ In numbers: variants: 8 · stroke: 2 px · end labels: up to 4 · y axis: 1.
 ## Example
 
 ```html
-import { createLineChart } from 'https://lumeui.dev/v/0.30/lume.js';
+import { createLineChart } from 'https://lumeui.dev/v/0.31/lume.js';
 
 const chart = createLineChart(document.querySelector('#users'), {
   title: 'Active users',
@@ -113,7 +113,7 @@ Choose a line when the question has “when” or “since”. Four precautions 
 One function, the same rules as every Lume chart.
 
 ```html
-import { createLineChart } from 'https://lumeui.dev/v/0.30/lume.js';
+import { createLineChart } from 'https://lumeui.dev/v/0.31/lume.js';
 
 const chart = createLineChart(document.querySelector('#revenue'), {
   title: 'Revenue',

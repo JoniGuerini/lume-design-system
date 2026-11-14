@@ -4,17 +4,17 @@ Sección de Lume: Recursos. Página: https://lumeui.dev/#/recursos/api
 
 Todo lo que puedes llamar desde JavaScript, en un solo archivo. Lo que está aquí es público y estable; el resto es interno y puede cambiar.
 
-En números: ítems públicos: 84 · verbos: 5 · dependencias: 0.
+En números: ítems públicos: 87 · verbos: 5 · dependencias: 0.
 
 ## Importar
 
 Un archivo, `ds/lume.js`, reúne toda la API. Los módulos de `ds/js/` siguen pudiéndose importar uno a uno, para cargar solo lo necesario.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/0.30/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/0.31/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.30/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.31/lume.js';
 
   initTheme();
   const modal = createModal({ title: '¿Publicar cambios?' });
@@ -43,7 +43,7 @@ El estado sigue `get…` y `set…`; las constantes van en mayúsculas, como `TH
 
 ## Todo lo público
 
-Los 84 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
+Los 87 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 
 ### Componentes
 
@@ -52,6 +52,9 @@ Los 84 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 | `createBackToTop` | Botón de volver arriba para un área con desplazamiento. | back-to-top.js |
 | `createCalendar` | Calendario con vistas de mes, semana y día. | calendar.js |
 | `createCarousel` | Carrusel con flechas, puntos, teclado y paso automático con pausa. | carousel.js |
+| `createColorPicker` | Selector de color suelto: área, matiz, hexadecimal y muestras. | color-picker.js |
+| `createColorField` | Campo de color con muestra que abre el selector. | color-picker.js |
+| `parseHex` | Lee un color en hexadecimal (3 o 6 dígitos, con o sin #). | color-picker.js |
 | `createCommandPalette` | Búsqueda de comandos que se abre con ⌘K. | command-palette.js |
 | `createComposer` | Campo de mensaje de una conversación, con adjuntos. | composer.js |
 | `createContextMenu` | Menú del botón derecho en un área. | context-menu.js |

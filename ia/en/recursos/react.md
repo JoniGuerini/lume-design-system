@@ -4,11 +4,11 @@ Lume section: Resources. Page: https://lumeui.dev/#/recursos/react
 
 .tsx components to copy into your project, on top of Lume’s same CSS and JavaScript. No package to install: the folder comes in each version’s zip.
 
-In numbers: of the 45 components: 45 · React: 18+ · dependencies: 0.
+In numbers: of the 46 components: 46 · React: 18+ · dependencies: 0.
 
 ## Install
 
-Download the 0.30 zip, unzip it, and move the folder into `src/` named `lume`. The components are in `lume/react/` and import the JavaScript and icons from that same folder. It works with Vite, Next.js, and any React 18 or newer project.
+Download the 0.31 zip, unzip it, and move the folder into `src/` named `lume`. The components are in `lume/react/` and import the JavaScript and icons from that same folder. It works with Vite, Next.js, and any React 18 or newer project.
 
 ```html
 src/
@@ -96,6 +96,7 @@ What’s already in React. Each name leads to the component’s page, with the u
 | `Switch` | On and off, with a description and two sizes. | Choice.tsx |
 | `DatePicker` | Date or range, value as Date; the form gets ISO. | Pickers.tsx |
 | `TimePicker` | Time as HH:MM, with a list and free typing. | Pickers.tsx |
+| `ColorPicker · ColorField` | The standalone picker and the field that opens it; the hex stays in state. | ColorPicker.tsx |
 | `NumberField` | Number with − and +, limits and format (currency, percent). | Pickers.tsx |
 | `Slider` | A value or a range; onChange while dragging, onCommit on release. | Controls.tsx |
 | `TagField` | A list of free values, with a limit and validation. | Pickers.tsx |
@@ -178,8 +179,8 @@ What’s already in React. Each name leads to the component’s page, with the u
 | Your files | The .tsx files live in your project, as with shadcn: you can read, change, and delete what you don’t use. No npm. |
 | TypeScript | Typed, commented props, with a link to each component’s page. `IconName` lists the 132 icons: a wrong name won’t compile. |
 | Language | The text a component writes on its own ("Close", "Loading") follows Lume’s language and changes with `setLocale`. `useLocale()` does the same for yours. |
-| Versions | The `react/` folder ships with every line: `/v/0.30/react/`. Updating means swapping the Lume folder for the new line’s. |
+| Versions | The `react/` folder ships with every line: `/v/0.31/react/`. Updating means swapping the Lume folder for the new line’s. |
 
 ## What’s next
 
-All 45 components are already in React.
+All 46 components are already in React.

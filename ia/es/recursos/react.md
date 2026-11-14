@@ -4,11 +4,11 @@ Sección de Lume: Recursos. Página: https://lumeui.dev/#/recursos/react
 
 Componentes .tsx para copiar al proyecto, sobre el mismo CSS y JavaScript de Lume. Sin paquete que instalar: la carpeta viene en el zip de cada versión.
 
-En números: de los 45 componentes: 45 · React: 18+ · dependencias: 0.
+En números: de los 46 componentes: 46 · React: 18+ · dependencias: 0.
 
 ## Instalar
 
-Descarga el zip de la versión 0.30, descomprímelo y lleva la carpeta dentro de `src/` con el nombre `lume`. Los componentes están en `lume/react/` e importan el JavaScript y los íconos de la misma carpeta. Funciona con Vite, Next.js y cualquier proyecto React 18 o más nuevo.
+Descarga el zip de la versión 0.31, descomprímelo y lleva la carpeta dentro de `src/` con el nombre `lume`. Los componentes están en `lume/react/` e importan el JavaScript y los íconos de la misma carpeta. Funciona con Vite, Next.js y cualquier proyecto React 18 o más nuevo.
 
 ```html
 src/
@@ -96,6 +96,7 @@ Lo que ya está en React. Cada nombre lleva a la página del componente, con los
 | `Switch` | Enciende y apaga, con descripción y dos tamaños. | Choice.tsx |
 | `DatePicker` | Fecha o período, valor en Date; el formulario recibe ISO. | Pickers.tsx |
 | `TimePicker` | Hora en HH:MM, con lista y escritura libre. | Pickers.tsx |
+| `ColorPicker · ColorField` | El selector suelto y el campo que lo abre; el hexadecimal queda en el estado. | ColorPicker.tsx |
 | `NumberField` | Número con − y +, límites y formato (moneda, porcentaje). | Pickers.tsx |
 | `Slider` | Un valor o un rango; onChange mientras arrastras, onCommit al soltar. | Controls.tsx |
 | `TagField` | Lista de valores libres, con límite y validación. | Pickers.tsx |
@@ -178,8 +179,8 @@ Lo que ya está en React. Cada nombre lleva a la página del componente, con los
 | Tus archivos | Los .tsx quedan en tu proyecto, como en shadcn: puedes leer, cambiar y borrar lo que no uses. Nada de npm. |
 | TypeScript | Props tipadas y comentadas, con el enlace a la página de cada componente. `IconName` lista los 132 íconos: un nombre equivocado no compila. |
 | Idioma | Los textos que el componente escribe solo ("Cerrar", "Cargando") siguen el idioma de Lume y cambian con `setLocale`. `useLocale()` hace lo mismo en los tuyos. |
-| Versiones | La carpeta `react/` va en cada línea: `/v/0.30/react/`. Actualizar es cambiar la carpeta de Lume por la de la línea nueva. |
+| Versiones | La carpeta `react/` va en cada línea: `/v/0.31/react/`. Actualizar es cambiar la carpeta de Lume por la de la línea nueva. |
 
 ## Lo que viene
 
-Los 45 componentes ya están en React.
+Los 46 componentes ya están en React.

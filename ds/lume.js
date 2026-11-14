@@ -25,6 +25,7 @@ export {
   sparklineHtml, statTileHtml, meterHtml, formatter,
 } from './js/charts.js';
 export { codeBlockHtml, mountCodeBlocks } from './js/code-block.js';
+export { createColorPicker, createColorField, parseHex } from './js/color-picker.js';
 export { createCommandPalette } from './js/command-palette.js';
 export { createComposer, composerHtml, messageHtml, attachmentHtml, typingHtml, streamText } from './js/composer.js';
 export { createContextMenu } from './js/context-menu.js';

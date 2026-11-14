@@ -1,0 +1,16 @@
+/* Página: Seletor de cor (prefixo cp-) */
+
+.cd-example__preview .ds-color-picker,
+.cd-playground__preview .ds-color-picker {
+  margin-inline: auto;
+}
+
+/* o seletor solto fica sobre a superfície elevada, como no painel do campo */
+.cd-example__preview .ds-color-picker,
+.cd-playground__preview .ds-color-picker {
+  padding: var(--ds-space-150);
+  border-radius: var(--ds-radius-lg);
+  background: var(--ds-color-bg-raised);
+  border: 1px solid var(--ds-color-border-default);
+  width: 266px;
+}

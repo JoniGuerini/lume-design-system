@@ -4,11 +4,11 @@ Seção do Lume: Recursos. Página: https://lumeui.dev/#/recursos/react
 
 Componentes .tsx para copiar no projeto, por cima do mesmo CSS e JavaScript do Lume. Sem pacote para instalar: a pasta vem no zip de cada versão.
 
-Em números: dos 45 componentes: 45 · React: 18+ · dependências: 0.
+Em números: dos 46 componentes: 46 · React: 18+ · dependências: 0.
 
 ## Instalar
 
-Baixe o zip da versão 0.30, descompacte e leve a pasta para dentro de `src/` com o nome `lume`. Os componentes estão em `lume/react/` e importam o JavaScript e os ícones da própria pasta. Funciona com Vite, Next.js e qualquer projeto React 18 ou mais novo.
+Baixe o zip da versão 0.31, descompacte e leve a pasta para dentro de `src/` com o nome `lume`. Os componentes estão em `lume/react/` e importam o JavaScript e os ícones da própria pasta. Funciona com Vite, Next.js e qualquer projeto React 18 ou mais novo.
 
 ```html
 src/
@@ -96,6 +96,7 @@ O que já está em React. Cada nome leva à página do componente, onde estão o
 | `Switch` | Liga e desliga, com descrição e dois tamanhos. | Choice.tsx |
 | `DatePicker` | Data ou período, valor em Date; o formulário recebe ISO. | Pickers.tsx |
 | `TimePicker` | Horário em HH:MM, com lista e digitação livre. | Pickers.tsx |
+| `ColorPicker · ColorField` | O seletor solto e o campo que o abre; o hexadecimal fica no estado. | ColorPicker.tsx |
 | `NumberField` | Número com − e +, limites e formato (moeda, porcentagem). | Pickers.tsx |
 | `Slider` | Um valor ou uma faixa; onChange enquanto arrasta, onCommit ao soltar. | Controls.tsx |
 | `TagField` | Lista de valores livres, com limite e validação. | Pickers.tsx |
@@ -178,8 +179,8 @@ O que já está em React. Cada nome leva à página do componente, onde estão o
 | Seus arquivos | Os .tsx ficam no seu projeto, como no shadcn: dá para ler, mudar e apagar o que não usar. Nada de npm. |
 | TypeScript | Props tipadas e comentadas, com o link da página de cada componente. `IconName` lista os 132 ícones: nome errado não compila. |
 | Idioma | Os textos que o componente escreve sozinho ("Fechar", "Carregando") seguem o idioma do Lume e mudam com `setLocale`. `useLocale()` faz o mesmo nos seus. |
-| Versões | A pasta `react/` vai em cada linha: `/v/0.30/react/`. Atualizar é trocar a pasta do Lume pela da linha nova. |
+| Versões | A pasta `react/` vai em cada linha: `/v/0.31/react/`. Atualizar é trocar a pasta do Lume pela da linha nova. |
 
 ## O que vem
 
-Os 45 componentes já estão em React.
+Os 46 componentes já estão em React.
