@@ -49,7 +49,7 @@ const FILES = () => [
   [P().llms, 'llms.txt', L('O índice que as IAs procuram: um link para cada arquivo, com uma linha de descrição.', 'The index AIs look for: one link per file, with a one-line description.', 'El índice que buscan las IAs: un enlace por archivo, con una línea de descripción.')],
   [`${P().dir}/${P().readme}`, P().readme, L('A porta de entrada: instalação, regras gerais, direção visual e uma escolha rápida de componentes.', 'The entry point: installation, general rules, visual direction, and a quick component chooser.', 'La puerta de entrada: instalación, reglas generales, dirección visual y una elección rápida de componentes.')],
   [`${P().dir}/AGENTS.md`, 'AGENTS.md', L('As regras em poucas linhas, para copiar para um projeto.', 'The rules in a few lines, to copy into a project.', 'Las reglas en pocas líneas, para copiar a un proyecto.')],
-  [`${P().dir}/${P().icons}`, P().icons, L('A lista exata dos 146 nomes de ícone. Nenhum outro existe.', 'The exact list of the 146 icon names. No other exists.', 'La lista exacta de los 146 nombres de ícono. No existe ningún otro.')],
+  [`${P().dir}/${P().icons}`, P().icons, L('A lista exata dos 147 nomes de ícone. Nenhum outro existe.', 'The exact list of the 147 icon names. No other exists.', 'La lista exacta de los 147 nombres de ícono. No existe ningún otro.')],
   [`${P().dir}/componentes/botao.md`, 'componentes/*.md', L('Um arquivo por componente: exemplo, variantes com classes, estados, anatomia, acessibilidade, tokens e regras de uso.', 'One file per component: example, variants with classes, states, anatomy, accessibility, tokens, and usage rules.', 'Un archivo por componente: ejemplo, variantes con clases, estados, anatomía, accesibilidad, tokens y reglas de uso.')],
   [`${P().dir}/padroes/login.md`, 'fundamentos · graficos · padroes', L('As demais páginas do site, no mesmo formato.', 'The rest of the site’s pages, in the same format.', 'Las demás páginas del sitio, en el mismo formato.')],
 ];
@@ -84,8 +84,8 @@ export default function renderIa(page) {
       <dl class="doc-stats">
         <div class="doc-stat"><dt class="doc-stat__label">${L('arquivos por idioma', 'files per language', 'archivos por idioma')}</dt><dd class="doc-stat__value">73</dd></div>
         <div class="doc-stat"><dt class="doc-stat__label">${L('idiomas', 'languages', 'idiomas')}</dt><dd class="doc-stat__value">3</dd></div>
-        <div class="doc-stat"><dt class="doc-stat__label">${L('componentes', 'components', 'componentes')}</dt><dd class="doc-stat__value">52</dd></div>
-        <div class="doc-stat"><dt class="doc-stat__label">${L('ícones listados', 'icons listed', 'íconos listados')}</dt><dd class="doc-stat__value">146</dd></div>
+        <div class="doc-stat"><dt class="doc-stat__label">${L('componentes', 'components', 'componentes')}</dt><dd class="doc-stat__value">54</dd></div>
+        <div class="doc-stat"><dt class="doc-stat__label">${L('ícones listados', 'icons listed', 'íconos listados')}</dt><dd class="doc-stat__value">147</dd></div>
       </dl>
     </header>
 
@@ -125,7 +125,7 @@ export default function renderIa(page) {
       L('Regras', 'Rules', 'Reglas'),
       L('O que a IA lê antes de qualquer tela. Também valem para quem escreve o código à mão.', 'What the AI reads before any screen. They also apply to anyone writing the code by hand.', 'Lo que la IA lee antes de cualquier pantalla. También valen para quien escribe el código a mano.'),
       `<ul class="ri-rules" role="list">${RULES().map((r) => `<li>${icon('check', { size: 18 })}<span>${r}</span></li>`).join('')}</ul>
-      <p class="rf-note">${icon('info', { size: 16 })}<span>${L(`A IA carrega o Lume pelo endereço com versão, como ${ic(`${SITE}/v/0.34/`)}: o projeto só muda quando alguém trocar o número.`, `The AI loads Lume from the versioned address, like ${ic(`${SITE}/v/0.34/`)}: the project only changes when someone changes the number.`, `La IA carga Lume desde la dirección con versión, como ${ic(`${SITE}/v/0.34/`)}: el proyecto solo cambia cuando alguien cambie el número.`)}</span></p>`,
+      <p class="rf-note">${icon('info', { size: 16 })}<span>${L(`A IA carrega o Lume pelo endereço com versão, como ${ic(`${SITE}/v/0.35/`)}: o projeto só muda quando alguém trocar o número.`, `The AI loads Lume from the versioned address, like ${ic(`${SITE}/v/0.35/`)}: the project only changes when someone changes the number.`, `La IA carga Lume desde la dirección con versión, como ${ic(`${SITE}/v/0.35/`)}: el proyecto solo cambia cuando alguien cambie el número.`)}</span></p>`,
     )}
 
     ${section(

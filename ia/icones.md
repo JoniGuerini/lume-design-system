@@ -1,6 +1,6 @@
 # Ícones do Lume
 
-São 146 ícones desenhados para o Lume: grade de 24, traço de 1,5, pontas arredondadas. Use só estes nomes, em `<ds-icon name="…">` (com https://lumeui.dev/ds/icons/icons.js importado) ou na função `icon(name)` do mesmo módulo. Não existe nenhum outro nome.
+São 147 ícones desenhados para o Lume: grade de 24, traço de 1,5, pontas arredondadas. Use só estes nomes, em `<ds-icon name="…">` (com https://lumeui.dev/ds/icons/icons.js importado) ou na função `icon(name)` do mesmo módulo. Não existe nenhum outro nome.
 
 ```html
 <ds-icon name="search" size="20"></ds-icon>
@@ -130,6 +130,7 @@ O tamanho padrão é 20 px; o traço fica em 1,75 abaixo de 16 px. O ícone herd
 | `align-right` | alinhar, direita, texto, parágrafo |
 | `list-ordered` | lista, numerada, ordenada, itens |
 | `divider` | divisor, separador, linha, entre, blocos |
+| `banner` | banner, anúncio, faixa, topo, aviso |
 | `toolbar` | barra, de, ferramentas, ações, agrupadas |
 | `message-square` | mensagem, toast, chat, comentário |
 | `stack` | conteúdos, coleção, pilha |

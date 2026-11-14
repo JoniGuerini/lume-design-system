@@ -1,0 +1,48 @@
+/* Página: Banner de anúncio (prefixo bn-) */
+
+.fc-preview:has(.ds-banner) {
+  width: 100%;
+}
+
+.bn-play {
+  display: grid;
+  justify-items: center;
+  gap: var(--ds-space-200);
+  width: min(560px, 100%);
+  margin-inline: auto;
+}
+
+.bn-play .ds-banner {
+  width: 100%;
+}
+
+.bn-app {
+  overflow: hidden;
+  width: 100%;
+  border-radius: var(--ds-radius-lg);
+  background: var(--ds-color-bg-surface);
+  border: 1px solid var(--ds-color-border-subtle);
+}
+
+.bn-app__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-150);
+  padding: var(--ds-space-150) var(--ds-space-250);
+  border-bottom: 1px solid var(--ds-color-border-subtle);
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-label-sm);
+  letter-spacing: var(--ds-text-label-sm-tracking);
+}
+
+.bn-app__title {
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-label-md);
+  letter-spacing: var(--ds-text-label-md-tracking);
+}
+
+.bn-app__body {
+  display: grid;
+  gap: var(--ds-space-150);
+  padding: var(--ds-space-250);
+}

@@ -103,6 +103,7 @@ export const ICON_KEYWORDS = {
   redo: ['redo forward', 'rehacer'],
   divider: ['divider separator line between blocks rule', 'divisor separador línea entre bloques'],
   'progress-ring': ['circular progress ring percentage', 'progreso circular anillo porcentaje'],
+  banner: ['banner announcement strip top notice', 'banner anuncio franja arriba aviso'],
   toolbar: ['toolbar grouped actions', 'barra de herramientas acciones agrupadas'],
   resizable: ['resizable panels split divider drag resize', 'paneles redimensionables dividir arrastrar divisor'],
   tooltip: ['hint balloon help tooltip', 'pista globo ayuda'],

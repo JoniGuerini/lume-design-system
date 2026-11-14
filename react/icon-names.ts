@@ -103,6 +103,7 @@ export type IconName =
   | 'redo'
   | 'divider'
   | 'progress-ring'
+  | 'banner'
   | 'toolbar'
   | 'message-square'
   | 'stack'

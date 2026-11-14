@@ -1,6 +1,6 @@
 # Lume Design System
 
-> Design system em HTML, CSS e JavaScript nativos, sem dependências: tokens, tipografia, 130 ícones próprios, componentes, gráficos e padrões de tela, nos temas claro e escuro. Versão 0.34.0.
+> Design system em HTML, CSS e JavaScript nativos, sem dependências: tokens, tipografia, 130 ícones próprios, componentes, gráficos e padrões de tela, nos temas claro e escuro. Versão 0.35.0.
 
 Comece por [LEIA-ME](https://lumeui.dev/ia/LEIA-ME.md): instalação, regras gerais e o que nunca inventar. Cada página do site tem um arquivo Markdown abaixo, gerado a partir dela.
 
@@ -62,7 +62,9 @@ Comece por [LEIA-ME](https://lumeui.dev/ia/LEIA-ME.md): instalação, regras ger
 - [Menu de contexto](https://lumeui.dev/ia/componentes/menu-de-contexto.md): Ações do item, com o botão direito ou o teclado.
 - [Tooltip](https://lumeui.dev/ia/componentes/tooltip.md): Dica curta no hover e no foco — nomeia ícones e ensina atalhos.
 - [Alerta](https://lumeui.dev/ia/componentes/alerta.md): Uma mensagem na própria página, nos tons de status.
+- [Banner de anúncio](https://lumeui.dev/ia/componentes/banner-de-anuncio.md): Faixa no topo do app para um recado a todo mundo, que a pessoa fecha.
 - [Toast](https://lumeui.dev/ia/componentes/toast.md): Confirma o que aconteceu sem interromper; tons, desfazer e seis posições.
+- [Central de notificações](https://lumeui.dev/ia/componentes/central-de-notificacoes.md): O sino com a lista do que aconteceu, lidas e não lidas.
 - [Badge](https://lumeui.dev/ia/componentes/badge.md): Rótulo curto de status ou contagem — nunca enfeite.
 - [Barra de progresso](https://lumeui.dev/ia/componentes/barra-de-progresso.md): Quanto de uma tarefa já foi feito.
 - [Progresso circular](https://lumeui.dev/ia/componentes/progresso-circular.md): O progresso num anel, para quando a barra não cabe.

@@ -102,7 +102,7 @@ ${(s.kind === 'text' ? VIEWS().map(([v, t], i) => `  <button type="button" class
 </div>
 
 <script type="module">
-  import { createSegmented } from 'https://lumeui.dev/v/0.34/lume.js';
+  import { createSegmented } from 'https://lumeui.dev/v/0.35/lume.js';
   createSegmented(document.querySelector('.ds-segmented'), {
     onChange: (value) => trocar(value),
   });

@@ -1,0 +1,48 @@
+/* Página: Central de notificações (prefixo cn-) */
+
+.fc-preview:has(.cn-static) {
+  width: 100%;
+}
+
+/* o painel aberto, parado no lugar, para os exemplos */
+.ds-popover.cn-static {
+  position: static;
+  width: 100%;
+  max-width: 380px;
+  margin-inline: auto;
+  box-shadow: none;
+  animation: none;
+}
+
+.cn-static .ds-notify {
+  max-height: none;
+}
+
+.cn-item {
+  padding: 0;
+  width: min(340px, 100%);
+}
+
+.cn-play {
+  display: grid;
+  justify-items: center;
+  gap: var(--ds-space-300);
+  width: min(440px, 100%);
+}
+
+.cn-play__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--ds-space-100) var(--ds-space-100) var(--ds-space-100) var(--ds-space-250);
+  border-radius: var(--ds-radius-lg);
+  background: var(--ds-color-bg-surface);
+  border: 1px solid var(--ds-color-border-subtle);
+  --ds-notify-ring: var(--ds-color-bg-surface);
+}
+
+.cn-play__title {
+  font: var(--ds-text-label-md);
+  letter-spacing: var(--ds-text-label-md-tracking);
+}

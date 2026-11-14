@@ -8,10 +8,36 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.34.0';
+export const CURRENT_VERSION = '0.35.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.35.0',
+    date: '2026-11-14',
+    title: T('Banner de anúncio e central de notificações', 'Announcement banner and notification center', 'Banner de anuncio y centro de notificaciones'),
+    summary: T(
+      'Recados para todo mundo e para cada pessoa: uma faixa no topo do app que lembra quem a fechou, e o sino com a lista do que aconteceu, lidas e não lidas.',
+      'Messages for everyone and for each person: a strip at the top of the app that remembers who closed it, and the bell with the list of what happened, read and unread.',
+      'Mensajes para todos y para cada persona: una franja arriba de la app que recuerda quién la cerró, y la campana con la lista de lo que pasó, leídas y sin leer.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['novo', T('Banner de anúncio: cinco tons, link, fechar e lembrar no navegador, e colado no topo do app', 'Announcement banner: five tones, a link, close and remember in the browser, and flush at the top of the app', 'Banner de anuncio: cinco tonos, enlace, cerrar y recordar en el navegador, y pegado arriba de la app'), '/componentes/banner-de-anuncio'],
+          ['novo', T('Central de notificações: o sino com o número, lidas e não lidas, marcar todas, tempo relativo e anúncio das que chegam', 'Notification center: the bell with the count, read and unread, mark all, relative time, and announcing new arrivals', 'Centro de notificaciones: la campana con el número, leídas y sin leer, marcar todas, tiempo relativo y aviso de las que llegan'), '/componentes/central-de-notificacoes'],
+          ['novo', T('createBanner, createNotificationCenter e relativeTime na API; Banner e NotificationCenter no React', 'createBanner, createNotificationCenter, and relativeTime in the API; Banner and NotificationCenter in React', 'createBanner, createNotificationCenter y relativeTime en la API; Banner y NotificationCenter en React'), '/recursos/api'],
+        ],
+      },
+      {
+        name: T('Ícones', 'Icons', 'Íconos'),
+        items: [
+          ['novo', T('1 ícone novo: banner', '1 new icon: banner', '1 ícono nuevo: banner'), '/fundamentos/icones'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.34.0',
     date: '2026-11-14',

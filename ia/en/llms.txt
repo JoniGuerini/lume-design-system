@@ -1,6 +1,6 @@
 # Lume Design System
 
-> A design system in native HTML, CSS, and JavaScript, with no dependencies: tokens, typography, 130 custom icons, components, charts, and screen patterns, in light and dark themes. Version 0.34.0.
+> A design system in native HTML, CSS, and JavaScript, with no dependencies: tokens, typography, 130 custom icons, components, charts, and screen patterns, in light and dark themes. Version 0.35.0.
 
 Start with [README](https://lumeui.dev/ia/en/README.md): installation, general rules, and what never to invent. Every page of the site has a Markdown file below, generated from it.
 
@@ -62,7 +62,9 @@ Start with [README](https://lumeui.dev/ia/en/README.md): installation, general r
 - [Context menu](https://lumeui.dev/ia/en/componentes/menu-de-contexto.md): Item actions, with a right-click or the keyboard.
 - [Tooltip](https://lumeui.dev/ia/en/componentes/tooltip.md): A short hint on hover and focus — names icons and teaches shortcuts.
 - [Alert](https://lumeui.dev/ia/en/componentes/alerta.md): A message on the page itself, in the status tones.
+- [Announcement banner](https://lumeui.dev/ia/en/componentes/banner-de-anuncio.md): A strip at the top of the app with a message for everyone, which people can close.
 - [Toast](https://lumeui.dev/ia/en/componentes/toast.md): Confirms what happened without interrupting; tones, undo, and six positions.
+- [Notification center](https://lumeui.dev/ia/en/componentes/central-de-notificacoes.md): The bell with the list of what happened, read and unread.
 - [Badge](https://lumeui.dev/ia/en/componentes/badge.md): A short status or count label — never decoration.
 - [Progress bar](https://lumeui.dev/ia/en/componentes/barra-de-progresso.md): How much of a task is done.
 - [Circular progress](https://lumeui.dev/ia/en/componentes/progresso-circular.md): Progress in a ring, for when a bar doesn’t fit.

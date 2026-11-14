@@ -5,7 +5,7 @@ description: Builds and reviews interfaces with the Lume Design System (lumeui.d
 
 # Lume Design System
 
-Lume is a design system with no dependencies: one CSS file (`https://lumeui.dev/v/0.34/lume.css`), optional JavaScript modules, and 146 custom icons. The documentation for AIs is published at `https://lumeui.dev/ia/en/`.
+Lume is a design system with no dependencies: one CSS file (`https://lumeui.dev/v/0.35/lume.css`), optional JavaScript modules, and 147 custom icons. The documentation for AIs is published at `https://lumeui.dev/ia/en/`.
 
 ## How to work
 

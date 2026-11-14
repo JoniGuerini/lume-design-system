@@ -15,7 +15,7 @@ En números: crear etiqueta: Enter · , · pegar lista: sí · repetidas: rechaz
 </div>
 
 <script type="module">
-  import { createTagField } from 'https://lumeui.dev/v/0.34/lume.js';
+  import { createTagField } from 'https://lumeui.dev/v/0.35/lume.js';
   createTagField(document.querySelector('#assuntos'), {
     value: ['diseño', 'tokens'],
   });
@@ -108,7 +108,7 @@ Marcado de los ejemplos de esta sección:
 Funciona con `createForm`: con `required`, tener al menos una etiqueta ya basta.
 
 ```html
-import { createTagField } from 'https://lumeui.dev/v/0.34/lume.js';
+import { createTagField } from 'https://lumeui.dev/v/0.35/lume.js';
 
 const tags = createTagField(document.querySelector('#assuntos'), {
   value: ['design', 'tokens'],

@@ -36,9 +36,9 @@ Vertical `ds-divider--vertical` — Entre itens de uma linha: metadados, ações
 
 Com rótulo no começo `ds-divider--label · --start` — Abre um grupo dentro de uma lista, como um título pequeno.
 
-Carregar lumeui.dev/v/0.34/lume.css
+Carregar lumeui.dev/v/0.35/lume.css
 
-Baixar lume-0.34.zip
+Baixar lume-0.35.zip
 
 Com rótulo no meio `ds-divider--label` — Entre duas alternativas. Uma palavra curta basta.
 

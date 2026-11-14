@@ -4,11 +4,11 @@ Lume section: Resources. Page: https://lumeui.dev/#/recursos/react
 
 .tsx components to copy into your project, on top of Lume’s same CSS and JavaScript. No package to install: the folder comes in each version’s zip.
 
-In numbers: of the 52 components: 52 · React: 18+ · dependencies: 0.
+In numbers: of the 54 components: 54 · React: 18+ · dependencies: 0.
 
 ## Install
 
-Download the 0.34 zip, unzip it, and move the folder into `src/` named `lume`. The components are in `lume/react/` and import the JavaScript and icons from that same folder. It works with Vite, Next.js, and any React 18 or newer project.
+Download the 0.35 zip, unzip it, and move the folder into `src/` named `lume`. The components are in `lume/react/` and import the JavaScript and icons from that same folder. It works with Vite, Next.js, and any React 18 or newer project.
 
 ```html
 src/
@@ -137,6 +137,8 @@ What’s already in React. Each name leads to the component’s page, with the u
 | --- | --- | --- |
 | `Badge` | Six tones, dot and counter. | Badge.tsx |
 | `Alert` | Tone with the right icon, actions and the × (onClose). | Alert.tsx |
+| `Banner` | Tone, title, and text; closable with an id remembers in the browser that it was closed. | Notices.tsx |
+| `NotificationCenter` | The bell with the count; items in state and onChange for what was read. New ids are announced. | Notices.tsx |
 | `Progress` | Bar with label and percentage; without a value, indeterminate. | Loading.tsx |
 | `ProgressRing` | Ring with the percentage; without a value, indeterminate. Three sizes and the bar’s tones. | Loading.tsx |
 | `Spinner` | Three sizes, with the "Loading" label built in. | Loading.tsx |
@@ -183,10 +185,10 @@ What’s already in React. Each name leads to the component’s page, with the u
 | --- | --- |
 | A thin layer | Each component only builds Lume’s markup, with the same classes. The look comes from `lume.css`; fix it there, it’s fixed in React. |
 | Your files | The .tsx files live in your project, as with shadcn: you can read, change, and delete what you don’t use. No npm. |
-| TypeScript | Typed, commented props, with a link to each component’s page. `IconName` lists the 146 icons: a wrong name won’t compile. |
+| TypeScript | Typed, commented props, with a link to each component’s page. `IconName` lists the 147 icons: a wrong name won’t compile. |
 | Language | The text a component writes on its own ("Close", "Loading") follows Lume’s language and changes with `setLocale`. `useLocale()` does the same for yours. |
-| Versions | The `react/` folder ships with every line: `/v/0.34/react/`. Updating means swapping the Lume folder for the new line’s. |
+| Versions | The `react/` folder ships with every line: `/v/0.35/react/`. Updating means swapping the Lume folder for the new line’s. |
 
 ## What’s next
 
-All 52 components are already in React.
+All 54 components are already in React.

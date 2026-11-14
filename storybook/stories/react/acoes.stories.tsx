@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, IconButton, InlineAction, Chip, ChipGroup, Badge, Alert, Avatar, AvatarGroup, Progress, Spinner, Panel, Section, Breadcrumb, Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarButton, Link, Divider, ProgressRing } from '../../../react';
+import { Button, IconButton, InlineAction, Chip, ChipGroup, Badge, Alert, Avatar, AvatarGroup, Progress, Spinner, Panel, Section, Breadcrumb, Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarButton, Link, Divider, ProgressRing, Banner, NotificationCenter, type NotificationItem } from '../../../react';
 import { mount } from './mount';
 
 export default {
@@ -131,3 +131,29 @@ function PecasPequenas() {
 }
 
 export const LinkDivisorProgresso = { name: 'Link, divisor e progresso circular', render: () => mount(<PecasPequenas />) };
+
+function Avisos() {
+  const [items, setItems] = useState<NotificationItem[]>([
+    { id: 'v035', title: 'Lume 0.35', text: 'Banner de anúncio e central de notificações.', time: new Date(Date.now() - 4 * 60000), icon: 'megaphone', tone: 'brand' },
+    { id: 'v034', title: 'Lume 0.34', text: 'Divisor, link e progresso circular.', time: new Date(Date.now() - 26 * 3600000), icon: 'megaphone', read: true },
+  ]);
+  return (
+    <div style={{ display: 'grid', gap: 20, maxWidth: 560 }}>
+      <Banner tone="brand" title="Lume 0.35" closable>
+        Banner de anúncio e central de notificações. <Link href="#">Ver novidades</Link>
+      </Banner>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        <NotificationCenter items={items} onChange={setItems} />
+        <button
+          type="button"
+          className="ds-btn ds-btn--secondary ds-btn--sm"
+          onClick={() => setItems((list) => [{ id: `n${list.length}`, title: 'Lume 0.36', text: 'Visualizador de imagem.', time: new Date(), icon: 'megaphone', tone: 'brand' }, ...list])}
+        >
+          Chegou uma nova
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export const BannerECentral = { name: 'Banner e central de notificações', render: () => mount(<Avisos />) };

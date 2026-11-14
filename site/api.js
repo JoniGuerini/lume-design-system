@@ -11,6 +11,7 @@ const GROUPS = [
     title: T('Componentes', 'Components', 'Componentes'),
     items: [
       ['createBackToTop', 'back-to-top.js', T('Botão de voltar ao topo de uma área que rola.', 'Back-to-top button for a scrolling area.', 'Botón de volver arriba para un área con desplazamiento.')],
+      ['createBanner', 'banner.js', T('Banner de anúncio: fecha e lembra no navegador que a pessoa fechou aquele anúncio.', 'Announcement banner: closes and remembers in the browser that the person closed that announcement.', 'Banner de anuncio: se cierra y recuerda en el navegador que la persona cerró ese anuncio.')],
       ['createCalendar', 'calendar.js', T('Calendário com visões de mês, semana e dia.', 'Calendar with month, week, and day views.', 'Calendario con vistas de mes, semana y día.')],
       ['createCarousel', 'carousel.js', T('Carrossel com setas, pontos, teclado e passagem automática com pausa.', 'Carousel with arrows, dots, keyboard, and autoplay with pause.', 'Carrusel con flechas, puntos, teclado y paso automático con pausa.')],
       ['createColorPicker', 'color-picker.js', T('Seletor de cor solto: área, matiz, hexadecimal e amostras.', 'Standalone color picker: area, hue, hex, and swatches.', 'Selector de color suelto: área, matiz, hexadecimal y muestras.')],
@@ -26,6 +27,8 @@ const GROUPS = [
       ['createForm', 'form.js', T('Validação, erros e resumo de erros de um formulário.', 'Validation, errors, and error summary for a form.', 'Validación, errores y resumen de errores de un formulario.')],
       ['createMenu', 'menu.js', T('Menu ligado a um botão, com escolha única ou múltipla.', 'Menu attached to a button, with single or multiple choice.', 'Menú ligado a un botón, con elección única o múltiple.')],
       ['createModal', 'modal.js', T('Modal que você abre e fecha quando quiser.', 'Modal you open and close whenever you want.', 'Modal que abres y cierras cuando quieras.')],
+      ['createNotificationCenter', 'notifications.js', T('Central de notificações no sino: lista, não lidas, marcar todas e anúncio das novas.', 'Notification center on the bell: list, unread, mark all, and announcing new ones.', 'Centro de notificaciones en la campana: lista, sin leer, marcar todas y aviso de las nuevas.')],
+      ['relativeTime', 'notifications.js', T('Tempo relativo no idioma do Lume (“há 5 minutos”); depois de uma semana, data.', 'Relative time in Lume’s language (“5 minutes ago”); after a week, a date.', 'Tiempo relativo en el idioma de Lume (“hace 5 minutos”); después de una semana, fecha.')],
       ['createNumberField', 'number-field.js', T('Campo numérico com – e +.', 'Number field with – and +.', 'Campo numérico con – y +.')],
       ['createOtpField', 'otp-field.js', T('Campo de código de verificação.', 'Verification code field.', 'Campo de código de verificación.')],
       ['createPagination', 'pagination.js', T('Paginação de uma lista ou tabela.', 'Pagination for a list or table.', 'Paginación de una lista o tabla.')],

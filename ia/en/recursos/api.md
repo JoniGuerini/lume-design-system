@@ -4,17 +4,17 @@ Lume section: Resources. Page: https://lumeui.dev/#/recursos/api
 
 Everything you can call from JavaScript, in a single file. What’s here is public and stable; the rest is internal and may change.
 
-In numbers: public items: 93 · verbs: 5 · dependencies: 0.
+In numbers: public items: 96 · verbs: 5 · dependencies: 0.
 
 ## Import
 
 One file, `ds/lume.js`, gathers the whole API. The `ds/js/` modules can still be imported one by one, to load only what you need.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/0.34/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/0.35/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.34/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.35/lume.js';
 
   initTheme();
   const modal = createModal({ title: 'Publish changes?' });
@@ -43,13 +43,14 @@ State follows `get…` and `set…`; constants are uppercase, like `THEMES`.
 
 ## Everything public
 
-The 93 items in `ds/lume.js`, with the module each one comes from.
+The 96 items in `ds/lume.js`, with the module each one comes from.
 
 ### Components
 
 | Name | What it does | Module |
 | --- | --- | --- |
 | `createBackToTop` | Back-to-top button for a scrolling area. | back-to-top.js |
+| `createBanner` | Announcement banner: closes and remembers in the browser that the person closed that announcement. | banner.js |
 | `createCalendar` | Calendar with month, week, and day views. | calendar.js |
 | `createCarousel` | Carousel with arrows, dots, keyboard, and autoplay with pause. | carousel.js |
 | `createColorPicker` | Standalone color picker: area, hue, hex, and swatches. | color-picker.js |
@@ -65,6 +66,8 @@ The 93 items in `ds/lume.js`, with the module each one comes from.
 | `createForm` | Validation, errors, and error summary for a form. | form.js |
 | `createMenu` | Menu attached to a button, with single or multiple choice. | menu.js |
 | `createModal` | Modal you open and close whenever you want. | modal.js |
+| `createNotificationCenter` | Notification center on the bell: list, unread, mark all, and announcing new ones. | notifications.js |
+| `relativeTime` | Relative time in Lume’s language (“5 minutes ago”); after a week, a date. | notifications.js |
 | `createNumberField` | Number field with – and +. | number-field.js |
 | `createOtpField` | Verification code field. | otp-field.js |
 | `createPagination` | Pagination for a list or table. | pagination.js |

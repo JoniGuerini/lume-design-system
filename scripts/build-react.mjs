@@ -106,6 +106,10 @@ export declare function confirmModal(options?: Record<string, unknown>): Promise
 export declare function modalHtml(options?: Record<string, unknown>): string;
 export declare function modalClasses(options?: { size?: string; tone?: string }): string;
 `,
+  notifications: `export interface NotificationItem { id: string; title: string; text?: string; time?: Date | string | number; icon?: string; tone?: 'neutral' | 'brand' | 'info' | 'success' | 'warning' | 'danger'; href?: string; read?: boolean }
+export declare function relativeTime(date: Date | string | number, now?: Date): string;
+export declare function createNotificationCenter(trigger: HTMLElement, options?: { items?: NotificationItem[]; onSelect?: (item: NotificationItem) => void; onChange?: (items: NotificationItem[], unread: number) => void; badge?: boolean; placement?: 'bottom' | 'top' | 'left' | 'right'; align?: 'start' | 'center' | 'end' }): { readonly items: NotificationItem[]; readonly unread: number; readonly isOpen: boolean; open(): void; close(): void; setItems(items: NotificationItem[], options?: { announce?: boolean }): void; add(item: NotificationItem): void; markRead(id: string, read?: boolean): void; markUnread(id: string): void; markAllRead(): void; destroy(): void };
+`,
   popover: `export declare function createPopover(trigger: HTMLElement, options?: Record<string, unknown>): { el: HTMLElement; readonly isOpen: boolean; open(): void; close(returnFocus?: boolean): void; toggle(): void; reposition(): void; destroy(): void };
 `,
   'context-menu': `export declare function createContextMenu(root: HTMLElement, config?: Record<string, unknown>): { open(...args: unknown[]): void; close(returnFocus?: boolean): void; readonly isOpen: boolean; destroy(): void };

@@ -278,7 +278,7 @@ Lo que más sale mal en un gráfico — y qué hacer en su lugar.
 Una función por forma, la misma conversación en todas: se monta en un elemento, recibe opciones y devuelve controles.
 
 ```html
-import { createBarChart } from 'https://lumeui.dev/v/0.34/lume.js';
+import { createBarChart } from 'https://lumeui.dev/v/0.35/lume.js';
 
 const grafico = createBarChart(document.querySelector('#ventas'), {
   title: 'Ingresos por mes',

@@ -15,11 +15,7 @@ const C = (version, status, tone, title, text, items) => ({ version, group: 'com
 const I = (name, text, doc) => ({ name, text, doc });
 
 const STAGES = [
-  C('0.35', NEXT, 'brand', T('Avisos', 'Notices', 'Avisos'), T('Recados para todo mundo e para cada pessoa.', 'Messages for everyone and for each person.', 'Mensajes para todos y para cada persona.'), [
-    I(T('Banner de anúncio', 'Announcement banner', 'Banner de anuncio'), T('Faixa fixa no topo do app, que a pessoa pode fechar.', 'A strip fixed at the top of the app that people can close.', 'Franja fija arriba de la app, que la persona puede cerrar.')),
-    I(T('Central de notificações', 'Notification center', 'Centro de notificaciones'), T('Lista de notificações com lidas e não lidas, aberta pelo sino.', 'A list of notifications, read and unread, opened from the bell.', 'Lista de notificaciones leídas y no leídas, abierta desde la campana.')),
-  ]),
-  C('0.36', PLANNED, 'neutral', T('Visualizador de imagem', 'Image viewer', 'Visor de imágenes'), T('Ver uma imagem grande, com zoom.', 'View an image large, with zoom.', 'Ver una imagen en grande, con zoom.'), [
+  C('0.36', NEXT, 'brand', T('Visualizador de imagem', 'Image viewer', 'Visor de imágenes'), T('Ver uma imagem grande, com zoom.', 'View an image large, with zoom.', 'Ver una imagen en grande, con zoom.'), [
     I(T('Visualizador de imagem', 'Image viewer', 'Visor de imágenes'), T('Abre por cima da página, com zoom, arrastar e anterior e próxima.', 'Opens over the page, with zoom, panning, and previous and next.', 'Se abre sobre la página, con zoom, arrastre y anterior y siguiente.')),
   ]),
   C('0.37', PLANNED, 'neutral', T('Arrastar e soltar', 'Drag and drop', 'Arrastrar y soltar'), T('Mudar a ordem e o lugar das coisas.', 'Change the order and place of things.', 'Cambiar el orden y el lugar de las cosas.'), [

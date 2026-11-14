@@ -4,17 +4,17 @@ Sección de Lume: Recursos. Página: https://lumeui.dev/#/recursos/api
 
 Todo lo que puedes llamar desde JavaScript, en un solo archivo. Lo que está aquí es público y estable; el resto es interno y puede cambiar.
 
-En números: ítems públicos: 93 · verbos: 5 · dependencias: 0.
+En números: ítems públicos: 96 · verbos: 5 · dependencias: 0.
 
 ## Importar
 
 Un archivo, `ds/lume.js`, reúne toda la API. Los módulos de `ds/js/` siguen pudiéndose importar uno a uno, para cargar solo lo necesario.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/0.34/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/0.35/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.34/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.35/lume.js';
 
   initTheme();
   const modal = createModal({ title: '¿Publicar cambios?' });
@@ -43,13 +43,14 @@ El estado sigue `get…` y `set…`; las constantes van en mayúsculas, como `TH
 
 ## Todo lo público
 
-Los 93 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
+Los 96 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 
 ### Componentes
 
 | Nombre | Qué hace | Módulo |
 | --- | --- | --- |
 | `createBackToTop` | Botón de volver arriba para un área con desplazamiento. | back-to-top.js |
+| `createBanner` | Banner de anuncio: se cierra y recuerda en el navegador que la persona cerró ese anuncio. | banner.js |
 | `createCalendar` | Calendario con vistas de mes, semana y día. | calendar.js |
 | `createCarousel` | Carrusel con flechas, puntos, teclado y paso automático con pausa. | carousel.js |
 | `createColorPicker` | Selector de color suelto: área, matiz, hexadecimal y muestras. | color-picker.js |
@@ -65,6 +66,8 @@ Los 93 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 | `createForm` | Validación, errores y resumen de errores de un formulario. | form.js |
 | `createMenu` | Menú ligado a un botón, con elección única o múltiple. | menu.js |
 | `createModal` | Modal que abres y cierras cuando quieras. | modal.js |
+| `createNotificationCenter` | Centro de notificaciones en la campana: lista, sin leer, marcar todas y aviso de las nuevas. | notifications.js |
+| `relativeTime` | Tiempo relativo en el idioma de Lume (“hace 5 minutos”); después de una semana, fecha. | notifications.js |
 | `createNumberField` | Campo numérico con – y +. | number-field.js |
 | `createOtpField` | Campo de código de verificación. | otp-field.js |
 | `createPagination` | Paginación de una lista o tabla. | pagination.js |
