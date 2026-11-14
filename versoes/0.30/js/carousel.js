@@ -123,9 +123,9 @@ export function createCarousel(root, options = {}) {
     if (notify) o.onChange?.(index);
   }
 
-  function goTo(target, { smooth = true } = {}) {
-    let next = target;
-    if (o.loop) next = ((target % stops) + stops) % stops;
+  function goTo(to, { smooth = true } = {}) {
+    let next = to;
+    if (o.loop) next = ((to % stops) + stops) % stops;
     next = Math.min(Math.max(next, 0), stops - 1);
     const animate = smooth && !reduceMotion();
     target = animate ? next : null;
