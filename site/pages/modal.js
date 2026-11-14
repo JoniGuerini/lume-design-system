@@ -73,7 +73,7 @@ function inlineModal(opts) {
 function modalCode(state) {
   const o = optionsFrom(state);
   const choice = L('escolha', 'choice', 'eleccion');
-  const lines = ["import { openModal } from 'https://lumeui.dev/v/0.38/lume.js';", '', `const ${choice} = await openModal({`];
+  const lines = ["import { openModal } from 'https://lumeui.dev/v/0.39/lume.js';", '', `const ${choice} = await openModal({`];
   if (o.eyebrow) lines.push(`  eyebrow: '${o.eyebrow}',`);
   lines.push(`  title: '${o.title.replace(/'/g, "\\'")}',`);
   lines.push(`  body: '${o.body.replace(/'/g, "\\'")}',`);

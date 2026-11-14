@@ -8,10 +8,44 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.38.0';
+export const CURRENT_VERSION = '0.39.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.39.0',
+    date: '2026-11-14',
+    title: T('Revisão da API', 'API review', 'Revisión de la API'),
+    summary: T(
+      'A API ficou igual em todo lugar antes da 1.0: valor em value e setValue(), estado como propriedade, goTo() para ir a um item e el para o elemento. Os nomes antigos continuam funcionando até a 1.0 e avisam no console qual usar.',
+      'The API is now the same everywhere ahead of 1.0: the value in value and setValue(), state as a property, goTo() to go to an item, and el for the element. The old names keep working until 1.0 and say in the console which one to use.',
+      'La API quedó igual en todas partes antes de la 1.0: el valor en value y setValue(), el estado como propiedad, goTo() para ir a un elemento y el para el elemento. Los nombres antiguos siguen funcionando hasta la 1.0 y avisan en la consola cuál usar.',
+    ),
+    groups: [
+      {
+        name: T('API', 'API', 'API'),
+        items: [
+          ['melhoria', T('Editor, composer e filtros passam a ler e trocar o valor por value e setValue()', 'Editor, composer, and filters now read and replace the value through value and setValue()', 'Editor, composer y filtros ahora leen y cambian el valor con value y setValue()'), '/recursos/api'],
+          ['melhoria', T('Shell com collapsed, mobile e mobileOpen; visualizador com goTo(); voltar ao topo com el', 'Shell with collapsed, mobile, and mobileOpen; viewer with goTo(); back to top with el', 'Shell con collapsed, mobile y mobileOpen; visor con goTo(); volver arriba con el'), '/recursos/api'],
+          ['melhoria', T('chartFormatter no lugar de formatter, um nome que diz de onde vem', 'chartFormatter instead of formatter, a name that says where it comes from', 'chartFormatter en lugar de formatter, un nombre que dice de dónde viene'), '/graficos/visao-geral'],
+          ['melhoria', T('createMenu, createFilters e createCommandPalette funcionam sem opções; renderNavbarNav não pede mais o createMenu', 'createMenu, createFilters, and createCommandPalette work without options; renderNavbarNav no longer asks for createMenu', 'createMenu, createFilters y createCommandPalette funcionan sin opciones; renderNavbarNav ya no pide createMenu'), '/recursos/api'],
+          ['novo', T('Página API com as regras dos controles, os eventos ds:* e o que sai na 1.0', 'API page with the controller rules, the ds:* events, and what is removed in 1.0', 'Página API con las reglas de los controles, los eventos ds:* y lo que sale en la 1.0'), '/recursos/api'],
+        ],
+      },
+      {
+        name: T('React', 'React', 'React'),
+        items: [
+          ['melhoria', T('ColorPicker com onChange a cada mudança e onCommit ao soltar, como o Slider', 'ColorPicker with onChange on every change and onCommit on release, like the Slider', 'ColorPicker con onChange en cada cambio y onCommit al soltar, como el Slider'), '/recursos/react'],
+        ],
+      },
+      {
+        name: T('Acessibilidade', 'Accessibility', 'Accesibilidad'),
+        items: [
+          ['correcao', T('O ponto de novidade da navegação é lido no idioma da página', 'The navigation’s “new” dot is read in the page’s language', 'El punto de novedad de la navegación se lee en el idioma de la página'), '/padroes/app-shell'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.38.0',
     date: '2026-11-14',

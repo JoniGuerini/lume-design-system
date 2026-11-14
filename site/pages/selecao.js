@@ -163,7 +163,7 @@ function selectCode(s) {
   const pre = multiple && !['placeholder', 'invalid'].includes(s.state);
   lines.push(`    <option${pre || (!multiple && !empty) ? ' selected' : ''}>Português (Brasil)</option>`, `    <option${pre ? ' selected' : ''}>English (US)</option>`, `    <option>Español</option>`, `  </select>`);
   if (invalid) lines.push(`  <p class="ds-form-field__error" id="${errorId}">${multiple ? L('Escolha pelo menos uma opção para continuar.', 'Choose at least one option to continue.', 'Elige al menos una opción para continuar.') : L('Escolha um idioma para continuar.', 'Choose a language to continue.', 'Elige un idioma para continuar.')}</p>`);
-  lines.push(`</div>`, ``, `<script type="module">`, `  import { mountSelects } from 'https://lumeui.dev/v/0.38/lume.js';`, `  mountSelects(document);`, `</script>`);
+  lines.push(`</div>`, ``, `<script type="module">`, `  import { mountSelects } from 'https://lumeui.dev/v/0.39/lume.js';`, `  mountSelects(document);`, `</script>`);
   return lines.join('\n');
 }
 

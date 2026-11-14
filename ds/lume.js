@@ -31,7 +31,7 @@ export { createEditor, sanitizeHtml } from './js/editor.js';
 export { createToolbar } from './js/toolbar.js';
 export {
   createBarChart, createLineChart, createDonutChart, createHeatmap, createCalendarHeatmap, createScatterChart,
-  sparklineHtml, statTileHtml, meterHtml, formatter,
+  sparklineHtml, statTileHtml, meterHtml, chartFormatter, formatter,
 } from './js/charts.js';
 export { codeBlockHtml, mountCodeBlocks } from './js/code-block.js';
 export { createColorPicker, createColorField, parseHex } from './js/color-picker.js';

@@ -6,13 +6,14 @@
  *     threshold: 600,                              // px rolados para aparecer (padrão: uma tela da própria área)
  *     focusTarget: document.querySelector('main'), // recebe o foco ao voltar (padrão: a própria área)
  *   });
- *   back.element; back.update(); back.destroy();
+ *   back.el; back.update(); back.destroy();
  *
  * O botão fica ancorado no canto inferior do contêiner, não da janela: funciona igual em qualquer layout.
  * Quem pede menos movimento no sistema volta ao topo sem animação.
  */
 import { icon } from '../icons/icons.js';
 import { msg } from './i18n.js';
+import { renamed } from './deprecate.js';
 
 export function createBackToTop(scroller, options = {}) {
   const parent = options.parent ?? scroller.parentElement;
@@ -51,7 +52,12 @@ export function createBackToTop(scroller, options = {}) {
   document.documentElement.addEventListener('ds:localechange', applyLabel);
 
   return {
-    element: button,
+    el: button,
+    /** @deprecated Use el. Sai na 1.0. */
+    get element() {
+      renamed('backToTop.element', 'backToTop.el');
+      return button;
+    },
     update,
     destroy() {
       scroller.removeEventListener('scroll', update);

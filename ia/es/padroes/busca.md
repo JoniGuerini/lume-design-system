@@ -54,7 +54,7 @@ Cada elemento es un objeto. Pasa una función en `items` y la lista se lee de nu
 |  `perform()`  | Lo que pasa con Enter o con el clic. La paleta se cierra antes. |
 
 ```html
-import { createCommandPalette } from 'https://lumeui.dev/v/0.38/lume.js';
+import { createCommandPalette } from 'https://lumeui.dev/v/0.39/lume.js';
 
 const palette = createCommandPalette({
   placeholder: 'Buscar páginas y acciones…',
@@ -122,13 +122,13 @@ Un filtro que solo existe en la memoria se pierde al recargar y no se puede comp
 - Un valor que no existe (un estado borrado) se ignora, no rompe la página.
 
 ```html
-import { filtersToQuery, filtersFromQuery } from 'https://lumeui.dev/v/0.38/lume.js';
+import { filtersToQuery, filtersFromQuery } from 'https://lumeui.dev/v/0.39/lume.js';
 
 // al filtrar: cambia la URL sin apilar una entrada por letra escrita
-history.replaceState(null, '', '?' + filtersToQuery(filters.state, config));
+history.replaceState(null, '', '?' + filtersToQuery(filters.value, config));
 
 // al abrir la página (o en un enlace compartido): restaura
-filters.set(filtersFromQuery(location.search, config));
+filters.setValue(filtersFromQuery(location.search, config));
 ```
 
 Marcado de los ejemplos de esta sección:
@@ -204,7 +204,7 @@ La paleta y los filtros son módulos independientes; los dos solo piden datos y 
 ### Filtros
 
 ```html
-import { createFilters } from 'https://lumeui.dev/v/0.38/lume.js';
+import { createFilters } from 'https://lumeui.dev/v/0.39/lume.js';
 
 const filters = createFilters(document.querySelector('#filtros'), {
   label: 'Filtrar pedidos',
@@ -229,7 +229,7 @@ filters.clear();                           // limpia todo, menos el orden
 | API | Qué hace |
 | --- | --- |
 |  `createFilters(el, config)`  | Arma la barra (búsqueda, filtros, interruptores, orden, activos, conteo) y devuelve el control. |
-|  `filters.state · set(parcial) · clear()`  | Lee y cambia el estado; cada cambio llama a `onChange`. |
+|  `filters.value · setValue(parcial) · clear()`  | Lee y cambia el estado; cada cambio llama a `onChange`. |
 |  `filters.setCount(mostrados, total)`  | Actualiza el conteo anunciado. |
 |  `filtersToQuery · filtersFromQuery`  | Estado ⇄ URL, ignorando lo que es predeterminado o no existe. |
 |  `.ds-filters y partes`  | Las clases también sirven para una barra armada a mano (mira el comentario en filters.css). |
@@ -241,7 +241,7 @@ filters.clear();                           // limpia todo, menos el orden
 |  `items`  | Lista de elementos — o una función que devuelve la lista en cada apertura. |
 |  `placeholder · label`  | Texto del campo y el nombre del diálogo para lectores de pantalla. |
 |  `hotkeys: false`  | No conecta ⌘K ni /. Para paletas extra, como la de ejemplo de esta página. |
-|  `open() · close() · isOpen() · destroy()`  | Control manual; destroy() quita el diálogo y los atajos. |
+|  `open() · close() · destroy()`  | Control manual; destroy() quita el diálogo y los atajos. |
 |  `filterCommands(items, busca)`  | La misma búsqueda de la paleta, para pruebas u otras listas. |
 
 Marcado de los ejemplos de esta sección:

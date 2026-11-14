@@ -5,7 +5,7 @@
  *     [{ src: 'grande.png', alt: 'Botões do Lume no tema claro', caption: 'Botão' }, 'outra.png'],
  *     { index: 0, onChange: (i) => {}, onClose: () => {} },
  *   );
- *   viewer.next(); viewer.prev(); viewer.go(2); viewer.zoomIn(); viewer.zoomOut(); viewer.fit(); viewer.close();
+ *   viewer.next(); viewer.prev(); viewer.goTo(2); viewer.zoomIn(); viewer.zoomOut(); viewer.fit(); viewer.close();
  *
  *   Ou, sem código por imagem: links com data-ds-viewer (o mesmo valor = mesma galeria).
  *   <a class="ds-viewer-thumb" href="grande.png" data-ds-viewer="botoes" data-caption="Botão"><img src="pequena.png" alt="…"></a>
@@ -17,6 +17,7 @@
  */
 import { icon } from '../icons/icons.js';
 import { msg, numberFormat } from './i18n.js';
+import { alias } from './deprecate.js';
 
 const MIN = 1;
 const MAX = 4;
@@ -246,7 +247,9 @@ export function openImageViewer(images, options = {}) {
     get zoom() {
       return scale;
     },
-    go: (i) => show(i),
+    goTo: (i) => show(i),
+    /** @deprecated Use goTo(). Sai na 1.0. */
+    go: alias((i) => show(i), 'viewer.go()', 'viewer.goTo()'),
     next: () => show(index + 1),
     prev: () => show(index - 1),
     zoomIn: () => zoomTo(scale * STEP),

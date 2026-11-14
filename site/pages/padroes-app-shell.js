@@ -116,7 +116,7 @@ const skeleton = () => `<a class="ds-skip-link" href="#${L('conteudo', 'content'
   </div>
 </div>`;
 
-const script = () => `import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/0.38/lume.js';
+const script = () => `import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/0.39/lume.js';
 
 const nav = document.getElementById('sidebar-nav');
 renderSidebarNav(nav, [
@@ -374,7 +374,7 @@ export default function renderAppShell(page) {
         ${[
           ['createShell(el, { persist, initial })', L(`Liga recolher, gaveta, grupos e topbar. ${ic('persist: false')} não grava nada; ${ic('initial')} força “expanded” ou “collapsed”.`, `Wires collapse, drawer, groups, and top bar. ${ic('persist: false')} saves nothing; ${ic('initial')} forces “expanded” or “collapsed”.`, `Conecta contraer, cajón, grupos y barra superior. ${ic('persist: false')} no guarda nada; ${ic('initial')} fuerza “expanded” o “collapsed”.`)],
           ['shell.toggle() · setCollapsed(bool) · setMobileOpen(bool)', L('Mudam o estado como os botões e o atalho fazem.', 'Change the state the way the buttons and the shortcut do.', 'Cambian el estado como lo hacen los botones y el atajo.')],
-          ['shell.isCollapsed() · isMobile() · isMobileOpen()', L('Leem o estado atual.', 'Read the current state.', 'Leen el estado actual.')],
+          ['shell.collapsed · mobile · mobileOpen', L('Leem o estado atual.', 'Read the current state.', 'Leen el estado actual.')],
           ['renderSidebarNav(el, groups)', L('Desenha a navegação: o grupo sem rótulo vira a principal; os outros recolhem.', 'Draws the navigation: the unlabeled group becomes the main one; the others collapse.', 'Dibuja la navegación: el grupo sin etiqueta se vuelve el principal; los demás se contraen.')],
           ['setActiveNavItem(el, href)', L('Marca a página atual, abre o grupo dela e rola até ela.', 'Marks the current page, opens its group, and scrolls to it.', 'Marca la página actual, abre su grupo y se desplaza hasta ella.')],
           [L('evento ds:shellchange', 'ds:shellchange event', 'evento ds:shellchange'), L('Disparado no shell a cada mudança, com { sidebar, mobile, mobileOpen }.', 'Fired on the shell at every change, with { sidebar, mobile, mobileOpen }.', 'Disparado en el shell con cada cambio, con { sidebar, mobile, mobileOpen }.')],
@@ -537,8 +537,8 @@ export function mount(root) {
     liveApi && {
       sidebar: liveApi.root.dataset.sidebar,
       layout: liveApi.root.dataset.layout,
-      mobile: liveApi.shell.isMobile(),
-      mobileOpen: liveApi.shell.isMobileOpen(),
+      mobile: liveApi.shell.mobile,
+      mobileOpen: liveApi.shell.mobileOpen,
     };
 
   cleanups.push(
@@ -599,7 +599,7 @@ export function mount(root) {
     if (!btn) return;
     if (btn.dataset.try === 'phone') {
       const openDrawer = () => liveApi?.shell.setMobileOpen(true);
-      if (liveApi && !liveApi.shell.isMobile()) {
+      if (liveApi && !liveApi.shell.mobile) {
         // espera o app do iframe perceber a tela estreita (media query) antes de abrir a gaveta
         const once = (ev) => {
           if (!ev.detail.mobile) return;

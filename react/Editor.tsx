@@ -70,9 +70,9 @@ export function RichTextEditor({ label, labelledBy, defaultValue, value, onChang
   }, [stableKey(tools), placeholder, label, labelledBy, borderless, className]);
 
   useEffect(() => {
-    if (value !== undefined && editor.current && value !== editor.current.getHTML()) {
+    if (value !== undefined && editor.current && value !== editor.current.value) {
       current.current = value;
-      editor.current.setHTML(value);
+      editor.current.setValue(value);
     }
   }, [value]);
 

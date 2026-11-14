@@ -216,7 +216,7 @@ El HTML es fijo; la navegación se arma con JS a partir de una lista. El mismo a
 ### JavaScript
 
 ```html
-import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/0.38/lume.js';
+import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/0.39/lume.js';
 
 const nav = document.getElementById('sidebar-nav');
 renderSidebarNav(nav, [
@@ -241,7 +241,7 @@ document.getElementById('shell')
 | --- | --- |
 |  `createShell(el, { persist, initial })`  | Conecta contraer, cajón, grupos y barra superior. `persist: false` no guarda nada; `initial` fuerza “expanded” o “collapsed”. |
 |  `shell.toggle() · setCollapsed(bool) · setMobileOpen(bool)`  | Cambian el estado como lo hacen los botones y el atajo. |
-|  `shell.isCollapsed() · isMobile() · isMobileOpen()`  | Leen el estado actual. |
+|  `shell.collapsed · mobile · mobileOpen`  | Leen el estado actual. |
 |  `renderSidebarNav(el, groups)`  | Dibuja la navegación: el grupo sin etiqueta se vuelve el principal; los demás se contraen. |
 |  `setActiveNavItem(el, href)`  | Marca la página actual, abre su grupo y se desplaza hasta ella. |
 |  `evento ds:shellchange`  | Disparado en el shell con cada cambio, con { sidebar, mobile, mobileOpen }. |

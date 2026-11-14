@@ -30,6 +30,7 @@ export declare const createScatterChart: any;
 export declare const sparklineHtml: any;
 export declare const statTileHtml: any;
 export declare const meterHtml: any;
+export declare const chartFormatter: any;
 export declare const formatter: any;
 export declare const codeBlockHtml: any;
 export declare const mountCodeBlocks: any;

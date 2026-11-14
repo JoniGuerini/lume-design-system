@@ -11,10 +11,10 @@ Em números: itens públicos: 102 · verbos: 5 · dependências: 0.
 Um arquivo, `ds/lume.js`, reúne a API inteira. Os módulos de `ds/js/` continuam podendo ser importados um a um, para carregar só o necessário.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/0.38/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/0.39/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.38/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.39/lume.js';
 
   initTheme();
   const modal = createModal({ title: 'Publicar alterações?' });
@@ -39,7 +39,33 @@ Cada verbo promete uma coisa. Pelo nome, você já sabe o que volta.
 | `open…` `confirm…` `toast` | Ação imediata | A resposta ou um controle com close() |
 | `…Html` | Gera a marcação, sem ligar nada | Uma string de HTML |
 
-Estado segue `get…` e `set…`; constantes ficam em maiúsculas, como `THEMES`.
+Estado global segue `get…` e `set…`; constantes ficam em maiúsculas, como `THEMES`.
+
+## Controles
+
+O que um create… devolve segue as mesmas regras em todos os componentes.
+
+| Nome | Regra |
+| --- | --- |
+| `el` | O elemento principal do componente. |
+| `value` · `setValue()` | Lê e troca o valor, sem chamar `onChange`. Paginação (`page`), etapas (`current`) e carrossel (`index`) usam o nome do que guardam. |
+| `isOpen` · `collapsed` | Estado é propriedade, sem parênteses. |
+| `open()` · `close()` · `goTo()` · `focus()` | Ações são funções, com o mesmo nome em todos os componentes. |
+| `destroy()` | Desliga tudo o que o componente ligou. Todo create… tem. |
+| `onChange` · `onInput` | No JavaScript, como no campo nativo: `onChange` quando o valor se firma (ao soltar, ao escolher) e `onInput` enquanto arrasta. |
+| `onChange` · `onCommit` | No React, como todo campo controlado: `onChange` a cada mudança e `onCommit` ao soltar, para salvar ou buscar. |
+
+## Eventos
+
+Poucos e todos com o prefixo `ds:`. O resto chega pelas opções `on…` de cada componente.
+
+| Evento | Onde | detail | Quando |
+| --- | --- | --- | --- |
+| `ds:localechange` | `<html>` | `{ preference, locale }` | O idioma mudou. |
+| `ds:themechange` | `<html>` | `{ preference, resolved }` | O tema mudou. |
+| `ds:shellchange` | `.ds-shell` | `{ sidebar, layout, mobile, mobileOpen }` | A sidebar recolheu, abriu ou trocou de layout. |
+| `ds:tabchange` | as abas (borbulha) | `{ tab, id }` | Outra aba foi escolhida. |
+| `ds:sortchange` | a lista de destino (borbulha) | `{ item, id, from, to, oldIndex, newIndex }` | Um item mudou de lugar. |
 
 ## Tudo o que é público
 
@@ -127,7 +153,7 @@ Os 102 itens de `ds/lume.js`, com o módulo de onde cada um vem.
 | `statTileHtml` | Indicador com valor, variação e tendência. | charts.js |
 | `sparklineHtml` | Minigráfico de linha. | charts.js |
 | `meterHtml` | Medidor de uma quantidade com limites. | charts.js |
-| `formatter` | Formata números como os gráficos formatam. | charts.js |
+| `chartFormatter` | Formata números como os gráficos formatam. | charts.js |
 
 ### Marcação em texto
 
@@ -171,6 +197,23 @@ Os 102 itens de `ds/lume.js`, com o módulo de onde cada um vem.
 | `iconList` | Os 132 ícones, em lista. | icons/icons.js |
 | `filtersToQuery` | Transforma o estado dos filtros em endereço. | filters.js |
 | `filtersFromQuery` | Lê o estado dos filtros de um endereço. | filters.js |
+
+## Saem na 1.0
+
+Nomes acertados na 0.39 para a API ficar igual em todo lugar. Os antigos continuam funcionando até a 1.0 e avisam no console qual usar. Os dois que viram propriedade só mudam na 1.0, porque um nome não pode ser função e propriedade ao mesmo tempo.
+
+| Antes | Use |
+| --- | --- |
+| `editor.getHTML() · setHTML()` | `editor.value · setValue()` |
+| `composer.getValue()` | `composer.value · attachments · command` |
+| `filters.state · set()` | `filters.value · setValue()` |
+| `viewer.go()` | `viewer.goTo()` |
+| `backToTop.element` | `backToTop.el` |
+| `shell.isCollapsed() · isMobile() · isMobileOpen()` | `shell.collapsed · mobile · mobileOpen` |
+| `formatter()` | `chartFormatter()` |
+| `shell.layout()` | `shell.layout` na 1.0 |
+| `palette.isOpen()` | `palette.isOpen` na 1.0 |
+| `onInput` no ColorPicker do React | `onChange`, que já chega enquanto arrasta, e `onCommit` ao soltar |
 
 ## O que não muda
 

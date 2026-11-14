@@ -9,7 +9,7 @@ In numbers: tones: 5 · default duration: 2.2 s · on screen at once: 3 · posit
 ## Example
 
 ```html
-import { toast } from 'https://lumeui.dev/v/0.38/lume.js';
+import { toast } from 'https://lumeui.dev/v/0.39/lume.js';
 
 toast('Changes saved', {
   tone: 'success',

@@ -22,4 +22,9 @@ export { createDonutChart } from './charts/donut.js';
 export { createHeatmap, createCalendarHeatmap } from './charts/heatmap.js';
 export { createScatterChart } from './charts/scatter.js';
 export { sparklineHtml, statTileHtml, meterHtml } from './charts/figures.js';
-export { formatter } from './charts/core.js';
+import { formatter as chartFormatter } from './charts/core.js';
+import { alias } from './deprecate.js';
+
+export { chartFormatter };
+/** @deprecated Use chartFormatter. Sai na 1.0. */
+export const formatter = alias(chartFormatter, 'formatter()', 'chartFormatter()');

@@ -9,7 +9,8 @@
  *     onSend({ text, attachments, command }) { … },   // devolva false para manter o texto no campo
  *     onStop() { … },                                   // botão parar ou Esc, enquanto ocupado
  *   });
- *   composer.setBusy(true) · composer.focus() · composer.clear() · composer.setValue('…') · composer.destroy()
+ *   composer.value · composer.attachments · composer.command · composer.setValue('…')
+ *   composer.setBusy(true) · composer.focus() · composer.clear() · composer.destroy()
  *
  * Teclado: Enter envia · Shift + Enter quebra linha · "/" no começo abre os comandos
  * (setas, Enter ou Tab escolhem, Esc fecha) · Backspace no começo remove o comando · Esc para a resposta.
@@ -19,6 +20,7 @@
  */
 import { icon } from '../icons/icons.js';
 import { msg, numberFormat } from './i18n.js';
+import { alias } from './deprecate.js';
 
 let uid = 0;
 
@@ -532,7 +534,20 @@ export function createComposer(host, options = {}) {
     input,
     focus: () => input.focus(),
     clear,
-    getValue: () => ({ text: input.value, attachments: [...attachments], command: command?.id ?? null }),
+    /** O texto do campo. */
+    get value() {
+      return input.value;
+    },
+    /** Os anexos, na ordem em que entraram. */
+    get attachments() {
+      return [...attachments];
+    },
+    /** O id do comando escolhido com "/", ou null. */
+    get command() {
+      return command?.id ?? null;
+    },
+    /** @deprecated Use value, attachments e command. Sai na 1.0. */
+    getValue: alias(() => ({ text: input.value, attachments: [...attachments], command: command?.id ?? null }), 'composer.getValue()', 'composer.value, composer.attachments, composer.command'),
     setValue(text) {
       input.value = text;
       autosize();

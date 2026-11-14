@@ -88,7 +88,7 @@ const GROUPS = [
       ['statTileHtml', 'charts.js', T('Indicador com valor, variação e tendência.', 'Stat tile with value, change, and trend.', 'Indicador con valor, variación y tendencia.')],
       ['sparklineHtml', 'charts.js', T('Minigráfico de linha.', 'Sparkline.', 'Minigráfico de línea.')],
       ['meterHtml', 'charts.js', T('Medidor de uma quantidade com limites.', 'Meter for an amount with thresholds.', 'Medidor de una cantidad con límites.')],
-      ['formatter', 'charts.js', T('Formata números como os gráficos formatam.', 'Formats numbers the way the charts do.', 'Formatea números como lo hacen los gráficos.')],
+      ['chartFormatter', 'charts.js', T('Formata números como os gráficos formatam.', 'Formats numbers the way the charts do.', 'Formatea números como lo hacen los gráficos.')],
     ],
   },
   {

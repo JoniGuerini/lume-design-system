@@ -7,13 +7,14 @@
  *   label: 'Busca rápida',     // nome do diálogo para leitores de tela
  *   hotkeys: true,             // false = só abre por palette.open() (ex.: uma paleta de demonstração)
  * });
- * palette.open(); palette.close(); palette.isOpen(); palette.destroy(); palette.modifierLabel  // '⌘' ou 'Ctrl'
+ * palette.open(); palette.close(); palette.destroy(); palette.modifierLabel  // '⌘' ou 'Ctrl'
  *
  * filterCommands(items, query) → itens encontrados, na ordem da paleta (útil para testar a busca).
  * Padrão ARIA: combobox + listbox com aria-activedescendant.
  */
 import { icon } from '../icons/icons.js';
 import { msg } from './i18n.js';
+import { becomesProperty } from './deprecate.js';
 
 const normalize = (s) =>
   String(s ?? '')
@@ -50,7 +51,7 @@ export function filterCommands(items, query) {
 
 let instances = 0;
 
-export function createCommandPalette({ items, placeholder, label, hotkeys = true }) {
+export function createCommandPalette({ items = [], placeholder, label, hotkeys = true } = {}) {
   // a primeira paleta mantém os ids de sempre; as outras ganham sufixo (sem ids repetidos)
   const n = ++instances;
   const pre = n === 1 ? 'ds-command' : `ds-command-${n}`;
@@ -220,5 +221,15 @@ export function createCommandPalette({ items, placeholder, label, hotkeys = true
     dialog.remove();
   }
 
-  return { open, close, destroy, isOpen: () => dialog.open, modifierLabel: isMac ? '⌘' : 'Ctrl' };
+  return {
+    open,
+    close,
+    destroy,
+    /** Na 1.0 vira propriedade (palette.isOpen), como no modal e no popover. */
+    isOpen: () => {
+      becomesProperty('palette.isOpen()');
+      return dialog.open;
+    },
+    modifierLabel: isMac ? '⌘' : 'Ctrl',
+  };
 }

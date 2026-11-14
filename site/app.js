@@ -183,7 +183,7 @@ let navbar = null;
 let activeHref = null;
 function renderNavbar() {
   navbar?.destroy();
-  navbar = renderNavbarNav(navbarEl, navGroups(), { createMenu, go });
+  navbar = renderNavbarNav(navbarEl, navGroups(), { go });
   if (activeHref) navbar.setActive(activeHref);
   markGroups();
 }

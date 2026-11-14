@@ -1,0 +1,98 @@
+/*
+ * Banner de anúncio — faixa no topo do app, para um recado que vale para todo mundo.
+ *
+ * <div class="ds-banner ds-banner--brand" role="region" aria-label="Anúncio">
+ *   <span class="ds-banner__icon"><ds-icon name="megaphone"></ds-icon></span>
+ *   <p class="ds-banner__text"><strong>Lume 0.35</strong> Banner e central de notificações. <a class="ds-link" href="/novidades">Ver novidades</a></p>
+ *   <button type="button" class="ds-icon-btn ds-icon-btn--sm ds-icon-btn--muted ds-banner__close" aria-label="Fechar anúncio">…</button>
+ * </div>
+ *
+ * Tons: neutro (padrão) · --brand · --info · --warning · --danger. Fechar e lembrar: createBanner().
+ * Um banner por vez, com uma frase e no máximo um link. Mensagem sobre uma tela só é Alerta, não banner.
+ */
+.ds-banner {
+  --_bg: var(--ds-color-bg-surface);
+  --_border: var(--ds-color-border-default);
+  --_icon: var(--ds-color-fg-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-150);
+  min-width: 0;
+  min-height: var(--ds-size-control-md, 40px);
+  padding: var(--ds-space-075) var(--ds-space-100) var(--ds-space-075) var(--ds-space-250);
+  border-radius: var(--ds-radius-lg);
+  background: var(--_bg);
+  border: 1px solid var(--_border);
+  color: var(--ds-color-fg-default);
+}
+
+.ds-banner[hidden] {
+  display: none;
+}
+
+.ds-banner--brand { --_bg: var(--ds-color-brand-solid); --_border: var(--ds-color-brand-solid); --_icon: var(--ds-color-brand-on-solid); color: var(--ds-color-brand-on-solid); }
+
+/* novidade: faixa sólida; o × e o link seguem a cor do texto */
+.ds-banner--brand .ds-banner__close {
+  color: inherit;
+}
+
+.ds-banner--brand .ds-banner__close:hover,
+.ds-banner--brand .ds-banner__close[data-state="hover"] {
+  background: color-mix(in srgb, currentColor 14%, transparent);
+  color: inherit;
+}
+
+.ds-banner--brand .ds-link:hover,
+.ds-banner--brand .ds-link[data-state="hover"] {
+  color: inherit;
+}
+.ds-banner--info { --_bg: var(--ds-color-info-subtle); --_border: var(--ds-color-info-border); --_icon: var(--ds-color-info-fg); }
+.ds-banner--warning { --_bg: var(--ds-color-warning-subtle); --_border: var(--ds-color-warning-border); --_icon: var(--ds-color-warning-fg); }
+.ds-banner--danger { --_bg: var(--ds-color-danger-subtle); --_border: var(--ds-color-danger-border); --_icon: var(--ds-color-danger-fg); }
+
+.ds-banner__icon {
+  flex: none;
+  display: inline-flex;
+  color: var(--_icon);
+}
+
+.ds-banner__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.ds-banner__text {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  font: var(--ds-text-body-sm);
+  letter-spacing: var(--ds-text-body-sm-tracking);
+  text-wrap: pretty;
+}
+
+.ds-banner__text strong {
+  margin-inline-end: var(--ds-space-050);
+  font-weight: var(--ds-font-weight-semibold);
+}
+
+.ds-banner__text .ds-link {
+  color: inherit;
+  font-weight: var(--ds-font-weight-medium);
+}
+
+.ds-banner__close {
+  flex: none;
+  margin-inline-start: auto;
+}
+
+/* sem botão de fechar, o texto não encosta na borda */
+.ds-banner:not(:has(.ds-banner__close)) {
+  padding-inline-end: var(--ds-space-250);
+}
+
+/* no topo de tudo, colado nas bordas: só a linha de baixo */
+.ds-banner--flush {
+  border-width: 0 0 1px;
+  border-radius: 0;
+}

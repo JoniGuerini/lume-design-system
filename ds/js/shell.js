@@ -11,6 +11,8 @@
  */
 import { icon } from '../icons/icons.js';
 import { msg } from './i18n.js';
+import { alias, becomesProperty } from './deprecate.js';
+import { createMenu as createMenuDefault } from './menu.js';
 
 const SIDEBAR_KEY = 'ds-sidebar';
 const LAYOUT_KEY = 'ds-layout';
@@ -164,12 +166,31 @@ export function createShell(root, { persist = true, initial, layout } = {}) {
     toggle,
     setCollapsed,
     setLayout,
-    layout: () => root.dataset.layout,
+    /** Na 1.0 vira propriedade (shell.layout), como collapsed e mobileOpen. */
+    layout: () => {
+      becomesProperty('shell.layout()');
+      return root.dataset.layout;
+    },
     setMobileOpen,
     closeMobile: () => setMobileOpen(false),
-    isCollapsed,
-    isMobile,
-    isMobileOpen,
+    /** A sidebar está recolhida (no desktop). */
+    get collapsed() {
+      return isCollapsed();
+    },
+    /** A tela é de celular (a sidebar vira gaveta). */
+    get mobile() {
+      return isMobile();
+    },
+    /** A gaveta do celular está aberta. */
+    get mobileOpen() {
+      return isMobileOpen();
+    },
+    /** @deprecated Use collapsed. Sai na 1.0. */
+    isCollapsed: alias(isCollapsed, 'shell.isCollapsed()', 'shell.collapsed'),
+    /** @deprecated Use mobile. Sai na 1.0. */
+    isMobile: alias(isMobile, 'shell.isMobile()', 'shell.mobile'),
+    /** @deprecated Use mobileOpen. Sai na 1.0. */
+    isMobileOpen: alias(isMobileOpen, 'shell.isMobileOpen()', 'shell.mobileOpen'),
     scrollToTop: () => scroller?.scrollTo({ top: 0 }),
     /** Desliga tudo o que o shell ligou (para apps que montam e desmontam o shell, como no React). */
     destroy() {
@@ -192,7 +213,7 @@ function navItem(item, large) {
   return `<li><a class="ds-nav-item${large ? ' ds-nav-item--lg' : ''}" href="${escape(item.href)}" data-ds-tooltip="${escape(item.label)}" data-ds-tooltip-placement="right">
     ${icon(item.icon, { size: 20 })}
     <span class="ds-nav-item__label">${escape(item.label)}</span>
-    ${item.dot ? '<span class="ds-dot" aria-label="Novidade"></span>' : ''}
+    ${item.dot ? `<span class="ds-dot" aria-label="${escape(msg('shell.new'))}"></span>` : ''}
   </a></li>`;
 }
 
@@ -250,21 +271,21 @@ export function setActiveNavItem(container, href) {
 /**
  * Renderiza a navegação da navbar com os mesmos grupos da sidebar: o grupo sem label vira links;
  * cada grupo com label vira um botão que abre um menu com as páginas.
- *   const navbar = renderNavbarNav(container, groups, { createMenu, go: (href) => (location.hash = href) });
+ *   const navbar = renderNavbarNav(container, groups);                    // go padrão: location.assign(href)
+ *   renderNavbarNav(container, groups, { go: (href) => router.push(href) });
  *   navbar.setActive('#/componentes/botao');  navbar.destroy();
- * createMenu vem de ds/js/menu.js (passado por quem chama, para o shell não depender do menu).
  *
  * Sem espaço para tudo, primeiro a busca da navbar vira só o ícone; se ainda faltar, os últimos itens
  * passam para um botão "Mais", que abre um menu com eles. Nada fica cortado nem por cima da busca.
  */
-export function renderNavbarNav(container, groups, { createMenu, go }) {
+export function renderNavbarNav(container, groups, { createMenu = createMenuDefault, go = (href) => location.assign(href) } = {}) {
   container.innerHTML = groups
     .map((group) =>
       group.label
         ? `<button type="button" class="ds-navbar__item" data-navbar-group="${escape(group.id)}"><span>${escape(group.label)}</span><span class="ds-navbar__chevron" aria-hidden="true">${icon('chevron-down', { size: 16 })}</span></button>`
         : group.items
             .filter((i) => i.href !== '#/')
-            .map((i) => `<a class="ds-navbar__item" href="${escape(i.href)}"><span>${escape(i.label)}</span>${i.dot ? '<span class="ds-dot" aria-label="Novidade"></span>' : ''}</a>`)
+            .map((i) => `<a class="ds-navbar__item" href="${escape(i.href)}"><span>${escape(i.label)}</span>${i.dot ? `<span class="ds-dot" aria-label="${escape(msg('shell.new'))}"></span>` : ''}</a>`)
             .join(''),
     )
     .join('');

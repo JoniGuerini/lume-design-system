@@ -89,7 +89,7 @@ export function menuContent({ label, options = [], value, mode = 'radio', rows =
   );
 }
 
-export function createMenu(trigger, { label, options, value, onChange, mode = 'radio', maxRows = 0, sectionColumns = false }) {
+export function createMenu(trigger, { label, options = [], value, onChange, mode = 'radio', maxRows = 0, sectionColumns = false } = {}) {
   const id = `ds-menu-${++uid}`;
   const menu = document.createElement('div');
   menu.className = 'ds-menu';

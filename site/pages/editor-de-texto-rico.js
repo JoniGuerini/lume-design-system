@@ -75,7 +75,7 @@ export default function renderEditor(page) {
 </form>
 
 <script type="module">
-  import { createEditor } from 'https://lumeui.dev/v/0.38/lume.js';
+  import { createEditor } from 'https://lumeui.dev/v/0.39/lume.js';
 
   const editor = createEditor(document.querySelector('.ds-editor'), {
     tools: ['history', 'marks', 'blocks', 'align', 'link'],
@@ -84,7 +84,7 @@ export default function renderEditor(page) {
     onChange: (html) => console.log(html),
   });
 
-  editor.getHTML(); // ${L('HTML limpo, ou "" se estiver vazio', 'clean HTML, or "" when empty', 'HTML limpio, o "" si está vacío')}
+  editor.value; // ${L('HTML limpo, ou "" se estiver vazio', 'clean HTML, or "" when empty', 'HTML limpio, o "" si está vacío')}
   editor.getText();
 </script>`),
       },
@@ -138,12 +138,12 @@ export function mount(root) {
       { id: 'tools', label: L('Barra', 'Toolbar', 'Barra'), value: 'all', options: [{ value: 'all', label: L('Completa', 'Full', 'Completa') }, { value: 'text', label: L('Mínima', 'Minimal', 'Mínima') }] },
       { id: 'state', label: L('Estado', 'State', 'Estado'), value: 'on', options: [{ value: 'on', label: L('Editável', 'Editable', 'Editable') }, { value: 'off', label: L('Desativado', 'Disabled', 'Desactivado') }] },
     ],
-    render: (s) => `<div class="ed-play">${editor({ html: NOTE(), tools: s.tools === 'all' ? '' : 'marks,link', ph: placeholder(), attrs: ' data-play' })}<details class="ed-out"><summary>getHTML()</summary><pre data-out></pre></details></div>`,
+    render: (s) => `<div class="ed-play">${editor({ html: NOTE(), tools: s.tools === 'all' ? '' : 'marks,link', ph: placeholder(), attrs: ' data-play' })}<details class="ed-out"><summary>editor.value</summary><pre data-out></pre></details></div>`,
     mount: (preview, s) => {
       const out = preview.querySelector('[data-out]');
       const el = preview.querySelector('[data-play]');
       const ed = createEditor(el, { tools: s.tools === 'all' ? undefined : ['marks', 'link'], placeholder: el.dataset.placeholder, onChange: (html) => (out.textContent = html) });
-      out.textContent = ed.getHTML();
+      out.textContent = ed.value;
       if (s.state === 'off') ed.setDisabled(true);
       return () => ed.destroy();
     },
@@ -152,7 +152,7 @@ export function mount(root) {
 </div>
 
 <script type="module">
-  import { createEditor } from 'https://lumeui.dev/v/0.38/lume.js';
+  import { createEditor } from 'https://lumeui.dev/v/0.39/lume.js';
   const editor = createEditor(document.querySelector('.ds-editor'), {${s.tools === 'all' ? '' : `\n    tools: ['marks', 'link'],`}
     placeholder: '${placeholder()}',
   });${s.state === 'off' ? '\n  editor.setDisabled(true);' : ''}

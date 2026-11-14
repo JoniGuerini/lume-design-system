@@ -216,7 +216,7 @@ The HTML is fixed; the navigation is built by JS from a list. The same file serv
 ### JavaScript
 
 ```html
-import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/0.38/lume.js';
+import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/0.39/lume.js';
 
 const nav = document.getElementById('sidebar-nav');
 renderSidebarNav(nav, [
@@ -241,7 +241,7 @@ document.getElementById('shell')
 | --- | --- |
 |  `createShell(el, { persist, initial })`  | Wires collapse, drawer, groups, and top bar. `persist: false` saves nothing; `initial` forces “expanded” or “collapsed”. |
 |  `shell.toggle() · setCollapsed(bool) · setMobileOpen(bool)`  | Change the state the way the buttons and the shortcut do. |
-|  `shell.isCollapsed() · isMobile() · isMobileOpen()`  | Read the current state. |
+|  `shell.collapsed · mobile · mobileOpen`  | Read the current state. |
 |  `renderSidebarNav(el, groups)`  | Draws the navigation: the unlabeled group becomes the main one; the others collapse. |
 |  `setActiveNavItem(el, href)`  | Marks the current page, opens its group, and scrolls to it. |
 |  `ds:shellchange event`  | Fired on the shell at every change, with { sidebar, mobile, mobileOpen }. |

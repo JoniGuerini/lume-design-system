@@ -97,7 +97,7 @@ export default function renderSortable(page) {
 </ul>
 
 <script type="module">
-  import { createSortable } from 'https://lumeui.dev/v/0.38/lume.js';
+  import { createSortable } from 'https://lumeui.dev/v/0.39/lume.js';
 
   const sortable = createSortable(document.querySelector('.ds-sortable'), {
     onChange: () => salvar(sortable.toArray()), // ['tipografia', 'cores']
@@ -172,7 +172,7 @@ ${rows.map(([id, label]) => `  <li class="ds-sortable__item" data-id="${id}">${s
 </ul>
 
 <script type="module">
-  import { createSortable } from 'https://lumeui.dev/v/0.38/lume.js';
+  import { createSortable } from 'https://lumeui.dev/v/0.39/lume.js';
   createSortable(document.querySelector('.ds-sortable'), { onChange: (e) => console.log(e.id, e.newIndex) });
 </script>`;
     },

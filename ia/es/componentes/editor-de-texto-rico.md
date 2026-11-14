@@ -46,7 +46,7 @@ Con `name`, el editor crea un campo oculto con el HTML, y el formulario lo enví
 </form>
 
 <script type="module">
-  import { createEditor } from 'https://lumeui.dev/v/0.38/lume.js';
+  import { createEditor } from 'https://lumeui.dev/v/0.39/lume.js';
 
   const editor = createEditor(document.querySelector('.ds-editor'), {
     tools: ['history', 'marks', 'blocks', 'align', 'link'],
@@ -55,7 +55,7 @@ Con `name`, el editor crea un campo oculto con el HTML, y el formulario lo enví
     onChange: (html) => console.log(html),
   });
 
-  editor.getHTML(); // HTML limpio, o "" si está vacío
+  editor.value; // HTML limpio, o "" si está vacío
   editor.getText();
 </script>
 ```

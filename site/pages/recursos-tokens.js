@@ -637,7 +637,7 @@ export function mount(root) {
     noun: ['token', 'tokens'],
     onChange: render,
   });
-  render(filters.state);
+  render(filters.value);
   cleanups.push(() => filters.destroy());
 
   const onClear = (event) => {

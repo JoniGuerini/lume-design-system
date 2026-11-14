@@ -12,7 +12,7 @@ In numbers: forms: 2 · value sent: #rrggbb · swatches: optional · ARIA role: 
 <div class="ds-field"><input class="ds-field__input" id="marca" name="marca" type="text"></div>
 
 <script type="module">
-  import { createColorField } from 'https://lumeui.dev/v/0.38/lume.js';
+  import { createColorField } from 'https://lumeui.dev/v/0.39/lume.js';
   createColorField(document.querySelector('#marca'), {
     value: '#c97b63',
     swatches: [{ value: '#d95c0a', label: 'Peach' }, { value: '#2a8ed6', label: 'Blue' }, { value: '#cd5892', label: 'Pink' }, …],
@@ -88,7 +88,7 @@ The form receives the field’s hex; it works with `createForm`, like the other 
 </div>
 
 <script type="module">
-  import { createColorField } from 'https://lumeui.dev/v/0.38/lume.js';
+  import { createColorField } from 'https://lumeui.dev/v/0.39/lume.js';
 
   createColorField(document.querySelector('#marca'), {
     value: '#c97b63',

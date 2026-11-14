@@ -16,23 +16,10 @@ const I = (name, text, doc) => ({ name, text, doc });
 
 const STAGES = [
   {
-    version: '0.39',
+    version: '0.40',
     group: 'release',
     tone: 'brand',
     status: NEXT,
-    title: T('Revisão da API', 'API review', 'Revisión de la API'),
-    text: T('Acertar o que estiver torto antes de congelar.', 'Fix whatever is off before freezing it.', 'Corregir lo que esté torcido antes de congelarla.'),
-    items: [
-      I(T('Nomes e opções', 'Names and options', 'Nombres y opciones'), T('Tudo o que o lume.js exporta segue create…, mount… e …Html, e a mesma coisa tem o mesmo nome em todos os componentes.', 'Everything lume.js exports follows create…, mount…, and …Html, and the same thing has the same name in every component.', 'Todo lo que exporta lume.js sigue create…, mount… y …Html, y lo mismo tiene el mismo nombre en todos los componentes.')),
-      I(T('Eventos e retornos', 'Events and return values', 'Eventos y retornos'), T('Eventos ds:* com o mesmo formato e destroy() em tudo o que se liga a um elemento.', 'ds:* events with the same shape and destroy() on everything that binds to an element.', 'Eventos ds:* con el mismo formato y destroy() en todo lo que se vincula a un elemento.')),
-      I(T('React', 'React', 'React'), T('As props com os mesmos nomes das opções do JavaScript.', 'Props with the same names as the JavaScript options.', 'Las props con los mismos nombres que las opciones de JavaScript.')),
-    ],
-  },
-  {
-    version: '0.40',
-    group: 'release',
-    tone: 'neutral',
-    status: PLANNED,
     title: T('Plugin do Figma', 'Figma plugin', 'Plugin de Figma'),
     text: T('O Figma igual ao site, de novo.', 'Figma matching the site again.', 'Figma igual al sitio, de nuevo.'),
     items: [

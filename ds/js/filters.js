@@ -12,7 +12,7 @@
  *     noun: ['pedido', 'pedidos'],
  *     onChange: (state) => { …; filters.setCount(mostrados, total); },
  *   });
- *   filters.state · filters.set({ status: '' }) · filters.clear() · filters.setCount(n, total)
+ *   filters.value · filters.setValue({ status: '' }) · filters.clear() · filters.setCount(n, total)
  *   filters.focusSearch() · filters.destroy()
  *
  *   filtersToQuery(state, config)   → 'q=ana&status=pago'   (só o que difere do padrão)
@@ -23,6 +23,7 @@
 import { icon } from '../icons/icons.js';
 import { createMenu } from './menu.js';
 import { msg, formatNumber } from './i18n.js';
+import { alias, renamed } from './deprecate.js';
 
 let uid = 0;
 const escape = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
@@ -64,7 +65,7 @@ export function filtersFromQuery(query, config) {
   return state;
 }
 
-export function createFilters(host, config) {
+export function createFilters(host, config = {}) {
   const { label = msg('filters.label'), search = {}, fields = [], toggles = [], sort, noun, onChange } = config;
   const id = `ds-filters-${++uid}`;
   const base = defaults(config);
@@ -240,11 +241,20 @@ export function createFilters(host, config) {
 
   return {
     el: root,
-    get state() {
+    /** O estado dos filtros: { q, status, …, ordem }. */
+    get value() {
       return { ...state };
     },
-    set,
+    /** Muda só as chaves que vierem: setValue({ status: '' }). */
+    setValue: set,
     clear,
+    /** @deprecated Use value. Sai na 1.0. */
+    get state() {
+      renamed('filters.state', 'filters.value');
+      return { ...state };
+    },
+    /** @deprecated Use setValue(). Sai na 1.0. */
+    set: alias(set, 'filters.set()', 'filters.setValue()'),
     /** Contagem anunciada: "8 de 24 pedidos" com filtro, "24 pedidos" sem. */
     setCount(shown, total = shown) {
       const text = actives().length || shown !== total ? msg('filters.shownOf', shown, plural(total)) : plural(total);

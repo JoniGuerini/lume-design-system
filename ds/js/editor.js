@@ -11,7 +11,7 @@
  *     name: 'descricao',            // cria um <input type="hidden"> com o HTML, para o formulário enviar
  *     onChange: (html) => {},
  *   });
- *   editor.getHTML(); editor.setHTML('<p>Oi</p>'); editor.getText(); editor.isEmpty();
+ *   editor.value; editor.setValue('<p>Oi</p>'); editor.getText(); editor.isEmpty();
  *   editor.focus(); editor.setDisabled(true); editor.destroy();
  *
  * A barra é a Barra de ferramentas do Lume (um Tab só, setas entre os botões) e mostra o estado do
@@ -23,6 +23,7 @@
 import { icon } from '../icons/icons.js';
 import { msg } from './i18n.js';
 import { createToolbar } from './toolbar.js';
+import { alias } from './deprecate.js';
 
 const GROUPS = {
   history: ['undo', 'redo'],
@@ -564,6 +565,11 @@ export function createEditor(root, options = {}) {
   function getHTML() {
     return isEmpty() ? '' : sanitizeHtml(content.innerHTML);
   }
+  function setValue(html) {
+    content.innerHTML = sanitizeHtml(html || '') || '<p><br></p>';
+    changed();
+    sync();
+  }
   function isEmpty() {
     return !content.textContent.trim() && !content.querySelector('li, br + br');
   }
@@ -575,12 +581,15 @@ export function createEditor(root, options = {}) {
   return {
     el: root,
     content,
-    getHTML,
-    setHTML(html) {
-      content.innerHTML = sanitizeHtml(html || '') || '<p><br></p>';
-      changed();
-      sync();
+    /** O HTML limpo (vazio quando não há texto). */
+    get value() {
+      return getHTML();
     },
+    setValue,
+    /** @deprecated Use value. Sai na 1.0. */
+    getHTML: alias(getHTML, 'editor.getHTML()', 'editor.value'),
+    /** @deprecated Use setValue(). Sai na 1.0. */
+    setHTML: alias(setValue, 'editor.setHTML()', 'editor.setValue()'),
     getText: () => content.innerText.trim(),
     isEmpty,
     focus: () => content.focus(),

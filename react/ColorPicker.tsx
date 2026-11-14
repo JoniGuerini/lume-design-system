@@ -15,9 +15,11 @@ interface ColorController {
 export interface ColorPickerProps {
   /** Hexadecimal (#rrggbb). */
   value: string;
-  /** Ao soltar, ao escolher uma amostra ou ao confirmar o hexadecimal. */
+  /** A cada mudança, inclusive enquanto arrasta (como o Slider). */
   onChange: (hex: string) => void;
-  /** Enquanto arrasta. */
+  /** Ao soltar, ao escolher uma amostra ou ao confirmar o hexadecimal: bom para salvar. */
+  onCommit?: (hex: string) => void;
+  /** @deprecated Use onChange, que agora também chega enquanto arrasta. Sai na 1.0. */
   onInput?: (hex: string) => void;
   /** Amostras embaixo; sem label, o nome é o hexadecimal. */
   swatches?: ColorSwatch[];
@@ -29,14 +31,33 @@ export interface ColorPickerProps {
  *   <ColorPicker value={cor} onChange={setCor} swatches={['#c97b63', '#3b82f6']} />
  * https://lumeui.dev/#/componentes/seletor-de-cor
  */
-export function ColorPicker({ value, onChange, onInput, swatches, className }: ColorPickerProps) {
+export function ColorPicker({ value, onChange, onCommit, onInput, swatches, className }: ColorPickerProps) {
   const root = useRef<HTMLDivElement>(null);
   const api = useRef<ColorController | null>(null);
   const change = useLatest(onChange);
+  const commit = useLatest(onCommit);
   const input = useLatest(onInput);
   const latest = useLatest(value);
   useEffect(() => {
-    const c = createColorPicker(root.current!, defined({ value: latest.current, swatches, onChange: (h: string) => change.current(h), onInput: (h: string) => input.current?.(h) })) as ColorController;
+    let last = latest.current?.toLowerCase();
+    const live = (h: string) => {
+      input.current?.(h);
+      if (h === last) return;
+      last = h;
+      change.current(h);
+    };
+    const c = createColorPicker(
+      root.current!,
+      defined({
+        value: latest.current,
+        swatches,
+        onInput: live,
+        onChange: (h: string) => {
+          live(h);
+          commit.current?.(h);
+        },
+      }),
+    ) as ColorController;
     api.current = c;
     return () => {
       c.destroy();

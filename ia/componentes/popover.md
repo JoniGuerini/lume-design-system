@@ -12,7 +12,7 @@ Em números: lados: 4 · alinhamentos: 3 · largura máxima: 340 px · papel ARI
 <button type="button" class="ds-btn ds-btn--secondary" id="detalhes">Abrir popover</button>
 
 <script type="module">
-  import { createPopover } from 'https://lumeui.dev/v/0.38/lume.js';
+  import { createPopover } from 'https://lumeui.dev/v/0.39/lume.js';
   createPopover(document.querySelector('#detalhes'), {
     title: 'Detalhes',
     content: '<p>Conteúdo livre, que fica aberto até a pessoa sair.</p>',
@@ -47,7 +47,7 @@ Marcação dos exemplos desta seção:
 Com `data-popover-close`, um botão de dentro também fecha o painel.
 
 ```html
-import { createPopover } from 'https://lumeui.dev/v/0.38/lume.js';
+import { createPopover } from 'https://lumeui.dev/v/0.39/lume.js';
 
 const popover = createPopover(document.querySelector('#detalhes'), {
   title: 'Detalhes',

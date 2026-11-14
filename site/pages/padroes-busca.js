@@ -166,7 +166,7 @@ const PALETTE_PARTS = () => [
   [L('Rodapé', 'Footer', 'Pie'), L('Lembra as teclas. Some no celular, onde não há teclado físico.', 'Reminds you of the keys. It disappears on phones, where there’s no physical keyboard.', 'Recuerda las teclas. Desaparece en el móvil, donde no hay teclado físico.')],
 ];
 
-const paletteCode = () => `import { createCommandPalette } from 'https://lumeui.dev/v/0.38/lume.js';
+const paletteCode = () => `import { createCommandPalette } from 'https://lumeui.dev/v/0.39/lume.js';
 
 const palette = createCommandPalette({
   placeholder: '${L('Buscar páginas e ações…', 'Search pages and actions…', 'Buscar páginas y acciones…')}',
@@ -194,7 +194,7 @@ const ITEM_FIELDS = () => [
   ['perform()', L('O que acontece no Enter ou no clique. A paleta fecha antes.', 'What happens on Enter or click. The palette closes first.', 'Lo que pasa con Enter o con el clic. La paleta se cierra antes.')],
 ];
 
-const filtersCode = () => `import { createFilters } from 'https://lumeui.dev/v/0.38/lume.js';
+const filtersCode = () => `import { createFilters } from 'https://lumeui.dev/v/0.39/lume.js';
 
 const filters = createFilters(document.querySelector('#${L('filtros', 'filters', 'filtros')}'), {
   label: '${L('Filtrar pedidos', 'Filter orders', 'Filtrar pedidos')}',
@@ -215,13 +215,13 @@ const filters = createFilters(document.querySelector('#${L('filtros', 'filters',
 
 filters.clear();                           // ${L('limpa tudo, menos a ordenação', 'clears everything except sorting', 'limpia todo, menos el orden')}`;
 
-const urlCode = () => `import { filtersToQuery, filtersFromQuery } from 'https://lumeui.dev/v/0.38/lume.js';
+const urlCode = () => `import { filtersToQuery, filtersFromQuery } from 'https://lumeui.dev/v/0.39/lume.js';
 
 // ${L('ao filtrar: troca a URL sem empilhar uma entrada por letra digitada', 'on filtering: replace the URL without stacking one entry per typed letter', 'al filtrar: cambia la URL sin apilar una entrada por letra escrita')}
-history.replaceState(null, '', '?' + filtersToQuery(filters.state, config));
+history.replaceState(null, '', '?' + filtersToQuery(filters.value, config));
 
 // ${L('ao abrir a página (ou num link compartilhado): restaura', 'on opening the page (or a shared link): restore', 'al abrir la página (o en un enlace compartido): restaura')}
-filters.set(filtersFromQuery(location.search, config));`;
+filters.setValue(filtersFromQuery(location.search, config));`;
 
 /* ───────── Página ───────── */
 
@@ -442,7 +442,7 @@ export default function renderBusca(page) {
         <div class="doc-table__head" aria-hidden="true"><span>API</span><span>${L('O que faz', 'What it does', 'Qué hace')}</span></div>
         ${[
           ['createFilters(el, config)', L('Monta a barra (busca, filtros, liga/desliga, ordenação, ativos, contagem) e devolve o controle.', 'Builds the bar (search, filters, toggles, sorting, active filters, count) and returns the controller.', 'Arma la barra (búsqueda, filtros, interruptores, orden, activos, conteo) y devuelve el control.')],
-          ['filters.state · set(parcial) · clear()', L(`Lê e muda o estado; cada mudança chama ${ic('onChange')}.`, `Reads and changes the state; each change calls ${ic('onChange')}.`, `Lee y cambia el estado; cada cambio llama a ${ic('onChange')}.`)],
+          ['filters.value · setValue(parcial) · clear()', L(`Lê e muda o estado; cada mudança chama ${ic('onChange')}.`, `Reads and changes the state; each change calls ${ic('onChange')}.`, `Lee y cambia el estado; cada cambio llama a ${ic('onChange')}.`)],
           ['filters.setCount(mostrados, total)', L('Atualiza a contagem anunciada.', 'Updates the announced count.', 'Actualiza el conteo anunciado.')],
           ['filtersToQuery · filtersFromQuery', L('Estado ⇄ URL, ignorando o que é padrão ou não existe.', 'State ⇄ URL, ignoring what’s default or doesn’t exist.', 'Estado ⇄ URL, ignorando lo que es predeterminado o no existe.')],
           [L('.ds-filters e partes', '.ds-filters and parts', '.ds-filters y partes'), L('As classes também servem para uma barra montada à mão (veja o comentário em filters.css).', 'The classes also work for a hand-built bar (see the comment in filters.css).', 'Las clases también sirven para una barra armada a mano (mira el comentario en filters.css).')],
@@ -457,7 +457,7 @@ export default function renderBusca(page) {
           ['items', L('Lista de itens — ou uma função que devolve a lista a cada abertura.', 'List of items — or a function that returns the list on every open.', 'Lista de elementos — o una función que devuelve la lista en cada apertura.')],
           ['placeholder · label', L('Texto do campo e o nome do diálogo para leitores de tela.', 'Field text and the dialog’s name for screen readers.', 'Texto del campo y el nombre del diálogo para lectores de pantalla.')],
           ['hotkeys: false', L('Não liga ⌘K nem /. Para paletas extras, como a de exemplo desta página.', 'Doesn’t bind ⌘K or /. For extra palettes, like this page’s example.', 'No conecta ⌘K ni /. Para paletas extra, como la de ejemplo de esta página.')],
-          ['open() · close() · isOpen() · destroy()', L('Controle manual; destroy() remove o diálogo e os atalhos.', 'Manual control; destroy() removes the dialog and the shortcuts.', 'Control manual; destroy() quita el diálogo y los atajos.')],
+          ['open() · close() · destroy()', L('Controle manual; destroy() remove o diálogo e os atalhos.', 'Manual control; destroy() removes the dialog and the shortcuts.', 'Control manual; destroy() quita el diálogo y los atajos.')],
           ['filterCommands(items, busca)', L('A mesma busca da paleta, para testes ou outras listas.', 'The same search as the palette, for tests or other lists.', 'La misma búsqueda de la paleta, para pruebas u otras listas.')],
         ]
           .map(([a, t]) => `<div class="doc-table__row"><code class="pb-fields__name">${a}</code><span class="pb-fields__text">${t}</span></div>`)
@@ -552,7 +552,7 @@ export function mount(root) {
     queryEl.textContent = q ? `?${q}` : '';
     queryEl.dataset.empty = q ? 'false' : 'true';
   }
-  renderOrders(filters.state);
+  renderOrders(filters.value);
   cleanups.push(() => filters.destroy());
 
   /* Atalhos: menu com atalhos à direita */
@@ -589,9 +589,9 @@ export function mount(root) {
       filters.focusSearch();
     }
     const r = e.target.closest('[data-restore]');
-    if (r) filters.set(filtersFromQuery(r.dataset.restore, config));
+    if (r) filters.setValue(filtersFromQuery(r.dataset.restore, config));
     if (e.target.closest('[data-copy-url]')) {
-      const q = filtersToQuery(filters.state, config);
+      const q = filtersToQuery(filters.value, config);
       copyText(`https://pedidos.app/pedidos${q ? `?${q}` : ''}`, L('Link copiado', 'Link copied', 'Enlace copiado'));
     }
   };

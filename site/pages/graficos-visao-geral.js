@@ -1,6 +1,6 @@
 import { icon } from '../../ds/icons/icons.js';
 import { tokens, contrast } from '../../ds/tokens.js';
-import { createBarChart, createLineChart, createDonutChart, statTileHtml, formatter } from '../../ds/js/charts.js';
+import { createBarChart, createLineChart, createDonutChart, statTileHtml, chartFormatter } from '../../ds/js/charts.js';
 import { locale, dateFormat, formatNumber } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
 import { mountCodeCopy, codeBlock, tokenTable, a11yList, escapeHtml } from '../component-doc.js';
@@ -614,7 +614,7 @@ export default function renderVisaoGeral(page) {
       'vg-api',
       'API',
       L('Uma função por forma, a mesma conversa em todas: monta num elemento, recebe opções e devolve controles.', 'One function per form, the same conversation in all of them: mount on an element, take options, and return controls.', 'Una función por forma, la misma conversación en todas: se monta en un elemento, recibe opciones y devuelve controles.'),
-      `${codeBlock(`import { createBarChart } from 'https://lumeui.dev/v/0.38/lume.js';
+      `${codeBlock(`import { createBarChart } from 'https://lumeui.dev/v/0.39/lume.js';
 
 const ${L('grafico', 'chart', 'grafico')} = createBarChart(document.querySelector('#${L('vendas', 'sales', 'ventas')}'), {
   title: '${L('Receita por mês', 'Revenue by month', 'Ingresos por mes')}',
@@ -638,7 +638,7 @@ ${L('grafico', 'chart', 'grafico')}.destroy();                  // ${L('limpa tu
         <div>
           <h3 class="doc-subhead">${L('Formatos', 'Formats', 'Formatos')} <span class="doc-subhead__meta">${locale()}</span></h3>
           <div class="doc-table gv-api__table gv-api__table--formats">
-            ${PRESETS.map(([name, v]) => `<div class="doc-table__row"><code class="ds-inline-code">'${name}'</code><span class="gv-api__out">${escapeHtml(formatter(name)(v))}</span></div>`).join('')}
+            ${PRESETS.map(([name, v]) => `<div class="doc-table__row"><code class="ds-inline-code">'${name}'</code><span class="gv-api__out">${escapeHtml(chartFormatter(name)(v))}</span></div>`).join('')}
             <div class="doc-table__row"><code class="ds-inline-code">{ … } · (v) =&gt; …</code><span>${L('Opções de Intl.NumberFormat ou uma função', 'Intl.NumberFormat options or a function', 'Opciones de Intl.NumberFormat o una función')}</span></div>
           </div>
         </div>

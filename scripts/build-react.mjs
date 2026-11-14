@@ -71,7 +71,7 @@ export declare function mountSelects(root?: ParentNode): () => void;
 `,
   form: `export declare function createForm(form: HTMLFormElement, options?: Record<string, unknown>): { validate(): boolean; data(): Record<string, any>; errors(): Array<{ name: string; label: string; message: string }>; reset(): void; destroy(): void };
 `,
-  menu: `export declare function createMenu(trigger: HTMLElement, config: Record<string, unknown>): { open(): void; close(returnFocus?: boolean): void; isOpen: boolean; value: string; setValue(value: string): void; destroy(): void };
+  menu: `export declare function createMenu(trigger: HTMLElement, config?: Record<string, unknown>): { open(): void; close(returnFocus?: boolean): void; isOpen: boolean; value: string; setValue(value: string): void; destroy(): void };
 export declare function menuRows(count: number, maxRows: number): number;
 export declare function menuContent(config?: Record<string, unknown>): string;
 `,
@@ -95,7 +95,7 @@ export declare function ratingHtml(value: number, options?: Record<string, unkno
 `,
   tree: `export declare function createTree(root: HTMLElement, options?: Record<string, unknown>): { selected: string | null; select(id: string): void; expand(id: string): void; collapse(id: string): void; setItems(items: any[]): void; destroy(): void };
 `,
-  'back-to-top': `export declare function createBackToTop(scroller: HTMLElement, options?: Record<string, unknown>): { element: HTMLButtonElement; update(): void; destroy(): void };
+  'back-to-top': `export declare function createBackToTop(scroller: HTMLElement, options?: Record<string, unknown>): { el: HTMLButtonElement; /** @deprecated Use el. */ readonly element: HTMLButtonElement; update(): void; destroy(): void };
 `,
   scrollbar: `export declare function initScrollbars(): void;
 `,
@@ -111,7 +111,7 @@ export declare function relativeTime(date: Date | string | number, now?: Date): 
 export declare function createNotificationCenter(trigger: HTMLElement, options?: { items?: NotificationItem[]; onSelect?: (item: NotificationItem) => void; onChange?: (items: NotificationItem[], unread: number) => void; badge?: boolean; placement?: 'bottom' | 'top' | 'left' | 'right'; align?: 'start' | 'center' | 'end' }): { readonly items: NotificationItem[]; readonly unread: number; readonly isOpen: boolean; open(): void; close(): void; setItems(items: NotificationItem[], options?: { announce?: boolean }): void; add(item: NotificationItem): void; markRead(id: string, read?: boolean): void; markUnread(id: string): void; markAllRead(): void; destroy(): void };
 `,
   'image-viewer': `export interface ViewerImage { src: string; alt?: string; caption?: string }
-export declare function openImageViewer(images: Array<ViewerImage | string>, options?: { index?: number; onChange?: (index: number) => void; onClose?: () => void }): { el: HTMLDialogElement; readonly index: number; readonly zoom: number; go(index: number): void; next(): void; prev(): void; zoomIn(): void; zoomOut(): void; fit(): void; close(): void };
+export declare function openImageViewer(images: Array<ViewerImage | string>, options?: { index?: number; onChange?: (index: number) => void; onClose?: () => void }): { el: HTMLDialogElement; readonly index: number; readonly zoom: number; goTo(index: number): void; /** @deprecated Use goTo. */ go(index: number): void; next(): void; prev(): void; zoomIn(): void; zoomOut(): void; fit(): void; close(): void };
 export declare function mountImageViewer(area?: ParentNode & EventTarget, options?: { selector?: string; onChange?: (index: number) => void; onClose?: () => void }): () => void;
 `,
   sortable: `export interface SortChange { item: HTMLElement; id: string | undefined; from: HTMLElement; to: HTMLElement; oldIndex: number; newIndex: number }
@@ -120,7 +120,7 @@ export declare function createSortable(list: HTMLElement, options?: { group?: st
 export declare function createKanban(board: HTMLElement, options?: { onChange?: (change: SortChange, columns: Record<string, string[]>) => void }): { el: HTMLElement; toObject(): Record<string, string[]>; refresh(): void; destroy(): void };
 `,
   editor: `export type EditorTool = 'history' | 'marks' | 'blocks' | 'align' | 'link';
-export interface EditorController { el: HTMLElement; content: HTMLElement; getHTML(): string; setHTML(html: string): void; getText(): string; isEmpty(): boolean; focus(): void; setDisabled(disabled: boolean): void; destroy(): void }
+export interface EditorController { el: HTMLElement; content: HTMLElement; readonly value: string; setValue(html: string): void; /** @deprecated Use value. */ getHTML(): string; /** @deprecated Use setValue. */ setHTML(html: string): void; getText(): string; isEmpty(): boolean; focus(): void; setDisabled(disabled: boolean): void; destroy(): void }
 export declare function createEditor(root: HTMLElement, options?: { tools?: EditorTool[]; placeholder?: string; name?: string; value?: string; onChange?: (html: string) => void }): EditorController;
 export declare function sanitizeHtml(html: string): string;
 `,
@@ -148,10 +148,10 @@ export declare function toastContent(message: string, options?: ToastOptions & {
 export declare function toastClasses(options?: { tone?: string }): string;
 `,
   shell: `export declare const LAYOUTS: Array<'sidebar' | 'navbar'>;
-export declare function createShell(root: HTMLElement, options?: { persist?: boolean; initial?: 'expanded' | 'collapsed'; layout?: 'sidebar' | 'navbar' }): { toggle(): void; setCollapsed(collapsed: boolean): void; setLayout(layout: 'sidebar' | 'navbar'): void; layout(): string; setMobileOpen(open: boolean): void; closeMobile(): void; isCollapsed(): boolean; isMobile(): boolean; isMobileOpen(): boolean; scrollToTop(): void; destroy(): void };
+export declare function createShell(root: HTMLElement, options?: { persist?: boolean; initial?: 'expanded' | 'collapsed'; layout?: 'sidebar' | 'navbar' }): { toggle(): void; setCollapsed(collapsed: boolean): void; setLayout(layout: 'sidebar' | 'navbar'): void; layout(): string; setMobileOpen(open: boolean): void; closeMobile(): void; readonly collapsed: boolean; readonly mobile: boolean; readonly mobileOpen: boolean; /** @deprecated Use collapsed. */ isCollapsed(): boolean; /** @deprecated Use mobile. */ isMobile(): boolean; /** @deprecated Use mobileOpen. */ isMobileOpen(): boolean; scrollToTop(): void; destroy(): void };
 export declare function renderSidebarNav(container: HTMLElement, groups: any[]): void;
 export declare function setActiveNavItem(container: HTMLElement, href: string): void;
-export declare function renderNavbarNav(container: HTMLElement, groups: any[], options: Record<string, unknown>): void;
+export declare function renderNavbarNav(container: HTMLElement, groups: any[], options?: { go?: (href: string) => void; createMenu?: unknown }): { setActive(href: string): void; destroy(): void };
 `,
   theme: `export declare const THEMES: Array<'light' | 'dark'>;
 export declare function getThemePreference(): 'system' | 'light' | 'dark';
@@ -178,7 +178,9 @@ export declare function createScatterChart(host: HTMLElement, options: any): Cha
 export declare function sparklineHtml(values: number[], options?: Record<string, unknown>): string;
 export declare function statTileHtml(options: Record<string, unknown>): string;
 export declare function meterHtml(options: Record<string, unknown>): string;
-export declare function formatter(format: unknown): (value: number) => string;
+export declare function chartFormatter(format?: unknown): (value: number) => string;
+/** @deprecated Use chartFormatter. */
+export declare function formatter(format?: unknown): (value: number) => string;
 `,
 };
 for (const [name, body] of Object.entries(MODULES)) {
