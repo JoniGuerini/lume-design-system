@@ -614,7 +614,7 @@ export default function renderVisaoGeral(page) {
       'vg-api',
       'API',
       L('Uma função por forma, a mesma conversa em todas: monta num elemento, recebe opções e devolve controles.', 'One function per form, the same conversation in all of them: mount on an element, take options, and return controls.', 'Una función por forma, la misma conversación en todas: se monta en un elemento, recibe opciones y devuelve controles.'),
-      `${codeBlock(`import { createBarChart } from 'https://lumeui.dev/v/0.31/lume.js';
+      `${codeBlock(`import { createBarChart } from 'https://lumeui.dev/v/0.32/lume.js';
 
 const ${L('grafico', 'chart', 'grafico')} = createBarChart(document.querySelector('#${L('vendas', 'sales', 'ventas')}'), {
   title: '${L('Receita por mês', 'Revenue by month', 'Ingresos por mes')}',

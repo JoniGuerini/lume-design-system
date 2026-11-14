@@ -216,7 +216,7 @@ The HTML is fixed; the navigation is built by JS from a list. The same file serv
 ### JavaScript
 
 ```html
-import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/0.31/lume.js';
+import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/0.32/lume.js';
 
 const nav = document.getElementById('sidebar-nav');
 renderSidebarNav(nav, [

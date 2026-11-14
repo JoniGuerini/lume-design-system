@@ -126,7 +126,7 @@ Manual `data-activation="manual"` — The arrows move focus; Enter or Space acti
 ### In code
 
 ```html
-import { mountTabs } from 'https://lumeui.dev/v/0.31/lume.js';
+import { mountTabs } from 'https://lumeui.dev/v/0.32/lume.js';
 
 // wires every [data-ds-tabs] on the page — including ones added later
 const unmount = mountTabs(document);

@@ -91,6 +91,7 @@ export const ICON_KEYWORDS = {
   dialog: ['modal window dialog', 'modal ventana diálogo'],
   tabs: ['tabs navigation', 'pestañas navegación'],
   carousel: ['carousel gallery highlights slides', 'carrusel galería destacados diapositivas'],
+  resizable: ['resizable panels split divider drag resize', 'paneles redimensionables dividir arrastrar divisor'],
   tooltip: ['hint balloon help tooltip', 'pista globo ayuda'],
   table: ['table data grid', 'tabla datos cuadrícula'],
   list: ['list items', 'lista elementos'],

@@ -127,6 +127,7 @@ const DEFINITIONS = [
   ['dialog', 'interface', 'modal janela diálogo', rect(2.5, 4.5, 19, 15, 3) + path('M2.5 9h19') + dot(6, 6.8) + dot(8.5, 6.8)],
   ['tabs', 'interface', 'abas guias navegação', rect(3, 4, 18, 16, 3) + path('M3 9h18M9.5 4v5')],
   ['carousel', 'interface', 'carrossel galeria destaques slides', rect(6.5, 5, 11, 14, 2.5) + path('M3 7.5v9M21 7.5v9')],
+  ['resizable', 'interface', 'painéis redimensionáveis dividir arrastar divisória split', rect(3.5, 4, 17, 16, 2.5) + path('M12 4v16M7.5 10l-2 2 2 2M16.5 10l2 2-2 2')],
   ['tooltip', 'interface', 'dica balão ajuda', path('M5 4.5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-4.5L12 19.5l-2.5-3H5a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2z')],
   ['table', 'interface', 'tabela dados grade', rect(3.5, 4, 17, 16, 2.5) + path('M3.5 9.5h17M3.5 15h17M9.5 9.5V20')],
   ['list', 'interface', 'lista itens', path('M9 6h11M9 12h11M9 18h11') + dot(4.5, 6) + dot(4.5, 12) + dot(4.5, 18)],

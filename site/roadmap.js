@@ -15,10 +15,7 @@ const C = (version, status, tone, title, text, items) => ({ version, group: 'com
 const I = (name, text, doc) => ({ name, text, doc });
 
 const STAGES = [
-  C('0.32', NEXT, 'brand', T('Painéis redimensionáveis', 'Resizable panels', 'Paneles redimensionables'), T('Dividir a tela em partes que a pessoa ajusta.', 'Split the screen into parts people can adjust.', 'Dividir la pantalla en partes que la persona ajusta.'), [
-    I(T('Painéis redimensionáveis', 'Resizable panels', 'Paneles redimensionables'), T('Divisória que arrasta, com teclado, tamanho mínimo e tamanho salvo.', 'A draggable divider, with keyboard, minimum size, and saved size.', 'Divisor que se arrastra, con teclado, tamaño mínimo y tamaño guardado.')),
-  ]),
-  C('0.33', PLANNED, 'neutral', T('Avaliação e barra de ferramentas', 'Rating and toolbar', 'Valoración y barra de herramientas'), T('Dar nota e agrupar ações de um editor.', 'Give a score and group an editor’s actions.', 'Dar una nota y agrupar las acciones de un editor.'), [
+  C('0.33', NEXT, 'brand', T('Avaliação e barra de ferramentas', 'Rating and toolbar', 'Valoración y barra de herramientas'), T('Dar nota e agrupar ações de um editor.', 'Give a score and group an editor’s actions.', 'Dar una nota y agrupar las acciones de un editor.'), [
     I(T('Avaliação', 'Rating', 'Valoración'), T('Estrelas para dar nota ou só mostrar a média, com meia estrela.', 'Stars to give a score or just show the average, with half stars.', 'Estrellas para calificar o solo mostrar el promedio, con media estrella.')),
     I(T('Barra de ferramentas', 'Toolbar', 'Barra de herramientas'), T('Botões de ícone agrupados, com setas para andar entre eles.', 'Grouped icon buttons, with arrow keys to move between them.', 'Botones de ícono agrupados, con flechas para moverse entre ellos.')),
   ]),

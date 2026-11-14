@@ -71,7 +71,7 @@ export default function renderSeletorDeHorario(page) {
         id: 'codigo',
         title: L('Código', 'Code', 'Código'),
         desc: L(`Funciona com ${ic('createForm')}, como os outros campos.`, `It works with ${ic('createForm')}, like the other fields.`, `Funciona con ${ic('createForm')}, como los otros campos.`),
-        html: codeBlock(`import { createTimePicker } from 'https://lumeui.dev/v/0.31/lume.js';
+        html: codeBlock(`import { createTimePicker } from 'https://lumeui.dev/v/0.32/lume.js';
 
 const picker = createTimePicker(document.querySelector('#inicio'), {
   value: '09:00',
@@ -140,7 +140,7 @@ export function mount(root) {
 </div>
 
 <script type="module">
-  import { createTimePicker } from 'https://lumeui.dev/v/0.31/lume.js';
+  import { createTimePicker } from 'https://lumeui.dev/v/0.32/lume.js';
   createTimePicker(document.querySelector('#inicio'), {
     step: ${s.step},${s.limit === 'business' ? "\n    min: '08:00',\n    max: '18:00'," : ''}
   });

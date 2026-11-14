@@ -4,17 +4,17 @@ Sección de Lume: Recursos. Página: https://lumeui.dev/#/recursos/api
 
 Todo lo que puedes llamar desde JavaScript, en un solo archivo. Lo que está aquí es público y estable; el resto es interno y puede cambiar.
 
-En números: ítems públicos: 87 · verbos: 5 · dependencias: 0.
+En números: ítems públicos: 88 · verbos: 5 · dependencias: 0.
 
 ## Importar
 
 Un archivo, `ds/lume.js`, reúne toda la API. Los módulos de `ds/js/` siguen pudiéndose importar uno a uno, para cargar solo lo necesario.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/0.31/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/0.32/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.31/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.32/lume.js';
 
   initTheme();
   const modal = createModal({ title: '¿Publicar cambios?' });
@@ -43,7 +43,7 @@ El estado sigue `get…` y `set…`; las constantes van en mayúsculas, como `TH
 
 ## Todo lo público
 
-Los 87 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
+Los 88 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 
 ### Componentes
 
@@ -69,6 +69,7 @@ Los 87 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 | `createOtpField` | Campo de código de verificación. | otp-field.js |
 | `createPagination` | Paginación de una lista o tabla. | pagination.js |
 | `createPopover` | Panel que se abre sujeto a un botón. | popover.js |
+| `createResizable` | Paneles redimensionables: divisor que se arrastra, con teclado, límites y tamaño guardado. | resizable.js |
 | `createSegmented` | Control segmentado. | segmented.js |
 | `createSelect` | Selector de Lume sobre un select nativo. | select.js |
 | `mountSelects` | Activa todos los selectores de un área. | select.js |

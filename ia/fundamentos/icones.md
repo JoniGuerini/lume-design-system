@@ -4,7 +4,7 @@ Seção do Lume: Fundamentos. Página: https://lumeui.dev/#/fundamentos/icones
 
 Uma biblioteca própria, desenhada no mesmo grid e com o mesmo traço. Contorno fino, pontas redondas e cor herdada do texto.
 
-Em números: ícones: 132 · categorias: 8 · grid: 24 px · traço: 1,5.
+Em números: ícones: 133 · categorias: 8 · grid: 24 px · traço: 1,5.
 
 ## Biblioteca
 
@@ -97,6 +97,7 @@ Busque pelo nome ou por palavras em português, inglês ou espanhol. Clique num 
 - dialog
 - tabs
 - carousel
+- resizable
 - tooltip
 - table
 - list
@@ -154,7 +155,7 @@ Marcação dos exemplos desta seção:
 
 <button type="button" class="ds-chip" data-menu="size" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-10"><span class="ds-chip__icon"><ds-icon name="spacing"></ds-icon></span><span data-label="">24 px</span><span class="ds-chip__chevron"><ds-icon name="chevron-down"></ds-icon></span></button>
 
-<button type="button" class="ds-chip ds-chip--sm" data-category="all" aria-pressed="true">Todos<span>132</span></button>
+<button type="button" class="ds-chip ds-chip--sm" data-category="all" aria-pressed="true">Todos<span>133</span></button>
 
 <button type="button" class="ds-chip ds-chip--sm" data-category="navegacao" aria-pressed="false">Navegação<span>18</span></button>
 
@@ -162,7 +163,7 @@ Marcação dos exemplos desta seção:
 
 <button type="button" class="ds-chip ds-chip--sm" data-category="status" aria-pressed="false">Status e feedback<span>16</span></button>
 
-<button type="button" class="ds-chip ds-chip--sm" data-category="interface" aria-pressed="false">Interface<span>29</span></button>
+<button type="button" class="ds-chip ds-chip--sm" data-category="interface" aria-pressed="false">Interface<span>30</span></button>
 
 <button type="button" class="ds-chip ds-chip--sm" data-category="objetos" aria-pressed="false">Objetos<span>15</span></button>
 ```
@@ -227,7 +228,7 @@ Dois jeitos de usar: a função `icon()` em JavaScript ou o elemento `<ds-icon>`
 JavaScript
 
 ```html
-import { icon } from 'https://lumeui.dev/v/0.31/lume.js';
+import { icon } from 'https://lumeui.dev/v/0.32/lume.js';
 
 button.innerHTML = icon('home', { size: 20 });
 // com rótulo para leitores de tela

@@ -1,6 +1,6 @@
 # Lume Design System
 
-> Design system em HTML, CSS e JavaScript nativos, sem dependências: tokens, tipografia, 130 ícones próprios, componentes, gráficos e padrões de tela, nos temas claro e escuro. Versão 0.31.0.
+> Design system em HTML, CSS e JavaScript nativos, sem dependências: tokens, tipografia, 130 ícones próprios, componentes, gráficos e padrões de tela, nos temas claro e escuro. Versão 0.32.0.
 
 Comece por [LEIA-ME](https://lumeui.dev/ia/LEIA-ME.md): instalação, regras gerais e o que nunca inventar. Cada página do site tem um arquivo Markdown abaixo, gerado a partir dela.
 
@@ -67,6 +67,7 @@ Comece por [LEIA-ME](https://lumeui.dev/ia/LEIA-ME.md): instalação, regras ger
 - [Card](https://lumeui.dev/ia/componentes/card.md): A superfície básica para agrupar conteúdo.
 - [Carrossel](https://lumeui.dev/ia/componentes/carrossel.md): Destaques que passam um por vez, com setas, pontos e arrastar.
 - [Painel](https://lumeui.dev/ia/componentes/painel.md): A superfície de uma tarefa: rótulo, título, controles e seções.
+- [Painéis redimensionáveis](https://lumeui.dev/ia/componentes/paineis-redimensionaveis.md): Áreas que a pessoa ajusta arrastando a divisória, com teclado e tamanho salvo.
 - [Avatar](https://lumeui.dev/ia/componentes/avatar.md): Pessoa ou conta: foto, iniciais num tom estável, status e grupo.
 - [Tabela](https://lumeui.dev/ia/componentes/tabela.md): Dados em linhas e colunas, com ordenação e seleção.
 - [Calendário](https://lumeui.dev/ia/componentes/calendario.md): Mês, semana e dia, com eventos e teclado.

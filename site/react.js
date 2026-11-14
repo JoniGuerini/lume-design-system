@@ -91,6 +91,7 @@ export const REACT_GROUPS = () => [
       ['Calendar', 'Calendar.tsx', '/componentes/calendario', '0.29', L('Mês, semana e dia, com eventos; visão e data no estado.', 'Month, week and day, with events; view and date in state.', 'Mes, semana y día, con eventos; vista y fecha en el estado.')],
       ['CodeBlock', 'Calendar.tsx', '/componentes/bloco-de-codigo', '0.29', L('Código com o botão de copiar.', 'Code with the copy button.', 'Código con el botón de copiar.')],
       ['Carousel', 'Carousel.tsx', '/componentes/carrossel', '0.30', L('Cada filho vira um slide; perView, peek, loop e autoplay com pausa. index e onChange no estado.', 'Each child becomes a slide; perView, peek, loop and autoplay with pause. index and onChange in state.', 'Cada hijo es una diapositiva; perView, peek, loop y autoplay con pausa. index y onChange en el estado.')],
+      ['ResizablePanels', 'Resizable.tsx', '/componentes/paineis-redimensionaveis', '0.32', L('Um ResizablePanel por parte, com size, min, max e collapsible; as divisórias entram sozinhas. storageKey guarda o tamanho.', 'One ResizablePanel per part, with size, min, max and collapsible; dividers are added for you. storageKey keeps the size.', 'Un ResizablePanel por parte, con size, min, max y collapsible; los divisores se agregan solos. storageKey guarda el tamaño.')],
     ],
   },
   {

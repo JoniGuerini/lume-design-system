@@ -82,6 +82,8 @@ export declare function pageRange(page: number, pages: number, siblings?: number
 export declare function createColorPicker(root: HTMLElement, options?: Record<string, unknown>): { value: string; setValue(value: string | null): void; setSwatches(list: unknown[]): void; focus(): void; destroy(): void };
 export declare function createColorField(input: HTMLInputElement, options?: Record<string, unknown>): { value: string | null; setValue(value: string | null): void; open(): void; close(): void; destroy(): void };
 `,
+  resizable: `export declare function createResizable(root: HTMLElement, options?: Record<string, unknown>): { sizes: number[]; setSizes(sizes: number[]): void; collapse(index: number): void; expand(index: number): void; reset(): void; destroy(): void };
+`,
   carousel: `export declare function createCarousel(root: HTMLElement, options?: Record<string, unknown>): { index: number; paused: boolean; goTo(index: number): void; next(): void; prev(): void; pause(): void; play(): void; destroy(): void };
 `,
   stepper: `export declare function createStepper(root: HTMLElement, options?: Record<string, unknown>): { current: number; setCurrent(index: number): void; next(): void; prev(): void; destroy(): void };

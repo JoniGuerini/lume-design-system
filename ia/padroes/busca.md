@@ -54,7 +54,7 @@ Cada item é um objeto. Passe uma função em `items` e a lista é lida de novo 
 |  `perform()`  | O que acontece no Enter ou no clique. A paleta fecha antes. |
 
 ```html
-import { createCommandPalette } from 'https://lumeui.dev/v/0.31/lume.js';
+import { createCommandPalette } from 'https://lumeui.dev/v/0.32/lume.js';
 
 const palette = createCommandPalette({
   placeholder: 'Buscar páginas e ações…',
@@ -122,7 +122,7 @@ Filtro que só existe na memória se perde no recarregar e não dá para compart
 - Valor que não existe (um status apagado) é ignorado, não quebra a página.
 
 ```html
-import { filtersToQuery, filtersFromQuery } from 'https://lumeui.dev/v/0.31/lume.js';
+import { filtersToQuery, filtersFromQuery } from 'https://lumeui.dev/v/0.32/lume.js';
 
 // ao filtrar: troca a URL sem empilhar uma entrada por letra digitada
 history.replaceState(null, '', '?' + filtersToQuery(filters.state, config));
@@ -179,7 +179,7 @@ Marcação dos exemplos desta seção:
 ```html
 <button type="button" class="ds-icon-btn ds-icon-btn--outline" aria-label="Novo pedido" data-ds-tooltip="Novo pedido" data-ds-tooltip-kbd="N" aria-keyshortcuts="N"><ds-icon name="plus"></ds-icon></button>
 
-<button type="button" class="ds-chip" data-shortcut-menu="" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-197">Pedido<span class="ds-chip__chevron"><ds-icon name="chevron-down"></ds-icon></span></button>
+<button type="button" class="ds-chip" data-shortcut-menu="" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-200">Pedido<span class="ds-chip__chevron"><ds-icon name="chevron-down"></ds-icon></span></button>
 
 <kbd class="ds-kbd">Ctrl</kbd>
 
@@ -204,7 +204,7 @@ A paleta e os filtros são módulos independentes; os dois só pedem dados e uma
 ### Filtros
 
 ```html
-import { createFilters } from 'https://lumeui.dev/v/0.31/lume.js';
+import { createFilters } from 'https://lumeui.dev/v/0.32/lume.js';
 
 const filters = createFilters(document.querySelector('#filtros'), {
   label: 'Filtrar pedidos',

@@ -188,6 +188,8 @@ export const MESSAGES = {
     'carousel.pause': 'Pausar',
     'carousel.play': 'Retomar',
 
+    'resizable.handle': 'Redimensionar painéis',
+
     'code.copy': 'Copiar código',
     'code.copied': 'Código copiado',
 
@@ -435,6 +437,8 @@ export const MESSAGES = {
     'carousel.pause': 'Pause',
     'carousel.play': 'Resume',
 
+    'resizable.handle': 'Resize panels',
+
     'code.copy': 'Copy code',
     'code.copied': 'Code copied',
 
@@ -681,6 +685,8 @@ export const MESSAGES = {
     'carousel.next': 'Siguiente',
     'carousel.pause': 'Pausar',
     'carousel.play': 'Reanudar',
+
+    'resizable.handle': 'Redimensionar paneles',
 
     'code.copy': 'Copiar código',
     'code.copied': 'Código copiado',

@@ -87,6 +87,7 @@ export type IconName =
   | 'dialog'
   | 'tabs'
   | 'carousel'
+  | 'resizable'
   | 'tooltip'
   | 'table'
   | 'list'

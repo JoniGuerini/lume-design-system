@@ -30,6 +30,7 @@ const GROUPS = [
       ['createOtpField', 'otp-field.js', T('Campo de código de verificação.', 'Verification code field.', 'Campo de código de verificación.')],
       ['createPagination', 'pagination.js', T('Paginação de uma lista ou tabela.', 'Pagination for a list or table.', 'Paginación de una lista o tabla.')],
       ['createPopover', 'popover.js', T('Painel que abre preso a um botão.', 'Panel that opens attached to a button.', 'Panel que se abre sujeto a un botón.')],
+      ['createResizable', 'resizable.js', T('Painéis redimensionáveis: divisória que arrasta, com teclado, limites e tamanho salvo.', 'Resizable panels: a draggable divider, with keyboard, limits, and saved size.', 'Paneles redimensionables: divisor que se arrastra, con teclado, límites y tamaño guardado.')],
       ['createSegmented', 'segmented.js', T('Controle segmentado.', 'Segmented control.', 'Control segmentado.')],
       ['createSelect', 'select.js', T('Seleção do Lume sobre um select nativo.', 'Lume select on top of a native select.', 'Selector de Lume sobre un select nativo.')],
       ['mountSelects', 'select.js', T('Liga todas as seleções de uma área.', 'Sets up every select in an area.', 'Activa todos los selectores de un área.')],

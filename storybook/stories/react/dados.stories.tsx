@@ -1,11 +1,11 @@
 import { useMemo, useState } from 'react';
-import { Table, Badge, BarChart, LineChart, DonutChart, StatTile, Calendar, CodeBlock, Carousel, type SortDirection, type CalendarView } from '../../../react';
+import { Table, Badge, BarChart, LineChart, DonutChart, StatTile, Calendar, CodeBlock, Carousel, ResizablePanels, ResizablePanel, type SortDirection, type CalendarView } from '../../../react';
 import { mount } from './mount';
 
 export default {
   title: 'React/Dados e gráficos',
   id: 'react-dados',
-  parameters: { docs: { description: { component: 'Tabela, gráficos, calendário, carrossel e bloco de código em React.\n\nDocumentação: https://lumeui.dev/#/recursos/react' } } },
+  parameters: { docs: { description: { component: 'Tabela, gráficos, calendário, carrossel, painéis redimensionáveis e bloco de código em React.\n\nDocumentação: https://lumeui.dev/#/recursos/react' } } },
 };
 
 type Row = { id: string; nome: string; status: string; telas: number };
@@ -90,3 +90,34 @@ function Destaques() {
 }
 
 export const Carrossel = { name: 'Carousel', render: () => mount(<Destaques />) };
+
+const pane = { padding: 16, height: '100%', boxSizing: 'border-box' as const };
+const label = { margin: 0, color: 'var(--ds-color-fg-subtle)', font: 'var(--ds-text-label-sm)' };
+
+function Paineis() {
+  const [sizes, setSizes] = useState<number[]>([]);
+  return (
+    <div style={{ width: 'min(720px, 100%)' }}>
+      <div style={{ height: 280, border: '1px solid var(--ds-color-border-subtle)', borderRadius: 'var(--ds-radius-xl)', background: 'var(--ds-color-bg-surface)', overflow: 'hidden' }}>
+        <ResizablePanels label="Editor" grip onChange={setSizes} style={{ width: '100%', height: '100%' }}>
+          <ResizablePanel size={30} min={20} max={50} collapsible>
+            <div style={pane}><p style={label}>00 · Componentes</p></div>
+          </ResizablePanel>
+          <ResizablePanel min={40}>
+            <ResizablePanels label="Prévia e código" direction="vertical">
+              <ResizablePanel min={30}>
+                <div style={pane}><p style={label}>01 · Prévia</p></div>
+              </ResizablePanel>
+              <ResizablePanel size={45} min={25}>
+                <div style={pane}><p style={label}>02 · Código</p></div>
+              </ResizablePanel>
+            </ResizablePanels>
+          </ResizablePanel>
+        </ResizablePanels>
+      </div>
+      <p style={{ ...label, marginTop: 12 }}>{sizes.length ? `onChange: [${sizes.map(Math.round).join(', ')}]` : 'Arraste a divisória.'}</p>
+    </div>
+  );
+}
+
+export const PaineisRedimensionaveis = { name: 'ResizablePanels', render: () => mount(<Paineis />) };

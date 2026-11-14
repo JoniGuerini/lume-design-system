@@ -390,7 +390,7 @@ export default function renderIcones(page) {
       <div class="ic-code">
         <article class="ic-code__card">
           <p class="ic-code__title">${icon('code', { size: 18 })}JavaScript</p>
-          <pre class="ds-code ds-code--sm"><code>import { icon } from 'https://lumeui.dev/v/0.31/lume.js';
+          <pre class="ds-code ds-code--sm"><code>import { icon } from 'https://lumeui.dev/v/0.32/lume.js';
 
 button.innerHTML = icon('home', { size: 20 });
 <span class="ds-code__comment">// ${c.code.jsComment}</span>

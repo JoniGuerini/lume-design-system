@@ -8,10 +8,29 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.31.0';
+export const CURRENT_VERSION = '0.32.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.32.0',
+    date: '2026-11-14',
+    title: T('Painéis redimensionáveis', 'Resizable panels', 'Paneles redimensionables'),
+    summary: T(
+      'Divida uma área em partes que a pessoa ajusta arrastando a divisória: lado a lado ou uma sobre a outra, com limites, painel que fecha e tamanho guardado.',
+      'Split an area into parts people adjust by dragging the divider: side by side or stacked, with limits, collapsible panels, and a saved size.',
+      'Divide un área en partes que la persona ajusta arrastrando el divisor: lado a lado o una sobre otra, con límites, panel plegable y tamaño guardado.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['novo', T('Painéis redimensionáveis: arrastar, setas, Home, End e Enter, limites em % ou px, painéis dentro de painéis e alça à vista', 'Resizable panels: drag, arrow keys, Home, End, and Enter, limits in % or px, panels inside panels, and a visible grip', 'Paneles redimensionables: arrastrar, flechas, Home, End y Enter, límites en % o px, paneles dentro de paneles y asa a la vista'), '/componentes/paineis-redimensionaveis'],
+          ['novo', T('createResizable na API; ResizablePanels e ResizablePanel no React', 'createResizable in the API; ResizablePanels and ResizablePanel in React', 'createResizable en la API; ResizablePanels y ResizablePanel en React'), '/recursos/api'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.31.0',
     date: '2026-11-14',
