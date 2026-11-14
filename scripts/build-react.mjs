@@ -114,6 +114,11 @@ export declare function createNotificationCenter(trigger: HTMLElement, options?:
 export declare function openImageViewer(images: Array<ViewerImage | string>, options?: { index?: number; onChange?: (index: number) => void; onClose?: () => void }): { el: HTMLDialogElement; readonly index: number; readonly zoom: number; go(index: number): void; next(): void; prev(): void; zoomIn(): void; zoomOut(): void; fit(): void; close(): void };
 export declare function mountImageViewer(area?: ParentNode & EventTarget, options?: { selector?: string; onChange?: (index: number) => void; onClose?: () => void }): () => void;
 `,
+  sortable: `export interface SortChange { item: HTMLElement; id: string | undefined; from: HTMLElement; to: HTMLElement; oldIndex: number; newIndex: number }
+export interface SortableController { el: HTMLElement; readonly horizontal: boolean; toArray(): string[]; refresh(): void; destroy(): void }
+export declare function createSortable(list: HTMLElement, options?: { group?: string | symbol; orientation?: 'vertical' | 'horizontal'; handle?: string; onChange?: (change: SortChange) => void }): SortableController;
+export declare function createKanban(board: HTMLElement, options?: { onChange?: (change: SortChange, columns: Record<string, string[]>) => void }): { el: HTMLElement; toObject(): Record<string, string[]>; refresh(): void; destroy(): void };
+`,
   popover: `export declare function createPopover(trigger: HTMLElement, options?: Record<string, unknown>): { el: HTMLElement; readonly isOpen: boolean; open(): void; close(returnFocus?: boolean): void; toggle(): void; reposition(): void; destroy(): void };
 `,
   'context-menu': `export declare function createContextMenu(root: HTMLElement, config?: Record<string, unknown>): { open(...args: unknown[]): void; close(returnFocus?: boolean): void; readonly isOpen: boolean; destroy(): void };

@@ -50,7 +50,7 @@ ds/                  ← o design system em si
   components/        um CSS por componente (botão, chip, campo, seleção, checkbox, switch, abas,
                      tabela, modal, menu, toast, painel, avatar, alerta, filtros, conversa,
                      gráficos, shell, ⌘K…)
-  icons/icons.js     150 ícones próprios + função icon() + <ds-icon>
+  icons/icons.js     152 ícones próprios + função icon() + <ds-icon>
   js/                theme, tooltip, menu, select, date-picker, time-picker, number-field, slider,
                      tag-field, file-upload, otp-field, segmented, pagination, stepper, tree, tabs, modal, popover, drawer, context-menu, code-block, back-to-top, toast, shell, command-palette,
                      composer (conversa), form (validação), filters (barra de filtros),
@@ -67,7 +67,7 @@ site/                ← o site de documentação (usa o DS)
   roadmap.js         próximas etapas: página Roadmap e card do Início
   chart-data.js      dados de exemplo (fixos) das páginas de gráficos
   pages/             páginas (cada uma com seu .css): home, primeiros-passos, novidades,
-                     8 fundamentos, 55 componentes, 7 de gráficos, 6 padrões, 4 recursos,
+                     8 fundamentos, 57 componentes, 7 de gráficos, 6 padrões, 4 recursos,
                      placeholder, 404
 ```
 
@@ -90,7 +90,7 @@ import { createBarChart } from './ds/js/charts.js';
 const chart = createBarChart(document.querySelector('#vendas'), {
   title: 'Vendas por mês',
   categories: ['Jan', 'Fev', 'Mar'],
-  series: [{ name: 'Loja', values: [120, 180, 150] }],
+  series: [{ name: 'Loja', values: [120, 180, 152] }],
   format: 'currency',
 });
 
@@ -137,7 +137,7 @@ Todos os gráficos seguem o tema sozinhos (as cores são tokens `--ds-color-char
 
 ## Personalizar
 
-- **Cor da marca:** em `tokens/palettes.json`, mude `hue` (e `chroma`) de `brand`. Ex.: `50` pêssego, `275` índigo, `150` verde.
+- **Cor da marca:** em `tokens/palettes.json`, mude `hue` (e `chroma`) de `brand`. Ex.: `50` pêssego, `275` índigo, `152` verde.
 - **Temas:** `<html data-theme="dark|light|system">`. Escuro é o padrão. Qualquer elemento pode ter um `data-theme` próprio (temas aninhados).
 - **Sem imagens nem texturas:** a personalidade vem das superfícies opacas em camadas, dos contornos finos, da tipografia e do acento pêssego. Fundos são sempre cores sólidas — nada de degradê, vidro ou blur.
 - **Nova página:** crie `site/pages/minha-pagina.js` exportando `default function render(page)` (e, se quiser, `mount(root)` que devolve uma função de limpeza, e `styles = 'site/pages/minha-pagina.css'`). Depois adicione `load: () => import('./pages/minha-pagina.js')` ao item em `site/nav.js`. Páginas de fundamentos seguem o modelo de `cores.js`: `.doc-header` → `.doc-nav` → `.doc-section`.

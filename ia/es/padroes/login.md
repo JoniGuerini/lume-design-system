@@ -167,7 +167,7 @@ El inicio de sesión es un formulario común con `createForm`: los campos, el bo
 ```
 
 ```html
-import { createForm } from 'https://lumeui.dev/v/0.36/lume.js';
+import { createForm } from 'https://lumeui.dev/v/0.37/lume.js';
 
 // mostrar contraseña: cambia el tipo del campo y marca el botón
 document.addEventListener('click', (event) => {

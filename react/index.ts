@@ -19,6 +19,7 @@ export { Badge, type BadgeProps, type Tone } from './Badge';
 export { Alert, type AlertProps, type AlertTone } from './Alert';
 export { Banner, NotificationCenter, type BannerProps, type BannerTone, type NotificationCenterProps, type NotificationItem } from './Notices';
 export { ImageGallery, openImageViewer, type ImageGalleryProps, type GalleryImage, type ViewerImage } from './ImageViewer';
+export { SortableList, Kanban, type SortableListProps, type SortableItem, type KanbanProps, type KanbanColumn } from './Sortable';
 export { Progress, ProgressRing, Spinner, Skeleton, type ProgressProps, type ProgressRingProps, type SpinnerProps, type SkeletonProps } from './Loading';
 
 // Conteúdo

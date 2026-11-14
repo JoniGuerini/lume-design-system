@@ -8,10 +8,36 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.36.0';
+export const CURRENT_VERSION = '0.37.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.37.0',
+    date: '2026-11-14',
+    title: T('Lista arrastável e kanban', 'Sortable list and kanban', 'Lista ordenable y kanban'),
+    summary: T(
+      'Mudar a ordem e o lugar das coisas, com o mouse, o toque ou o teclado: o item deixa um encaixe onde vai cair, cada passo é anunciado e Esc desfaz. O kanban é a mesma lista em colunas que trocam cartões.',
+      'Change the order and place of things, with the mouse, touch, or keyboard: the item leaves a slot where it will land, each step is announced, and Esc undoes it. The kanban is the same list in columns that exchange cards.',
+      'Cambiar el orden y el lugar de las cosas, con el ratón, el toque o el teclado: el elemento deja un hueco donde va a caer, cada paso se anuncia y Esc lo deshace. El kanban es la misma lista en columnas que intercambian tarjetas.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['novo', T('Lista arrastável: com alça ou sem, em caixas ou em linhas, na vertical ou lado a lado, e rolagem automática perto da borda', 'Sortable list: with or without a handle, in boxes or rows, vertical or side by side, and auto-scroll near the edge', 'Lista ordenable: con o sin agarre, en cajas o en filas, vertical o lado a lado, y desplazamiento automático cerca del borde'), '/componentes/lista-arrastavel'],
+          ['novo', T('Kanban: colunas que trocam cartões, número de cada coluna, coluna vazia e cartão com alça', 'Kanban: columns that exchange cards, each column’s count, empty column, and cards with a handle', 'Kanban: columnas que intercambian tarjetas, número de cada columna, columna vacía y tarjeta con agarre'), '/componentes/kanban'],
+          ['novo', T('createSortable e createKanban na API; SortableList e Kanban no React', 'createSortable and createKanban in the API; SortableList and Kanban in React', 'createSortable y createKanban en la API; SortableList y Kanban en React'), '/recursos/api'],
+        ],
+      },
+      {
+        name: T('Ícones', 'Icons', 'Íconos'),
+        items: [
+          ['novo', T('2 ícones novos: grip-vertical e kanban', '2 new icons: grip-vertical and kanban', '2 íconos nuevos: grip-vertical y kanban'), '/fundamentos/icones'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.36.0',
     date: '2026-11-14',

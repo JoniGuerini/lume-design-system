@@ -48,6 +48,8 @@ const GROUPS = [
       ['renderNavbarNav', 'shell.js', T('Monta os grupos de navegação da navbar.', 'Builds the navbar navigation groups.', 'Arma los grupos de navegación de la navbar.')],
       ['setActiveNavItem', 'shell.js', T('Marca o item de navegação da página atual.', 'Marks the current page’s navigation item.', 'Marca el ítem de navegación de la página actual.')],
       ['LAYOUTS', 'shell.js', T('Os layouts do app shell.', 'The app shell layouts.', 'Los layouts del app shell.')],
+      ['createSortable', 'sortable.js', T('Lista arrastável: mudar a ordem com o mouse, o toque ou o teclado; listas do mesmo grupo trocam itens.', 'Sortable list: change the order with the mouse, touch, or keyboard; lists in the same group exchange items.', 'Lista ordenable: cambiar el orden con el ratón, el toque o el teclado; listas del mismo grupo intercambian elementos.')],
+      ['createKanban', 'sortable.js', T('Kanban: colunas de cartões que passam de uma para outra, com o número de cada coluna.', 'Kanban: columns of cards that move from one to another, with each column’s count.', 'Kanban: columnas de tarjetas que pasan de una a otra, con el número de cada columna.')],
       ['createSlider', 'slider.js', T('Slider de um valor ou de uma faixa.', 'Slider for a value or a range.', 'Slider de un valor o de un rango.')],
       ['createStepper', 'stepper.js', T('Etapas de um processo.', 'Steps of a process.', 'Etapas de un proceso.')],
       ['mountTabs', 'tabs.js', T('Liga todas as abas de uma área.', 'Sets up every tab set in an area.', 'Activa todas las pestañas de un área.')],

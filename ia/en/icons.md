@@ -1,6 +1,6 @@
 # Lume icons
 
-There are 150 icons drawn for Lume: a 24 grid, a 1.5 stroke, round caps. Use only these names, in `<ds-icon name="…">` (with https://lumeui.dev/ds/icons/icons.js imported) or in the `icon(name)` function from the same module. No other name exists.
+There are 152 icons drawn for Lume: a 24 grid, a 1.5 stroke, round caps. Use only these names, in `<ds-icon name="…">` (with https://lumeui.dev/ds/icons/icons.js imported) or in the `icon(name)` function from the same module. No other name exists.
 
 ```html
 <ds-icon name="search" size="20"></ds-icon>
@@ -60,6 +60,7 @@ The default size is 20 px; the stroke becomes 1.75 below 16 px. The icon inherit
 | `refresh` | refresh, reload, sync |
 | `more-horizontal` | more, options, ellipsis |
 | `more-vertical` | more, options, menu, kebab |
+| `grip-vertical` | grip, drag, handle, move, reorder, sort |
 | `zap` | lightning, fast, start, bolt |
 | `play` | play, start, animation |
 | `pause` | pause, stop, carousel, animation |
@@ -121,6 +122,7 @@ The default size is 20 px; the stroke becomes 1.75 below 16 px. The icon inherit
 | `tabs` | tabs, navigation |
 | `carousel` | carousel, gallery, highlights, slides |
 | `resizable` | resizable, panels, split, divider, drag, resize |
+| `kanban` | kanban, board, columns, cards, tasks |
 | `tooltip` | hint, balloon, help, tooltip |
 | `table` | table, data, grid |
 | `list` | list, items |

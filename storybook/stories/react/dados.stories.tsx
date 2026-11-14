@@ -1,11 +1,11 @@
 import { useMemo, useState } from 'react';
-import { Table, Badge, BarChart, LineChart, DonutChart, StatTile, Calendar, CodeBlock, Carousel, ResizablePanels, ResizablePanel, ImageGallery, type SortDirection, type CalendarView } from '../../../react';
+import { Table, Badge, BarChart, LineChart, DonutChart, StatTile, Calendar, CodeBlock, Carousel, ResizablePanels, ResizablePanel, ImageGallery, SortableList, Kanban, type KanbanColumn, type SortDirection, type CalendarView } from '../../../react';
 import { mount } from './mount';
 
 export default {
   title: 'React/Dados e gráficos',
   id: 'react-dados',
-  parameters: { docs: { description: { component: 'Tabela, gráficos, calendário, carrossel, painéis redimensionáveis, visualizador de imagem e bloco de código em React.\n\nDocumentação: https://lumeui.dev/#/recursos/react' } } },
+  parameters: { docs: { description: { component: 'Tabela, gráficos, calendário, carrossel, painéis redimensionáveis, visualizador de imagem, lista arrastável, kanban e bloco de código em React.\n\nDocumentação: https://lumeui.dev/#/recursos/react' } } },
 };
 
 type Row = { id: string; nome: string; status: string; telas: number };
@@ -141,3 +141,62 @@ function Galeria() {
 }
 
 export const VisualizadorDeImagem = { name: 'ImageGallery', render: () => mount(<Galeria />) };
+
+const FUNDAMENTOS = [
+  { id: 'cores', nome: 'Cores', meta: '15 paletas' },
+  { id: 'tipografia', nome: 'Tipografia', meta: 'Geist' },
+  { id: 'icones', nome: 'Ícones', meta: '152 ícones' },
+  { id: 'espacamento', nome: 'Espaçamento', meta: 'base 8' },
+];
+
+function Lista() {
+  const [itens, setItens] = useState(FUNDAMENTOS);
+  return (
+    <div style={{ width: 'min(420px, 100%)' }}>
+      <SortableList
+        label="Ordem dos fundamentos na sidebar"
+        items={itens}
+        onChange={setItens}
+        renderItem={(i) => (
+          <>
+            <span className="ds-sortable__label">{i.nome}</span>
+            <span className="ds-sortable__meta">{i.meta}</span>
+          </>
+        )}
+      />
+      <p style={{ ...label, marginTop: 12 }} data-ordem>{itens.map((i) => i.id).join(' · ')}</p>
+    </div>
+  );
+}
+
+type Etapa = { id: string; titulo: string; versao: string };
+const COLUNAS: KanbanColumn<Etapa>[] = [
+  { id: 'planejado', title: 'Planejado', items: [{ id: 'editor', titulo: 'Editor de texto rico', versao: '0.38' }, { id: 'estavel', titulo: 'Versão estável', versao: '1.0' }] },
+  { id: 'andamento', title: 'Em andamento', items: [{ id: 'kanban', titulo: 'Lista arrastável e kanban', versao: '0.37' }] },
+  { id: 'feito', title: 'Feito', items: [{ id: 'visualizador', titulo: 'Visualizador de imagem', versao: '0.36' }] },
+];
+
+function Quadro() {
+  const [colunas, setColunas] = useState(COLUNAS);
+  return (
+    <div style={{ width: 'min(860px, 100%)' }}>
+      <Kanban
+        label="Roadmap do Lume"
+        columns={colunas}
+        onChange={setColunas}
+        renderCard={(c) => (
+          <>
+            <p className="ds-kanban__card-title">{c.titulo}</p>
+            <div className="ds-kanban__card-meta">
+              <Badge size="sm">{c.versao}</Badge>
+            </div>
+          </>
+        )}
+      />
+      <p style={{ ...label, marginTop: 12 }} data-colunas>{colunas.map((c) => `${c.id}: ${c.items.map((i) => i.id).join(', ')}`).join(' · ')}</p>
+    </div>
+  );
+}
+
+export const ListaArrastavel = { name: 'SortableList', render: () => mount(<Lista />) };
+export const QuadroKanban = { name: 'Kanban', render: () => mount(<Quadro />) };

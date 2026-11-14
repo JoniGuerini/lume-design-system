@@ -1,6 +1,6 @@
 # Íconos de Lume
 
-Son 150 íconos dibujados para Lume: cuadrícula de 24, trazo de 1,5, puntas redondeadas. Usa solo estos nombres, en `<ds-icon name="…">` (con https://lumeui.dev/ds/icons/icons.js importado) o en la función `icon(name)` del mismo módulo. No existe ningún otro nombre.
+Son 152 íconos dibujados para Lume: cuadrícula de 24, trazo de 1,5, puntas redondeadas. Usa solo estos nombres, en `<ds-icon name="…">` (con https://lumeui.dev/ds/icons/icons.js importado) o en la función `icon(name)` del mismo módulo. No existe ningún otro nombre.
 
 ```html
 <ds-icon name="search" size="20"></ds-icon>
@@ -60,6 +60,7 @@ El tamaño predeterminado es 20 px; el trazo pasa a 1,75 por debajo de 16 px. El
 | `refresh` | actualizar, recargar, sincronizar |
 | `more-horizontal` | más, opciones, puntos, suspensivos |
 | `more-vertical` | más, opciones, menú |
+| `grip-vertical` | agarre, arrastrar, mover, reordenar |
 | `zap` | rayo, rápido, empezar |
 | `play` | reproducir, iniciar, animación |
 | `pause` | pausar, detener, carrusel, animación |
@@ -121,6 +122,7 @@ El tamaño predeterminado es 20 px; el trazo pasa a 1,75 por debajo de 16 px. El
 | `tabs` | pestañas, navegación |
 | `carousel` | carrusel, galería, destacados, diapositivas |
 | `resizable` | paneles, redimensionables, dividir, arrastrar, divisor |
+| `kanban` | kanban, tablero, columnas, tarjetas, tareas |
 | `tooltip` | pista, globo, ayuda |
 | `table` | tabla, datos, cuadrícula |
 | `list` | lista, elementos |

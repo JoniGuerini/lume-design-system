@@ -36,9 +36,9 @@ Vertical `ds-divider--vertical` — Between items in a row: metadata, actions in
 
 Label at the start `ds-divider--label · --start` — Opens a group inside a list, like a small heading.
 
-Load lumeui.dev/v/0.36/lume.css
+Load lumeui.dev/v/0.37/lume.css
 
-Download lume-0.36.zip
+Download lume-0.37.zip
 
 Label in the middle `ds-divider--label` — Between two alternatives. A short word is enough.
 

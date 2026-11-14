@@ -76,7 +76,7 @@ export default function renderSeletorDeData(page) {
         id: 'formulario',
         title: L('Em formulários', 'In forms', 'En formularios'),
         desc: L(`Funciona com ${ic('createForm')}: ${ic('required')} e os erros de formato aparecem como nos outros campos. O valor em ISO vai num input oculto, com o ${ic('name')} do campo.`, `It works with ${ic('createForm')}: ${ic('required')} and format errors show up as in the other fields. The ISO value goes in a hidden input, with the field’s ${ic('name')}.`, `Funciona con ${ic('createForm')}: ${ic('required')} y los errores de formato aparecen como en los otros campos. El valor en ISO va en un input oculto, con el ${ic('name')} del campo.`),
-        html: codeBlock(`import { createDatePicker } from 'https://lumeui.dev/v/0.36/lume.js';
+        html: codeBlock(`import { createDatePicker } from 'https://lumeui.dev/v/0.37/lume.js';
 
 const picker = createDatePicker(document.querySelector('#entrega'), {
   min: new Date(),
@@ -151,7 +151,7 @@ export function mount(root) {
 </div>
 
 <script type="module">
-  import { createDatePicker } from 'https://lumeui.dev/v/0.36/lume.js';
+  import { createDatePicker } from 'https://lumeui.dev/v/0.37/lume.js';
   createDatePicker(document.querySelector('#entrega'), {${s.mode === 'range' ? "\n    mode: 'range'," : ''}${s.limit === 'future' ? '\n    min: new Date(),' : ''}
   });
 </script>`,

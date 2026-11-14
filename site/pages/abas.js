@@ -245,7 +245,7 @@ export default function renderAbas(page) {
       </div>
 
       <h3 class="doc-subhead">${L('Em código', 'In code', 'En código')}</h3>
-      ${codeBlock(`import { mountTabs } from 'https://lumeui.dev/v/0.36/lume.js';
+      ${codeBlock(`import { mountTabs } from 'https://lumeui.dev/v/0.37/lume.js';
 
 // ${L('liga todas as abas [data-ds-tabs] da página — inclusive as que entrarem depois', 'wires every [data-ds-tabs] on the page — including ones added later', 'conecta todas las pestañas [data-ds-tabs] de la página — incluso las que entren después')}
 const unmount = mountTabs(document);

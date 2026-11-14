@@ -9,7 +9,7 @@ En números: tonos: 5 · duración predeterminada: 2,2 s · en pantalla a la vez
 ## Ejemplo
 
 ```html
-import { toast } from 'https://lumeui.dev/v/0.36/lume.js';
+import { toast } from 'https://lumeui.dev/v/0.37/lume.js';
 
 toast('Cambios guardados', {
   tone: 'success',

@@ -1,6 +1,6 @@
 # Lume Design System
 
-> Design system em HTML, CSS e JavaScript nativos, sem dependências: tokens, tipografia, 130 ícones próprios, componentes, gráficos e padrões de tela, nos temas claro e escuro. Versão 0.36.0.
+> Design system em HTML, CSS e JavaScript nativos, sem dependências: tokens, tipografia, 130 ícones próprios, componentes, gráficos e padrões de tela, nos temas claro e escuro. Versão 0.37.0.
 
 Comece por [LEIA-ME](https://lumeui.dev/ia/LEIA-ME.md): instalação, regras gerais e o que nunca inventar. Cada página do site tem um arquivo Markdown abaixo, gerado a partir dela.
 
@@ -73,6 +73,8 @@ Comece por [LEIA-ME](https://lumeui.dev/ia/LEIA-ME.md): instalação, regras ger
 - [Card](https://lumeui.dev/ia/componentes/card.md): A superfície básica para agrupar conteúdo.
 - [Carrossel](https://lumeui.dev/ia/componentes/carrossel.md): Destaques que passam um por vez, com setas, pontos e arrastar.
 - [Visualizador de imagem](https://lumeui.dev/ia/componentes/visualizador-de-imagem.md): A imagem grande por cima da página, com zoom, arrastar e a galeria.
+- [Lista arrastável](https://lumeui.dev/ia/componentes/lista-arrastavel.md): Mudar a ordem arrastando, com o mouse, o toque ou o teclado.
+- [Kanban](https://lumeui.dev/ia/componentes/kanban.md): Colunas de cartões que passam de uma para outra.
 - [Painel](https://lumeui.dev/ia/componentes/painel.md): A superfície de uma tarefa: rótulo, título, controles e seções.
 - [Painéis redimensionáveis](https://lumeui.dev/ia/componentes/paineis-redimensionaveis.md): Áreas que a pessoa ajusta arrastando a divisória, com teclado e tamanho salvo.
 - [Divisor](https://lumeui.dev/ia/componentes/divisor.md): Linha entre blocos, na horizontal e na vertical, com rótulo opcional.

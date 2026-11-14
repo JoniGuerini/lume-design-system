@@ -1,0 +1,30 @@
+/* Página: Kanban (prefixo kb-) */
+
+.fc-preview:has(.ds-kanban) {
+  width: 100%;
+}
+
+.kb-play {
+  display: grid;
+  gap: var(--ds-space-200);
+  width: 100%;
+}
+
+.kb-out {
+  margin: 0;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+  letter-spacing: var(--ds-text-body-sm-tracking);
+  text-align: center;
+}
+
+.kb-out code {
+  margin-inline-end: var(--ds-space-050);
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-code-sm);
+}
+
+.kb-state {
+  width: 240px;
+  min-height: 0;
+}

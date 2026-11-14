@@ -1,0 +1,175 @@
+/*
+ * Carrossel — destaques e galerias que passam um por vez.
+ *
+ *   <section class="ds-carousel" aria-label="Destaques">
+ *     <div class="ds-carousel__viewport">
+ *       <div class="ds-carousel__slide">…</div> …
+ *     </div>
+ *   </section>
+ *
+ * createCarousel (ds/js/carousel.js) põe a barra de baixo (pontos, contagem, setas e pausa) e o teclado.
+ * Arrastar no toque e no trackpad é a rolagem nativa com scroll-snap.
+ *   --ds-carousel-per-view: quantos slides aparecem de uma vez (padrão 1)
+ *   --ds-carousel-gap: espaço entre os slides (padrão space.150)
+ *   .ds-carousel--peek: deixa a ponta do próximo à vista, para mostrar que tem mais
+ */
+.ds-carousel {
+  --ds-carousel-per-view: 1;
+  --ds-carousel-gap: var(--ds-space-150);
+  --_peek: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-150);
+  min-width: 0;
+}
+
+.ds-carousel--peek {
+  --_peek: var(--ds-space-600);
+}
+
+.ds-carousel__viewport {
+  --ds-scrollbar: none;
+  display: flex;
+  gap: var(--ds-carousel-gap);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  border-radius: var(--ds-radius-xl);
+}
+
+.ds-carousel__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.ds-carousel__viewport:focus-visible,
+.ds-carousel__viewport[data-state="focus"] {
+  outline: 2px solid var(--ds-color-border-focus);
+  outline-offset: 2px;
+}
+
+.ds-carousel__slide {
+  flex: 0 0 calc((100% - var(--_peek) - (var(--ds-carousel-per-view) - 1) * var(--ds-carousel-gap)) / var(--ds-carousel-per-view));
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+/* ───────── Barra de baixo: pontos à esquerda, contagem e setas à direita ───────── */
+
+.ds-carousel__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-100);
+  min-height: var(--ds-size-control-compact);
+}
+
+.ds-carousel__dots {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--ds-space-025);
+  margin-inline-end: auto;
+}
+
+/* o botão é maior que o ponto, para o dedo acertar */
+.ds-carousel__dot {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--ds-radius-full);
+  background: none;
+  cursor: pointer;
+  /* o botão cresce junto com o ponto, para os vizinhos deslizarem em vez de pular */
+  transition: width var(--ds-duration-base) var(--ds-easing-standard);
+}
+
+.ds-carousel__dot::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-color-border-strong);
+  transition:
+    width var(--ds-duration-base) var(--ds-easing-standard),
+    background-color var(--ds-duration-fast) var(--ds-easing-standard);
+}
+
+.ds-carousel__dot:hover::before,
+.ds-carousel__dot[data-state="hover"]::before {
+  background: var(--ds-color-fg-muted);
+}
+
+.ds-carousel__dot[aria-current="true"] {
+  width: 28px;
+}
+
+.ds-carousel__dot[aria-current="true"]::before {
+  width: 18px;
+  background: var(--ds-color-fg-default);
+}
+
+.ds-carousel__count {
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-label-sm);
+  letter-spacing: var(--ds-text-label-sm-tracking);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.ds-carousel__nav {
+  display: flex;
+  gap: var(--ds-space-025);
+}
+
+/* ───────── Slide de destaque: o conteúdo que o site usa nos exemplos ───────── */
+
+.ds-carousel__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--ds-space-300);
+  height: 100%;
+  min-height: 200px;
+  padding: var(--ds-space-300);
+  border-radius: var(--ds-radius-xl);
+  background: var(--ds-color-bg-surface);
+  border: 1px solid var(--ds-color-border-subtle);
+}
+
+.ds-carousel__eyebrow {
+  margin: 0;
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-label-sm);
+  letter-spacing: var(--ds-text-label-sm-tracking);
+}
+
+.ds-carousel__title {
+  margin: 0;
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-heading-md);
+  letter-spacing: var(--ds-text-heading-md-tracking);
+  text-wrap: balance;
+}
+
+.ds-carousel__text {
+  margin: var(--ds-space-075) 0 0;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+  letter-spacing: var(--ds-text-body-sm-tracking);
+  max-width: 48ch;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-carousel__viewport {
+    scroll-behavior: auto;
+  }
+
+  .ds-carousel__dot,
+  .ds-carousel__dot::before {
+    transition: none;
+  }
+}

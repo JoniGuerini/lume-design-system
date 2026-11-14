@@ -4,17 +4,17 @@ Sección de Lume: Recursos. Página: https://lumeui.dev/#/recursos/api
 
 Todo lo que puedes llamar desde JavaScript, en un solo archivo. Lo que está aquí es público y estable; el resto es interno y puede cambiar.
 
-En números: ítems públicos: 98 · verbos: 5 · dependencias: 0.
+En números: ítems públicos: 100 · verbos: 5 · dependencias: 0.
 
 ## Importar
 
 Un archivo, `ds/lume.js`, reúne toda la API. Los módulos de `ds/js/` siguen pudiéndose importar uno a uno, para cargar solo lo necesario.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/0.36/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/0.37/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.36/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.37/lume.js';
 
   initTheme();
   const modal = createModal({ title: '¿Publicar cambios?' });
@@ -43,7 +43,7 @@ El estado sigue `get…` y `set…`; las constantes van en mayúsculas, como `TH
 
 ## Todo lo público
 
-Los 98 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
+Los 100 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 
 ### Componentes
 
@@ -87,6 +87,8 @@ Los 98 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 | `renderNavbarNav` | Arma los grupos de navegación de la navbar. | shell.js |
 | `setActiveNavItem` | Marca el ítem de navegación de la página actual. | shell.js |
 | `LAYOUTS` | Los layouts del app shell. | shell.js |
+| `createSortable` | Lista ordenable: cambiar el orden con el ratón, el toque o el teclado; listas del mismo grupo intercambian elementos. | sortable.js |
+| `createKanban` | Kanban: columnas de tarjetas que pasan de una a otra, con el número de cada columna. | sortable.js |
 | `createSlider` | Slider de un valor o de un rango. | slider.js |
 | `createStepper` | Etapas de un proceso. | stepper.js |
 | `mountTabs` | Activa todas las pestañas de un área. | tabs.js |

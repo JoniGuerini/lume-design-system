@@ -15,11 +15,7 @@ const C = (version, status, tone, title, text, items) => ({ version, group: 'com
 const I = (name, text, doc) => ({ name, text, doc });
 
 const STAGES = [
-  C('0.37', NEXT, 'brand', T('Arrastar e soltar', 'Drag and drop', 'Arrastrar y soltar'), T('Mudar a ordem e o lugar das coisas.', 'Change the order and place of things.', 'Cambiar el orden y el lugar de las cosas.'), [
-    I(T('Lista arrastável', 'Sortable list', 'Lista ordenable'), T('Reordenar itens com o mouse, o toque ou o teclado.', 'Reorder items with the mouse, touch, or keyboard.', 'Reordenar elementos con el ratón, el toque o el teclado.')),
-    I(T('Kanban', 'Kanban', 'Kanban'), T('Colunas de cartões que passam de uma para outra.', 'Columns of cards that move from one to another.', 'Columnas de tarjetas que pasan de una a otra.')),
-  ]),
-  C('0.38', PLANNED, 'neutral', T('Editor de texto rico', 'Rich text editor', 'Editor de texto enriquecido'), T('Escrever com formatação, sem dependências.', 'Write with formatting, with no dependencies.', 'Escribir con formato, sin dependencias.'), [
+  C('0.38', NEXT, 'brand', T('Editor de texto rico', 'Rich text editor', 'Editor de texto enriquecido'), T('Escrever com formatação, sem dependências.', 'Write with formatting, with no dependencies.', 'Escribir con formato, sin dependencias.'), [
     I(T('Editor de texto rico', 'Rich text editor', 'Editor de texto enriquecido'), T('Negrito, itálico, listas, links e títulos, com a barra de ferramentas do Lume.', 'Bold, italic, lists, links, and headings, with Lume’s toolbar.', 'Negrita, cursiva, listas, enlaces y títulos, con la barra de herramientas de Lume.')),
   ]),
   {

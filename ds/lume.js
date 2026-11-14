@@ -26,6 +26,7 @@ export { progressRingHtml, setProgressRing } from './js/progress-ring.js';
 export { createBanner } from './js/banner.js';
 export { createNotificationCenter, relativeTime } from './js/notifications.js';
 export { openImageViewer, mountImageViewer } from './js/image-viewer.js';
+export { createSortable, createKanban } from './js/sortable.js';
 export { createToolbar } from './js/toolbar.js';
 export {
   createBarChart, createLineChart, createDonutChart, createHeatmap, createCalendarHeatmap, createScatterChart,

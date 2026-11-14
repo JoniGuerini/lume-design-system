@@ -1,6 +1,6 @@
 # Ícones do Lume
 
-São 150 ícones desenhados para o Lume: grade de 24, traço de 1,5, pontas arredondadas. Use só estes nomes, em `<ds-icon name="…">` (com https://lumeui.dev/ds/icons/icons.js importado) ou na função `icon(name)` do mesmo módulo. Não existe nenhum outro nome.
+São 152 ícones desenhados para o Lume: grade de 24, traço de 1,5, pontas arredondadas. Use só estes nomes, em `<ds-icon name="…">` (com https://lumeui.dev/ds/icons/icons.js importado) ou na função `icon(name)` do mesmo módulo. Não existe nenhum outro nome.
 
 ```html
 <ds-icon name="search" size="20"></ds-icon>
@@ -60,6 +60,7 @@ O tamanho padrão é 20 px; o traço fica em 1,75 abaixo de 16 px. O ícone herd
 | `refresh` | atualizar, recarregar, sincronizar |
 | `more-horizontal` | mais, opções, reticências |
 | `more-vertical` | mais, opções, menu |
+| `grip-vertical` | arrastar, alça, mover, reordenar |
 | `zap` | raio, rápido, começar |
 | `play` | tocar, reproduzir, iniciar, animação |
 | `pause` | pausar, parar, carrossel, animação |
@@ -121,6 +122,7 @@ O tamanho padrão é 20 px; o traço fica em 1,75 abaixo de 16 px. O ícone herd
 | `tabs` | abas, guias, navegação |
 | `carousel` | carrossel, galeria, destaques, slides |
 | `resizable` | painéis, redimensionáveis, dividir, arrastar, divisória, split |
+| `kanban` | kanban, quadro, colunas, cartões, tarefas |
 | `tooltip` | dica, balão, ajuda |
 | `table` | tabela, dados, grade |
 | `list` | lista, itens |
