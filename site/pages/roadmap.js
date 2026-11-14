@@ -31,6 +31,7 @@ const SECTIONS = (all) => [
 
 export default function renderRoadmap(page) {
   const all = stages();
+  const out = leftOut();
   const list = (group) => all.filter((s) => s.group === group);
   const current = navigation.find((g) => g.id === 'componentes').items.length;
   return `
@@ -39,7 +40,7 @@ export default function renderRoadmap(page) {
       <div>
         <p class="doc-header__eyebrow">Lume</p>
         <h1 class="doc-header__title">${page.label}</h1>
-        <p class="doc-header__lead">${L('O que vem a seguir. Os componentes planejados estão prontos; agora o trabalho é deixar tudo estável para a 1.0.', 'What comes next. The planned components are done; now the work is getting everything stable for 1.0.', 'Lo que viene. Los componentes planificados están listos; ahora el trabajo es dejar todo estable para la 1.0.')}</p>
+        <p class="doc-header__lead">${L('O que vem a seguir: os componentes populares que ainda faltam, um por versão, e depois a 1.0 estável.', 'What comes next: the popular components still missing, one per version, and then a stable 1.0.', 'Lo que viene: los componentes populares que aún faltan, uno por versión, y después la 1.0 estable.')}</p>
       </div>
       <dl class="doc-stats">
         <div class="doc-stat"><dt class="doc-stat__label">${L('versão atual', 'current version', 'versión actual')}</dt><dd class="doc-stat__value">${CURRENT_VERSION}</dd></div>
@@ -50,7 +51,7 @@ export default function renderRoadmap(page) {
 
     <nav class="doc-nav" aria-label="${L('Nesta página', 'On this page', 'En esta página')}">
       ${SECTIONS(all).map(([id, title]) => `<button type="button" class="doc-nav__link" data-target="${id}">${title}</button>`).join('')}
-      <button type="button" class="doc-nav__link" data-target="rm-fora">${L('Fora, por enquanto', 'Left out for now', 'Fuera, por ahora')}</button>
+      ${out.length ? `<button type="button" class="doc-nav__link" data-target="rm-fora">${L('Fora, por enquanto', 'Left out for now', 'Fuera, por ahora')}</button>` : ''}
     </nav>
 
     ${SECTIONS(all)
@@ -67,15 +68,15 @@ export default function renderRoadmap(page) {
       )
       .join('')}
 
-    <section class="doc-section" id="rm-fora" aria-labelledby="rm-fora-title">
+    ${out.length ? `<section class="doc-section" id="rm-fora" aria-labelledby="rm-fora-title">
       <header class="doc-section__header">
         <div>
           <h2 class="doc-section__title" id="rm-fora-title">${L('Fora, por enquanto', 'Left out for now', 'Fuera, por ahora')}</h2>
           <p class="doc-section__desc">${L('Componentes conhecidos que decidimos não fazer agora, e o motivo.', 'Well-known components we decided not to build for now, and why.', 'Componentes conocidos que decidimos no hacer por ahora, y el motivo.')}</p>
         </div>
       </header>
-      <ul class="rm-list" role="list">${leftOut().map(itemRow).join('')}</ul>
-    </section>
+      <ul class="rm-list" role="list">${out.map(itemRow).join('')}</ul>
+    </section>` : ''}
   </div>`;
 }
 

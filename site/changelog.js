@@ -8,10 +8,29 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.29.0';
+export const CURRENT_VERSION = '0.29.1';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.29.1',
+    date: '2026-11-14',
+    title: T('Roadmap dos novos componentes', 'Roadmap for new components', 'Roadmap de los nuevos componentes'),
+    summary: T(
+      'O roadmap ganhou nove etapas, da 0.30 à 0.38, com os componentes populares que ainda faltam: de carrossel e seletor de cor a kanban e editor de texto rico.',
+      'The roadmap gained nine stages, from 0.30 to 0.38, with the popular components still missing: from carousel and color picker to kanban and a rich text editor.',
+      'El roadmap ganó nueve etapas, de la 0.30 a la 0.38, con los componentes populares que aún faltan: de carrusel y selector de color a kanban y editor de texto enriquecido.',
+    ),
+    groups: [
+      {
+        name: T('Roadmap', 'Roadmap', 'Roadmap'),
+        items: [
+          ['novo', T('Etapas 0.30 a 0.38: um componente (ou dois pequenos) por versão', 'Stages 0.30 to 0.38: one component (or two small ones) per version', 'Etapas 0.30 a 0.38: un componente (o dos pequeños) por versión'), '/roadmap'],
+          ['melhoria', T('Carrossel, avaliação, seletor de cor e editor de texto rico saíram de “Fora, por enquanto” e entraram nas etapas', 'Carousel, rating, color picker, and rich text editor moved from “Left out for now” into the stages', 'Carrusel, valoración, selector de color y editor de texto enriquecido salieron de “Fuera, por ahora” y entraron en las etapas'), '/roadmap'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.29.0',
     date: '2026-11-13',
