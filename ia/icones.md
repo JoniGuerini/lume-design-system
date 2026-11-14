@@ -1,6 +1,6 @@
 # Ícones do Lume
 
-São 133 ícones desenhados para o Lume: grade de 24, traço de 1,5, pontas arredondadas. Use só estes nomes, em `<ds-icon name="…">` (com https://lumeui.dev/ds/icons/icons.js importado) ou na função `icon(name)` do mesmo módulo. Não existe nenhum outro nome.
+São 144 ícones desenhados para o Lume: grade de 24, traço de 1,5, pontas arredondadas. Use só estes nomes, em `<ds-icon name="…">` (com https://lumeui.dev/ds/icons/icons.js importado) ou na função `icon(name)` do mesmo módulo. Não existe nenhum outro nome.
 
 ```html
 <ds-icon name="search" size="20"></ds-icon>
@@ -64,6 +64,8 @@ O tamanho padrão é 20 px; o traço fica em 1,75 abaixo de 16 px. O ícone herd
 | `slash` | atalho, comando, barra |
 | `mic` | microfone, áudio, voz |
 | `video` | vídeo, câmera, gravar, cena |
+| `undo` | desfazer, voltar |
+| `redo` | refazer, avançar |
 
 ## Status e feedback
 
@@ -118,6 +120,15 @@ O tamanho padrão é 20 px; o traço fica em 1,75 abaixo de 16 px. O ícone herd
 | `tooltip` | dica, balão, ajuda |
 | `table` | tabela, dados, grade |
 | `list` | lista, itens |
+| `bold` | negrito, texto, editor, formatação |
+| `italic` | itálico, texto, editor, formatação |
+| `underline` | sublinhado, texto, editor, formatação |
+| `strikethrough` | tachado, riscado, texto, editor, formatação |
+| `align-left` | alinhar, esquerda, texto, parágrafo |
+| `align-center` | centralizar, alinhar, centro, texto, parágrafo |
+| `align-right` | alinhar, direita, texto, parágrafo |
+| `list-ordered` | lista, numerada, ordenada, itens |
+| `toolbar` | barra, de, ferramentas, ações, agrupadas |
 | `message-square` | mensagem, toast, chat, comentário |
 | `stack` | conteúdos, coleção, pilha |
 

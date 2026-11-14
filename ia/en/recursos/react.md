@@ -4,11 +4,11 @@ Lume section: Resources. Page: https://lumeui.dev/#/recursos/react
 
 .tsx components to copy into your project, on top of Lume’s same CSS and JavaScript. No package to install: the folder comes in each version’s zip.
 
-In numbers: of the 47 components: 47 · React: 18+ · dependencies: 0.
+In numbers: of the 49 components: 49 · React: 18+ · dependencies: 0.
 
 ## Install
 
-Download the 0.32 zip, unzip it, and move the folder into `src/` named `lume`. The components are in `lume/react/` and import the JavaScript and icons from that same folder. It works with Vite, Next.js, and any React 18 or newer project.
+Download the 0.33 zip, unzip it, and move the folder into `src/` named `lume`. The components are in `lume/react/` and import the JavaScript and icons from that same folder. It works with Vite, Next.js, and any React 18 or newer project.
 
 ```html
 src/
@@ -156,6 +156,8 @@ What’s already in React. Each name leads to the component’s page, with the u
 | `CodeBlock` | Code with the copy button. | Calendar.tsx |
 | `Carousel` | Each child becomes a slide; perView, peek, loop and autoplay with pause. index and onChange in state. | Carousel.tsx |
 | `ResizablePanels` | One ResizablePanel per part, with size, min, max and collapsible; dividers are added for you. storageKey keeps the size. | Resizable.tsx |
+| `Rating` | Give a score, with name, value and onChange; RatingDisplay only shows one, with half stars. | Rating.tsx |
+| `Toolbar` | ToolbarGroup, ToolbarSeparator and ToolbarButton; pressed in state and onToggle on the bar. | Toolbar.tsx |
 
 ### Charts
 
@@ -178,10 +180,10 @@ What’s already in React. Each name leads to the component’s page, with the u
 | --- | --- |
 | A thin layer | Each component only builds Lume’s markup, with the same classes. The look comes from `lume.css`; fix it there, it’s fixed in React. |
 | Your files | The .tsx files live in your project, as with shadcn: you can read, change, and delete what you don’t use. No npm. |
-| TypeScript | Typed, commented props, with a link to each component’s page. `IconName` lists the 133 icons: a wrong name won’t compile. |
+| TypeScript | Typed, commented props, with a link to each component’s page. `IconName` lists the 144 icons: a wrong name won’t compile. |
 | Language | The text a component writes on its own ("Close", "Loading") follows Lume’s language and changes with `setLocale`. `useLocale()` does the same for yours. |
-| Versions | The `react/` folder ships with every line: `/v/0.32/react/`. Updating means swapping the Lume folder for the new line’s. |
+| Versions | The `react/` folder ships with every line: `/v/0.33/react/`. Updating means swapping the Lume folder for the new line’s. |
 
 ## What’s next
 
-All 47 components are already in React.
+All 49 components are already in React.

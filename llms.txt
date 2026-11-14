@@ -1,6 +1,6 @@
 # Lume Design System
 
-> Design system em HTML, CSS e JavaScript nativos, sem dependências: tokens, tipografia, 130 ícones próprios, componentes, gráficos e padrões de tela, nos temas claro e escuro. Versão 0.32.0.
+> Design system em HTML, CSS e JavaScript nativos, sem dependências: tokens, tipografia, 130 ícones próprios, componentes, gráficos e padrões de tela, nos temas claro e escuro. Versão 0.33.0.
 
 Comece por [LEIA-ME](https://lumeui.dev/ia/LEIA-ME.md): instalação, regras gerais e o que nunca inventar. Cada página do site tem um arquivo Markdown abaixo, gerado a partir dela.
 
@@ -32,6 +32,7 @@ Comece por [LEIA-ME](https://lumeui.dev/ia/LEIA-ME.md): instalação, regras ger
 - [Ação inline](https://lumeui.dev/ia/componentes/acao-inline.md): A ação mais discreta: dentro do conteúdo, com + ou →.
 - [Chip](https://lumeui.dev/ia/componentes/chip.md): Pílula para filtrar, escolher e mostrar seleções.
 - [Menu](https://lumeui.dev/ia/componentes/menu.md): Lista que abre de um gatilho, para escolher um valor ou disparar ações.
+- [Barra de ferramentas](https://lumeui.dev/ia/componentes/barra-de-ferramentas.md): Botões de ícone agrupados, com um Tab só e setas entre eles.
 - [Campo de texto](https://lumeui.dev/ia/componentes/campo-de-texto.md): Rótulo, dica, erro e contador — em linha única ou multilinha.
 - [Seleção](https://lumeui.dev/ia/componentes/selecao.md): Única, com busca ou múltipla — lista no visual dos menus, select real por baixo.
 - [Checkbox e radio](https://lumeui.dev/ia/componentes/checkbox-radio.md): Várias escolhas ou uma só, com grupos e estado indeterminado.
@@ -42,6 +43,7 @@ Comece por [LEIA-ME](https://lumeui.dev/ia/LEIA-ME.md): instalação, regras ger
 - [Slider](https://lumeui.dev/ia/componentes/slider.md): Um valor ou uma faixa, quando a posição importa mais que o número exato.
 - [Campo de tags](https://lumeui.dev/ia/componentes/campo-de-tags.md): Vários valores livres dentro de um campo só.
 - [Seletor de cor](https://lumeui.dev/ia/componentes/seletor-de-cor.md): Cor livre ou da paleta, com hexadecimal e teclado.
+- [Avaliação](https://lumeui.dev/ia/componentes/avaliacao.md): Estrelas para dar nota ou mostrar a média, com meia estrela.
 - [Upload de arquivo](https://lumeui.dev/ia/componentes/upload.md): Arrastar ou escolher, com progresso e erro por arquivo.
 - [Código de verificação](https://lumeui.dev/ia/componentes/codigo-de-verificacao.md): Um dígito por casa, para login em duas etapas.
 - [Abas](https://lumeui.dev/ia/componentes/abas.md): Alternam vistas do mesmo assunto. Sublinhada ou segmentada.

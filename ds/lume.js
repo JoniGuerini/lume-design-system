@@ -21,6 +21,8 @@ export { createBackToTop } from './js/back-to-top.js';
 export { createCalendar } from './js/calendar.js';
 export { createCarousel } from './js/carousel.js';
 export { createResizable } from './js/resizable.js';
+export { createRating, ratingHtml } from './js/rating.js';
+export { createToolbar } from './js/toolbar.js';
 export {
   createBarChart, createLineChart, createDonutChart, createHeatmap, createCalendarHeatmap, createScatterChart,
   sparklineHtml, statTileHtml, meterHtml, formatter,

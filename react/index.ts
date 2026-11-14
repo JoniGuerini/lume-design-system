@@ -60,6 +60,8 @@ export { toast, copyText, clearToasts, setToastPosition, getToastPosition, type 
 export { Table, type TableProps, type TableColumn, type SortDirection } from './Table';
 export { Carousel, type CarouselProps } from './Carousel';
 export { ResizablePanels, ResizablePanel, type ResizablePanelsProps, type ResizablePanelProps } from './Resizable';
+export { Rating, RatingDisplay, type RatingProps, type RatingDisplayProps } from './Rating';
+export { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarButton, type ToolbarProps, type ToolbarButtonProps } from './Toolbar';
 export { Calendar, CodeBlock, type CalendarProps, type CalendarEvent, type CalendarView, type CodeBlockProps } from './Calendar';
 
 // Gráficos

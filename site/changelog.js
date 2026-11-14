@@ -8,10 +8,36 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.32.0';
+export const CURRENT_VERSION = '0.33.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.33.0',
+    date: '2026-11-14',
+    title: T('Avaliação e barra de ferramentas', 'Rating and toolbar', 'Valoración y barra de herramientas'),
+    summary: T(
+      'Estrelas para dar nota ou mostrar a média, com meia estrela, e a barra de ferramentas: botões de ícone agrupados, com um Tab só e setas entre eles.',
+      'Stars to give a score or show the average, with half stars, and the toolbar: grouped icon buttons, with a single Tab stop and arrow keys between them.',
+      'Estrellas para calificar o mostrar el promedio, con media estrella, y la barra de herramientas: botones de ícono agrupados, con un solo Tab y flechas entre ellos.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['novo', T('Avaliação: dar nota com rádios nativos (o formulário envia o valor) e só mostrar, com meia estrela, o número e quantas notas', 'Rating: give a score with native radios (the form sends the value) and display only, with half stars, the number, and how many scores', 'Valoración: calificar con radios nativos (el formulario envía el valor) y solo mostrar, con media estrella, el número y cuántas notas'), '/componentes/avaliacao'],
+          ['novo', T('Barra de ferramentas: grupos, separador, botões que ligam e desligam, grupo de um por vez e vertical', 'Toolbar: groups, separator, toggle buttons, one-at-a-time groups, and vertical', 'Barra de herramientas: grupos, separador, botones que se activan y desactivan, grupo de uno a la vez y vertical'), '/componentes/barra-de-ferramentas'],
+          ['novo', T('createRating, ratingHtml e createToolbar na API; Rating, RatingDisplay e Toolbar no React', 'createRating, ratingHtml, and createToolbar in the API; Rating, RatingDisplay, and Toolbar in React', 'createRating, ratingHtml y createToolbar en la API; Rating, RatingDisplay y Toolbar en React'), '/recursos/api'],
+        ],
+      },
+      {
+        name: T('Ícones', 'Icons', 'Íconos'),
+        items: [
+          ['novo', T('11 ícones novos: negrito, itálico, sublinhado, tachado, os três alinhamentos, lista numerada, desfazer, refazer e barra de ferramentas', '11 new icons: bold, italic, underline, strikethrough, the three alignments, numbered list, undo, redo, and toolbar', '11 íconos nuevos: negrita, cursiva, subrayado, tachado, las tres alineaciones, lista numerada, deshacer, rehacer y barra de herramientas'), '/fundamentos/icones'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.32.0',
     date: '2026-11-14',

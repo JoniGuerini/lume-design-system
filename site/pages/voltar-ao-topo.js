@@ -35,7 +35,7 @@ export default function renderBackToTop(page) {
         id: 'codigo',
         title: L('Código', 'Code', 'Código'),
         desc: L(`O botão entra em ${ic('parent')}, que precisa ter ${ic('position')}.`, `The button goes into ${ic('parent')}, which needs a ${ic('position')}.`, `El botón entra en ${ic('parent')}, que necesita ${ic('position')}.`),
-        html: codeBlock(`import { createBackToTop } from 'https://lumeui.dev/v/0.32/lume.js';
+        html: codeBlock(`import { createBackToTop } from 'https://lumeui.dev/v/0.33/lume.js';
 
 const back = createBackToTop(document.querySelector('.painel__rolagem'), {
   parent: document.querySelector('.painel'),
@@ -95,7 +95,7 @@ export function mount(root) {
       const back = createBackToTop(box.querySelector('.fc-scroll'), { parent: box, threshold: s.threshold === 'screen' ? undefined : Number(s.threshold) });
       return () => back.destroy();
     },
-    code: (s) => `import { createBackToTop } from 'https://lumeui.dev/v/0.32/lume.js';
+    code: (s) => `import { createBackToTop } from 'https://lumeui.dev/v/0.33/lume.js';
 
 createBackToTop(document.querySelector('.painel__rolagem')${s.threshold === 'screen' ? '' : `, { threshold: ${s.threshold} }`});`,
   });

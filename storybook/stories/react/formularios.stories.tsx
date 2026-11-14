@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ColorField, ColorPicker } from '../../../react';
+import { ColorField, ColorPicker, Rating, RatingDisplay } from '../../../react';
 import {
   Button, Form, Field, TextField, Select, DatePicker, TimePicker, NumberField, TagField, Slider, Switch, Checkbox, RadioGroup,
 } from '../../../react';
@@ -68,3 +68,16 @@ function Cor() {
 }
 
 export const SeletorDeCor = { name: 'ColorPicker · ColorField', render: () => mount(<Cor />) };
+
+function Avaliacao() {
+  const [nota, setNota] = useState(0);
+  return (
+    <div style={{ display: 'grid', gap: 16, justifyItems: 'start' }}>
+      <Rating label="Como você avalia esta página?" name="nota" value={nota} onChange={setNota} />
+      <p style={{ margin: 0, color: 'var(--ds-color-fg-muted)', font: 'var(--ds-text-body-sm)' }}>{nota ? `Nota ${nota}` : 'Sem nota'}</p>
+      <RatingDisplay value={4.5} text count={128} />
+    </div>
+  );
+}
+
+export const Avaliacao_ = { name: 'Rating', render: () => mount(<Avaliacao />) };

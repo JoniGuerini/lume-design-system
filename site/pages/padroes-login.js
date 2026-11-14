@@ -205,7 +205,7 @@ const htmlCode = () => `<form class="ds-form" id="${L('entrar', 'sign-in', 'entr
   <button type="submit" class="ds-btn ds-btn--primary">${signIn()}</button>
 </form>`;
 
-const jsCode = () => `import { createForm } from 'https://lumeui.dev/v/0.32/lume.js';
+const jsCode = () => `import { createForm } from 'https://lumeui.dev/v/0.33/lume.js';
 
 // ${L('mostrar senha: troca o tipo do campo e marca o botão', 'show password: switches the field type and marks the button', 'mostrar contraseña: cambia el tipo del campo y marca el botón')}
 document.addEventListener('click', (event) => {

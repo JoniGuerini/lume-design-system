@@ -4,17 +4,17 @@ Seção do Lume: Recursos. Página: https://lumeui.dev/#/recursos/api
 
 Tudo o que você pode chamar pelo JavaScript, num arquivo só. O que está aqui é público e estável; o resto é interno e pode mudar.
 
-Em números: itens públicos: 88 · verbos: 5 · dependências: 0.
+Em números: itens públicos: 91 · verbos: 5 · dependências: 0.
 
 ## Importar
 
 Um arquivo, `ds/lume.js`, reúne a API inteira. Os módulos de `ds/js/` continuam podendo ser importados um a um, para carregar só o necessário.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/0.32/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/0.33/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.32/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.33/lume.js';
 
   initTheme();
   const modal = createModal({ title: 'Publicar alterações?' });
@@ -43,7 +43,7 @@ Estado segue `get…` e `set…`; constantes ficam em maiúsculas, como `THEMES`
 
 ## Tudo o que é público
 
-Os 88 itens de `ds/lume.js`, com o módulo de onde cada um vem.
+Os 91 itens de `ds/lume.js`, com o módulo de onde cada um vem.
 
 ### Componentes
 
@@ -69,6 +69,8 @@ Os 88 itens de `ds/lume.js`, com o módulo de onde cada um vem.
 | `createOtpField` | Campo de código de verificação. | otp-field.js |
 | `createPagination` | Paginação de uma lista ou tabela. | pagination.js |
 | `createPopover` | Painel que abre preso a um botão. | popover.js |
+| `createRating` | Avaliação com estrelas para dar nota; cada estrela é um rádio nativo. | rating.js |
+| `ratingHtml` | Marcação de uma nota só para mostrar, com meia estrela. | rating.js |
 | `createResizable` | Painéis redimensionáveis: divisória que arrasta, com teclado, limites e tamanho salvo. | resizable.js |
 | `createSegmented` | Controle segmentado. | segmented.js |
 | `createSelect` | Seleção do Lume sobre um select nativo. | select.js |
@@ -84,6 +86,7 @@ Os 88 itens de `ds/lume.js`, com o módulo de onde cada um vem.
 | `selectTab` | Escolhe uma aba pelo código. | tabs.js |
 | `createTagField` | Campo de tags. | tag-field.js |
 | `createTimePicker` | Seletor de horário ligado a um campo. | time-picker.js |
+| `createToolbar` | Barra de ferramentas: um Tab só, setas entre os botões e botões que ligam e desligam. | toolbar.js |
 | `createTree` | Árvore que expande e recolhe. | tree.js |
 
 ### Ações imediatas

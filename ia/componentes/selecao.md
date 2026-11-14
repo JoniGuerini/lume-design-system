@@ -19,7 +19,7 @@ Em números: tipos: 3 · tamanhos: 3 · padrão ARIA: combobox · sem JS: nativo
 </div>
 
 <script type="module">
-  import { mountSelects } from 'https://lumeui.dev/v/0.32/lume.js';
+  import { mountSelects } from 'https://lumeui.dev/v/0.33/lume.js';
   mountSelects(document);
 </script>
 ```
@@ -55,7 +55,7 @@ Marcação dos exemplos desta seção:
 
 <button type="submit" class="ds-btn ds-btn--primary ds-btn--sm">Salvar</button>
 
-<button type="button" class="ds-chip" data-period="" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-47"><span class="ds-chip__icon"><ds-icon name="calendar"></ds-icon></span><span data-label="">Últimos 30 dias</span><span class="ds-chip__chevron"><ds-icon name="chevron-down"></ds-icon></span></button>
+<button type="button" class="ds-chip" data-period="" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-49"><span class="ds-chip__icon"><ds-icon name="calendar"></ds-icon></span><span data-label="">Últimos 30 dias</span><span class="ds-chip__chevron"><ds-icon name="chevron-down"></ds-icon></span></button>
 ```
 
 ## Com busca

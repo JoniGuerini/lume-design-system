@@ -9,7 +9,7 @@ Em números: tamanho: 40 px · aparece depois de: 1 tela · âncora: contêiner 
 ## Exemplo
 
 ```html
-import { createBackToTop } from 'https://lumeui.dev/v/0.32/lume.js';
+import { createBackToTop } from 'https://lumeui.dev/v/0.33/lume.js';
 
 createBackToTop(document.querySelector('.painel__rolagem'));
 ```
@@ -29,7 +29,7 @@ Marcação dos exemplos desta seção:
 O botão entra em `parent`, que precisa ter `position`.
 
 ```html
-import { createBackToTop } from 'https://lumeui.dev/v/0.32/lume.js';
+import { createBackToTop } from 'https://lumeui.dev/v/0.33/lume.js';
 
 const back = createBackToTop(document.querySelector('.painel__rolagem'), {
   parent: document.querySelector('.painel'),

@@ -9,7 +9,7 @@ Em números: fatias no máximo: 6 · espessura padrão: 24 px · respiro entre f
 ## Exemplo
 
 ```html
-import { createDonutChart } from 'https://lumeui.dev/v/0.32/lume.js';
+import { createDonutChart } from 'https://lumeui.dev/v/0.33/lume.js';
 
 donutChart(document.querySelector('#pagamentos'), {
   title: 'Pagamentos por método',

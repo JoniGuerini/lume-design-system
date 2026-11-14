@@ -4,17 +4,17 @@ Lume section: Resources. Page: https://lumeui.dev/#/recursos/api
 
 Everything you can call from JavaScript, in a single file. What’s here is public and stable; the rest is internal and may change.
 
-In numbers: public items: 88 · verbs: 5 · dependencies: 0.
+In numbers: public items: 91 · verbs: 5 · dependencies: 0.
 
 ## Import
 
 One file, `ds/lume.js`, gathers the whole API. The `ds/js/` modules can still be imported one by one, to load only what you need.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/0.32/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/0.33/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.32/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.33/lume.js';
 
   initTheme();
   const modal = createModal({ title: 'Publish changes?' });
@@ -43,7 +43,7 @@ State follows `get…` and `set…`; constants are uppercase, like `THEMES`.
 
 ## Everything public
 
-The 88 items in `ds/lume.js`, with the module each one comes from.
+The 91 items in `ds/lume.js`, with the module each one comes from.
 
 ### Components
 
@@ -69,6 +69,8 @@ The 88 items in `ds/lume.js`, with the module each one comes from.
 | `createOtpField` | Verification code field. | otp-field.js |
 | `createPagination` | Pagination for a list or table. | pagination.js |
 | `createPopover` | Panel that opens attached to a button. | popover.js |
+| `createRating` | Star rating for giving a score; each star is a native radio. | rating.js |
+| `ratingHtml` | Markup for a display-only score, with half stars. | rating.js |
 | `createResizable` | Resizable panels: a draggable divider, with keyboard, limits, and saved size. | resizable.js |
 | `createSegmented` | Segmented control. | segmented.js |
 | `createSelect` | Lume select on top of a native select. | select.js |
@@ -84,6 +86,7 @@ The 88 items in `ds/lume.js`, with the module each one comes from.
 | `selectTab` | Selects a tab from code. | tabs.js |
 | `createTagField` | Tag field. | tag-field.js |
 | `createTimePicker` | Time picker attached to a field. | time-picker.js |
+| `createToolbar` | Toolbar: a single Tab stop, arrow keys between buttons, and toggle buttons. | toolbar.js |
 | `createTree` | Tree that expands and collapses. | tree.js |
 
 ### Immediate actions

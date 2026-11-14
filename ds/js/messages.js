@@ -189,6 +189,8 @@ export const MESSAGES = {
     'carousel.play': 'Retomar',
 
     'resizable.handle': 'Redimensionar painéis',
+    'rating.star': (n) => `${BR(n)} ${n === 1 ? 'estrela' : 'estrelas'}`,
+    'rating.value': (v, max) => `Nota ${v} de ${BR(max)}`,
 
     'code.copy': 'Copiar código',
     'code.copied': 'Código copiado',
@@ -438,6 +440,8 @@ export const MESSAGES = {
     'carousel.play': 'Resume',
 
     'resizable.handle': 'Resize panels',
+    'rating.star': (n) => `${EN(n)} ${n === 1 ? 'star' : 'stars'}`,
+    'rating.value': (v, max) => `Rated ${v} out of ${EN(max)}`,
 
     'code.copy': 'Copy code',
     'code.copied': 'Code copied',
@@ -687,6 +691,8 @@ export const MESSAGES = {
     'carousel.play': 'Reanudar',
 
     'resizable.handle': 'Redimensionar paneles',
+    'rating.star': (n) => `${ES(n)} ${n === 1 ? 'estrella' : 'estrellas'}`,
+    'rating.value': (v, max) => `Calificación ${v} de ${ES(max)}`,
 
     'code.copy': 'Copiar código',
     'code.copied': 'Código copiado',

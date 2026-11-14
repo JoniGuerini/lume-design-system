@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, IconButton, InlineAction, Chip, ChipGroup, Badge, Alert, Avatar, AvatarGroup, Progress, Spinner, Panel, Section, Breadcrumb } from '../../../react';
+import { Button, IconButton, InlineAction, Chip, ChipGroup, Badge, Alert, Avatar, AvatarGroup, Progress, Spinner, Panel, Section, Breadcrumb, Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarButton } from '../../../react';
 import { mount } from './mount';
 
 export default {
@@ -78,3 +78,28 @@ export const Conjunto = {
       </div>,
     ),
 };
+
+function Formatacao() {
+  const [on, setOn] = useState<Record<string, boolean>>({ bold: false, italic: false, left: true, center: false });
+  const toggle = (value: string, pressed: boolean) => setOn((s) => ({ ...s, [value]: pressed }));
+  return (
+    <div style={{ display: 'grid', gap: 16, justifyItems: 'start' }}>
+      <Toolbar label="Formatação" onToggle={toggle}>
+        <ToolbarGroup>
+          <ToolbarButton icon="bold" label="Negrito" value="bold" pressed={on.bold} />
+          <ToolbarButton icon="italic" label="Itálico" value="italic" pressed={on.italic} />
+        </ToolbarGroup>
+        <ToolbarSeparator />
+        <ToolbarGroup exclusive>
+          <ToolbarButton icon="align-left" label="Alinhar à esquerda" value="left" pressed={on.left} />
+          <ToolbarButton icon="align-center" label="Centralizar" value="center" pressed={on.center} />
+        </ToolbarGroup>
+        <ToolbarSeparator />
+        <ToolbarButton icon="undo" label="Desfazer" />
+      </Toolbar>
+      <p style={{ margin: 0, width: 360, textAlign: on.center ? 'center' : 'start', fontWeight: on.bold ? 600 : 400, fontStyle: on.italic ? 'italic' : 'normal' }}>O Lume é um design system sem dependências.</p>
+    </div>
+  );
+}
+
+export const BarraDeFerramentas = { name: 'Toolbar', render: () => mount(<Formatacao />) };

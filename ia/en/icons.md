@@ -1,6 +1,6 @@
 # Lume icons
 
-There are 133 icons drawn for Lume: a 24 grid, a 1.5 stroke, round caps. Use only these names, in `<ds-icon name="…">` (with https://lumeui.dev/ds/icons/icons.js imported) or in the `icon(name)` function from the same module. No other name exists.
+There are 144 icons drawn for Lume: a 24 grid, a 1.5 stroke, round caps. Use only these names, in `<ds-icon name="…">` (with https://lumeui.dev/ds/icons/icons.js imported) or in the `icon(name)` function from the same module. No other name exists.
 
 ```html
 <ds-icon name="search" size="20"></ds-icon>
@@ -64,6 +64,8 @@ The default size is 20 px; the stroke becomes 1.75 below 16 px. The icon inherit
 | `slash` | shortcut, command, slash |
 | `mic` | microphone, audio, voice |
 | `video` | video, camera, record, scene |
+| `undo` | undo, back |
+| `redo` | redo, forward |
 
 ## Status and feedback
 
@@ -118,6 +120,15 @@ The default size is 20 px; the stroke becomes 1.75 below 16 px. The icon inherit
 | `tooltip` | hint, balloon, help, tooltip |
 | `table` | table, data, grid |
 | `list` | list, items |
+| `bold` | bold, text, editor, formatting |
+| `italic` | italic, text, editor, formatting |
+| `underline` | underline, text, editor, formatting |
+| `strikethrough` | strikethrough, text, editor, formatting |
+| `align-left` | align, left, text, paragraph |
+| `align-center` | align, center, text, paragraph |
+| `align-right` | align, right, text, paragraph |
+| `list-ordered` | ordered, numbered, list, items |
+| `toolbar` | toolbar, grouped, actions |
 | `message-square` | message, toast, chat, comment |
 | `stack` | contents, collection, stack |
 

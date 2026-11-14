@@ -126,7 +126,7 @@ Manual `data-activation="manual"` — Las flechas mueven el foco; Enter o Espaci
 ### En código
 
 ```html
-import { mountTabs } from 'https://lumeui.dev/v/0.32/lume.js';
+import { mountTabs } from 'https://lumeui.dev/v/0.33/lume.js';
 
 // conecta todas las pestañas [data-ds-tabs] de la página — incluso las que entren después
 const unmount = mountTabs(document);

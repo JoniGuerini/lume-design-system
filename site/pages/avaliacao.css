@@ -1,0 +1,28 @@
+/* Página: Avaliação (prefixo av-) */
+
+.av-ask {
+  display: grid;
+  justify-items: start;
+  gap: var(--ds-space-100);
+}
+
+.av-ask__label {
+  margin: 0;
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-label-md);
+  letter-spacing: var(--ds-text-label-md-tracking);
+}
+
+.av-ask__out {
+  min-height: 1.25rem;
+  margin: 0;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+  letter-spacing: var(--ds-text-body-sm-tracking);
+}
+
+.av-show {
+  display: grid;
+  justify-items: start;
+  gap: var(--ds-space-150);
+}

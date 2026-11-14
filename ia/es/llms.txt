@@ -1,6 +1,6 @@
 # Lume Design System
 
-> Design system en HTML, CSS y JavaScript nativos, sin dependencias: tokens, tipografía, 130 íconos propios, componentes, gráficos y patrones de pantalla, en los temas claro y oscuro. Versión 0.32.0.
+> Design system en HTML, CSS y JavaScript nativos, sin dependencias: tokens, tipografía, 130 íconos propios, componentes, gráficos y patrones de pantalla, en los temas claro y oscuro. Versión 0.33.0.
 
 Empieza por [LEEME](https://lumeui.dev/ia/es/LEEME.md): instalación, reglas generales y lo que nunca inventar. Cada página del sitio tiene un archivo Markdown abajo, generado a partir de ella.
 
@@ -32,6 +32,7 @@ Empieza por [LEEME](https://lumeui.dev/ia/es/LEEME.md): instalación, reglas gen
 - [Acción en línea](https://lumeui.dev/ia/es/componentes/acao-inline.md): La acción más discreta: dentro del contenido, con + o →.
 - [Chip](https://lumeui.dev/ia/es/componentes/chip.md): Píldora para filtrar, elegir y mostrar selecciones.
 - [Menú](https://lumeui.dev/ia/es/componentes/menu.md): Lista que se abre desde un disparador, para elegir un valor o ejecutar acciones.
+- [Barra de herramientas](https://lumeui.dev/ia/es/componentes/barra-de-ferramentas.md): Botones de ícono agrupados, con un solo Tab y flechas entre ellos.
 - [Campo de texto](https://lumeui.dev/ia/es/componentes/campo-de-texto.md): Etiqueta, pista, error y contador — en una línea o en varias.
 - [Selector](https://lumeui.dev/ia/es/componentes/selecao.md): Única, con búsqueda o múltiple — lista con el estilo de los menús y un select real debajo.
 - [Checkbox y radio](https://lumeui.dev/ia/es/componentes/checkbox-radio.md): Varias opciones o una sola, con grupos y estado indeterminado.
@@ -42,6 +43,7 @@ Empieza por [LEEME](https://lumeui.dev/ia/es/LEEME.md): instalación, reglas gen
 - [Slider](https://lumeui.dev/ia/es/componentes/slider.md): Un valor o un rango, cuando la posición importa más que el número exacto.
 - [Campo de etiquetas](https://lumeui.dev/ia/es/componentes/campo-de-tags.md): Varios valores libres dentro de un solo campo.
 - [Selector de color](https://lumeui.dev/ia/es/componentes/seletor-de-cor.md): Color libre o de la paleta, con hexadecimal y teclado.
+- [Valoración](https://lumeui.dev/ia/es/componentes/avaliacao.md): Estrellas para calificar o mostrar el promedio, con media estrella.
 - [Carga de archivos](https://lumeui.dev/ia/es/componentes/upload.md): Arrastrar o elegir, con progreso y error por archivo.
 - [Código de verificación](https://lumeui.dev/ia/es/componentes/codigo-de-verificacao.md): Un dígito por casilla, para el inicio de sesión en dos pasos.
 - [Pestañas](https://lumeui.dev/ia/es/componentes/abas.md): Alternan vistas del mismo tema. Subrayadas o segmentadas.

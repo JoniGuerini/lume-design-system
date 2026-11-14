@@ -48,7 +48,7 @@ const snippet = ({ vertical = false, grip = false, collapsible = false } = {}) =
 </div>
 
 <script type="module">
-  import { createResizable } from 'https://lumeui.dev/v/0.32/lume.js';
+  import { createResizable } from 'https://lumeui.dev/v/0.33/lume.js';
   createResizable(document.querySelector('.ds-resizable'), {
     storageKey: 'editor', // ${L('guarda o tamanho no navegador', 'keeps the size in the browser', 'guarda el tamaño en el navegador')}
   });

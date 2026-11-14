@@ -1,6 +1,6 @@
 # Íconos de Lume
 
-Son 133 íconos dibujados para Lume: cuadrícula de 24, trazo de 1,5, puntas redondeadas. Usa solo estos nombres, en `<ds-icon name="…">` (con https://lumeui.dev/ds/icons/icons.js importado) o en la función `icon(name)` del mismo módulo. No existe ningún otro nombre.
+Son 144 íconos dibujados para Lume: cuadrícula de 24, trazo de 1,5, puntas redondeadas. Usa solo estos nombres, en `<ds-icon name="…">` (con https://lumeui.dev/ds/icons/icons.js importado) o en la función `icon(name)` del mismo módulo. No existe ningún otro nombre.
 
 ```html
 <ds-icon name="search" size="20"></ds-icon>
@@ -64,6 +64,8 @@ El tamaño predeterminado es 20 px; el trazo pasa a 1,75 por debajo de 16 px. El
 | `slash` | atajo, comando, barra |
 | `mic` | micrófono, audio, voz |
 | `video` | video, cámara, grabar, escena |
+| `undo` | deshacer |
+| `redo` | rehacer |
 
 ## Estado y feedback
 
@@ -118,6 +120,15 @@ El tamaño predeterminado es 20 px; el trazo pasa a 1,75 por debajo de 16 px. El
 | `tooltip` | pista, globo, ayuda |
 | `table` | tabla, datos, cuadrícula |
 | `list` | lista, elementos |
+| `bold` | negrita, texto, editor, formato |
+| `italic` | cursiva, itálica, texto, editor, formato |
+| `underline` | subrayado, texto, editor, formato |
+| `strikethrough` | tachado, texto, editor, formato |
+| `align-left` | alinear, izquierda, texto, párrafo |
+| `align-center` | centrar, alinear, texto, párrafo |
+| `align-right` | alinear, derecha, texto, párrafo |
+| `list-ordered` | lista, numerada, ordenada |
+| `toolbar` | barra, de, herramientas, acciones, agrupadas |
 | `message-square` | mensaje, toast, chat, comentario |
 | `stack` | contenidos, colección, pila |
 

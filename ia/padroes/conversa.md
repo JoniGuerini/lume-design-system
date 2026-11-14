@@ -15,7 +15,7 @@ Como posso ajudar?
 Pergunte em português, anexe um arquivo ou digite / para ver os comandos.
 
 ```html
-import { createComposer, messageHtml, typingHtml, streamText } from 'https://lumeui.dev/v/0.32/lume.js';
+import { createComposer, messageHtml, typingHtml, streamText } from 'https://lumeui.dev/v/0.33/lume.js';
 
 const thread = document.querySelector('.ds-thread');   // role="log" aria-live="polite"
 
@@ -77,7 +77,7 @@ Marcação dos exemplos desta seção:
 
 <p class="ds-visually-hidden" aria-live="polite" data-demo-live=""></p>
 
-<button type="button" class="ds-chip" data-control="reply" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-192">
+<button type="button" class="ds-chip" data-control="reply" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-197">
 <span>Resposta</span><span data-label="">Texto e cartão</span>
 <span class="ds-chip__chevron"><ds-icon name="chevron-down"></ds-icon></span>
 </button>
@@ -489,7 +489,7 @@ O CSS vem em `ds/ds.css`; o comportamento, em `ds/js/composer.js`.
 ```
 
 ```html
-import { createComposer } from 'https://lumeui.dev/v/0.32/lume.js';
+import { createComposer } from 'https://lumeui.dev/v/0.33/lume.js';
 
 const composer = createComposer(document.querySelector('#composer'), {
   label: 'Mensagem para o Lume',
