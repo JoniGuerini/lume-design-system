@@ -8,6 +8,7 @@ import { formatNumber } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
 import { mountCodeCopy, codeBlock, escapeHtml } from '../component-doc.js';
 import { L } from '../i18n.js';
+import { FIGMA_URL } from '../links.js';
 
 export const styles = ['site/component-doc.css', 'site/pages/recursos-tokens.css'];
 
@@ -354,7 +355,7 @@ export default function renderTokens(page) {
       'rt-figma',
       L('Variáveis do Figma', 'Figma variables', 'Variables de Figma'),
       L('Três coleções e dois tipos de estilo. As primitivas guardam os tons; as semânticas dizem para que serve cada cor e mudam com o modo.', 'Three collections and two kinds of style. Primitives hold the tones; semantics say what each color is for and change with the mode.', 'Tres colecciones y dos tipos de estilo. Las primitivas guardan los tonos; las semánticas dicen para qué sirve cada color y cambian con el modo.'),
-      `<p class="rt-note rt-note--plugin">${icon('component', { size: 16 })}<span>${L('Quer os componentes também? O <a class="rt-link" href="#/recursos/figma">Plugin do Figma</a> cria estas mesmas variáveis e, por cima delas, ícones e componentes com variantes, em blocos de documentação.', 'Want the components too? The <a class="rt-link" href="#/recursos/figma">Figma plugin</a> creates these same variables and, on top of them, icons and components with variants, in documentation blocks.', '¿Quieres los componentes también? El <a class="rt-link" href="#/recursos/figma">Plugin de Figma</a> crea estas mismas variables y, sobre ellas, íconos y componentes con variantes, en bloques de documentación.')}</span></p>
+      `<p class="rt-note rt-note--plugin">${icon('component', { size: 16 })}<span>${L('Quer ver os componentes também? O <a class="rt-link" href="'+FIGMA_URL+'" target="_blank" rel="noopener">arquivo do Lume no Figma</a> usa estas mesmas variáveis, com ícones e componentes com variantes em blocos de documentação.', 'Want to see the components too? <a class="rt-link" href="'+FIGMA_URL+'" target="_blank" rel="noopener">Lume’s Figma file</a> uses these same variables, with icons and components with variants in documentation blocks.', '¿Quieres ver los componentes también? El <a class="rt-link" href="'+FIGMA_URL+'" target="_blank" rel="noopener">archivo de Lume en Figma</a> usa estas mismas variables, con íconos y componentes con variantes en bloques de documentación.')}</span></p>
       <div class="rt-collections">
         <article class="rt-collection">
           <div class="rt-collection__preview" aria-hidden="true">${['100', '300', '500', '600', '800', '950'].map((s) => `<span style="background:var(--ds-color-brand-${s})"></span>`).join('')}</div>

@@ -1,4 +1,45 @@
-/* Página: Recursos › Para IAs (prefixo ri-). Passos e notas vêm de recursos-figma.css (rf-). */
+/* Página: Recursos › Para IAs (prefixo ri-) */
+
+.ri-steps {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--ds-space-200);
+}
+
+.ri-step {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+  gap: var(--ds-space-100);
+  padding: var(--ds-space-250) var(--ds-space-300);
+  border-radius: var(--ds-radius-xl);
+  background: var(--ds-color-bg-surface);
+  border: 1px solid var(--ds-color-border-subtle);
+}
+
+.ri-step__text {
+  max-width: 68ch;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+.ri-note {
+  display: flex;
+  gap: var(--ds-space-100);
+  margin-top: var(--ds-space-200);
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+.ri-note .ds-icon {
+  flex: none;
+  margin-top: 3px;
+  color: var(--ds-color-fg-subtle);
+}
+
+.ri-link {
+  color: var(--ds-color-fg-link);
+}
 
 .ri-files {
   display: grid;

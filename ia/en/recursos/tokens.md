@@ -52,7 +52,7 @@ To generate all of them at once, in the project folder: `npm run tokens:export`.
 
 Three collections and two kinds of style. Primitives hold the tones; semantics say what each color is for and change with the mode.
 
-Want the components too? The Figma plugin creates these same variables and, on top of them, icons and components with variants, in documentation blocks.
+Want to see the components too? Lume’s Figma file uses these same variables, with icons and components with variants in documentation blocks.
 
 Primitivas — 181 colors · 1 mode — Every palette, plus white and black. Hidden from publishing and with no scope: no one paints with them directly. — Semânticos — 96 colors · Escuro (dark) and Claro (light) — 161 values point to a primitive (alias). The 31 with transparency arrive as RGBA. — Dimensões — 60 numbers · 1 mode — Space, radius, stroke, sizes, layout, breakpoints, blur, and opacity — each with the right scope. — Styles — 19 text · 12 shadow — The 19 text styles and the 6 shadows, one version per theme — Figma styles have no modes.
 

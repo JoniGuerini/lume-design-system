@@ -4,8 +4,7 @@ import { mountCodeCopy, codeBlock } from '../component-doc.js';
 import { L } from '../i18n.js';
 import { locale } from '../../ds/js/i18n.js';
 
-// Reaproveita o visual dos passos e notas da página do plugin do Figma (rf-*)
-export const styles = ['site/component-doc.css', 'site/pages/recursos-figma.css', 'site/pages/recursos-ia.css'];
+export const styles = ['site/component-doc.css', 'site/pages/recursos-ia.css'];
 
 const SITE = 'https://lumeui.dev';
 const ic = (s) => `<code class="ds-inline-code">${s}</code>`;
@@ -16,7 +15,7 @@ const FILES_BY_LOCALE = {
   es: { dir: 'ia/es', llms: 'ia/es/llms.txt', readme: 'LEEME.md', icons: 'iconos.md' },
 };
 const P = () => FILES_BY_LOCALE[locale()] ?? FILES_BY_LOCALE.en;
-const link = (href, text) => `<a class="rf-link" href="${href}" target="_blank" rel="noopener">${text}</a>`;
+const link = (href, text) => `<a class="ri-link" href="${href}" target="_blank" rel="noopener">${text}</a>`;
 
 /* ───────── Dados (textos no idioma atual: chame na renderização) ───────── */
 
@@ -97,11 +96,11 @@ export default function renderIa(page) {
       'ia-usar',
       L('Como usar', 'How to use', 'Cómo usar'),
       L('Três jeitos, do mais rápido ao mais permanente. Os arquivos existem em português, inglês e espanhol, e os links abaixo seguem o idioma do site.', 'Three ways, from quickest to most permanent. The files exist in Portuguese, English, and Spanish, and the links below follow the site’s language.', 'Tres formas, de la más rápida a la más permanente. Los archivos existen en portugués, inglés y español, y los enlaces de abajo siguen el idioma del sitio.'),
-      `<ol class="rf-steps" role="list">
+      `<ol class="ri-steps" role="list">
         ${WAYS().map(
-          ([title, text, code], i) => `<li class="rf-step">
+          ([title, text, code], i) => `<li class="ri-step">
             <p class="ds-section__head"><span class="ds-section__stamp">${String(i + 1).padStart(2, '0')}</span><span>${title}</span></p>
-            <p class="rf-step__text">${text}</p>
+            <p class="ri-step__text">${text}</p>
             ${code ? codeBlock(code) : ''}
           </li>`,
         ).join('')}
@@ -125,7 +124,7 @@ export default function renderIa(page) {
       L('Regras', 'Rules', 'Reglas'),
       L('O que a IA lê antes de qualquer tela. Também valem para quem escreve o código à mão.', 'What the AI reads before any screen. They also apply to anyone writing the code by hand.', 'Lo que la IA lee antes de cualquier pantalla. También valen para quien escribe el código a mano.'),
       `<ul class="ri-rules" role="list">${RULES().map((r) => `<li>${icon('check', { size: 18 })}<span>${r}</span></li>`).join('')}</ul>
-      <p class="rf-note">${icon('info', { size: 16 })}<span>${L(`A IA carrega o Lume pelo endereço com versão, como ${ic(`${SITE}/v/0.40/`)}: o projeto só muda quando alguém trocar o número.`, `The AI loads Lume from the versioned address, like ${ic(`${SITE}/v/0.40/`)}: the project only changes when someone changes the number.`, `La IA carga Lume desde la dirección con versión, como ${ic(`${SITE}/v/0.40/`)}: el proyecto solo cambia cuando alguien cambie el número.`)}</span></p>`,
+      <p class="ri-note">${icon('info', { size: 16 })}<span>${L(`A IA carrega o Lume pelo endereço com versão, como ${ic(`${SITE}/v/0.40/`)}: o projeto só muda quando alguém trocar o número.`, `The AI loads Lume from the versioned address, like ${ic(`${SITE}/v/0.40/`)}: the project only changes when someone changes the number.`, `La IA carga Lume desde la dirección con versión, como ${ic(`${SITE}/v/0.40/`)}: el proyecto solo cambia cuando alguien cambie el número.`)}</span></p>`,
     )}
 
     ${section(
@@ -133,7 +132,7 @@ export default function renderIa(page) {
       L('Para quem mantém', 'For maintainers', 'Para quien mantiene'),
       L('Os arquivos de páginas saem do próprio site: um script abre cada página e converte o conteúdo. Mudou uma página, gere de novo.', 'The page files come from the site itself: a script opens each page and converts its content. Changed a page? Generate again.', 'Los archivos de páginas salen del propio sitio: un script abre cada página y convierte el contenido. ¿Cambió una página? Genera de nuevo.'),
       `${codeBlock('npm run ia')}
-      <p class="rf-note">${icon('pencil', { size: 16 })}<span>${L(`O guia (${ic('LEIA-ME.md')}, ${ic('README.md')}, ${ic('LEEME.md')}), o ${ic('AGENTS.md')} e a skill de cada idioma são escritos à mão e o script não mexe neles.`, `The guide (${ic('LEIA-ME.md')}, ${ic('README.md')}, ${ic('LEEME.md')}), ${ic('AGENTS.md')}, and each language’s skill are written by hand, and the script leaves them alone.`, `La guía (${ic('LEIA-ME.md')}, ${ic('README.md')}, ${ic('LEEME.md')}), el ${ic('AGENTS.md')} y la skill de cada idioma se escriben a mano y el script no los toca.`)}</span></p>`,
+      <p class="ri-note">${icon('pencil', { size: 16 })}<span>${L(`O guia (${ic('LEIA-ME.md')}, ${ic('README.md')}, ${ic('LEEME.md')}), o ${ic('AGENTS.md')} e a skill de cada idioma são escritos à mão e o script não mexe neles.`, `The guide (${ic('LEIA-ME.md')}, ${ic('README.md')}, ${ic('LEEME.md')}), ${ic('AGENTS.md')}, and each language’s skill are written by hand, and the script leaves them alone.`, `La guía (${ic('LEIA-ME.md')}, ${ic('README.md')}, ${ic('LEEME.md')}), el ${ic('AGENTS.md')} y la skill de cada idioma se escriben a mano y el script no los toca.`)}</span></p>`,
     )}
   </div>`;
 }

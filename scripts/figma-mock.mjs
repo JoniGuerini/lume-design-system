@@ -463,7 +463,10 @@ export function createMockFigma({ missingFonts = [], maxModes = Infinity, maxPag
       const v = reg(new ShapeNode('VECTOR', figma));
       v.name = 'Vector';
       const filled = /fill="(?!none)[^"]+"/.test(s) || (target !== frame && groupFill);
-      v.fills = filled ? [{ type: 'SOLID', color: { r: 0, g: 0, b: 0 }, opacity: Number(/fill-opacity="([\d.]+)"/.exec(s)?.[1] ?? 1) }] : [];
+      // como no Figma: a cor escrita no SVG vira a cor do vetor (a chama do Lume vem pronta, sem variável)
+      const hex = /fill="#([0-9a-f]{6})"/i.exec(s)?.[1];
+      const rgb = hex ? { r: parseInt(hex.slice(0, 2), 16) / 255, g: parseInt(hex.slice(2, 4), 16) / 255, b: parseInt(hex.slice(4, 6), 16) / 255 } : { r: 0, g: 0, b: 0 };
+      v.fills = filled ? [{ type: 'SOLID', color: rgb, opacity: Number(/fill-opacity="([\d.]+)"/.exec(s)?.[1] ?? 1) }] : [];
       // como no Figma: o fill do <g> soma ao traço herdado do <svg>; só stroke="none" tira o traço
       const ownFill = /fill="(?!none)[^"]+"/.test(s);
       v.strokes = /stroke="none"/.test(s) || (ownFill && !/stroke="(?!none)/.test(s)) ? [] : [{ type: 'SOLID', color: { r: 0, g: 0, b: 0 }, opacity: 1 }];

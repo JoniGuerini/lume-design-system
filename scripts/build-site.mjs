@@ -90,13 +90,6 @@ if (!process.env.VERCEL) {
   if (pkg.version !== version) { pkg.version = version; await writeFile(pkgFile, `${JSON.stringify(pkg, null, 2)}\n`); }
 }
 
-// números do plugin para a página Recursos › Plugin do Figma. Só o resumo vai para o ar, não o plugin.
-// Sem generatedAt: a data mudaria a impressão digital a cada build e dispararia o aviso de versão nova.
-const { generatedAt, ...figmaSummary } = JSON.parse(await readFile(path.join(ROOT, 'dist', 'figma-plugin', 'summary.json'), 'utf8'));
-const figmaOut = path.join(OUT, 'dist', 'figma-plugin');
-await mkdir(figmaOut, { recursive: true });
-await writeFile(path.join(figmaOut, 'summary.json'), `${JSON.stringify(figmaSummary)}\n`);
-
 // impressão digital: muda quando qualquer arquivo publicado muda, e só nesse caso
 const files = (await readdir(OUT, { recursive: true, withFileTypes: true }))
   .filter((d) => d.isFile())

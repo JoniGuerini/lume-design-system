@@ -4,6 +4,7 @@ import { L } from '../i18n.js';
 import { mountDocNav } from '../doc-nav.js';
 import { releases, TYPES, CURRENT_VERSION, SEEN_KEY } from '../changelog.js';
 import { stages } from '../roadmap.js';
+import { findPage } from '../nav.js';
 
 export const styles = 'site/pages/novidades.css';
 
@@ -48,12 +49,13 @@ function releaseSection(r, isCurrent) {
                 <h4 class="nv-group__title">${g.name}</h4>
                 <ul class="nv-list" role="list">
                   ${g.items
+                    // página que saiu do site (ex.: Recursos › Plugin do Figma) fica sem o “Ver”
                     .map(([type, text, href]) => {
                       const { tone, label } = TYPES[type];
                       return `<li class="nv-item" data-type="${type}">
                         <span class="ds-badge ds-badge--sm ds-badge--${tone} nv-item__type">${label}</span>
                         <span class="nv-item__text">${text}</span>
-                        ${href ? `<a class="ds-inline-action nv-item__link" href="#${href}" aria-label="${L('Ver', 'See', 'Ver')}: ${text}">${L('Ver', 'See', 'Ver')}${icon('arrow-right', { size: 14 })}</a>` : ''}
+                        ${href && findPage(href) ? `<a class="ds-inline-action nv-item__link" href="#${href}" aria-label="${L('Ver', 'See', 'Ver')}: ${text}">${L('Ver', 'See', 'Ver')}${icon('arrow-right', { size: 14 })}</a>` : ''}
                       </li>`;
                     })
                     .join('')}
