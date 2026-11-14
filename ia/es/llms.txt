@@ -1,6 +1,6 @@
 # Lume Design System
 
-> Design system en HTML, CSS y JavaScript nativos, sin dependencias: tokens, tipografía, 130 íconos propios, componentes, gráficos y patrones de pantalla, en los temas claro y oscuro. Versión 0.29.1.
+> Design system en HTML, CSS y JavaScript nativos, sin dependencias: tokens, tipografía, 130 íconos propios, componentes, gráficos y patrones de pantalla, en los temas claro y oscuro. Versión 0.30.0.
 
 Empieza por [LEEME](https://lumeui.dev/ia/es/LEEME.md): instalación, reglas generales y lo que nunca inventar. Cada página del sitio tiene un archivo Markdown abajo, generado a partir de ella.
 
@@ -64,6 +64,7 @@ Empieza por [LEEME](https://lumeui.dev/ia/es/LEEME.md): instalación, reglas gen
 - [Spinner](https://lumeui.dev/ia/es/componentes/spinner.md): Espera corta, también dentro de botones.
 - [Skeleton](https://lumeui.dev/ia/es/componentes/skeleton.md): La forma del contenido antes de que llegue.
 - [Tarjeta](https://lumeui.dev/ia/es/componentes/card.md): La superficie básica para agrupar contenido.
+- [Carrusel](https://lumeui.dev/ia/es/componentes/carrossel.md): Destacados que pasan de a uno, con flechas, puntos y deslizar.
 - [Panel](https://lumeui.dev/ia/es/componentes/painel.md): La superficie de una tarea: etiqueta, título, controles y secciones.
 - [Avatar](https://lumeui.dev/ia/es/componentes/avatar.md): Persona o cuenta: foto, iniciales en un tono estable, estado y grupo.
 - [Tabla](https://lumeui.dev/ia/es/componentes/tabela.md): Datos en filas y columnas, con orden y selección.

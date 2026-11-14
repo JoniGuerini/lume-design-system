@@ -78,6 +78,8 @@ export declare function menuContent(config?: Record<string, unknown>): string;
   pagination: `export declare function createPagination(root: HTMLElement, options?: Record<string, unknown>): { page: number; pageSize: number; setPage(page: number): void; setTotal(total: number): void; destroy(): void };
 export declare function pageRange(page: number, pages: number, siblings?: number): Array<number | string>;
 `,
+  carousel: `export declare function createCarousel(root: HTMLElement, options?: Record<string, unknown>): { index: number; paused: boolean; goTo(index: number): void; next(): void; prev(): void; pause(): void; play(): void; destroy(): void };
+`,
   stepper: `export declare function createStepper(root: HTMLElement, options?: Record<string, unknown>): { current: number; setCurrent(index: number): void; next(): void; prev(): void; destroy(): void };
 `,
   tree: `export declare function createTree(root: HTMLElement, options?: Record<string, unknown>): { selected: string | null; select(id: string): void; expand(id: string): void; collapse(id: string): void; setItems(items: any[]): void; destroy(): void };

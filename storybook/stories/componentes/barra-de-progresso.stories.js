@@ -8,7 +8,7 @@ export default {
 export const Playground = {
   name: "Playground",
   parameters: { docs: { description: { story: "Só CSS, sobre o progress nativo. Sem value, a barra fica indeterminada." } } },
-  render: () => "<div class=\"cd-playground__preview\" style=\"min-height:0\"><div class=\"fc-stage\"><div class=\"ds-progress-field\">\n    <div class=\"ds-progress-field__head\"><span id=\"pb-5\">Enviando arquivos</span><span class=\"ds-progress-field__value\" data-value=\"\">14%</span></div>\n    <progress class=\"ds-progress\" aria-labelledby=\"pb-5\" value=\"14\" max=\"100\"></progress>\n  </div></div></div>",
+  render: () => "<div class=\"cd-playground__preview\" style=\"min-height:0\"><div class=\"fc-stage\"><div class=\"ds-progress-field\">\n    <div class=\"ds-progress-field__head\"><span id=\"pb-5\">Enviando arquivos</span><span class=\"ds-progress-field__value\" data-value=\"\">7%</span></div>\n    <progress class=\"ds-progress\" aria-labelledby=\"pb-5\" value=\"7\" max=\"100\"></progress>\n  </div></div></div>",
 };
 
 export const Variantes = {

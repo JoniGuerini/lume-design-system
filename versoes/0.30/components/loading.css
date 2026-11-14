@@ -1,0 +1,167 @@
+/* Barra de progresso, spinner e skeleton: só CSS */
+
+/*
+ * Barra de progresso — sobre o <progress> nativo
+ * <div class="ds-progress-field">
+ *   <div class="ds-progress-field__head"><span id="envio">Enviando</span><span>62%</span></div>
+ *   <progress class="ds-progress" aria-labelledby="envio" value="62" max="100"></progress>
+ * </div>
+ * Sem value: indeterminada. Tons: --success · --warning · --danger. Altura: --lg.
+ */
+.ds-progress {
+  --_fill: var(--ds-color-brand-solid);
+  --_h: 4px;
+  display: block;
+  width: 100%;
+  height: var(--_h);
+  border: 0;
+  border-radius: var(--ds-radius-full);
+  background-color: var(--ds-color-border-field);
+  overflow: hidden;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.ds-progress::-webkit-progress-bar {
+  background: transparent;
+}
+
+.ds-progress::-webkit-progress-value {
+  border-radius: var(--ds-radius-full);
+  background: var(--_fill);
+  transition: inline-size var(--ds-duration-base) var(--ds-easing-standard);
+}
+
+.ds-progress::-moz-progress-bar {
+  border-radius: var(--ds-radius-full);
+  background: var(--_fill);
+}
+
+.ds-progress--lg { --_h: 8px; }
+.ds-progress--success { --_fill: var(--ds-color-success-solid); }
+.ds-progress--warning { --_fill: var(--ds-color-warning-solid); }
+.ds-progress--danger { --_fill: var(--ds-color-danger-solid); }
+
+/* indeterminada: uma faixa lisa que atravessa o trilho */
+.ds-progress:indeterminate {
+  background-image: linear-gradient(var(--_fill), var(--_fill));
+  background-repeat: no-repeat;
+  background-size: 35% 100%;
+  animation: ds-progress-slide 1.4s var(--ds-easing-standard) infinite;
+}
+
+.ds-progress:indeterminate::-moz-progress-bar {
+  background: transparent;
+}
+
+@keyframes ds-progress-slide {
+  from { background-position: -60% 0; }
+  to { background-position: 160% 0; }
+}
+
+.ds-progress-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-100);
+  min-width: 0;
+}
+
+.ds-progress-field__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--ds-space-200);
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-label-md);
+  letter-spacing: var(--ds-text-label-md-tracking);
+}
+
+.ds-progress-field__value {
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+/*
+ * Spinner
+ * <span class="ds-spinner" role="status" aria-label="Carregando"></span>
+ * Tamanhos: --sm (16) md (20, padrão) --lg (32). Herda a cor do texto, então funciona dentro de botões.
+ */
+.ds-spinner {
+  --_s: 20px;
+  flex: none;
+  display: inline-block;
+  width: var(--_s);
+  height: var(--_s);
+  border: 2px solid color-mix(in srgb, currentColor 22%, transparent);
+  border-top-color: currentColor;
+  border-radius: var(--ds-radius-full);
+  vertical-align: middle;
+  animation: ds-spinner-turn 0.8s linear infinite;
+}
+
+.ds-spinner--sm { --_s: 16px; }
+.ds-spinner--lg { --_s: 32px; border-width: 3px; }
+
+@keyframes ds-spinner-turn {
+  to { transform: rotate(1turn); }
+}
+
+/* Botão ocupado: <button class="ds-btn" aria-busy="true"><span class="ds-spinner ds-spinner--sm"></span>Salvando</button> */
+.ds-btn[aria-busy="true"] {
+  cursor: progress;
+  pointer-events: none;
+}
+
+/*
+ * Skeleton — a forma do conteúdo antes de ele chegar: formas lisas que pulsam devagar, sem brilho.
+ * <div aria-busy="true" aria-label="Carregando"><div class="ds-skeleton ds-skeleton--text" style="--w:60%"></div></div>
+ * Formas: --text (linha) · --circle (avatar) · padrão: bloco, com o tamanho que você der.
+ */
+.ds-skeleton {
+  display: block;
+  width: var(--w, 100%);
+  height: var(--h, 64px);
+  border-radius: var(--ds-radius-md);
+  background: var(--ds-color-bg-muted);
+  animation: ds-skeleton-pulse 1.4s var(--ds-easing-standard) infinite;
+}
+
+.ds-skeleton--text {
+  --h: 10px;
+  border-radius: var(--ds-radius-xs);
+}
+
+.ds-skeleton--circle {
+  flex: none;
+  width: var(--s, 40px);
+  height: var(--s, 40px);
+  border-radius: var(--ds-radius-full);
+}
+
+@keyframes ds-skeleton-pulse {
+  50% { opacity: 0.5; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-progress:indeterminate {
+    background-position: 0 0;
+    background-size: 100% 100%;
+    opacity: 0.6;
+    animation: none;
+  }
+
+  .ds-progress::-webkit-progress-value {
+    transition: none;
+  }
+
+  .ds-spinner {
+    border-top-color: color-mix(in srgb, currentColor 22%, transparent);
+    animation: none;
+    opacity: 0.8;
+  }
+
+  .ds-skeleton {
+    animation: none;
+  }
+}

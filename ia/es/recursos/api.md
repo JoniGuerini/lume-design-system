@@ -4,17 +4,17 @@ Sección de Lume: Recursos. Página: https://lumeui.dev/#/recursos/api
 
 Todo lo que puedes llamar desde JavaScript, en un solo archivo. Lo que está aquí es público y estable; el resto es interno y puede cambiar.
 
-En números: ítems públicos: 83 · verbos: 5 · dependencias: 0.
+En números: ítems públicos: 84 · verbos: 5 · dependencias: 0.
 
 ## Importar
 
 Un archivo, `ds/lume.js`, reúne toda la API. Los módulos de `ds/js/` siguen pudiéndose importar uno a uno, para cargar solo lo necesario.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/0.29/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/0.30/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.29/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.30/lume.js';
 
   initTheme();
   const modal = createModal({ title: '¿Publicar cambios?' });
@@ -43,7 +43,7 @@ El estado sigue `get…` y `set…`; las constantes van en mayúsculas, como `TH
 
 ## Todo lo público
 
-Los 83 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
+Los 84 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 
 ### Componentes
 
@@ -51,6 +51,7 @@ Los 83 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 | --- | --- | --- |
 | `createBackToTop` | Botón de volver arriba para un área con desplazamiento. | back-to-top.js |
 | `createCalendar` | Calendario con vistas de mes, semana y día. | calendar.js |
+| `createCarousel` | Carrusel con flechas, puntos, teclado y paso automático con pausa. | carousel.js |
 | `createCommandPalette` | Búsqueda de comandos que se abre con ⌘K. | command-palette.js |
 | `createComposer` | Campo de mensaje de una conversación, con adjuntos. | composer.js |
 | `createContextMenu` | Menú del botón derecho en un área. | context-menu.js |
@@ -148,8 +149,8 @@ Los 83 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 | `initTooltips` | Activa las ayudas de todos los data-ds-tooltip de la página. | tooltip.js |
 | `initScrollbars` | Activa la barra de desplazamiento superpuesta. | scrollbar.js |
 | `icon` | El SVG de un ícono, como texto. | icons/icons.js |
-| `icons` | Los 130 íconos, por nombre. | icons/icons.js |
-| `iconList` | Los 130 íconos, en lista. | icons/icons.js |
+| `icons` | Los 132 íconos, por nombre. | icons/icons.js |
+| `iconList` | Los 132 íconos, en lista. | icons/icons.js |
 | `filtersToQuery` | Convierte el estado de los filtros en dirección. | filters.js |
 | `filtersFromQuery` | Lee el estado de los filtros de una dirección. | filters.js |
 

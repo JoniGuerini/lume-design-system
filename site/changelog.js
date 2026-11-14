@@ -8,10 +8,35 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.29.1';
+export const CURRENT_VERSION = '0.30.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.30.0',
+    date: '2026-11-14',
+    title: T('Carrossel', 'Carousel', 'Carrusel'),
+    summary: T(
+      'Destaques e galerias que passam um por vez, com setas, pontos, teclado e arrastar no toque. Passa sozinho só com botão de pausa.',
+      'Highlights and galleries that go by one at a time, with arrows, dots, keyboard, and touch swipe. It only plays on its own with a pause button.',
+      'Destacados y galerías que pasan de a uno, con flechas, puntos, teclado y deslizar en pantallas táctiles. Solo pasa solo con un botón de pausa.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['novo', T('Carrossel: um ou vários por vista, ponta do próximo à vista, volta ao início e passagem automática com pausa', 'Carousel: one or several per view, the next one’s edge in view, loop, and autoplay with pause', 'Carrusel: uno o varios por vista, borde del siguiente a la vista, vuelta al inicio y paso automático con pausa'), '/componentes/carrossel'],
+          ['novo', T('createCarousel na API e Carousel no React', 'createCarousel in the API and Carousel in React', 'createCarousel en la API y Carousel en React'), '/recursos/api'],
+        ],
+      },
+      {
+        name: T('Ícones', 'Icons', 'Íconos'),
+        items: [
+          ['novo', T('carousel e pause', 'carousel and pause', 'carousel y pause'), '/fundamentos/icones'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.29.1',
     date: '2026-11-14',

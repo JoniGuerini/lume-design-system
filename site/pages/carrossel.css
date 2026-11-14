@@ -1,0 +1,39 @@
+/* Página: Carrossel (prefixo cr-) */
+
+.cd-playground__preview:has(.ds-carousel) .ds-carousel {
+  width: min(640px, 100%);
+  margin-inline: auto;
+}
+
+.cr-variants .fc-preview {
+  width: 100%;
+}
+
+.cr-variants .cd-example__preview {
+  display: block;
+}
+
+.cr-card--compact {
+  min-height: 140px;
+  background: var(--ds-color-bg-canvas);
+}
+
+.cr-card--compact .ds-carousel__title {
+  font: var(--ds-text-heading-sm);
+  letter-spacing: var(--ds-text-heading-sm-tracking);
+}
+
+.fc-states .ds-carousel__bar {
+  width: 100%;
+}
+
+/* a galeria mostra a troca por largura: dois por vez, um no celular */
+.cr-gallery {
+  --ds-carousel-per-view: 2;
+}
+
+@media (max-width: 640px) {
+  .cr-gallery {
+    --ds-carousel-per-view: 1;
+  }
+}

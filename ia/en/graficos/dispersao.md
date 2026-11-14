@@ -9,7 +9,7 @@ In numbers: series: up to 3 · dot: 8 px · ring: 2 px · hover target: 24 px.
 ## Example
 
 ```html
-import { createScatterChart } from 'https://lumeui.dev/v/0.29/lume.js';
+import { createScatterChart } from 'https://lumeui.dev/v/0.30/lume.js';
 
 // each point: { x, y, label }
 const chart = createScatterChart(document.querySelector('#accounts'), {
@@ -92,7 +92,7 @@ A scatter answers “does one thing move with the other?”. For everything else
 One function, with update, setLoading, and destroy as in every chart.
 
 ```html
-import { createScatterChart } from 'https://lumeui.dev/v/0.29/lume.js';
+import { createScatterChart } from 'https://lumeui.dev/v/0.30/lume.js';
 
 const chart = createScatterChart(document.querySelector('#accounts'), {
   title: 'Cost × satisfaction',

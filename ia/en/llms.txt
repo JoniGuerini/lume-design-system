@@ -1,6 +1,6 @@
 # Lume Design System
 
-> A design system in native HTML, CSS, and JavaScript, with no dependencies: tokens, typography, 130 custom icons, components, charts, and screen patterns, in light and dark themes. Version 0.29.1.
+> A design system in native HTML, CSS, and JavaScript, with no dependencies: tokens, typography, 130 custom icons, components, charts, and screen patterns, in light and dark themes. Version 0.30.0.
 
 Start with [README](https://lumeui.dev/ia/en/README.md): installation, general rules, and what never to invent. Every page of the site has a Markdown file below, generated from it.
 
@@ -64,6 +64,7 @@ Start with [README](https://lumeui.dev/ia/en/README.md): installation, general r
 - [Spinner](https://lumeui.dev/ia/en/componentes/spinner.md): A short wait, inside buttons too.
 - [Skeleton](https://lumeui.dev/ia/en/componentes/skeleton.md): The shape of the content before it arrives.
 - [Card](https://lumeui.dev/ia/en/componentes/card.md): The basic surface for grouping content.
+- [Carousel](https://lumeui.dev/ia/en/componentes/carrossel.md): Highlights that go by one at a time, with arrows, dots, and swipe.
 - [Panel](https://lumeui.dev/ia/en/componentes/painel.md): The surface of a task: label, title, controls, and sections.
 - [Avatar](https://lumeui.dev/ia/en/componentes/avatar.md): A person or account: photo, initials in a stable tone, status, and group.
 - [Table](https://lumeui.dev/ia/en/componentes/tabela.md): Data in rows and columns, with sorting and selection.

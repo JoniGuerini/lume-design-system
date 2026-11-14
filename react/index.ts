@@ -57,6 +57,7 @@ export { toast, copyText, clearToasts, setToastPosition, getToastPosition, type 
 
 // Conteúdo e dados
 export { Table, type TableProps, type TableColumn, type SortDirection } from './Table';
+export { Carousel, type CarouselProps } from './Carousel';
 export { Calendar, CodeBlock, type CalendarProps, type CalendarEvent, type CalendarView, type CodeBlockProps } from './Calendar';
 
 // Gráficos

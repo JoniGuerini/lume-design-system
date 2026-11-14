@@ -4,11 +4,11 @@ Sección de Lume: Recursos. Página: https://lumeui.dev/#/recursos/react
 
 Componentes .tsx para copiar al proyecto, sobre el mismo CSS y JavaScript de Lume. Sin paquete que instalar: la carpeta viene en el zip de cada versión.
 
-En números: de los 44 componentes: 44 · React: 18+ · dependencias: 0.
+En números: de los 45 componentes: 45 · React: 18+ · dependencias: 0.
 
 ## Instalar
 
-Descarga el zip de la versión 0.29, descomprímelo y lleva la carpeta dentro de `src/` con el nombre `lume`. Los componentes están en `lume/react/` e importan el JavaScript y los íconos de la misma carpeta. Funciona con Vite, Next.js y cualquier proyecto React 18 o más nuevo.
+Descarga el zip de la versión 0.30, descomprímelo y lleva la carpeta dentro de `src/` con el nombre `lume`. Los componentes están en `lume/react/` e importan el JavaScript y los íconos de la misma carpeta. Funciona con Vite, Next.js y cualquier proyecto React 18 o más nuevo.
 
 ```html
 src/
@@ -73,7 +73,7 @@ Lo que ya está en React. Cada nombre lleva a la página del componente, con los
 
 | Componente | Qué hace | Archivo |
 | --- | --- | --- |
-| `Icon` | Los 130 íconos, con el nombre comprobado por TypeScript. | Icon.tsx |
+| `Icon` | Los 132 íconos, con el nombre comprobado por TypeScript. | Icon.tsx |
 | `useLocale` | El idioma de Lume; vuelve a dibujar cuando cambia. | useLocale.ts |
 | `cx` | Une clases, ignorando lo que sea falso. | cx.ts |
 
@@ -153,6 +153,7 @@ Lo que ya está en React. Cada nombre lleva a la página del componente, con los
 | `Table` | Columnas, orden y selección en el estado; vacío y cargando. | Table.tsx |
 | `Calendar` | Mes, semana y día, con eventos; vista y fecha en el estado. | Calendar.tsx |
 | `CodeBlock` | Código con el botón de copiar. | Calendar.tsx |
+| `Carousel` | Cada hijo es una diapositiva; perView, peek, loop y autoplay con pausa. index y onChange en el estado. | Carousel.tsx |
 
 ### Gráficos
 
@@ -175,10 +176,10 @@ Lo que ya está en React. Cada nombre lleva a la página del componente, con los
 | --- | --- |
 | Una capa fina | Cada componente solo arma el marcado de Lume, con las mismas clases. El aspecto viene de `lume.css`; se corrige allí, queda corregido en React. |
 | Tus archivos | Los .tsx quedan en tu proyecto, como en shadcn: puedes leer, cambiar y borrar lo que no uses. Nada de npm. |
-| TypeScript | Props tipadas y comentadas, con el enlace a la página de cada componente. `IconName` lista los 130 íconos: un nombre equivocado no compila. |
+| TypeScript | Props tipadas y comentadas, con el enlace a la página de cada componente. `IconName` lista los 132 íconos: un nombre equivocado no compila. |
 | Idioma | Los textos que el componente escribe solo ("Cerrar", "Cargando") siguen el idioma de Lume y cambian con `setLocale`. `useLocale()` hace lo mismo en los tuyos. |
-| Versiones | La carpeta `react/` va en cada línea: `/v/0.29/react/`. Actualizar es cambiar la carpeta de Lume por la de la línea nueva. |
+| Versiones | La carpeta `react/` va en cada línea: `/v/0.30/react/`. Actualizar es cambiar la carpeta de Lume por la de la línea nueva. |
 
 ## Lo que viene
 
-Los 44 componentes ya están en React.
+Los 45 componentes ya están en React.

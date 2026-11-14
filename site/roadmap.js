@@ -15,10 +15,7 @@ const C = (version, status, tone, title, text, items) => ({ version, group: 'com
 const I = (name, text, doc) => ({ name, text, doc });
 
 const STAGES = [
-  C('0.30', NEXT, 'brand', T('Carrossel', 'Carousel', 'Carrusel'), T('Destaques e galerias que passam um por vez.', 'Highlights and galleries that go by one at a time.', 'Destacados y galerías que pasan de a uno.'), [
-    I(T('Carrossel', 'Carousel', 'Carrusel'), T('Setas, pontos, arrastar no toque e teclado. Nunca troca sozinho sem um botão de pausa.', 'Arrows, dots, swipe on touch, and keyboard. It never advances on its own without a pause button.', 'Flechas, puntos, deslizar en pantallas táctiles y teclado. Nunca avanza solo sin un botón de pausa.')),
-  ]),
-  C('0.31', PLANNED, 'neutral', T('Seletor de cor', 'Color picker', 'Selector de color'), T('Escolher uma cor livre ou da paleta dos tokens.', 'Pick a free color or one from the token palette.', 'Elegir un color libre o de la paleta de tokens.'), [
+  C('0.31', NEXT, 'brand', T('Seletor de cor', 'Color picker', 'Selector de color'), T('Escolher uma cor livre ou da paleta dos tokens.', 'Pick a free color or one from the token palette.', 'Elegir un color libre o de la paleta de tokens.'), [
     I(T('Seletor de cor', 'Color picker', 'Selector de color'), T('Área de saturação, matiz, campo hexadecimal e amostras da paleta.', 'Saturation area, hue, hex field, and palette swatches.', 'Área de saturación, matiz, campo hexadecimal y muestras de la paleta.')),
   ]),
   C('0.32', PLANNED, 'neutral', T('Painéis redimensionáveis', 'Resizable panels', 'Paneles redimensionables'), T('Dividir a tela em partes que a pessoa ajusta.', 'Split the screen into parts people can adjust.', 'Dividir la pantalla en partes que la persona ajusta.'), [

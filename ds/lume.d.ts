@@ -5,6 +5,7 @@ export declare const icons: Record<string, { name: string; category: string; key
 export declare const iconList: Array<{ name: string; category: string; keywords: string[]; body: string }>;
 export declare const createBackToTop: any;
 export declare const createCalendar: any;
+export declare const createCarousel: any;
 export declare const createBarChart: any;
 export declare const createLineChart: any;
 export declare const createDonutChart: any;

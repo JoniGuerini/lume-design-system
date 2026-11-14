@@ -1,11 +1,11 @@
 import { useMemo, useState } from 'react';
-import { Table, Badge, BarChart, LineChart, DonutChart, StatTile, Calendar, CodeBlock, type SortDirection, type CalendarView } from '../../../react';
+import { Table, Badge, BarChart, LineChart, DonutChart, StatTile, Calendar, CodeBlock, Carousel, type SortDirection, type CalendarView } from '../../../react';
 import { mount } from './mount';
 
 export default {
   title: 'React/Dados e gráficos',
   id: 'react-dados',
-  parameters: { docs: { description: { component: 'Tabela, gráficos, calendário e bloco de código em React.\n\nDocumentação: https://lumeui.dev/#/recursos/react' } } },
+  parameters: { docs: { description: { component: 'Tabela, gráficos, calendário, carrossel e bloco de código em React.\n\nDocumentação: https://lumeui.dev/#/recursos/react' } } },
 };
 
 type Row = { id: string; nome: string; status: string; telas: number };
@@ -66,3 +66,27 @@ function Agenda() {
 export const CalendarioStory = { name: 'Calendar', render: () => mount(<Agenda />) };
 
 export const Codigo = { name: 'CodeBlock', render: () => mount(<CodeBlock code={'npm run build\nnpm run dev'} />) };
+
+const DESTAQUES = [
+  ['01 · Tokens', 'Uma fonte só para cores, espaços e tipos'],
+  ['02 · Componentes', 'Peças prontas para montar telas'],
+  ['03 · Padrões', 'Telas inteiras, já resolvidas'],
+];
+
+function Destaques() {
+  const [index, setIndex] = useState(0);
+  return (
+    <div style={{ width: 'min(560px, 100%)' }}>
+      <Carousel label="Destaques do Lume" loop index={index} onChange={setIndex}>
+        {DESTAQUES.map(([eyebrow, title]) => (
+          <article key={eyebrow} className="ds-carousel__card">
+            <p className="ds-carousel__eyebrow">{eyebrow}</p>
+            <h3 className="ds-carousel__title">{title}</h3>
+          </article>
+        ))}
+      </Carousel>
+    </div>
+  );
+}
+
+export const Carrossel = { name: 'Carousel', render: () => mount(<Destaques />) };

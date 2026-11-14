@@ -1,6 +1,6 @@
 # Íconos de Lume
 
-Son 130 íconos dibujados para Lume: cuadrícula de 24, trazo de 1,5, puntas redondeadas. Usa solo estos nombres, en `<ds-icon name="…">` (con https://lumeui.dev/ds/icons/icons.js importado) o en la función `icon(name)` del mismo módulo. No existe ningún otro nombre.
+Son 132 íconos dibujados para Lume: cuadrícula de 24, trazo de 1,5, puntas redondeadas. Usa solo estos nombres, en `<ds-icon name="…">` (con https://lumeui.dev/ds/icons/icons.js importado) o en la función `icon(name)` del mismo módulo. No existe ningún otro nombre.
 
 ```html
 <ds-icon name="search" size="20"></ds-icon>
@@ -59,6 +59,7 @@ El tamaño predeterminado es 20 px; el trazo pasa a 1,75 por debajo de 16 px. El
 | `more-vertical` | más, opciones, menú |
 | `zap` | rayo, rápido, empezar |
 | `play` | reproducir, iniciar, animación |
+| `pause` | pausar, detener, carrusel, animación |
 | `megaphone` | novedades, anuncio, comunicado, changelog |
 | `slash` | atajo, comando, barra |
 | `mic` | micrófono, audio, voz |
@@ -112,6 +113,7 @@ El tamaño predeterminado es 20 px; el trazo pasa a 1,75 por debajo de 16 px. El
 | `card` | tarjeta, bloque, contenido |
 | `dialog` | modal, ventana, diálogo |
 | `tabs` | pestañas, navegación |
+| `carousel` | carrusel, galería, destacados, diapositivas |
 | `tooltip` | pista, globo, ayuda |
 | `table` | tabla, datos, cuadrícula |
 | `list` | lista, elementos |

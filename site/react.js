@@ -9,7 +9,7 @@ export const REACT_GROUPS = () => [
   {
     title: L('Base', 'Base', 'Base'),
     items: [
-      ['Icon', 'Icon.tsx', '/fundamentos/icones', '0.26', L('Os 130 ícones, com o nome checado pelo TypeScript.', 'The 130 icons, with the name checked by TypeScript.', 'Los 130 íconos, con el nombre comprobado por TypeScript.')],
+      ['Icon', 'Icon.tsx', '/fundamentos/icones', '0.26', L('Os 132 ícones, com o nome checado pelo TypeScript.', 'The 132 icons, with the name checked by TypeScript.', 'Los 132 íconos, con el nombre comprobado por TypeScript.')],
       ['useLocale', 'useLocale.ts', null, '0.26', L('O idioma do Lume; redesenha quando ele muda.', 'Lume’s language; re-renders when it changes.', 'El idioma de Lume; vuelve a dibujar cuando cambia.')],
       ['cx', 'cx.ts', null, '0.26', L('Junta classes, ignorando o que for falso.', 'Joins classes, skipping anything falsy.', 'Une clases, ignorando lo que sea falso.')],
     ],
@@ -89,6 +89,7 @@ export const REACT_GROUPS = () => [
       ['Table', 'Table.tsx', '/componentes/tabela', '0.29', L('Colunas, ordenação e seleção no estado; vazio e carregando.', 'Columns, sorting and selection in state; empty and loading.', 'Columnas, orden y selección en el estado; vacío y cargando.')],
       ['Calendar', 'Calendar.tsx', '/componentes/calendario', '0.29', L('Mês, semana e dia, com eventos; visão e data no estado.', 'Month, week and day, with events; view and date in state.', 'Mes, semana y día, con eventos; vista y fecha en el estado.')],
       ['CodeBlock', 'Calendar.tsx', '/componentes/bloco-de-codigo', '0.29', L('Código com o botão de copiar.', 'Code with the copy button.', 'Código con el botón de copiar.')],
+      ['Carousel', 'Carousel.tsx', '/componentes/carrossel', '0.30', L('Cada filho vira um slide; perView, peek, loop e autoplay com pausa. index e onChange no estado.', 'Each child becomes a slide; perView, peek, loop and autoplay with pause. index and onChange in state.', 'Cada hijo es una diapositiva; perView, peek, loop y autoplay con pausa. index y onChange en el estado.')],
     ],
   },
   {
@@ -108,5 +109,5 @@ export const REACT_GROUPS = () => [
   },
 ];
 
-/** Quantos dos 44 componentes do Lume já têm versão React (uma página de componente conta uma vez). */
+/** Quantos dos 45 componentes do Lume já têm versão React (uma página de componente conta uma vez). */
 export const reactCount = () => new Set(REACT_GROUPS().flatMap((g) => g.items.map((i) => i[2])).filter((r) => r?.startsWith('/componentes/'))).size;

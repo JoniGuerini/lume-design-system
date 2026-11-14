@@ -169,6 +169,15 @@ export const MESSAGES = {
 
     'stepper.done': 'concluída',
 
+    'carousel.label': 'carrossel',
+    'carousel.slide': 'slide',
+    'carousel.position': (i, n) => `${BR(i)} de ${BR(n)}`,
+    'carousel.goTo': (i) => `Ir para o slide ${BR(i)}`,
+    'carousel.prev': 'Anterior',
+    'carousel.next': 'Próximo',
+    'carousel.pause': 'Pausar',
+    'carousel.play': 'Retomar',
+
     'code.copy': 'Copiar código',
     'code.copied': 'Código copiado',
 
@@ -397,6 +406,15 @@ export const MESSAGES = {
 
     'stepper.done': 'completed',
 
+    'carousel.label': 'carousel',
+    'carousel.slide': 'slide',
+    'carousel.position': (i, n) => `${EN(i)} of ${EN(n)}`,
+    'carousel.goTo': (i) => `Go to slide ${EN(i)}`,
+    'carousel.prev': 'Previous',
+    'carousel.next': 'Next',
+    'carousel.pause': 'Pause',
+    'carousel.play': 'Resume',
+
     'code.copy': 'Copy code',
     'code.copied': 'Code copied',
 
@@ -624,6 +642,15 @@ export const MESSAGES = {
     'pagination.pageSize': 'Elementos por página',
 
     'stepper.done': 'completada',
+
+    'carousel.label': 'carrusel',
+    'carousel.slide': 'diapositiva',
+    'carousel.position': (i, n) => `${ES(i)} de ${ES(n)}`,
+    'carousel.goTo': (i) => `Ir a la diapositiva ${ES(i)}`,
+    'carousel.prev': 'Anterior',
+    'carousel.next': 'Siguiente',
+    'carousel.pause': 'Pausar',
+    'carousel.play': 'Reanudar',
 
     'code.copy': 'Copiar código',
     'code.copied': 'Código copiado',

@@ -12,6 +12,7 @@ const GROUPS = [
     items: [
       ['createBackToTop', 'back-to-top.js', T('Botão de voltar ao topo de uma área que rola.', 'Back-to-top button for a scrolling area.', 'Botón de volver arriba para un área con desplazamiento.')],
       ['createCalendar', 'calendar.js', T('Calendário com visões de mês, semana e dia.', 'Calendar with month, week, and day views.', 'Calendario con vistas de mes, semana y día.')],
+      ['createCarousel', 'carousel.js', T('Carrossel com setas, pontos, teclado e passagem automática com pausa.', 'Carousel with arrows, dots, keyboard, and autoplay with pause.', 'Carrusel con flechas, puntos, teclado y paso automático con pausa.')],
       ['createCommandPalette', 'command-palette.js', T('Busca de comandos aberta com ⌘K.', 'Command search opened with ⌘K.', 'Búsqueda de comandos que se abre con ⌘K.')],
       ['createComposer', 'composer.js', T('Campo de mensagem de uma conversa, com anexos.', 'Chat message field, with attachments.', 'Campo de mensaje de una conversación, con adjuntos.')],
       ['createContextMenu', 'context-menu.js', T('Menu do botão direito numa área.', 'Right-click menu for an area.', 'Menú del botón derecho en un área.')],
@@ -109,8 +110,8 @@ const GROUPS = [
       ['initTooltips', 'tooltip.js', T('Liga as dicas de todos os data-ds-tooltip da página.', 'Sets up the tooltips for every data-ds-tooltip on the page.', 'Activa las ayudas de todos los data-ds-tooltip de la página.')],
       ['initScrollbars', 'scrollbar.js', T('Liga a barra de rolagem sobreposta.', 'Sets up the overlay scrollbar.', 'Activa la barra de desplazamiento superpuesta.')],
       ['icon', 'icons/icons.js', T('O SVG de um ícone, como texto.', 'An icon’s SVG, as text.', 'El SVG de un ícono, como texto.')],
-      ['icons', 'icons/icons.js', T('Os 130 ícones, por nome.', 'The 130 icons, by name.', 'Los 130 íconos, por nombre.')],
-      ['iconList', 'icons/icons.js', T('Os 130 ícones, em lista.', 'The 130 icons, as a list.', 'Los 130 íconos, en lista.')],
+      ['icons', 'icons/icons.js', T('Os 132 ícones, por nome.', 'The 132 icons, by name.', 'Los 132 íconos, por nombre.')],
+      ['iconList', 'icons/icons.js', T('Os 132 ícones, em lista.', 'The 132 icons, as a list.', 'Los 132 íconos, en lista.')],
       ['filtersToQuery', 'filters.js', T('Transforma o estado dos filtros em endereço.', 'Turns the filter state into a URL query.', 'Convierte el estado de los filtros en dirección.')],
       ['filtersFromQuery', 'filters.js', T('Lê o estado dos filtros de um endereço.', 'Reads the filter state from a URL query.', 'Lee el estado de los filtros de una dirección.')],
     ],

@@ -4,7 +4,7 @@ Sección de Lume: Fundamentos. Página: https://lumeui.dev/#/fundamentos/icones
 
 Una biblioteca propia, dibujada en la misma cuadrícula y con el mismo trazo. Contorno fino, extremos redondeados y color heredado del texto.
 
-En números: íconos: 130 · categorías: 8 · cuadrícula: 24 px · trazo: 1,5.
+En números: íconos: 132 · categorías: 8 · cuadrícula: 24 px · trazo: 1,5.
 
 ## Biblioteca
 
@@ -52,6 +52,7 @@ Busca por nombre o por palabras en español, portugués o inglés. Haz clic en u
 - more-vertical
 - zap
 - play
+- pause
 - megaphone
 - slash
 - mic
@@ -95,6 +96,7 @@ Busca por nombre o por palabras en español, portugués o inglés. Haz clic en u
 - card
 - dialog
 - tabs
+- carousel
 - tooltip
 - table
 - list
@@ -152,15 +154,15 @@ Marcado de los ejemplos de esta sección:
 
 <button type="button" class="ds-chip" data-menu="size" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-10"><span class="ds-chip__icon"><ds-icon name="spacing"></ds-icon></span><span data-label="">24 px</span><span class="ds-chip__chevron"><ds-icon name="chevron-down"></ds-icon></span></button>
 
-<button type="button" class="ds-chip ds-chip--sm" data-category="all" aria-pressed="true">Todos<span>130</span></button>
+<button type="button" class="ds-chip ds-chip--sm" data-category="all" aria-pressed="true">Todos<span>132</span></button>
 
 <button type="button" class="ds-chip ds-chip--sm" data-category="navegacao" aria-pressed="false">Navegación<span>18</span></button>
 
-<button type="button" class="ds-chip ds-chip--sm" data-category="acoes" aria-pressed="false">Acciones<span>28</span></button>
+<button type="button" class="ds-chip ds-chip--sm" data-category="acoes" aria-pressed="false">Acciones<span>29</span></button>
 
 <button type="button" class="ds-chip ds-chip--sm" data-category="status" aria-pressed="false">Estado y feedback<span>16</span></button>
 
-<button type="button" class="ds-chip ds-chip--sm" data-category="interface" aria-pressed="false">Interfaz<span>28</span></button>
+<button type="button" class="ds-chip ds-chip--sm" data-category="interface" aria-pressed="false">Interfaz<span>29</span></button>
 
 <button type="button" class="ds-chip ds-chip--sm" data-category="objetos" aria-pressed="false">Objetos<span>15</span></button>
 ```
@@ -225,7 +227,7 @@ Dos formas de usarlos: la función `icon()` en JavaScript o el elemento `<ds-ico
 JavaScript
 
 ```html
-import { icon } from 'https://lumeui.dev/v/0.29/lume.js';
+import { icon } from 'https://lumeui.dev/v/0.30/lume.js';
 
 button.innerHTML = icon('home', { size: 20 });
 // con etiqueta para lectores de pantalla
