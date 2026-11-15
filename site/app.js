@@ -15,6 +15,7 @@ import { navigation, pages, findPage } from './nav.js';
 import { CURRENT_VERSION, SEEN_KEY, releases } from './changelog.js';
 import { t, applyStrings } from './i18n.js';
 import { watchForUpdates } from './update.js';
+import { pageFooterHtml } from './page-footer.js';
 import { toast } from '../ds/js/toast.js';
 
 /*
@@ -324,7 +325,7 @@ async function route() {
   if (id !== renderId) return;
 
   cleanup?.();
-  content.innerHTML = mod.default(page ?? { path });
+  content.innerHTML = mod.default(page ?? { path }) + (EMBED ? '' : pageFooterHtml(page));
   cleanup = mod.mount?.(content, { shell, palette, go }) ?? null;
   shell.scrollToTop();
   shell.closeMobile();
