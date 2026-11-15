@@ -124,7 +124,7 @@ Few, and all text tokens: that’s what keeps it light.
 | Token | Role | Lume light | Lume dark |
 | --- | --- | --- | --- |
 | text.label-sm (`--ds-text-label-sm`) | Label | 13/18 · medium | 13/18 · medium |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Resting color | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Resting color | #53657A | #9C9792 |
 | color.fg.default (`--ds-color-fg-default`) | Hover and strong form color | #2B3847 | #F3EDE5 |
 | color.fg.brand (`--ds-color-fg-brand`) | Strong form hover | #3E5166 | #DAE0E8 |
 | space.100 (`--ds-space-100`) | Space between icon, label, and sign | 8 px | 8 px |

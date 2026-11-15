@@ -207,7 +207,7 @@ Tudo o que o campo consome.
 | color.border.control (`--ds-color-border-control`) | Contorno | #3E516633 | #FFFFFF21 |
 | color.border.strong (`--ds-color-border-strong`) | Contorno no hover | #3E51664D | #FFFFFF29 |
 | color.border.focus (`--ds-color-border-focus`) | Contorno e halo no foco | #53657A | #C0CAD6 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Placeholder, ícone e dica | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Placeholder, ícone e dica | #53657A | #9C9792 |
 | color.bg.sunken (`--ds-color-bg-sunken`) | Fundo somente leitura | #E8EDF3 | #151412 |
 | color.danger.solid (`--ds-color-danger-solid`) | Contorno inválido | #C13834 | #FF9087 |
 | color.danger.fg (`--ds-color-danger-fg`) | Mensagem de erro | #C13834 | #FFB2AA |

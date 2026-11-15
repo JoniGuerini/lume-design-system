@@ -4,7 +4,7 @@ Sección de Lume: Fundamentos. Página: https://lumeui.dev/#/fundamentos/cores
 
 Una paleta cálida generada en OKLCH y tokens semánticos que se adaptan al tema. Los componentes nunca usan un color suelto — siempre un token.
 
-En números: paletas: 15 · colores primitivos: 179 · tokens semánticos: 96 · contrastes WCAG: 78/78.
+En números: paletas: 15 · colores primitivos: 179 · tokens semánticos: 96 · contrastes WCAG: 80/80.
 
 ## Paletas primitivas
 
@@ -116,7 +116,7 @@ Cada combinación de texto y fondo que usan los componentes se comprueba en el b
 | fg.muted — sobre bg.canvas | Aa — 6,48:1 — AA | Aa — 10,36:1 — AAA | 4,5:1 |
 | fg.default — sobre bg.sidebar | Aa — 11,42:1 — AAA | Aa — 13,64:1 — AAA | 4,5:1 |
 | fg.muted — sobre bg.sidebar | Aa — 6,97:1 — AA | Aa — 9,56:1 — AAA | 4,5:1 |
-| fg.subtle — sobre bg.sidebar | Aa — 5,14:1 — AA | Aa — 5,48:1 — AA | 4,5:1 |
+| fg.subtle — sobre bg.sidebar | Aa — 5,72:1 — AA | Aa — 5,48:1 — AA | 4,5:1 |
 | fg.muted — sobre bg.raised | Aa — 7,29:1 — AAA | Aa — 8,62:1 — AAA | 4,5:1 |
 | fg.link — sobre bg.canvas | Aa — 7,25:1 — AAA | Aa — 12,93:1 — AAA | 4,5:1 |
 | fg.brand — sobre bg.canvas | Aa — 7,25:1 — AAA | Aa — 12,93:1 — AAA | 4,5:1 |
@@ -139,10 +139,11 @@ Cada combinación de texto y fondo que usan los componentes se comprueba en el b
 | chart.series.6 — sobre bg.surface | Aa — 3,89:1 — AA grande | Aa — 4,07:1 — AA grande | 3:1 |
 | chart.series.7 — sobre bg.surface | Aa — 3,79:1 — AA grande | Aa — 4,19:1 — AA grande | 3:1 |
 | chart.series.8 — sobre bg.surface | Aa — 3,36:1 — AA grande | Aa — 4,73:1 — AA | 3:1 |
-| fg.subtle — sobre bg.canvas | Aa — 4,78:1 — AA | Aa — 5,94:1 — AA | 4,5:1 |
-| fg.subtle — sobre bg.surface | Aa — 5,38:1 — AA | Aa — 5,48:1 — AA | 4,5:1 |
-| fg.subtle — sobre bg.raised | Aa — 5,38:1 — AA | Aa — 4,94:1 — AA | 4,5:1 |
-| fg.subtle — sobre bg.sunken | Aa — 4,57:1 — AA | Aa — 6,36:1 — AA | 4,5:1 |
+| fg.subtle — sobre bg.app | Aa — 4,50:1 — AA | Aa — 6,67:1 — AA | 4,5:1 |
+| fg.subtle — sobre bg.canvas | Aa — 5,32:1 — AA | Aa — 5,94:1 — AA | 4,5:1 |
+| fg.subtle — sobre bg.surface | Aa — 5,98:1 — AA | Aa — 5,48:1 — AA | 4,5:1 |
+| fg.subtle — sobre bg.raised | Aa — 5,98:1 — AA | Aa — 4,94:1 — AA | 4,5:1 |
+| fg.subtle — sobre bg.sunken | Aa — 5,08:1 — AA | Aa — 6,36:1 — AA | 4,5:1 |
 | border.field — sobre bg.canvas | Aa — 3,35:1 — AA grande | Aa — 3,58:1 — AA grande | 3:1 |
 | border.field — sobre bg.surface | Aa — 3,57:1 — AA grande | Aa — 3,50:1 — AA grande | 3:1 |
 | border.field — sobre bg.raised | Aa — 3,57:1 — AA grande | Aa — 3,38:1 — AA grande | 3:1 |

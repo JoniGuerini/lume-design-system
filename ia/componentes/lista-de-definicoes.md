@@ -51,7 +51,7 @@ Tudo o que a lista consome.
 
 | Token | Papel | Lume claro | Lume escuro |
 | --- | --- | --- | --- |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Rótulo | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Rótulo | #53657A | #9C9792 |
 | color.fg.default (`--ds-color-fg-default`) | Valor | #2B3847 | #F3EDE5 |
 | color.border.subtle (`--ds-color-border-subtle`) | Linhas | #3E516624 | #FFFFFF0F |
 | text.body-sm (`--ds-text-body-sm`) | Texto | 14/22 · regular | 14/22 · regular |

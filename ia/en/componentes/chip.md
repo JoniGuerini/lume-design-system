@@ -133,7 +133,7 @@ Everything the chip consumes.
 | color.bg.selected (`--ds-color-bg-selected`) | Selected and open | #3E516612 | #C0CAD61A |
 | color.fg.default (`--ds-color-fg-default`) | Label | #2B3847 | #F3EDE5 |
 | color.fg.brand (`--ds-color-fg-brand`) | Left icon | #3E5166 | #DAE0E8 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Chevron and remove button | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Chevron and remove button | #53657A | #9C9792 |
 | text.label-sm (`--ds-text-label-sm`) | Label (medium) | 13/18 · medium | 13/18 · medium |
 | text.caption (`--ds-text-caption`) | Label (small) | 12/16 · regular | 12/16 · regular |
 | radius.full (`--ds-radius-full`) | Pill shape | 9999 px | 9999 px |

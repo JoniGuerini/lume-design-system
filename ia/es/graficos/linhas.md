@@ -91,7 +91,7 @@ Las marcas consumen los colores de gráfico; todo lo que es texto consume tokens
 | color.chart.muted (`--ds-color-chart-muted`) | Contexto y series fuera del énfasis | #C0CAD6 | #4A4744 |
 | color.chart.grid (`--ds-color-chart-grid`) | Líneas de cuadrícula | #DAE0E8 | #33312E |
 | color.chart.axis (`--ds-color-chart-axis`) | Línea base y mira | #C0CAD6 | #4A4744 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Etiquetas de los ejes y línea de meta | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Etiquetas de los ejes y línea de meta | #53657A | #9C9792 |
 | color.fg.muted (`--ds-color-fg-muted`) | Nombre al final de la línea | #46586E | #CEC8C1 |
 | color.fg.default (`--ds-color-fg-default`) | Valor al final de la línea | #2B3847 | #F3EDE5 |
 | color.bg.raised (`--ds-color-bg-raised`) | Fondo del tooltip | #FFFFFF | #2C2A27 |

@@ -221,7 +221,7 @@ O painel não tem cor própria: tudo vem de superfície, texto e espaço.
 | text.display-sm (`--ds-text-display-sm`) | Título em destaque | 40/44 · regular | 40/44 · regular |
 | text.caption (`--ds-text-caption`) | Carimbo | 12/16 · regular | 12/16 · regular |
 | text.body-md (`--ds-text-body-md`) | Texto das seções | 16/28 · regular | 16/28 · regular |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Rótulo, carimbo e meta | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Rótulo, carimbo e meta | #53657A | #9C9792 |
 
 ## Uso
 

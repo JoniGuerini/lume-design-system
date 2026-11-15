@@ -72,7 +72,7 @@ The first three series colors, the plane lines, and the surface color for the ri
 | color.bg.surface (`--ds-color-bg-surface`) | Point ring (surface color) | #FFFFFF | #24221F |
 | color.chart.grid (`--ds-color-chart-grid`) | Grid lines | #DAE0E8 | #33312E |
 | color.chart.axis (`--ds-color-chart-axis`) | Axes | #C0CAD6 | #4A4744 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Axis values and titles, reference | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Axis values and titles, reference | #53657A | #9C9792 |
 | color.fg.muted (`--ds-color-fg-muted`) | Direct labels | #46586E | #CEC8C1 |
 | color.bg.raised (`--ds-color-bg-raised`) | Tooltip background | #FFFFFF | #2C2A27 |
 

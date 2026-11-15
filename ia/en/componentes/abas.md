@@ -189,7 +189,7 @@ Everything the tabs consume.
 | size.control.compact (`--ds-size-control-compact`) | Tab height (medium) | 36 px | 36 px |
 | size.control.sm (`--ds-size-control-sm`) | Tab height (small) | 32 px | 32 px |
 | text.label-md (`--ds-text-label-md`) | Label | 14/20 · medium | 14/20 · medium |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Inactive tab | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Inactive tab | #53657A | #9C9792 |
 | color.fg.default (`--ds-color-fg-default`) | Active tab | #2B3847 | #F3EDE5 |
 | color.brand.solid (`--ds-color-brand-solid`) | Active tab indicator | #3E5166 | #C0CAD6 |
 | color.border.subtle (`--ds-color-border-subtle`) | Baseline | #3E516624 | #FFFFFF0F |

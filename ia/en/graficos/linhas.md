@@ -91,7 +91,7 @@ Marks consume the chart colors; everything that’s text consumes text tokens.
 | color.chart.muted (`--ds-color-chart-muted`) | Context and non-emphasized series | #C0CAD6 | #4A4744 |
 | color.chart.grid (`--ds-color-chart-grid`) | Grid lines | #DAE0E8 | #33312E |
 | color.chart.axis (`--ds-color-chart-axis`) | Baseline and crosshair | #C0CAD6 | #4A4744 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Axis labels and goal line | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Axis labels and goal line | #53657A | #9C9792 |
 | color.fg.muted (`--ds-color-fg-muted`) | Name at the end of the line | #46586E | #CEC8C1 |
 | color.fg.default (`--ds-color-fg-default`) | Value at the end of the line | #2B3847 | #F3EDE5 |
 | color.bg.raised (`--ds-color-bg-raised`) | Tooltip background | #FFFFFF | #2C2A27 |

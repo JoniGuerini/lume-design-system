@@ -79,7 +79,7 @@ Tudo o que a barra consome.
 | Token | Papel | Lume claro | Lume escuro |
 | --- | --- | --- | --- |
 | color.border.field (`--ds-color-border-field`) | Barra | #3E5166AD | #FFFFFF61 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Hover e arrastando | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Hover e arrastando | #53657A | #9C9792 |
 | radius.full (`--ds-radius-full`) | Pontas | 9999 px | 9999 px |
 | z.popover (`--ds-z-popover`) | Camada | 1400 | 1400 |
 | duration.fast (`--ds-duration-fast`) | Aparecer e engrossar | 120ms | 120ms |

@@ -89,7 +89,7 @@ Two ramps and the grid color. No categorical series color comes in here.
 | color.chart.div.7 (`--ds-color-chart-div-7`) | Diverging: high end (warm) | #B74900 | #FF945E |
 | color.chart.grid (`--ds-color-chart-grid`) | Empty cell | #DAE0E8 | #33312E |
 | color.fg.default (`--ds-color-fg-default`) | Active cell ring | #2B3847 | #F3EDE5 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Labels and scale legend | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Labels and scale legend | #53657A | #9C9792 |
 | color.bg.raised (`--ds-color-bg-raised`) | Tooltip background | #FFFFFF | #2C2A27 |
 
 ## Usage

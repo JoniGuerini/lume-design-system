@@ -1,4 +1,4 @@
-/* Lume Design System 1.7.0 · MIT · https://lumeui.dev */
+/* Lume Design System 1.7.1 · MIT · https://lumeui.dev */
 /* Lume Design System — ponto de entrada CSS */
 /*
  * Fontes do Lume, servidas daqui (sem Google Fonts nem CDN): a mesma letra em qualquer aparelho e rede.
@@ -424,7 +424,7 @@
   /* color.fg */
   --ds-color-fg-default: var(--ds-color-refugio-800);
   --ds-color-fg-muted: var(--ds-color-refugio-650);
-  --ds-color-fg-subtle: var(--ds-color-refugio-550);
+  --ds-color-fg-subtle: var(--ds-color-refugio-600);
   --ds-color-fg-disabled: var(--ds-color-refugio-400);
   --ds-color-fg-inverse: var(--ds-color-refugio-25);
   --ds-color-fg-brand: var(--ds-color-refugio-700);
@@ -1621,7 +1621,7 @@ ds-icon {
   border-radius: var(--ds-radius-xs);
   border: 1px solid var(--ds-color-border-default);
   background: var(--ds-color-bg-hover);
-  color: var(--ds-color-fg-subtle);
+  color: var(--ds-color-fg-muted);
   font: var(--ds-font-weight-medium) 0.6875rem/1 var(--ds-font-family-sans);
 }
 

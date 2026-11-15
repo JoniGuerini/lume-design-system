@@ -51,7 +51,7 @@ Everything the key consumes.
 | --- | --- | --- | --- |
 | color.bg.hover (`--ds-color-bg-hover`) | Background | #3E51660D | #FFFFFF0D |
 | color.border.default (`--ds-color-border-default`) | Outline | #3E516633 | #FFFFFF1A |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Text | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Text | #53657A | #9C9792 |
 | radius.xs (`--ds-radius-xs`) | Corners | 6 px | 6 px |
 
 ## Usage

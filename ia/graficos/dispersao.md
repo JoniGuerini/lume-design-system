@@ -72,7 +72,7 @@ As três primeiras cores de série, as linhas do plano e a cor da superfície pa
 | color.bg.surface (`--ds-color-bg-surface`) | Anel dos pontos (cor da superfície) | #FFFFFF | #24221F |
 | color.chart.grid (`--ds-color-chart-grid`) | Linhas de grade | #DAE0E8 | #33312E |
 | color.chart.axis (`--ds-color-chart-axis`) | Eixos | #C0CAD6 | #4A4744 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Valores e títulos dos eixos, referência | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Valores e títulos dos eixos, referência | #53657A | #9C9792 |
 | color.fg.muted (`--ds-color-fg-muted`) | Rótulos diretos | #46586E | #CEC8C1 |
 | color.bg.raised (`--ds-color-bg-raised`) | Fundo do tooltip | #FFFFFF | #2C2A27 |
 

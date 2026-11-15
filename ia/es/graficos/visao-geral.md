@@ -258,7 +258,7 @@ Las marcas consumen `color.chart.*`; los textos, siempre `color.fg.*`. Cambia la
 | color.chart.status.critical (`--ds-color-chart-status-critical`) | Status · crítico | #E44B46 | #E44B46 |
 | color.chart.grid (`--ds-color-chart-grid`) | Cuadrícula y celda vacía | #DAE0E8 | #33312E |
 | color.chart.axis (`--ds-color-chart-axis`) | Línea base, eje y mira | #C0CAD6 | #4A4744 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Marcas del eje | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Marcas del eje | #53657A | #9C9792 |
 | color.fg.muted (`--ds-color-fg-muted`) | Etiquetas y nombres | #46586E | #CEC8C1 |
 | color.bg.raised (`--ds-color-bg-raised`) | Fondo del tooltip | #FFFFFF | #2C2A27 |
 

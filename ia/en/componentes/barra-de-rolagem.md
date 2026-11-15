@@ -79,7 +79,7 @@ Everything the bar consumes.
 | Token | Role | Lume light | Lume dark |
 | --- | --- | --- | --- |
 | color.border.field (`--ds-color-border-field`) | Bar | #3E5166AD | #FFFFFF61 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Hover and dragging | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Hover and dragging | #53657A | #9C9792 |
 | radius.full (`--ds-radius-full`) | Ends | 9999 px | 9999 px |
 | z.popover (`--ds-z-popover`) | Layer | 1400 | 1400 |
 | duration.fast (`--ds-duration-fast`) | Appearing and thickening | 120ms | 120ms |

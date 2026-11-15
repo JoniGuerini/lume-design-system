@@ -159,7 +159,7 @@ Tudo o que o slider consome.
 | color.bg.raised (`--ds-color-bg-raised`) | Miolo do polegar | #FFFFFF | #2C2A27 |
 | color.border.focus (`--ds-color-border-focus`) | Anel de foco | #53657A | #C0CAD6 |
 | color.fg.muted (`--ds-color-fg-muted`) | Valor | #46586E | #CEC8C1 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Marcas | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Marcas | #53657A | #9C9792 |
 | radius.full (`--ds-radius-full`) | Trilho e polegar | 9999 px | 9999 px |
 | opacity.disabled (`--ds-opacity-disabled`) | Desativado | 0.44 | 0.44 |
 

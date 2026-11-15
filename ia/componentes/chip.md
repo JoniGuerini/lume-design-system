@@ -133,7 +133,7 @@ Tudo o que o chip consome.
 | color.bg.selected (`--ds-color-bg-selected`) | Selecionado e aberto | #3E516612 | #C0CAD61A |
 | color.fg.default (`--ds-color-fg-default`) | Rótulo | #2B3847 | #F3EDE5 |
 | color.fg.brand (`--ds-color-fg-brand`) | Ícone à esquerda | #3E5166 | #DAE0E8 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Seta e botão de remover | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Seta e botão de remover | #53657A | #9C9792 |
 | text.label-sm (`--ds-text-label-sm`) | Rótulo (médio) | 13/18 · medium | 13/18 · medium |
 | text.caption (`--ds-text-caption`) | Rótulo (pequeno) | 12/16 · regular | 12/16 · regular |
 | radius.full (`--ds-radius-full`) | Forma de pílula | 9999 px | 9999 px |

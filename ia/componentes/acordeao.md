@@ -90,7 +90,7 @@ Tudo o que o acordeão consome.
 | color.bg.surface (`--ds-color-bg-surface`) | Fundo do cartão | #FFFFFF | #24221F |
 | color.fg.default (`--ds-color-fg-default`) | Título | #2B3847 | #F3EDE5 |
 | color.fg.muted (`--ds-color-fg-muted`) | Conteúdo | #46586E | #CEC8C1 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Seta | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Seta | #53657A | #9C9792 |
 | duration.base (`--ds-duration-base`) | Abrir e fechar | 200ms | 200ms |
 
 ## Uso

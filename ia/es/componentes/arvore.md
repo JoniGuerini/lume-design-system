@@ -81,7 +81,7 @@ Todo lo que consume el árbol.
 | Token | Función | Lume claro | Lume oscuro |
 | --- | --- | --- | --- |
 | color.fg.muted (`--ds-color-fg-muted`) | Nombre | #46586E | #CEC8C1 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Flecha, ícono e información | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Flecha, ícono e información | #53657A | #9C9792 |
 | color.bg.hover (`--ds-color-bg-hover`) | Fila en hover | #3E51660D | #FFFFFF0D |
 | color.bg.selected (`--ds-color-bg-selected`) | Fila elegida | #3E516612 | #C0CAD61A |
 | color.border.focus (`--ds-color-border-focus`) | Anillo de foco | #53657A | #C0CAD6 |

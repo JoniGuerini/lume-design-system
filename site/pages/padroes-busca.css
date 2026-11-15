@@ -249,7 +249,7 @@
 }
 
 .pb-tester__group {
-  color: var(--ds-color-fg-subtle);
+  color: var(--ds-color-fg-muted);
   font: var(--ds-text-caption);
 }
 

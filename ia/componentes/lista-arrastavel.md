@@ -127,7 +127,7 @@ Superfície, encaixe e a cópia elevada.
 | color.bg.raised (`--ds-color-bg-raised`) | Cópia que segue o ponteiro | #FFFFFF | #2C2A27 |
 | shadow.lg (`--ds-shadow-lg`) | Elevação da cópia | 0 4px 8px -2px rgb(45 58 74 / 0.07), 0 16px 36px -8px rgb(45 58 74 / 0.14) | 0 4px 8px -2px rgb(0 0 0 / 0.3), 0 16px 36px -8px rgb(0 0 0 / 0.5) |
 | color.brand.indicator (`--ds-color-brand-indicator`) | Item pego pelo teclado | #C97B63 | #DE9680 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Alça | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Alça | #53657A | #9C9792 |
 
 ## Uso
 

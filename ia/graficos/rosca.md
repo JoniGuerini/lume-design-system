@@ -119,7 +119,7 @@ Fatias usam as cores de gráfico, na ordem fixa; textos usam sempre os tokens de
 | color.chart.other (`--ds-color-chart-other`) | “Outros” | #93A0B0 | #605D59 |
 | color.fg.default (`--ds-color-fg-default`) | Valor do miolo e da lista | #2B3847 | #F3EDE5 |
 | color.fg.muted (`--ds-color-fg-muted`) | Nome na lista | #46586E | #CEC8C1 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Rótulo do miolo e percentual | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Rótulo do miolo e percentual | #53657A | #9C9792 |
 | color.bg.hover (`--ds-color-bg-hover`) | Linha da lista em destaque | #3E51660D | #FFFFFF0D |
 | color.border.subtle (`--ds-color-border-subtle`) | Divisória da lista | #3E516624 | #FFFFFF0F |
 | color.border.focus (`--ds-color-border-focus`) | Anel de foco do gráfico | #53657A | #C0CAD6 |

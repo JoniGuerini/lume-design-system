@@ -4,7 +4,7 @@ Lume section: Resources. Page: https://lumeui.dev/#/recursos/acessibilidade
 
 Screens everyone can use: by keyboard, with a screen reader, with zoom, with low color vision, or asking for less motion. The goal is WCAG 2.2 level AA, in both themes.
 
-In numbers: contrasts in the build: 78/78 · WCAG 2.2: AA · themes measured: 2 · open issues: 0.
+In numbers: contrasts in the build: 80/80 · WCAG 2.2: AA · themes measured: 2 · open issues: 0.
 
 ## Principles
 
@@ -26,7 +26,7 @@ Clear labels, errors that say how to fix them, predictable behavior.
 
 Native HTML first, well-known ARIA patterns when native isn’t enough.
 
-How we measure — 78 of 78 pairs pass now
+How we measure — 80 of 80 pairs pass now
 
 The reference is WCAG 2.2, level AA. On every build, `scripts/build-tokens.mjs` measures every text and background pair declared in `tokens/semantic.json`, in both themes — transparencies are composited over the background before the math. A pair that drops below the minimum shows up in the terminal right away. What the build doesn’t measure (focus, keyboard, screen readers) is in the sections below, and what still isn’t right goes in Known issues.
 
@@ -72,7 +72,7 @@ Lume dark
 
 Chart colors, in a validated order — The 8 series colors follow an order chosen for protanopia and deuteranopia: the worst neighboring pair still has ΔE 11.7 (target: 8), 18.5 with typical vision, and all pass 3:1 on the surface in both themes. See in Charts
 
-### Pairs checked in the build 38 pairs × 2 themes
+### Pairs checked in the build 39 pairs × 2 themes
 
 | Text or mark | Background | Minimum | Lume light | Lume dark |
 | --- | --- | --- | --- | --- |
@@ -80,7 +80,7 @@ Chart colors, in a validated order — The 8 series colors follow an order chose
 | fg.muted | bg.canvas | 4.5:1 | Lume light — 6.48:1 | Lume dark — 10.36:1 |
 | fg.default | bg.sidebar | 4.5:1 | Lume light — 11.42:1 | Lume dark — 13.64:1 |
 | fg.muted | bg.sidebar | 4.5:1 | Lume light — 6.97:1 | Lume dark — 9.56:1 |
-| fg.subtle | bg.sidebar | 4.5:1 | Lume light — 5.14:1 | Lume dark — 5.48:1 |
+| fg.subtle | bg.sidebar | 4.5:1 | Lume light — 5.72:1 | Lume dark — 5.48:1 |
 | fg.muted | bg.raised | 4.5:1 | Lume light — 7.29:1 | Lume dark — 8.62:1 |
 | fg.link | bg.canvas | 4.5:1 | Lume light — 7.25:1 | Lume dark — 12.93:1 |
 | fg.brand | bg.canvas | 4.5:1 | Lume light — 7.25:1 | Lume dark — 12.93:1 |
@@ -103,10 +103,11 @@ Chart colors, in a validated order — The 8 series colors follow an order chose
 | chart.series.6 | bg.surface | 3.0:1 | Lume light — 3.89:1 | Lume dark — 4.07:1 |
 | chart.series.7 | bg.surface | 3.0:1 | Lume light — 3.79:1 | Lume dark — 4.19:1 |
 | chart.series.8 | bg.surface | 3.0:1 | Lume light — 3.36:1 | Lume dark — 4.73:1 |
-| fg.subtle | bg.canvas | 4.5:1 | Lume light — 4.78:1 | Lume dark — 5.94:1 |
-| fg.subtle | bg.surface | 4.5:1 | Lume light — 5.38:1 | Lume dark — 5.48:1 |
-| fg.subtle | bg.raised | 4.5:1 | Lume light — 5.38:1 | Lume dark — 4.94:1 |
-| fg.subtle | bg.sunken | 4.5:1 | Lume light — 4.57:1 | Lume dark — 6.36:1 |
+| fg.subtle | bg.app | 4.5:1 | Lume light — 4.50:1 | Lume dark — 6.67:1 |
+| fg.subtle | bg.canvas | 4.5:1 | Lume light — 5.32:1 | Lume dark — 5.94:1 |
+| fg.subtle | bg.surface | 4.5:1 | Lume light — 5.98:1 | Lume dark — 5.48:1 |
+| fg.subtle | bg.raised | 4.5:1 | Lume light — 5.98:1 | Lume dark — 4.94:1 |
+| fg.subtle | bg.sunken | 4.5:1 | Lume light — 5.08:1 | Lume dark — 6.36:1 |
 | border.field | bg.canvas | 3.0:1 | Lume light — 3.35:1 | Lume dark — 3.58:1 |
 | border.field | bg.surface | 3.0:1 | Lume light — 3.57:1 | Lume dark — 3.50:1 |
 | border.field | bg.raised | 3.0:1 | Lume light — 3.57:1 | Lume dark — 3.38:1 |
@@ -322,9 +323,9 @@ Muted text in the light theme
 
 WCAG 1.4.3 · text, 4.5:1
 
-`fg.subtle` appears in placeholders, captions, and 12–14 px axis ticks. In light mode it moved to `neutral.550`, a new step; and `fg.muted` went down to `neutral.650`, so the two don’t end up the same.
+`fg.subtle` appears in placeholders, captions, and 12–14 px axis ticks. In light mode it is `refugio.600`, one step above `fg.muted` (`refugio.650`), so the two don’t end up the same. In 1.7.1 it went one step darker to also pass on `bg.app`, where the examples sit.
 
-Resolved in 0.4.1. The build check went up from 3:1 to 4.5:1.
+Resolved in 0.4.1. The build check went up from 3:1 to 4.5:1; 1.7.1 added the pair with bg.app.
 
 A tooltip that disappears when pointed at
 
@@ -351,7 +352,7 @@ Markup of the examples in this section:
 
 <div class="ds-table-wrap"><table class="ds-table ds-table--compact">
 <thead><tr><th scope="col">Pair</th><th scope="col" class="ds-table__num">Lume light</th><th scope="col" class="ds-table__num">Lume dark</th></tr></thead>
-<tbody><tr><th scope="row">fg.subtle on bg.canvas</th><td class="ds-table__num"><span><ds-icon name="check"></ds-icon>4.78:1</span></td><td class="ds-table__num"><span><ds-icon name="check"></ds-icon>5.94:1</span></td></tr><tr><th scope="row">fg.subtle on bg.surface</th><td class="ds-table__num"><span><ds-icon name="check"></ds-icon>5.38:1</span></td><td class="ds-table__num"><span><ds-icon name="check"></ds-icon>5.48:1</span></td></tr><tr><th scope="row">fg.subtle on bg.raised</th><td class="ds-table__num"><span><ds-icon name="check"></ds-icon>5.38:1</span></td><td class="ds-table__num"><span><ds-icon name="check"></ds-icon>4.94:1</span></td></tr><tr><th scope="row">fg.subtle on bg.sunken</th><td class="ds-table__num"><span><ds-icon name="check"></ds-icon>4.57:1</span></td><td class="ds-table__num"><span><ds-icon name="check"></ds-icon>6.36:1</span></td></tr></tbody></table></div>
+<tbody><tr><th scope="row">fg.subtle on bg.app</th><td class="ds-table__num"><span><ds-icon name="check"></ds-icon>4.50:1</span></td><td class="ds-table__num"><span><ds-icon name="check"></ds-icon>6.67:1</span></td></tr><tr><th scope="row">fg.subtle on bg.canvas</th><td class="ds-table__num"><span><ds-icon name="check"></ds-icon>5.32:1</span></td><td class="ds-table__num"><span><ds-icon name="check"></ds-icon>5.94:1</span></td></tr><tr><th scope="row">fg.subtle on bg.surface</th><td class="ds-table__num"><span><ds-icon name="check"></ds-icon>5.98:1</span></td><td class="ds-table__num"><span><ds-icon name="check"></ds-icon>5.48:1</span></td></tr><tr><th scope="row">fg.subtle on bg.raised</th><td class="ds-table__num"><span><ds-icon name="check"></ds-icon>5.98:1</span></td><td class="ds-table__num"><span><ds-icon name="check"></ds-icon>4.94:1</span></td></tr><tr><th scope="row">fg.subtle on bg.sunken</th><td class="ds-table__num"><span><ds-icon name="check"></ds-icon>5.08:1</span></td><td class="ds-table__num"><span><ds-icon name="check"></ds-icon>6.36:1</span></td></tr></tbody></table></div>
 
 <span class="ds-badge ds-badge--sm"><ds-icon name="info"></ds-icon>Note</span>
 ```

@@ -1,6 +1,6 @@
 // Gerado por scripts/build-tokens.mjs — não edite à mão.
 const data = {
-  "generatedAt": "2026-11-09T02:15:51.533Z",
+  "generatedAt": "2026-11-15T16:23:09.719Z",
   "prefix": "ds",
   "modes": [
     "light",
@@ -2822,11 +2822,11 @@ const data = {
       "type": "color",
       "source": "semantic.json",
       "themed": true,
-      "description": "Texto apagado (marcas de eixo, metadados). Passa de 4,5:1 em todas as superfícies, nos dois temas.",
+      "description": "Texto apagado (marcas de eixo, metadados). Passa de 4,5:1 em todas as superfícies, inclusive o fundo do app, nos dois temas.",
       "modes": {
         "light": {
-          "ref": "{color.refugio.550}",
-          "value": "#5c6c7f"
+          "ref": "{color.refugio.600}",
+          "value": "#53657a"
         },
         "dark": {
           "ref": "{color.neutral.400}",
@@ -4333,7 +4333,7 @@ const data = {
       "bg": "color.bg.sidebar",
       "mode": "light",
       "min": 4.5,
-      "ratio": 5.14,
+      "ratio": 5.72,
       "pass": true
     },
     {
@@ -4698,10 +4698,26 @@ const data = {
     },
     {
       "fg": "color.fg.subtle",
+      "bg": "color.bg.app",
+      "mode": "light",
+      "min": 4.5,
+      "ratio": 4.5,
+      "pass": true
+    },
+    {
+      "fg": "color.fg.subtle",
+      "bg": "color.bg.app",
+      "mode": "dark",
+      "min": 4.5,
+      "ratio": 6.67,
+      "pass": true
+    },
+    {
+      "fg": "color.fg.subtle",
       "bg": "color.bg.canvas",
       "mode": "light",
       "min": 4.5,
-      "ratio": 4.78,
+      "ratio": 5.32,
       "pass": true
     },
     {
@@ -4717,7 +4733,7 @@ const data = {
       "bg": "color.bg.surface",
       "mode": "light",
       "min": 4.5,
-      "ratio": 5.38,
+      "ratio": 5.98,
       "pass": true
     },
     {
@@ -4733,7 +4749,7 @@ const data = {
       "bg": "color.bg.raised",
       "mode": "light",
       "min": 4.5,
-      "ratio": 5.38,
+      "ratio": 5.98,
       "pass": true
     },
     {
@@ -4749,7 +4765,7 @@ const data = {
       "bg": "color.bg.sunken",
       "mode": "light",
       "min": 4.5,
-      "ratio": 4.57,
+      "ratio": 5.08,
       "pass": true
     },
     {

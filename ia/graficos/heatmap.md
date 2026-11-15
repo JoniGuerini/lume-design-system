@@ -89,7 +89,7 @@ Duas rampas e a cor da grade. Nenhuma cor de série categórica entra aqui.
 | color.chart.div.7 (`--ds-color-chart-div-7`) | Divergente: extremo acima (quente) | #B74900 | #FF945E |
 | color.chart.grid (`--ds-color-chart-grid`) | Célula vazia | #DAE0E8 | #33312E |
 | color.fg.default (`--ds-color-fg-default`) | Anel da célula ativa | #2B3847 | #F3EDE5 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Rótulos e legenda de escala | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Rótulos e legenda de escala | #53657A | #9C9792 |
 | color.bg.raised (`--ds-color-bg-raised`) | Fundo do tooltip | #FFFFFF | #2C2A27 |
 
 ## Uso

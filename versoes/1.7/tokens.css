@@ -393,7 +393,7 @@
   /* color.fg */
   --ds-color-fg-default: var(--ds-color-refugio-800);
   --ds-color-fg-muted: var(--ds-color-refugio-650);
-  --ds-color-fg-subtle: var(--ds-color-refugio-550);
+  --ds-color-fg-subtle: var(--ds-color-refugio-600);
   --ds-color-fg-disabled: var(--ds-color-refugio-400);
   --ds-color-fg-inverse: var(--ds-color-refugio-25);
   --ds-color-fg-brand: var(--ds-color-refugio-700);

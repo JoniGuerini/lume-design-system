@@ -162,7 +162,7 @@ Tudo o que as abas consomem.
 | size.control.compact (`--ds-size-control-compact`) | Altura da aba (médio) | 36 px | 36 px |
 | size.control.sm (`--ds-size-control-sm`) | Altura da aba (pequeno) | 32 px | 32 px |
 | text.label-md (`--ds-text-label-md`) | Rótulo | 14/20 · medium | 14/20 · medium |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Aba inativa | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Aba inativa | #53657A | #9C9792 |
 | color.fg.default (`--ds-color-fg-default`) | Aba ativa | #2B3847 | #F3EDE5 |
 | color.brand.solid (`--ds-color-brand-solid`) | Indicador da aba ativa | #3E5166 | #C0CAD6 |
 | color.border.subtle (`--ds-color-border-subtle`) | Linha de base | #3E516624 | #FFFFFF0F |

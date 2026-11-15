@@ -8,10 +8,34 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '1.7.0';
+export const CURRENT_VERSION = '1.7.1';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '1.7.1',
+    date: '2026-11-15',
+    title: T('Contraste revisado', 'Contrast review', 'Contraste revisado'),
+    summary: T(
+      'Todas as páginas, nos dois temas, passaram por um teste automático de acessibilidade. O texto apagado do tema claro escureceu um passo e as teclas ficaram mais legíveis.',
+      'Every page, in both themes, went through an automated accessibility test. Muted text in the light theme went one step darker and keys got easier to read.',
+      'Todas las páginas, en los dos temas, pasaron por una prueba automática de accesibilidad. El texto atenuado del tema claro se oscureció un paso y las teclas quedaron más legibles.',
+    ),
+    groups: [
+      {
+        name: T('Tokens', 'Tokens', 'Tokens'),
+        items: [
+          ['correcao', T('fg.subtle no claro passa a 4,5:1 também sobre bg.app, o fundo dos exemplos (refugio.550 → refugio.600)', 'fg.subtle in light mode now reaches 4.5:1 on bg.app too, the background behind examples (refugio.550 → refugio.600)', 'fg.subtle en el claro ahora llega a 4,5:1 también sobre bg.app, el fondo de los ejemplos (refugio.550 → refugio.600)'), '/recursos/acessibilidade'],
+        ],
+      },
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['correcao', T('Tecla: o texto usa fg.muted e passa de 4,5:1 em qualquer fundo', 'Key: the text uses fg.muted and passes 4.5:1 on any background', 'Tecla: el texto usa fg.muted y pasa de 4,5:1 en cualquier fondo'), '/componentes/tecla'],
+        ],
+      },
+    ],
+  },
   {
     version: '1.7.0',
     date: '2026-11-15',

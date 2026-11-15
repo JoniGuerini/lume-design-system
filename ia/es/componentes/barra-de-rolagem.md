@@ -79,7 +79,7 @@ Todo lo que consume la barra.
 | Token | Función | Lume claro | Lume oscuro |
 | --- | --- | --- | --- |
 | color.border.field (`--ds-color-border-field`) | Barra | #3E5166AD | #FFFFFF61 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Hover y arrastrando | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Hover y arrastrando | #53657A | #9C9792 |
 | radius.full (`--ds-radius-full`) | Extremos | 9999 px | 9999 px |
 | z.popover (`--ds-z-popover`) | Capa | 1400 | 1400 |
 | duration.fast (`--ds-duration-fast`) | Aparecer y engrosar | 120ms | 120ms |

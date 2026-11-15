@@ -144,7 +144,7 @@ On top of the Text field tokens.
 | color.border.control (`--ds-color-border-control`) | Tag outline | #3E516633 | #FFFFFF21 |
 | color.border.strong (`--ds-color-border-strong`) | Marked tag | #3E51664D | #FFFFFF29 |
 | color.bg.selected (`--ds-color-bg-selected`) | Marked tag background | #3E516612 | #C0CAD61A |
-| color.fg.subtle (`--ds-color-fg-subtle`) | × icon | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | × icon | #53657A | #9C9792 |
 | color.bg.hover (`--ds-color-bg-hover`) | × on hover | #3E51660D | #FFFFFF0D |
 | radius.full (`--ds-radius-full`) | Tag | 9999 px | 9999 px |
 | text.label-sm (`--ds-text-label-sm`) | Tag text | 13/18 · medium | 13/18 · medium |

@@ -161,7 +161,7 @@ Todo lo que consume el centro, además del Popover.
 | color.bg.hover (`--ds-color-bg-hover`) | Elemento con el ratón | #3E51660D | #FFFFFF0D |
 | color.bg.muted (`--ds-color-bg-muted`) | Fondo del ícono neutro | #DAE0E8 | #3D3B38 |
 | color.fg.muted (`--ds-color-fg-muted`) | Texto y título leído | #46586E | #CEC8C1 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Tiempo | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Tiempo | #53657A | #9C9792 |
 | color.border.subtle (`--ds-color-border-subtle`) | Línea del encabezado | #3E516624 | #FFFFFF0F |
 | radius.md (`--ds-radius-md`) | Esquinas del elemento | 12 px | 12 px |
 

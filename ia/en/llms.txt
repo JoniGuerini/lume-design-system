@@ -1,6 +1,6 @@
 # Lume Design System
 
-> A design system in native HTML, CSS, and JavaScript, with no dependencies: tokens, typography, 130 custom icons, components, charts, and screen patterns, in light and dark themes. Version 1.7.0.
+> A design system in native HTML, CSS, and JavaScript, with no dependencies: tokens, typography, 130 custom icons, components, charts, and screen patterns, in light and dark themes. Version 1.7.1.
 
 Start with [README](https://lumeui.dev/ia/en/README.md): installation, general rules, and what never to invent. Every page of the site has a Markdown file below, generated from it.
 

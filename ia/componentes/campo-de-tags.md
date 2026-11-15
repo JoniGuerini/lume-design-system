@@ -144,7 +144,7 @@ Além dos tokens do Campo de texto.
 | color.border.control (`--ds-color-border-control`) | Contorno da tag | #3E516633 | #FFFFFF21 |
 | color.border.strong (`--ds-color-border-strong`) | Tag marcada | #3E51664D | #FFFFFF29 |
 | color.bg.selected (`--ds-color-bg-selected`) | Fundo da tag marcada | #3E516612 | #C0CAD61A |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Ícone × | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Ícone × | #53657A | #9C9792 |
 | color.bg.hover (`--ds-color-bg-hover`) | × no hover | #3E51660D | #FFFFFF0D |
 | radius.full (`--ds-radius-full`) | Tag | 9999 px | 9999 px |
 | text.label-sm (`--ds-text-label-sm`) | Texto da tag | 13/18 · medium | 13/18 · medium |

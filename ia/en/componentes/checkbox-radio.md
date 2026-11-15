@@ -203,7 +203,7 @@ Everything checkbox and radio consume.
 
 | Token | Role | Lume light | Lume dark |
 | --- | --- | --- | --- |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Unchecked outline | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Unchecked outline | #53657A | #9C9792 |
 | color.fg.muted (`--ds-color-fg-muted`) | Outline on hover | #46586E | #CEC8C1 |
 | color.brand.solid (`--ds-color-brand-solid`) | Checked background (checkbox) and dot (radio) | #3E5166 | #C0CAD6 |
 | color.brand.solid-hover (`--ds-color-brand-solid-hover`) | Checked on hover | #2B3847 | #DAE0E8 |

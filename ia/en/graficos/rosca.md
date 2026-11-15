@@ -119,7 +119,7 @@ Slices use the chart colors, in fixed order; text always uses the text tokens.
 | color.chart.other (`--ds-color-chart-other`) | “Others” | #93A0B0 | #605D59 |
 | color.fg.default (`--ds-color-fg-default`) | Center and list value | #2B3847 | #F3EDE5 |
 | color.fg.muted (`--ds-color-fg-muted`) | Name in the list | #46586E | #CEC8C1 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Center label and percentage | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Center label and percentage | #53657A | #9C9792 |
 | color.bg.hover (`--ds-color-bg-hover`) | Highlighted list row | #3E51660D | #FFFFFF0D |
 | color.border.subtle (`--ds-color-border-subtle`) | List divider | #3E516624 | #FFFFFF0F |
 | color.border.focus (`--ds-color-border-focus`) | Chart focus ring | #53657A | #C0CAD6 |

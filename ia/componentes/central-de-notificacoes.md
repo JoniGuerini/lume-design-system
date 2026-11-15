@@ -161,7 +161,7 @@ Tudo o que a central consome, além do Popover.
 | color.bg.hover (`--ds-color-bg-hover`) | Item com o mouse | #3E51660D | #FFFFFF0D |
 | color.bg.muted (`--ds-color-bg-muted`) | Fundo do ícone neutro | #DAE0E8 | #3D3B38 |
 | color.fg.muted (`--ds-color-fg-muted`) | Texto e título lido | #46586E | #CEC8C1 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Tempo | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Tempo | #53657A | #9C9792 |
 | color.border.subtle (`--ds-color-border-subtle`) | Linha do cabeçalho | #3E516624 | #FFFFFF0F |
 | radius.md (`--ds-radius-md`) | Cantos do item | 12 px | 12 px |
 

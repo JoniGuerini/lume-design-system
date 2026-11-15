@@ -81,7 +81,7 @@ Tudo o que a árvore consome.
 | Token | Papel | Lume claro | Lume escuro |
 | --- | --- | --- | --- |
 | color.fg.muted (`--ds-color-fg-muted`) | Nome | #46586E | #CEC8C1 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Seta, ícone e informação | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Seta, ícone e informação | #53657A | #9C9792 |
 | color.bg.hover (`--ds-color-bg-hover`) | Linha no hover | #3E51660D | #FFFFFF0D |
 | color.bg.selected (`--ds-color-bg-selected`) | Linha escolhida | #3E516612 | #C0CAD61A |
 | color.border.focus (`--ds-color-border-focus`) | Anel de foco | #53657A | #C0CAD6 |

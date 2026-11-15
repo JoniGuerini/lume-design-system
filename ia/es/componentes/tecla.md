@@ -51,7 +51,7 @@ Todo lo que consume la tecla.
 | --- | --- | --- | --- |
 | color.bg.hover (`--ds-color-bg-hover`) | Fondo | #3E51660D | #FFFFFF0D |
 | color.border.default (`--ds-color-border-default`) | Contorno | #3E516633 | #FFFFFF1A |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Texto | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Texto | #53657A | #9C9792 |
 | radius.xs (`--ds-radius-xs`) | Esquinas | 6 px | 6 px |
 
 ## Uso

@@ -454,7 +454,7 @@ Click the name to copy the variable.
 | color.border.focus (`--ds-color-border-focus`) | Focused composer | #53657A | #C0CAD6 |
 | color.fg.default (`--ds-color-fg-default`) | Conversation text | #2B3847 | #F3EDE5 |
 | color.fg.muted (`--ds-color-fg-muted`) | Card text | #46586E | #CEC8C1 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Author, time, placeholder, and shortcuts | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Author, time, placeholder, and shortcuts | #53657A | #9C9792 |
 | color.brand.solid (`--ds-color-brand-solid`) | Send | #3E5166 | #C0CAD6 |
 | color.brand.on-solid (`--ds-color-brand-on-solid`) | Send icon | #F8FAFD | #1D2734 |
 | color.brand.subtle (`--ds-color-brand-subtle`) | Author mark and chosen command | #EEF2F6 | #C0CAD624 |

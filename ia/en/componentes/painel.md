@@ -221,7 +221,7 @@ The panel has no color of its own: everything comes from surface, text, and spac
 | text.display-sm (`--ds-text-display-sm`) | Hero title | 40/44 · regular | 40/44 · regular |
 | text.caption (`--ds-text-caption`) | Stamp | 12/16 · regular | 12/16 · regular |
 | text.body-md (`--ds-text-body-md`) | Section text | 16/28 · regular | 16/28 · regular |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Label, stamp, and meta | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Label, stamp, and meta | #53657A | #9C9792 |
 
 ## Usage
 

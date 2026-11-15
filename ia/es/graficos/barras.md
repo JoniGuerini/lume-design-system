@@ -119,7 +119,7 @@ Las marcas usan los colores de gráfico; los textos usan siempre los tokens de t
 | color.chart.axis (`--ds-color-chart-axis`) | Línea base | #C0CAD6 | #4A4744 |
 | color.fg.default (`--ds-color-fg-default`) | Etiquetas de valor | #2B3847 | #F3EDE5 |
 | color.fg.muted (`--ds-color-fg-muted`) | Etiquetas de categoría | #46586E | #CEC8C1 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Marcas del eje | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Marcas del eje | #53657A | #9C9792 |
 | color.bg.hover (`--ds-color-bg-hover`) | Franja de la categoría con hover | #3E51660D | #FFFFFF0D |
 | color.bg.raised (`--ds-color-bg-raised`) | Fondo del tooltip | #FFFFFF | #2C2A27 |
 | shadow.md (`--ds-shadow-md`) | Sombra del tooltip | 0 2px 4px -1px rgb(45 58 74 / 0.06), 0 8px 20px -4px rgb(45 58 74 / 0.1) | 0 2px 4px -1px rgb(0 0 0 / 0.28), 0 8px 20px -4px rgb(0 0 0 / 0.36) |

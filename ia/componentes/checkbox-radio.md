@@ -203,7 +203,7 @@ Tudo o que checkbox e radio consomem.
 
 | Token | Papel | Lume claro | Lume escuro |
 | --- | --- | --- | --- |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Contorno desmarcado | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Contorno desmarcado | #53657A | #9C9792 |
 | color.fg.muted (`--ds-color-fg-muted`) | Contorno no hover | #46586E | #CEC8C1 |
 | color.brand.solid (`--ds-color-brand-solid`) | Fundo marcado (checkbox) e ponto (radio) | #3E5166 | #C0CAD6 |
 | color.brand.solid-hover (`--ds-color-brand-solid-hover`) | Marcado no hover | #2B3847 | #DAE0E8 |

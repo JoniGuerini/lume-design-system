@@ -159,7 +159,7 @@ Everything the slider consumes.
 | color.bg.raised (`--ds-color-bg-raised`) | Thumb center | #FFFFFF | #2C2A27 |
 | color.border.focus (`--ds-color-border-focus`) | Focus ring | #53657A | #C0CAD6 |
 | color.fg.muted (`--ds-color-fg-muted`) | Value | #46586E | #CEC8C1 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Marks | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Marks | #53657A | #9C9792 |
 | radius.full (`--ds-radius-full`) | Track and thumb | 9999 px | 9999 px |
 | opacity.disabled (`--ds-opacity-disabled`) | Disabled | 0.44 | 0.44 |
 

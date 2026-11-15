@@ -398,7 +398,7 @@
   height: 64px;
   border-radius: var(--ds-radius-md);
   background: var(--ds-color-bg-muted);
-  color: var(--ds-color-fg-subtle);
+  color: var(--ds-color-fg-muted);
   font: var(--ds-text-label-sm);
 }
 

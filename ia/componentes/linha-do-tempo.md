@@ -109,7 +109,7 @@ Tudo o que a linha do tempo consome.
 | color.brand.solid (`--ds-color-brand-solid`) | Marcador de marca | #3E5166 | #C0CAD6 |
 | color.success.subtle (`--ds-color-success-subtle`) | Marcador de sucesso | #EFFAF1 | #72CB8B21 |
 | color.border.default (`--ds-color-border-default`) | Fio entre eventos | #3E516633 | #FFFFFF1A |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Data | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Data | #53657A | #9C9792 |
 | radius.full (`--ds-radius-full`) | Marcador | 9999 px | 9999 px |
 
 ## Uso

@@ -138,6 +138,11 @@
     ],
     [
       "color.fg.subtle",
+      "color.bg.app",
+      4.5
+    ],
+    [
+      "color.fg.subtle",
       "color.bg.canvas",
       4.5
     ],
@@ -285,9 +290,9 @@
         "light-sidebar": "{color.refugio.200}"
       },
       "subtle": {
-        "$description": "Texto apagado (marcas de eixo, metadados). Passa de 4,5:1 em todas as superfícies, nos dois temas.",
+        "$description": "Texto apagado (marcas de eixo, metadados). Passa de 4,5:1 em todas as superfícies, inclusive o fundo do app, nos dois temas.",
         "dark": "{color.neutral.400}",
-        "light": "{color.refugio.550}",
+        "light": "{color.refugio.600}",
         "light-sidebar": "{color.refugio.300}"
       },
       "disabled": {

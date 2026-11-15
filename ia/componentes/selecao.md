@@ -340,7 +340,7 @@ O gatilho usa os tokens do campo de texto; a lista, os mesmos do menu; os chips,
 | color.border.control (`--ds-color-border-control`) | Contorno do gatilho | #3E516633 | #FFFFFF21 |
 | color.border.strong (`--ds-color-border-strong`) | Hover e borda da lista | #3E51664D | #FFFFFF29 |
 | color.border.focus (`--ds-color-border-focus`) | Foco e lista aberta | #53657A | #C0CAD6 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Seta, ícone, placeholder, grupo e caixa vazia | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Seta, ícone, placeholder, grupo e caixa vazia | #53657A | #9C9792 |
 | color.bg.raised (`--ds-color-bg-raised`) | Fundo da lista | #FFFFFF | #2C2A27 |
 | radius.lg (`--ds-radius-lg`) | Raio da lista | 16 px | 16 px |
 | shadow.xl (`--ds-shadow-xl`) | Sombra da lista | 0 8px 16px -4px rgb(45 58 74 / 0.08), 0 28px 56px -12px rgb(45 58 74 / 0.18) | 0 8px 16px -4px rgb(0 0 0 / 0.32), 0 28px 56px -12px rgb(0 0 0 / 0.6) |

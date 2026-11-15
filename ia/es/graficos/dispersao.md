@@ -72,7 +72,7 @@ Los tres primeros colores de serie, las líneas del plano y el color de la super
 | color.bg.surface (`--ds-color-bg-surface`) | Anillo de los puntos (color de la superficie) | #FFFFFF | #24221F |
 | color.chart.grid (`--ds-color-chart-grid`) | Líneas de cuadrícula | #DAE0E8 | #33312E |
 | color.chart.axis (`--ds-color-chart-axis`) | Ejes | #C0CAD6 | #4A4744 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Valores y títulos de los ejes, referencia | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Valores y títulos de los ejes, referencia | #53657A | #9C9792 |
 | color.fg.muted (`--ds-color-fg-muted`) | Etiquetas directas | #46586E | #CEC8C1 |
 | color.bg.raised (`--ds-color-bg-raised`) | Fondo del tooltip | #FFFFFF | #2C2A27 |
 

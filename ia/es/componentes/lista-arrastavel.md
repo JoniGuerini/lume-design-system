@@ -127,7 +127,7 @@ Superficie, hueco y la copia elevada.
 | color.bg.raised (`--ds-color-bg-raised`) | Copia que sigue al puntero | #FFFFFF | #2C2A27 |
 | shadow.lg (`--ds-shadow-lg`) | Elevación de la copia | 0 4px 8px -2px rgb(45 58 74 / 0.07), 0 16px 36px -8px rgb(45 58 74 / 0.14) | 0 4px 8px -2px rgb(0 0 0 / 0.3), 0 16px 36px -8px rgb(0 0 0 / 0.5) |
 | color.brand.indicator (`--ds-color-brand-indicator`) | Elemento tomado con el teclado | #C97B63 | #DE9680 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Agarre | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Agarre | #53657A | #9C9792 |
 
 ## Uso
 

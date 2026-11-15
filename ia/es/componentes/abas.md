@@ -162,7 +162,7 @@ Todo lo que consumen las pestañas.
 | size.control.compact (`--ds-size-control-compact`) | Altura de la pestaña (mediano) | 36 px | 36 px |
 | size.control.sm (`--ds-size-control-sm`) | Altura de la pestaña (pequeño) | 32 px | 32 px |
 | text.label-md (`--ds-text-label-md`) | Etiqueta | 14/20 · medium | 14/20 · medium |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Pestaña inactiva | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Pestaña inactiva | #53657A | #9C9792 |
 | color.fg.default (`--ds-color-fg-default`) | Pestaña activa | #2B3847 | #F3EDE5 |
 | color.brand.solid (`--ds-color-brand-solid`) | Indicador de la pestaña activa | #3E5166 | #C0CAD6 |
 | color.border.subtle (`--ds-color-border-subtle`) | Línea base | #3E516624 | #FFFFFF0F |

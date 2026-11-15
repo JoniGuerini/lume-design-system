@@ -340,7 +340,7 @@ El disparador usa los tokens del campo de texto; la lista, los del menú; los ch
 | color.border.control (`--ds-color-border-control`) | Contorno del disparador | #3E516633 | #FFFFFF21 |
 | color.border.strong (`--ds-color-border-strong`) | Hover y borde de la lista | #3E51664D | #FFFFFF29 |
 | color.border.focus (`--ds-color-border-focus`) | Foco y lista abierta | #53657A | #C0CAD6 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Flecha, ícono, placeholder, grupo y casilla vacía | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Flecha, ícono, placeholder, grupo y casilla vacía | #53657A | #9C9792 |
 | color.bg.raised (`--ds-color-bg-raised`) | Fondo de la lista | #FFFFFF | #2C2A27 |
 | radius.lg (`--ds-radius-lg`) | Radio de la lista | 16 px | 16 px |
 | shadow.xl (`--ds-shadow-xl`) | Sombra de la lista | 0 8px 16px -4px rgb(45 58 74 / 0.08), 0 28px 56px -12px rgb(45 58 74 / 0.18) | 0 8px 16px -4px rgb(0 0 0 / 0.32), 0 28px 56px -12px rgb(0 0 0 / 0.6) |

@@ -177,7 +177,7 @@ Everything the table consumes.
 | --- | --- | --- | --- |
 | color.bg.surface (`--ds-color-bg-surface`) | Background and sticky header | #FFFFFF | #24221F |
 | color.border.subtle (`--ds-color-border-subtle`) | Outline and dividers | #3E516624 | #FFFFFF0F |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Header and muted text | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Header and muted text | #53657A | #9C9792 |
 | color.fg.default (`--ds-color-fg-default`) | Cells | #2B3847 | #F3EDE5 |
 | color.bg.hover (`--ds-color-bg-hover`) | Row hover | #3E51660D | #FFFFFF0D |
 | color.bg.selected (`--ds-color-bg-selected`) | Selected row | #3E516612 | #C0CAD61A |

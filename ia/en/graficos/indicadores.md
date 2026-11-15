@@ -308,7 +308,7 @@ What the indicator, sparkline, and meter consume.
 | radius.xl (`--ds-radius-xl`) | Indicator radius | 20 px | 20 px |
 | color.fg.muted (`--ds-color-fg-muted`) | Label | #46586E | #CEC8C1 |
 | color.fg.default (`--ds-color-fg-default`) | Value | #2B3847 | #F3EDE5 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Period | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Period | #53657A | #9C9792 |
 | color.success.fg (`--ds-color-success-fg`) | Change for the better | #0F6939 | #97DCA8 |
 | color.danger.fg (`--ds-color-danger-fg`) | Change for the worse | #C13834 | #FFB2AA |
 | color.chart.other (`--ds-color-chart-other`) | Sparkline line | #93A0B0 | #605D59 |

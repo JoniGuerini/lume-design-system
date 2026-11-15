@@ -124,7 +124,7 @@ Pocos y todos de texto: eso es lo que la mantiene liviana.
 | Token | Función | Lume claro | Lume oscuro |
 | --- | --- | --- | --- |
 | text.label-sm (`--ds-text-label-sm`) | Etiqueta | 13/18 · medium | 13/18 · medium |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Color en reposo | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Color en reposo | #53657A | #9C9792 |
 | color.fg.default (`--ds-color-fg-default`) | Color en hover y de la forma fuerte | #2B3847 | #F3EDE5 |
 | color.fg.brand (`--ds-color-fg-brand`) | Hover de la forma fuerte | #3E5166 | #DAE0E8 |
 | space.100 (`--ds-space-100`) | Espacio entre ícono, etiqueta y signo | 8 px | 8 px |

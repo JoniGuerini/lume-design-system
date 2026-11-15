@@ -221,7 +221,7 @@ El panel no tiene color propio: todo viene de superficie, texto y espacio.
 | text.display-sm (`--ds-text-display-sm`) | Título destacado | 40/44 · regular | 40/44 · regular |
 | text.caption (`--ds-text-caption`) | Sello | 12/16 · regular | 12/16 · regular |
 | text.body-md (`--ds-text-body-md`) | Texto de las secciones | 16/28 · regular | 16/28 · regular |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Etiqueta, sello y meta | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Etiqueta, sello y meta | #53657A | #9C9792 |
 
 ## Uso
 

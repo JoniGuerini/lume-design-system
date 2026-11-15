@@ -207,7 +207,7 @@ Everything the field consumes.
 | color.border.control (`--ds-color-border-control`) | Outline | #3E516633 | #FFFFFF21 |
 | color.border.strong (`--ds-color-border-strong`) | Outline on hover | #3E51664D | #FFFFFF29 |
 | color.border.focus (`--ds-color-border-focus`) | Focus outline and halo | #53657A | #C0CAD6 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Placeholder, icon, and hint | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Placeholder, icon, and hint | #53657A | #9C9792 |
 | color.bg.sunken (`--ds-color-bg-sunken`) | Read-only background | #E8EDF3 | #151412 |
 | color.danger.solid (`--ds-color-danger-solid`) | Invalid outline | #C13834 | #FF9087 |
 | color.danger.fg (`--ds-color-danger-fg`) | Error message | #C13834 | #FFB2AA |

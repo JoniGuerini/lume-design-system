@@ -177,7 +177,7 @@ Tudo o que a tabela consome.
 | --- | --- | --- | --- |
 | color.bg.surface (`--ds-color-bg-surface`) | Fundo e cabeçalho fixo | #FFFFFF | #24221F |
 | color.border.subtle (`--ds-color-border-subtle`) | Contorno e divisores | #3E516624 | #FFFFFF0F |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Cabeçalho e texto apagado | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Cabeçalho e texto apagado | #53657A | #9C9792 |
 | color.fg.default (`--ds-color-fg-default`) | Células | #2B3847 | #F3EDE5 |
 | color.bg.hover (`--ds-color-bg-hover`) | Hover da linha | #3E51660D | #FFFFFF0D |
 | color.bg.selected (`--ds-color-bg-selected`) | Linha selecionada | #3E516612 | #C0CAD61A |

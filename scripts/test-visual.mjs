@@ -2,15 +2,15 @@
 /**
  * Testes visuais do Lume, sem dependências.
  *
- * Abre cada página de componente num Chrome ou Edge sem janela, nos dois temas, e fotografa cada seção que mostra
- * o componente (playground, variantes, tamanhos, estados, uso…). Os estados aparecem forçados com data-state, então
+ * Abre cada página de componente e de padrão num Chrome ou Edge sem janela, nos dois temas, e fotografa cada seção
+ * que mostra o componente ou a tela (playground, variantes, tamanhos, estados, uso…). Os estados aparecem forçados com data-state, então
  * hover, foco e pressionado entram na foto sem mouse. Cada foto é comparada pixel a pixel com a de referência
  * (test/visual/referencia/); o que mudou vai para um relatório com antes, depois e as diferenças marcadas.
  *
  * Para as fotos serem sempre iguais: data fixa (9/11/2026), sorteios com semente, sem animação e sem cursor de texto.
  *
  *   npm run test:visual                       compara tudo; sai com erro se algo mudou
- *   npm run test:visual -- --only botao       só um componente (ou vários: botao,chip)
+ *   npm run test:visual -- --only botao       só um componente (ou vários: botao,chip; padrões com o prefixo: padrao-listagem)
  *   npm run test:visual -- --atualizar        aceita o estado atual como nova referência (tudo ou o --only)
  *
  * Relatório: dist/test-visual/relatorio.html. As referências valem para o computador em que foram geradas
@@ -37,6 +37,8 @@ const WIDTH = 1440;
 const THEMES = ['light', 'dark'];
 // seções só de texto e tabela: não mostram o componente
 const SKIP_SECTIONS = ['acessibilidade', 'tokens', 'api', 'teclado'];
+// nos padrões, as seções têm prefixo (dl-acessibilidade) e o código é só texto
+const SKIP_PATTERN_SECTIONS = [...SKIP_SECTIONS, 'codigo'];
 // seções que se mexem sozinhas, por timer, e não dão a mesma foto duas vezes
 const SKIP_SHOTS = ['barra-de-progresso/playground'];
 // diferença tolerada por canal (0–255) e quantos pixels podem diferir antes de contar como mudança
@@ -135,14 +137,16 @@ async function main() {
       await send('Page.navigate', { url: `${BASE}/index.html?visual=${theme}#/` });
       await sleep(2000);
       await evaluate(`(() => { const s = document.createElement('style'); s.textContent = ${JSON.stringify(FREEZE_CSS)}; document.head.append(s); return true; })()`);
-      const routes = (await evaluate(`import('/site/nav.js').then((m) => m.pages.map((p) => p.path).filter((p) => p.startsWith('/componentes/')).map((p) => p.slice(13)))`))
-        .filter((r) => !ONLY || ONLY.includes(r));
+      // componentes pelo nome (botao) e padrões com prefixo (padrao-listagem), para não se confundirem
+      const routes = (await evaluate(`import('/site/nav.js').then((m) => m.pages.map((p) => p.path).filter((p) => p.startsWith('/componentes/') || p.startsWith('/padroes/')))`))
+        .map((p) => ({ path: p, key: p.startsWith('/padroes/') ? `padrao-${p.slice(9)}` : p.slice(13) }))
+        .filter((r) => !ONLY || ONLY.includes(r.key));
 
-      for (const route of routes) {
-        await evaluate(`location.hash = '#/componentes/${route}'; new Promise((r) => setTimeout(r, 900))`);
+      for (const { path: routePath, key: route } of routes) {
+        await evaluate(`location.hash = '#${routePath}'; new Promise((r) => setTimeout(r, 900))`);
         await evaluate('document.fonts.ready.then(() => true)');
         const sections = await evaluate(`[...document.querySelectorAll('.ds-main__content section.doc-section')]
-          .filter((s) => s.id && !${JSON.stringify(SKIP_SECTIONS)}.includes(s.id) && s.querySelector('[class*="ds-"]:not(.ds-inline-code)'))
+          .filter((s) => s.id && !(${JSON.stringify(routePath.startsWith('/padroes/'))} ? ${JSON.stringify(SKIP_PATTERN_SECTIONS)}.some((k) => s.id === k || s.id.endsWith('-' + k)) : ${JSON.stringify(SKIP_SECTIONS)}.includes(s.id)) && s.querySelector('[class*="ds-"]:not(.ds-inline-code)'))
           .map((s) => s.id)`).then((ids) => ids.filter((sec) => !SKIP_SHOTS.includes(`${route}/${sec}`)));
         for (const sec of sections) {
           // rola até a seção e aumenta a janela se ela for mais alta que a tela, para caber inteira

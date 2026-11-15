@@ -124,7 +124,7 @@ Poucos e todos de texto: é isso que a mantém leve.
 | Token | Papel | Lume claro | Lume escuro |
 | --- | --- | --- | --- |
 | text.label-sm (`--ds-text-label-sm`) | Rótulo | 13/18 · medium | 13/18 · medium |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Cor em repouso | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Cor em repouso | #53657A | #9C9792 |
 | color.fg.default (`--ds-color-fg-default`) | Cor no hover e da forma forte | #2B3847 | #F3EDE5 |
 | color.fg.brand (`--ds-color-fg-brand`) | Hover da forma forte | #3E5166 | #DAE0E8 |
 | space.100 (`--ds-space-100`) | Espaço entre ícone, rótulo e sinal | 8 px | 8 px |

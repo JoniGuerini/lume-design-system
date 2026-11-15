@@ -161,7 +161,7 @@ Everything the center consumes, on top of the Popover.
 | color.bg.hover (`--ds-color-bg-hover`) | Item on hover | #3E51660D | #FFFFFF0D |
 | color.bg.muted (`--ds-color-bg-muted`) | Neutral icon background | #DAE0E8 | #3D3B38 |
 | color.fg.muted (`--ds-color-fg-muted`) | Text and read title | #46586E | #CEC8C1 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Time | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Time | #53657A | #9C9792 |
 | color.border.subtle (`--ds-color-border-subtle`) | Header line | #3E516624 | #FFFFFF0F |
 | radius.md (`--ds-radius-md`) | Item corners | 12 px | 12 px |
 

@@ -53,7 +53,7 @@ Todo lo que consume el breadcrumb.
 
 | Token | Función | Lume claro | Lume oscuro |
 | --- | --- | --- | --- |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Enlaces y separador | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Enlaces y separador | #53657A | #9C9792 |
 | color.fg.default (`--ds-color-fg-default`) | Página actual y hover | #2B3847 | #F3EDE5 |
 | text.label-md (`--ds-text-label-md`) | Texto | 14/20 · medium | 14/20 · medium |
 

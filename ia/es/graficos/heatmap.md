@@ -89,7 +89,7 @@ Dos rampas y el color de la cuadrícula. Ningún color de serie categórico entr
 | color.chart.div.7 (`--ds-color-chart-div-7`) | Divergente: extremo superior (cálido) | #B74900 | #FF945E |
 | color.chart.grid (`--ds-color-chart-grid`) | Celda vacía | #DAE0E8 | #33312E |
 | color.fg.default (`--ds-color-fg-default`) | Anillo de la celda activa | #2B3847 | #F3EDE5 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Etiquetas y leyenda de escala | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Etiquetas y leyenda de escala | #53657A | #9C9792 |
 | color.bg.raised (`--ds-color-bg-raised`) | Fondo del tooltip | #FFFFFF | #2C2A27 |
 
 ## Uso

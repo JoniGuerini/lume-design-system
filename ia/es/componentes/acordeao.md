@@ -90,7 +90,7 @@ Todo lo que consume el acordeón.
 | color.bg.surface (`--ds-color-bg-surface`) | Fondo de la tarjeta | #FFFFFF | #24221F |
 | color.fg.default (`--ds-color-fg-default`) | Título | #2B3847 | #F3EDE5 |
 | color.fg.muted (`--ds-color-fg-muted`) | Contenido | #46586E | #CEC8C1 |
-| color.fg.subtle (`--ds-color-fg-subtle`) | Flecha | #5C6C7F | #9C9792 |
+| color.fg.subtle (`--ds-color-fg-subtle`) | Flecha | #53657A | #9C9792 |
 | duration.base (`--ds-duration-base`) | Abrir y cerrar | 200ms | 200ms |
 
 ## Uso
