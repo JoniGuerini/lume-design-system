@@ -129,7 +129,7 @@ export function mount(root) {
     code: (s) => `<div class="ds-otp"><input class="ds-otp__input" id="codigo" name="codigo" aria-label="${label()}"${s.state === 'disabled' ? ' disabled' : ''}></div>
 
 <script type="module">
-  import { createOtpField } from 'https://lumeui.dev/v/1.1/lume.js';
+  import { createOtpField } from 'https://lumeui.dev/v/1.2/lume.js';
   createOtpField(document.querySelector('.ds-otp'), {
     length: ${s.length},${s.group === 'half' ? `\n    group: ${Math.floor(Number(s.length) / 2)},` : ''}${s.type === 'alpha' ? '\n    alphanumeric: true,' : ''}
     onComplete: (code) => verificar(code),

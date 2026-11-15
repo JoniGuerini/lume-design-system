@@ -15,7 +15,7 @@ En números: tamaños: 3 · formatos: Intl · atajos: 6 · rol ARIA: spinbutton.
 </div>
 
 <script type="module">
-  import { createNumberField } from 'https://lumeui.dev/v/1.1/lume.js';
+  import { createNumberField } from 'https://lumeui.dev/v/1.2/lume.js';
   createNumberField(document.querySelector('#quantidade'), {
     value: 10,
     step: 1,
@@ -94,7 +94,7 @@ Marcado de los ejemplos de esta sección:
 El formulario recibe el número puro, en un input oculto con el `name` del campo.
 
 ```html
-import { createNumberField } from 'https://lumeui.dev/v/1.1/lume.js';
+import { createNumberField } from 'https://lumeui.dev/v/1.2/lume.js';
 
 const preco = createNumberField(document.querySelector('#preco'), {
   value: 49.9,

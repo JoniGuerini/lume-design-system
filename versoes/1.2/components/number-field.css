@@ -1,0 +1,52 @@
+/*
+ * Campo numérico
+ * <div class="ds-field ds-number"><input class="ds-field__input" …></div>  (os botões − e + vêm de ds/js/number-field.js)
+ */
+.ds-field.ds-number {
+  gap: var(--ds-space-050);
+  padding-inline: 5px;
+}
+
+.ds-number > .ds-field__input {
+  width: 0;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.ds-number__btn {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--ds-radius-sm);
+  color: var(--ds-color-fg-muted);
+  transition:
+    background-color var(--ds-duration-fast) var(--ds-easing-standard),
+    color var(--ds-duration-fast) var(--ds-easing-standard);
+}
+
+.ds-number__btn:hover:not(:disabled),
+.ds-number__btn[data-state="hover"]:not(:disabled) {
+  background: var(--ds-color-bg-hover);
+  color: var(--ds-color-fg-default);
+}
+
+.ds-number__btn:disabled {
+  color: var(--ds-color-fg-disabled);
+  cursor: not-allowed;
+}
+
+.ds-field.ds-field--sm.ds-number {
+  padding-inline: 3px;
+}
+
+.ds-field--sm.ds-number .ds-number__btn {
+  width: 26px;
+  height: 26px;
+}
+
+.ds-field--lg.ds-number .ds-number__btn {
+  width: 36px;
+  height: 36px;
+}

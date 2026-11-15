@@ -40,7 +40,7 @@ export default function renderMenuDeContexto(page) {
         id: 'codigo',
         title: L('Código', 'Code', 'Código'),
         desc: L(`Com ${ic('selector')}, um único menu atende a todas as linhas; ${ic('options')} pode mudar conforme o item.`, `With ${ic('selector')}, one menu serves every row; ${ic('options')} can change by item.`, `Con ${ic('selector')}, un solo menú atiende a todas las filas; ${ic('options')} puede cambiar según el elemento.`),
-        html: codeBlock(`import { createContextMenu } from 'https://lumeui.dev/v/1.1/lume.js';
+        html: codeBlock(`import { createContextMenu } from 'https://lumeui.dev/v/1.2/lume.js';
 
 createContextMenu(document.querySelector('#arquivos'), {
   selector: '[data-arquivo]',
@@ -110,7 +110,7 @@ export function mount(root) {
 </ul>
 
 <script type="module">
-  import { createContextMenu } from 'https://lumeui.dev/v/1.1/lume.js';
+  import { createContextMenu } from 'https://lumeui.dev/v/1.2/lume.js';
   createContextMenu(document.querySelector('#arquivos'), {
     selector: '[data-arquivo]',
     options: [

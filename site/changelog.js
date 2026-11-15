@@ -8,10 +8,29 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '1.1.0';
+export const CURRENT_VERSION = '1.2.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '1.2.0',
+    date: '2026-11-15',
+    title: T('Configurações', 'Settings', 'Configuración'),
+    summary: T(
+      'Padrão novo para a tela de configurações: o que é leve vale na hora, texto espera o Salvar e o que não volta pede confirmação.',
+      'A new pattern for the settings screen: light things apply right away, text waits for Save, and what can’t be undone asks for confirmation.',
+      'Patrón nuevo para la pantalla de configuración: lo ligero vale al instante, el texto espera a Guardar y lo que no vuelve pide confirmación.',
+    ),
+    groups: [
+      {
+        name: T('Padrões', 'Patterns', 'Patrones'),
+        items: [
+          ['novo', T('Configurações: seções agrupadas por quem é afetado, ajustes que salvam na hora e perfil com barra de salvar', 'Settings: sections grouped by who’s affected, settings that save right away, and a profile with a save bar', 'Configuración: secciones agrupadas por a quién afecta, ajustes que guardan al instante y perfil con barra de guardar'), '/padroes/configuracoes'],
+          ['novo', T('Zona de perigo: excluir só depois de digitar o nome, e aviso ao sair com alterações não salvas', 'Danger zone: delete only after typing the name, and a prompt when leaving with unsaved changes', 'Zona de peligro: eliminar solo después de escribir el nombre, y aviso al salir con cambios sin guardar'), '/padroes/configuracoes'],
+        ],
+      },
+    ],
+  },
   {
     version: '1.1.0',
     date: '2026-11-15',

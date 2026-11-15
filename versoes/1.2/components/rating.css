@@ -1,0 +1,143 @@
+/*
+ * Avaliação — estrelas para dar nota ou só mostrar a média.
+ *
+ *   Para dar nota (createRating põe as estrelas, que são rádios nativos: o formulário envia o valor):
+ *   <div class="ds-rating" data-name="nota" aria-label="Sua nota"></div>
+ *
+ *   Só para mostrar (ratingHtml devolve a marcação; aceita meia estrela e qualquer decimal):
+ *   <span class="ds-rating ds-rating--readonly" role="img" aria-label="Nota 4,5 de 5">…</span>
+ *
+ *   .ds-rating--sm (16 px) · padrão (20 px) · .ds-rating--lg (28 px)
+ */
+.ds-rating {
+  --_size: var(--ds-size-icon-md);
+  --_on: var(--ds-color-brand-indicator);
+  --_off: var(--ds-color-border-default);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-025);
+  vertical-align: middle;
+}
+
+.ds-rating--sm {
+  --_size: var(--ds-size-icon-sm);
+  gap: 1px;
+}
+
+.ds-rating--lg {
+  --_size: 1.75rem;
+  gap: var(--ds-space-050);
+}
+
+.ds-rating__star {
+  position: relative;
+  display: inline-grid;
+  flex: none;
+  /* área de toque maior que o desenho; o espaço entre as estrelas também clica */
+  padding: 2px;
+  border-radius: var(--ds-radius-sm);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ds-rating--readonly .ds-rating__star {
+  padding: 0;
+  cursor: default;
+}
+
+/* o rádio fica por baixo da estrela: invisível, mas é ele que recebe o foco e as setas */
+.ds-rating__input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+
+.ds-rating__icon {
+  position: relative;
+  display: block;
+  width: var(--_size);
+  height: var(--_size);
+  color: var(--_off);
+}
+
+.ds-rating__icon svg {
+  display: block;
+  width: var(--_size);
+  height: var(--_size);
+  max-width: none;
+}
+
+/* o preenchimento é a mesma estrela, cortada na largura: 50% é meia estrela */
+.ds-rating__fill {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: var(--_fill, 0%);
+  overflow: hidden;
+  color: var(--_on);
+}
+
+.ds-rating__star[data-on] .ds-rating__fill {
+  --_fill: 100%;
+}
+
+/* com o mouse em cima, as estrelas até a do mouse acendem (mostra a nota antes de clicar) */
+.ds-rating[data-preview] .ds-rating__star:not([data-preview-on]) .ds-rating__fill {
+  --_fill: 0%;
+}
+
+.ds-rating[data-preview] .ds-rating__star[data-preview-on] .ds-rating__fill {
+  --_fill: 100%;
+}
+
+.ds-rating__star:hover .ds-rating__icon,
+.ds-rating__star[data-state="hover"] .ds-rating__icon {
+  color: var(--ds-color-border-strong);
+}
+
+.ds-rating--readonly .ds-rating__star:hover .ds-rating__icon {
+  color: var(--_off);
+}
+
+.ds-rating__star:has(.ds-rating__input:focus-visible),
+.ds-rating__star[data-state="focus"] {
+  outline: var(--ds-focus-ring-width) solid var(--ds-color-border-focus);
+  outline-offset: 0;
+}
+
+.ds-rating__star:active .ds-rating__icon,
+.ds-rating__star[data-state="pressed"] .ds-rating__icon {
+  scale: 0.9;
+}
+
+.ds-rating[aria-disabled="true"] {
+  opacity: var(--ds-opacity-disabled);
+  pointer-events: none;
+}
+
+/* número ao lado: “4,5” e, se quiser, “(128)” */
+.ds-rating__text {
+  margin-inline-start: var(--ds-space-075);
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-label-md);
+  letter-spacing: var(--ds-text-label-md-tracking);
+  font-variant-numeric: tabular-nums;
+}
+
+.ds-rating__count {
+  color: var(--ds-color-fg-muted);
+  font-weight: var(--ds-font-weight-regular);
+}
+
+.ds-rating--sm .ds-rating__text {
+  font: var(--ds-text-label-sm);
+  letter-spacing: var(--ds-text-label-sm-tracking);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ds-rating__icon {
+    transition: scale var(--ds-duration-fast) var(--ds-easing-standard), color var(--ds-duration-fast) var(--ds-easing-standard);
+  }
+}

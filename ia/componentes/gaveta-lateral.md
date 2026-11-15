@@ -9,7 +9,7 @@ Em números: lados: 3 · larguras: 360 · 480 · 640 · base: dialog · foco: pr
 ## Exemplo
 
 ```html
-import { openDrawer } from 'https://lumeui.dev/v/1.1/lume.js';
+import { openDrawer } from 'https://lumeui.dev/v/1.2/lume.js';
 
 openDrawer({
   side: 'right',
@@ -43,7 +43,7 @@ Marcação dos exemplos desta seção:
 `openDrawer` devolve uma promessa com o valor da ação escolhida, como o Modal.
 
 ```html
-import { openDrawer } from 'https://lumeui.dev/v/1.1/lume.js';
+import { openDrawer } from 'https://lumeui.dev/v/1.2/lume.js';
 
 const escolha = await openDrawer({
   side: 'right',

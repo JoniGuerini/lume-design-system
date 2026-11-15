@@ -1,0 +1,245 @@
+/* Página: Padrões · Configurações (prefixo cf-) */
+
+.cf-layout {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: var(--ds-space-400);
+  align-items: start;
+}
+
+/* ───────── Navegação das seções ───────── */
+
+.cf-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-050);
+}
+
+.cf-nav__group {
+  margin: var(--ds-space-150) 0 var(--ds-space-050);
+  padding-inline: var(--ds-space-150);
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-caption);
+}
+
+.cf-nav__group:first-child {
+  margin-top: 0;
+}
+
+.cf-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-025);
+  margin: 0;
+  padding: 0;
+}
+
+.cf-nav__item {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-100);
+  width: 100%;
+  min-height: var(--ds-size-control-compact);
+  padding: 0 var(--ds-space-150);
+  border: 0;
+  border-radius: var(--ds-radius-md);
+  background: transparent;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-label-md);
+  text-align: start;
+  cursor: pointer;
+}
+
+.cf-nav__item:hover,
+.cf-nav__item[data-state="hover"] {
+  background: var(--ds-color-bg-hover);
+  color: var(--ds-color-fg-default);
+}
+
+.cf-nav__item[aria-current="true"] {
+  background: var(--ds-color-bg-selected);
+  color: var(--ds-color-fg-default);
+}
+
+.cf-nav__item--danger .ds-icon {
+  color: var(--ds-color-danger-fg);
+}
+
+/* ───────── Seções ───────── */
+
+.cf-panel[hidden] {
+  display: none;
+}
+
+.cf-panel__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--ds-space-200);
+  margin-bottom: var(--ds-space-250);
+}
+
+.cf-panel__title {
+  margin: 0;
+  font: var(--ds-text-heading-sm);
+  letter-spacing: var(--ds-text-heading-sm-tracking);
+  outline-offset: 4px;
+}
+
+.cf-panel__title:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.cf-panel__desc {
+  margin: var(--ds-space-050) 0 0;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+/* “Salvo”: discreto, ao lado do título, some sozinho */
+.cf-saved {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: var(--ds-space-050);
+  min-height: 20px;
+  margin: 0;
+  color: var(--ds-color-success-fg);
+  font: var(--ds-text-label-sm);
+}
+
+/* ───────── Linhas de ajuste ───────── */
+
+.cf-rows,
+.cf-danger {
+  display: flex;
+  flex-direction: column;
+}
+
+.cf-row {
+  padding: var(--ds-space-200) 0;
+  border-top: 1px solid var(--ds-color-border-subtle);
+}
+
+.cf-rows > .cf-row:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.cf-row--split {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-150) var(--ds-space-300);
+}
+
+.cf-row--split > .ds-choice__text {
+  flex: 1 1 240px;
+}
+
+/* ───────── Perfil ───────── */
+
+.cf-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-250);
+  max-width: 480px;
+}
+
+.cf-form .ds-form-field__footer[hidden] {
+  display: none;
+}
+
+.cf-savebar {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-100);
+  padding-top: var(--ds-space-200);
+  border-top: 1px solid var(--ds-color-border-subtle);
+}
+
+.cf-savebar__status {
+  margin: 0 auto 0 0;
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-body-sm);
+}
+
+.cf-savebar__status[data-dirty] {
+  color: var(--ds-color-fg-default);
+}
+
+/* ───────── Zona de perigo ───────── */
+
+.cf-danger {
+  padding: 0 var(--ds-space-300);
+  border: 1px solid var(--ds-color-danger-border);
+  border-radius: var(--ds-radius-xl);
+}
+
+.cf-danger > .cf-row:first-child {
+  border-top: 0;
+}
+
+/* modal de exclusão */
+.cf-delete {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-250);
+}
+
+.cf-delete p {
+  margin: 0;
+}
+
+/* ───────── Quando salvar ───────── */
+
+.cf-decide {
+  --doc-table-cols: minmax(110px, 0.6fr) minmax(0, 0.9fr) minmax(0, 1.8fr);
+}
+
+.cf-decide__when {
+  font: var(--ds-text-body-sm);
+}
+
+.cf-decide__why {
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+/* ───────── Telas menores ───────── */
+
+@media (max-width: 899.98px) {
+  .cf-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--ds-space-250);
+  }
+
+  .cf-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    --ds-scrollbar: none;
+  }
+
+  .cf-nav__group {
+    display: none;
+  }
+
+  .cf-nav__list {
+    flex-direction: row;
+  }
+
+  .cf-nav__item {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .cf-decide {
+    --doc-table-cols: minmax(0, 1fr);
+  }
+
+  .cf-danger {
+    padding: 0 var(--ds-space-200);
+  }
+}
