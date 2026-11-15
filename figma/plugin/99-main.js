@@ -201,6 +201,19 @@ async function main(options) {
     (r.avisos.length ? L3(' Avisos: ', ' Warnings: ', ' Avisos: ') + r.avisos.join(' · ') : '');
 }
 
+/* ───────── Links do site ───────── */
+
+/** Id de cada bloco no arquivo, para o rodapé das páginas do site abrir o Figma direto no componente (site/figma-links.js). */
+function blockLinks() {
+  var map = {};
+  Object.keys(LUME.registry).sort().forEach(function (key) {
+    if (key.indexOf('block/') !== 0) return;
+    var n = live(key);
+    if (n) map[key.slice(6)] = n.id;
+  });
+  return Object.keys(map).length ? 'lume-figma-links ' + JSON.stringify(map) : '';
+}
+
 /* ───────── Entrada ───────── */
 
 if (typeof __LUME_TEST__ === 'undefined') {
@@ -219,7 +232,7 @@ if (typeof __LUME_TEST__ === 'undefined') {
       if (msg.type !== 'run') return;
       figma.clientStorage.setAsync('orbita-modes', msg.modes);
       main({ pages: msg.pages, modes: msg.modes, locale: msg.locale }).then(function (summary) {
-        figma.ui.postMessage({ type: 'done', message: summary });
+        figma.ui.postMessage({ type: 'done', message: summary, links: blockLinks() });
         figma.notify(summary, { timeout: 8000 });
       }).catch(function (err) {
         figma.ui.postMessage({ type: 'error', message: String(err && err.message ? err.message : err) });

@@ -1,6 +1,6 @@
 /**
  * Rodapé das páginas internas: a página anterior e a próxima, na ordem do menu, e uma linha com a versão,
- * a mesma página em Markdown (para IAs) e, nos componentes, a documentação no Storybook.
+ * a mesma página em Markdown (para IAs), nos componentes a documentação no Storybook e, quando a página tem bloco, o Figma.
  * O Início tem o rodapé próprio (site/pages/home.js).
  */
 import { icon } from '../ds/icons/icons.js';
@@ -8,11 +8,12 @@ import { locale, tr } from '../ds/js/i18n.js';
 import { pages } from './nav.js';
 import { CURRENT_VERSION } from './changelog.js';
 import { T } from './i18n.js';
+import { figmaUrl } from './figma-links.js';
 
 const COPY = T(
-  { label: 'Navegação entre páginas', prev: 'Anterior', next: 'Próxima', markdown: 'Esta página em Markdown', storybook: 'Ver no Storybook', external: 'abre em outra aba' },
-  { label: 'Page navigation', prev: 'Previous', next: 'Next', markdown: 'This page in Markdown', storybook: 'View in Storybook', external: 'opens in a new tab' },
-  { label: 'Navegación entre páginas', prev: 'Anterior', next: 'Siguiente', markdown: 'Esta página en Markdown', storybook: 'Ver en Storybook', external: 'se abre en otra pestaña' },
+  { label: 'Navegação entre páginas', prev: 'Anterior', next: 'Próxima', markdown: 'Esta página em Markdown', storybook: 'Ver no Storybook', figma: 'Ver no Figma', external: 'abre em outra aba' },
+  { label: 'Page navigation', prev: 'Previous', next: 'Next', markdown: 'This page in Markdown', storybook: 'View in Storybook', figma: 'View in Figma', external: 'opens in a new tab' },
+  { label: 'Navegación entre páginas', prev: 'Anterior', next: 'Siguiente', markdown: 'Esta página en Markdown', storybook: 'Ver en Storybook', figma: 'Ver en Figma', external: 'se abre en otra pestaña' },
 );
 
 // páginas que o npm run ia converte em Markdown (Novidades, Roadmap e a própria página para IAs ficam de fora)
@@ -35,6 +36,8 @@ export function pageFooterHtml(page) {
   const links = [];
   if (hasMarkdown(page.path)) links.push(`<a href="ia/${lang}${page.path.slice(1)}.md" target="_blank" rel="noopener">${icon('file-text', { size: 14 })}${c.markdown}<span class="ds-visually-hidden">, ${c.external}</span></a>`);
   if (page.path.startsWith('/componentes/')) links.push(`<a href="storybook/?path=/docs/componentes-${page.path.split('/').pop()}--documenta%C3%A7%C3%A3o" target="_blank" rel="noopener">${icon('external-link', { size: 14 })}${c.storybook}<span class="ds-visually-hidden">, ${c.external}</span></a>`);
+  const figma = figmaUrl(page.path);
+  if (figma) links.push(`<a href="${figma}" target="_blank" rel="noopener">${icon('external-link', { size: 14 })}${c.figma}<span class="ds-visually-hidden">, ${c.external}</span></a>`);
   return `<footer class="site-page-footer">
     <nav class="site-pager" aria-label="${c.label}">
       ${prev ? card(prev, 'prev') : '<span></span>'}

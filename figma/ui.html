@@ -102,6 +102,7 @@
   <div class="footer">
     <div class="actions">
       <button type="button" class="ds-btn ds-btn--primary" data-run></button>
+      <button type="button" class="ds-btn ds-btn--secondary" data-copy-links data-t="copyLinks" hidden></button>
       <button type="button" class="ds-btn ds-btn--secondary" data-cancel data-t="close"></button>
     </div>
     <p class="status" data-log aria-live="polite"></p>
@@ -124,6 +125,7 @@
       languageHint: 'Nomes, textos e descrições de tudo o que o plugin cria. Trocar e rodar de novo renomeia o que já existe.',
       close: 'Fechar', run: 'Gerar no arquivo', again: 'Gerar de novo', starting: 'Começando…',
       ready: 'Variáveis e estilos de texto são sempre atualizados.',
+      copyLinks: 'Copiar links', copied: 'Links copiados. Cole na conversa com o Claude.',
     },
     en: {
       title: 'Generate the library',
@@ -139,6 +141,7 @@
       languageHint: 'Names, text, and descriptions of everything the plugin creates. Switching and running again renames what already exists.',
       close: 'Close', run: 'Generate in file', again: 'Generate again', starting: 'Starting…',
       ready: 'Variables and text styles are always updated.',
+      copyLinks: 'Copy links', copied: 'Links copied. Paste them in the chat with Claude.',
     },
     es: {
       title: 'Generar la biblioteca',
@@ -154,6 +157,7 @@
       languageHint: 'Nombres, textos y descripciones de todo lo que crea el plugin. Cambiar y ejecutar de nuevo renombra lo que ya existe.',
       close: 'Cerrar', run: 'Generar en el archivo', again: 'Generar de nuevo', starting: 'Empezando…',
       ready: 'Las variables y los estilos de texto siempre se actualizan.',
+      copyLinks: 'Copiar enlaces', copied: 'Enlaces copiados. Pégalos en la conversación con Claude.',
     },
   };
 
@@ -242,6 +246,19 @@
     log.textContent = s().starting;
     parent.postMessage({ pluginMessage: { type: 'run', pages, modes: chosenModes(), locale: locale() } }, '*');
   });
+  // links dos blocos para o site: o iframe do plugin não tem navigator.clipboard, então vai por execCommand
+  const copyLinks = document.querySelector('[data-copy-links]');
+  let links = '';
+  copyLinks.addEventListener('click', () => {
+    const area = document.createElement('textarea');
+    area.value = links;
+    document.body.append(area);
+    area.select();
+    document.execCommand('copy');
+    area.remove();
+    log.dataset.tone = 'done';
+    log.textContent = s().copied;
+  });
   document.querySelector('[data-cancel]').addEventListener('click', () => parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*'));
   onmessage = (event) => {
     const msg = event.data.pluginMessage;
@@ -259,6 +276,9 @@
       run.disabled = false;
       ran = true;
       run.textContent = s().again;
+      links = msg.links || '';
+      copyLinks.hidden = !links;
+      fit();
     }
   };
 </script>
