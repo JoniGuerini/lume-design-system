@@ -1,4 +1,10 @@
 // Gerado por scripts/build-stories.mjs a partir de https://lumeui.dev/#/componentes/menu-de-contexto. Não edite: rode npm run stories.
+import * as page from '../../../site/pages/menu-de-contexto.js';
+import { liveStory } from '../live.js';
+
+// a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
+const INFO = { path: "/componentes/menu-de-contexto", group: '', label: "Menu de contexto" };
+
 export default {
   title: "Componentes/Camadas/Menu de contexto",
   id: "componentes-menu-de-contexto",
@@ -8,17 +14,17 @@ export default {
 export const Playground = {
   name: "Playground",
   parameters: { docs: { description: { story: "Clique com o botão direito em uma linha. Pelo teclado, dê Tab até ela e use a tecla de menu ou Shift+F10." } } },
-  render: () => "<div class=\"cd-playground__preview\" style=\"min-height:0\"><div class=\"fc-tree\"><ul class=\"fc-files\" role=\"list\">\n  <li class=\"fc-files__row\" tabindex=\"0\" data-file=\"Proposta.pdf\"><svg class=\"ds-icon\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"M14 3.5H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.5z\"></path><path d=\"M14 3.5v5h5M9 13h6M9 16.5h4\"></path></svg><span class=\"fc-files__name\">Proposta.pdf</span><span class=\"fc-files__size\">2 MB</span></li><li class=\"fc-files__row\" tabindex=\"0\" data-file=\"Contrato.pdf\"><svg class=\"ds-icon\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"M14 3.5H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.5z\"></path><path d=\"M14 3.5v5h5M9 13h6M9 16.5h4\"></path></svg><span class=\"fc-files__name\">Contrato.pdf</span><span class=\"fc-files__size\">340 KB</span></li><li class=\"fc-files__row\" tabindex=\"0\" data-file=\"Notas.txt\"><svg class=\"ds-icon\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"M14 3.5H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.5z\"></path><path d=\"M14 3.5v5h5M9 13h6M9 16.5h4\"></path></svg><span class=\"fc-files__name\">Notas.txt</span><span class=\"fc-files__size\">12 KB</span></li>\n</ul></div></div>",
+  render: () => liveStory(page, "playground", INFO),
 };
 
 export const Codigo = {
   name: "Código",
   parameters: { docs: { description: { story: "Com selector, um único menu atende a todas as linhas; options pode mudar conforme o item." } } },
-  render: () => "<div class=\"cd-code\">\n    <pre class=\"ds-code\"><code>import { createContextMenu } from 'https://lumeui.dev/v/1.7/lume.js';\n\ncreateContextMenu(document.querySelector('#arquivos'), {\n  selector: '[data-arquivo]',\n  label: 'Ações do arquivo',\n  options: [\n    { value: 'open', label: 'Abrir', icon: 'external-link' },\n    { type: 'separator' },\n    { value: 'delete', label: 'Excluir', icon: 'trash', tone: 'danger' },\n  ],\n  onSelect: (value, alvo) =&gt; agir(value, alvo),\n});</code></pre>\n    <button type=\"button\" class=\"ds-icon-btn ds-icon-btn--sm ds-icon-btn--muted cd-code__copy\" data-copy-code=\"\" aria-label=\"Copiar código\" data-ds-tooltip=\"Copiar código\"><svg class=\"ds-icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><rect x=\"8.5\" y=\"8.5\" width=\"12\" height=\"12\" rx=\"2\"></rect><path d=\"M15.5 8.5v-3a2 2 0 0 0-2-2h-8a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h3\"></path></svg></button>\n  </div>",
+  render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
   name: "Uso",
   parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
-  render: () => "<div class=\"usage-grid\">\n    <article class=\"usage-card usage-card--do\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"></circle><path d=\"m8.5 12 2.5 2.5 4.5-5\"></path></svg>Faça: atalho em listas</p><p class=\"usage-card__text\">Arquivos, linhas de tabela e cartões, em que a pessoa repete ações.</p></article><article class=\"usage-card usage-card--dont\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"></circle><path d=\"m9 9 6 6M15 9l-6 6\"></path></svg>Evite: ação escondida</p><p class=\"usage-card__text\">Se a ação só existe no botão direito, boa parte das pessoas nunca vai achá-la.</p></article><article class=\"usage-card usage-card--tip\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"M13 2.5 4.5 13.5H12l-1 8 8.5-11H12z\"></path></svg>Curto e na ordem de uso</p><p class=\"usage-card__text\">As mais comuns em cima; as destrutivas no fim, depois de um separador.</p></article>\n  </div>",
+  render: () => liveStory(page, "uso", INFO),
 };

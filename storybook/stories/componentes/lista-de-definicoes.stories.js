@@ -1,4 +1,10 @@
 // Gerado por scripts/build-stories.mjs a partir de https://lumeui.dev/#/componentes/lista-de-definicoes. Não edite: rode npm run stories.
+import * as page from '../../../site/pages/lista-de-definicoes.js';
+import { liveStory } from '../live.js';
+
+// a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
+const INFO = { path: "/componentes/lista-de-definicoes", group: '', label: "Lista de definições" };
+
 export default {
   title: "Componentes/Conteúdo/Lista de definições",
   id: "componentes-lista-de-definicoes",
@@ -8,17 +14,17 @@ export default {
 export const Playground = {
   name: "Playground",
   parameters: { docs: { description: { story: "Só HTML e CSS, sobre dl, dt e dd." } } },
-  render: () => "<div class=\"cd-playground__preview\" style=\"min-height:0\"><div class=\"fc-stage\"><dl class=\"ds-dl ds-dl--lines\"><div class=\"ds-dl__row\"><dt>Cliente</dt><dd>Ana Lima</dd></div><div class=\"ds-dl__row\"><dt>E-mail</dt><dd>ana@lume.dev</dd></div><div class=\"ds-dl__row\"><dt>Plano</dt><dd>Equipe</dd></div><div class=\"ds-dl__row\"><dt>Criado em</dt><dd>8 de novembro</dd></div></dl></div></div>",
+  render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
   name: "Variantes",
   parameters: { docs: { description: { story: "Rótulo ao lado do valor, com ou sem linhas, ou em cima, para caber em colunas." } } },
-  render: () => "<div class=\"fc-grid fc-grid--3\"><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><dl class=\"ds-dl\"><div class=\"ds-dl__row\"><dt>Cliente</dt><dd>Ana Lima</dd></div><div class=\"ds-dl__row\"><dt>E-mail</dt><dd>ana@lume.dev</dd></div><div class=\"ds-dl__row\"><dt>Plano</dt><dd>Equipe</dd></div><div class=\"ds-dl__row\"><dt>Criado em</dt><dd>8 de novembro</dd></div></dl></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">Simples<code>ds-dl</code></p><p class=\"cd-example__text\">Para o meio de um cartão.</p></div>\n  </article><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><dl class=\"ds-dl ds-dl--lines\"><div class=\"ds-dl__row\"><dt>Cliente</dt><dd>Ana Lima</dd></div><div class=\"ds-dl__row\"><dt>E-mail</dt><dd>ana@lume.dev</dd></div><div class=\"ds-dl__row\"><dt>Plano</dt><dd>Equipe</dd></div><div class=\"ds-dl__row\"><dt>Criado em</dt><dd>8 de novembro</dd></div></dl></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">Com linhas<code>ds-dl--lines</code></p><p class=\"cd-example__text\">Mais fácil de acompanhar quando a lista é longa.</p></div>\n  </article><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><dl class=\"ds-dl ds-dl--stacked\"><div class=\"ds-dl__row\"><dt>Cliente</dt><dd>Ana Lima</dd></div><div class=\"ds-dl__row\"><dt>E-mail</dt><dd>ana@lume.dev</dd></div><div class=\"ds-dl__row\"><dt>Plano</dt><dd>Equipe</dd></div><div class=\"ds-dl__row\"><dt>Criado em</dt><dd>8 de novembro</dd></div></dl></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">Em colunas<code>ds-dl--stacked</code></p><p class=\"cd-example__text\">Rótulo em cima, para resumos.</p></div>\n  </article></div>",
+  render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Uso = {
   name: "Uso",
   parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
-  render: () => "<div class=\"usage-grid\">\n    <article class=\"usage-card usage-card--do\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"></circle><path d=\"m8.5 12 2.5 2.5 4.5-5\"></path></svg>Faça: um registro só</p><p class=\"usage-card__text\">Os detalhes de um pedido, um perfil, um resumo antes de confirmar.</p></article><article class=\"usage-card usage-card--dont\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"></circle><path d=\"m9 9 6 6M15 9l-6 6\"></path></svg>Evite: comparar registros</p><p class=\"usage-card__text\">Para vários itens lado a lado, use a Tabela.</p></article><article class=\"usage-card usage-card--tip\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"M13 2.5 4.5 13.5H12l-1 8 8.5-11H12z\"></path></svg>Sem valor? Diga</p><p class=\"usage-card__text\">Mostre “Não informado” em vez de um espaço vazio.</p></article>\n  </div>",
+  render: () => liveStory(page, "uso", INFO),
 };

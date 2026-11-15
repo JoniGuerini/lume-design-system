@@ -1,4 +1,10 @@
 // Gerado por scripts/build-stories.mjs a partir de https://lumeui.dev/#/componentes/breadcrumb. Não edite: rode npm run stories.
+import * as page from '../../../site/pages/breadcrumb.js';
+import { liveStory } from '../live.js';
+
+// a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
+const INFO = { path: "/componentes/breadcrumb", group: '', label: "Breadcrumb" };
+
 export default {
   title: "Componentes/Navegação/Breadcrumb",
   id: "componentes-breadcrumb",
@@ -8,17 +14,17 @@ export default {
 export const Playground = {
   name: "Playground",
   parameters: { docs: { description: { story: "Só HTML e CSS. O último item é a página atual, sem link." } } },
-  render: () => "<div class=\"cd-playground__preview\" style=\"min-height:0\"><nav class=\"ds-breadcrumb\" aria-label=\"Você está em\"><ol>\n  <li><a href=\"#/componentes/breadcrumb\" data-inert=\"\">Início</a></li><li><svg class=\"ds-icon\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"></path></svg><a href=\"#/componentes/breadcrumb\" data-inert=\"\">Projetos</a></li><li><svg class=\"ds-icon\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"></path></svg><span aria-current=\"page\">Lume</span></li>\n</ol></nav></div>",
+  render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
   name: "Variantes",
   parameters: { docs: { description: { story: "Em telas estreitas, só a página atual aparece, e o título da página já situa a pessoa." } } },
-  render: () => "<div class=\"fc-grid fc-grid--2\"><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><nav class=\"ds-breadcrumb\" aria-label=\"Você está em\"><ol>\n  <li><a href=\"#/componentes/breadcrumb\" data-inert=\"\">Início</a></li><li><svg class=\"ds-icon\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"></path></svg><span aria-current=\"page\">Projetos</span></li>\n</ol></nav></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">Dois níveis<code>ol</code></p><p class=\"cd-example__text\">O mínimo que faz sentido.</p></div>\n  </article><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><nav class=\"ds-breadcrumb\" aria-label=\"Você está em\"><ol>\n  <li><a href=\"#/componentes/breadcrumb\" data-inert=\"\">Início</a></li><li><svg class=\"ds-icon\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"></path></svg><a href=\"#/componentes/breadcrumb\" data-inert=\"\">Projetos</a></li><li><svg class=\"ds-icon\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"></path></svg><a href=\"#/componentes/breadcrumb\" data-inert=\"\">Lume</a></li><li><svg class=\"ds-icon\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"></path></svg><span aria-current=\"page\">Configurações</span></li>\n</ol></nav></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">Vários níveis<code>ol</code></p><p class=\"cd-example__text\">Cada nível de cima é um link.</p></div>\n  </article></div>",
+  render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Uso = {
   name: "Uso",
   parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
-  render: () => "<div class=\"usage-grid\">\n    <article class=\"usage-card usage-card--do\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"></circle><path d=\"m8.5 12 2.5 2.5 4.5-5\"></path></svg>Faça: conteúdo em níveis</p><p class=\"usage-card__text\">Quando a pessoa pode chegar fundo e querer subir um nível.</p></article><article class=\"usage-card usage-card--dont\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"></circle><path d=\"m9 9 6 6M15 9l-6 6\"></path></svg>Evite: fluxos em etapas</p><p class=\"usage-card__text\">Para um cadastro em partes, o certo é o Stepper.</p></article><article class=\"usage-card usage-card--tip\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"M13 2.5 4.5 13.5H12l-1 8 8.5-11H12z\"></path></svg>Mostra a estrutura</p><p class=\"usage-card__text\">É o lugar na hierarquia, não o histórico do que a pessoa visitou.</p></article>\n  </div>",
+  render: () => liveStory(page, "uso", INFO),
 };

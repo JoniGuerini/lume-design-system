@@ -1,4 +1,10 @@
 // Gerado por scripts/build-stories.mjs a partir de https://lumeui.dev/#/componentes/barra-de-progresso. Não edite: rode npm run stories.
+import * as page from '../../../site/pages/barra-de-progresso.js';
+import { liveStory } from '../live.js';
+
+// a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
+const INFO = { path: "/componentes/barra-de-progresso", group: '', label: "Barra de progresso" };
+
 export default {
   title: "Componentes/Feedback/Barra de progresso",
   id: "componentes-barra-de-progresso",
@@ -8,17 +14,17 @@ export default {
 export const Playground = {
   name: "Playground",
   parameters: { docs: { description: { story: "Só CSS, sobre o progress nativo. Sem value, a barra fica indeterminada." } } },
-  render: () => "<div class=\"cd-playground__preview\" style=\"min-height:0\"><div class=\"fc-stage\"><div class=\"ds-progress-field\">\n    <div class=\"ds-progress-field__head\"><span id=\"pb-5\">Enviando arquivos</span><span class=\"ds-progress-field__value\" data-value=\"\">7%</span></div>\n    <progress class=\"ds-progress\" aria-labelledby=\"pb-5\" value=\"7\" max=\"100\"></progress>\n  </div></div></div>",
+  render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
   name: "Variantes",
   parameters: { docs: { description: { story: "Use o tom para o resultado, não para o meio do caminho." } } },
-  render: () => "<div class=\"fc-grid fc-grid--2\"><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><div class=\"ds-progress-field\">\n    <div class=\"ds-progress-field__head\"><span id=\"pb-1\">Enviando arquivos</span><span class=\"ds-progress-field__value\" data-value=\"\">62%</span></div>\n    <progress class=\"ds-progress\" aria-labelledby=\"pb-1\" value=\"62\" max=\"100\"></progress>\n  </div></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">Determinada<code>value · max</code></p><p class=\"cd-example__text\">Quando dá para medir, sempre mostre o número.</p></div>\n  </article><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><div class=\"ds-progress-field\">\n    <div class=\"ds-progress-field__head\"><span id=\"pb-2\">Preparando</span></div>\n    <progress class=\"ds-progress\" aria-labelledby=\"pb-2\"></progress>\n  </div></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">Indeterminada<code>sem value</code></p><p class=\"cd-example__text\">Para quando não há como saber quanto falta.</p></div>\n  </article><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><div class=\"ds-progress-field\">\n    <div class=\"ds-progress-field__head\"><span id=\"pb-3\">Enviado</span><span class=\"ds-progress-field__value\" data-value=\"\">100%</span></div>\n    <progress class=\"ds-progress ds-progress--success\" aria-labelledby=\"pb-3\" value=\"100\" max=\"100\"></progress>\n  </div></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">Concluída<code>ds-progress--success</code></p><p class=\"cd-example__text\">Junto com um texto que diz que terminou.</p></div>\n  </article><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><div class=\"ds-progress-field\">\n    <div class=\"ds-progress-field__head\"><span id=\"pb-4\">Falha no envio</span><span class=\"ds-progress-field__value\" data-value=\"\">38%</span></div>\n    <progress class=\"ds-progress ds-progress--danger\" aria-labelledby=\"pb-4\" value=\"38\" max=\"100\"></progress>\n  </div></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">Com erro<code>ds-progress--danger</code></p><p class=\"cd-example__text\">Mostra onde parou; o texto diz o motivo.</p></div>\n  </article></div>",
+  render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Uso = {
   name: "Uso",
   parameters: { docs: { description: { story: "Barra, spinner ou medidor?" } } },
-  render: () => "<div class=\"usage-grid\">\n    <article class=\"usage-card usage-card--do\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"></circle><path d=\"m8.5 12 2.5 2.5 4.5-5\"></path></svg>Faça: tarefas com mais de 10 segundos</p><p class=\"usage-card__text\">Envios e importações, em que saber quanto falta acalma.</p></article><article class=\"usage-card usage-card--dont\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"></circle><path d=\"m9 9 6 6M15 9l-6 6\"></path></svg>Evite: medir o que não é tarefa</p><p class=\"usage-card__text\">Espaço usado ou meta do mês são medidas: use o Medidor, em Gráficos.</p></article><article class=\"usage-card usage-card--tip\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"M13 2.5 4.5 13.5H12l-1 8 8.5-11H12z\"></path></svg>Espera curta? Spinner</p><p class=\"usage-card__text\">Abaixo de 10 segundos, um Spinner basta.</p></article>\n  </div>",
+  render: () => liveStory(page, "uso", INFO),
 };

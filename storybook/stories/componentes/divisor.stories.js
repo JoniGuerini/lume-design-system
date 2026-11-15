@@ -1,4 +1,10 @@
 // Gerado por scripts/build-stories.mjs a partir de https://lumeui.dev/#/componentes/divisor. Não edite: rode npm run stories.
+import * as page from '../../../site/pages/divisor.js';
+import { liveStory } from '../live.js';
+
+// a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
+const INFO = { path: "/componentes/divisor", group: '', label: "Divisor" };
+
 export default {
   title: "Componentes/Conteúdo/Divisor",
   id: "componentes-divisor",
@@ -8,23 +14,23 @@ export default {
 export const Playground = {
   name: "Playground",
   parameters: { docs: { description: { story: "Só CSS. Na horizontal, o hr nativo já é um separador para o leitor de tela." } } },
-  render: () => "<div class=\"cd-playground__preview\" style=\"min-height:0\"><div class=\"fc-stage dv-play\"><p class=\"dv-play__text\">Fundamentos</p><hr class=\"ds-divider\"><p class=\"dv-play__text\">Componentes</p></div></div>",
+  render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
   name: "Variantes",
   parameters: { docs: { description: { story: "A linha é sempre a mesma; muda o que ela separa." } } },
-  render: () => "<div class=\"fc-grid fc-grid--2\"><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><div class=\"dv-card\">\n  <p class=\"dv-card__title\">Cores</p>\n  <p class=\"dv-card__text\">Paletas, papéis e contraste medido nos dois temas.</p>\n  <hr class=\"ds-divider\">\n  <p class=\"dv-card__title\">Tipografia</p>\n  <p class=\"dv-card__text\">Geist Serif nos títulos, Geist Sans no texto.</p>\n</div></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">Horizontal<code>ds-divider</code></p><p class=\"cd-example__text\">Entre grupos de um card ou de uma lista, quando o espaço sozinho não basta.</p></div>\n  </article><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><div class=\"dv-meta\">\n  <span>Lume 0.34</span><span class=\"ds-divider ds-divider--vertical\" role=\"separator\" aria-orientation=\"vertical\"></span><span>52 componentes</span><span class=\"ds-divider ds-divider--vertical\" role=\"separator\" aria-orientation=\"vertical\"></span><span>3 idiomas</span>\n</div></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">Vertical<code>ds-divider--vertical</code></p><p class=\"cd-example__text\">Entre itens de uma linha: metadados, ações de uma barra. Ocupa a altura da linha.</p></div>\n  </article><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><div class=\"dv-list\">\n  <p class=\"dv-list__item\"><strong>0.34</strong> Divisor, link e progresso circular</p>\n  <div class=\"ds-divider ds-divider--label ds-divider--start\"><span>Versões anteriores</span></div>\n  <p class=\"dv-list__item\"><strong>0.33</strong> Avaliação e barra de ferramentas</p>\n  <p class=\"dv-list__item\"><strong>0.32</strong> Painéis redimensionáveis</p>\n</div></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">Com rótulo no começo<code>ds-divider--label · --start</code></p><p class=\"cd-example__text\">Abre um grupo dentro de uma lista, como um título pequeno.</p></div>\n  </article><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><div class=\"dv-list\">\n  <p class=\"dv-list__item\"><strong>Carregar</strong> lumeui.dev/v/1.7/lume.css</p>\n  <div class=\"ds-divider ds-divider--label\"><span>ou</span></div>\n  <p class=\"dv-list__item\"><strong>Baixar</strong> lume-1.7.zip</p>\n</div></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">Com rótulo no meio<code>ds-divider--label</code></p><p class=\"cd-example__text\">Entre duas alternativas. Uma palavra curta basta.</p></div>\n  </article><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><div class=\"dv-fade\"><hr class=\"ds-divider ds-divider--fade\"></div></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">Esmaecido<code>ds-divider--fade</code></p><p class=\"cd-example__text\">Some nas pontas. É o divisor da sidebar, entre a navegação e o rodapé.</p></div>\n  </article></div>",
+  render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Codigo = {
   name: "Código",
   parameters: { docs: { description: { story: "Escolha o elemento pelo que ele significa: hr separa, o rótulo é texto." } } },
-  render: () => "<div class=\"cd-code\">\n    <pre class=\"ds-code\"><code>&lt;!-- horizontal --&gt;\n&lt;hr class=\"ds-divider\"&gt;\n\n&lt;!-- vertical, dentro de um flex --&gt;\n&lt;span class=\"ds-divider ds-divider--vertical\" role=\"separator\" aria-orientation=\"vertical\"&gt;&lt;/span&gt;\n\n&lt;!-- com rótulo --&gt;\n&lt;div class=\"ds-divider ds-divider--label\"&gt;&lt;span&gt;ou&lt;/span&gt;&lt;/div&gt;\n&lt;div class=\"ds-divider ds-divider--label ds-divider--start\"&gt;&lt;span&gt;Versões anteriores&lt;/span&gt;&lt;/div&gt;</code></pre>\n    <button type=\"button\" class=\"ds-icon-btn ds-icon-btn--sm ds-icon-btn--muted cd-code__copy\" data-copy-code=\"\" aria-label=\"Copiar código\" data-ds-tooltip=\"Copiar código\"><svg class=\"ds-icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><rect x=\"8.5\" y=\"8.5\" width=\"12\" height=\"12\" rx=\"2\"></rect><path d=\"M15.5 8.5v-3a2 2 0 0 0-2-2h-8a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h3\"></path></svg></button>\n  </div>",
+  render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
   name: "Uso",
   parameters: { docs: { description: { story: "Menos divisores, mais espaço." } } },
-  render: () => "<div class=\"usage-grid\">\n    <article class=\"usage-card usage-card--do\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"></circle><path d=\"m8.5 12 2.5 2.5 4.5-5\"></path></svg>Faça: separe o que é diferente</p><p class=\"usage-card__text\">Um divisor entre dois assuntos ajuda; entre itens iguais de uma lista, o espaço já basta.</p></article><article class=\"usage-card usage-card--dont\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"></circle><path d=\"m9 9 6 6M15 9l-6 6\"></path></svg>Evite: divisor entre todo par</p><p class=\"usage-card__text\">Linhas demais viram grade e pesam a tela. Para linhas de dados, use a Tabela.</p></article><article class=\"usage-card usage-card--tip\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"M13 2.5 4.5 13.5H12l-1 8 8.5-11H12z\"></path></svg>Rótulo curto</p><p class=\"usage-card__text\">Uma ou duas palavras. Se o rótulo precisa de mais, é um título de seção.</p></article>\n  </div>",
+  render: () => liveStory(page, "uso", INFO),
 };

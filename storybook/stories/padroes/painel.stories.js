@@ -1,6 +1,6 @@
 // Escrito à mão: o exemplo ao vivo de https://lumeui.dev/#/padroes/painel, com o JavaScript da própria página.
 import * as page from '../../../site/pages/padroes-painel.js';
-import { patternStory } from './live.js';
+import { patternStory } from '../live.js';
 
 export default {
   title: "Padrões/Painel de indicadores",

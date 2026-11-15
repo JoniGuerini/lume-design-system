@@ -1,4 +1,10 @@
 // Gerado por scripts/build-stories.mjs a partir de https://lumeui.dev/#/componentes/popover. Não edite: rode npm run stories.
+import * as page from '../../../site/pages/popover.js';
+import { liveStory } from '../live.js';
+
+// a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
+const INFO = { path: "/componentes/popover", group: '', label: "Popover" };
+
 export default {
   title: "Componentes/Camadas/Popover",
   id: "componentes-popover",
@@ -8,23 +14,23 @@ export default {
 export const Playground = {
   name: "Playground",
   parameters: { docs: { description: { story: "Se não couber no lado escolhido, ele abre no oposto." } } },
-  render: () => "<div class=\"cd-playground__preview\" style=\"min-height:0\"><button type=\"button\" class=\"ds-btn ds-btn--secondary\" data-play=\"\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"ds-popover-1\">Abrir popover</button></div>",
+  render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
   name: "Variantes",
   parameters: { docs: { description: { story: "Pode ser só um texto, ter título e botão de fechar, ou levar controles." } } },
-  render: () => "<div class=\"fc-grid fc-grid--3\"><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><button type=\"button\" class=\"ds-icon-btn ds-icon-btn--outline\" data-demo=\"text\" aria-label=\"O que é isso?\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"ds-popover-2\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"></circle><path d=\"M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.3\"></path><path d=\"M12 17h.01\"></path></svg></button></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">Só texto<code>content</code></p><p class=\"cd-example__text\">Uma explicação maior do que caberia num tooltip.</p></div>\n  </article><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><button type=\"button\" class=\"ds-btn ds-btn--secondary\" data-demo=\"title\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"ds-popover-3\">Detalhes</button></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">Com título<code>title</code></p><p class=\"cd-example__text\">O título dá nome ao painel e traz o botão de fechar.</p></div>\n  </article><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><button type=\"button\" class=\"ds-btn ds-btn--secondary\" data-demo=\"form\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"ds-popover-4\"><svg class=\"ds-icon\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7\"></path><path d=\"M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7\"></path></svg>Compartilhar</button></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">Com controles<code>Element</code></p><p class=\"cd-example__text\">Ao abrir, o foco vai para o primeiro controle.</p></div>\n  </article></div>",
+  render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Codigo = {
   name: "Código",
   parameters: { docs: { description: { story: "Com data-popover-close, um botão de dentro também fecha o painel." } } },
-  render: () => "<div class=\"cd-code\">\n    <pre class=\"ds-code\"><code>import { createPopover } from 'https://lumeui.dev/v/1.7/lume.js';\n\nconst popover = createPopover(document.querySelector('#detalhes'), {\n  title: 'Detalhes',\n  content: '&lt;p&gt;Conteúdo livre, que fica aberto até a pessoa sair.&lt;/p&gt;',\n  placement: 'bottom',\n  align: 'start',\n});</code></pre>\n    <button type=\"button\" class=\"ds-icon-btn ds-icon-btn--sm ds-icon-btn--muted cd-code__copy\" data-copy-code=\"\" aria-label=\"Copiar código\" data-ds-tooltip=\"Copiar código\"><svg class=\"ds-icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><rect x=\"8.5\" y=\"8.5\" width=\"12\" height=\"12\" rx=\"2\"></rect><path d=\"M15.5 8.5v-3a2 2 0 0 0-2-2h-8a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h3\"></path></svg></button>\n  </div>",
+  render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
   name: "Uso",
   parameters: { docs: { description: { story: "Qual camada escolher." } } },
-  render: () => "<div class=\"usage-grid\">\n    <article class=\"usage-card usage-card--do\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"></circle><path d=\"m8.5 12 2.5 2.5 4.5-5\"></path></svg>Faça: conteúdo curto sob demanda</p><p class=\"usage-card__text\">Um detalhe, um link para copiar ou um filtro rápido.</p></article><article class=\"usage-card usage-card--dont\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"></circle><path d=\"m9 9 6 6M15 9l-6 6\"></path></svg>Evite: tarefas longas</p><p class=\"usage-card__text\">Para um formulário inteiro, use a Gaveta lateral ou o Modal.</p></article><article class=\"usage-card usage-card--tip\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"M13 2.5 4.5 13.5H12l-1 8 8.5-11H12z\"></path></svg>Dica só de passar o mouse?</p><p class=\"usage-card__text\">Se não precisa de clique e cabe numa frase, é Tooltip.</p></article>\n  </div>",
+  render: () => liveStory(page, "uso", INFO),
 };

@@ -1,4 +1,10 @@
 // Gerado por scripts/build-stories.mjs a partir de https://lumeui.dev/#/componentes/gaveta-lateral. Não edite: rode npm run stories.
+import * as page from '../../../site/pages/gaveta-lateral.js';
+import { liveStory } from '../live.js';
+
+// a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
+const INFO = { path: "/componentes/gaveta-lateral", group: '', label: "Gaveta lateral" };
+
 export default {
   title: "Componentes/Camadas/Gaveta lateral",
   id: "componentes-gaveta-lateral",
@@ -8,23 +14,23 @@ export default {
 export const Playground = {
   name: "Playground",
   parameters: { docs: { description: { story: "Abra e feche com o Esc, clicando fora ou pelos botões." } } },
-  render: () => "<div class=\"cd-playground__preview\" style=\"min-height:0\"><button type=\"button\" class=\"ds-btn ds-btn--secondary\" data-play=\"\">Abrir gaveta</button></div>",
+  render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
   name: "Variantes",
   parameters: { docs: { description: { story: "A direita é o padrão. A de baixo funciona bem para escolhas rápidas." } } },
-  render: () => "<div class=\"fc-grid fc-grid--3\"><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><button type=\"button\" class=\"ds-btn ds-btn--secondary\" data-open=\"right\"><svg class=\"ds-icon\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><rect x=\"3.5\" y=\"4.5\" width=\"17\" height=\"15\" rx=\"3\"></rect><path d=\"M9.5 4.5v15\"></path></svg>Abrir</button></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">À direita<code>side: 'right'</code></p><p class=\"cd-example__text\">Para detalhes de um item de uma lista.</p></div>\n  </article><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><button type=\"button\" class=\"ds-btn ds-btn--secondary\" data-open=\"left\"><svg class=\"ds-icon\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"M4 5h16l-6 7.5V19l-4 1.5v-8z\"></path></svg>Abrir</button></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">À esquerda<code>side: 'left'</code></p><p class=\"cd-example__text\">Para filtros ou navegação extra.</p></div>\n  </article><article class=\"cd-example\">\n    <div class=\"cd-example__preview\"><div class=\"fc-preview\"><button type=\"button\" class=\"ds-btn ds-btn--secondary\" data-open=\"bottom\"><svg class=\"ds-icon\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><g fill=\"currentColor\"><circle cx=\"6\" cy=\"12\" r=\"0.75\"></circle><circle cx=\"12\" cy=\"12\" r=\"0.75\"></circle><circle cx=\"18\" cy=\"12\" r=\"0.75\"></circle></g></svg>Abrir</button></div></div>\n    <div class=\"cd-example__body\"><p class=\"cd-example__name\">Embaixo<code>side: 'bottom'</code></p><p class=\"cd-example__text\">Para escolhas rápidas, sobretudo no celular.</p></div>\n  </article></div>",
+  render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Codigo = {
   name: "Código",
   parameters: { docs: { description: { story: "openDrawer devolve uma promessa com o valor da ação escolhida, como o Modal." } } },
-  render: () => "<div class=\"cd-code\">\n    <pre class=\"ds-code\"><code>import { openDrawer } from 'https://lumeui.dev/v/1.7/lume.js';\n\nconst escolha = await openDrawer({\n  side: 'right',\n  eyebrow: 'Pedido',\n  title: '1042',\n  body: detalhes,\n  actions: [\n    { label: 'Fechar', value: 'close' },\n    { label: 'Aprovar', value: 'approve', variant: 'primary' },\n  ],\n});</code></pre>\n    <button type=\"button\" class=\"ds-icon-btn ds-icon-btn--sm ds-icon-btn--muted cd-code__copy\" data-copy-code=\"\" aria-label=\"Copiar código\" data-ds-tooltip=\"Copiar código\"><svg class=\"ds-icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><rect x=\"8.5\" y=\"8.5\" width=\"12\" height=\"12\" rx=\"2\"></rect><path d=\"M15.5 8.5v-3a2 2 0 0 0-2-2h-8a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h3\"></path></svg></button>\n  </div>",
+  render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
   name: "Uso",
   parameters: { docs: { description: { story: "Gaveta ou Modal?" } } },
-  render: () => "<div class=\"usage-grid\">\n    <article class=\"usage-card usage-card--do\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"></circle><path d=\"m8.5 12 2.5 2.5 4.5-5\"></path></svg>Faça: manter o contexto</p><p class=\"usage-card__text\">Abrir o detalhe de uma linha e ainda ver a lista atrás.</p></article><article class=\"usage-card usage-card--dont\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"></circle><path d=\"m9 9 6 6M15 9l-6 6\"></path></svg>Evite: decisões rápidas</p><p class=\"usage-card__text\">Para “Excluir este projeto?”, o Modal é direto e centrado.</p></article><article class=\"usage-card usage-card--tip\"><p class=\"usage-card__head\"><svg class=\"ds-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"M13 2.5 4.5 13.5H12l-1 8 8.5-11H12z\"></path></svg>Uma de cada vez</p><p class=\"usage-card__text\">Gaveta sobre gaveta confunde. Troque o conteúdo em vez de empilhar.</p></article>\n  </div>",
+  render: () => liveStory(page, "uso", INFO),
 };

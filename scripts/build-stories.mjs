@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
  * Gera as histórias do Storybook (storybook/stories/componentes/*.stories.js) a partir das páginas reais do site:
- * abre cada página de componente num Chrome sem janela e leva cada seção de exemplos para uma história,
- * com o mesmo arranjo da página (o CSS das páginas entra no Storybook pelo preview-head.html, também gerado aqui).
+ * abre cada página de componente num Chrome sem janela e leva cada seção de exemplos para uma história
+ * ao vivo (importa a página e liga o JavaScript dela, por storybook/stories/live.js), com o mesmo arranjo da página (o CSS das páginas entra no Storybook pelo preview-head.html, também gerado aqui).
  *
  * Uso: npm run stories   (depois: cd storybook && npm run storybook)
  */
@@ -86,7 +86,7 @@ async function main() {
     await evaluate(`localStorage.setItem('ds-locale', 'pt-BR'); localStorage.setItem('ds-theme', 'light'); true`);
     await send('Page.navigate', { url: `${BASE}/index.html?stories=1#/` });
     await new Promise((r) => setTimeout(r, 2500));
-    const pages = await evaluate(`import('/site/nav.js').then((m) => { const g = m.navigation.find((x) => x.id === 'componentes'); return g.items.map((p) => ({ path: p.path, label: p.label, section: g.sectionLabel(p.section) })); })`);
+    const pages = await evaluate(`import('/site/nav.js').then((m) => { const g = m.navigation.find((x) => x.id === 'componentes'); return g.items.map((p) => ({ path: p.path, label: p.label, section: g.sectionLabel(p.section), file: String(p.load).match(/pages.([a-z0-9-]+).js/)?.[1] })); })`);
 
     // índice da Introdução: seções do menu Componentes e cada componente, nos três idiomas
     const indice = await evaluate(`Promise.all([import('/site/nav.js'), import('/ds/js/i18n.js')]).then(([nav, i18n]) => {
@@ -122,12 +122,18 @@ async function main() {
       const stories = sections.map((s) => `export const ${ident(s.id)} = {
   name: ${JSON.stringify(s.name)},
   parameters: { docs: { description: { story: ${JSON.stringify(s.desc)} } } },
-  render: () => ${JSON.stringify(s.html)},
+  render: () => liveStory(page, ${JSON.stringify(s.id)}, INFO),
 };`).join('\n\n');
       // histórias com controles, escritas à mão em storybook/stories/extras/<slug>.js, entram primeiro
       const extraFile = path.join(ROOT, 'storybook', 'stories', 'extras', `${slug}.js`);
       const extras = existsSync(extraFile) ? `${(await readFile(extraFile, 'utf8')).trim()}\n\n` : '';
       const file = `// Gerado por scripts/build-stories.mjs a partir de https://lumeui.dev/#${p.path}. Não edite: rode npm run stories.
+import * as page from '../../../site/pages/${p.file}.js';
+import { liveStory } from '../live.js';
+
+// a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
+const INFO = { path: ${JSON.stringify(p.path)}, group: '', label: ${JSON.stringify(p.label)} };
+
 export default {
   title: ${JSON.stringify(`Componentes/${p.section}/${p.label}`)},
   id: ${JSON.stringify(`componentes-${slug}`)},

@@ -1,11 +1,11 @@
 /**
- * Mostra o exemplo ao vivo de uma página de padrão do site (site/pages/padroes-*.js) numa história:
+ * Mostra uma seção de uma página do site (componentes e padrões, site/pages/*.js) numa história, ao vivo:
  * desenha a página inteira, esconde o que não é o exemplo e liga o JavaScript da página depois que
  * o elemento entra na tela (os gráficos medem a largura). Escrito à mão; o site continua a fonte.
  */
 const live = new Set();
 
-export function patternStory(page, sectionId) {
+export function patternStory(page, sectionId, info = { group: '', label: '' }) {
   // desliga o que já saiu da tela (troca de história ou de idioma), para não deixar ouvintes para trás
   for (const item of live) {
     if (!item.el.isConnected) {
@@ -15,13 +15,14 @@ export function patternStory(page, sectionId) {
   }
   const el = document.createElement('div');
   el.className = 'lume-story lume-pattern';
-  el.innerHTML = page.default({ group: '', label: '' });
+  el.innerHTML = page.default(info);
   // sem a navegação da página: ela acompanha a rolagem do painel principal do site, que aqui não existe
   el.querySelector('.doc-nav')?.remove();
   for (const node of el.querySelectorAll('.doc-header, section.doc-section')) {
     if (node.id !== sectionId) node.hidden = true;
   }
   el.querySelector(`#${sectionId} > .doc-section__header`)?.setAttribute('hidden', '');
+  el.querySelector(`#${sectionId} > header`)?.setAttribute('hidden', '');
   const item = { el, cleanup: null };
   live.add(item);
   let tries = 0;
@@ -33,3 +34,6 @@ export function patternStory(page, sectionId) {
   requestAnimationFrame(start);
   return el;
 }
+
+// componentes usam o mesmo caminho: a seção do site, com o JavaScript da página ligado
+export const liveStory = patternStory;
