@@ -246,7 +246,7 @@ return { parte: 'arrumação', pagina: page.name, blocos: built.map(function (b)
 /* ───────── Montagem ───────── */
 
 const { default: data } = await import(pathToFileURL(path.join(ROOT, 'ds', 'tokens.js')).href);
-const { figmaVariables } = await import(pathToFileURL(path.join(ROOT, 'ds', 'js', 'token-export.js')).href);
+const { figmaVariables } = await import(pathToFileURL(path.join(ROOT, 'scripts', 'token-export.mjs')).href);
 globalThis.HTMLElement ??= class {};
 globalThis.customElements ??= { define() {}, get() {} };
 const iconsMod = await import(pathToFileURL(path.join(ROOT, 'ds', 'icons', 'icons.js')).href);

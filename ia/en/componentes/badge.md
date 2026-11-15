@@ -92,9 +92,9 @@ A badge goes with something — a row, a title, an item. It’s never alone on t
 
 A list or table row — Each item’s status, always in the same column.
 
-Figma integration — Beta
+Rich text editor — Beta
 
-Syncs tokens and components with the library.
+Bold, lists, and links, with Markdown shortcuts.
 
 Next to a title — Qualifies what’s written: beta, in testing.
 

@@ -91,7 +91,7 @@ function Stage({ theme, t }) {
         </div>
         <div className="li-stage__row">
           <button type="button" className="ds-btn ds-btn--primary ds-btn--sm" tabIndex={-1}>{t('Ver componentes', 'See components', 'Ver componentes')}</button>
-          <button type="button" className="ds-btn ds-btn--secondary ds-btn--sm" tabIndex={-1}>Figma</button>
+          <button type="button" className="ds-btn ds-btn--secondary ds-btn--sm" tabIndex={-1}>{t('Novidades', 'What’s new', 'Novedades')}</button>
         </div>
       </div>
     </div>

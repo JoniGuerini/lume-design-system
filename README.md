@@ -12,7 +12,7 @@ npm run dev
 
 Abre em http://localhost:5173. O servidor gera os tokens ao iniciar e de novo sempre que um arquivo em `tokens/` muda.
 
-Para só gerar os tokens: `npm run tokens`. Para exportar para o Figma e outras ferramentas: `npm run tokens:export` (gera `dist/tokens/`; veja Recursos › Tokens para Figma).
+Para só gerar os tokens: `npm run tokens`. Para exportar para o Figma e outras ferramentas: `npm run tokens:export` (gera `dist/tokens/`; ferramenta interna, não aparece no site).
 
 Para publicar: `npm run build` gera os tokens, roda o teste do plugin do Figma e monta em `dist/site/` só o site (`index.html`, `ds/`, `site/`, o favicon e a documentação para IAs), mais o pacote: `ds/lume.css` e cada versão em `v/<linha>/`, com zip. As linhas anteriores ficam em `versoes/`. Licença MIT (`LICENSE`). Storybook: `npm run stories` gera as histórias e `npm run storybook` abre (as dependências ficam só em `storybook/`). O `vercel.json` já aponta o Vercel para esse comando e essa pasta.
 
@@ -41,6 +41,7 @@ scripts/
   build-figma-plugin.mjs  figma/plugin/*.js + tokens + ícones → dist/figma-plugin/
   test-figma-plugin.mjs   roda o plugin em figma-mock.mjs (imitação da API) e gera a prévia
   export-tokens.mjs  tokens → dist/tokens/ (variáveis do Figma, plugin, DTCG, JSON plano, CSS)
+  token-export.mjs   os conversores que export-tokens e o plugin do Figma usam
   build-site.mjs     só o site → dist/site/ (o que o Vercel publica)
   serve.mjs          servidor de desenvolvimento
 ds/                  ← o design system em si

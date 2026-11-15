@@ -8,7 +8,7 @@ Lume es un design system en HTML, CSS y JavaScript nativos, sin dependencias. Re
 
 1. **Usa solo lo que está documentado.** Toda clase `ds-*`, todo atributo `data-*` y toda función de JavaScript que uses debe aparecer en un archivo de esta documentación. No inventes clases, variantes, tamaños ni propiedades.
 2. **Íconos solo de la lista.** Usa `<ds-icon name="…">` con un nombre de https://lumeui.dev/ia/es/iconos.md. Si ninguno sirve, elige el más cercano de la lista y avísale a la persona. Nunca dibujes un SVG propio en su lugar.
-3. **Color, espacio, radio y tipografía solo por token.** Usa `var(--ds-…)`, nunca un valor suelto como `#3e5166` o `13px`. Los tokens están en https://lumeui.dev/ia/es/recursos/tokens.md y en cada archivo de componente, en la sección "Tokens usados".
+3. **Color, espacio, radio y tipografía solo por token.** Usa `var(--ds-…)`, nunca un valor suelto como `#3e5166` o `13px`. Los tokens están en https://lumeui.dev/ia/es/fundamentos/cores.md (y en las otras páginas de Fundamentos) y en cada archivo de componente, en la sección "Tokens usados".
 4. **Componente antes que código propio.** Si existe un componente para la necesidad, úsalo, aunque se pueda hacer a mano.
 5. **Ante la duda, pregunta o avisa.** Si la documentación no cubre un caso, dile a la persona qué faltó y cuál fue la opción más cercana. No llenes el hueco con algo que solo parezca de Lume.
 6. **Sigue las secciones "Uso" y "Accesibilidad" de cada componente.** Son reglas, no sugerencias.

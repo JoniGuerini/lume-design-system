@@ -290,7 +290,7 @@ async function main() {
       return r.result.value;
     };
     await send('Runtime.enable');
-    const SKIP = ['', 'novidades', 'roadmap', 'recursos/figma', 'recursos/ia'];
+    const SKIP = ['', 'novidades', 'roadmap', 'recursos/ia'];
     const only = arg('lang');
     for (const [lang, L] of Object.entries(LANGS)) {
       if (only && only !== lang) continue;

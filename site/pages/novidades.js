@@ -49,7 +49,7 @@ function releaseSection(r, isCurrent) {
                 <h4 class="nv-group__title">${g.name}</h4>
                 <ul class="nv-list" role="list">
                   ${g.items
-                    // página que saiu do site (ex.: Recursos › Plugin do Figma) fica sem o “Ver”
+                    // página que saiu do site (ex.: Recursos › Plugin do Figma, Tokens para Figma) fica sem o “Ver”
                     .map(([type, text, href]) => {
                       const { tone, label } = TYPES[type];
                       return `<li class="nv-item" data-type="${type}">

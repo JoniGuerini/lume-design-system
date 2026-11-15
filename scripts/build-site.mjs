@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Monta o site para publicar (Vercel) em dist/site/, só com o que o navegador usa:
- *   index.html, ds/, site/, assets/favicon.svg, a documentação para IAs (ia/, llms.txt) e o resumo do teste do plugin do Figma
+ *   index.html, ds/, site/, assets/favicon.svg, a documentação para IAs (ia/, llms.txt)
  *
  * O resto do repositório (CLAUDE.md, README, scripts/, figma/, tokens/) fica de fora.
  * Arquivo novo que o site carregue fora dessas pastas entra na lista PUBLIC.

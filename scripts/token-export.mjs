@@ -1,11 +1,11 @@
 /**
- * Lume — exportação dos tokens para Figma e outras ferramentas.
+ * Lume — exportação dos tokens para Figma e outras ferramentas (ferramenta interna, não vai para o ar).
  *
  * Funções puras: recebem os dados de ds/tokens.js (o mesmo objeto, no navegador ou no Node)
  * e devolvem cada formato pronto para salvar. Nada aqui acessa rede ou DOM.
  *
  *   import data from './ds/tokens.js';
- *   import { figmaVariables, figmaRestPayload, figmaPlugin, toDTCG, toFlat, exportFiles } from './ds/js/token-export.js';
+ *   import { figmaVariables, figmaRestPayload, figmaPlugin, toDTCG, toFlat, exportFiles } from './scripts/token-export.mjs';
  *
  *   figmaVariables(data)    → coleções + estilos num formato simples (o que o plugin lê)
  *   figmaRestPayload(data)  → corpo do POST /v1/files/:file_key/variables da API REST do Figma

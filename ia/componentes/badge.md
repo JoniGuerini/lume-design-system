@@ -92,9 +92,9 @@ Badge acompanha algo — uma linha, um título, um item. Ele nunca está sozinho
 
 Linha de lista ou tabela — O status de cada item, sempre na mesma coluna.
 
-Integração com o Figma — Beta
+Editor de texto rico — Beta
 
-Sincroniza tokens e componentes com a biblioteca.
+Negrito, listas e links, com atalhos de Markdown.
 
 Ao lado de um título — Qualifica o que está escrito: beta, em teste.
 

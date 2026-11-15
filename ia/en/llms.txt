@@ -109,7 +109,6 @@ Start with [README](https://lumeui.dev/ia/en/README.md): installation, general r
 ## Resources
 
 - [Accessibility](https://lumeui.dev/ia/en/recursos/acessibilidade.md): Guidelines for products everyone can use.
-- [Tokens for Figma](https://lumeui.dev/ia/en/recursos/tokens.md): Token export for Figma and other tools.
 - [API](https://lumeui.dev/ia/en/recursos/api.md): Everything public in JavaScript, with the naming convention.
 - [Use with React](https://lumeui.dev/ia/en/recursos/react.md): .tsx components to copy into a project, on top of Lume’s CSS and JavaScript.
 

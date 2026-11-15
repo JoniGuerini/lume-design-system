@@ -40,7 +40,7 @@ export default function renderRoadmap(page) {
       <div>
         <p class="doc-header__eyebrow">Lume</p>
         <h1 class="doc-header__title">${page.label}</h1>
-        <p class="doc-header__lead">${L('O que vem a seguir: revisar a API, pôr o Figma em dia e chegar à 1.0 estável.', 'What comes next: reviewing the API, bringing Figma up to date, and reaching a stable 1.0.', 'Lo que viene: revisar la API, poner Figma al día y llegar a la 1.0 estable.')}</p>
+        <p class="doc-header__lead">${L('O que vem a seguir: chegar à 1.0 estável.', 'What comes next: reaching a stable 1.0.', 'Lo que viene: llegar a la 1.0 estable.')}</p>
       </div>
       <dl class="doc-stats">
         <div class="doc-stat"><dt class="doc-stat__label">${L('versão atual', 'current version', 'versión actual')}</dt><dd class="doc-stat__value">${CURRENT_VERSION}</dd></div>

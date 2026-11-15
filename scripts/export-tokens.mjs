@@ -20,7 +20,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'dist', 'tokens');
 
 const { default: data } = await import(pathToFileURL(path.join(ROOT, 'ds', 'tokens.js')).href);
-const { exportFiles, exportCounts } = await import(pathToFileURL(path.join(ROOT, 'ds', 'js', 'token-export.js')).href);
+const { exportFiles, exportCounts } = await import(pathToFileURL(path.join(ROOT, 'scripts', 'token-export.mjs')).href);
 
 // Avisa se os JSON de tokens mudaram depois do último build.
 const built = (await stat(path.join(ROOT, 'ds', 'tokens.js'))).mtimeMs;

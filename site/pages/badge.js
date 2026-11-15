@@ -221,8 +221,8 @@ export default function renderBadge(page) {
         <article class="cd-example">
           <div class="cd-example__preview bd-ctx">
             <div class="bd-ctx__card">
-              <p class="bd-ctx__title">${L('Integração com o Figma', 'Figma integration', 'Integración con Figma')} ${badge({ tone: 'info', size: 'sm', label: 'Beta' })}</p>
-              <p class="bd-ctx__text">${L('Sincroniza tokens e componentes com a biblioteca.', 'Syncs tokens and components with the library.', 'Sincroniza tokens y componentes con la biblioteca.')}</p>
+              <p class="bd-ctx__title">${L('Editor de texto rico', 'Rich text editor', 'Editor de texto enriquecido')} ${badge({ tone: 'info', size: 'sm', label: 'Beta' })}</p>
+              <p class="bd-ctx__text">${L('Negrito, listas e links, com atalhos de Markdown.', 'Bold, lists, and links, with Markdown shortcuts.', 'Negrita, listas y enlaces, con atajos de Markdown.')}</p>
             </div>
           </div>
           <div class="cd-example__body"><p class="cd-example__name">${L('Ao lado de um título', 'Next to a title', 'Junto a un título')}</p><p class="cd-example__text">${L('Qualifica o que está escrito: beta, em teste.', 'Qualifies what’s written: beta, in testing.', 'Califica lo que está escrito: beta, en prueba.')}</p></div>

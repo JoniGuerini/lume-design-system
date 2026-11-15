@@ -23,7 +23,7 @@ const arg = (name) => {
 export async function buildFigmaPlugin({ only, out } = {}) {
   const outDir = path.resolve(ROOT, out ?? 'dist/figma-plugin');
   const { default: data } = await import(pathToFileURL(path.join(ROOT, 'ds', 'tokens.js')).href);
-  const { figmaVariables } = await import(pathToFileURL(path.join(ROOT, 'ds', 'js', 'token-export.js')).href);
+  const { figmaVariables } = await import(pathToFileURL(path.join(ROOT, 'scripts', 'token-export.mjs')).href);
 
   // ícones: o módulo define um custom element; no Node basta um esboço
   globalThis.HTMLElement ??= class {};

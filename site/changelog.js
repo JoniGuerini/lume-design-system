@@ -697,7 +697,7 @@ const RELEASES = [
       {
         name: T('Tokens', 'Tokens', 'Tokens'),
         items: [
-          ['novo', T('size.control.compact, de 36 px: a escala agora é 28, 32, 36, 40 e 48', 'size.control.compact, 36 px: the scale is now 28, 32, 36, 40, and 48', 'size.control.compact, de 36 px: la escala ahora es 28, 32, 36, 40 y 48'), '/recursos/tokens'],
+          ['novo', T('size.control.compact, de 36 px: a escala agora é 28, 32, 36, 40 e 48', 'size.control.compact, 36 px: the scale is now 28, 32, 36, 40, and 48', 'size.control.compact, de 36 px: la escala ahora es 28, 32, 36, 40 y 48'), '/componentes/botao'],
         ],
       },
       {
@@ -996,11 +996,6 @@ const RELEASES = [
             'The Typography description mentions Geist Serif and Geist Sans',
             'La descripción de Tipografía menciona Geist Serif y Geist Sans',
           ), '/fundamentos/tipografia'],
-          ['correcao', T(
-            'O exemplo de estilo de texto em Tokens para Figma usa a Geist',
-            'The text style example in Tokens for Figma uses Geist',
-            'El ejemplo de estilo de texto en Tokens para Figma usa Geist',
-          ), '/recursos/tokens'],
         ],
       },
     ],
@@ -1376,16 +1371,6 @@ const RELEASES = [
         ],
       },
       {
-        name: T('Tokens para Figma', 'Tokens for Figma', 'Tokens para Figma'),
-        items: [
-          ['melhoria', T(
-            'O plugin de tokens acha as coleções em qualquer um dos três idiomas',
-            'The tokens plugin finds the collections in any of the three languages',
-            'El plugin de tokens encuentra las colecciones en cualquiera de los tres idiomas',
-          ), '/recursos/tokens'],
-        ],
-      },
-      {
         name: T('App shell', 'App shell', 'App shell'),
         items: [
           ['novo', T(
@@ -1469,9 +1454,9 @@ const RELEASES = [
     date: '2026-10-31',
     title: T('Recursos', 'Resources', 'Recursos'),
     summary: T(
-      'O que o time precisa para adotar e evoluir o Lume: guia de acessibilidade com as pendências à vista, tokens exportados para o Figma e o caminho de uma contribuição.',
-      'What the team needs to adopt and evolve Lume: an accessibility guide with open issues in plain sight, tokens exported to Figma, and the path for a contribution.',
-      'Lo que el equipo necesita para adoptar y hacer crecer Lume: una guía de accesibilidad con los pendientes a la vista, tokens exportados a Figma y el camino de una contribución.',
+      'O que o time precisa para adotar e evoluir o Lume: guia de acessibilidade com as pendências à vista e o caminho de uma contribuição.',
+      'What the team needs to adopt and evolve Lume: an accessibility guide with open issues in plain sight and the path for a contribution.',
+      'Lo que el equipo necesita para adoptar y hacer crecer Lume: una guía de accesibilidad con los pendientes a la vista y el camino de una contribución.',
     ),
     groups: [
       {
@@ -1487,16 +1472,6 @@ const RELEASES = [
             'Accessibility issues calculated live: field and chip outlines, the off switch, and faded text in the light theme',
             'Pendientes de accesibilidad calculados en vivo: contorno de campos y chips, switch apagado y texto atenuado en el tema claro',
           ), '/recursos/acessibilidade'],
-          ['novo', T(
-            'Tokens para Figma: variáveis com modos Escuro e Claro, aliases, estilos de texto e sombra, no formato da API REST e num plugin local',
-            'Tokens for Figma: variables with Dark and Light modes, aliases, text and shadow styles, in the REST API format and as a local plugin',
-            'Tokens para Figma: variables con modos Oscuro y Claro, alias, estilos de texto y sombra, en el formato de la API REST y en un plugin local',
-          ), '/recursos/tokens'],
-          ['novo', T(
-            'Exportação em DTCG, JSON plano e CSS com npm run tokens:export',
-            'Export to DTCG, flat JSON, and CSS with npm run tokens:export',
-            'Exportación en DTCG, JSON plano y CSS con npm run tokens:export',
-          ), '/recursos/tokens'],
           ['novo', T(
             'Como contribuir: do pedido à publicação, com modelo de proposta, “Isso é do design system?” e checklist de revisão',
             'How to contribute: from request to release, with a proposal template, “Does this belong in the design system?”, and a review checklist',
