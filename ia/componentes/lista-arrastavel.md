@@ -25,7 +25,7 @@ Em números: formas de arrastar: 3 · direções: 2 · atalhos: 7 · dependênci
 </ul>
 
 <script type="module">
-  import { createSortable } from 'https://lumeui.dev/v/1.0/lume.js';
+  import { createSortable } from 'https://lumeui.dev/v/1.1/lume.js';
   createSortable(document.querySelector('.ds-sortable'), { onChange: (e) => console.log(e.id, e.newIndex) });
 </script>
 ```
@@ -89,7 +89,7 @@ O `data-id` de cada item é o que `toArray()` devolve e o que você salva.
 </ul>
 
 <script type="module">
-  import { createSortable } from 'https://lumeui.dev/v/1.0/lume.js';
+  import { createSortable } from 'https://lumeui.dev/v/1.1/lume.js';
 
   const sortable = createSortable(document.querySelector('.ds-sortable'), {
     onChange: () => salvar(sortable.toArray()), // ['tipografia', 'cores']

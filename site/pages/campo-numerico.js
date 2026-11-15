@@ -61,7 +61,7 @@ export default function renderCampoNumerico(page) {
         id: 'codigo',
         title: L('Código', 'Code', 'Código'),
         desc: L(`O formulário recebe o número puro, num input oculto com o ${ic('name')} do campo.`, `The form receives the plain number, in a hidden input with the field’s ${ic('name')}.`, `El formulario recibe el número puro, en un input oculto con el ${ic('name')} del campo.`),
-        html: codeBlock(`import { createNumberField } from 'https://lumeui.dev/v/1.0/lume.js';
+        html: codeBlock(`import { createNumberField } from 'https://lumeui.dev/v/1.1/lume.js';
 
 const preco = createNumberField(document.querySelector('#preco'), {
   value: 49.9,
@@ -132,7 +132,7 @@ export function mount(root) {
 </div>
 
 <script type="module">
-  import { createNumberField } from 'https://lumeui.dev/v/1.0/lume.js';
+  import { createNumberField } from 'https://lumeui.dev/v/1.1/lume.js';
   createNumberField(document.querySelector('#quantidade'), {
     value: 10,
     step: ${s.step},${s.limit === 'on' ? '\n    min: 0,\n    max: 100,' : ''}

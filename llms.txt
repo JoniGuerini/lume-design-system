@@ -1,6 +1,6 @@
 # Lume Design System
 
-> Design system em HTML, CSS e JavaScript nativos, sem dependências: tokens, tipografia, 130 ícones próprios, componentes, gráficos e padrões de tela, nos temas claro e escuro. Versão 1.0.0.
+> Design system em HTML, CSS e JavaScript nativos, sem dependências: tokens, tipografia, 130 ícones próprios, componentes, gráficos e padrões de tela, nos temas claro e escuro. Versão 1.1.0.
 
 Comece por [LEIA-ME](https://lumeui.dev/ia/LEIA-ME.md): instalação, regras gerais e o que nunca inventar. Cada página do site tem um arquivo Markdown abaixo, gerado a partir dela.
 
@@ -105,6 +105,7 @@ Comece por [LEIA-ME](https://lumeui.dev/ia/LEIA-ME.md): instalação, regras ger
 - [Login e cadastro](https://lumeui.dev/ia/padroes/login.md): Entrar, criar conta e recuperar a senha — curto e sem armadilha.
 - [Estados vazios](https://lumeui.dev/ia/padroes/estados-vazios.md): Primeiro uso, sem resultados e erro — sempre com um próximo passo.
 - [Busca e comandos](https://lumeui.dev/ia/padroes/busca.md): Paleta ⌘K, filtros e atalhos de teclado.
+- [Listagem de dados](https://lumeui.dev/ia/padroes/listagem.md): Tabela com filtros, ordenação, seleção e ações em lote com desfazer.
 
 ## Recursos
 

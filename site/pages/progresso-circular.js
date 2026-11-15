@@ -49,7 +49,7 @@ export default function renderProgressRing(page) {
         html: codeBlock(`<span data-envio></span>
 
 <script type="module">
-  import { progressRingHtml, setProgressRing } from 'https://lumeui.dev/v/1.0/lume.js';
+  import { progressRingHtml, setProgressRing } from 'https://lumeui.dev/v/1.1/lume.js';
 
   const box = document.querySelector('[data-envio]');
   box.innerHTML = progressRingHtml(0, { label: '${uploading()}' });
@@ -123,7 +123,7 @@ export function mount(root) {
       return `<span data-envio></span>
 
 <script type="module">
-  import { progressRingHtml${s.mode === 'live' ? ', setProgressRing' : ''} } from 'https://lumeui.dev/v/1.0/lume.js';
+  import { progressRingHtml${s.mode === 'live' ? ', setProgressRing' : ''} } from 'https://lumeui.dev/v/1.1/lume.js';
 
   const box = document.querySelector('[data-envio]');
   box.innerHTML = progressRingHtml(${s.mode === 'live' ? '0' : 'null'}, { ${opts} });${s.mode === 'live' ? '\n  setProgressRing(box.firstElementChild, 62);' : ''}

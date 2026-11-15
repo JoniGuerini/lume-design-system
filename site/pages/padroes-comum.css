@@ -1,0 +1,226 @@
+/* Peças comuns aos padrões da 1.1 em diante (prefixo pt-): palco, regras, mensagens, anatomia. */
+
+/* ───────── Palco: uma tela do app, com tema próprio ───────── */
+
+.pt-stage {
+  border-radius: var(--ds-radius-2xl);
+  background: var(--ds-color-bg-app);
+  border: 1px solid var(--ds-color-border-subtle);
+  color: var(--ds-color-fg-default);
+  overflow: hidden;
+}
+
+.pt-stage__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-150);
+  padding: var(--ds-space-200) var(--ds-space-200) 0;
+}
+
+.pt-stage__label {
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-caption);
+}
+
+.pt-screen {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-250);
+  margin: var(--ds-space-200);
+  padding: var(--ds-space-400);
+  border-radius: var(--ds-radius-xl);
+  background: var(--ds-color-bg-surface);
+  border: 1px solid var(--ds-color-border-subtle);
+  min-width: 0;
+}
+
+.pt-screen__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--ds-space-200);
+}
+
+.pt-screen__title {
+  margin: 0;
+  font: var(--ds-text-heading-md);
+  letter-spacing: var(--ds-text-heading-md-tracking);
+}
+
+.pt-screen__desc {
+  margin: var(--ds-space-050) 0 0;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+.pt-screen__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-100);
+}
+
+/* ───────── Experimente ───────── */
+
+.pt-tries {
+  display: grid;
+  gap: var(--ds-space-075);
+  margin: var(--ds-space-200) 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+.pt-tries li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ds-space-100);
+}
+
+.pt-tries .ds-icon {
+  flex: none;
+  margin-top: 2px;
+  color: var(--ds-color-fg-subtle);
+}
+
+/* ───────── Regras ───────── */
+
+.pt-rules {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--ds-space-150);
+}
+
+.pt-rule {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--ds-space-075);
+  padding: var(--ds-space-300);
+  border-radius: var(--ds-radius-xl);
+  background: var(--ds-color-bg-surface);
+  border: 1px solid var(--ds-color-border-subtle);
+}
+
+.pt-rule__icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  margin-bottom: var(--ds-space-100);
+  border-radius: var(--ds-radius-md);
+  background: var(--ds-color-bg-muted);
+  color: var(--ds-color-fg-muted);
+}
+
+.pt-rule__title {
+  margin: 0;
+  font: var(--ds-text-label-md);
+}
+
+.pt-rule__text {
+  margin: 0;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+  letter-spacing: var(--ds-text-body-sm-tracking);
+}
+
+/* ───────── Anatomia (lista numerada) ───────── */
+
+.pt-parts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--ds-space-200) var(--ds-space-400);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pt-parts li {
+  display: flex;
+  gap: var(--ds-space-150);
+}
+
+.pt-parts__num {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-color-bg-selected);
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-label-sm);
+}
+
+.pt-parts__name {
+  margin: 0;
+  font: var(--ds-text-label-md);
+}
+
+.pt-parts__text {
+  margin: var(--ds-space-025) 0 0;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+/* ───────── Mensagens: evite e prefira ───────── */
+
+.pt-writing {
+  --doc-table-cols: minmax(110px, 0.55fr) minmax(0, 1fr) minmax(0, 1.6fr);
+}
+
+.pt-writing__situation {
+  font: var(--ds-text-label-md);
+}
+
+.pt-writing__bad,
+.pt-writing__good {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ds-space-100);
+  font: var(--ds-text-body-sm);
+}
+
+.pt-writing__bad {
+  color: var(--ds-color-fg-muted);
+}
+
+.pt-writing__bad .ds-icon {
+  flex: none;
+  margin-top: 2px;
+  color: var(--ds-color-danger-fg);
+}
+
+.pt-writing__good .ds-icon {
+  flex: none;
+  margin-top: 2px;
+  color: var(--ds-color-success-fg);
+}
+
+/* ───────── Telas menores ───────── */
+
+@media (max-width: 1199.98px) {
+  .pt-rules {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767.98px) {
+  .pt-rules,
+  .pt-parts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pt-screen {
+    margin: var(--ds-space-100);
+    padding: var(--ds-space-250);
+  }
+
+  .pt-writing {
+    --doc-table-cols: minmax(0, 1fr);
+  }
+}

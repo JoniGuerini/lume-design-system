@@ -1,6 +1,6 @@
 # Lume Design System
 
-> A design system in native HTML, CSS, and JavaScript, with no dependencies: tokens, typography, 130 custom icons, components, charts, and screen patterns, in light and dark themes. Version 1.0.0.
+> A design system in native HTML, CSS, and JavaScript, with no dependencies: tokens, typography, 130 custom icons, components, charts, and screen patterns, in light and dark themes. Version 1.1.0.
 
 Start with [README](https://lumeui.dev/ia/en/README.md): installation, general rules, and what never to invent. Every page of the site has a Markdown file below, generated from it.
 
@@ -105,6 +105,7 @@ Start with [README](https://lumeui.dev/ia/en/README.md): installation, general r
 - [Sign-in and sign-up](https://lumeui.dev/ia/en/padroes/login.md): Sign in, create an account, and reset the password — short and trap-free.
 - [Empty states](https://lumeui.dev/ia/en/padroes/estados-vazios.md): First use, no results, and errors — always with a next step.
 - [Search and commands](https://lumeui.dev/ia/en/padroes/busca.md): ⌘K palette, filters, and keyboard shortcuts.
+- [Data list](https://lumeui.dev/ia/en/padroes/listagem.md): A table with filters, sorting, selection, and bulk actions with undo.
 
 ## Resources
 

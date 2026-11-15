@@ -21,12 +21,13 @@ const stageRow = (s) => `<div class="rm-stage">
     <div class="rm-stage__body">
       <h3 class="rm-stage__title">${s.title}</h3>
       <p class="rm-stage__text">${s.text}</p>
-      <ul class="rm-list" role="list">${s.items.map(itemRow).join('')}</ul>
+      ${s.items.length ? `<ul class="rm-list" role="list">${s.items.map(itemRow).join('')}</ul>` : ''}
     </div>
   </div>`;
 
 const SECTIONS = (all) => [
   ['rm-componentes', L('Componentes', 'Components', 'Componentes'), L('Os que faltam, agrupados por assunto. A ordem pode mudar, e os números de versão andam com ela.', 'The ones still missing, grouped by subject. The order may change, and the version numbers move with it.', 'Los que faltan, agrupados por tema. El orden puede cambiar, y los números de versión cambian con él.'), 'components'],
+  ['rm-padroes', L('Padrões', 'Patterns', 'Patrones'), L('Telas inteiras feitas com os componentes que já existem, uma por versão.', 'Whole screens built from the components that already exist, one per release.', 'Pantallas enteras hechas con los componentes que ya existen, una por versión.'), 'patterns'],
   ['rm-versoes', L('Próximas versões', 'Next releases', 'Próximas versiones'), L('O que vem depois dos componentes.', 'What comes after the components.', 'Lo que viene después de los componentes.'), 'release'],
 ].filter(([, , , group]) => all.some((s) => s.group === group));
 

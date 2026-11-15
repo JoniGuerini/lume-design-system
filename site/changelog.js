@@ -8,10 +8,29 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '1.0.0';
+export const CURRENT_VERSION = '1.1.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '1.1.0',
+    date: '2026-11-15',
+    title: T('Listagem de dados', 'Data list', 'Listado de datos'),
+    summary: T(
+      'Padrão novo para a tela que todo produto tem: uma tabela que se busca, filtra, ordena e trata em lote, com desfazer no lugar de “tem certeza?”.',
+      'A new pattern for the screen every product has: a table you search, filter, sort, and handle in bulk, with undo instead of “are you sure?”.',
+      'Patrón nuevo para la pantalla que todo producto tiene: una tabla que se busca, filtra, ordena y trata en lote, con deshacer en lugar de “¿estás seguro?”.',
+    ),
+    groups: [
+      {
+        name: T('Padrões', 'Patterns', 'Patrones'),
+        items: [
+          ['novo', T('Listagem de dados: filtros, ordenação no cabeçalho, seleção por página, barra de lote e ações da linha', 'Data list: filters, header sorting, per-page selection, bulk bar, and row actions', 'Listado de datos: filtros, orden en el encabezado, selección por página, barra de lote y acciones de la fila'), '/padroes/listagem'],
+          ['novo', T('Regras, mensagens e acessibilidade de uma lista: o endereço guarda o estado e toda ação tem volta', 'Rules, messages, and accessibility for a list: the URL keeps the state and every action can be undone', 'Reglas, mensajes y accesibilidad de una lista: la dirección guarda el estado y toda acción tiene vuelta atrás'), '/padroes/listagem'],
+        ],
+      },
+    ],
+  },
   {
     version: '1.0.0',
     date: '2026-11-15',

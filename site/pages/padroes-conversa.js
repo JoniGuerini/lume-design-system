@@ -397,7 +397,7 @@ function mountDemo(preview, state) {
 function demoCode(state) {
   const [script, summary] = COMMANDS();
   const cmd = (c) => `{ id: '${c.id}', label: '${c.label}', description: '${c.description}', icon: '${c.icon}' }`;
-  return `import { createComposer, messageHtml, typingHtml, streamText } from 'https://lumeui.dev/v/1.0/lume.js';
+  return `import { createComposer, messageHtml, typingHtml, streamText } from 'https://lumeui.dev/v/1.1/lume.js';
 
 const thread = document.querySelector('.ds-thread');   // role="log" aria-live="polite"
 
@@ -769,7 +769,7 @@ export default function renderConversa(page) {
 </div>
 
 <div id="composer"></div>`)}
-        ${codeBlock(`import { createComposer } from 'https://lumeui.dev/v/1.0/lume.js';
+        ${codeBlock(`import { createComposer } from 'https://lumeui.dev/v/1.1/lume.js';
 
 const composer = createComposer(document.querySelector('#composer'), {
   label: '${composerLabel()}',

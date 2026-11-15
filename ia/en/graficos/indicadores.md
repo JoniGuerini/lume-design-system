@@ -9,7 +9,7 @@ In numbers: pieces: 3 · hero per screen: 1 · change directions: 3 · meter ton
 ## Example
 
 ```html
-import { statTileHtml } from 'https://lumeui.dev/v/1.0/lume.js';
+import { statTileHtml } from 'https://lumeui.dev/v/1.1/lume.js';
 
 el.innerHTML = statTileHtml({
   label: 'Revenue',
@@ -333,7 +333,7 @@ When a number is enough — and how not to ruin it.
 Three functions that return HTML, with no state — use them anywhere, including inside tables and cards.
 
 ```html
-import { statTileHtml, sparklineHtml, meterHtml } from 'https://lumeui.dev/v/1.0/lume.js';
+import { statTileHtml, sparklineHtml, meterHtml } from 'https://lumeui.dev/v/1.1/lume.js';
 
 kpis.innerHTML = [
   statTileHtml({ label: 'Revenue', value: 1284000, format: 'currency-compact',

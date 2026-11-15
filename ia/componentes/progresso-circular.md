@@ -12,7 +12,7 @@ Em números: tamanhos: 20 · 56 · 80 · tons: 4 · formas: determinado e indete
 <span data-envio></span>
 
 <script type="module">
-  import { progressRingHtml, setProgressRing } from 'https://lumeui.dev/v/1.0/lume.js';
+  import { progressRingHtml, setProgressRing } from 'https://lumeui.dev/v/1.1/lume.js';
 
   const box = document.querySelector('[data-envio]');
   box.innerHTML = progressRingHtml(0, { label: 'Enviando arquivos' });
@@ -64,7 +64,7 @@ A marcação vem pronta; para mudar o valor, chame setProgressRing.
 <span data-envio></span>
 
 <script type="module">
-  import { progressRingHtml, setProgressRing } from 'https://lumeui.dev/v/1.0/lume.js';
+  import { progressRingHtml, setProgressRing } from 'https://lumeui.dev/v/1.1/lume.js';
 
   const box = document.querySelector('[data-envio]');
   box.innerHTML = progressRingHtml(0, { label: 'Enviando arquivos' });
