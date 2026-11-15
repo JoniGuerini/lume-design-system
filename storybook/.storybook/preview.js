@@ -58,7 +58,7 @@ export default {
     layout: 'padded',
     controls: { expanded: true },
     backgrounds: { disable: true },
-    options: { storySort: { order: ['Lume', 'Componentes', 'React', 'Padrões'] } },
+    options: { storySort: { order: ['Lume', 'Componentes', 'Gráficos', 'Padrões', 'React'] } },
   },
   tags: ['autodocs'],
 };
