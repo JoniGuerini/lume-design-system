@@ -22,7 +22,7 @@ const lumeReact = {
 export default {
   framework: { name: '@storybook/html-vite', options: {} },
   addons: ['@storybook/addon-docs'],
-  stories: ['../stories/**/*.mdx', '../stories/componentes/*.stories.js', '../stories/graficos/*.stories.js', '../stories/padroes/*.stories.js', '../stories/react/*.stories.tsx'],
+  stories: ['../stories/**/*.mdx', '../stories/fundamentos/*.stories.js', '../stories/componentes/*.stories.js', '../stories/graficos/*.stories.js', '../stories/padroes/*.stories.js', '../stories/react/*.stories.tsx'],
   // o design system e o CSS das páginas do site (os exemplos usam o mesmo arranjo das páginas)
   staticDirs: [{ from: '../../ds', to: '/ds' }, { from: '../../site', to: '/site' }, { from: '../../assets', to: '/assets' }],
   core: { disableTelemetry: true, disableWhatsNewNotifications: true },

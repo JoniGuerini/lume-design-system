@@ -86,7 +86,7 @@ async function main() {
     await evaluate(`localStorage.setItem('ds-locale', 'pt-BR'); localStorage.setItem('ds-theme', 'light'); true`);
     await send('Page.navigate', { url: `${BASE}/index.html?stories=1#/` });
     await new Promise((r) => setTimeout(r, 2500));
-    const pages = await evaluate(`import('/site/nav.js').then((m) => { return ['componentes', 'graficos'].flatMap((gid) => { const g = m.navigation.find((x) => x.id === gid); return g.items.map((p) => ({ group: gid, groupLabel: g.label, path: p.path, label: p.label, section: g.sectionLabel(p.section), file: String(p.load).match(/pages.([a-z0-9-]+).js/)?.[1] })); }); })`);
+    const pages = await evaluate(`import('/site/nav.js').then((m) => { return ['fundamentos', 'componentes', 'graficos'].flatMap((gid) => { const g = m.navigation.find((x) => x.id === gid); return g.items.map((p) => ({ group: gid, groupLabel: g.label, path: p.path, label: p.label, section: g.sectionLabel(p.section), file: String(p.load).match(/pages.([a-z0-9-]+).js/)?.[1] })); }); })`);
 
     // índice da Introdução: seções do menu Componentes e cada componente, nos três idiomas
     const indice = await evaluate(`Promise.all([import('/site/nav.js'), import('/ds/js/i18n.js')]).then(([nav, i18n]) => {
@@ -111,9 +111,9 @@ async function main() {
     await writeFile(path.join(ROOT, 'storybook', 'stories', 'indice.js'), `// Gerado por scripts/build-stories.mjs a partir de site/nav.js. Não edite: rode npm run stories.\nexport const SECTIONS = ${JSON.stringify(indice.sections, null, 2)};\n`);
     console.log(`✓ storybook/stories/indice.js: ${indice.sections.length} seções`);
 
-    // gráficos ficam numa pasta e num grupo próprios do Storybook, como no menu do site
-    const GRAFICOS = path.join(ROOT, 'storybook', 'stories', 'graficos');
-    for (const dir of [OUT, GRAFICOS]) {
+    // fundamentos e gráficos ficam em pastas e grupos próprios do Storybook, como no menu do site
+    const DIRS = { componentes: OUT, graficos: path.join(ROOT, 'storybook', 'stories', 'graficos'), fundamentos: path.join(ROOT, 'storybook', 'stories', 'fundamentos') };
+    for (const dir of Object.values(DIRS)) {
       await rm(dir, { recursive: true, force: true });
       await mkdir(dir, { recursive: true });
     }
@@ -139,14 +139,14 @@ import { liveStory } from '../live.js';
 const INFO = { path: ${JSON.stringify(p.path)}, group: '', label: ${JSON.stringify(p.label)} };
 
 export default {
-  title: ${JSON.stringify(p.group === 'graficos' ? `${p.groupLabel}/${p.label}` : `Componentes/${p.section}/${p.label}`)},
+  title: ${JSON.stringify(p.group !== 'componentes' ? `${p.groupLabel}/${p.label}` : `Componentes/${p.section}/${p.label}`)},
   id: ${JSON.stringify(`${p.group}-${slug}`)},
   parameters: { docs: { description: { component: ${JSON.stringify(`${lead}\n\nDocumentação completa: https://lumeui.dev/#${p.path}`)} } } },
 };
 
 ${extras}${stories}
 `;
-      await writeFile(path.join(p.group === 'graficos' ? GRAFICOS : OUT, `${slug}.stories.js`), file);
+      await writeFile(path.join(DIRS[p.group], `${slug}.stories.js`), file);
       console.log(`✓ ${slug}: ${sections.length} histórias`);
     }
     ws.close();

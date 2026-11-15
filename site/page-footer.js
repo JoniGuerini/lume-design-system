@@ -1,6 +1,6 @@
 /**
  * Rodapé das páginas internas: a página anterior e a próxima, na ordem do menu, e uma linha com a versão,
- * a mesma página em Markdown (para IAs), nos componentes e gráficos a documentação no Storybook e, quando a página tem bloco, o Figma.
+ * a mesma página em Markdown (para IAs), nos fundamentos, componentes e gráficos a documentação no Storybook e, quando a página tem bloco, o Figma.
  * O Início tem o rodapé próprio (site/pages/home.js).
  */
 import { icon } from '../ds/icons/icons.js';
@@ -35,7 +35,7 @@ export function pageFooterHtml(page) {
   const lang = locale() === 'pt-BR' ? '' : `${locale()}/`;
   const links = [];
   if (hasMarkdown(page.path)) links.push(`<a href="ia/${lang}${page.path.slice(1)}.md" target="_blank" rel="noopener">${icon('file-text', { size: 14 })}${c.markdown}<span class="ds-visually-hidden">, ${c.external}</span></a>`);
-  if (/^\/(componentes|graficos)\//.test(page.path)) links.push(`<a href="storybook/?path=/docs/${page.path.split('/')[1]}-${page.path.split('/').pop()}--documenta%C3%A7%C3%A3o" target="_blank" rel="noopener">${icon('external-link', { size: 14 })}${c.storybook}<span class="ds-visually-hidden">, ${c.external}</span></a>`);
+  if (/^\/(fundamentos|componentes|graficos)\//.test(page.path)) links.push(`<a href="storybook/?path=/docs/${page.path.split('/')[1]}-${page.path.split('/').pop()}--documenta%C3%A7%C3%A3o" target="_blank" rel="noopener">${icon('external-link', { size: 14 })}${c.storybook}<span class="ds-visually-hidden">, ${c.external}</span></a>`);
   const figma = figmaUrl(page.path);
   if (figma) links.push(`<a href="${figma}" target="_blank" rel="noopener">${icon('external-link', { size: 14 })}${c.figma}<span class="ds-visually-hidden">, ${c.external}</span></a>`);
   return `<footer class="site-page-footer">
