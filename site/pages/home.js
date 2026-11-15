@@ -33,6 +33,18 @@ const COPY = T(
     patterns: 'Como as peças se encaixam',
     roadmap: { title: 'Do token ao componente', all: 'Ver o roadmap' },
     footer: (colors, count, date) => `${colors} cores · ${count} tokens semânticos e de fundação · gerado em ${date}`,
+    foot: {
+      lead: 'Tokens, componentes e padrões para telas planas, calmas e acessíveis. Em HTML, React e para IAs.',
+      cols: [
+        ['Explorar', [['Primeiros passos', '#/primeiros-passos'], ['Componentes', '#/componentes/botao'], ['Gráficos', '#/graficos/visao-geral'], ['Padrões', '#/padroes/app-shell']]],
+        ['Acompanhar', [['Novidades', '#/novidades'], ['Roadmap', '#/roadmap'], ['Acessibilidade', '#/recursos/acessibilidade']]],
+        ['Usar', [['Com React', '#/recursos/react'], ['Para IAs', '#/recursos/ia'], ['API', '#/recursos/api']]],
+      ],
+      elsewhere: 'Em outros lugares',
+      by: 'Feito por Jonathan Navarro',
+      license: 'Código MIT · fontes OFL',
+      external: 'abre em outra aba',
+    },
   },
   {
     stats: ['OKLCH colors', 'color tokens', 'text styles', 'custom icons', 'WCAG contrast checks'],
@@ -58,6 +70,18 @@ const COPY = T(
     patterns: 'How the pieces fit together',
     roadmap: { title: 'From token to component', all: 'See the roadmap' },
     footer: (colors, count, date) => `${colors} colors · ${count} semantic and foundation tokens · generated on ${date}`,
+    foot: {
+      lead: 'Tokens, components, and patterns for flat, calm, accessible screens. In HTML, React, and for AIs.',
+      cols: [
+        ['Explore', [['Getting started', '#/primeiros-passos'], ['Components', '#/componentes/botao'], ['Charts', '#/graficos/visao-geral'], ['Patterns', '#/padroes/app-shell']]],
+        ['Follow', [['What’s new', '#/novidades'], ['Roadmap', '#/roadmap'], ['Accessibility', '#/recursos/acessibilidade']]],
+        ['Use', [['With React', '#/recursos/react'], ['For AIs', '#/recursos/ia'], ['API', '#/recursos/api']]],
+      ],
+      elsewhere: 'Elsewhere',
+      by: 'Made by Jonathan Navarro',
+      license: 'MIT code · OFL fonts',
+      external: 'opens in a new tab',
+    },
   },
   {
     stats: ['colores en OKLCH', 'tokens de color', 'estilos de texto', 'íconos propios', 'contrastes WCAG'],
@@ -83,6 +107,18 @@ const COPY = T(
     patterns: 'Cómo encajan las piezas',
     roadmap: { title: 'Del token al componente', all: 'Ver el roadmap' },
     footer: (colors, count, date) => `${colors} colores · ${count} tokens semánticos y de fundación · generado el ${date}`,
+    foot: {
+      lead: 'Tokens, componentes y patrones para pantallas planas, tranquilas y accesibles. En HTML, React y para IAs.',
+      cols: [
+        ['Explorar', [['Primeros pasos', '#/primeiros-passos'], ['Componentes', '#/componentes/botao'], ['Gráficos', '#/graficos/visao-geral'], ['Patrones', '#/padroes/app-shell']]],
+        ['Seguir', [['Novedades', '#/novidades'], ['Roadmap', '#/roadmap'], ['Accesibilidad', '#/recursos/acessibilidade']]],
+        ['Usar', [['Con React', '#/recursos/react'], ['Para IAs', '#/recursos/ia'], ['API', '#/recursos/api']]],
+      ],
+      elsewhere: 'En otros lugares',
+      by: 'Hecho por Jonathan Navarro',
+      license: 'Código MIT · fuentes OFL',
+      external: 'se abre en otra pestaña',
+    },
   },
 );
 
@@ -385,8 +421,35 @@ export default function renderHome() {
     </div>
 
     <footer class="site-footer">
-      <p>Lume Design System · v${CURRENT_VERSION}</p>
-      <p>${c.footer(colorCount, tokens.length, generated)}</p>
+      <div class="site-footer__main">
+        <div class="site-footer__about">
+          <a class="site-footer__brand" href="#/"><img src="assets/favicon.svg" alt="" width="22" height="22" />Lume</a>
+          <p class="site-footer__lead">${c.foot.lead}</p>
+          <a class="site-footer__version" href="#/novidades">v${CURRENT_VERSION}</a>
+        </div>
+        <nav class="site-footer__nav" aria-label="${tr(T('Rodapé', 'Footer', 'Pie de página'))}">
+          ${c.foot.cols
+            .map(([title, links]) => `<div class="site-footer__col">
+            <p class="site-footer__title">${title}</p>
+            <ul role="list">${links.map(([label, href]) => `<li><a href="${href}">${label}</a></li>`).join('')}</ul>
+          </div>`)
+            .join('')}
+          <div class="site-footer__col">
+            <p class="site-footer__title">${c.foot.elsewhere}</p>
+            <ul role="list">${[
+              ['Storybook', 'storybook/'],
+              ['Figma', 'https://www.figma.com/design/1yTJ881xoXjRmdi6NeTnYD/Lume-Design-System'],
+              ['LinkedIn', 'https://www.linkedin.com/in/joniguerini/'],
+            ]
+              .map(([label, href]) => `<li><a href="${href}" target="_blank" rel="noopener">${label}${icon('external-link', { size: 12 })}<span class="ds-visually-hidden">, ${c.foot.external}</span></a></li>`)
+              .join('')}</ul>
+          </div>
+        </nav>
+      </div>
+      <div class="site-footer__bottom">
+        <p>${c.foot.by} · ${c.foot.license}</p>
+        <p>${c.footer(colorCount, tokens.length, generated)}</p>
+      </div>
     </footer>
   </div>`;
 }
