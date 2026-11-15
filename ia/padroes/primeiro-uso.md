@@ -156,7 +156,7 @@ A lista de passos é marcação com `<progress>`; o comportamento é seu: marcar
 ```
 
 ```html
-import { toast } from 'https://lumeui.dev/v/1.6/lume.js';
+import { toast } from 'https://lumeui.dev/v/1.7/lume.js';
 
 function concluir(passo) {
   passo.toggleAttribute('data-done', true);

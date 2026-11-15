@@ -1,0 +1,181 @@
+/* Página: Padrões · Carregamento e erros (prefixo lo-) */
+
+.lo-sim {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-100);
+  max-width: 100%;
+  overflow-x: auto;
+  --ds-scrollbar: none;
+}
+
+.lo-screen {
+  min-height: 420px;
+}
+
+.lo-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-250);
+}
+
+.lo-page [hidden] {
+  display: none;
+}
+
+.lo-slow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ds-space-100);
+  margin: 0;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+.lo-slow > .ds-icon {
+  color: var(--ds-color-fg-subtle);
+}
+
+.lo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--ds-space-150);
+}
+
+.lo-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-150);
+  padding: var(--ds-space-250);
+  border-radius: var(--ds-radius-xl);
+  border: 1px solid var(--ds-color-border-subtle);
+}
+
+.lo-card > div {
+  min-height: 152px;
+}
+
+.lo-card__title {
+  margin: 0;
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-caption);
+}
+
+/* lista e esqueleto com a mesma altura de linha: nada pula quando o conteúdo chega */
+.lo-list,
+.lo-skel-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-150);
+  margin: 0;
+  padding: 0;
+}
+
+.lo-list li,
+.lo-skel-row {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-150);
+  min-height: 40px;
+}
+
+.lo-list li > span:last-child,
+.lo-skel-lines {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--ds-space-075);
+  min-width: 0;
+}
+
+.lo-list__icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--ds-radius-md);
+  background: var(--ds-color-bg-muted);
+  color: var(--ds-color-fg-muted);
+}
+
+.lo-list .ds-avatar {
+  width: 32px;
+  height: 32px;
+}
+
+.lo-list__name {
+  font: var(--ds-text-label-md);
+}
+
+.lo-list__meta {
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+.lo-skel-row > .ds-skeleton {
+  flex: none;
+  border-radius: var(--ds-radius-md);
+}
+
+/* uma parte falhou: o erro fica no cartão */
+.lo-part-error {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--ds-space-150);
+}
+
+.lo-part-error__text {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ds-space-100);
+  margin: 0;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+.lo-part-error__text .ds-icon {
+  flex: none;
+  margin-top: 2px;
+  color: var(--ds-color-danger-fg);
+}
+
+.lo-notes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-150);
+}
+
+.lo-notes__actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.lo-notes .ds-alert:focus:not(:focus-visible),
+.lo-404:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.lo-404 {
+  min-height: 380px;
+}
+
+.lo-times {
+  --doc-table-cols: minmax(110px, 0.5fr) minmax(0, 2fr);
+}
+
+.lo-times__text {
+  font: var(--ds-text-body-sm);
+}
+
+@media (max-width: 767.98px) {
+  .lo-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .lo-times {
+    --doc-table-cols: minmax(0, 1fr);
+  }
+}

@@ -134,7 +134,7 @@ const htmlCode = () => `<aside aria-labelledby="${L('passos', 'steps', 'pasos')}
   </ol>
 </aside>`;
 
-const jsCode = () => `import { toast } from 'https://lumeui.dev/v/1.6/lume.js';
+const jsCode = () => `import { toast } from 'https://lumeui.dev/v/1.7/lume.js';
 
 function ${L('concluir', 'complete', 'completar')}(${L('passo', 'step', 'paso')}) {
   ${L('passo', 'step', 'paso')}.toggleAttribute('data-done', true);

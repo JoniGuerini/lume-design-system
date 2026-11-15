@@ -9,7 +9,7 @@ En números: formatos: 2 · escalas: 2 · rangos: hasta 7 · respiro: 2 px.
 ## Ejemplo
 
 ```html
-import { createHeatmap } from 'https://lumeui.dev/v/1.6/lume.js';
+import { createHeatmap } from 'https://lumeui.dev/v/1.7/lume.js';
 
 const chart = createHeatmap(document.querySelector('#pedidos'), {
   title: 'Pedidos por hora',
@@ -108,7 +108,7 @@ El heatmap muestra un patrón, no un valor exacto. Úsalo cuando la pregunta es 
 Dos funciones con las mismas reglas de todos los gráficos de Lume: update, setLoading y destroy.
 
 ```html
-import { createHeatmap, createCalendarHeatmap } from 'https://lumeui.dev/v/1.6/lume.js';
+import { createHeatmap, createCalendarHeatmap } from 'https://lumeui.dev/v/1.7/lume.js';
 
 createHeatmap(document.querySelector('#pedidos'), {
   title: 'Pedidos por hora',

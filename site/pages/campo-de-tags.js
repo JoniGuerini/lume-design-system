@@ -59,7 +59,7 @@ export default function renderCampoDeTags(page) {
         id: 'codigo',
         title: L('Código', 'Code', 'Código'),
         desc: L(`Funciona com ${ic('createForm')}: com ${ic('required')}, ter pelo menos uma tag já basta.`, `It works with ${ic('createForm')}: with ${ic('required')}, having at least one tag is enough.`, `Funciona con ${ic('createForm')}: con ${ic('required')}, tener al menos una etiqueta ya basta.`),
-        html: codeBlock(`import { createTagField } from 'https://lumeui.dev/v/1.6/lume.js';
+        html: codeBlock(`import { createTagField } from 'https://lumeui.dev/v/1.7/lume.js';
 
 const tags = createTagField(document.querySelector('#assuntos'), {
   value: ['design', 'tokens'],
@@ -129,7 +129,7 @@ export function mount(root) {
 </div>
 
 <script type="module">
-  import { createTagField } from 'https://lumeui.dev/v/1.6/lume.js';
+  import { createTagField } from 'https://lumeui.dev/v/1.7/lume.js';
   createTagField(document.querySelector('#assuntos'), {
     value: ${JSON.stringify(starter()).replace(/"/g, "'").replace(/,/g, ', ')},${s.max === 'none' ? '' : `\n    max: ${s.max},`}
   });

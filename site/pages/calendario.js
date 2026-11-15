@@ -80,7 +80,7 @@ const KEYS = () => [
 const weekLabel = (n) => dateFormat({ weekday: 'long' }).format(new Date(2026, 10, 1 + n)); // 1/11/2026 é domingo
 
 function code(s) {
-  const lines = [`import { createCalendar } from 'https://lumeui.dev/v/1.6/lume.js';`, '', `createCalendar(document.querySelector('#${L('agenda', 'calendar', 'agenda')}'), {`];
+  const lines = [`import { createCalendar } from 'https://lumeui.dev/v/1.7/lume.js';`, '', `createCalendar(document.querySelector('#${L('agenda', 'calendar', 'agenda')}'), {`];
   if (s.view !== 'month') lines.push(`  view: '${s.view}',`);
   if (s.start !== 'auto') lines.push(`  weekStartsOn: ${s.start}, // ${weekLabel(Number(s.start))}`);
   lines.push(

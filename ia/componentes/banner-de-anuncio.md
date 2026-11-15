@@ -16,7 +16,7 @@ Em números: tons: 5 · por vez: 1 · lembra: localStorage · papel ARIA: region
 </div>
 
 <script type="module">
-  import { createBanner } from 'https://lumeui.dev/v/1.6/lume.js';
+  import { createBanner } from 'https://lumeui.dev/v/1.7/lume.js';
   createBanner(document.querySelector('.ds-banner'), { id: 'lume-0.35' });
 </script>
 ```
@@ -94,7 +94,7 @@ A marcação é do banner inteiro; o JavaScript só fecha e lembra.
 </div>
 
 <script type="module">
-  import { createBanner } from 'https://lumeui.dev/v/1.6/lume.js';
+  import { createBanner } from 'https://lumeui.dev/v/1.7/lume.js';
 
   // id novo a cada anúncio: quem fechou o anterior vê este
   createBanner(document.querySelector('.ds-banner'), { id: 'lume-0.35' });

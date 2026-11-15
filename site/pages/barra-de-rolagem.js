@@ -72,7 +72,7 @@ export default function renderScrollbar(page) {
         id: 'codigo',
         title: L('Código', 'Code', 'Código'),
         desc: L('Basta ligar uma vez. Áreas que entram depois também recebem a barra.', 'Just turn it on once. Areas added later get the bar too.', 'Basta activarla una vez. Las áreas que entran después también reciben la barra.'),
-        html: codeBlock(`import { initScrollbars } from 'https://lumeui.dev/v/1.6/lume.js';
+        html: codeBlock(`import { initScrollbars } from 'https://lumeui.dev/v/1.7/lume.js';
 
 initScrollbars();
 
@@ -137,7 +137,7 @@ export function mount(root) {
 </div>
 
 <script type="module">
-  import { initScrollbars } from 'https://lumeui.dev/v/1.6/lume.js';
+  import { initScrollbars } from 'https://lumeui.dev/v/1.7/lume.js';
   initScrollbars();
 </script>`;
     },

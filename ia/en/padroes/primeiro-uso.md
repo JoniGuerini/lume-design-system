@@ -156,7 +156,7 @@ The step list is markup with `<progress>`; the behavior is yours: check off, mov
 ```
 
 ```html
-import { toast } from 'https://lumeui.dev/v/1.6/lume.js';
+import { toast } from 'https://lumeui.dev/v/1.7/lume.js';
 
 function complete(step) {
   step.toggleAttribute('data-done', true);

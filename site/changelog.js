@@ -8,10 +8,29 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '1.6.0';
+export const CURRENT_VERSION = '1.7.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '1.7.0',
+    date: '2026-11-15',
+    title: T('Carregamento e erros', 'Loading and errors', 'Carga y errores'),
+    summary: T(
+      'Padrão novo para o caminho de uma página até o conteúdo: esqueleto com a forma certa, aviso quando demora, erro só na parte que falhou e nada perdido ao salvar.',
+      'A new pattern for a page’s path to its content: skeletons with the right shape, a notice when it’s slow, errors only in the part that failed, and nothing lost on save.',
+      'Patrón nuevo para el camino de una página hasta el contenido: esqueleto con la forma correcta, aviso cuando tarda, error solo en la parte que falló y nada perdido al guardar.',
+    ),
+    groups: [
+      {
+        name: T('Padrões', 'Patterns', 'Patrones'),
+        items: [
+          ['novo', T('Carregamento e erros: simule carregando, lento, parte que falhou, erro ao salvar e página não encontrada', 'Loading and errors: simulate loading, slow, a failed part, a save error, and page not found', 'Carga y errores: simula cargando, lento, parte que falló, error al guardar y página no encontrada'), '/padroes/carregamento'],
+          ['novo', T('Tabela de tempos: o que mostrar até 1 s, até 3 s, depois disso e quando falha', 'A timing table: what to show up to 1 s, up to 3 s, beyond that, and when it fails', 'Tabla de tiempos: qué mostrar hasta 1 s, hasta 3 s, después de eso y cuando falla'), '/padroes/carregamento'],
+        ],
+      },
+    ],
+  },
   {
     version: '1.6.0',
     date: '2026-11-15',

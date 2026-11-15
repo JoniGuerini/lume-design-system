@@ -14,7 +14,7 @@ In numbers: function: 1 · thickness: 6 px · grab area: 12 px · fades in: 0.9 
 </div>
 
 <script type="module">
-  import { initScrollbars } from 'https://lumeui.dev/v/1.6/lume.js';
+  import { initScrollbars } from 'https://lumeui.dev/v/1.7/lume.js';
   initScrollbars();
 </script>
 ```
@@ -42,7 +42,7 @@ Markup of the examples in this section:
 Just turn it on once. Areas added later get the bar too.
 
 ```html
-import { initScrollbars } from 'https://lumeui.dev/v/1.6/lume.js';
+import { initScrollbars } from 'https://lumeui.dev/v/1.7/lume.js';
 
 initScrollbars();
 

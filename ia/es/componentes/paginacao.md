@@ -12,7 +12,7 @@ En números: altura: 36 px · versiones: 2 · páginas al lado: a elegir · rol:
 <nav class="ds-pagination"></nav>
 
 <script type="module">
-  import { createPagination } from 'https://lumeui.dev/v/1.6/lume.js';
+  import { createPagination } from 'https://lumeui.dev/v/1.7/lume.js';
   createPagination(document.querySelector('.ds-pagination'), {
     total: 248,
     pageSizes: [10, 25, 50],
@@ -74,7 +74,7 @@ Marcado de los ejemplos de esta sección:
 `onChange` avisa la página y el tamaño; quien carga los datos eres tú.
 
 ```html
-import { createPagination } from 'https://lumeui.dev/v/1.6/lume.js';
+import { createPagination } from 'https://lumeui.dev/v/1.7/lume.js';
 
 const pagination = createPagination(document.querySelector('.ds-pagination'), {
   total: 248,
