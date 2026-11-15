@@ -134,7 +134,7 @@ const htmlCode = () => `<!-- ${L('carregando: a forma do que vem', 'loading: the
   <button type="button" class="ds-btn ds-btn--secondary ds-btn--sm">${L('Tentar de novo', 'Try again', 'Intentar de nuevo')}</button>
 </section>`;
 
-const jsCode = () => `import { toast } from 'https://lumeui.dev/v/1.7/lume.js';
+const jsCode = () => `import { toast } from 'https://lumeui.dev/v/1.8/lume.js';
 
 // ${L('esqueleto só depois de 1 s; aviso de demora depois de 3 s', 'skeleton only after 1 s; slow notice after 3 s', 'esqueleto solo después de 1 s; aviso de demora después de 3 s')}
 const ${L('esqueleto', 'skeleton', 'esqueleto')} = setTimeout(() => ${L('mostrarEsqueleto', 'showSkeleton', 'mostrarEsqueleto')}(), 1000);

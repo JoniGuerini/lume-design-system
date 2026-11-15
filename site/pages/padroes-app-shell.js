@@ -115,7 +115,7 @@ const skeleton = () => `<a class="ds-skip-link" href="#${L('conteudo', 'content'
   </div>
 </div>`;
 
-const script = () => `import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/1.7/lume.js';
+const script = () => `import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/1.8/lume.js';
 
 const nav = document.getElementById('sidebar-nav');
 renderSidebarNav(nav, [
@@ -204,7 +204,7 @@ export default function renderAppShell(page) {
     ${section(
       'pa-anatomia',
       L('Anatomia', 'Anatomy', 'Anatomía'),
-      L('Oito partes, marcadas sobre o app de verdade — as posições vêm do próprio DOM. Passe o mouse ou foque um item da lista para destacá-lo.', 'Eight parts, marked over the real app — the positions come from the DOM itself. Hover or focus a list item to highlight it.', 'Ocho partes, marcadas sobre la app de verdad — las posiciones vienen del propio DOM. Pasa el mouse o enfoca un elemento de la lista para destacarlo.'),
+      L('Oito partes, marcadas sobre o app de verdade — as posições vêm do próprio DOM. Passe o mouse ou foque um item da lista para destacá-lo. Sidebar e Navbar têm páginas próprias, em Componentes.', 'Eight parts, marked over the real app — the positions come from the DOM itself. Hover or focus a list item to highlight it. Sidebar and Navbar have their own pages, under Components.', 'Ocho partes, marcadas sobre la app de verdad — las posiciones vienen del propio DOM. Pasa el mouse o enfoca un elemento de la lista para destacarlo. Sidebar y Navbar tienen páginas propias, en Componentes.'),
       `<div class="pa-anatomy">
         ${frame('anatomy', L('Anatomia do app shell', 'App shell anatomy', 'Anatomía del app shell'))}
         <ol class="pa-anatomy__list" role="list">
@@ -351,7 +351,7 @@ export default function renderAppShell(page) {
         ['layout.frame-gap', L('Fundo entre os painéis e a borda da janela', 'Background between the panels and the window edge', 'Fondo entre los paneles y el borde de la ventana')],
         ['layout.gutter', L('Respiro lateral do conteúdo', 'Content side padding', 'Respiro lateral del contenido')],
         ['layout.content-max', L('Largura máxima do conteúdo', 'Content max width', 'Ancho máximo del contenido')],
-        ['radius.2xl', L('Raio dos dois painéis', 'Radius of both panels', 'Radio de los dos paneles')],
+        ['radius.xl', L('Raio dos dois painéis', 'Radius of both panels', 'Radio de los dos paneles')],
         ['breakpoint.lg', L('A partir daqui, sidebar; abaixo, gaveta', 'From here, sidebar; below, drawer', 'A partir de aquí, sidebar; por debajo, cajón')],
         ['color.bg.app', L('Fundo atrás dos painéis', 'Background behind the panels', 'Fondo detrás de los paneles')],
         ['color.bg.sidebar', 'Sidebar'],

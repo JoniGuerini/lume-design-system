@@ -277,7 +277,7 @@ Estrutura em HTML com as classes do formulário; o comportamento vem de uma linh
 ### JavaScript
 
 ```html
-import { createForm } from 'https://lumeui.dev/v/1.7/lume.js';
+import { createForm } from 'https://lumeui.dev/v/1.8/lume.js';
 
 const form = createForm(document.querySelector('#projeto'), {
   rules: {

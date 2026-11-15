@@ -8,10 +8,36 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '1.7.1';
+export const CURRENT_VERSION = '1.8.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '1.8.0',
+    date: '2026-11-15',
+    title: T('Sidebar e Navbar', 'Sidebar and Navbar', 'Sidebar y Navbar'),
+    summary: T(
+      'As duas formas de navegar ganharam páginas próprias: como cada uma é montada, os estados, o que acontece quando falta espaço e quando usar uma ou outra.',
+      'The two ways to navigate got their own pages: how each one is built, its states, what happens when space runs out, and when to use one or the other.',
+      'Las dos formas de navegar ganaron páginas propias: cómo se arma cada una, los estados, qué pasa cuando falta espacio y cuándo usar una u otra.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['novo', T('Sidebar: anatomia sobre a sidebar do próprio site, estados do item, aberta e recolhida, gaveta no celular e o app ao vivo', 'Sidebar: anatomy over this site’s own sidebar, item states, open and collapsed, phone drawer, and the live app', 'Sidebar: anatomía sobre la sidebar del propio sitio, estados del elemento, abierta y contraída, cajón en el móvil y la app en vivo'), '/componentes/sidebar'],
+          ['novo', T('Navbar: diminua a largura e veja a busca encolher e os itens irem para o Mais; menus dos grupos e quando usar navbar ou sidebar', 'Navbar: shrink the width and watch search shrink and items move into More; group menus and when to use navbar or sidebar', 'Navbar: reduce el ancho y mira cómo la búsqueda se encoge y los elementos pasan a Más; menús de los grupos y cuándo usar navbar o sidebar'), '/componentes/navbar'],
+          ['correcao', T('Os estados do shell (recolhida, navbar, gaveta) valem só para a sidebar e a navbar dele, e não vazam para exemplos dentro do conteúdo', 'Shell states (collapsed, navbar, drawer) apply only to its own sidebar and navbar, and no longer leak into examples inside the content', 'Los estados del shell (contraída, navbar, cajón) valen solo para su propia sidebar y navbar, y ya no se filtran a ejemplos dentro del contenido'), '/padroes/app-shell'],
+        ],
+      },
+      {
+        name: T('React', 'React', 'React'),
+        items: [
+          ['novo', T('AppShell aceita layout="navbar": os mesmos grupos no topo, com menus e o Mais', 'AppShell accepts layout="navbar": the same groups across the top, with menus and More', 'AppShell acepta layout="navbar": los mismos grupos arriba, con menús y Más'), '/recursos/react'],
+        ],
+      },
+    ],
+  },
   {
     version: '1.7.1',
     date: '2026-11-15',

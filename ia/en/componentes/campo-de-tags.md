@@ -15,7 +15,7 @@ In numbers: create a tag: Enter · , · paste a list: yes · duplicates: refused
 </div>
 
 <script type="module">
-  import { createTagField } from 'https://lumeui.dev/v/1.7/lume.js';
+  import { createTagField } from 'https://lumeui.dev/v/1.8/lume.js';
   createTagField(document.querySelector('#assuntos'), {
     value: ['design', 'tokens'],
   });
@@ -108,7 +108,7 @@ Markup of the examples in this section:
 It works with `createForm`: with `required`, having at least one tag is enough.
 
 ```html
-import { createTagField } from 'https://lumeui.dev/v/1.7/lume.js';
+import { createTagField } from 'https://lumeui.dev/v/1.8/lume.js';
 
 const tags = createTagField(document.querySelector('#assuntos'), {
   value: ['design', 'tokens'],

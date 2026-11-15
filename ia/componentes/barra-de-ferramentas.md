@@ -22,7 +22,7 @@ Em números: paradas do Tab: 1 · teclas: 4 · altura: 36 px · papel ARIA: tool
 </div>
 
 <script type="module">
-  import { createToolbar } from 'https://lumeui.dev/v/1.7/lume.js';
+  import { createToolbar } from 'https://lumeui.dev/v/1.8/lume.js';
   createToolbar(document.querySelector('.ds-toolbar'), {
     onToggle: (button, pressed) => console.log(button.ariaLabel, pressed),
   });
@@ -77,7 +77,7 @@ Os botões são seus; a barra cuida do Tab, das setas e do `aria-pressed`.
 </div>
 
 <script type="module">
-  import { createToolbar } from 'https://lumeui.dev/v/1.7/lume.js';
+  import { createToolbar } from 'https://lumeui.dev/v/1.8/lume.js';
   createToolbar(document.querySelector('.ds-toolbar'), {
     onToggle: (button, pressed) => console.log(button.ariaLabel, pressed),
   });

@@ -4,11 +4,11 @@ Sección de Lume: Recursos. Página: https://lumeui.dev/#/recursos/react
 
 Componentes .tsx para copiar al proyecto, sobre el mismo CSS y JavaScript de Lume. Sin paquete que instalar: la carpeta viene en el zip de cada versión.
 
-En números: de los 58 componentes: 58 · React: 18+ · dependencias: 0.
+En números: de los 60 componentes: 60 · React: 18+ · dependencias: 0.
 
 ## Instalar
 
-Descarga el zip de la versión 1.7, descomprímelo y lleva la carpeta dentro de `src/` con el nombre `lume`. Los componentes están en `lume/react/` e importan el JavaScript y los íconos de la misma carpeta. Funciona con Vite, Next.js y cualquier proyecto React 18 o más nuevo.
+Descarga el zip de la versión 1.8, descomprímelo y lleva la carpeta dentro de `src/` con el nombre `lume`. Los componentes están en `lume/react/` e importan el JavaScript y los íconos de la misma carpeta. Funciona con Vite, Next.js y cualquier proyecto React 18 o más nuevo.
 
 ```html
 src/
@@ -181,6 +181,8 @@ Lo que ya está en React. Cada nombre lleva a la página del componente, con los
 | Componente | Qué hace | Archivo |
 | --- | --- | --- |
 | `AppShell` | Sidebar que se contrae, cajón en el móvil y barra superior; onNavigate se conecta a tu enrutador. | AppShell.tsx |
+| `AppShell · sidebar` | La sidebar del AppShell: grupos de nav, elemento actual por activeHref, contraída y cajón. | AppShell.tsx |
+| `AppShell layout="navbar"` | Los mismos grupos arriba, con un menú por grupo y Más cuando falta espacio. | AppShell.tsx |
 | `ThemeToggle · useTheme` | El botón de claro y oscuro y el tema en uso. | AppShell.tsx |
 
 ## Cómo funciona
@@ -191,8 +193,8 @@ Lo que ya está en React. Cada nombre lleva a la página del componente, con los
 | Tus archivos | Los .tsx quedan en tu proyecto, como en shadcn: puedes leer, cambiar y borrar lo que no uses. Nada de npm. |
 | TypeScript | Props tipadas y comentadas, con el enlace a la página de cada componente. `IconName` lista los 154 íconos: un nombre equivocado no compila. |
 | Idioma | Los textos que el componente escribe solo ("Cerrar", "Cargando") siguen el idioma de Lume y cambian con `setLocale`. `useLocale()` hace lo mismo en los tuyos. |
-| Versiones | La carpeta `react/` va en cada línea: `/v/1.7/react/`. Actualizar es cambiar la carpeta de Lume por la de la línea nueva. |
+| Versiones | La carpeta `react/` va en cada línea: `/v/1.8/react/`. Actualizar es cambiar la carpeta de Lume por la de la línea nueva. |
 
 ## Lo que viene
 
-Los 58 componentes ya están en React.
+Los 60 componentes ya están en React.

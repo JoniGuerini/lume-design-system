@@ -1,5 +1,5 @@
 import { useEffect, useRef, useSyncExternalStore, type MouseEvent, type ReactNode } from 'react';
-import { createShell, renderSidebarNav, setActiveNavItem } from '../js/shell.js';
+import { createShell, renderSidebarNav, renderNavbarNav, setActiveNavItem } from '../js/shell.js';
 import { resolvedTheme, toggleTheme } from '../js/theme.js';
 import { initTooltips } from '../js/tooltip.js';
 import { msg } from '../js/i18n.js';
@@ -52,6 +52,11 @@ export interface AppShellProps {
   actions?: ReactNode;
   /** Mostra o botão de tema na topbar. Padrão: sim. */
   themeToggle?: boolean;
+  /**
+   * Onde fica a navegação no desktop: na lateral ("sidebar", o padrão) ou no topo ("navbar").
+   * No celular, os dois viram a mesma gaveta. https://lumeui.dev/#/componentes/navbar
+   */
+  layout?: 'sidebar' | 'navbar';
   /** Guarda a sidebar recolhida e os grupos no navegador. Padrão: sim. */
   persist?: boolean;
   /** O conteúdo da página. */
@@ -65,17 +70,21 @@ export interface AppShellProps {
  */
 export function AppShell({
   name, logo, homeHref = '/', nav, activeHref, onNavigate, onSearch, searchLabel, sidebarFooter, breadcrumb, actions,
-  themeToggle = true, persist = true, children, className,
+  themeToggle = true, layout = 'sidebar', persist = true, children, className,
 }: AppShellProps) {
   useLocale();
   const root = useRef<HTMLDivElement>(null);
   const navEl = useRef<HTMLElement>(null);
-  const shell = useRef<{ closeMobile(): void; destroy(): void } | null>(null);
+  const navbarEl = useRef<HTMLElement>(null);
+  const navbar = useRef<{ setActive(href: string): void; destroy(): void } | null>(null);
+  const shell = useRef<{ closeMobile(): void; setLayout(layout: 'sidebar' | 'navbar'): void; destroy(): void } | null>(null);
+  const navigate = useRef(onNavigate);
+  navigate.current = onNavigate;
   const navKey = stableKey(nav);
 
   useEffect(() => {
     initTooltips();
-    const c = createShell(root.current!, { persist });
+    const c = createShell(root.current!, { persist, layout });
     shell.current = c;
     return () => {
       c.destroy();
@@ -91,10 +100,29 @@ export function AppShell({
 
   useEffect(() => {
     if (activeHref) setActiveNavItem(navEl.current!, activeHref);
+    if (activeHref) navbar.current?.setActive(activeHref);
   }, [activeHref]);
 
+  useEffect(() => {
+    shell.current?.setLayout(layout);
+    if (layout !== 'navbar') return;
+    // escolher no menu de um grupo não tem clique num link: o roteador recebe um evento só com preventDefault
+    const go = (href: string) => {
+      if (navigate.current) navigate.current(href, { preventDefault() {} } as unknown as MouseEvent);
+      else location.assign(href);
+    };
+    const n = renderNavbarNav(navbarEl.current!, nav, { go });
+    navbar.current = n;
+    if (activeHref) n.setActive(activeHref);
+    return () => {
+      n.destroy();
+      navbar.current = null;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [layout, navKey]);
+
   const onNavClick = (event: MouseEvent) => {
-    const link = (event.target as HTMLElement).closest('a.ds-nav-item, a.ds-brand');
+    const link = (event.target as HTMLElement).closest('a.ds-nav-item, a.ds-navbar__item, a.ds-brand');
     if (!link || !onNavigate || event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
     onNavigate(link.getAttribute('href') ?? '', event);
     shell.current?.closeMobile();
@@ -120,6 +148,18 @@ export function AppShell({
       <button type="button" className="ds-shell__edge" data-shell-toggle aria-controls="ds-shell-sidebar" data-ds-tooltip-placement="right">
         <Icon name="chevron-left" size={16} />
       </button>
+      {layout === 'navbar' && (
+        <div className="ds-navbar">
+          {brand}
+          <nav ref={navbarEl} className="ds-navbar__nav" aria-label={msg('shell.mainNav')} />
+          {onSearch && (
+            <button type="button" className="ds-field ds-sidebar-search ds-navbar__search" onClick={onSearch}>
+              <Icon name="search" size={20} />
+              <span className="ds-field__placeholder">{searchLabel ?? msg('common.search')}</span>
+            </button>
+          )}
+        </div>
+      )}
       <aside className="ds-sidebar" id="ds-shell-sidebar" aria-label={msg('shell.sidebar')}>
         <div className="ds-sidebar__header">
           {brand}

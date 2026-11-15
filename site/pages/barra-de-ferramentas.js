@@ -60,7 +60,7 @@ const codeFor = ({ plain = false, vertical = false } = {}) => `<div class="ds-to
 </div>
 
 <script type="module">
-  import { createToolbar } from 'https://lumeui.dev/v/1.7/lume.js';
+  import { createToolbar } from 'https://lumeui.dev/v/1.8/lume.js';
   createToolbar(document.querySelector('.ds-toolbar'), {
     onToggle: (button, pressed) => console.log(button.ariaLabel, pressed),
   });

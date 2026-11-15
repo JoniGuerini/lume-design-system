@@ -1,6 +1,6 @@
 # Lume Design System
 
-> Design system en HTML, CSS y JavaScript nativos, sin dependencias: tokens, tipografía, 130 íconos propios, componentes, gráficos y patrones de pantalla, en los temas claro y oscuro. Versión 1.7.1.
+> Design system en HTML, CSS y JavaScript nativos, sin dependencias: tokens, tipografía, 130 íconos propios, componentes, gráficos y patrones de pantalla, en los temas claro y oscuro. Versión 1.8.0.
 
 Empieza por [LEEME](https://lumeui.dev/ia/es/LEEME.md): instalación, reglas generales y lo que nunca inventar. Cada página del sitio tiene un archivo Markdown abajo, generado a partir de ella.
 
@@ -47,6 +47,8 @@ Empieza por [LEEME](https://lumeui.dev/ia/es/LEEME.md): instalación, reglas gen
 - [Carga de archivos](https://lumeui.dev/ia/es/componentes/upload.md): Arrastrar o elegir, con progreso y error por archivo.
 - [Código de verificación](https://lumeui.dev/ia/es/componentes/codigo-de-verificacao.md): Un dígito por casilla, para el inicio de sesión en dos pasos.
 - [Editor de texto enriquecido](https://lumeui.dev/ia/es/componentes/editor-de-texto-rico.md): Un campo que da formato: títulos, listas, citas y enlaces, con la barra de Lume.
+- [Sidebar](https://lumeui.dev/ia/es/componentes/sidebar.md): Navegación en el lateral: grupos, elemento actual, contraída y cajón en el móvil.
+- [Navbar](https://lumeui.dev/ia/es/componentes/navbar.md): Navegación arriba, con un menú por grupo y Más cuando falta espacio.
 - [Pestañas](https://lumeui.dev/ia/es/componentes/abas.md): Alternan vistas del mismo tema. Subrayadas o segmentadas.
 - [Control segmentado](https://lumeui.dev/ia/es/componentes/controle-segmentado.md): Pocas opciones lado a lado, una elegida.
 - [Breadcrumb](https://lumeui.dev/ia/es/componentes/breadcrumb.md): El camino hasta la página actual.

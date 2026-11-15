@@ -37,7 +37,7 @@ Markup of the examples in this section:
 
 ## Anatomy
 
-Eight parts, marked over the real app — the positions come from the DOM itself. Hover or focus a list item to highlight it.
+Eight parts, marked over the real app — the positions come from the DOM itself. Hover or focus a list item to highlight it. Sidebar and Navbar have their own pages, under Components.
 
 Loading the app…
 
@@ -163,7 +163,7 @@ Everything comes from layout tokens — change one number and the whole shell fo
 | layout.frame-gap (`--ds-layout-frame-gap`) | Background between the panels and the window edge | 10 px | 10 px |
 | layout.gutter (`--ds-layout-gutter`) | Content side padding | 40 px | 40 px |
 | layout.content-max (`--ds-layout-content-max`) | Content max width | 1160 px | 1160 px |
-| radius.2xl (`--ds-radius-2xl`) | Radius of both panels | 28 px | 28 px |
+| radius.xl (`--ds-radius-xl`) | Radius of both panels | 20 px | 20 px |
 | breakpoint.lg (`--ds-breakpoint-lg`) | From here, sidebar; below, drawer | 1024 px | 1024 px |
 | color.bg.app (`--ds-color-bg-app`) | Background behind the panels | #DAE0E8 | #0F0E0C |
 | color.bg.sidebar (`--ds-color-bg-sidebar`) | Sidebar | #F8FAFD | #24221F |
@@ -216,7 +216,7 @@ The HTML is fixed; the navigation is built by JS from a list. The same file serv
 ### JavaScript
 
 ```html
-import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/1.7/lume.js';
+import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/1.8/lume.js';
 
 const nav = document.getElementById('sidebar-nav');
 renderSidebarNav(nav, [

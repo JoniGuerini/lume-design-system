@@ -19,7 +19,7 @@ const SERVE_PORT = 5196;
 const BASE = `http://localhost:${SERVE_PORT}`;
 const PORT = 9340;
 // seções só de texto e tabela
-const SKIP_SECTIONS = ['acessibilidade', 'tokens', 'api', 'teclado'];
+const SKIP_SECTIONS = ['acessibilidade', 'tokens', 'api', 'teclado', 'no-app'];
 
 const BROWSERS = [
   'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',

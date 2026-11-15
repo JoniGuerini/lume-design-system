@@ -1,0 +1,296 @@
+/* Páginas: Componentes › Sidebar e Navbar (prefixo sh-). O resto vem de padroes-app-shell.css (pa-). */
+
+/* ───────── Palco dos exemplos ───────── */
+
+.sh-anatomy__stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--ds-space-400) var(--ds-space-300);
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-xl);
+  background: var(--ds-color-bg-app);
+}
+
+/* A sidebar fora do shell: parada no lugar, mesmo no celular (lá, a de verdade vira gaveta) */
+.sh-sidebar.ds-sidebar {
+  position: relative;
+  inset: auto;
+  z-index: auto;
+  width: var(--ds-layout-sidebar);
+  max-width: 100%;
+  box-shadow: var(--ds-shadow-lg);
+  transform: none;
+  visibility: visible;
+}
+
+.sh-sidebar .ds-sidebar__nav {
+  -webkit-mask-image: none;
+  mask-image: none;
+  padding-bottom: var(--ds-space-200);
+}
+
+.sh-sidebar .ds-sidebar__footer {
+  padding: var(--ds-space-100) 13px 13px;
+}
+
+/* ───────── Estados do item ───────── */
+
+.sh-states.ds-sidebar {
+  width: 100%;
+  max-width: 560px;
+  margin-inline: auto;
+  padding: var(--ds-space-200) 13px;
+}
+
+.sh-states__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-050);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-states__row {
+  display: grid;
+  grid-template-columns: minmax(0, 254px) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--ds-space-300);
+}
+
+.sh-states__name {
+  margin: 0;
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-label-sm);
+}
+
+.sh-states__name span {
+  display: block;
+  margin-top: 2px;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-caption);
+}
+
+/* ───────── Navbar fora do shell ───────── */
+
+.sh-navbar.ds-navbar {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-100);
+  width: 100%;
+  height: var(--ds-layout-topbar);
+  padding-inline: var(--ds-space-150);
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-xl);
+  background: var(--ds-color-bg-sidebar);
+  color: var(--ds-color-fg-default);
+  box-shadow: var(--ds-shadow-lg);
+}
+
+.sh-navdemo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-250);
+  padding: var(--ds-space-250);
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-xl);
+  background: var(--ds-color-bg-surface);
+}
+
+.sh-navdemo__width {
+  max-width: 420px;
+}
+
+.sh-navstage {
+  position: relative;
+  padding: var(--ds-space-300) var(--ds-space-250);
+  border-radius: var(--ds-radius-lg);
+  background: var(--ds-color-bg-app);
+  box-sizing: content-box;
+}
+
+.sh-navdemo .sh-navstage {
+  overflow: hidden;
+}
+
+.sh-navscale {
+  transform-origin: 0 0;
+}
+
+.sh-navstage--anatomy {
+  width: 100%;
+  max-width: 900px;
+  padding: 0;
+  background: none;
+}
+
+/* A navbar é larga: na anatomia, a lista vai para baixo, em duas colunas */
+.sh-anatomy:has(.sh-navstage--anatomy) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.sh-anatomy:has(.sh-navstage--anatomy) .sh-anatomy__stage {
+  padding-block: var(--ds-space-600);
+}
+
+.sh-anatomy:has(.sh-navstage--anatomy) .pa-anatomy__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px var(--ds-space-200);
+}
+
+.pa-anatomy__item[data-missing] .pa-anatomy__num {
+  opacity: 0.5;
+}
+
+/* ───────── Quando falta espaço ───────── */
+
+.sh-space {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--ds-space-150);
+}
+
+.sh-space__step {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--ds-space-100);
+  padding: var(--ds-space-250);
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-xl);
+  background: var(--ds-color-bg-surface);
+}
+
+.sh-space__title {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-100);
+  margin: var(--ds-space-100) 0 0;
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-label-md);
+}
+
+.sh-space__text {
+  flex: 1;
+  margin: 0;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+/* Miniatura: a barra desenhada com blocos, sem texto */
+.sh-mini {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  height: 34px;
+  padding-inline: 10px;
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-md);
+  background: var(--ds-color-bg-app);
+  overflow: hidden;
+}
+
+.sh-mini img {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  margin-inline-end: 3px;
+}
+
+.sh-mini b {
+  flex: none;
+  height: 6px;
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-color-border-strong);
+}
+
+.sh-mini b[hidden] {
+  display: none;
+}
+
+.sh-mini b:nth-of-type(1) {
+  max-width: 26px;
+}
+
+.sh-mini b:nth-of-type(2),
+.sh-mini b:nth-of-type(3),
+.sh-mini b:nth-of-type(4),
+.sh-mini b:nth-of-type(5) {
+  max-width: 30px;
+}
+
+.sh-mini .sh-mini__more {
+  width: 22px;
+  background: var(--ds-color-brand-indicator);
+}
+
+.sh-mini__search {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 20px;
+  margin-inline-start: auto;
+  padding-inline: 5px;
+  border: 1px solid var(--ds-color-border-default);
+  border-radius: var(--ds-radius-sm);
+  color: var(--ds-color-fg-muted);
+}
+
+.sh-mini__search i {
+  width: 34px;
+  height: 5px;
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-color-border-default);
+}
+
+.sh-mini[data-step="1"] .sh-mini__search {
+  width: 64px;
+}
+
+/* ───────── Sidebar ou navbar ───────── */
+
+.sh-compare .doc-table__head,
+.sh-compare .doc-table__row {
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.sh-compare .doc-table__row {
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+.sh-compare__what {
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-label-md);
+}
+
+@media (max-width: 1100px) {
+  .sh-space {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .sh-anatomy:has(.sh-navstage--anatomy) .pa-anatomy__list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sh-states__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--ds-space-050);
+  }
+
+  .sh-compare .doc-table__head {
+    display: none;
+  }
+
+  .sh-compare .doc-table__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--ds-space-050);
+  }
+}

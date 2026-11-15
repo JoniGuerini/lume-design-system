@@ -295,6 +295,34 @@ export const SECTIONS = [
     },
     "items": [
       {
+        "slug": "sidebar",
+        "icon": "panel-left",
+        "label": {
+          "pt-BR": "Sidebar",
+          "en": "Sidebar",
+          "es": "Sidebar"
+        },
+        "description": {
+          "pt-BR": "Navegação na lateral: grupos, item atual, recolhida e gaveta no celular.",
+          "en": "Side navigation: groups, current item, collapsed, and a drawer on phones.",
+          "es": "Navegación en el lateral: grupos, elemento actual, contraída y cajón en el móvil."
+        }
+      },
+      {
+        "slug": "navbar",
+        "icon": "panel-top",
+        "label": {
+          "pt-BR": "Navbar",
+          "en": "Navbar",
+          "es": "Navbar"
+        },
+        "description": {
+          "pt-BR": "Navegação no topo, com um menu por grupo e o Mais quando falta espaço.",
+          "en": "Top navigation, with a menu per group and More when space runs out.",
+          "es": "Navegación arriba, con un menú por grupo y Más cuando falta espacio."
+        }
+      },
+      {
         "slug": "abas",
         "icon": "tabs",
         "label": {

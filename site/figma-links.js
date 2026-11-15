@@ -97,6 +97,9 @@ export const NODES = {
 
 // caminho do site → bloco do plugin, quando o nome não é o último pedaço do caminho
 const BLOCK_OF = {
+  // Sidebar e Navbar não têm bloco próprio: abrem o App shell, que mostra as duas
+  '/componentes/sidebar': 'app-shell',
+  '/componentes/navbar': 'app-shell',
   '/fundamentos/espacamento': 'espacos',
   '/fundamentos/raios': 'espacos',
   '/fundamentos/elevacao': 'espacos',

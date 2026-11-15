@@ -12,7 +12,7 @@ En números: base: Popover · tonos de ícono: 6 · tiempo: relativo · rol ARIA
 <button type="button" class="ds-icon-btn"><ds-icon name="bell"></ds-icon></button>
 
 <script type="module">
-  import { createNotificationCenter } from 'https://lumeui.dev/v/1.7/lume.js';
+  import { createNotificationCenter } from 'https://lumeui.dev/v/1.8/lume.js';
 
   createNotificationCenter(document.querySelector('.ds-icon-btn'), {
     items: [
@@ -121,7 +121,7 @@ Tú das la campana y la lista; el JavaScript dibuja el panel, el número y se oc
 <button type="button" class="ds-icon-btn"><ds-icon name="bell"></ds-icon></button>
 
 <script type="module">
-  import { createNotificationCenter } from 'https://lumeui.dev/v/1.7/lume.js';
+  import { createNotificationCenter } from 'https://lumeui.dev/v/1.8/lume.js';
 
   const center = createNotificationCenter(document.querySelector('.ds-icon-btn'), {
     items: [

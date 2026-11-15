@@ -192,7 +192,7 @@ const htmlCode = () => `<div class="${L('lista', 'list', 'lista')}">
   <nav class="ds-pagination" id="${L('paginas', 'pages', 'paginas')}" aria-label="${L('Páginas', 'Pages', 'Páginas')}"></nav>
 </div>`;
 
-const jsCode = () => `import { createFilters, createPagination, filtersToQuery, toast } from 'https://lumeui.dev/v/1.7/lume.js';
+const jsCode = () => `import { createFilters, createPagination, filtersToQuery, toast } from 'https://lumeui.dev/v/1.8/lume.js';
 
 const pages = createPagination(document.querySelector('#${L('paginas', 'pages', 'paginas')}'), {
   total: ${L('pessoas', 'people', 'personas')}.length, pageSize: 8,

@@ -44,7 +44,7 @@
 }
 
 @media (min-width: 1024px) {
-  .ds-shell[data-ready] .ds-sidebar {
+  .ds-shell[data-ready] > .ds-sidebar {
     transition: width var(--_dur) var(--_ease);
   }
 }
@@ -577,15 +577,15 @@ button.ds-account {
     flex-direction: column;
   }
 
-  .ds-shell[data-layout="navbar"] :is(.ds-sidebar, .ds-shell__edge) {
+  .ds-shell[data-layout="navbar"] > :is(.ds-sidebar, .ds-shell__edge) {
     display: none;
   }
 
-  .ds-shell[data-layout="navbar"] .ds-main {
+  .ds-shell[data-layout="navbar"] > .ds-main {
     min-height: 0;
   }
 
-  .ds-shell[data-layout="navbar"] .ds-navbar {
+  .ds-shell[data-layout="navbar"] > .ds-navbar {
     flex: none;
     display: flex;
     align-items: center;
@@ -631,7 +631,7 @@ button.ds-account {
       border-color var(--ds-duration-fast) var(--ds-easing-standard);
   }
 
-  .ds-shell:has(.ds-sidebar:hover) .ds-shell__edge,
+  .ds-shell:has(> .ds-sidebar:hover) > .ds-shell__edge,
   .ds-shell__edge:hover,
   .ds-shell__edge:focus-visible,
   .ds-shell__edge[data-state="hover"],
@@ -645,19 +645,19 @@ button.ds-account {
     color: var(--ds-color-fg-default);
   }
 
-  .ds-shell[data-sidebar="collapsed"] .ds-shell__edge {
+  .ds-shell[data-sidebar="collapsed"] > .ds-shell__edge {
     visibility: hidden;
     opacity: 0;
   }
 
   /* aberta, o botão do cabeçalho sai de cena (quem recolhe é a aba) */
-  .ds-shell:not([data-sidebar="collapsed"]) .ds-sidebar__toggle {
+  .ds-shell:not([data-sidebar="collapsed"]) > .ds-sidebar .ds-sidebar__toggle {
     visibility: hidden;
     opacity: 0;
   }
 
   /* recolhida, ele fica no lugar da chama e mostra a chama até receber o mouse ou o foco */
-  .ds-shell[data-sidebar="collapsed"] .ds-sidebar__toggle {
+  .ds-shell[data-sidebar="collapsed"] > .ds-sidebar .ds-sidebar__toggle {
     position: absolute;
     top: 16px;
     left: 15px;
@@ -667,16 +667,16 @@ button.ds-account {
       border-color var(--ds-duration-fast) var(--ds-easing-standard);
   }
 
-  .ds-shell[data-sidebar="collapsed"] .ds-sidebar__toggle:not(:hover, :focus-visible) {
+  .ds-shell[data-sidebar="collapsed"] > .ds-sidebar .ds-sidebar__toggle:not(:hover, :focus-visible) {
     border-color: transparent;
     background: transparent;
   }
 
-  .ds-shell[data-sidebar="collapsed"] .ds-sidebar__toggle:not(:hover, :focus-visible) .ds-sidebar__toggle-collapse {
+  .ds-shell[data-sidebar="collapsed"] > .ds-sidebar .ds-sidebar__toggle:not(:hover, :focus-visible) .ds-sidebar__toggle-collapse {
     display: none;
   }
 
-  .ds-shell[data-sidebar="collapsed"] .ds-sidebar__toggle:not(:hover, :focus-visible) .ds-sidebar__toggle-mark {
+  .ds-shell[data-sidebar="collapsed"] > .ds-sidebar .ds-sidebar__toggle:not(:hover, :focus-visible) .ds-sidebar__toggle-mark {
     display: block;
   }
 
@@ -684,7 +684,7 @@ button.ds-account {
     --_sidebar-w: var(--ds-layout-sidebar-collapsed);
   }
 
-  .ds-shell[data-sidebar="collapsed"] .ds-sidebar :is(
+  .ds-shell[data-sidebar="collapsed"] > .ds-sidebar :is(
     .ds-brand,
     .ds-sidebar-search .ds-field__placeholder,
     .ds-sidebar-search__kbd,
@@ -699,37 +699,37 @@ button.ds-account {
     pointer-events: none;
   }
 
-  .ds-shell[data-sidebar="collapsed"] .ds-nav-group__header {
+  .ds-shell[data-sidebar="collapsed"] > .ds-sidebar .ds-nav-group__header {
     pointer-events: none;
   }
 
-  .ds-shell[data-sidebar="collapsed"] .ds-nav-group__header::after {
+  .ds-shell[data-sidebar="collapsed"] > .ds-sidebar .ds-nav-group__header::after {
     opacity: 1;
   }
 
-  .ds-shell[data-sidebar="collapsed"] .ds-nav-section {
+  .ds-shell[data-sidebar="collapsed"] > .ds-sidebar .ds-nav-section {
     display: none;
   }
 
-  .ds-shell[data-sidebar="collapsed"] .ds-nav-group__items {
+  .ds-shell[data-sidebar="collapsed"] > .ds-sidebar .ds-nav-group__items {
     grid-template-rows: 1fr;
   }
 
-  .ds-shell[data-sidebar="collapsed"] .ds-nav-group__items > .ds-nav-list {
+  .ds-shell[data-sidebar="collapsed"] > .ds-sidebar .ds-nav-group__items > .ds-nav-list {
     visibility: visible;
   }
 
-  .ds-shell[data-sidebar="collapsed"] .ds-nav-item > .ds-dot {
+  .ds-shell[data-sidebar="collapsed"] > .ds-sidebar .ds-nav-item > .ds-dot {
     position: absolute;
     top: 9px;
     left: 30px;
   }
 
-  .ds-shell[data-sidebar="collapsed"] .ds-account {
+  .ds-shell[data-sidebar="collapsed"] > .ds-sidebar .ds-account {
     padding-inline: 3px;
   }
 
-  .ds-shell[data-sidebar="collapsed"] .ds-sidebar__divider {
+  .ds-shell[data-sidebar="collapsed"] > .ds-sidebar .ds-sidebar__divider {
     width: calc(100% - 26px);
   }
 }
@@ -754,7 +754,7 @@ button.ds-account {
       visibility 0s var(--_dur);
   }
 
-  .ds-shell[data-mobile-open="true"] .ds-sidebar {
+  .ds-shell[data-mobile-open="true"] > .ds-sidebar {
     transform: none;
     visibility: visible;
     transition: transform var(--_dur) var(--_ease);
@@ -771,7 +771,7 @@ button.ds-account {
     transition: opacity var(--_dur) var(--_ease);
   }
 
-  .ds-shell[data-mobile-open="true"] .ds-shell__scrim {
+  .ds-shell[data-mobile-open="true"] > .ds-shell__scrim {
     opacity: 1;
     pointer-events: auto;
   }

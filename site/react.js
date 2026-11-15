@@ -117,6 +117,8 @@ export const REACT_GROUPS = () => [
     title: L('App shell e tema', 'App shell and theme', 'App shell y tema'),
     items: [
       ['AppShell', 'AppShell.tsx', '/padroes/app-shell', '0.29', L('Sidebar que recolhe, gaveta no celular e topbar; onNavigate liga ao seu roteador.', 'Collapsing sidebar, drawer on phones and top bar; onNavigate hooks into your router.', 'Sidebar que se contrae, cajón en el móvil y barra superior; onNavigate se conecta a tu enrutador.')],
+      ['AppShell · sidebar', 'AppShell.tsx', '/componentes/sidebar', '0.29', L('A sidebar do AppShell: grupos de nav, item atual por activeHref, recolhida e gaveta.', 'The AppShell sidebar: nav groups, current item from activeHref, collapsed, and drawer.', 'La sidebar del AppShell: grupos de nav, elemento actual por activeHref, contraída y cajón.')],
+      ['AppShell layout="navbar"', 'AppShell.tsx', '/componentes/navbar', '1.8', L('Os mesmos grupos no topo, com um menu por grupo e o Mais quando falta espaço.', 'The same groups across the top, with a menu per group and More when space runs out.', 'Los mismos grupos arriba, con un menú por grupo y Más cuando falta espacio.')],
       ['ThemeToggle · useTheme', 'AppShell.tsx', '/fundamentos/cores', '0.29', L('O botão de claro e escuro e o tema em uso.', 'The light and dark button and the theme in use.', 'El botón de claro y oscuro y el tema en uso.')],
     ],
   },

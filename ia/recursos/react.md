@@ -4,11 +4,11 @@ Seção do Lume: Recursos. Página: https://lumeui.dev/#/recursos/react
 
 Componentes .tsx para copiar no projeto, por cima do mesmo CSS e JavaScript do Lume. Sem pacote para instalar: a pasta vem no zip de cada versão.
 
-Em números: dos 58 componentes: 58 · React: 18+ · dependências: 0.
+Em números: dos 60 componentes: 60 · React: 18+ · dependências: 0.
 
 ## Instalar
 
-Baixe o zip da versão 1.7, descompacte e leve a pasta para dentro de `src/` com o nome `lume`. Os componentes estão em `lume/react/` e importam o JavaScript e os ícones da própria pasta. Funciona com Vite, Next.js e qualquer projeto React 18 ou mais novo.
+Baixe o zip da versão 1.8, descompacte e leve a pasta para dentro de `src/` com o nome `lume`. Os componentes estão em `lume/react/` e importam o JavaScript e os ícones da própria pasta. Funciona com Vite, Next.js e qualquer projeto React 18 ou mais novo.
 
 ```html
 src/
@@ -181,6 +181,8 @@ O que já está em React. Cada nome leva à página do componente, onde estão o
 | Componente | O que faz | Arquivo |
 | --- | --- | --- |
 | `AppShell` | Sidebar que recolhe, gaveta no celular e topbar; onNavigate liga ao seu roteador. | AppShell.tsx |
+| `AppShell · sidebar` | A sidebar do AppShell: grupos de nav, item atual por activeHref, recolhida e gaveta. | AppShell.tsx |
+| `AppShell layout="navbar"` | Os mesmos grupos no topo, com um menu por grupo e o Mais quando falta espaço. | AppShell.tsx |
 | `ThemeToggle · useTheme` | O botão de claro e escuro e o tema em uso. | AppShell.tsx |
 
 ## Como funciona
@@ -191,8 +193,8 @@ O que já está em React. Cada nome leva à página do componente, onde estão o
 | Seus arquivos | Os .tsx ficam no seu projeto, como no shadcn: dá para ler, mudar e apagar o que não usar. Nada de npm. |
 | TypeScript | Props tipadas e comentadas, com o link da página de cada componente. `IconName` lista os 154 ícones: nome errado não compila. |
 | Idioma | Os textos que o componente escreve sozinho ("Fechar", "Carregando") seguem o idioma do Lume e mudam com `setLocale`. `useLocale()` faz o mesmo nos seus. |
-| Versões | A pasta `react/` vai em cada linha: `/v/1.7/react/`. Atualizar é trocar a pasta do Lume pela da linha nova. |
+| Versões | A pasta `react/` vai em cada linha: `/v/1.8/react/`. Atualizar é trocar a pasta do Lume pela da linha nova. |
 
 ## O que vem
 
-Os 58 componentes já estão em React.
+Os 60 componentes já estão em React.

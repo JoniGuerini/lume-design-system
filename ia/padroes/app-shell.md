@@ -37,7 +37,7 @@ Marcação dos exemplos desta seção:
 
 ## Anatomia
 
-Oito partes, marcadas sobre o app de verdade — as posições vêm do próprio DOM. Passe o mouse ou foque um item da lista para destacá-lo.
+Oito partes, marcadas sobre o app de verdade — as posições vêm do próprio DOM. Passe o mouse ou foque um item da lista para destacá-lo. Sidebar e Navbar têm páginas próprias, em Componentes.
 
 Carregando o app…
 
@@ -163,7 +163,7 @@ Tudo vem de tokens de layout — mude um número e o shell inteiro acompanha.
 | layout.frame-gap (`--ds-layout-frame-gap`) | Fundo entre os painéis e a borda da janela | 10 px | 10 px |
 | layout.gutter (`--ds-layout-gutter`) | Respiro lateral do conteúdo | 40 px | 40 px |
 | layout.content-max (`--ds-layout-content-max`) | Largura máxima do conteúdo | 1160 px | 1160 px |
-| radius.2xl (`--ds-radius-2xl`) | Raio dos dois painéis | 28 px | 28 px |
+| radius.xl (`--ds-radius-xl`) | Raio dos dois painéis | 20 px | 20 px |
 | breakpoint.lg (`--ds-breakpoint-lg`) | A partir daqui, sidebar; abaixo, gaveta | 1024 px | 1024 px |
 | color.bg.app (`--ds-color-bg-app`) | Fundo atrás dos painéis | #DAE0E8 | #0F0E0C |
 | color.bg.sidebar (`--ds-color-bg-sidebar`) | Sidebar | #F8FAFD | #24221F |
@@ -216,7 +216,7 @@ O HTML é fixo; a navegação é montada por JS a partir de uma lista. O mesmo a
 ### JavaScript
 
 ```html
-import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/1.7/lume.js';
+import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/1.8/lume.js';
 
 const nav = document.getElementById('sidebar-nav');
 renderSidebarNav(nav, [
