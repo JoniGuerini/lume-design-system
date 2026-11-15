@@ -684,19 +684,16 @@
 }
 
 .site-footer__version {
-  padding: 2px var(--ds-space-100);
-  border: 1px solid var(--ds-color-border-control);
-  border-radius: var(--ds-radius-full);
-  color: var(--ds-color-fg-muted);
+  color: var(--ds-color-fg-subtle);
   font: var(--ds-text-caption);
   font-variant-numeric: tabular-nums;
   text-decoration: none;
-  transition: border-color var(--ds-duration-fast) var(--ds-easing-standard), color var(--ds-duration-fast) var(--ds-easing-standard);
+  border-radius: var(--ds-radius-xs);
+  transition: color var(--ds-duration-fast) var(--ds-easing-standard);
 }
 
 .site-footer__version:hover,
 .site-footer__version[data-state='hover'] {
-  border-color: var(--ds-color-border-strong);
   color: var(--ds-color-fg-default);
 }
 
