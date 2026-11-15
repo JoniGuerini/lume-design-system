@@ -12,7 +12,7 @@ In numbers: base: Popover · icon tones: 6 · time: relative · ARIA role: dialo
 <button type="button" class="ds-icon-btn"><ds-icon name="bell"></ds-icon></button>
 
 <script type="module">
-  import { createNotificationCenter } from 'https://lumeui.dev/v/1.4/lume.js';
+  import { createNotificationCenter } from 'https://lumeui.dev/v/1.5/lume.js';
 
   createNotificationCenter(document.querySelector('.ds-icon-btn'), {
     items: [
@@ -121,7 +121,7 @@ You provide the bell and the list; JavaScript draws the panel and the number and
 <button type="button" class="ds-icon-btn"><ds-icon name="bell"></ds-icon></button>
 
 <script type="module">
-  import { createNotificationCenter } from 'https://lumeui.dev/v/1.4/lume.js';
+  import { createNotificationCenter } from 'https://lumeui.dev/v/1.5/lume.js';
 
   const center = createNotificationCenter(document.querySelector('.ds-icon-btn'), {
     items: [

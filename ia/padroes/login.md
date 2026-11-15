@@ -167,7 +167,7 @@ O login é um formulário comum com `createForm`: os campos, o botão de mostrar
 ```
 
 ```html
-import { createForm } from 'https://lumeui.dev/v/1.4/lume.js';
+import { createForm } from 'https://lumeui.dev/v/1.5/lume.js';
 
 // mostrar senha: troca o tipo do campo e marca o botão
 document.addEventListener('click', (event) => {

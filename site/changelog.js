@@ -8,10 +8,29 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '1.4.0';
+export const CURRENT_VERSION = '1.5.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '1.5.0',
+    date: '2026-11-15',
+    title: T('Painel de indicadores', 'Metrics dashboard', 'Panel de indicadores'),
+    summary: T(
+      'Padrão novo para montar um painel: uma pergunta no título, até quatro números comparados, um gráfico principal e, escrito, o que pede atenção.',
+      'A new pattern for putting a dashboard together: a question in the title, up to four compared numbers, one main chart, and, in words, what needs attention.',
+      'Patrón nuevo para armar un panel: una pregunta en el título, hasta cuatro números comparados, un gráfico principal y, por escrito, lo que necesita atención.',
+    ),
+    groups: [
+      {
+        name: T('Padrões', 'Patterns', 'Patrones'),
+        items: [
+          ['novo', T('Painel de indicadores: o uso da documentação, com um período para todos os cartões e a hora do dado', 'Metrics dashboard: docs usage, with one period for every card and how fresh the data is', 'Panel de indicadores: el uso de la documentación, con un período para todas las tarjetas y la hora del dato'), '/padroes/painel'],
+          ['novo', T('“Precisa de atenção”: o que pede ação vira frase com link, em vez de ficar escondido numa curva', '“Needs attention”: what calls for action becomes a sentence with a link instead of hiding in a curve', '“Necesita atención”: lo que pide acción se vuelve frase con enlace, en vez de quedar escondido en una curva'), '/padroes/painel'],
+        ],
+      },
+    ],
+  },
   {
     version: '1.4.0',
     date: '2026-11-15',

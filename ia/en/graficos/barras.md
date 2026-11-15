@@ -9,7 +9,7 @@ In numbers: layouts: 3 · orientations: 2 · max thickness: 24 px · minimum con
 ## Example
 
 ```html
-import { createBarChart } from 'https://lumeui.dev/v/1.4/lume.js';
+import { createBarChart } from 'https://lumeui.dev/v/1.5/lume.js';
 
 createBarChart(document.querySelector('#sales'), {
   title: 'Sales by channel',

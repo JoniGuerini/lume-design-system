@@ -15,7 +15,7 @@ Em números: criar tag: Enter · , · colar lista: sim · repetidas: recusadas �
 </div>
 
 <script type="module">
-  import { createTagField } from 'https://lumeui.dev/v/1.4/lume.js';
+  import { createTagField } from 'https://lumeui.dev/v/1.5/lume.js';
   createTagField(document.querySelector('#assuntos'), {
     value: ['design', 'tokens'],
   });
@@ -108,7 +108,7 @@ Marcação dos exemplos desta seção:
 Funciona com `createForm`: com `required`, ter pelo menos uma tag já basta.
 
 ```html
-import { createTagField } from 'https://lumeui.dev/v/1.4/lume.js';
+import { createTagField } from 'https://lumeui.dev/v/1.5/lume.js';
 
 const tags = createTagField(document.querySelector('#assuntos'), {
   value: ['design', 'tokens'],

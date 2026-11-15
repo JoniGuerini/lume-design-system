@@ -216,7 +216,7 @@ O HTML é fixo; a navegação é montada por JS a partir de uma lista. O mesmo a
 ### JavaScript
 
 ```html
-import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/1.4/lume.js';
+import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/1.5/lume.js';
 
 const nav = document.getElementById('sidebar-nav');
 renderSidebarNav(nav, [

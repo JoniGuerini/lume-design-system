@@ -185,7 +185,7 @@ const htmlCode = () => `<dl class="ds-dl ds-dl--lines">
 </form>
 <p class="ds-visually-hidden" role="status"></p>   <!-- “${L('Equipe salva', 'Team saved', 'Equipo guardado')}” -->`;
 
-const jsCode = () => `import { mountTabs } from 'https://lumeui.dev/v/1.4/lume.js';
+const jsCode = () => `import { mountTabs } from 'https://lumeui.dev/v/1.5/lume.js';
 
 mountTabs(${L('pagina', 'page', 'pagina')});
 

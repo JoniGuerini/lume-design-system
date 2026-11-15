@@ -1,0 +1,122 @@
+/* Página: Padrões · Painel de indicadores (prefixo pi-) */
+
+.pi-screen {
+  container-type: inline-size;
+}
+
+.pi-fresh {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-050);
+}
+
+.pi-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--ds-space-150);
+  transition: opacity var(--ds-duration-base) var(--ds-easing-standard);
+}
+
+.pi-kpis[aria-busy="true"] {
+  opacity: 0.45;
+}
+
+.pi-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--ds-space-150);
+  align-items: stretch;
+}
+
+.pi-row--main {
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+}
+
+/* os cartões de uma linha têm a mesma altura */
+.pi-row > div > .ds-chart--card {
+  height: 100%;
+  margin: 0;
+}
+
+/* ───────── Precisa de atenção ───────── */
+
+.pi-attention {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-200);
+  padding: var(--ds-space-300);
+  border-radius: var(--ds-radius-xl);
+  border: 1px solid var(--ds-color-border-subtle);
+  background: var(--ds-color-bg-surface);
+}
+
+.pi-attention__title {
+  margin: 0;
+  font: var(--ds-text-label-md);
+}
+
+.pi-attention__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-250);
+  margin: 0;
+  padding: 0;
+}
+
+.pi-attention__item {
+  display: flex;
+  gap: var(--ds-space-150);
+}
+
+.pi-attention__icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--ds-radius-md);
+  background: var(--ds-color-bg-muted);
+  color: var(--ds-color-fg-muted);
+}
+
+.pi-attention__icon--warning {
+  background: var(--ds-color-warning-subtle);
+  color: var(--ds-color-warning-fg);
+}
+
+.pi-attention__icon--info {
+  background: var(--ds-color-info-subtle);
+  color: var(--ds-color-info-fg);
+}
+
+.pi-attention__name {
+  margin: 0;
+  font: var(--ds-text-label-md);
+}
+
+.pi-attention__text {
+  margin: var(--ds-space-025) 0 var(--ds-space-075);
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+.pi-attention__link {
+  font: var(--ds-text-label-sm);
+}
+
+@container (max-width: 720px) {
+  .pi-kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pi-row,
+  .pi-row--main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@container (max-width: 440px) {
+  .pi-kpis {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
