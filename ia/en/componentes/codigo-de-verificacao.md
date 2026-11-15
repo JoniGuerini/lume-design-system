@@ -12,7 +12,7 @@ In numbers: boxes: your choice · real fields: 1 · autocomplete: one-time-code 
 <div class="ds-otp"><input class="ds-otp__input" id="codigo" name="codigo" aria-label="Verification code"></div>
 
 <script type="module">
-  import { createOtpField } from 'https://lumeui.dev/v/1.3/lume.js';
+  import { createOtpField } from 'https://lumeui.dev/v/1.4/lume.js';
   createOtpField(document.querySelector('.ds-otp'), {
     length: 6,
     onComplete: (code) => verificar(code),

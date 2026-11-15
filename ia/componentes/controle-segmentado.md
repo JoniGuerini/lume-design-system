@@ -16,7 +16,7 @@ Em números: altura: 36 px · opções: 2 – 4 · tipos: 2 · papel ARIA: radio
 </div>
 
 <script type="module">
-  import { createSegmented } from 'https://lumeui.dev/v/1.3/lume.js';
+  import { createSegmented } from 'https://lumeui.dev/v/1.4/lume.js';
   createSegmented(document.querySelector('.ds-segmented'), {
     onChange: (value) => trocar(value),
   });

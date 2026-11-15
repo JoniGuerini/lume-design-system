@@ -8,10 +8,29 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '1.3.0';
+export const CURRENT_VERSION = '1.4.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '1.4.0',
+    date: '2026-11-15',
+    title: T('Detalhe e edição', 'Detail and editing', 'Detalle y edición'),
+    summary: T(
+      'Padrão novo para a página de uma coisa só: cabeçalho, abas, propriedades que se editam no lugar e um histórico de quem mudou o quê.',
+      'A new pattern for the page of a single thing: header, tabs, properties edited in place, and a history of who changed what.',
+      'Patrón nuevo para la página de una sola cosa: encabezado, pestañas, propiedades que se editan en el lugar y un historial de quién cambió qué.',
+    ),
+    groups: [
+      {
+        name: T('Padrões', 'Patterns', 'Patrones'),
+        items: [
+          ['novo', T('Detalhe e edição: a página de uma pessoa com caminho, cabeçalho, abas e resumo', 'Detail and editing: a person’s page with path, header, tabs, and summary', 'Detalle y edición: la página de una persona con ruta, encabezado, pestañas y resumen'), '/padroes/detalhe'],
+          ['novo', T('Edição no lugar, um campo por vez, com Enter, Esc e cada mudança no histórico', 'In-place editing, one field at a time, with Enter, Esc, and every change in the history', 'Edición en el lugar, un campo a la vez, con Enter, Esc y cada cambio en el historial'), '/padroes/detalhe'],
+        ],
+      },
+    ],
+  },
   {
     version: '1.3.0',
     date: '2026-11-15',

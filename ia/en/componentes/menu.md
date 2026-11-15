@@ -9,7 +9,7 @@ In numbers: modes: 2 · item types: 6 · keys: 8 · function: createMenu.
 ## Example
 
 ```html
-import { createMenu } from 'https://lumeui.dev/v/1.3/lume.js';
+import { createMenu } from 'https://lumeui.dev/v/1.4/lume.js';
 
 const menu = createMenu(trigger, {
   label: 'Sort by',

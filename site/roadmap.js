@@ -18,8 +18,7 @@ const P = (version, status, tone, title, text, items) => ({ version, group: 'pat
 
 /* Padrões de tela pedidos depois da 1.0, um por versão; ele avalia no fim quais ficam. Etapa entregue sai daqui. */
 const STAGES = [
-  P('1.4', NEXT, 'brand', T('Detalhe e edição', 'Detail and editing', 'Detalle y edición'), T('A página de um item: cabeçalho, abas, histórico e edição no lugar.', 'An item’s page: header, tabs, history, and in-place editing.', 'La página de un elemento: encabezado, pestañas, historial y edición en el lugar.'), []),
-  P('1.5', PLANNED, 'neutral', T('Painel de indicadores', 'Metrics dashboard', 'Panel de indicadores'), T('Números, gráficos e período numa tela só.', 'Numbers, charts, and a period on a single screen.', 'Números, gráficos y período en una sola pantalla.'), []),
+  P('1.5', NEXT, 'brand', T('Painel de indicadores', 'Metrics dashboard', 'Panel de indicadores'), T('Números, gráficos e período numa tela só.', 'Numbers, charts, and a period on a single screen.', 'Números, gráficos y período en una sola pantalla.'), []),
   P('1.6', PLANNED, 'neutral', T('Primeiro uso', 'First use', 'Primer uso'), T('Boas-vindas, primeiros passos e o vazio que ensina.', 'Welcome, first steps, and the empty state that teaches.', 'Bienvenida, primeros pasos y el vacío que enseña.'), []),
   P('1.7', PLANNED, 'neutral', T('Carregamento e erros', 'Loading and errors', 'Carga y errores'), T('Esqueleto ou spinner, erro de rede, sem conexão e página não encontrada.', 'Skeleton or spinner, network error, offline, and page not found.', 'Esqueleto o spinner, error de red, sin conexión y página no encontrada.'), []),
 ];

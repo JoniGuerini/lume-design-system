@@ -55,7 +55,7 @@ function tileCode(s) {
   if (o.delta != null && o.good !== 'up') lines.push(`  good: '${o.good}',`);
   if (o.trend) lines.push(`  trend: [${o.trend.slice(0, 4).join(', ')}, …],`);
   if (o.hero) lines.push('  hero: true,');
-  return `import { statTileHtml } from 'https://lumeui.dev/v/1.3/lume.js';\n\nel.innerHTML = statTileHtml({\n${lines.join('\n')}\n});`;
+  return `import { statTileHtml } from 'https://lumeui.dev/v/1.4/lume.js';\n\nel.innerHTML = statTileHtml({\n${lines.join('\n')}\n});`;
 }
 
 const KPIS = () => [
@@ -353,7 +353,7 @@ export default function renderIndicadores(page) {
       'in-api',
       'API',
       L('Três funções que devolvem HTML, sem estado — use em qualquer lugar, inclusive dentro de tabelas e cards.', 'Three functions that return HTML, with no state — use them anywhere, including inside tables and cards.', 'Tres funciones que devuelven HTML, sin estado — úsalas en cualquier lugar, incluso dentro de tablas y tarjetas.'),
-      `${codeBlock(`import { statTileHtml, sparklineHtml, meterHtml } from 'https://lumeui.dev/v/1.3/lume.js';
+      `${codeBlock(`import { statTileHtml, sparklineHtml, meterHtml } from 'https://lumeui.dev/v/1.4/lume.js';
 
 kpis.innerHTML = [
   statTileHtml({ label: '${revenueLabel()}', value: 1284000, format: 'currency-compact',

@@ -1,0 +1,211 @@
+/* Linha do tempo e lista de definições: só HTML e CSS */
+
+/*
+ * Linha do tempo
+ * <ol class="ds-timeline">
+ *   <li class="ds-timeline__item" data-tone="success">
+ *     <span class="ds-timeline__marker"><ds-icon name="check" size="14"></ds-icon></span>   (sem ícone: um ponto)
+ *     <div class="ds-timeline__content">
+ *       <p class="ds-timeline__title">Pedido aprovado</p>
+ *       <p class="ds-timeline__text">Por Ana</p>
+ *       <time class="ds-timeline__time" datetime="2026-11-08T09:30">8 de nov, 09:30</time>
+ *     </div>
+ *   </li>
+ * </ol>
+ * Tons do marcador: neutro (padrão) · brand · success · warning · danger.
+ */
+.ds-timeline {
+  --_marker: 24px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-timeline__item {
+  --_bg: var(--ds-color-bg-muted);
+  --_fg: var(--ds-color-fg-muted);
+  position: relative;
+  display: flex;
+  gap: var(--ds-space-150);
+  padding-bottom: var(--ds-space-300);
+}
+
+.ds-timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+.ds-timeline__item[data-tone="brand"] { --_bg: var(--ds-color-brand-solid); --_fg: var(--ds-color-brand-on-solid); }
+.ds-timeline__item[data-tone="success"] { --_bg: var(--ds-color-success-subtle); --_fg: var(--ds-color-success-fg); }
+.ds-timeline__item[data-tone="warning"] { --_bg: var(--ds-color-warning-subtle); --_fg: var(--ds-color-warning-fg); }
+.ds-timeline__item[data-tone="danger"] { --_bg: var(--ds-color-danger-subtle); --_fg: var(--ds-color-danger-fg); }
+
+/* o fio entre um evento e o próximo */
+.ds-timeline__item:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  inset-block: calc(var(--_marker) + 4px) 4px;
+  inset-inline-start: calc(var(--_marker) / 2);
+  width: 1px;
+  background: var(--ds-color-border-default);
+}
+
+.ds-timeline__marker {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: var(--_marker);
+  height: var(--_marker);
+  border-radius: var(--ds-radius-full);
+  background: var(--_bg);
+  color: var(--_fg);
+}
+
+/* sem ícone: um ponto no centro */
+.ds-timeline__marker:empty::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: var(--ds-radius-full);
+  background: var(--_fg);
+}
+
+.ds-timeline__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  padding-top: 2px;
+}
+
+.ds-timeline__title {
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-label-md);
+  letter-spacing: var(--ds-text-label-md-tracking);
+}
+
+.ds-timeline__text {
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+  letter-spacing: var(--ds-text-body-sm-tracking);
+}
+
+.ds-timeline__time {
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-caption);
+  font-variant-numeric: tabular-nums;
+}
+
+/*
+ * Lista de definições
+ * <dl class="ds-dl"><div class="ds-dl__row"><dt>Cliente</dt><dd>Ana Lima</dd></div></dl>
+ * Modificadores: --lines (linhas entre os pares) · --stacked (rótulo em cima do valor)
+ */
+.ds-dl {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-100);
+  width: 100%;
+  margin: 0;
+}
+
+.ds-dl__row {
+  display: grid;
+  grid-template-columns: minmax(96px, 1fr) minmax(0, 2fr);
+  gap: var(--ds-space-200);
+  align-items: baseline;
+}
+
+.ds-dl dt {
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-body-sm);
+  letter-spacing: var(--ds-text-body-sm-tracking);
+}
+
+.ds-dl dd {
+  margin: 0;
+  min-width: 0;
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-body-sm);
+  letter-spacing: var(--ds-text-body-sm-tracking);
+  overflow-wrap: anywhere;
+}
+
+.ds-dl--lines {
+  gap: 0;
+}
+
+.ds-dl--lines .ds-dl__row {
+  padding-block: var(--ds-space-150);
+  border-bottom: 1px solid var(--ds-color-border-subtle);
+}
+
+.ds-dl--lines .ds-dl__row:first-child {
+  border-top: 1px solid var(--ds-color-border-subtle);
+}
+
+.ds-dl--stacked {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
+  gap: var(--ds-space-200);
+}
+
+.ds-dl--stacked .ds-dl__row {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2px;
+}
+
+/* em contêiner estreito, o rótulo sobe para cima do valor */
+@container (max-width: 220px) {
+  .ds-dl__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+}
+
+/*
+ * Card clicável: <a class="ds-card ds-card--link" href="…">. O destino inteiro é um link só.
+ * Partes: .ds-card__title e .ds-card__text.
+ */
+.ds-card--link {
+  display: block;
+  color: var(--ds-color-fg-default);
+  text-decoration: none;
+  transition: border-color var(--ds-duration-fast) var(--ds-easing-standard);
+}
+
+.ds-card--link:hover,
+.ds-card--link[data-state="hover"] {
+  border-color: var(--ds-color-border-strong);
+  color: var(--ds-color-fg-default);
+}
+
+.ds-card__title {
+  font: var(--ds-text-heading-sm);
+  letter-spacing: var(--ds-text-heading-sm-tracking);
+}
+
+.ds-card__text {
+  margin-top: var(--ds-space-075);
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+  letter-spacing: var(--ds-text-body-sm-tracking);
+}
+
+/* Bloco de código com botão de copiar */
+.ds-code-block {
+  position: relative;
+  min-width: 0;
+}
+
+.ds-code-block .ds-code {
+  padding-inline-end: var(--ds-space-600);
+}
+
+.ds-code-block__copy {
+  position: absolute;
+  top: var(--ds-space-100);
+  right: var(--ds-space-100);
+}

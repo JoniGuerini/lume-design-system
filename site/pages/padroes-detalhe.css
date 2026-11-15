@@ -1,0 +1,138 @@
+/* Página: Padrões · Detalhe e edição (prefixo de-) */
+
+.de-screen {
+  gap: var(--ds-space-300);
+}
+
+.de-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ds-space-200) var(--ds-space-250);
+}
+
+.de-head__text {
+  flex: 1 1 240px;
+  min-width: 0;
+}
+
+.de-head__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ds-space-150);
+}
+
+.de-screen .ds-tabs__tab .ds-badge {
+  margin-inline-start: var(--ds-space-075);
+}
+
+.de-screen .ds-tabs__panel {
+  padding-top: var(--ds-space-300);
+}
+
+.de-screen .ds-tabs__panel[hidden] {
+  display: none;
+}
+
+.de-subtitle {
+  margin: 0 0 var(--ds-space-150);
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-caption);
+}
+
+.de-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: var(--ds-space-500);
+  align-items: start;
+}
+
+/* ───────── Propriedades ───────── */
+
+.de-props .ds-dl__row {
+  align-items: center;
+  min-height: 52px;
+  padding-block: var(--ds-space-100);
+}
+
+.de-props dd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-100);
+  min-height: var(--ds-size-control-sm);
+}
+
+.de-value {
+  min-width: 0;
+}
+
+.de-pencil {
+  flex: none;
+}
+
+/* vazio que é convite */
+.de-add {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-075);
+  margin-inline-start: calc(-1 * var(--ds-space-100));
+  padding: var(--ds-space-050) var(--ds-space-100);
+  border: 0;
+  border-radius: var(--ds-radius-md);
+  background: transparent;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+  cursor: pointer;
+}
+
+.de-add:hover,
+.de-add[data-state="hover"] {
+  background: var(--ds-color-bg-hover);
+  color: var(--ds-color-fg-default);
+}
+
+/* edição no lugar */
+.de-props dd.de-editing {
+  display: block;
+}
+
+.de-edit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ds-space-100);
+}
+
+.de-edit > .ds-field {
+  flex: 1 1 200px;
+}
+
+.de-edit__actions {
+  display: flex;
+  gap: var(--ds-space-050);
+}
+
+.de-edit__error {
+  flex-basis: 100%;
+  margin: 0;
+}
+
+.de-edit__error[hidden] {
+  display: none;
+}
+
+/* ───────── Atividade e acesso ───────── */
+
+.de-timeline,
+.de-access {
+  max-width: 560px;
+}
+
+@media (max-width: 899.98px) {
+  .de-overview {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--ds-space-300);
+  }
+}
