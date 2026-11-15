@@ -88,6 +88,29 @@ async function main() {
     await new Promise((r) => setTimeout(r, 2500));
     const pages = await evaluate(`import('/site/nav.js').then((m) => { const g = m.navigation.find((x) => x.id === 'componentes'); return g.items.map((p) => ({ path: p.path, label: p.label, section: g.sectionLabel(p.section) })); })`);
 
+    // índice da Introdução: seções do menu Componentes e cada componente, nos três idiomas
+    const indice = await evaluate(`Promise.all([import('/site/nav.js'), import('/ds/js/i18n.js')]).then(([nav, i18n]) => {
+      const out = { sections: [] };
+      for (const lang of ['pt-BR', 'en', 'es']) {
+        i18n.setLocale(lang, { persist: false });
+        const g = nav.navigation.find((x) => x.id === 'componentes');
+        g.items.forEach((p) => {
+          let sec = out.sections.find((s) => s.id === p.section);
+          if (!sec) out.sections.push((sec = { id: p.section, label: {}, items: [] }));
+          sec.label[lang] = g.sectionLabel(p.section);
+          const slug = p.path.split('/').pop();
+          let item = sec.items.find((i) => i.slug === slug);
+          if (!item) sec.items.push((item = { slug, icon: p.icon, label: {}, description: {} }));
+          item.label[lang] = p.label;
+          item.description[lang] = p.description;
+        });
+      }
+      i18n.setLocale('pt-BR', { persist: false });
+      return out;
+    })`);
+    await writeFile(path.join(ROOT, 'storybook', 'stories', 'indice.js'), `// Gerado por scripts/build-stories.mjs a partir de site/nav.js. Não edite: rode npm run stories.\nexport const SECTIONS = ${JSON.stringify(indice.sections, null, 2)};\n`);
+    console.log(`✓ storybook/stories/indice.js: ${indice.sections.length} seções`);
+
     await rm(OUT, { recursive: true, force: true });
     await mkdir(OUT, { recursive: true });
     for (const p of pages) {

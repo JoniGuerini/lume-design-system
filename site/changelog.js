@@ -8,10 +8,30 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.40.2';
+export const CURRENT_VERSION = '0.41.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '0.41.0',
+    date: '2026-11-15',
+    title: T('Introdução do Storybook', 'Storybook introduction', 'Introducción del Storybook'),
+    summary: T(
+      'A primeira página do Storybook virou uma capa feita com o próprio Lume: os números do design system, os controles em claro e escuro lado a lado, o índice dos 58 componentes, os princípios e como usar.',
+      'The first page of the Storybook became a cover made with Lume itself: the design system’s numbers, the controls in light and dark side by side, an index of the 58 components, the principles, and how to use it.',
+      'La primera página del Storybook se convirtió en una portada hecha con el propio Lume: los números del design system, los controles en claro y oscuro lado a lado, el índice de los 58 componentes, los principios y cómo usarlo.',
+    ),
+    groups: [
+      {
+        name: T('Storybook', 'Storybook', 'Storybook'),
+        items: [
+          ['novo', T('Introdução redesenhada com os componentes do Lume: capa, claro e escuro lado a lado, princípios e como usar', 'Introduction redesigned with Lume’s components: cover, light and dark side by side, principles, and how to use it', 'Introducción rediseñada con los componentes de Lume: portada, claro y oscuro lado a lado, principios y cómo usarlo'), '/'],
+          ['novo', T('Índice dos componentes por seção, como no site, com um link para a documentação de cada um', 'Component index by section, as on the site, with a link to each one’s documentation', 'Índice de los componentes por sección, como en el sitio, con un enlace a la documentación de cada uno'), '/'],
+          ['melhoria', T('A Introdução segue o tema e o idioma da barra de cima do Storybook', 'The Introduction follows the theme and language from the Storybook top bar', 'La Introducción sigue el tema y el idioma de la barra de arriba del Storybook'), '/'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.40.2',
     date: '2026-11-14',

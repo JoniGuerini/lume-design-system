@@ -15,7 +15,7 @@ En números: direcciones: 2 · línea: 1 px · área para agarrar: 9 px · tecla
 </div>
 
 <script type="module">
-  import { createResizable } from 'https://lumeui.dev/v/0.40/lume.js';
+  import { createResizable } from 'https://lumeui.dev/v/0.41/lume.js';
   createResizable(document.querySelector('.ds-resizable'), {
     storageKey: 'editor', // guarda el tamaño en el navegador
   });
@@ -83,7 +83,7 @@ Los paneles son tuyos; el JavaScript pone los divisores entre ellos. Límites en
 </div>
 
 <script type="module">
-  import { createResizable } from 'https://lumeui.dev/v/0.40/lume.js';
+  import { createResizable } from 'https://lumeui.dev/v/0.41/lume.js';
   createResizable(document.querySelector('.ds-resizable'), {
     storageKey: 'editor', // guarda el tamaño en el navegador
   });

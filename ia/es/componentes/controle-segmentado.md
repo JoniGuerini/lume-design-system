@@ -16,7 +16,7 @@ En números: altura: 36 px · opciones: 2 – 4 · tipos: 2 · rol ARIA: radiogr
 </div>
 
 <script type="module">
-  import { createSegmented } from 'https://lumeui.dev/v/0.40/lume.js';
+  import { createSegmented } from 'https://lumeui.dev/v/0.41/lume.js';
   createSegmented(document.querySelector('.ds-segmented'), {
     onChange: (value) => trocar(value),
   });

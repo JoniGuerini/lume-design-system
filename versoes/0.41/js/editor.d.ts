@@ -1,0 +1,5 @@
+// Gerado por scripts/build-react.mjs. Não edite.
+export type EditorTool = 'history' | 'marks' | 'blocks' | 'align' | 'link';
+export interface EditorController { el: HTMLElement; content: HTMLElement; readonly value: string; setValue(html: string): void; /** @deprecated Use value. */ getHTML(): string; /** @deprecated Use setValue. */ setHTML(html: string): void; getText(): string; isEmpty(): boolean; focus(): void; setDisabled(disabled: boolean): void; destroy(): void }
+export declare function createEditor(root: HTMLElement, options?: { tools?: EditorTool[]; placeholder?: string; name?: string; value?: string; onChange?: (html: string) => void }): EditorController;
+export declare function sanitizeHtml(html: string): string;

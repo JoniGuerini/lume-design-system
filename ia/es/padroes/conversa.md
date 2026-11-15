@@ -15,7 +15,7 @@ Una conversación de verdad, con respuestas simuladas. Envía, escribe / , adjun
 Pregunta en español, adjunta un archivo o escribe / para ver los comandos.
 
 ```html
-import { createComposer, messageHtml, typingHtml, streamText } from 'https://lumeui.dev/v/0.40/lume.js';
+import { createComposer, messageHtml, typingHtml, streamText } from 'https://lumeui.dev/v/0.41/lume.js';
 
 const thread = document.querySelector('.ds-thread');   // role="log" aria-live="polite"
 
@@ -489,7 +489,7 @@ El CSS viene en `ds/ds.css`; el comportamiento, en `ds/js/composer.js`.
 ```
 
 ```html
-import { createComposer } from 'https://lumeui.dev/v/0.40/lume.js';
+import { createComposer } from 'https://lumeui.dev/v/0.41/lume.js';
 
 const composer = createComposer(document.querySelector('#composer'), {
   label: 'Mensaje para Lume',

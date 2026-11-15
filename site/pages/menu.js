@@ -80,7 +80,7 @@ function menuCode(state) {
     return `    { ${parts.join(', ')} },`;
   };
   return [
-    "import { createMenu } from 'https://lumeui.dev/v/0.40/lume.js';",
+    "import { createMenu } from 'https://lumeui.dev/v/0.41/lume.js';",
     '',
     `const menu = createMenu(${L('gatilho', 'trigger', 'disparador')}, {`,
     action ? "  mode: 'action'," : null,

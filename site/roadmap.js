@@ -16,17 +16,6 @@ const I = (name, text, doc) => ({ name, text, doc });
 
 const STAGES = [
   {
-    version: '0.41',
-    group: 'release',
-    tone: 'brand',
-    status: NEXT,
-    title: T('Storybook', 'Storybook', 'Storybook'),
-    text: T('Melhorias no Storybook do Lume.', 'Improvements to Lume’s Storybook.', 'Mejoras en el Storybook de Lume.'),
-    items: [
-      I(T('Melhorias', 'Improvements', 'Mejoras'), T('O que entra ainda está sendo definido.', 'What goes in is still being decided.', 'Lo que entra todavía se está definiendo.')),
-    ],
-  },
-  {
     version: '1.0',
     group: 'release',
     tone: 'success',

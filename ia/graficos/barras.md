@@ -9,7 +9,7 @@ Em números: layouts: 3 · orientações: 2 · espessura máxima: 24 px · contr
 ## Exemplo
 
 ```html
-import { createBarChart } from 'https://lumeui.dev/v/0.40/lume.js';
+import { createBarChart } from 'https://lumeui.dev/v/0.41/lume.js';
 
 createBarChart(document.querySelector('#vendas'), {
   title: 'Vendas por canal',

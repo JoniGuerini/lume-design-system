@@ -12,7 +12,7 @@ En números: base: Popover · tonos de ícono: 6 · tiempo: relativo · rol ARIA
 <button type="button" class="ds-icon-btn"><ds-icon name="bell"></ds-icon></button>
 
 <script type="module">
-  import { createNotificationCenter } from 'https://lumeui.dev/v/0.40/lume.js';
+  import { createNotificationCenter } from 'https://lumeui.dev/v/0.41/lume.js';
 
   createNotificationCenter(document.querySelector('.ds-icon-btn'), {
     items: [
@@ -53,7 +53,7 @@ Marcado de los ejemplos de esta sección:
 </li><li class="ds-notify__item">
 <a class="ds-notify__link" href="#/novidades">
 <span class="ds-notify__icon"><ds-icon name="megaphone"></ds-icon></span>
-<span class="ds-notify__body"><span class="ds-notify__item-title">Lume 0.33</span><span class="ds-notify__text">Valoración y barra de herramientas.</span><time class="ds-notify__time">5 nov</time></span>
+<span class="ds-notify__body"><span class="ds-notify__item-title">Lume 0.33</span><span class="ds-notify__text">Valoración y barra de herramientas.</span><time class="ds-notify__time">6 nov</time></span>
 </a>
 </li></ul>
 </div>
@@ -121,7 +121,7 @@ Tú das la campana y la lista; el JavaScript dibuja el panel, el número y se oc
 <button type="button" class="ds-icon-btn"><ds-icon name="bell"></ds-icon></button>
 
 <script type="module">
-  import { createNotificationCenter } from 'https://lumeui.dev/v/0.40/lume.js';
+  import { createNotificationCenter } from 'https://lumeui.dev/v/0.41/lume.js';
 
   const center = createNotificationCenter(document.querySelector('.ds-icon-btn'), {
     items: [

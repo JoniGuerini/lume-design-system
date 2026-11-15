@@ -8,8 +8,23 @@ import { mountSelects } from '../../ds/js/select.js';
 import { mountTabs } from '../../ds/js/tabs.js';
 import { initTooltips } from '../../ds/js/tooltip.js';
 import { mountCodeBlocks } from '../../ds/js/code-block.js';
+import { addons } from 'storybook/preview-api';
 
 initTooltips();
+
+/**
+ * Tema e idioma também nas páginas sem história (a Introdução): a barra de cima avisa pelo canal do Storybook,
+ * e o evento lume:globals redesenha quem estiver ouvindo.
+ */
+const applyGlobals = ({ theme = 'light', locale = 'pt-BR' } = {}) => {
+  document.documentElement.dataset.theme = theme;
+  document.documentElement.lang = locale;
+  setLocale(locale, { persist: false });
+  window.dispatchEvent(new CustomEvent('lume:globals', { detail: { theme, locale } }));
+};
+const channel = addons.getChannel();
+channel.on('setGlobals', ({ globals }) => applyGlobals(globals));
+channel.on('globalsUpdated', ({ globals }) => applyGlobals(globals));
 
 const withLume = (story, context) => {
   const { theme = 'light', locale = 'pt-BR' } = context.globals;
