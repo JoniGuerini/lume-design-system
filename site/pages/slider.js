@@ -67,7 +67,7 @@ export default function renderSlider(page) {
         id: 'codigo',
         title: L('Código', 'Code', 'Código'),
         desc: L(`${ic('onInput')} acompanha o arraste; ${ic('onChange')} avisa quando a pessoa solta.`, `${ic('onInput')} follows the drag; ${ic('onChange')} fires when the person lets go.`, `${ic('onInput')} sigue el arrastre; ${ic('onChange')} avisa cuando la persona suelta.`),
-        html: codeBlock(`import { createSlider } from 'https://lumeui.dev/v/1.5/lume.js';
+        html: codeBlock(`import { createSlider } from 'https://lumeui.dev/v/1.6/lume.js';
 
 const volume = createSlider(document.querySelector('.ds-slider'), {
   format: (value) => \`\${value}%\`,
@@ -152,7 +152,7 @@ ${inputs}
 </div>
 
 <script type="module">
-  import { createSlider } from 'https://lumeui.dev/v/1.5/lume.js';
+  import { createSlider } from 'https://lumeui.dev/v/1.6/lume.js';
   createSlider(document.querySelector('.ds-slider'), {
     format: (value) => \`\${value}%\`,${s.marks === 'on' ? "\n    marks: [{ value: 0, label: '0%' }, { value: 50, label: '50%' }, { value: 100, label: '100%' }]," : ''}
   });

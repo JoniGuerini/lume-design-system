@@ -1,0 +1,221 @@
+/* Página: Padrões · Primeiro uso (prefixo pu-) */
+
+.pu-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: var(--ds-space-300);
+  align-items: start;
+}
+
+.pu-layout[data-solo] {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.pu-screen [hidden] {
+  display: none;
+}
+
+.pu-subtitle {
+  margin: 0;
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-caption);
+}
+
+.pu-subtitle:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ───────── Projetos ───────── */
+
+.pu-projects {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-150);
+  min-width: 0;
+}
+
+.pu-projects__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-150);
+  min-height: var(--ds-size-control-sm);
+}
+
+.pu-projects .ds-empty {
+  min-height: 280px;
+}
+
+.pu-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  border-radius: var(--ds-radius-xl);
+  border: 1px solid var(--ds-color-border-subtle);
+}
+
+.pu-project {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-150);
+  padding: var(--ds-space-200) var(--ds-space-250);
+  border-top: 1px solid var(--ds-color-border-subtle);
+}
+
+.pu-project:first-child {
+  border-top: 0;
+}
+
+.pu-project__icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--ds-radius-md);
+  background: var(--ds-color-bg-muted);
+  color: var(--ds-color-fg-muted);
+}
+
+.pu-project__text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.pu-project__name {
+  font: var(--ds-text-label-md);
+}
+
+.pu-project__meta {
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+/* ───────── Primeiros passos ───────── */
+
+.pu-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-200);
+  padding: var(--ds-space-250);
+  border-radius: var(--ds-radius-xl);
+  border: 1px solid var(--ds-color-border-subtle);
+  background: var(--ds-color-bg-surface);
+}
+
+.pu-steps__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: calc(-1 * var(--ds-space-075)) calc(-1 * var(--ds-space-075)) 0 0;
+}
+
+.pu-steps__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-200);
+  margin: 0;
+  padding: 0;
+}
+
+.pu-step {
+  display: flex;
+  gap: var(--ds-space-150);
+}
+
+.pu-step__mark {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  border-radius: var(--ds-radius-full);
+  border: 1.5px solid var(--ds-color-border-strong);
+  color: transparent;
+}
+
+.pu-step[data-done] .pu-step__mark {
+  border-color: var(--ds-color-success-solid);
+  background: var(--ds-color-success-solid);
+  color: var(--ds-color-success-on-solid);
+}
+
+.pu-step__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--ds-space-050);
+  min-width: 0;
+}
+
+.pu-step__title {
+  margin: 0;
+  font: var(--ds-text-label-md);
+}
+
+.pu-step[data-done] .pu-step__title {
+  color: var(--ds-color-fg-muted);
+  text-decoration: line-through;
+  text-decoration-color: var(--ds-color-border-strong);
+}
+
+.pu-step__why {
+  margin: 0;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+.pu-step__action {
+  margin-top: var(--ds-space-075);
+}
+
+/* passo feito: some a ação e a explicação */
+.pu-step[data-done] .pu-step__why,
+.pu-step[data-done] .pu-step__action {
+  display: none;
+}
+
+.pu-done {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--ds-space-075);
+  padding-top: var(--ds-space-200);
+  border-top: 1px solid var(--ds-color-border-subtle);
+}
+
+.pu-done:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.pu-done__title {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-075);
+  margin: 0;
+  font: var(--ds-text-label-md);
+}
+
+.pu-done__title .ds-icon {
+  color: var(--ds-color-success-fg);
+}
+
+.pu-done__text {
+  margin: 0 0 var(--ds-space-075);
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+@media (max-width: 899.98px) {
+  .pu-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pu-steps {
+    order: -1;
+  }
+}

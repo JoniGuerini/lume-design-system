@@ -8,10 +8,29 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '1.5.0';
+export const CURRENT_VERSION = '1.6.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '1.6.0',
+    date: '2026-11-15',
+    title: T('Primeiro uso', 'First use', 'Primer uso'),
+    summary: T(
+      'Padrão novo para a primeira sessão de alguém: boas-vindas curtas, poucos passos que já são o trabalho de verdade e dados de exemplo marcados.',
+      'A new pattern for someone’s first session: a short welcome, a few steps that are already the real work, and clearly marked sample data.',
+      'Patrón nuevo para la primera sesión de alguien: bienvenida corta, pocos pasos que ya son el trabajo de verdad y datos de ejemplo marcados.',
+    ),
+    groups: [
+      {
+        name: T('Padrões', 'Patterns', 'Patrones'),
+        items: [
+          ['novo', T('Primeiro uso: primeiros passos com progresso, cada um com a ação de verdade, e um X para esconder', 'First use: first steps with progress, each with the real action, and an X to hide them', 'Primer uso: primeros pasos con progreso, cada uno con la acción de verdad, y una X para ocultarlos'), '/padroes/primeiro-uso'],
+          ['novo', T('Vazio que ensina e projetos de exemplo, marcados e apagados de uma vez', 'An empty state that teaches and sample projects, marked and deleted all at once', 'Vacío que enseña y proyectos de ejemplo, marcados y borrados de una vez'), '/padroes/primeiro-uso'],
+        ],
+      },
+    ],
+  },
   {
     version: '1.5.0',
     date: '2026-11-15',

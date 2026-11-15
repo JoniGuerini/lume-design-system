@@ -9,7 +9,7 @@ Em números: modos: 2 · tipos de item: 6 · teclas: 8 · função: createMenu.
 ## Exemplo
 
 ```html
-import { createMenu } from 'https://lumeui.dev/v/1.5/lume.js';
+import { createMenu } from 'https://lumeui.dev/v/1.6/lume.js';
 
 const menu = createMenu(gatilho, {
   label: 'Ordenar por',

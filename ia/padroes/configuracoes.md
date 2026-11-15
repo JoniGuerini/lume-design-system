@@ -175,7 +175,7 @@ Switches e `createSegmented` gravam na hora; o perfil é um `<form>` comum; a ex
 ```
 
 ```html
-import { createModal, toast } from 'https://lumeui.dev/v/1.5/lume.js';
+import { createModal, toast } from 'https://lumeui.dev/v/1.6/lume.js';
 
 // Liga e desliga: grava na hora e avisa sem tirar o foco
 secao.addEventListener('change', async (e) => {

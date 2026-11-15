@@ -115,7 +115,7 @@ Los gráficos son `createLineChart` y `createBarChart`; los indicadores, `statTi
 ```
 
 ```html
-import { createLineChart, createSegmented, statTileHtml } from 'https://lumeui.dev/v/1.5/lume.js';
+import { createLineChart, createSegmented, statTileHtml } from 'https://lumeui.dev/v/1.6/lume.js';
 
 const grafico = createLineChart(document.querySelector('#visitas'), {
   card: true, title: 'Visitas', categories, tooltipLabels,

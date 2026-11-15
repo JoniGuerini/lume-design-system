@@ -99,7 +99,7 @@ export default function renderKanban(page) {
 </div>
 
 <script type="module">
-  import { createKanban } from 'https://lumeui.dev/v/1.5/lume.js';
+  import { createKanban } from 'https://lumeui.dev/v/1.6/lume.js';
 
   createKanban(document.querySelector('.ds-kanban'), {
     // { andamento: [], feito: ['kanban', …] }
@@ -163,7 +163,7 @@ export function mount(root) {
       return () => kanban.destroy();
     },
     code: () => `<script type="module">
-  import { createKanban } from 'https://lumeui.dev/v/1.5/lume.js';
+  import { createKanban } from 'https://lumeui.dev/v/1.6/lume.js';
   createKanban(document.querySelector('.ds-kanban'), { onChange: (_, colunas) => console.log(colunas) });
 </script>`,
   });

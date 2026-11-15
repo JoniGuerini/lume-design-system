@@ -18,8 +18,7 @@ const P = (version, status, tone, title, text, items) => ({ version, group: 'pat
 
 /* Padrões de tela pedidos depois da 1.0, um por versão; ele avalia no fim quais ficam. Etapa entregue sai daqui. */
 const STAGES = [
-  P('1.6', NEXT, 'brand', T('Primeiro uso', 'First use', 'Primer uso'), T('Boas-vindas, primeiros passos e o vazio que ensina.', 'Welcome, first steps, and the empty state that teaches.', 'Bienvenida, primeros pasos y el vacío que enseña.'), []),
-  P('1.7', PLANNED, 'neutral', T('Carregamento e erros', 'Loading and errors', 'Carga y errores'), T('Esqueleto ou spinner, erro de rede, sem conexão e página não encontrada.', 'Skeleton or spinner, network error, offline, and page not found.', 'Esqueleto o spinner, error de red, sin conexión y página no encontrada.'), []),
+  P('1.7', NEXT, 'brand', T('Carregamento e erros', 'Loading and errors', 'Carga y errores'), T('Esqueleto ou spinner, erro de rede, sem conexão e página não encontrada.', 'Skeleton or spinner, network error, offline, and page not found.', 'Esqueleto o spinner, error de red, sin conexión y página no encontrada.'), []),
 ];
 
 const LEFT_OUT = [];

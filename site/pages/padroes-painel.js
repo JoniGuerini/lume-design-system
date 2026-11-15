@@ -178,7 +178,7 @@ const htmlCode = () => `<header>
   <ul>…</ul>
 </section>`;
 
-const jsCode = () => `import { createLineChart, createSegmented, statTileHtml } from 'https://lumeui.dev/v/1.5/lume.js';
+const jsCode = () => `import { createLineChart, createSegmented, statTileHtml } from 'https://lumeui.dev/v/1.6/lume.js';
 
 const ${L('grafico', 'chart', 'grafico')} = createLineChart(document.querySelector('#${L('visitas', 'visits', 'visitas')}'), {
   card: true, title: '${L('Visitas', 'Visits', 'Visitas')}', categories, tooltipLabels,

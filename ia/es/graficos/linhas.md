@@ -9,7 +9,7 @@ En números: variantes: 8 · trazo: 2 px · nombres al final: hasta 4 · eje y: 
 ## Ejemplo
 
 ```html
-import { createLineChart } from 'https://lumeui.dev/v/1.5/lume.js';
+import { createLineChart } from 'https://lumeui.dev/v/1.6/lume.js';
 
 const chart = createLineChart(document.querySelector('#usuarios'), {
   title: 'Usuarios activos',
@@ -113,7 +113,7 @@ Elige la línea cuando la pregunta tiene “cuándo” o “desde”. Cuatro cui
 Una función, las mismas reglas de todos los gráficos de Lume.
 
 ```html
-import { createLineChart } from 'https://lumeui.dev/v/1.5/lume.js';
+import { createLineChart } from 'https://lumeui.dev/v/1.6/lume.js';
 
 const chart = createLineChart(document.querySelector('#ingresos'), {
   title: 'Ingresos',

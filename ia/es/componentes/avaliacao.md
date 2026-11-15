@@ -12,7 +12,7 @@ En números: formas: 2 · tamaños: 3 · media estrella: al mostrar · rol ARIA:
 <div class="ds-rating" aria-label="¿Cómo calificas esta página?"></div>
 
 <script type="module">
-  import { createRating } from 'https://lumeui.dev/v/1.5/lume.js';
+  import { createRating } from 'https://lumeui.dev/v/1.6/lume.js';
   createRating(document.querySelector('.ds-rating'), { name: 'nota', value: 4 });
 </script>
 ```
@@ -42,7 +42,7 @@ Para calificar, un elemento vacío; el JavaScript pone las estrellas. Para mostr
 <span data-media></span>
 
 <script type="module">
-  import { createRating, ratingHtml } from 'https://lumeui.dev/v/1.5/lume.js';
+  import { createRating, ratingHtml } from 'https://lumeui.dev/v/1.6/lume.js';
 
   createRating(document.querySelector('.ds-rating'), {
     name: 'nota',
