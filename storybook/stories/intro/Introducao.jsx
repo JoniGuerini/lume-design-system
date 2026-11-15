@@ -84,10 +84,10 @@ function Stage({ theme, t }) {
         </label>
         <div className="ds-progress-field">
           <div className="ds-progress-field__head">
-            <span>{t('Rumo à 1.0', 'On the way to 1.0', 'Rumbo a la 1.0')}</span>
-            <span className="ds-progress-field__value">80%</span>
+            <span>{t('Componentes prontos', 'Components ready', 'Componentes listos')}</span>
+            <span className="ds-progress-field__value">100%</span>
           </div>
-          <progress className="ds-progress" value="80" max="100" aria-label={t('Rumo à 1.0', 'On the way to 1.0', 'Rumbo a la 1.0')} />
+          <progress className="ds-progress" value="100" max="100" aria-label={t('Componentes prontos', 'Components ready', 'Componentes listos')} />
         </div>
         <div className="li-stage__row">
           <button type="button" className="ds-btn ds-btn--primary ds-btn--sm" tabIndex={-1}>{t('Ver componentes', 'See components', 'Ver componentes')}</button>

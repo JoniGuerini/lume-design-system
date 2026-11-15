@@ -23,7 +23,6 @@
 import { icon } from '../icons/icons.js';
 import { createMenu } from './menu.js';
 import { msg, formatNumber } from './i18n.js';
-import { alias, renamed } from './deprecate.js';
 
 let uid = 0;
 const escape = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
@@ -248,13 +247,6 @@ export function createFilters(host, config = {}) {
     /** Muda só as chaves que vierem: setValue({ status: '' }). */
     setValue: set,
     clear,
-    /** @deprecated Use value. Sai na 1.0. */
-    get state() {
-      renamed('filters.state', 'filters.value');
-      return { ...state };
-    },
-    /** @deprecated Use setValue(). Sai na 1.0. */
-    set: alias(set, 'filters.set()', 'filters.setValue()'),
     /** Contagem anunciada: "8 de 24 pedidos" com filtro, "24 pedidos" sem. */
     setCount(shown, total = shown) {
       const text = actives().length || shown !== total ? msg('filters.shownOf', shown, plural(total)) : plural(total);

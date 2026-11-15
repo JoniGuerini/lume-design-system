@@ -17,10 +17,6 @@
   --doc-table-cols: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.5fr) minmax(0, 1.3fr);
 }
 
-.ra-renamed {
-  --doc-table-cols: minmax(0, 1fr) minmax(0, 1fr);
-}
-
 .ra-page .doc-table__row {
   color: var(--ds-color-fg-default);
   font: var(--ds-text-body-sm);
@@ -40,8 +36,7 @@
   .ra-verbs,
   .ra-items,
   .ra-rules,
-  .ra-events,
-  .ra-renamed {
+  .ra-events {
     --doc-table-cols: minmax(0, 1fr);
   }
 

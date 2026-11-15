@@ -88,7 +88,7 @@ export default function renderCarousel(page) {
 </section>
 
 <script type="module">
-  import { createCarousel } from 'https://lumeui.dev/v/0.41/lume.js';
+  import { createCarousel } from 'https://lumeui.dev/v/1.0/lume.js';
 
   const carousel = createCarousel(document.querySelector('.ds-carousel'), {
     loop: true,
@@ -162,7 +162,7 @@ export function mount(root) {
 </section>
 
 <script type="module">
-  import { createCarousel } from 'https://lumeui.dev/v/0.41/lume.js';
+  import { createCarousel } from 'https://lumeui.dev/v/1.0/lume.js';
   createCarousel(document.querySelector('.ds-carousel')${s.loop === 'on' || s.autoplay === 'on' ? `, {${s.loop === 'on' ? '\n    loop: true,' : ''}${s.autoplay === 'on' ? '\n    autoplay: 5000,' : ''}\n  }` : ''});
 </script>`,
   });

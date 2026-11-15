@@ -17,7 +17,6 @@
  */
 import { icon } from '../icons/icons.js';
 import { msg, numberFormat } from './i18n.js';
-import { alias } from './deprecate.js';
 
 const MIN = 1;
 const MAX = 4;
@@ -248,8 +247,6 @@ export function openImageViewer(images, options = {}) {
       return scale;
     },
     goTo: (i) => show(i),
-    /** @deprecated Use goTo(). Sai na 1.0. */
-    go: alias((i) => show(i), 'viewer.go()', 'viewer.goTo()'),
     next: () => show(index + 1),
     prev: () => show(index - 1),
     zoomIn: () => zoomTo(scale * STEP),

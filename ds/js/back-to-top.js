@@ -13,7 +13,6 @@
  */
 import { icon } from '../icons/icons.js';
 import { msg } from './i18n.js';
-import { renamed } from './deprecate.js';
 
 export function createBackToTop(scroller, options = {}) {
   const parent = options.parent ?? scroller.parentElement;
@@ -53,11 +52,6 @@ export function createBackToTop(scroller, options = {}) {
 
   return {
     el: button,
-    /** @deprecated Use el. Sai na 1.0. */
-    get element() {
-      renamed('backToTop.element', 'backToTop.el');
-      return button;
-    },
     update,
     destroy() {
       scroller.removeEventListener('scroll', update);

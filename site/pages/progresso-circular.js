@@ -11,9 +11,9 @@ const uploading = () => L('Enviando arquivos', 'Uploading files', 'Enviando arch
 
 /* Etapas do próprio Lume, cada uma com quanto já está pronto */
 const steps = () => [
-  [L('Fundamentos', 'Foundations', 'Fundamentos'), 100, 'success'],
-  [L('Componentes', 'Components', 'Componentes'), 86, ''],
-  [L('Lume 1.0', 'Lume 1.0', 'Lume 1.0'), 40, 'warning'],
+  [L('Lume 1.0', 'Lume 1.0', 'Lume 1.0'), 100, 'success'],
+  [L('Documentação para IAs', 'Docs for AI', 'Documentación para IA'), 86, ''],
+  [L('Lume 1.1', 'Lume 1.1', 'Lume 1.1'), 10, 'warning'],
 ];
 
 const list = () => `<ul class="pr-list" role="list">${steps()
@@ -49,7 +49,7 @@ export default function renderProgressRing(page) {
         html: codeBlock(`<span data-envio></span>
 
 <script type="module">
-  import { progressRingHtml, setProgressRing } from 'https://lumeui.dev/v/0.41/lume.js';
+  import { progressRingHtml, setProgressRing } from 'https://lumeui.dev/v/1.0/lume.js';
 
   const box = document.querySelector('[data-envio]');
   box.innerHTML = progressRingHtml(0, { label: '${uploading()}' });
@@ -123,7 +123,7 @@ export function mount(root) {
       return `<span data-envio></span>
 
 <script type="module">
-  import { progressRingHtml${s.mode === 'live' ? ', setProgressRing' : ''} } from 'https://lumeui.dev/v/0.41/lume.js';
+  import { progressRingHtml${s.mode === 'live' ? ', setProgressRing' : ''} } from 'https://lumeui.dev/v/1.0/lume.js';
 
   const box = document.querySelector('[data-envio]');
   box.innerHTML = progressRingHtml(${s.mode === 'live' ? '0' : 'null'}, { ${opts} });${s.mode === 'live' ? '\n  setProgressRing(box.firstElementChild, 62);' : ''}

@@ -14,19 +14,8 @@ const GOAL = T('Meta', 'Goal', 'Meta');
 const C = (version, status, tone, title, text, items) => ({ version, group: 'components', tone, status, title, text, items });
 const I = (name, text, doc) => ({ name, text, doc });
 
-const STAGES = [
-  {
-    version: '1.0',
-    group: 'release',
-    tone: 'success',
-    status: GOAL,
-    title: T('Estável', 'Stable', 'Estable'),
-    text: T('API congelada e pronta para escalar.', 'A frozen API, ready to scale.', 'API congelada y lista para escalar.'),
-    items: [
-      { name: T('Compatibilidade', 'Compatibility', 'Compatibilidad'), text: T('Mudança que quebra só em versão maior, com guia de migração.', 'Breaking changes only in major versions, with a migration guide.', 'Cambios que rompen solo en versiones mayores, con guía de migración.') },
-    ],
-  },
-];
+/* Vazio: nada planejado depois da 1.0. Etapa nova entra aqui (1.1, 1.2…) e aparece na página e no Início. */
+const STAGES = [];
 
 const LEFT_OUT = [];
 

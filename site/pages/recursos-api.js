@@ -18,7 +18,6 @@ const NAV = () => [
   ['api-controles', L('Controles', 'Controllers', 'Controles')],
   ['api-eventos', L('Eventos', 'Events', 'Eventos')],
   ['api-lista', L('Tudo o que é público', 'Everything public', 'Todo lo público')],
-  ['api-saem', L('Saem na 1.0', 'Removed in 1.0', 'Salen en la 1.0')],
   ['api-regra', L('O que não muda', 'What won’t change', 'Lo que no cambia')],
 ];
 
@@ -46,20 +45,6 @@ const EVENTS = () => [
   ['ds:shellchange', ic('.ds-shell'), '{ sidebar, layout, mobile, mobileOpen }', L('A sidebar recolheu, abriu ou trocou de layout.', 'The sidebar collapsed, opened, or switched layout.', 'La sidebar se contrajo, se abrió o cambió de layout.')],
   ['ds:tabchange', L('as abas (borbulha)', 'the tabs (bubbles)', 'las pestañas (burbujea)'), '{ tab, id }', L('Outra aba foi escolhida.', 'Another tab was chosen.', 'Se eligió otra pestaña.')],
   ['ds:sortchange', L('a lista de destino (borbulha)', 'the target list (bubbles)', 'la lista de destino (burbujea)'), '{ item, id, from, to, oldIndex, newIndex }', L('Um item mudou de lugar.', 'An item moved.', 'Un elemento cambió de lugar.')],
-];
-
-const SOON = () => L('na 1.0', 'in 1.0', 'en la 1.0');
-const RENAMED = () => [
-  [ic('editor.getHTML() · setHTML()'), ic('editor.value · setValue()')],
-  [ic('composer.getValue()'), ic('composer.value · attachments · command')],
-  [ic('filters.state · set()'), ic('filters.value · setValue()')],
-  [ic('viewer.go()'), ic('viewer.goTo()')],
-  [ic('backToTop.element'), ic('backToTop.el')],
-  [ic('shell.isCollapsed() · isMobile() · isMobileOpen()'), ic('shell.collapsed · mobile · mobileOpen')],
-  [ic('formatter()'), ic('chartFormatter()')],
-  [ic('shell.layout()'), `${ic('shell.layout')} ${SOON()}`],
-  [ic('palette.isOpen()'), `${ic('palette.isOpen')} ${SOON()}`],
-  [`${ic('onInput')} ${L('no ColorPicker do React', 'in the React ColorPicker', 'en el ColorPicker de React')}`, L(`${ic('onChange')}, que já chega enquanto arrasta, e ${ic('onCommit')} ao soltar`, `${ic('onChange')}, which now fires while dragging, and ${ic('onCommit')} on release`, `${ic('onChange')}, que ya llega mientras se arrastra, y ${ic('onCommit')} al soltar`)],
 ];
 
 function section(id, title, desc, body) {
@@ -150,19 +135,9 @@ export default function renderApi(page) {
     )}
 
     ${section(
-      'api-saem',
-      L('Saem na 1.0', 'Removed in 1.0', 'Salen en la 1.0'),
-      L('Nomes acertados na 0.39 para a API ficar igual em todo lugar. Os antigos continuam funcionando até a 1.0 e avisam no console qual usar. Os dois que viram propriedade só mudam na 1.0, porque um nome não pode ser função e propriedade ao mesmo tempo.', 'Names fixed in 0.39 so the API is the same everywhere. The old ones keep working until 1.0 and say in the console which one to use. The two that become properties only change in 1.0, because a name can’t be both a function and a property at once.', 'Nombres corregidos en la 0.39 para que la API sea igual en todas partes. Los antiguos siguen funcionando hasta la 1.0 y avisan en la consola cuál usar. Los dos que pasan a ser propiedad solo cambian en la 1.0, porque un nombre no puede ser función y propiedad a la vez.'),
-      `<div class="doc-table ra-renamed">
-        <div class="doc-table__head" aria-hidden="true"><span>${L('Antes', 'Before', 'Antes')}</span><span>${L('Use', 'Use', 'Usa')}</span></div>
-        ${RENAMED().map(([old, next]) => `<div class="doc-table__row"><span class="ra-muted">${old}</span><span>${next}</span></div>`).join('')}
-      </div>`,
-    )}
-
-    ${section(
       'api-regra',
       L('O que não muda', 'What won’t change', 'Lo que no cambia'),
-      L('A partir da 0.24, um nome desta página só muda numa versão maior, com aviso no console e guia de migração. Visual (cor, espaçamento, raio) pode evoluir a qualquer versão, porque não quebra quem usa.', 'From 0.24 on, a name on this page only changes in a major version, with a console warning and a migration guide. Visuals (color, spacing, radius) can evolve in any version, because they don’t break anyone.', 'A partir de la 0.24, un nombre de esta página solo cambia en una versión mayor, con aviso en la consola y guía de migración. Lo visual (color, espaciado, radio) puede evolucionar en cualquier versión, porque no rompe a nadie.'),
+      L('Desde a 1.0, um nome desta página só muda numa versão maior (2.0), com aviso no console e guia de migração. Componentes novos chegam nas versões menores (1.1, 1.2…) sem mexer no que já existe. O visual (cor, espaçamento, raio) pode evoluir em qualquer versão, porque não quebra quem usa.', 'Since 1.0, a name on this page only changes in a major version (2.0), with a console warning and a migration guide. New components arrive in minor versions (1.1, 1.2…) without touching what already exists. Visuals (color, spacing, radius) can evolve in any version, because they don’t break anyone.', 'Desde la 1.0, un nombre de esta página solo cambia en una versión mayor (2.0), con aviso en la consola y guía de migración. Los componentes nuevos llegan en las versiones menores (1.1, 1.2…) sin tocar lo que ya existe. Lo visual (color, espaciado, radio) puede evolucionar en cualquier versión, porque no rompe a nadie.'),
       '',
     )}
   </div>`;

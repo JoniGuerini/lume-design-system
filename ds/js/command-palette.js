@@ -14,7 +14,6 @@
  */
 import { icon } from '../icons/icons.js';
 import { msg } from './i18n.js';
-import { becomesProperty } from './deprecate.js';
 
 const normalize = (s) =>
   String(s ?? '')
@@ -225,9 +224,8 @@ export function createCommandPalette({ items = [], placeholder, label, hotkeys =
     open,
     close,
     destroy,
-    /** Na 1.0 vira propriedade (palette.isOpen), como no modal e no popover. */
-    isOpen: () => {
-      becomesProperty('palette.isOpen()');
+    /** A paleta está aberta. */
+    get isOpen() {
       return dialog.open;
     },
     modifierLabel: isMac ? '⌘' : 'Ctrl',

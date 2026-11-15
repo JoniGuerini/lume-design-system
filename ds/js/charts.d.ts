@@ -10,5 +10,3 @@ export declare function sparklineHtml(values: number[], options?: Record<string,
 export declare function statTileHtml(options: Record<string, unknown>): string;
 export declare function meterHtml(options: Record<string, unknown>): string;
 export declare function chartFormatter(format?: unknown): (value: number) => string;
-/** @deprecated Use chartFormatter. */
-export declare function formatter(format?: unknown): (value: number) => string;

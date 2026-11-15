@@ -11,10 +11,10 @@ In numbers: public items: 102 · verbs: 5 · dependencies: 0.
 One file, `ds/lume.js`, gathers the whole API. The `ds/js/` modules can still be imported one by one, to load only what you need.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/0.41/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/1.0/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.41/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/1.0/lume.js';
 
   initTheme();
   const modal = createModal({ title: 'Publish changes?' });
@@ -198,23 +198,6 @@ The 102 items in `ds/lume.js`, with the module each one comes from.
 | `filtersToQuery` | Turns the filter state into a URL query. | filters.js |
 | `filtersFromQuery` | Reads the filter state from a URL query. | filters.js |
 
-## Removed in 1.0
-
-Names fixed in 0.39 so the API is the same everywhere. The old ones keep working until 1.0 and say in the console which one to use. The two that become properties only change in 1.0, because a name can’t be both a function and a property at once.
-
-| Before | Use |
-| --- | --- |
-| `editor.getHTML() · setHTML()` | `editor.value · setValue()` |
-| `composer.getValue()` | `composer.value · attachments · command` |
-| `filters.state · set()` | `filters.value · setValue()` |
-| `viewer.go()` | `viewer.goTo()` |
-| `backToTop.element` | `backToTop.el` |
-| `shell.isCollapsed() · isMobile() · isMobileOpen()` | `shell.collapsed · mobile · mobileOpen` |
-| `formatter()` | `chartFormatter()` |
-| `shell.layout()` | `shell.layout` in 1.0 |
-| `palette.isOpen()` | `palette.isOpen` in 1.0 |
-| `onInput` in the React ColorPicker | `onChange`, which now fires while dragging, and `onCommit` on release |
-
 ## What won’t change
 
-From 0.24 on, a name on this page only changes in a major version, with a console warning and a migration guide. Visuals (color, spacing, radius) can evolve in any version, because they don’t break anyone.
+Since 1.0, a name on this page only changes in a major version (2.0), with a console warning and a migration guide. New components arrive in minor versions (1.1, 1.2…) without touching what already exists. Visuals (color, spacing, radius) can evolve in any version, because they don’t break anyone.

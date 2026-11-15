@@ -20,7 +20,6 @@
  */
 import { icon } from '../icons/icons.js';
 import { msg, numberFormat } from './i18n.js';
-import { alias } from './deprecate.js';
 
 let uid = 0;
 
@@ -546,8 +545,6 @@ export function createComposer(host, options = {}) {
     get command() {
       return command?.id ?? null;
     },
-    /** @deprecated Use value, attachments e command. Sai na 1.0. */
-    getValue: alias(() => ({ text: input.value, attachments: [...attachments], command: command?.id ?? null }), 'composer.getValue()', 'composer.value, composer.attachments, composer.command'),
     setValue(text) {
       input.value = text;
       autosize();

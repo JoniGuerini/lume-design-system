@@ -11,7 +11,6 @@
  */
 import { icon } from '../icons/icons.js';
 import { msg } from './i18n.js';
-import { alias, becomesProperty } from './deprecate.js';
 import { createMenu as createMenuDefault } from './menu.js';
 
 const SIDEBAR_KEY = 'ds-sidebar';
@@ -166,9 +165,8 @@ export function createShell(root, { persist = true, initial, layout } = {}) {
     toggle,
     setCollapsed,
     setLayout,
-    /** Na 1.0 vira propriedade (shell.layout), como collapsed e mobileOpen. */
-    layout: () => {
-      becomesProperty('shell.layout()');
+    /** O layout atual: 'sidebar' ou 'navbar'. */
+    get layout() {
       return root.dataset.layout;
     },
     setMobileOpen,
@@ -185,12 +183,6 @@ export function createShell(root, { persist = true, initial, layout } = {}) {
     get mobileOpen() {
       return isMobileOpen();
     },
-    /** @deprecated Use collapsed. Sai na 1.0. */
-    isCollapsed: alias(isCollapsed, 'shell.isCollapsed()', 'shell.collapsed'),
-    /** @deprecated Use mobile. Sai na 1.0. */
-    isMobile: alias(isMobile, 'shell.isMobile()', 'shell.mobile'),
-    /** @deprecated Use mobileOpen. Sai na 1.0. */
-    isMobileOpen: alias(isMobileOpen, 'shell.isMobileOpen()', 'shell.mobileOpen'),
     scrollToTop: () => scroller?.scrollTo({ top: 0 }),
     /** Desliga tudo o que o shell ligou (para apps que montam e desmontam o shell, como no React). */
     destroy() {

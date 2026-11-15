@@ -12,7 +12,7 @@ Em números: tamanhos: 20 · 56 · 80 · tons: 4 · formas: determinado e indete
 <span data-envio></span>
 
 <script type="module">
-  import { progressRingHtml, setProgressRing } from 'https://lumeui.dev/v/0.41/lume.js';
+  import { progressRingHtml, setProgressRing } from 'https://lumeui.dev/v/1.0/lume.js';
 
   const box = document.querySelector('[data-envio]');
   box.innerHTML = progressRingHtml(0, { label: 'Enviando arquivos' });
@@ -30,9 +30,9 @@ Indeterminado `progressRingHtml(null)` — Para quando não dá para saber quant
 
 Tons `tone: 'success' · 'warning' · 'danger'` — Concluído, perto do limite e com erro. Sempre com um texto que diga o resultado.
 
-- Fundamentos
-- Componentes
 - Lume 1.0
+- Documentação para IAs
+- Lume 1.1
 
 Numa lista `size: 'sm'` — Ao lado do nome, com o número escrito: o anel pequeno não leva número dentro.
 
@@ -64,7 +64,7 @@ A marcação vem pronta; para mudar o valor, chame setProgressRing.
 <span data-envio></span>
 
 <script type="module">
-  import { progressRingHtml, setProgressRing } from 'https://lumeui.dev/v/0.41/lume.js';
+  import { progressRingHtml, setProgressRing } from 'https://lumeui.dev/v/1.0/lume.js';
 
   const box = document.querySelector('[data-envio]');
   box.innerHTML = progressRingHtml(0, { label: 'Enviando arquivos' });

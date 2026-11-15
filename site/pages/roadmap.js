@@ -1,4 +1,5 @@
 import { L } from '../i18n.js';
+import { icon } from '../../ds/icons/icons.js';
 import { mountDocNav } from '../doc-nav.js';
 import { CURRENT_VERSION } from '../changelog.js';
 import { navigation } from '../nav.js';
@@ -26,7 +27,7 @@ const stageRow = (s) => `<div class="rm-stage">
 
 const SECTIONS = (all) => [
   ['rm-componentes', L('Componentes', 'Components', 'Componentes'), L('Os que faltam, agrupados por assunto. A ordem pode mudar, e os números de versão andam com ela.', 'The ones still missing, grouped by subject. The order may change, and the version numbers move with it.', 'Los que faltan, agrupados por tema. El orden puede cambiar, y los números de versión cambian con él.'), 'components'],
-  ['rm-estavel', L('A caminho da 1.0', 'On the way to 1.0', 'Camino a la 1.0'), L('Com os componentes no lugar, o trabalho passa a ser deixar tudo pronto para uso.', 'With the components in place, the work turns to getting everything ready for use.', 'Con los componentes en su lugar, el trabajo pasa a ser dejar todo listo para usar.'), 'release'],
+  ['rm-versoes', L('Próximas versões', 'Next releases', 'Próximas versiones'), L('O que vem depois dos componentes.', 'What comes after the components.', 'Lo que viene después de los componentes.'), 'release'],
 ].filter(([, , , group]) => all.some((s) => s.group === group));
 
 export default function renderRoadmap(page) {
@@ -40,19 +41,26 @@ export default function renderRoadmap(page) {
       <div>
         <p class="doc-header__eyebrow">Lume</p>
         <h1 class="doc-header__title">${page.label}</h1>
-        <p class="doc-header__lead">${L('O que vem a seguir: chegar à 1.0 estável.', 'What comes next: reaching a stable 1.0.', 'Lo que viene: llegar a la 1.0 estable.')}</p>
+        <p class="doc-header__lead">${L('O que vem a seguir. Componentes e padrões novos chegam nas versões menores (1.1, 1.2…), sem mexer no que já existe.', 'What comes next. New components and patterns arrive in minor versions (1.1, 1.2…), without touching what already exists.', 'Lo que viene. Los componentes y patrones nuevos llegan en las versiones menores (1.1, 1.2…), sin tocar lo que ya existe.')}</p>
       </div>
       <dl class="doc-stats">
         <div class="doc-stat"><dt class="doc-stat__label">${L('versão atual', 'current version', 'versión actual')}</dt><dd class="doc-stat__value">${CURRENT_VERSION}</dd></div>
         <div class="doc-stat"><dt class="doc-stat__label">${L('componentes hoje', 'components today', 'componentes hoy')}</dt><dd class="doc-stat__value">${current}</dd></div>
-        <div class="doc-stat"><dt class="doc-stat__label">${L('etapas até a 1.0', 'steps to 1.0', 'etapas hasta la 1.0')}</dt><dd class="doc-stat__value">${all.length}</dd></div>
+        <div class="doc-stat"><dt class="doc-stat__label">${L('etapas planejadas', 'planned steps', 'etapas planificadas')}</dt><dd class="doc-stat__value">${all.length}</dd></div>
       </dl>
     </header>
 
-    <nav class="doc-nav" aria-label="${L('Nesta página', 'On this page', 'En esta página')}">
+    ${all.length || out.length ? '' : `<div class="ds-empty rm-empty">
+      <span class="ds-empty__icon">${icon('compass', { size: 24 })}</span>
+      <p class="ds-empty__title">${L('Nada planejado agora', 'Nothing planned right now', 'Nada planificado ahora')}</p>
+      <p class="ds-empty__description">${L('A 1.0 fechou o que estava no roadmap. As próximas ideias aparecem aqui primeiro.', '1.0 wrapped up everything on the roadmap. The next ideas show up here first.', 'La 1.0 cerró todo lo que estaba en el roadmap. Las próximas ideas aparecen aquí primero.')}</p>
+      <div class="ds-empty__actions"><a class="ds-btn ds-btn--secondary ds-btn--sm" href="#/novidades">${icon('megaphone', { size: 16 })}${L('Ver o que saiu', 'See what shipped', 'Ver lo que salió')}</a></div>
+    </div>`}
+
+    ${all.length || out.length ? `<nav class="doc-nav" aria-label="${L('Nesta página', 'On this page', 'En esta página')}">
       ${SECTIONS(all).map(([id, title]) => `<button type="button" class="doc-nav__link" data-target="${id}">${title}</button>`).join('')}
       ${out.length ? `<button type="button" class="doc-nav__link" data-target="rm-fora">${L('Fora, por enquanto', 'Left out for now', 'Fuera, por ahora')}</button>` : ''}
-    </nav>
+    </nav>` : ''}
 
     ${SECTIONS(all)
       .map(

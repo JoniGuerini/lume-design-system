@@ -23,7 +23,6 @@
 import { icon } from '../icons/icons.js';
 import { msg } from './i18n.js';
 import { createToolbar } from './toolbar.js';
-import { alias } from './deprecate.js';
 
 const GROUPS = {
   history: ['undo', 'redo'],
@@ -586,10 +585,6 @@ export function createEditor(root, options = {}) {
       return getHTML();
     },
     setValue,
-    /** @deprecated Use value. Sai na 1.0. */
-    getHTML: alias(getHTML, 'editor.getHTML()', 'editor.value'),
-    /** @deprecated Use setValue(). Sai na 1.0. */
-    setHTML: alias(setValue, 'editor.setHTML()', 'editor.setValue()'),
     getText: () => content.innerText.trim(),
     isEmpty,
     focus: () => content.focus(),

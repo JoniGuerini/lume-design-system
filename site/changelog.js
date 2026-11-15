@@ -8,10 +8,49 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '0.41.0';
+export const CURRENT_VERSION = '1.0.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '1.0.0',
+    date: '2026-11-15',
+    title: T('Lume 1.0', 'Lume 1.0', 'Lume 1.0'),
+    summary: T(
+      'A primeira versão estável. A API pública está fechada: um nome só muda numa versão maior. Componentes e padrões novos chegam nas versões 1.1, 1.2…, sem mexer no que já existe.',
+      'The first stable release. The public API is settled: a name only changes in a major version. New components and patterns arrive in 1.1, 1.2…, without touching what already exists.',
+      'La primera versión estable. La API pública está cerrada: un nombre solo cambia en una versión mayor. Los componentes y patrones nuevos llegan en las versiones 1.1, 1.2…, sin tocar lo que ya existe.',
+    ),
+    groups: [
+      {
+        name: T('API', 'API', 'API'),
+        items: [
+          ['melhoria', T('Saem os nomes antigos trocados na 0.39: getHTML() e setHTML(), getValue(), state e set(), go(), element, isCollapsed(), isMobile(), isMobileOpen() e formatter()', 'The old names replaced in 0.39 are gone: getHTML() and setHTML(), getValue(), state and set(), go(), element, isCollapsed(), isMobile(), isMobileOpen(), and formatter()', 'Salen los nombres antiguos cambiados en la 0.39: getHTML() y setHTML(), getValue(), state y set(), go(), element, isCollapsed(), isMobile(), isMobileOpen() y formatter()'), '/recursos/api'],
+          ['melhoria', T('shell.layout e palette.isOpen viram propriedades, como collapsed e isOpen nos outros controles', 'shell.layout and palette.isOpen become properties, like collapsed and isOpen on the other controllers', 'shell.layout y palette.isOpen pasan a ser propiedades, como collapsed e isOpen en los otros controles'), '/recursos/api'],
+          ['novo', T('A página API explica a regra de versões: correções em 1.0.x, novidades em 1.x e mudança de nome só na 2.0', 'The API page explains the versioning rule: fixes in 1.0.x, new things in 1.x, and renames only in 2.0', 'La página API explica la regla de versiones: correcciones en 1.0.x, novedades en 1.x y cambios de nombre solo en la 2.0'), '/recursos/api'],
+        ],
+      },
+      {
+        name: T('React', 'React', 'React'),
+        items: [
+          ['melhoria', T('ColorPicker sem o onInput antigo: onChange a cada mudança e onCommit ao soltar', 'ColorPicker without the old onInput: onChange on every change and onCommit on release', 'ColorPicker sin el onInput antiguo: onChange en cada cambio y onCommit al soltar'), '/recursos/react'],
+        ],
+      },
+      {
+        name: T('Pacote', 'Package', 'Paquete'),
+        items: [
+          ['novo', T('Endereço fixo da linha estável: lumeui.dev/v/1.0/lume.css e lume.js, com o zip lume-1.0.zip', 'Fixed address for the stable line: lumeui.dev/v/1.0/lume.css and lume.js, with the lume-1.0.zip zip', 'Dirección fija de la línea estable: lumeui.dev/v/1.0/lume.css y lume.js, con el zip lume-1.0.zip'), '/primeiros-passos'],
+          ['melhoria', T('As linhas de teste 0.25 a 0.41 saíram do ar', 'The 0.25 to 0.41 test lines are no longer online', 'Las líneas de prueba 0.25 a 0.41 ya no están en línea'), '/primeiros-passos'],
+        ],
+      },
+      {
+        name: T('Site', 'Site', 'Sitio'),
+        items: [
+          ['melhoria', T('Roadmap com estado vazio: as próximas ideias aparecem lá primeiro', 'Roadmap with an empty state: the next ideas show up there first', 'Roadmap con estado vacío: las próximas ideas aparecen allí primero'), '/roadmap'],
+        ],
+      },
+    ],
+  },
   {
     version: '0.41.0',
     date: '2026-11-15',

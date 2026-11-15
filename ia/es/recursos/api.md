@@ -11,10 +11,10 @@ En números: ítems públicos: 102 · verbos: 5 · dependencias: 0.
 Un archivo, `ds/lume.js`, reúne toda la API. Los módulos de `ds/js/` siguen pudiéndose importar uno a uno, para cargar solo lo necesario.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/0.41/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/1.0/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/0.41/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/1.0/lume.js';
 
   initTheme();
   const modal = createModal({ title: '¿Publicar cambios?' });
@@ -198,23 +198,6 @@ Los 102 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 | `filtersToQuery` | Convierte el estado de los filtros en dirección. | filters.js |
 | `filtersFromQuery` | Lee el estado de los filtros de una dirección. | filters.js |
 
-## Salen en la 1.0
-
-Nombres corregidos en la 0.39 para que la API sea igual en todas partes. Los antiguos siguen funcionando hasta la 1.0 y avisan en la consola cuál usar. Los dos que pasan a ser propiedad solo cambian en la 1.0, porque un nombre no puede ser función y propiedad a la vez.
-
-| Antes | Usa |
-| --- | --- |
-| `editor.getHTML() · setHTML()` | `editor.value · setValue()` |
-| `composer.getValue()` | `composer.value · attachments · command` |
-| `filters.state · set()` | `filters.value · setValue()` |
-| `viewer.go()` | `viewer.goTo()` |
-| `backToTop.element` | `backToTop.el` |
-| `shell.isCollapsed() · isMobile() · isMobileOpen()` | `shell.collapsed · mobile · mobileOpen` |
-| `formatter()` | `chartFormatter()` |
-| `shell.layout()` | `shell.layout` en la 1.0 |
-| `palette.isOpen()` | `palette.isOpen` en la 1.0 |
-| `onInput` en el ColorPicker de React | `onChange`, que ya llega mientras se arrastra, y `onCommit` al soltar |
-
 ## Lo que no cambia
 
-A partir de la 0.24, un nombre de esta página solo cambia en una versión mayor, con aviso en la consola y guía de migración. Lo visual (color, espaciado, radio) puede evolucionar en cualquier versión, porque no rompe a nadie.
+Desde la 1.0, un nombre de esta página solo cambia en una versión mayor (2.0), con aviso en la consola y guía de migración. Los componentes nuevos llegan en las versiones menores (1.1, 1.2…) sin tocar lo que ya existe. Lo visual (color, espaciado, radio) puede evolucionar en cualquier versión, porque no rompe a nadie.

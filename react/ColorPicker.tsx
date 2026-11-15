@@ -19,8 +19,6 @@ export interface ColorPickerProps {
   onChange: (hex: string) => void;
   /** Ao soltar, ao escolher uma amostra ou ao confirmar o hexadecimal: bom para salvar. */
   onCommit?: (hex: string) => void;
-  /** @deprecated Use onChange, que agora também chega enquanto arrasta. Sai na 1.0. */
-  onInput?: (hex: string) => void;
   /** Amostras embaixo; sem label, o nome é o hexadecimal. */
   swatches?: ColorSwatch[];
   className?: string;
@@ -31,17 +29,15 @@ export interface ColorPickerProps {
  *   <ColorPicker value={cor} onChange={setCor} swatches={['#c97b63', '#3b82f6']} />
  * https://lumeui.dev/#/componentes/seletor-de-cor
  */
-export function ColorPicker({ value, onChange, onCommit, onInput, swatches, className }: ColorPickerProps) {
+export function ColorPicker({ value, onChange, onCommit, swatches, className }: ColorPickerProps) {
   const root = useRef<HTMLDivElement>(null);
   const api = useRef<ColorController | null>(null);
   const change = useLatest(onChange);
   const commit = useLatest(onCommit);
-  const input = useLatest(onInput);
   const latest = useLatest(value);
   useEffect(() => {
     let last = latest.current?.toLowerCase();
     const live = (h: string) => {
-      input.current?.(h);
       if (h === last) return;
       last = h;
       change.current(h);
