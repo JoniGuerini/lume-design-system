@@ -110,7 +110,6 @@ Comece por [LEIA-ME](https://lumeui.dev/ia/LEIA-ME.md): instalação, regras ger
 - [Avisos e confirmações](https://lumeui.dev/ia/padroes/avisos.md): Toast, alerta, banner ou modal, e desfazer no lugar de “tem certeza?”.
 - [Detalhe e edição](https://lumeui.dev/ia/padroes/detalhe.md): A página de um item: cabeçalho, abas, histórico e edição no lugar.
 - [Painel de indicadores](https://lumeui.dev/ia/padroes/painel.md): Uma pergunta, números comparados, um gráfico principal e o que pede atenção.
-- [Primeiro uso](https://lumeui.dev/ia/padroes/primeiro-uso.md): Boas-vindas, primeiros passos e o vazio que ensina.
 - [Carregamento e erros](https://lumeui.dev/ia/padroes/carregamento.md): Esqueleto, demora, erro por parte, falha ao salvar e página não encontrada.
 
 ## Recursos

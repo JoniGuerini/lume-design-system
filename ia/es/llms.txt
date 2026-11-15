@@ -110,7 +110,6 @@ Empieza por [LEEME](https://lumeui.dev/ia/es/LEEME.md): instalación, reglas gen
 - [Avisos y confirmaciones](https://lumeui.dev/ia/es/padroes/avisos.md): Toast, alerta, banner o modal, y deshacer en lugar de “¿estás seguro?”.
 - [Detalle y edición](https://lumeui.dev/ia/es/padroes/detalhe.md): La página de un elemento: encabezado, pestañas, historial y edición en el lugar.
 - [Panel de indicadores](https://lumeui.dev/ia/es/padroes/painel.md): Una pregunta, números comparados, un gráfico principal y lo que necesita atención.
-- [Primer uso](https://lumeui.dev/ia/es/padroes/primeiro-uso.md): Bienvenida, primeros pasos y el vacío que enseña.
 - [Carga y errores](https://lumeui.dev/ia/es/padroes/carregamento.md): Esqueleto, demora, error por parte, falla al guardar y página no encontrada.
 
 ## Recursos
