@@ -8,10 +8,29 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '1.2.0';
+export const CURRENT_VERSION = '1.3.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '1.3.0',
+    date: '2026-11-15',
+    title: T('Avisos e confirmações', 'Notices and confirmations', 'Avisos y confirmaciones'),
+    summary: T(
+      'Padrão novo para escolher entre toast, alerta, banner e modal, e para desfazer no lugar de perguntar “tem certeza?”.',
+      'A new pattern for choosing between toast, alert, banner, and modal, and for undoing instead of asking “are you sure?”.',
+      'Patrón nuevo para elegir entre toast, alerta, banner y modal, y para deshacer en lugar de preguntar “¿estás seguro?”.',
+    ),
+    groups: [
+      {
+        name: T('Padrões', 'Patterns', 'Patrones'),
+        items: [
+          ['novo', T('Avisos e confirmações: um relatório em edição em que cada ação responde com o aviso certo', 'Notices and confirmations: a report being edited where each action answers with the right notice', 'Avisos y confirmaciones: un informe en edición donde cada acción responde con el aviso correcto'), '/padroes/avisos'],
+          ['novo', T('Tabela de qual usar: quando, quanto dura e um exemplo de cada meio', 'A which-to-use table: when, how long it lasts, and an example of each means', 'Tabla de cuál usar: cuándo, cuánto dura y un ejemplo de cada medio'), '/padroes/avisos'],
+        ],
+      },
+    ],
+  },
   {
     version: '1.2.0',
     date: '2026-11-15',

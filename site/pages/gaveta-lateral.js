@@ -50,7 +50,7 @@ export default function renderGaveta(page) {
         id: 'codigo',
         title: L('Código', 'Code', 'Código'),
         desc: L(`${ic('openDrawer')} devolve uma promessa com o valor da ação escolhida, como o Modal.`, `${ic('openDrawer')} returns a promise with the chosen action’s value, like the Modal.`, `${ic('openDrawer')} devuelve una promesa con el valor de la acción elegida, como el Modal.`),
-        html: codeBlock(`import { openDrawer } from 'https://lumeui.dev/v/1.2/lume.js';
+        html: codeBlock(`import { openDrawer } from 'https://lumeui.dev/v/1.3/lume.js';
 
 const escolha = await openDrawer({
   side: 'right',
@@ -116,7 +116,7 @@ export function mount(root) {
       btn.addEventListener('click', onClick);
       return () => btn.removeEventListener('click', onClick);
     },
-    code: (s) => `import { openDrawer } from 'https://lumeui.dev/v/1.2/lume.js';
+    code: (s) => `import { openDrawer } from 'https://lumeui.dev/v/1.3/lume.js';
 
 openDrawer({
   side: '${s.side}',${s.size === 'md' ? '' : `\n  size: '${s.size}',`}

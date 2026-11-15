@@ -175,7 +175,7 @@ Switches and `createSegmented` store right away; the profile is a plain `<form>`
 ```
 
 ```html
-import { createModal, toast } from 'https://lumeui.dev/v/1.2/lume.js';
+import { createModal, toast } from 'https://lumeui.dev/v/1.3/lume.js';
 
 // On and off: store right away and announce without moving focus
 section.addEventListener('change', async (e) => {

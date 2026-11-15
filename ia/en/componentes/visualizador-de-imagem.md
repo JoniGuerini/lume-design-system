@@ -23,7 +23,7 @@ In numbers: max zoom: 4× · ways to open: 2 · shortcuts: 8 · ARIA role: dialo
 </a>
 
 <script type="module">
-  import { mountImageViewer } from 'https://lumeui.dev/v/1.2/lume.js';
+  import { mountImageViewer } from 'https://lumeui.dev/v/1.3/lume.js';
   mountImageViewer(document);
 </script>
 ```
@@ -81,7 +81,7 @@ The thumbnail is a link to the large image: without JavaScript, it still opens. 
 </a>
 
 <script type="module">
-  import { mountImageViewer, openImageViewer } from 'https://lumeui.dev/v/1.2/lume.js';
+  import { mountImageViewer, openImageViewer } from 'https://lumeui.dev/v/1.3/lume.js';
 
   // clicking a thumbnail opens the gallery with the same data-ds-viewer
   mountImageViewer(document);

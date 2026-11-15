@@ -1,0 +1,83 @@
+/* Página: Padrões · Avisos e confirmações (prefixo av-) */
+
+.av-banner[hidden],
+.av-screen [hidden] {
+  display: none;
+}
+
+.av-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ds-space-150);
+}
+
+.av-sections {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--ds-space-200);
+  margin: 0;
+  padding: 0;
+}
+
+.av-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-150);
+  padding: var(--ds-space-250);
+  border-radius: var(--ds-radius-lg);
+  border: 1px solid var(--ds-color-border-subtle);
+}
+
+.av-section__text {
+  margin: 0;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+  letter-spacing: var(--ds-text-body-sm-tracking);
+}
+
+.av-screen .ds-alert:focus {
+  outline-offset: 2px;
+}
+
+.av-screen .ds-alert:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ───────── Qual usar ───────── */
+
+.av-means {
+  --doc-table-cols: minmax(100px, 0.5fr) minmax(0, 1.5fr) minmax(0, 0.9fr) minmax(0, 1fr);
+}
+
+.av-means__name {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-100);
+  font: var(--ds-text-label-md);
+}
+
+.av-means__name .ds-icon {
+  color: var(--ds-color-fg-subtle);
+}
+
+.av-means__text {
+  font: var(--ds-text-body-sm);
+}
+
+.av-means__muted {
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+@media (max-width: 899.98px) {
+  .av-sections {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .av-means {
+    --doc-table-cols: minmax(0, 1fr);
+  }
+}

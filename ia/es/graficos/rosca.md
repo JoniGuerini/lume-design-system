@@ -9,7 +9,7 @@ En números: porciones como máximo: 6 · grosor predeterminado: 24 px · respir
 ## Ejemplo
 
 ```html
-import { createDonutChart } from 'https://lumeui.dev/v/1.2/lume.js';
+import { createDonutChart } from 'https://lumeui.dev/v/1.3/lume.js';
 
 donutChart(document.querySelector('#pagos'), {
   title: 'Pagos por método',

@@ -12,7 +12,7 @@ En números: formas: 2 · valor enviado: #rrggbb · muestras: opcionales · rol 
 <div class="ds-field"><input class="ds-field__input" id="marca" name="marca" type="text"></div>
 
 <script type="module">
-  import { createColorField } from 'https://lumeui.dev/v/1.2/lume.js';
+  import { createColorField } from 'https://lumeui.dev/v/1.3/lume.js';
   createColorField(document.querySelector('#marca'), {
     value: '#c97b63',
     swatches: [{ value: '#d95c0a', label: 'Melocotón' }, { value: '#2a8ed6', label: 'Azul' }, { value: '#cd5892', label: 'Rosa' }, …],
@@ -88,7 +88,7 @@ El formulario recibe el hexadecimal del campo; funciona con `createForm`, como l
 </div>
 
 <script type="module">
-  import { createColorField } from 'https://lumeui.dev/v/1.2/lume.js';
+  import { createColorField } from 'https://lumeui.dev/v/1.3/lume.js';
 
   createColorField(document.querySelector('#marca'), {
     value: '#c97b63',
