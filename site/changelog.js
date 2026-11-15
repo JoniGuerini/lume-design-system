@@ -33,65 +33,6 @@ const RELEASES = [
     ],
   },
   {
-    version: '0.40.2',
-    date: '2026-11-14',
-    title: T('Introdução no Figma', 'Introduction in Figma', 'Introducción en Figma'),
-    summary: T(
-      'O arquivo do Figma ganhou uma página de abertura, antes de Fundamentos: o que é o Lume, o que tem em cada página, os princípios visuais e como ler cada bloco.',
-      'The Figma file got an opening page, before Foundations: what Lume is, what each page holds, the visual principles, and how to read each block.',
-      'El archivo de Figma ganó una página de apertura, antes de Fundamentos: qué es Lume, qué hay en cada página, los principios visuales y cómo leer cada bloque.',
-    ),
-    groups: [
-      {
-        name: T('Plugin do Figma', 'Figma plugin', 'Plugin de Figma'),
-        items: [
-          ['novo', T('Página Lume · Introdução, a primeira do arquivo, com a chama, os números do arquivo, as três páginas, os princípios e como ler cada bloco', 'Lume · Introduction page, the first in the file, with the flame, the file’s numbers, the three pages, the principles, and how to read each block', 'Página Lume · Introducción, la primera del archivo, con la llama, los números del archivo, las tres páginas, los principios y cómo leer cada bloque'), '/recursos/figma'],
-          ['melhoria', T('No plano gratuito do Figma, que aceita 3 páginas, a introdução fica no topo de Fundamentos e muda para a página própria quando o arquivo vai para um plano pago', 'On Figma’s free plan, which allows 3 pages, the introduction sits at the top of Foundations and moves to its own page when the file moves to a paid plan', 'En el plan gratuito de Figma, que admite 3 páginas, la introducción queda arriba de Fundamentos y pasa a su propia página cuando el archivo pasa a un plan de pago'), '/recursos/figma'],
-        ],
-      },
-    ],
-  },
-  {
-    version: '0.40.1',
-    date: '2026-11-14',
-    title: T('Plugin com a cara do Lume', 'A plugin that looks like Lume', 'Plugin con la cara de Lume'),
-    summary: T(
-      'A janela do plugin e os cabeçalhos dos blocos no Figma deixaram as cores do Órbita: agora usam a ardósia da sidebar do Lume, a Geist e os componentes do próprio site.',
-      'The plugin window and the block headers in Figma left Órbita’s colors behind: they now use the slate of Lume’s sidebar, Geist, and the site’s own components.',
-      'La ventana del plugin y los encabezados de los bloques en Figma dejaron los colores de Órbita: ahora usan la pizarra de la sidebar de Lume, Geist y los componentes del propio sitio.',
-    ),
-    groups: [
-      {
-        name: T('Plugin do Figma', 'Figma plugin', 'Plugin de Figma'),
-        items: [
-          ['melhoria', T('Janela do plugin refeita com os tokens, as fontes, o checkbox, o controle segmentado e os botões do Lume, no tema claro ou escuro do Figma', 'Plugin window rebuilt with Lume’s tokens, fonts, checkbox, segmented control, and buttons, in Figma’s light or dark theme', 'Ventana del plugin rehecha con los tokens, las fuentes, el checkbox, el control segmentado y los botones de Lume, en el tema claro u oscuro de Figma'), '/recursos/figma'],
-          ['melhoria', T('Cabeçalho dos blocos e capas na ardósia da sidebar do Lume claro, com o grupo em terracota', 'Block headers and covers in the slate of Lume’s light sidebar, with the group in terracotta', 'Encabezado de los bloques y portadas en la pizarra de la sidebar de Lume claro, con el grupo en terracota'), '/recursos/figma'],
-        ],
-      },
-    ],
-  },
-  {
-    version: '0.40.0',
-    date: '2026-11-14',
-    title: T('Plugin do Figma', 'Figma plugin', 'Plugin de Figma'),
-    summary: T(
-      'O Figma alcançou o site de novo: os componentes da 0.30 à 0.38 viraram blocos no plugin, com variantes, exemplos e prévias claro e escuro, nos três idiomas. Os 154 ícones também estão lá.',
-      'Figma caught up with the site again: the components from 0.30 to 0.38 became blocks in the plugin, with variants, examples, and light and dark previews, in all three languages. All 154 icons are there too.',
-      'Figma alcanzó al sitio de nuevo: los componentes de la 0.30 a la 0.38 se volvieron bloques en el plugin, con variantes, ejemplos y vistas previas clara y oscura, en los tres idiomas. Los 154 íconos también están.',
-    ),
-    groups: [
-      {
-        name: T('Plugin do Figma', 'Figma plugin', 'Plugin de Figma'),
-        items: [
-          ['novo', T('Barra de ferramentas, seletor de cor, avaliação e editor de texto rico', 'Toolbar, color picker, rating, and rich text editor', 'Barra de herramientas, selector de color, valoración y editor de texto enriquecido'), '/recursos/figma'],
-          ['novo', T('Link, banner de anúncio, central de notificações e progresso circular', 'Link, announcement banner, notification center, and progress ring', 'Enlace, banner de anuncio, centro de notificaciones y progreso circular'), '/recursos/figma'],
-          ['novo', T('Carrossel, visualizador de imagem, lista arrastável, kanban, painéis redimensionáveis e divisor com rótulo', 'Carousel, image viewer, sortable list, kanban, resizable panels, and labeled divider', 'Carrusel, visor de imágenes, lista arrastrable, kanban, paneles redimensionables y divisor con etiqueta'), '/recursos/figma'],
-          ['melhoria', T('Os 154 ícones do site, todos com troca de ícone', 'All 154 icons from the site, all swappable', 'Los 154 íconos del sitio, todos intercambiables'), '/fundamentos/icones'],
-        ],
-      },
-    ],
-  },
-  {
     version: '0.39.0',
     date: '2026-11-14',
     title: T('Revisão da API', 'API review', 'Revisión de la API'),
@@ -648,46 +589,6 @@ const RELEASES = [
     ],
   },
   {
-    version: '0.22.1',
-    date: '2026-11-09',
-    title: T('Números do plugin no site', 'Plugin numbers on the site', 'Números del plugin en el sitio'),
-    summary: T(
-      'A página do plugin do Figma agora mostra blocos, variantes e ícones também no site publicado, sempre atualizados a cada publicação.',
-      'The Figma plugin page now shows blocks, variants, and icons on the published site too, updated with every release.',
-      'La página del plugin de Figma ahora muestra bloques, variantes e íconos también en el sitio publicado, siempre actualizados en cada publicación.',
-    ),
-    groups: [
-      {
-        name: T('Recursos', 'Resources', 'Recursos'),
-        items: [
-          ['correcao', T('Plugin do Figma: números e lista de blocos no site publicado', 'Figma plugin: numbers and block list on the published site', 'Plugin de Figma: números y lista de bloques en el sitio publicado'), '/recursos/figma'],
-          ['correcao', T('Plugin do Figma: o caminho da prévia não é mais um link quebrado no site publicado', 'Figma plugin: the preview path is no longer a broken link on the published site', 'Plugin de Figma: la ruta de la vista previa ya no es un enlace roto en el sitio publicado'), '/recursos/figma'],
-        ],
-      },
-    ],
-  },
-  {
-    version: '0.22.0',
-    date: '2026-11-09',
-    title: T('Plugin do Figma', 'Figma plugin', 'Plugin de Figma'),
-    summary: T(
-      'O plugin alcançou o site: temas, fontes, logotipo, navbar, a escala de alturas e os componentes novos. São 67 blocos e 622 variantes.',
-      'The plugin caught up with the site: themes, fonts, logo, navbar, the height scale, and the new components. That’s 67 blocks and 622 variants.',
-      'El plugin alcanzó al sitio: temas, fuentes, logotipo, navbar, la escala de alturas y los componentes nuevos. Son 67 bloques y 622 variantes.',
-    ),
-    groups: [
-      {
-        name: T('Plugin', 'Plugin', 'Plugin'),
-        items: [
-          ['novo', T('25 blocos novos: formulários, navegação, camadas, carregamento, conteúdo e login', '25 new blocks: forms, navigation, layers, loading, content, and login', '25 bloques nuevos: formularios, navegación, capas, carga, contenido e inicio de sesión'), '/recursos/figma'],
-          ['melhoria', T('App shell com a navbar, a topbar atual e o logotipo em Geist Serif', 'App shell with the navbar, the current topbar, and the Geist Serif logo', 'App shell con la navbar, la topbar actual y el logotipo en Geist Serif'), '/recursos/figma'],
-          ['melhoria', T('Chip, abas e botão de ícone na escala de alturas', 'Chip, tabs, and icon button on the height scale', 'Chip, pestañas y botón de ícono en la escala de alturas'), '/recursos/figma'],
-          ['melhoria', T('Nova linha Camadas, com Modal e Tooltip, como no site', 'New Layers row, with Modal and Tooltip, as on the site', 'Nueva fila Capas, con Modal y Tooltip, como en el sitio'), '/recursos/figma'],
-        ],
-      },
-    ],
-  },
-  {
     version: '0.21.1',
     date: '2026-11-08',
     title: T('Navbar em janelas menores', 'Navbar in smaller windows', 'Navbar en ventanas más pequeñas'),
@@ -1096,11 +997,6 @@ const RELEASES = [
             'La descripción de Tipografía menciona Geist Serif y Geist Sans',
           ), '/fundamentos/tipografia'],
           ['correcao', T(
-            'A página do Plugin do Figma pede as fontes atuais',
-            'The Figma plugin page asks for the current fonts',
-            'La página del Plugin de Figma pide las fuentes actuales',
-          ), '/recursos/figma'],
-          ['correcao', T(
             'O exemplo de estilo de texto em Tokens para Figma usa a Geist',
             'The text style example in Tokens for Figma uses Geist',
             'El ejemplo de estilo de texto en Tokens para Figma usa Geist',
@@ -1411,9 +1307,9 @@ const RELEASES = [
         name: T('Lume', 'Lume', 'Lume'),
         items: [
           ['novo', T(
-            'Nome novo em todo lugar: site, componentes, tokens exportados e plugin do Figma',
-            'The new name everywhere: site, components, exported tokens, and the Figma plugin',
-            'El nombre nuevo en todas partes: sitio, componentes, tokens exportados y plugin de Figma',
+            'Nome novo em todo lugar: site, componentes e tokens exportados',
+            'The new name everywhere: site, components, and exported tokens',
+            'El nombre nuevo en todas partes: sitio, componentes y tokens exportados',
           ), '/'],
           ['novo', T(
             'A chama do Lume, nas cores do tema Refúgio, ao lado do nome na sidebar e na aba do navegador',
@@ -1427,16 +1323,6 @@ const RELEASES = [
           ), '/'],
         ],
       },
-      {
-        name: T('Figma', 'Figma', 'Figma'),
-        items: [
-          ['melhoria', T(
-            'O plugin agora é “Lume para Figma”. Rodar de novo num arquivo gerado pelo Órbita renomeia páginas, capas e blocos no lugar, sem duplicar',
-            'The plugin is now “Lume para Figma”. Running it again on a file generated by Órbita renames pages, covers, and blocks in place, without duplicating',
-            'El plugin ahora es “Lume para Figma”. Ejecutarlo de nuevo en un archivo generado por Órbita renombra páginas, portadas y bloques en su lugar, sin duplicar',
-          ), '/recursos/figma'],
-        ],
-      },
     ],
   },
   {
@@ -1444,9 +1330,9 @@ const RELEASES = [
     date: '2026-11-01',
     title: T('Idiomas', 'Languages', 'Idiomas'),
     summary: T(
-      'O Lume passou a falar português, inglês e espanhol: o site inteiro, os textos dos componentes e o plugin do Figma. O idioma segue o do sistema, troca na topbar e fica salvo.',
-      'Lume now speaks Portuguese, English, and Spanish: the whole site, the component text, and the Figma plugin. The language follows the system, switches from the topbar, and is remembered.',
-      'Lume ahora habla portugués, inglés y español: todo el sitio, los textos de los componentes y el plugin de Figma. El idioma sigue al del sistema, se cambia en la topbar y queda guardado.',
+      'O Lume passou a falar português, inglês e espanhol: o site inteiro e os textos dos componentes. O idioma segue o do sistema, troca na topbar e fica salvo.',
+      'Lume now speaks Portuguese, English, and Spanish: the whole site and the component text. The language follows the system, switches from the topbar, and is remembered.',
+      'Lume ahora habla portugués, inglés y español: todo el sitio y los textos de los componentes. El idioma sigue al del sistema, se cambia en la topbar y queda guardado.',
     ),
     groups: [
       {
@@ -1490,28 +1376,13 @@ const RELEASES = [
         ],
       },
       {
-        name: T('Figma', 'Figma', 'Figma'),
+        name: T('Tokens para Figma', 'Tokens for Figma', 'Tokens para Figma'),
         items: [
-          ['novo', T(
-            'Idioma na janela do plugin: páginas, coleções, modos, componentes, propriedades e textos saem em português, inglês ou espanhol',
-            'Language in the plugin window: pages, collections, modes, components, properties, and text come out in Portuguese, English, or Spanish',
-            'Idioma en la ventana del plugin: páginas, colecciones, modos, componentes, propiedades y textos salen en portugués, inglés o español',
-          ), '/recursos/figma'],
-          ['melhoria', T(
-            'Rodar de novo em outro idioma renomeia tudo no lugar, sem duplicar: os ids e as instâncias continuam',
-            'Running again in another language renames everything in place, without duplicating: ids and instances stay',
-            'Ejecutarlo de nuevo en otro idioma renombra todo en el lugar, sin duplicar: los ids y las instancias se mantienen',
-          ), '/recursos/figma'],
           ['melhoria', T(
             'O plugin de tokens acha as coleções em qualquer um dos três idiomas',
             'The tokens plugin finds the collections in any of the three languages',
             'El plugin de tokens encuentra las colecciones en cualquiera de los tres idiomas',
           ), '/recursos/tokens'],
-          ['melhoria', T(
-            'O teste do plugin roda o mesmo arquivo nos três idiomas e falha se algum texto ficar sem tradução',
-            'The plugin test runs the same file in the three languages and fails if any text is left untranslated',
-            'La prueba del plugin ejecuta el mismo archivo en los tres idiomas y falla si algún texto queda sin traducir',
-          ), '/recursos/figma'],
         ],
       },
       {
@@ -1538,201 +1409,15 @@ const RELEASES = [
         name: T('Componentes', 'Components', 'Componentes'),
         items: [
           ['correcao', T(
-            'Chip sem seta fica com as duas pontas iguais; o recuo menor vale só do lado do ícone, do ✓ ou da seta — no site e no Figma',
-            'A chip without an arrow has equal ends; the tighter padding applies only on the icon, ✓, or arrow side — on the site and in Figma',
-            'Un chip sin flecha tiene los dos extremos iguales; el relleno menor vale solo del lado del ícono, el ✓ o la flecha — en el sitio y en Figma',
+            'Chip sem seta fica com as duas pontas iguais; o recuo menor vale só do lado do ícone, do ✓ ou da seta',
+            'A chip without an arrow has equal ends; the tighter padding applies only on the icon, ✓, or arrow side',
+            'Un chip sin flecha tiene los dos extremos iguales; el relleno menor vale solo del lado del ícono, el ✓ o la flecha',
           ), '/componentes/chip'],
           ['correcao', T(
             'O seletor de idioma da topbar virou um chip seletor completo, com a seta',
             'The topbar language picker is now a complete picker chip, with the arrow',
             'El selector de idioma de la topbar ahora es un chip selector completo, con la flecha',
           ), '/componentes/chip'],
-        ],
-      },
-    ],
-  },
-  {
-    version: '0.6.1',
-    date: '2026-10-31',
-    title: T('Plugin no plano gratuito', 'Plugin on the free plan', 'Plugin en el plan gratuito'),
-    summary: T(
-      'O plugin do Figma passou a funcionar no plano gratuito, que aceita um modo por coleção de variáveis e 3 páginas por arquivo: você escolhe os modos na janela e completa depois, sem duplicar nada.',
-      'The Figma plugin now works on the free plan, which allows one mode per variable collection and 3 pages per file: you pick the modes in the window and add the rest later, without duplicating anything.',
-      'El plugin de Figma ahora funciona en el plan gratuito, que admite un modo por colección de variables y 3 páginas por archivo: eliges los modos en la ventana y completas después, sin duplicar nada.',
-    ),
-    groups: [
-      {
-        name: T('Figma', 'Figma', 'Figma'),
-        items: [
-          ['novo', T(
-            'Modos na janela do plugin: Claro e Escuro, Só Escuro ou Só Claro. A escolha fica guardada no computador',
-            'Modes in the plugin window: Light and Dark, Dark only, or Light only. The choice is saved on your computer',
-            'Modos en la ventana del plugin: Claro y Oscuro, Solo Oscuro o Solo Claro. La elección queda guardada en tu computadora',
-          ), '/recursos/figma'],
-          ['melhoria', T(
-            'A “Page 1” vazia do arquivo novo vira uma página do Lume: as 3 páginas cabem no plano gratuito',
-            'The empty “Page 1” of a new file becomes a Lume page: all 3 pages fit in the free plan',
-            'La “Page 1” vacía del archivo nuevo se convierte en una página de Lume: las 3 páginas caben en el plan gratuito',
-          ), '/recursos/figma'],
-          ['melhoria', T(
-            'Num arquivo gerado com um modo só, rodar de novo com Claro e Escuro acrescenta o outro modo e mantém os componentes e as instâncias',
-            'In a file generated with a single mode, running again with Light and Dark adds the other mode and keeps the components and instances',
-            'En un archivo generado con un solo modo, ejecutarlo de nuevo con Claro y Oscuro agrega el otro modo y mantiene los componentes y las instancias',
-          ), '/recursos/figma'],
-          ['correcao', T(
-            'As recusas do plano gratuito (modos e páginas) viraram explicações em português, com o que fazer',
-            'Free-plan refusals (modes and pages) now come with a clear explanation and what to do',
-            'Los rechazos del plan gratuito (modos y páginas) ahora vienen con una explicación clara y qué hacer',
-          ), '/recursos/figma'],
-          ['melhoria', T(
-            'O teste do plugin simula o plano gratuito e a passagem para um plano pago',
-            'The plugin test simulates the free plan and the move to a paid plan',
-            'La prueba del plugin simula el plan gratuito y el paso a un plan de pago',
-          ), '/recursos/figma'],
-        ],
-      },
-      {
-        name: T('Site', 'Site', 'Sitio'),
-        items: [
-          ['novo', T(
-            'Dourado na troca da cor da marca, ao lado de Pêssego, Violeta, Azul, Verde e Rosa',
-            'Gold in the brand color switcher, alongside Peach, Violet, Blue, Green, and Pink',
-            'Dorado en el selector de color de marca, junto a Melocotón, Violeta, Azul, Verde y Rosa',
-          ), '/'],
-          ['correcao', T(
-            'Com Dourado e Verde, os links do tema claro descem um tom e passam de 4,5:1',
-            'With Gold and Green, light-theme links go one shade darker and pass 4.5:1',
-            'Con Dorado y Verde, los enlaces del tema claro bajan un tono y superan 4,5:1',
-          ), '/recursos/acessibilidade'],
-          ['correcao', T(
-            'Com Dourado e Azul, a série de gráfico da mesma cor troca de lugar com a 1ª: nada se repete, e a ordem segue validada para daltonismo',
-            'With Gold and Blue, the chart series of the same color swaps places with the 1st: nothing repeats, and the order stays validated for color blindness',
-            'Con Dorado y Azul, la serie de gráfico del mismo color cambia de lugar con la 1.ª: nada se repite y el orden sigue validado para daltonismo',
-          ), '/graficos/visao-geral'],
-          ['correcao', T(
-            'Na troca da cor da marca, a bolinha do Pêssego não imita mais a cor escolhida',
-            'In the brand color switcher, the Peach swatch no longer mimics the chosen color',
-            'En el selector de color de marca, el círculo de Melocotón ya no imita el color elegido',
-          ), '/'],
-          ['correcao', T(
-            'Subir o servidor não regrava mais a data dos tokens quando nada mudou',
-            'Starting the server no longer rewrites the token date when nothing changed',
-            'Iniciar el servidor ya no reescribe la fecha de los tokens cuando nada cambió',
-          ), '/recursos/tokens'],
-        ],
-      },
-    ],
-  },
-  {
-    version: '0.6.0',
-    date: '2026-10-31',
-    title: T('Plugin completo', 'Complete plugin', 'Plugin completo'),
-    summary: T(
-      'O plugin do Figma passou a cobrir o design system inteiro: 7 blocos novos, as variações que faltavam e as correções que só apareceram rodando no Figma de verdade.',
-      'The Figma plugin now covers the whole design system: 7 new blocks, the missing variants, and the fixes that only showed up when running in the real Figma.',
-      'El plugin de Figma ahora cubre todo el design system: 7 bloques nuevos, las variantes que faltaban y las correcciones que solo aparecieron al ejecutarlo en Figma de verdad.',
-    ),
-    groups: [
-      {
-        name: T('Figma', 'Figma', 'Figma'),
-        items: [
-          ['novo', T(
-            'Blocos novos: Movimento, Layout, Código, Dispersão, Paleta de comandos, Barra de filtros e Formulário — 42 no total',
-            'New blocks: Motion, Layout, Code, Scatter, Command palette, Filter bar, and Form — 42 in total',
-            'Bloques nuevos: Movimiento, Layout, Código, Dispersión, Paleta de comandos, Barra de filtros y Formulario — 42 en total',
-          ), '/recursos/figma'],
-          ['novo', T(
-            'Gráficos: barras 100%, divergentes e funil, áreas empilhadas, heatmap em calendário e o número de destaque',
-            'Charts: 100% bars, diverging bars and funnel, stacked areas, calendar heatmap, and the hero number',
-            'Gráficos: barras al 100 %, divergentes y embudo, áreas apiladas, heatmap de calendario y el número destacado',
-          ), '/graficos/barras'],
-          ['novo', T(
-            'Estado vazio sem permissão, offline e carregando; anexo, sugestões e composer com anexo; seleção com busca; avatar quadrado e divisor',
-            'Empty state for no permission, offline, and loading; attachment, suggestions, and composer with an attachment; select with search; square avatar and divider',
-            'Estado vacío sin permiso, sin conexión y cargando; adjunto, sugerencias y composer con adjunto; selector con búsqueda; avatar cuadrado y divisor',
-          ), '/padroes/estados-vazios'],
-          ['novo', T(
-            'O bloco de Cores mostra também as escalas sequencial, ordinal e divergente e as cores de apoio dos gráficos',
-            'The Colors block also shows the sequential, ordinal, and diverging scales and the chart support colors',
-            'El bloque de Colores también muestra las escalas secuencial, ordinal y divergente y los colores de apoyo de los gráficos',
-          ), '/fundamentos/cores'],
-          ['correcao', T(
-            'Opacidade própria em cor de variável (véu do avatar, hover sutil, lavagens dos gráficos): o Figma a trocava pela da variável',
-            'Custom opacity on a variable color (avatar veil, subtle hover, chart washes): Figma replaced it with the variable’s own',
-            'Opacidad propia en un color de variable (velo del avatar, hover sutil, lavados de los gráficos): Figma la cambiaba por la de la variable',
-          ), '/recursos/figma'],
-          ['correcao', T(
-            'Ícones numa camada só, com o traço em contorno: trocar o ícone mantém a cor e nunca deixa um ícone preenchido',
-            'Icons in a single layer, with the stroke outlined: swapping the icon keeps the color and never leaves a filled icon',
-            'Íconos en una sola capa, con el trazo contorneado: cambiar el ícono mantiene el color y nunca deja un ícono relleno',
-          ), '/fundamentos/icones'],
-          ['correcao', T(
-            'Etiquetas do cabeçalho dentro da borda, anel de foco no tamanho real de cada campo e status do avatar aplicado',
-            'Header tags inside the border, a focus ring at each field’s real size, and the avatar status applied',
-            'Etiquetas del encabezado dentro del borde, anillo de foco del tamaño real de cada campo y estado del avatar aplicado',
-          ), '/recursos/figma'],
-          ['melhoria', T(
-            'O teste do plugin acusa conteúdo vazando da borda, opacidade perdida e ícone fora do formato',
-            'The plugin test flags content overflowing the border, lost opacity, and off-format icons',
-            'La prueba del plugin detecta contenido que se sale del borde, opacidad perdida e íconos fuera de formato',
-          ), '/recursos/figma'],
-        ],
-      },
-      {
-        name: T('Tokens', 'Tokens', 'Tokens'),
-        items: [
-          ['novo', T(
-            'As durações (duration.*) viram variáveis de Dimensões no Figma, em milissegundos — 59 dimensões',
-            'Durations (duration.*) become dimension variables in Figma, in milliseconds — 59 dimensions',
-            'Las duraciones (duration.*) se convierten en variables de dimensión en Figma, en milisegundos — 59 dimensiones',
-          ), '/fundamentos/movimento'],
-        ],
-      },
-    ],
-  },
-  {
-    version: '0.5.0',
-    date: '2026-10-31',
-    title: T('Plugin do Figma', 'Figma plugin', 'Plugin de Figma'),
-    summary: T(
-      'Os componentes do Lume dentro do Figma, sem redesenhar: um plugin que você importa pelo manifesto e que gera variáveis, estilos, ícones e 35 blocos de documentação nos modos Claro e Escuro.',
-      'Lume’s components inside Figma, without redrawing: a plugin you import from its manifest that generates variables, styles, icons, and 35 documentation blocks in Light and Dark modes.',
-      'Los componentes de Lume dentro de Figma, sin redibujar: un plugin que importas desde el manifiesto y que genera variables, estilos, íconos y 35 bloques de documentación en los modos Claro y Oscuro.',
-    ),
-    groups: [
-      {
-        name: T('Figma', 'Figma', 'Figma'),
-        items: [
-          ['novo', T(
-            'Plugin “Lume para Figma”: Plugins → Desenvolvimento → Importar plugin do manifesto',
-            'The “Lume para Figma” plugin: Plugins → Development → Import plugin from manifest',
-            'Plugin “Lume para Figma”: Plugins → Development → Import plugin from manifest',
-          ), '/recursos/figma'],
-          ['novo', T(
-            '35 blocos com cabeçalho, matriz de variantes rotulada, exemplos e prévias Claro e Escuro — 42 conjuntos e 474 variantes',
-            '35 blocks with a header, a labeled variant matrix, examples, and Light and Dark previews — 42 sets and 474 variants',
-            '35 bloques con encabezado, matriz de variantes rotulada, ejemplos y vistas previas Claro y Oscuro — 42 conjuntos y 474 variantes',
-          ), '/recursos/figma'],
-          ['novo', T(
-            'Páginas de Fundamentos (cores nos dois modos, tipografia, espaço, raio, sombra) e de Ícones (126 componentes)',
-            'Foundations pages (colors in both modes, typography, spacing, radius, shadow) and Icons (126 components)',
-            'Páginas de Fundamentos (colores en los dos modos, tipografía, espaciado, radio, sombra) y de Íconos (126 componentes)',
-          ), '/recursos/figma'],
-          ['novo', T(
-            'Propriedades de componente: rótulo, ícone opcional e troca de ícone',
-            'Component properties: label, optional icon, and icon swap',
-            'Propiedades de componente: etiqueta, ícono opcional y cambio de ícono',
-          ), '/recursos/figma'],
-          ['melhoria', T(
-            'Rodar de novo atualiza sem duplicar: componentes mantêm o id e as instâncias continuam ligadas',
-            'Running again updates without duplicating: components keep their id and instances stay linked',
-            'Ejecutarlo de nuevo actualiza sin duplicar: los componentes mantienen el id y las instancias siguen vinculadas',
-          ), '/recursos/figma'],
-          ['novo', T(
-            'npm run figma e npm run figma:test — o teste roda o plugin numa imitação da API do Figma e gera uma prévia',
-            'npm run figma and npm run figma:test — the test runs the plugin against a mock of the Figma API and generates a preview',
-            'npm run figma y npm run figma:test — la prueba ejecuta el plugin en una imitación de la API de Figma y genera una vista previa',
-          ), '/recursos/figma'],
         ],
       },
     ],

@@ -32,7 +32,7 @@ Tones `tone: 'success' · 'warning' · 'danger'` — Complete, near the limit, a
 
 - Foundations
 - Components
-- Figma plugin
+- Lume 1.0
 
 In a list `size: 'sm'` — Next to the name, with the number written out: the small ring has no number inside.
 

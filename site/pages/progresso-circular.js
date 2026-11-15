@@ -13,7 +13,7 @@ const uploading = () => L('Enviando arquivos', 'Uploading files', 'Enviando arch
 const steps = () => [
   [L('Fundamentos', 'Foundations', 'Fundamentos'), 100, 'success'],
   [L('Componentes', 'Components', 'Componentes'), 86, ''],
-  [L('Plugin do Figma', 'Figma plugin', 'Plugin de Figma'), 40, 'warning'],
+  [L('Lume 1.0', 'Lume 1.0', 'Lume 1.0'), 40, 'warning'],
 ];
 
 const list = () => `<ul class="pr-list" role="list">${steps()

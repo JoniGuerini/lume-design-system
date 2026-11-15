@@ -14,7 +14,7 @@ Abre em http://localhost:5173. O servidor gera os tokens ao iniciar e de novo se
 
 Para só gerar os tokens: `npm run tokens`. Para exportar para o Figma e outras ferramentas: `npm run tokens:export` (gera `dist/tokens/`; veja Recursos › Tokens para Figma).
 
-Para publicar: `npm run build` gera os tokens, roda o teste do plugin do Figma e monta em `dist/site/` só o site (`index.html`, `ds/`, `site/`, o favicon, a documentação para IAs e o resumo do teste do plugin), mais o pacote: `ds/lume.css` e cada versão em `v/<linha>/`, com zip. As linhas anteriores ficam em `versoes/`. Licença MIT (`LICENSE`). Storybook: `npm run stories` gera as histórias e `npm run storybook` abre (as dependências ficam só em `storybook/`). O `vercel.json` já aponta o Vercel para esse comando e essa pasta.
+Para publicar: `npm run build` gera os tokens, roda o teste do plugin do Figma e monta em `dist/site/` só o site (`index.html`, `ds/`, `site/`, o favicon e a documentação para IAs), mais o pacote: `ds/lume.css` e cada versão em `v/<linha>/`, com zip. As linhas anteriores ficam em `versoes/`. Licença MIT (`LICENSE`). Storybook: `npm run stories` gera as histórias e `npm run storybook` abre (as dependências ficam só em `storybook/`). O `vercel.json` já aponta o Vercel para esse comando e essa pasta.
 
 ### Plugin do Figma
 

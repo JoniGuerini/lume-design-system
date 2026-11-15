@@ -32,7 +32,7 @@ Tonos `tone: 'success' · 'warning' · 'danger'` — Completado, cerca del lími
 
 - Fundamentos
 - Componentes
-- Plugin de Figma
+- Lume 1.0
 
 En una lista `size: 'sm'` — Junto al nombre, con el número escrito: el anillo pequeño no lleva número dentro.
 
