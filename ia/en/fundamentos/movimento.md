@@ -62,7 +62,7 @@ Buttons, chips, navigation items, fields, and inline actions.
 transition: background-color var(--ds-duration-fast) var(--ds-easing-standard);
 ```
 
-Chip menus, the rotating chevron, and ⌘K search. Opacity uses fast + standard.
+Chip menus, the rotating chevron, and Ctrl K search. Opacity uses fast + standard.
 
 ```html
 transition:
@@ -70,7 +70,7 @@ transition:
   transform var(--ds-duration-base) var(--ds-easing-emphasized);
 ```
 
-Collapsing the sidebar (⌘B), the mobile drawer, and opening menu groups.
+Collapsing the sidebar (Ctrl B), the mobile drawer, and opening menu groups.
 
 ```html
 transition: width var(--ds-duration-slow) var(--ds-easing-emphasized);

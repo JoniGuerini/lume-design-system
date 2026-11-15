@@ -82,7 +82,7 @@ The 102 items in `ds/lume.js`, with the module each one comes from.
 | `createColorPicker` | Standalone color picker: area, hue, hex, and swatches. | color-picker.js |
 | `createColorField` | Color field with a swatch that opens the picker. | color-picker.js |
 | `parseHex` | Reads a hex color (3 or 6 digits, with or without #). | color-picker.js |
-| `createCommandPalette` | Command search opened with ⌘K. | command-palette.js |
+| `createCommandPalette` | Command search opened with Ctrl K. | command-palette.js |
 | `createComposer` | Chat message field, with attachments. | composer.js |
 | `createContextMenu` | Right-click menu for an area. | context-menu.js |
 | `createDatePicker` | Date picker attached to a field. | date-picker.js |

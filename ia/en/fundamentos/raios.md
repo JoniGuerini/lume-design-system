@@ -51,10 +51,10 @@ Each component already comes with the right radius. The examples below are the r
 | full — pill | Chip, badge, segmented control, avatar. |  |
 | xs — 6 px | Kbd, inline code, inline action focus. |  |
 | sm — 8 px | Small button, icon button. |  |
-| md — 12 px | Button, field, toast, ⌘K item. |  |
+| md — 12 px | Button, field, toast, Ctrl K item. |  |
 | lg — 16 px | Menu, code block, account card. |  |
 | xl — 20 px | Card; panel on mobile. |  |
-| 2xl — 28 px | Panel, ⌘K, sidebar, and main area. |  |
+| 2xl — 28 px | Panel, Ctrl K, sidebar, and main area. |  |
 
 ## Usage
 

@@ -99,12 +99,12 @@ Start with [README](https://lumeui.dev/ia/en/README.md): installation, general r
 
 ## Patterns
 
-- [App shell](https://lumeui.dev/ia/en/padroes/app-shell.md): Floating sidebar, main panel, top bar, and ⌘K search.
+- [App shell](https://lumeui.dev/ia/en/padroes/app-shell.md): Floating sidebar, main panel, top bar, and Ctrl K search.
 - [Chat and composer](https://lumeui.dev/ia/en/padroes/conversa.md): Bubbles, responses, attachments, and the message box.
 - [Forms](https://lumeui.dev/ia/en/padroes/formularios.md): Fields, validation, and error messages that help people move on.
 - [Sign-in and sign-up](https://lumeui.dev/ia/en/padroes/login.md): Sign in, create an account, and reset the password — short and trap-free.
 - [Empty states](https://lumeui.dev/ia/en/padroes/estados-vazios.md): First use, no results, and errors — always with a next step.
-- [Search and commands](https://lumeui.dev/ia/en/padroes/busca.md): ⌘K palette, filters, and keyboard shortcuts.
+- [Search and commands](https://lumeui.dev/ia/en/padroes/busca.md): Ctrl K palette, filters, and keyboard shortcuts.
 - [Data list](https://lumeui.dev/ia/en/padroes/listagem.md): A table with filters, sorting, selection, and bulk actions with undo.
 - [Settings](https://lumeui.dev/ia/en/padroes/configuracoes.md): Sections, saving instantly or with a button, and the danger zone.
 - [Notices and confirmations](https://lumeui.dev/ia/en/padroes/avisos.md): Toast, alert, banner, or modal, and undo instead of “are you sure?”.

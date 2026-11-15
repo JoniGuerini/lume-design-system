@@ -11,7 +11,7 @@ Em números: posições: 4 · espera: 450 ms · largura máxima: 240 px · JavaS
 ```html
 <button type="button" class="ds-icon-btn" aria-label="Buscar"
   data-ds-tooltip="Buscar"
-  data-ds-tooltip-kbd="⌘K">
+  data-ds-tooltip-kbd="Ctrl K">
   <ds-icon name="search"></ds-icon>
 </button>
 ```
@@ -38,22 +38,22 @@ Marcação dos exemplos desta seção:
 
 O melhor lugar para ensinar um atalho é a dica da ação. Use `data-ds-tooltip-kbd`.
 
-Buscar `⌘K`
+Buscar `Ctrl K`
 
-Recolher menu `⌘B`
+Recolher menu `Ctrl B`
 
 Fechar `Esc`
 
 Marcação dos exemplos desta seção:
 
 ```html
-<span class="ds-tooltip" data-open="">Buscar<kbd class="ds-kbd">⌘K</kbd></span>
+<span class="ds-tooltip" data-open="">Buscar<kbd class="ds-kbd">Ctrl K</kbd></span>
 
-<button type="button" class="ds-icon-btn ds-icon-btn--outline" aria-label="Buscar" data-ds-tooltip="Buscar" data-ds-tooltip-placement="top" data-ds-tooltip-kbd="⌘K"><ds-icon name="search"></ds-icon></button>
+<button type="button" class="ds-icon-btn ds-icon-btn--outline" aria-label="Buscar" data-ds-tooltip="Buscar" data-ds-tooltip-placement="top" data-ds-tooltip-kbd="Ctrl K"><ds-icon name="search"></ds-icon></button>
 
-<span class="ds-tooltip" data-open="">Recolher menu<kbd class="ds-kbd">⌘B</kbd></span>
+<span class="ds-tooltip" data-open="">Recolher menu<kbd class="ds-kbd">Ctrl B</kbd></span>
 
-<button type="button" class="ds-icon-btn ds-icon-btn--outline" aria-label="Recolher menu" data-ds-tooltip="Recolher menu" data-ds-tooltip-placement="top" data-ds-tooltip-kbd="⌘B"><ds-icon name="panel-left"></ds-icon></button>
+<button type="button" class="ds-icon-btn ds-icon-btn--outline" aria-label="Recolher menu" data-ds-tooltip="Recolher menu" data-ds-tooltip-placement="top" data-ds-tooltip-kbd="Ctrl B"><ds-icon name="panel-left"></ds-icon></button>
 
 <span class="ds-tooltip" data-open="">Fechar<kbd class="ds-kbd">Esc</kbd></span>
 

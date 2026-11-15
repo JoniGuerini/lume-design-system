@@ -4,6 +4,7 @@ import { copyText } from '../../ds/js/toast.js';
 import { tr } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
 import { T } from '../i18n.js';
+import { combo, MOD } from '../keys.js';
 
 export const styles = 'site/pages/raios.css';
 
@@ -22,10 +23,10 @@ const COPY = T(
       none: 'Reservado para mídia que encosta na borda.',
       xs: 'Kbd, código inline, foco da ação inline.',
       sm: 'Botão pequeno, botão de ícone.',
-      md: 'Botão, campo, toast, item do ⌘K.',
+      md: 'Botão, campo, toast, item do ' + combo('K') + '.',
       lg: 'Menu, bloco de código, cartão da conta.',
       xl: 'Card; painel no celular.',
-      '2xl': 'Painel, ⌘K, sidebar e área principal.',
+      '2xl': 'Painel, ' + combo('K') + ', sidebar e área principal.',
       '3xl': 'Livre para superfícies muito grandes.',
       full: 'Chip, badge, controle segmentado, avatar.',
     },
@@ -59,10 +60,10 @@ const COPY = T(
       none: 'Reserved for media that touches the edge.',
       xs: 'Kbd, inline code, inline action focus.',
       sm: 'Small button, icon button.',
-      md: 'Button, field, toast, ⌘K item.',
+      md: 'Button, field, toast, ' + combo('K') + ' item.',
       lg: 'Menu, code block, account card.',
       xl: 'Card; panel on mobile.',
-      '2xl': 'Panel, ⌘K, sidebar, and main area.',
+      '2xl': 'Panel, ' + combo('K') + ', sidebar, and main area.',
       '3xl': 'Free for very large surfaces.',
       full: 'Chip, badge, segmented control, avatar.',
     },
@@ -96,10 +97,10 @@ const COPY = T(
       none: 'Reservado para medios que tocan el borde.',
       xs: 'Kbd, código en línea, foco de la acción en línea.',
       sm: 'Botón pequeño, botón de ícono.',
-      md: 'Botón, campo, toast, elemento del ⌘K.',
+      md: 'Botón, campo, toast, elemento del ' + combo('K') + '.',
       lg: 'Menú, bloque de código, tarjeta de la cuenta.',
       xl: 'Tarjeta; panel en el móvil.',
-      '2xl': 'Panel, ⌘K, sidebar y área principal.',
+      '2xl': 'Panel, ' + combo('K') + ', sidebar y área principal.',
       '3xl': 'Libre para superficies muy grandes.',
       full: 'Chip, insignia, control segmentado, avatar.',
     },
@@ -174,7 +175,7 @@ const usageRows = ({ examples: e }) => [
   ['full', `<span class="ds-chip ds-chip--sm"><span class="ds-chip__icon">${icon('pencil', { size: 14 })}</span>Chip</span>
     <span class="ds-badge ds-badge--sm ds-badge--success">${e.ready}</span>
     <span class="ds-avatar rd-avatar">${icon('user', { size: 16 })}</span>`],
-  ['xs', `<kbd class="ds-kbd">⌘</kbd><kbd class="ds-kbd">K</kbd><code class="ds-inline-code">var(--ds-radius-xs)</code>`],
+  ['xs', `<kbd class="ds-kbd">${MOD}</kbd><kbd class="ds-kbd">K</kbd><code class="ds-inline-code">var(--ds-radius-xs)</code>`],
   ['sm', `<span class="ds-btn ds-btn--secondary ds-btn--sm">${e.small}</span><span class="ds-icon-btn ds-icon-btn--outline">${icon('more-horizontal')}</span>`],
   ['md', `<span class="ds-btn ds-btn--primary">${icon('check', { size: 18 })}${e.save}</span>
     <span class="ds-field rd-field">${icon('search', { size: 18 })}<span class="ds-field__placeholder">${e.search}</span></span>`],

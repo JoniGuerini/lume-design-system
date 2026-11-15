@@ -2,12 +2,13 @@ import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, tokenTable, a11yList } from '../component-doc.js';
 import { controlPage, example, examples, usageCards, ic } from '../form-control-doc.js';
 import { L } from '../i18n.js';
+import { MOD } from '../keys.js';
 
 export const styles = ['site/component-doc.css', 'site/pages/form-controls.css'];
 
 const kbd = (k) => `<kbd class="ds-kbd">${k}</kbd>`;
 const keys = (list) => `<span class="fc-keys">${list.map(kbd).join('')}</span>`;
-const SETS = () => ({ single: ['Esc'], combo: ['⌘', 'K'], words: ['Shift', 'F10'], arrows: ['←', '→'] });
+const SETS = () => ({ single: ['Esc'], combo: [MOD, 'K'], words: ['Shift', 'F10'], arrows: ['←', '→'] });
 
 export default function renderTecla(page) {
   return controlPage(page, {

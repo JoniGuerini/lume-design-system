@@ -4,6 +4,7 @@ import { copyText } from '../../ds/js/toast.js';
 import { tr } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
 import { T } from '../i18n.js';
+import { combo } from '../keys.js';
 
 export const styles = 'site/pages/layout.css';
 
@@ -40,7 +41,7 @@ const COPY = T(
     bpNotes: {
       sm: 'Ainda sem regra no app — disponível para componentes.',
       md: 'Abaixo dele, margens e painéis compactam, a trilha da topbar mostra só a página atual e as tabelas viram cartões.',
-      lg: 'Abaixo dele, a sidebar vira gaveta com fundo escurecido e o menu aparece na topbar. A partir dele, a sidebar fica fixa e recolhível (⌘B).',
+      lg: 'Abaixo dele, a sidebar vira gaveta com fundo escurecido e o menu aparece na topbar. A partir dele, a sidebar fica fixa e recolhível (' + combo('B') + ').',
       xl: 'Abaixo dele, o hero do Início empilha e as grades de 4 colunas passam para 2.',
       '2xl': 'Ainda sem regra no app — telas largas mantêm a largura máxima de conteúdo.',
     },
@@ -49,7 +50,7 @@ const COPY = T(
       tooltip: 'Tooltips e o link “Pular para o conteúdo”.',
       toast: 'Avisos de confirmação.',
       popover: 'Menus que os chips abrem.',
-      modal: 'Reservado. A busca ⌘K usa <dialog>, que já vai para a camada superior do navegador.',
+      modal: 'Reservado. A busca ' + combo('K') + ' usa <dialog>, que já vai para a camada superior do navegador.',
       overlay: 'Fundo escurecido da gaveta — a gaveta fica um nível acima.',
       sticky: 'Topbar fixa e a navegação desta página.',
       dropdown: 'Reservado para listas suspensas.',
@@ -67,7 +68,7 @@ const COPY = T(
       modesLabel: 'Estado da sidebar',
       captions: {
         expanded: (side, lg) => `Expandida: sidebar com ${side} px. A partir de ${lg} px.`,
-        collapsed: (collapsed) => `Recolhida: ${collapsed} px, só ícones e tooltips. Alterne com ⌘B.`,
+        collapsed: (collapsed) => `Recolhida: ${collapsed} px, só ícones e tooltips. Alterne com ${combo('B')}.`,
         drawer: (lg) => `Gaveta: abaixo de ${lg} px a sidebar sai do fluxo e abre por cima do conteúdo, com fundo escurecido.`,
       },
     },
@@ -99,7 +100,7 @@ const COPY = T(
     bpNotes: {
       sm: 'No rule in the app yet — available for components.',
       md: 'Below it, margins and panels compact, the top bar trail shows only the current page, and tables become cards.',
-      lg: 'Below it, the sidebar becomes a drawer over a dimmed background and the menu appears in the top bar. From it up, the sidebar is fixed and collapsible (⌘B).',
+      lg: 'Below it, the sidebar becomes a drawer over a dimmed background and the menu appears in the top bar. From it up, the sidebar is fixed and collapsible (' + combo('B') + ').',
       xl: 'Below it, the Home hero stacks and 4-column grids go down to 2.',
       '2xl': 'No rule in the app yet — wide screens keep the maximum content width.',
     },
@@ -108,7 +109,7 @@ const COPY = T(
       tooltip: 'Tooltips and the “Skip to content” link.',
       toast: 'Confirmation notices.',
       popover: 'Menus that chips open.',
-      modal: 'Reserved. ⌘K search uses <dialog>, which already goes to the browser’s top layer.',
+      modal: 'Reserved. ' + combo('K') + ' search uses <dialog>, which already goes to the browser’s top layer.',
       overlay: 'The drawer’s dimmed background — the drawer sits one level above.',
       sticky: 'The fixed top bar and this page’s navigation.',
       dropdown: 'Reserved for dropdown lists.',
@@ -126,7 +127,7 @@ const COPY = T(
       modesLabel: 'Sidebar state',
       captions: {
         expanded: (side, lg) => `Expanded: ${side} px sidebar. From ${lg} px.`,
-        collapsed: (collapsed) => `Collapsed: ${collapsed} px, icons and tooltips only. Toggle with ⌘B.`,
+        collapsed: (collapsed) => `Collapsed: ${collapsed} px, icons and tooltips only. Toggle with ${combo('B')}.`,
         drawer: (lg) => `Drawer: below ${lg} px the sidebar leaves the flow and opens over the content, with a dimmed background.`,
       },
     },
@@ -158,7 +159,7 @@ const COPY = T(
     bpNotes: {
       sm: 'Todavía sin regla en el app — disponible para componentes.',
       md: 'Por debajo, márgenes y paneles se compactan, la ruta de la barra superior muestra solo la página actual y las tablas se vuelven tarjetas.',
-      lg: 'Por debajo, la sidebar se vuelve un cajón con fondo oscurecido y el menú aparece en la barra superior. Desde él, la sidebar queda fija y contraíble (⌘B).',
+      lg: 'Por debajo, la sidebar se vuelve un cajón con fondo oscurecido y el menú aparece en la barra superior. Desde él, la sidebar queda fija y contraíble (' + combo('B') + ').',
       xl: 'Por debajo, el héroe del Inicio se apila y las cuadrículas de 4 columnas pasan a 2.',
       '2xl': 'Todavía sin regla en el app — las pantallas anchas mantienen el ancho máximo de contenido.',
     },
@@ -167,7 +168,7 @@ const COPY = T(
       tooltip: 'Tooltips y el enlace “Saltar al contenido”.',
       toast: 'Avisos de confirmación.',
       popover: 'Menús que abren los chips.',
-      modal: 'Reservado. La búsqueda ⌘K usa <dialog>, que ya va a la capa superior del navegador.',
+      modal: 'Reservado. La búsqueda ' + combo('K') + ' usa <dialog>, que ya va a la capa superior del navegador.',
       overlay: 'Fondo oscurecido del cajón — el cajón queda un nivel arriba.',
       sticky: 'La barra superior fija y la navegación de esta página.',
       dropdown: 'Reservado para listas desplegables.',
@@ -185,7 +186,7 @@ const COPY = T(
       modesLabel: 'Estado de la sidebar',
       captions: {
         expanded: (side, lg) => `Expandida: sidebar de ${side} px. Desde ${lg} px.`,
-        collapsed: (collapsed) => `Contraída: ${collapsed} px, solo íconos y tooltips. Alterna con ⌘B.`,
+        collapsed: (collapsed) => `Contraída: ${collapsed} px, solo íconos y tooltips. Alterna con ${combo('B')}.`,
         drawer: (lg) => `Cajón: por debajo de ${lg} px la sidebar sale del flujo y se abre sobre el contenido, con fondo oscurecido.`,
       },
     },

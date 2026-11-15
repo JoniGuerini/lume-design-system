@@ -162,7 +162,7 @@ Un atajo es un camino más, nunca el único. Muéstralo donde aparece la acción
 
 Dónde mostrarlo
 
-Ctrl en Mac, Ctrl en el resto
+⌘ en Mac, Ctrl en el resto
 
 Escribe el modificador del sistema de la persona. Cada tecla es un kbd aparte.
 

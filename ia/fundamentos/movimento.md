@@ -62,7 +62,7 @@ Botões, chips, itens de navegação, campos e ações inline.
 transition: background-color var(--ds-duration-fast) var(--ds-easing-standard);
 ```
 
-Menu dos chips, chevron que gira e a busca ⌘K. A opacidade usa fast + standard.
+Menu dos chips, chevron que gira e a busca Ctrl K. A opacidade usa fast + standard.
 
 ```html
 transition:
@@ -70,7 +70,7 @@ transition:
   transform var(--ds-duration-base) var(--ds-easing-emphasized);
 ```
 
-Recolher a sidebar (⌘B), a gaveta no celular e abrir os grupos do menu.
+Recolher a sidebar (Ctrl B), a gaveta no celular e abrir os grupos do menu.
 
 ```html
 transition: width var(--ds-duration-slow) var(--ds-easing-emphasized);

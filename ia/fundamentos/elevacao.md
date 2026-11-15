@@ -30,9 +30,9 @@ Marcação dos exemplos desta seção:
 
 Seis sombras em duas camadas — uma curta e definida, outra longa e difusa. No escuro são pretas e densas; no Lume claro, uma ardósia bem suave. Clique numa sombra para copiar.
 
-xs — Detalhes mínimos. — sm — Controles levemente destacados. — md — Cards em destaque. — lg — Painéis, sidebar, tooltip e toast. — xl — Menus e popovers. — 2xl — ⌘K e gaveta do celular.
+xs — Detalhes mínimos. — sm — Controles levemente destacados. — md — Cards em destaque. — lg — Painéis, sidebar, tooltip e toast. — xl — Menus e popovers. — 2xl — Ctrl K e gaveta do celular.
 
-xs — Detalhes mínimos. — sm — Controles levemente destacados. — md — Cards em destaque. — lg — Painéis, sidebar, tooltip e toast. — xl — Menus e popovers. — 2xl — ⌘K e gaveta do celular.
+xs — Detalhes mínimos. — sm — Controles levemente destacados. — md — Cards em destaque. — lg — Painéis, sidebar, tooltip e toast. — xl — Menus e popovers. — 2xl — Ctrl K e gaveta do celular.
 
 ### Valores mesmo token, valor diferente em cada tema
 
@@ -58,7 +58,7 @@ O que fica no fluxo usa só cor de superfície. Sombra é para o que se separa d
 | Menu — Abre a partir de um chip ou botão. | bg.raised | shadow.xl | z.popover |
 | Tooltip — Dica sobre qualquer elemento. | bg.raised | shadow.lg | z.tooltip |
 | Toast — Aviso curto e passageiro. | bg.inverse | shadow.lg | z.toast |
-| Paleta ⌘K — Diálogo modal sobre o fundo escurecido. | bg.raised | shadow.2xl | z.modal |
+| Paleta Ctrl K — Diálogo modal sobre o fundo escurecido. | bg.raised | shadow.2xl | z.modal |
 | Gaveta do celular — A sidebar em telas pequenas. | bg.surface | shadow.2xl | z.overlay |
 
 ## Empilhamento
@@ -68,7 +68,7 @@ A ordem de quem fica por cima. Use sempre o token: os intervalos de 100 deixam e
 - 1600 — tooltip — Tooltip — sempre por cima de tudo.
 - 1500 — toast — Toast.
 - 1400 — popover — Menus e popovers.
-- 1300 — modal — Modais (o ⌘K usa a camada nativa do <dialog>).
+- 1300 — modal — Modais (o Ctrl K usa a camada nativa do <dialog>).
 - 1200 — overlay — Fundo escurecido e gaveta do celular.
 - 1100 — sticky — Topbar.
 - 1000 — dropdown — Listas suspensas no fluxo.

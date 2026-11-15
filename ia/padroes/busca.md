@@ -162,7 +162,7 @@ Atalho é um caminho a mais, nunca o único. Mostre-o onde a ação aparece — 
 
 Onde mostrar
 
-Ctrl no Mac, Ctrl no resto
+⌘ no Mac, Ctrl no resto
 
 Escreva o modificador do sistema da pessoa. Cada tecla é um kbd separado.
 

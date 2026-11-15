@@ -3,6 +3,7 @@
  * Fonte da página Recursos › API. Item novo em ds/lume.js = linha nova aqui (nos três idiomas).
  */
 import { tr } from '../ds/js/i18n.js';
+import { combo } from './keys.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
@@ -17,7 +18,7 @@ const GROUPS = [
       ['createColorPicker', 'color-picker.js', T('Seletor de cor solto: área, matiz, hexadecimal e amostras.', 'Standalone color picker: area, hue, hex, and swatches.', 'Selector de color suelto: área, matiz, hexadecimal y muestras.')],
       ['createColorField', 'color-picker.js', T('Campo de cor com amostra que abre o seletor.', 'Color field with a swatch that opens the picker.', 'Campo de color con muestra que abre el selector.')],
       ['parseHex', 'color-picker.js', T('Lê uma cor em hexadecimal (3 ou 6 dígitos, com ou sem #).', 'Reads a hex color (3 or 6 digits, with or without #).', 'Lee un color en hexadecimal (3 o 6 dígitos, con o sin #).')],
-      ['createCommandPalette', 'command-palette.js', T('Busca de comandos aberta com ⌘K.', 'Command search opened with ⌘K.', 'Búsqueda de comandos que se abre con ⌘K.')],
+      ['createCommandPalette', 'command-palette.js', T('Busca de comandos aberta com ' + combo('K') + '.', 'Command search opened with ' + combo('K') + '.', 'Búsqueda de comandos que se abre con ' + combo('K') + '.')],
       ['createComposer', 'composer.js', T('Campo de mensagem de uma conversa, com anexos.', 'Chat message field, with attachments.', 'Campo de mensaje de una conversación, con adjuntos.')],
       ['createContextMenu', 'context-menu.js', T('Menu do botão direito numa área.', 'Right-click menu for an area.', 'Menú del botón derecho en un área.')],
       ['createDatePicker', 'date-picker.js', T('Seletor de data ligado a um campo.', 'Date picker attached to a field.', 'Selector de fecha ligado a un campo.')],

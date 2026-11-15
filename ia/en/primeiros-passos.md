@@ -108,7 +108,7 @@ Each interactive component has its own module, with no dependencies between them
 |  `ds/js/tabs.js`  | Tabs with keyboard support |  `mountTabs(document)`  |  |
 |  `ds/js/modal.js`  | Modal and confirmation |  `await confirmModal({ title })`  |  |
 |  `ds/js/toast.js`  | Quick notices and copy |  `toast("Salvo"); copyText(valor)`  |  |
-|  `ds/js/command-palette.js`  | ⌘K search |  `createCommandPalette({ items })`  |  |
+|  `ds/js/command-palette.js`  | Ctrl K search |  `createCommandPalette({ items })`  |  |
 |  `ds/js/shell.js`  | App shell with sidebar |  `createShell(document.querySelector(".ds-shell"))`  |  |
 
 ## Use your brand

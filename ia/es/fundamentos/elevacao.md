@@ -30,9 +30,9 @@ Marcado de los ejemplos de esta sección:
 
 Seis sombras en dos capas — una corta y definida, otra larga y difusa. En el oscuro son negras y densas; en Lume claro, una pizarra muy suave. Haz clic en una sombra para copiarla.
 
-xs — Detalles mínimos. — sm — Controles levemente destacados. — md — Tarjetas destacadas. — lg — Paneles, sidebar, tooltip y toast. — xl — Menús y popovers. — 2xl — ⌘K y el cajón del móvil.
+xs — Detalles mínimos. — sm — Controles levemente destacados. — md — Tarjetas destacadas. — lg — Paneles, sidebar, tooltip y toast. — xl — Menús y popovers. — 2xl — Ctrl K y el cajón del móvil.
 
-xs — Detalles mínimos. — sm — Controles levemente destacados. — md — Tarjetas destacadas. — lg — Paneles, sidebar, tooltip y toast. — xl — Menús y popovers. — 2xl — ⌘K y el cajón del móvil.
+xs — Detalles mínimos. — sm — Controles levemente destacados. — md — Tarjetas destacadas. — lg — Paneles, sidebar, tooltip y toast. — xl — Menús y popovers. — 2xl — Ctrl K y el cajón del móvil.
 
 ### Valores mismo token, valor distinto en cada tema
 
@@ -58,7 +58,7 @@ Lo que queda en el flujo usa solo color de superficie. La sombra es para lo que 
 | Menú — Se abre desde un chip o un botón. | bg.raised | shadow.xl | z.popover |
 | Tooltip — Pista sobre cualquier elemento. | bg.raised | shadow.lg | z.tooltip |
 | Toast — Aviso corto y pasajero. | bg.inverse | shadow.lg | z.toast |
-| Paleta ⌘K — Diálogo modal sobre el fondo oscurecido. | bg.raised | shadow.2xl | z.modal |
+| Paleta Ctrl K — Diálogo modal sobre el fondo oscurecido. | bg.raised | shadow.2xl | z.modal |
 | Cajón del móvil — La sidebar en pantallas pequeñas. | bg.surface | shadow.2xl | z.overlay |
 
 ## Apilamiento
@@ -68,7 +68,7 @@ El orden de quién queda encima. Usa siempre el token: los intervalos de 100 dej
 - 1600 — tooltip — Tooltip — siempre por encima de todo.
 - 1500 — toast — Toast.
 - 1400 — popover — Menús y popovers.
-- 1300 — modal — Modales (el ⌘K usa la capa nativa del <dialog>).
+- 1300 — modal — Modales (el Ctrl K usa la capa nativa del <dialog>).
 - 1200 — overlay — Fondo oscurecido y cajón del móvil.
 - 1100 — sticky — Barra superior.
 - 1000 — dropdown — Listas desplegables en el flujo.

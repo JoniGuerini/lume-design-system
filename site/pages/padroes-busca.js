@@ -7,14 +7,13 @@ import { locale, dateFormat, numberFormat } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
 import { mountCodeCopy, codeBlock, a11yList, escapeHtml } from '../component-doc.js';
 import { L } from '../i18n.js';
+import { MOD } from '../keys.js';
 
 export const styles = ['site/component-doc.css', 'site/pages/padroes-busca.css'];
 
 /* ───────── Dados de exemplo (um app de pedidos fictício; textos no idioma atual) ───────── */
 
 const ic = (s) => `<code class="ds-inline-code">${s}</code>`;
-const isMac = typeof navigator !== 'undefined' && navigator.platform.includes('Mac');
-const MOD = isMac ? '⌘' : 'Ctrl';
 
 const goTo = () => L('Ir para', 'Go to', 'Ir a');
 const createGroup = () => L('Criar', 'Create', 'Crear');
@@ -408,7 +407,7 @@ export default function renderBusca(page) {
       </div>
       <div class="pb-rules">
         ${[
-          [L(`${MOD} no Mac, Ctrl no resto`, `${MOD} on Mac, Ctrl elsewhere`, `${MOD} en Mac, Ctrl en el resto`), L('Escreva o modificador do sistema da pessoa. Cada tecla é um <kbd class="ds-kbd">kbd</kbd> separado.', 'Write the modifier for the person’s system. Each key is a separate <kbd class="ds-kbd">kbd</kbd>.', 'Escribe el modificador del sistema de la persona. Cada tecla es un <kbd class="ds-kbd">kbd</kbd> aparte.')],
+          [L('⌘ no Mac, Ctrl no resto', '⌘ on Mac, Ctrl elsewhere', '⌘ en Mac, Ctrl en el resto'), L('Escreva o modificador do sistema da pessoa. Cada tecla é um <kbd class="ds-kbd">kbd</kbd> separado.', 'Write the modifier for the person’s system. Each key is a separate <kbd class="ds-kbd">kbd</kbd>.', 'Escribe el modificador del sistema de la persona. Cada tecla es un <kbd class="ds-kbd">kbd</kbd> aparte.')],
           [L('Uma tecla só, fora de campos', 'Single keys, outside fields', 'Una sola tecla, fuera de campos'), L('“/” ou “N” não disparam enquanto alguém digita. Com modificador, valem em qualquer lugar.', '“/” or “N” don’t fire while someone is typing. With a modifier, they work anywhere.', '“/” o “N” no se disparan mientras alguien escribe. Con modificador, valen en cualquier lugar.')],
           [L('Não brigue com o navegador', 'Don’t fight the browser', 'No pelees con el navegador'), L(`Nada de ${MOD} T, ${MOD} W, ${MOD} L ou ${MOD} R: são do navegador e do sistema.`, `No ${MOD} T, ${MOD} W, ${MOD} L, or ${MOD} R: they belong to the browser and the system.`, `Nada de ${MOD} T, ${MOD} W, ${MOD} L o ${MOD} R: son del navegador y del sistema.`)],
           [L('Diga para a tecnologia assistiva', 'Tell assistive technology', 'Díselo a la tecnología de asistencia'), L(`Use ${ic('aria-keyshortcuts')} no controle que o atalho aciona.`, `Use ${ic('aria-keyshortcuts')} on the control the shortcut triggers.`, `Usa ${ic('aria-keyshortcuts')} en el control que activa el atajo.`)],

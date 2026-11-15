@@ -136,7 +136,7 @@ Quien navega con el teclado necesita saber dónde está y llegar a todo. Pulsa T
 - Nunca quites el contorno — Nada de `outline: none` sin cambiarlo por otro indicador igual de visible. El anillo viene del `base.css` para todo elemento enfocable.
 - El orden del foco es el orden de lectura — Nada de `tabindex` positivo. Si el orden parece incorrecto, es el orden del HTML el que lo está.
 - Una parada por grupo — Pestañas, grupos de radio y listas usan “roving tabindex”: Tab entra en el grupo, las flechas se mueven dentro de él.
-- El foco siempre vuelve — Al cerrar un modal, menú, cajón o la búsqueda ⌘K, el foco vuelve al elemento que lo abrió.
+- El foco siempre vuelve — Al cerrar un modal, menú, cajón o la búsqueda Ctrl K, el foco vuelve al elemento que lo abrió.
 - Saltar la navegación — Tab — El primer Tab de la página muestra “Saltar al contenido”, que lleva directo al panel principal.
 
 ### Mapa de teclado 12 componentes y patrones
@@ -151,9 +151,9 @@ Quien navega con el teclado necesita saber dónde está y llegar a todo. Pulsa T
 | Toast | nunca — roba el foco — Tab — alcanza la acción (Deshacer) — foco o hover — pausan el tiempo |
 | Tabla | Tab — va a los botones de ordenar y a las casillas — Enter — ordena la columna — Espacio — marca la fila |
 | Gráficos | Tab — enfoca el gráfico — ← → — recorren los valores (anunciados) — ↑ ↓ — cambian de fila en el heatmap — Home End — primero y último — Esc — oculta el tooltip |
-| Búsqueda ⌘K | ⌘ K / — abren — ↑ ↓ — recorren — Enter — va — Esc — cierra y devuelve el foco |
+| Búsqueda Ctrl K | Ctrl K / — abren — ↑ ↓ — recorren — Enter — va — Esc — cierra y devuelve el foco |
 | Composer | Enter — envía — Shift Enter — salto de línea — / — abre los comandos — Esc — cierra el menú o detiene la respuesta |
-| App shell | ⌘ B — contrae o expande la sidebar — Esc — cierra el cajón en el móvil — primer Tab — muestra “Saltar al contenido” |
+| App shell | Ctrl B — contrae o expande la sidebar — Esc — cierra el cajón en el móvil — primer Tab — muestra “Saltar al contenido” |
 | Tooltip | foco del teclado — muestra la pista — Esc — cierra sin mover el foco — hover — se puede apuntar al globo sin que desaparezca |
 
 Marcado de los ejemplos de esta sección:

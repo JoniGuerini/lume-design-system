@@ -162,7 +162,7 @@ A shortcut is one more path, never the only one. Show it where the action appear
 
 Where to show it
 
-Ctrl on Mac, Ctrl elsewhere
+⌘ on Mac, Ctrl elsewhere
 
 Write the modifier for the person’s system. Each key is a separate kbd .
 

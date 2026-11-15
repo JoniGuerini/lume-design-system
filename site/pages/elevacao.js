@@ -5,6 +5,7 @@ import { tr } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
 import { T } from '../i18n.js';
 import { THEME_IDS, themeLabel } from '../themes.js';
+import { combo } from '../keys.js';
 
 export const styles = 'site/pages/elevacao.css';
 
@@ -27,7 +28,7 @@ const COPY = T(
       raised: 'Painéis, menus e modais.',
     },
     upward: 'do fundo para cima',
-    shadowUse: { xs: 'Detalhes mínimos.', sm: 'Controles levemente destacados.', md: 'Cards em destaque.', lg: 'Painéis, sidebar, tooltip e toast.', xl: 'Menus e popovers.', '2xl': '⌘K e gaveta do celular.' },
+    shadowUse: { xs: 'Detalhes mínimos.', sm: 'Controles levemente destacados.', md: 'Cards em destaque.', lg: 'Painéis, sidebar, tooltip e toast.', xl: 'Menus e popovers.', '2xl': combo('K') + ' e gaveta do celular.' },
     components: [
       ['Card', 'Bloco de conteúdo sobre o canvas.'],
       ['Painel', 'Superfície principal, como o “Roteiro”.'],
@@ -36,14 +37,14 @@ const COPY = T(
       ['Menu', 'Abre a partir de um chip ou botão.'],
       ['Tooltip', 'Dica sobre qualquer elemento.'],
       ['Toast', 'Aviso curto e passageiro.'],
-      ['Paleta ⌘K', 'Diálogo modal sobre o fundo escurecido.'],
+      ['Paleta ' + combo('K'), 'Diálogo modal sobre o fundo escurecido.'],
       ['Gaveta do celular', 'A sidebar em telas pequenas.'],
     ],
     zUse: {
       tooltip: 'Tooltip — sempre por cima de tudo.',
       toast: 'Toast.',
       popover: 'Menus e popovers.',
-      modal: 'Modais (o ⌘K usa a camada nativa do <dialog>).',
+      modal: 'Modais (o ' + combo('K') + ' usa a camada nativa do <dialog>).',
       overlay: 'Fundo escurecido e gaveta do celular.',
       sticky: 'Topbar.',
       dropdown: 'Listas suspensas no fluxo.',
@@ -78,7 +79,7 @@ const COPY = T(
       raised: 'Panels, menus, and modals.',
     },
     upward: 'from the back up',
-    shadowUse: { xs: 'Minimal details.', sm: 'Slightly raised controls.', md: 'Highlighted cards.', lg: 'Panels, sidebar, tooltip, and toast.', xl: 'Menus and popovers.', '2xl': '⌘K and the mobile drawer.' },
+    shadowUse: { xs: 'Minimal details.', sm: 'Slightly raised controls.', md: 'Highlighted cards.', lg: 'Panels, sidebar, tooltip, and toast.', xl: 'Menus and popovers.', '2xl': combo('K') + ' and the mobile drawer.' },
     components: [
       ['Card', 'A content block on the canvas.'],
       ['Panel', 'The main surface, like the “Script” panel.'],
@@ -87,14 +88,14 @@ const COPY = T(
       ['Menu', 'Opens from a chip or a button.'],
       ['Tooltip', 'A hint over any element.'],
       ['Toast', 'A short, passing notice.'],
-      ['⌘K palette', 'A modal dialog over the dimmed background.'],
+      [combo('K') + ' palette', 'A modal dialog over the dimmed background.'],
       ['Mobile drawer', 'The sidebar on small screens.'],
     ],
     zUse: {
       tooltip: 'Tooltip — always on top of everything.',
       toast: 'Toast.',
       popover: 'Menus and popovers.',
-      modal: 'Modals (⌘K uses the native <dialog> layer).',
+      modal: 'Modals (' + combo('K') + ' uses the native <dialog> layer).',
       overlay: 'Dimmed background and the mobile drawer.',
       sticky: 'Top bar.',
       dropdown: 'In-flow dropdown lists.',
@@ -129,7 +130,7 @@ const COPY = T(
       raised: 'Paneles, menús y modales.',
     },
     upward: 'del fondo hacia arriba',
-    shadowUse: { xs: 'Detalles mínimos.', sm: 'Controles levemente destacados.', md: 'Tarjetas destacadas.', lg: 'Paneles, sidebar, tooltip y toast.', xl: 'Menús y popovers.', '2xl': '⌘K y el cajón del móvil.' },
+    shadowUse: { xs: 'Detalles mínimos.', sm: 'Controles levemente destacados.', md: 'Tarjetas destacadas.', lg: 'Paneles, sidebar, tooltip y toast.', xl: 'Menús y popovers.', '2xl': combo('K') + ' y el cajón del móvil.' },
     components: [
       ['Tarjeta', 'Bloque de contenido sobre el canvas.'],
       ['Panel', 'La superficie principal, como el panel “Guion”.'],
@@ -138,14 +139,14 @@ const COPY = T(
       ['Menú', 'Se abre desde un chip o un botón.'],
       ['Tooltip', 'Pista sobre cualquier elemento.'],
       ['Toast', 'Aviso corto y pasajero.'],
-      ['Paleta ⌘K', 'Diálogo modal sobre el fondo oscurecido.'],
+      ['Paleta ' + combo('K'), 'Diálogo modal sobre el fondo oscurecido.'],
       ['Cajón del móvil', 'La sidebar en pantallas pequeñas.'],
     ],
     zUse: {
       tooltip: 'Tooltip — siempre por encima de todo.',
       toast: 'Toast.',
       popover: 'Menús y popovers.',
-      modal: 'Modales (el ⌘K usa la capa nativa del <dialog>).',
+      modal: 'Modales (el ' + combo('K') + ' usa la capa nativa del <dialog>).',
       overlay: 'Fondo oscurecido y cajón del móvil.',
       sticky: 'Barra superior.',
       dropdown: 'Listas desplegables en el flujo.',

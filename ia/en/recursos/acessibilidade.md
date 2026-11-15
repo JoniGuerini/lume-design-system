@@ -136,7 +136,7 @@ Keyboard users need to know where they are and reach everything. Press Tab insid
 - Never remove the outline — No `outline: none` without replacing it with an equally visible indicator. The ring comes from `base.css` for every focusable element.
 - Focus order is reading order — No positive `tabindex`. If the order looks wrong, it’s the HTML order that is.
 - One tab stop per group — Tabs, radio groups, and lists use a “roving tabindex”: Tab enters the group, the arrows move within it.
-- Focus always returns — On closing a modal, menu, drawer, or the ⌘K search, focus returns to the element that opened it.
+- Focus always returns — On closing a modal, menu, drawer, or the Ctrl K search, focus returns to the element that opened it.
 - Skip the navigation — Tab — The page’s first Tab shows “Skip to content”, which goes straight to the main panel.
 
 ### Keyboard map 12 components and patterns
@@ -151,9 +151,9 @@ Keyboard users need to know where they are and reach everything. Press Tab insid
 | Toast | never — steals focus — Tab — reaches the action (Undo) — focus or hover — pause the timer |
 | Table | Tab — goes to the sort buttons and checkboxes — Enter — sorts the column — Space — checks the row |
 | Charts | Tab — focuses the chart — ← → — move through the values (announced) — ↑ ↓ — switch rows in the heatmap — Home End — first and last — Esc — hides the tooltip |
-| ⌘K search | ⌘ K / — open — ↑ ↓ — move through — Enter — goes — Esc — closes and returns focus |
+| Ctrl K search | Ctrl K / — open — ↑ ↓ — move through — Enter — goes — Esc — closes and returns focus |
 | Composer | Enter — sends — Shift Enter — adds a line break — / — opens the commands — Esc — closes the menu or stops the reply |
-| App shell | ⌘ B — collapses or expands the sidebar — Esc — closes the drawer on phones — first Tab — shows “Skip to content” |
+| App shell | Ctrl B — collapses or expands the sidebar — Esc — closes the drawer on phones — first Tab — shows “Skip to content” |
 | Tooltip | keyboard focus — shows the tooltip — Esc — closes without moving focus — hover — you can point at the bubble without it disappearing |
 
 Markup of the examples in this section:

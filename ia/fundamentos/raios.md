@@ -51,10 +51,10 @@ Cada componente já vem com o raio certo. Os exemplos abaixo são os componentes
 | full — pílula | Chip, badge, controle segmentado, avatar. |  |
 | xs — 6 px | Kbd, código inline, foco da ação inline. |  |
 | sm — 8 px | Botão pequeno, botão de ícone. |  |
-| md — 12 px | Botão, campo, toast, item do ⌘K. |  |
+| md — 12 px | Botão, campo, toast, item do Ctrl K. |  |
 | lg — 16 px | Menu, bloco de código, cartão da conta. |  |
 | xl — 20 px | Card; painel no celular. |  |
-| 2xl — 28 px | Painel, ⌘K, sidebar e área principal. |  |
+| 2xl — 28 px | Painel, Ctrl K, sidebar e área principal. |  |
 
 ## Uso
 

@@ -108,7 +108,7 @@ Cada componente interactivo tiene su módulo, sin dependencias entre ellos. Impo
 |  `ds/js/tabs.js`  | Pestañas con teclado |  `mountTabs(document)`  |  |
 |  `ds/js/modal.js`  | Modal y confirmación |  `await confirmModal({ title })`  |  |
 |  `ds/js/toast.js`  | Avisos rápidos y copia |  `toast("Salvo"); copyText(valor)`  |  |
-|  `ds/js/command-palette.js`  | Búsqueda ⌘K |  `createCommandPalette({ items })`  |  |
+|  `ds/js/command-palette.js`  | Búsqueda Ctrl K |  `createCommandPalette({ items })`  |  |
 |  `ds/js/shell.js`  | App shell con sidebar |  `createShell(document.querySelector(".ds-shell"))`  |  |
 
 ## Usa tu marca

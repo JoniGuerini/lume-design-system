@@ -82,7 +82,7 @@ Os 102 itens de `ds/lume.js`, com o módulo de onde cada um vem.
 | `createColorPicker` | Seletor de cor solto: área, matiz, hexadecimal e amostras. | color-picker.js |
 | `createColorField` | Campo de cor com amostra que abre o seletor. | color-picker.js |
 | `parseHex` | Lê uma cor em hexadecimal (3 ou 6 dígitos, com ou sem #). | color-picker.js |
-| `createCommandPalette` | Busca de comandos aberta com ⌘K. | command-palette.js |
+| `createCommandPalette` | Busca de comandos aberta com Ctrl K. | command-palette.js |
 | `createComposer` | Campo de mensagem de uma conversa, com anexos. | composer.js |
 | `createContextMenu` | Menu do botão direito numa área. | context-menu.js |
 | `createDatePicker` | Seletor de data ligado a um campo. | date-picker.js |

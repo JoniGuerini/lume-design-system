@@ -2,6 +2,7 @@ import { icon } from '../../ds/icons/icons.js';
 import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, tokenTable, a11yList, escapeHtml } from '../component-doc.js';
 import { L, ratio } from '../i18n.js';
+import { combo } from '../keys.js';
 
 export const styles = ['site/component-doc.css', 'site/pages/tooltip.css'];
 
@@ -24,8 +25,8 @@ const TRIGGERS = () => [
 
 const KBDS = () => [
   ['none', L('Sem atalho', 'No shortcut', 'Sin atajo')],
-  ['⌘K', '⌘K'],
-  ['⌘B', '⌘B'],
+  [combo('K'), combo('K')],
+  [combo('B'), combo('B')],
   ['Esc', 'Esc'],
 ];
 
@@ -129,8 +130,8 @@ export default function renderTooltip(page) {
       </header>
       <div class="cd-grid">
         ${[
-          ['search', L('Buscar', 'Search', 'Buscar'), '⌘K'],
-          ['panel-left', L('Recolher menu', 'Collapse menu', 'Contraer menú'), '⌘B'],
+          ['search', L('Buscar', 'Search', 'Buscar'), combo('K')],
+          ['panel-left', L('Recolher menu', 'Collapse menu', 'Contraer menú'), combo('B')],
           ['x', L('Fechar', 'Close', 'Cerrar'), 'Esc'],
         ]
           .map(
@@ -264,7 +265,7 @@ export default function renderTooltip(page) {
         </article>
         <article class="usage-card usage-card--tip">
           <p class="usage-card__head">${icon('zap', { size: 20 })}${L('Mostre o atalho', 'Show the shortcut', 'Muestra el atajo')}</p>
-          <div class="tt-usage" inert>${pinned(exportLabel(), '⌘E')}<span class="ds-btn ds-btn--secondary ds-btn--sm">${exportLabel()}</span></div>
+          <div class="tt-usage" inert>${pinned(exportLabel(), combo('E'))}<span class="ds-btn ds-btn--secondary ds-btn--sm">${exportLabel()}</span></div>
           <p class="usage-card__text">${L('Num botão com rótulo, a dica vale a pena quando ensina algo novo — como o atalho.', 'On a labeled button, a tooltip is worth it when it teaches something new — like the shortcut.', 'En un botón con etiqueta, la pista vale la pena cuando enseña algo nuevo — como el atajo.')}</p>
         </article>
       </div>
@@ -278,7 +279,7 @@ export function mount(root) {
     controls: [
       { id: 'placement', label: L('Posição', 'Placement', 'Posición'), value: 'top', options: PLACEMENTS().map(([value, label]) => ({ value, label })) },
       { id: 'trigger', label: L('Gatilho', 'Trigger', 'Disparador'), value: 'icon', options: TRIGGERS().map(([value, label]) => ({ value, label })) },
-      { id: 'kbd', label: L('Atalho', 'Shortcut', 'Atajo'), value: '⌘K', options: KBDS().map(([value, label]) => ({ value, label })) },
+      { id: 'kbd', label: L('Atalho', 'Shortcut', 'Atajo'), value: combo('K'), options: KBDS().map(([value, label]) => ({ value, label })) },
     ],
     text: { id: 'text', label: L('Texto', 'Text', 'Texto'), value: L('Buscar', 'Search', 'Buscar') },
     render: (state) => `<div class="tt-pg tt-pg--${state.placement}">

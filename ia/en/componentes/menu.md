@@ -73,7 +73,7 @@ Each item is an object in `options`. The special ones organize the list without 
 - Item with icon `{ value, label, icon: 'clock' }` — An 18 px icon on the left. Use it on every item or on none.
 - Selected `value: 'name'` — In selection mode, the mark in the brand color shows the current value.
 - Group `{ type: 'group', label: 'File' }` — A small heading to separate topics in a long list.
-- Shortcut `shortcut: '⌘D'` — Action mode only. Teaches the key without taking up space.
+- Shortcut `shortcut: 'Ctrl D'` — Action mode only. Teaches the key without taking up space.
 - Disabled `disabled: true` — Stays visible but is skipped by the keyboard. Prefer hiding it if it will never work.
 - Separator `{ type: 'separator' }` — A line between blocks — before what’s destructive, for example.
 - Danger `tone: 'danger'` — For delete and the like. Always last, after a separator.
@@ -92,9 +92,9 @@ Markup of the examples in this section:
 </button></div>
 
 <div class="ds-menu" data-mode="action" data-open=""><p class="ds-menu__group" aria-hidden="true">File</p><button type="button" class="ds-menu__item" role="menuitem" data-value="duplicate">
-<ds-icon name="copy"></ds-icon><span class="ds-menu__text">Duplicate</span><span class="ds-menu__shortcut">⌘D</span>
+<ds-icon name="copy"></ds-icon><span class="ds-menu__text">Duplicate</span><span class="ds-menu__shortcut">Ctrl D</span>
 </button><button type="button" class="ds-menu__item" role="menuitem" data-value="export">
-<ds-icon name="download"></ds-icon><span class="ds-menu__text">Export PDF</span><span class="ds-menu__shortcut">⌘E</span>
+<ds-icon name="download"></ds-icon><span class="ds-menu__text">Export PDF</span><span class="ds-menu__shortcut">Ctrl E</span>
 </button><button type="button" class="ds-menu__item" role="menuitem" aria-disabled="true" data-value="share">
 <ds-icon name="link"></ds-icon><span class="ds-menu__text">Share</span>
 </button><div class="ds-menu__separator" role="separator"></div><button type="button" class="ds-menu__item ds-menu__item--danger" role="menuitem" data-value="delete">

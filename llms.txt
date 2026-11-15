@@ -99,12 +99,12 @@ Comece por [LEIA-ME](https://lumeui.dev/ia/LEIA-ME.md): instalação, regras ger
 
 ## Padrões
 
-- [App shell](https://lumeui.dev/ia/padroes/app-shell.md): Sidebar flutuante, painel principal, topbar e busca ⌘K.
+- [App shell](https://lumeui.dev/ia/padroes/app-shell.md): Sidebar flutuante, painel principal, topbar e busca Ctrl K.
 - [Conversa e composer](https://lumeui.dev/ia/padroes/conversa.md): Balões, respostas, anexos e a caixa de mensagem.
 - [Formulários](https://lumeui.dev/ia/padroes/formularios.md): Campos, validação e mensagens de erro que ajudam a seguir.
 - [Login e cadastro](https://lumeui.dev/ia/padroes/login.md): Entrar, criar conta e recuperar a senha — curto e sem armadilha.
 - [Estados vazios](https://lumeui.dev/ia/padroes/estados-vazios.md): Primeiro uso, sem resultados e erro — sempre com um próximo passo.
-- [Busca e comandos](https://lumeui.dev/ia/padroes/busca.md): Paleta ⌘K, filtros e atalhos de teclado.
+- [Busca e comandos](https://lumeui.dev/ia/padroes/busca.md): Paleta Ctrl K, filtros e atalhos de teclado.
 - [Listagem de dados](https://lumeui.dev/ia/padroes/listagem.md): Tabela com filtros, ordenação, seleção e ações em lote com desfazer.
 - [Configurações](https://lumeui.dev/ia/padroes/configuracoes.md): Seções, salvar na hora ou no botão e a zona de perigo.
 - [Avisos e confirmações](https://lumeui.dev/ia/padroes/avisos.md): Toast, alerta, banner ou modal, e desfazer no lugar de “tem certeza?”.

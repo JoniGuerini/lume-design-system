@@ -4,6 +4,7 @@ import { copyText } from '../../ds/js/toast.js';
 import { tr } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
 import { T } from '../i18n.js';
+import { combo } from '../keys.js';
 
 export const styles = 'site/pages/movimento.css';
 
@@ -35,8 +36,8 @@ const COPY = T(
     },
     recipes: [
       ['Hover, foco e cor', 'Botões, chips, itens de navegação, campos e ações inline.'],
-      ['Menus e popovers', 'Menu dos chips, chevron que gira e a busca ⌘K. A opacidade usa fast + standard.'],
-      ['Sidebar e gaveta', 'Recolher a sidebar (⌘B), a gaveta no celular e abrir os grupos do menu.'],
+      ['Menus e popovers', 'Menu dos chips, chevron que gira e a busca ' + combo('K') + '. A opacidade usa fast + standard.'],
+      ['Sidebar e gaveta', 'Recolher a sidebar (' + combo('B') + '), a gaveta no celular e abrir os grupos do menu.'],
       ['Entrada de página', 'Toda troca de página do site: o conteúdo sobe 6 px e aparece.'],
     ],
     copyTransition: 'Copiar transição',
@@ -89,8 +90,8 @@ const COPY = T(
     },
     recipes: [
       ['Hover, focus, and color', 'Buttons, chips, navigation items, fields, and inline actions.'],
-      ['Menus and popovers', 'Chip menus, the rotating chevron, and ⌘K search. Opacity uses fast + standard.'],
-      ['Sidebar and drawer', 'Collapsing the sidebar (⌘B), the mobile drawer, and opening menu groups.'],
+      ['Menus and popovers', 'Chip menus, the rotating chevron, and ' + combo('K') + ' search. Opacity uses fast + standard.'],
+      ['Sidebar and drawer', 'Collapsing the sidebar (' + combo('B') + '), the mobile drawer, and opening menu groups.'],
       ['Page entrance', 'Every page change on the site: the content rises 6 px and appears.'],
     ],
     copyTransition: 'Copy transition',
@@ -143,8 +144,8 @@ const COPY = T(
     },
     recipes: [
       ['Hover, foco y color', 'Botones, chips, elementos de navegación, campos y acciones en línea.'],
-      ['Menús y popovers', 'El menú de los chips, el chevron que gira y la búsqueda ⌘K. La opacidad usa fast + standard.'],
-      ['Sidebar y cajón', 'Contraer la sidebar (⌘B), el cajón en el móvil y abrir los grupos del menú.'],
+      ['Menús y popovers', 'El menú de los chips, el chevron que gira y la búsqueda ' + combo('K') + '. La opacidad usa fast + standard.'],
+      ['Sidebar y cajón', 'Contraer la sidebar (' + combo('B') + '), el cajón en el móvil y abrir los grupos del menú.'],
       ['Entrada de página', 'Cada cambio de página del sitio: el contenido sube 6 px y aparece.'],
     ],
     copyTransition: 'Copiar transición',

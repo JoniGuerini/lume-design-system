@@ -6,6 +6,7 @@ import { playgroundMarkup, mountPlayground, mountCodeCopy, tokenTable, a11yList,
 import { navigation } from '../nav.js';
 import { stateGrid } from '../form-control-doc.js';
 import { L } from '../i18n.js';
+import { combo } from '../keys.js';
 
 export const styles = ['site/component-doc.css', 'site/pages/form-controls.css', 'site/pages/menu.css'];
 
@@ -23,8 +24,8 @@ const SORT = () => [
 ];
 
 const ACTIONS = () => [
-  { value: 'duplicate', label: L('Duplicar', 'Duplicate', 'Duplicar'), icon: 'copy', shortcut: '⌘D' },
-  { value: 'rename', label: L('Renomear', 'Rename', 'Renombrar'), icon: 'pencil', shortcut: '⌘R' },
+  { value: 'duplicate', label: L('Duplicar', 'Duplicate', 'Duplicar'), icon: 'copy', shortcut: combo('D') },
+  { value: 'rename', label: L('Renomear', 'Rename', 'Renombrar'), icon: 'pencil', shortcut: combo('R') },
   { value: 'move', label: L('Mover para…', 'Move to…', 'Mover a…'), icon: 'folder' },
   { type: 'separator' },
   { value: 'archive', label: L('Arquivar', 'Archive', 'Archivar'), icon: 'inbox' },
@@ -33,8 +34,8 @@ const ACTIONS = () => [
 
 const SHOWCASE_ACTIONS = () => [
   { type: 'group', label: L('Arquivo', 'File', 'Archivo') },
-  { value: 'duplicate', label: L('Duplicar', 'Duplicate', 'Duplicar'), icon: 'copy', shortcut: '⌘D' },
-  { value: 'export', label: L('Exportar PDF', 'Export PDF', 'Exportar PDF'), icon: 'download', shortcut: '⌘E' },
+  { value: 'duplicate', label: L('Duplicar', 'Duplicate', 'Duplicar'), icon: 'copy', shortcut: combo('D') },
+  { value: 'export', label: L('Exportar PDF', 'Export PDF', 'Exportar PDF'), icon: 'download', shortcut: combo('E') },
   { value: 'share', label: L('Compartilhar', 'Share', 'Compartir'), icon: 'link', disabled: true },
   { type: 'separator' },
   { value: 'delete', label: L('Excluir', 'Delete', 'Eliminar'), icon: 'trash', tone: 'danger' },
@@ -215,7 +216,7 @@ export default function renderMenu(page) {
             [L('Item com ícone', 'Item with icon', 'Elemento con ícono'), "{ value, label, icon: 'clock' }", L('Ícone de 18 px à esquerda. Use em todos os itens ou em nenhum.', 'An 18 px icon on the left. Use it on every item or on none.', 'Ícono de 18 px a la izquierda. Úsalo en todos los elementos o en ninguno.')],
             [L('Selecionado', 'Selected', 'Seleccionado'), "value: 'name'", L('No modo seleção, a marca na cor da marca indica o valor atual.', 'In selection mode, the mark in the brand color shows the current value.', 'En el modo selección, la marca en el color de la marca indica el valor actual.')],
             [L('Grupo', 'Group', 'Grupo'), `{ type: 'group', label: '${L('Arquivo', 'File', 'Archivo')}' }`, L('Um título pequeno para separar assuntos numa lista longa.', 'A small heading to separate topics in a long list.', 'Un título pequeño para separar temas en una lista larga.')],
-            [L('Atalho', 'Shortcut', 'Atajo'), "shortcut: '⌘D'", L('Só no modo ação. Ensina a tecla sem ocupar espaço.', 'Action mode only. Teaches the key without taking up space.', 'Solo en el modo acción. Enseña la tecla sin ocupar espacio.')],
+            [L('Atalho', 'Shortcut', 'Atajo'), "shortcut: '" + combo('D') + "'", L('Só no modo ação. Ensina a tecla sem ocupar espaço.', 'Action mode only. Teaches the key without taking up space.', 'Solo en el modo acción. Enseña la tecla sin ocupar espacio.')],
             [L('Desativado', 'Disabled', 'Desactivado'), 'disabled: true', L('Fica visível, mas pulado pelo teclado. Prefira esconder se nunca vai funcionar.', 'Stays visible but is skipped by the keyboard. Prefer hiding it if it will never work.', 'Queda visible, pero el teclado lo salta. Prefiere ocultarlo si nunca va a funcionar.')],
             [L('Separador', 'Separator', 'Separador'), "{ type: 'separator' }", L('Uma linha entre blocos — antes do que é destrutivo, por exemplo.', 'A line between blocks — before what’s destructive, for example.', 'Una línea entre bloques — antes de lo destructivo, por ejemplo.')],
             [L('Perigo', 'Danger', 'Peligro'), "tone: 'danger'", L('Para excluir e afins. Sempre por último, depois de um separador.', 'For delete and the like. Always last, after a separator.', 'Para eliminar y similares. Siempre al final, después de un separador.')],

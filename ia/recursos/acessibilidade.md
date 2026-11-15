@@ -136,7 +136,7 @@ Quem navega pelo teclado precisa saber onde está e chegar a tudo. Aperte Tab de
 - Nunca remova o contorno — Sem `outline: none` sem trocar por outro indicador igualmente visível. O anel vem do `base.css` para todo elemento focável.
 - A ordem do foco é a ordem de leitura — Nada de `tabindex` positivo. Se a ordem parece errada, a ordem do HTML é que está.
 - Um ponto de parada por grupo — Abas, grupos de rádio e listas usam “roving tabindex”: Tab entra no grupo, as setas andam dentro dele.
-- O foco sempre volta — Ao fechar modal, menu, gaveta ou a busca ⌘K, o foco volta para o elemento que abriu.
+- O foco sempre volta — Ao fechar modal, menu, gaveta ou a busca Ctrl K, o foco volta para o elemento que abriu.
 - Pular a navegação — Tab — O primeiro Tab da página mostra “Pular para o conteúdo”, que leva direto ao painel principal.
 
 ### Mapa de teclado 12 componentes e padrões
@@ -151,9 +151,9 @@ Quem navega pelo teclado precisa saber onde está e chegar a tudo. Aperte Tab de
 | Toast | nunca — rouba o foco — Tab — alcança a ação (Desfazer) — foco ou hover — pausam o tempo |
 | Tabela | Tab — vai aos botões de ordenar e às caixas — Enter — ordena a coluna — Espaço — marca a linha |
 | Gráficos | Tab — foca o gráfico — ← → — percorrem os valores (anunciados) — ↑ ↓ — trocam de linha no heatmap — Home End — primeiro e último — Esc — esconde o tooltip |
-| Busca ⌘K | ⌘ K / — abrem — ↑ ↓ — percorrem — Enter — vai — Esc — fecha e devolve o foco |
+| Busca Ctrl K | Ctrl K / — abrem — ↑ ↓ — percorrem — Enter — vai — Esc — fecha e devolve o foco |
 | Composer | Enter — envia — Shift Enter — quebra a linha — / — abre os comandos — Esc — fecha o menu ou para a resposta |
-| App shell | ⌘ B — recolhe ou expande a sidebar — Esc — fecha a gaveta no celular — primeiro Tab — mostra “Pular para o conteúdo” |
+| App shell | Ctrl B — recolhe ou expande a sidebar — Esc — fecha a gaveta no celular — primeiro Tab — mostra “Pular para o conteúdo” |
 | Tooltip | foco do teclado — mostra a dica — Esc — fecha sem mover o foco — hover — dá para apontar o balão sem ele sumir |
 
 Marcação dos exemplos desta seção:

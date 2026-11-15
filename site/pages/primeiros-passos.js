@@ -6,6 +6,7 @@ import { mountDocNav } from '../doc-nav.js';
 import { playgroundMarkup, mountPlayground, mountCodeCopy, codeBlock } from '../component-doc.js';
 import { T } from '../i18n.js';
 import { CURRENT_VERSION } from '../changelog.js';
+import { combo } from '../keys.js';
 
 // a linha atual (0.25, 0.26…): o endereço com versão que a instalação ensina
 const LINE = CURRENT_VERSION.split('.').slice(0, 2).join('.');
@@ -32,7 +33,7 @@ const COPY = T(
     tokens: { title: 'Usando tokens', desc: 'No seu CSS, use sempre um token semântico — nunca um valor solto. Assim o tema, a marca e a densidade mudam sem tocar no seu código.' },
     tokenGroups: ['Cor', 'Texto', 'Espaço', 'Raio', 'Sombra', 'Movimento', 'Layout'],
     js: { title: 'Módulos JavaScript', desc: 'Cada componente interativo tem o seu módulo, sem dependência entre eles. Importe só o que a tela usa.', head: ['Módulo', 'Para quê', 'Como ligar'], docsOf: (f) => `Documentação de ${f}`, docs: 'Ver documentação' },
-    modules: ['Ícones como <ds-icon> e a função icon()', 'Tema escuro, claro ou do sistema', 'Dicas por data-ds-tooltip', 'Menus que abrem de um gatilho', 'Seleção com lista própria', 'Abas com teclado', 'Modal e confirmação', 'Avisos rápidos e cópia', 'Busca ⌘K', 'App shell com sidebar'],
+    modules: ['Ícones como <ds-icon> e a função icon()', 'Tema escuro, claro ou do sistema', 'Dicas por data-ds-tooltip', 'Menus que abrem de um gatilho', 'Seleção com lista própria', 'Abas com teclado', 'Modal e confirmação', 'Avisos rápidos e cópia', 'Busca ' + combo('K'), 'App shell com sidebar'],
     brand: {
       title: 'Use a sua marca',
       desc: 'A marca inteira sai de um matiz. Mude um número e o build recria a paleta, ajusta ao sRGB e confere o contraste de novo.',
@@ -74,7 +75,7 @@ const COPY = T(
     tokens: { title: 'Using tokens', desc: 'In your CSS, always use a semantic token — never a loose value. That way the theme, the brand, and the density change without touching your code.' },
     tokenGroups: ['Color', 'Text', 'Space', 'Radius', 'Shadow', 'Motion', 'Layout'],
     js: { title: 'JavaScript modules', desc: 'Each interactive component has its own module, with no dependencies between them. Import only what your screen uses.', head: ['Module', 'What for', 'How to turn on'], docsOf: (f) => `${f} documentation`, docs: 'See documentation' },
-    modules: ['Icons as <ds-icon> and the icon() function', 'Dark, light, or system theme', 'Hints via data-ds-tooltip', 'Menus that open from a trigger', 'Select with its own list', 'Tabs with keyboard support', 'Modal and confirmation', 'Quick notices and copy', '⌘K search', 'App shell with sidebar'],
+    modules: ['Icons as <ds-icon> and the icon() function', 'Dark, light, or system theme', 'Hints via data-ds-tooltip', 'Menus that open from a trigger', 'Select with its own list', 'Tabs with keyboard support', 'Modal and confirmation', 'Quick notices and copy', combo('K') + ' search', 'App shell with sidebar'],
     brand: {
       title: 'Use your brand',
       desc: 'The whole brand comes from one hue. Change a number and the build recreates the palette, fits it to sRGB, and checks the contrast again.',
@@ -116,7 +117,7 @@ const COPY = T(
     tokens: { title: 'Usar tokens', desc: 'En tu CSS, usa siempre un token semántico — nunca un valor suelto. Así el tema, la marca y la densidad cambian sin tocar tu código.' },
     tokenGroups: ['Color', 'Texto', 'Espacio', 'Radio', 'Sombra', 'Movimiento', 'Layout'],
     js: { title: 'Módulos de JavaScript', desc: 'Cada componente interactivo tiene su módulo, sin dependencias entre ellos. Importa solo lo que use la pantalla.', head: ['Módulo', 'Para qué', 'Cómo activarlo'], docsOf: (f) => `Documentación de ${f}`, docs: 'Ver documentación' },
-    modules: ['Íconos como <ds-icon> y la función icon()', 'Tema oscuro, claro o del sistema', 'Pistas con data-ds-tooltip', 'Menús que se abren desde un disparador', 'Selector con lista propia', 'Pestañas con teclado', 'Modal y confirmación', 'Avisos rápidos y copia', 'Búsqueda ⌘K', 'App shell con sidebar'],
+    modules: ['Íconos como <ds-icon> y la función icon()', 'Tema oscuro, claro o del sistema', 'Pistas con data-ds-tooltip', 'Menús que se abren desde un disparador', 'Selector con lista propia', 'Pestañas con teclado', 'Modal y confirmación', 'Avisos rápidos y copia', 'Búsqueda ' + combo('K'), 'App shell con sidebar'],
     brand: {
       title: 'Usa tu marca',
       desc: 'Toda la marca sale de un matiz. Cambia un número y el build recrea la paleta, la ajusta a sRGB y vuelve a comprobar el contraste.',

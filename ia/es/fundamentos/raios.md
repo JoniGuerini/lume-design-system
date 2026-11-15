@@ -51,10 +51,10 @@ Cada componente ya viene con el radio correcto. Los ejemplos de abajo son los co
 | full — píldora | Chip, insignia, control segmentado, avatar. |  |
 | xs — 6 px | Kbd, código en línea, foco de la acción en línea. |  |
 | sm — 8 px | Botón pequeño, botón de ícono. |  |
-| md — 12 px | Botón, campo, toast, elemento del ⌘K. |  |
+| md — 12 px | Botón, campo, toast, elemento del Ctrl K. |  |
 | lg — 16 px | Menú, bloque de código, tarjeta de la cuenta. |  |
 | xl — 20 px | Tarjeta; panel en el móvil. |  |
-| 2xl — 28 px | Panel, ⌘K, sidebar y área principal. |  |
+| 2xl — 28 px | Panel, Ctrl K, sidebar y área principal. |  |
 
 ## Uso
 

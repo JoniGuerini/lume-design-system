@@ -62,7 +62,7 @@ Botones, chips, elementos de navegación, campos y acciones en línea.
 transition: background-color var(--ds-duration-fast) var(--ds-easing-standard);
 ```
 
-El menú de los chips, el chevron que gira y la búsqueda ⌘K. La opacidad usa fast + standard.
+El menú de los chips, el chevron que gira y la búsqueda Ctrl K. La opacidad usa fast + standard.
 
 ```html
 transition:
@@ -70,7 +70,7 @@ transition:
   transform var(--ds-duration-base) var(--ds-easing-emphasized);
 ```
 
-Contraer la sidebar (⌘B), el cajón en el móvil y abrir los grupos del menú.
+Contraer la sidebar (Ctrl B), el cajón en el móvil y abrir los grupos del menú.
 
 ```html
 transition: width var(--ds-duration-slow) var(--ds-easing-emphasized);

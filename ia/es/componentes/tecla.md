@@ -9,7 +9,7 @@ En números: JavaScript: 0 · altura: 20 px · base: kbd · interactiva: no.
 ## Ejemplo
 
 ```html
-<kbd class="ds-kbd">⌘</kbd>
+<kbd class="ds-kbd">Ctrl</kbd>
 <kbd class="ds-kbd">K</kbd>
 ```
 

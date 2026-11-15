@@ -73,7 +73,7 @@ Cada elemento es un objeto en `options`. Los especiales organizan la lista sin v
 - Elemento con ícono `{ value, label, icon: 'clock' }` — Ícono de 18 px a la izquierda. Úsalo en todos los elementos o en ninguno.
 - Seleccionado `value: 'name'` — En el modo selección, la marca en el color de la marca indica el valor actual.
 - Grupo `{ type: 'group', label: 'Archivo' }` — Un título pequeño para separar temas en una lista larga.
-- Atajo `shortcut: '⌘D'` — Solo en el modo acción. Enseña la tecla sin ocupar espacio.
+- Atajo `shortcut: 'Ctrl D'` — Solo en el modo acción. Enseña la tecla sin ocupar espacio.
 - Desactivado `disabled: true` — Queda visible, pero el teclado lo salta. Prefiere ocultarlo si nunca va a funcionar.
 - Separador `{ type: 'separator' }` — Una línea entre bloques — antes de lo destructivo, por ejemplo.
 - Peligro `tone: 'danger'` — Para eliminar y similares. Siempre al final, después de un separador.
@@ -92,9 +92,9 @@ Marcado de los ejemplos de esta sección:
 </button></div>
 
 <div class="ds-menu" data-mode="action" data-open=""><p class="ds-menu__group" aria-hidden="true">Archivo</p><button type="button" class="ds-menu__item" role="menuitem" data-value="duplicate">
-<ds-icon name="copy"></ds-icon><span class="ds-menu__text">Duplicar</span><span class="ds-menu__shortcut">⌘D</span>
+<ds-icon name="copy"></ds-icon><span class="ds-menu__text">Duplicar</span><span class="ds-menu__shortcut">Ctrl D</span>
 </button><button type="button" class="ds-menu__item" role="menuitem" data-value="export">
-<ds-icon name="download"></ds-icon><span class="ds-menu__text">Exportar PDF</span><span class="ds-menu__shortcut">⌘E</span>
+<ds-icon name="download"></ds-icon><span class="ds-menu__text">Exportar PDF</span><span class="ds-menu__shortcut">Ctrl E</span>
 </button><button type="button" class="ds-menu__item" role="menuitem" aria-disabled="true" data-value="share">
 <ds-icon name="link"></ds-icon><span class="ds-menu__text">Compartir</span>
 </button><div class="ds-menu__separator" role="separator"></div><button type="button" class="ds-menu__item ds-menu__item--danger" role="menuitem" data-value="delete">

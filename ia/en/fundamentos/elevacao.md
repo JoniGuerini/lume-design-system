@@ -30,9 +30,9 @@ Markup of the examples in this section:
 
 Six two-layer shadows — one short and defined, one long and diffuse. In the dark theme they’re black and dense; in Lume light, a very soft slate. Click a shadow to copy it.
 
-xs — Minimal details. — sm — Slightly raised controls. — md — Highlighted cards. — lg — Panels, sidebar, tooltip, and toast. — xl — Menus and popovers. — 2xl — ⌘K and the mobile drawer.
+xs — Minimal details. — sm — Slightly raised controls. — md — Highlighted cards. — lg — Panels, sidebar, tooltip, and toast. — xl — Menus and popovers. — 2xl — Ctrl K and the mobile drawer.
 
-xs — Minimal details. — sm — Slightly raised controls. — md — Highlighted cards. — lg — Panels, sidebar, tooltip, and toast. — xl — Menus and popovers. — 2xl — ⌘K and the mobile drawer.
+xs — Minimal details. — sm — Slightly raised controls. — md — Highlighted cards. — lg — Panels, sidebar, tooltip, and toast. — xl — Menus and popovers. — 2xl — Ctrl K and the mobile drawer.
 
 ### Values same token, different value in each theme
 
@@ -58,7 +58,7 @@ What stays in the flow uses surface color only. Shadows are for what separates f
 | Menu — Opens from a chip or a button. | bg.raised | shadow.xl | z.popover |
 | Tooltip — A hint over any element. | bg.raised | shadow.lg | z.tooltip |
 | Toast — A short, passing notice. | bg.inverse | shadow.lg | z.toast |
-| ⌘K palette — A modal dialog over the dimmed background. | bg.raised | shadow.2xl | z.modal |
+| Ctrl K palette — A modal dialog over the dimmed background. | bg.raised | shadow.2xl | z.modal |
 | Mobile drawer — The sidebar on small screens. | bg.surface | shadow.2xl | z.overlay |
 
 ## Stacking
@@ -68,7 +68,7 @@ The order of who sits on top. Always use the token: the gaps of 100 leave room f
 - 1600 — tooltip — Tooltip — always on top of everything.
 - 1500 — toast — Toast.
 - 1400 — popover — Menus and popovers.
-- 1300 — modal — Modals (⌘K uses the native <dialog> layer).
+- 1300 — modal — Modals (Ctrl K uses the native <dialog> layer).
 - 1200 — overlay — Dimmed background and the mobile drawer.
 - 1100 — sticky — Top bar.
 - 1000 — dropdown — In-flow dropdown lists.

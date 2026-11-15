@@ -14,7 +14,7 @@ Mobile first: the base layout covers small screens and each breakpoint adds rule
 | --- | --- | --- | --- |
 | sm | 640 px | @media (min-width: 640px) | No rule in the app yet — available for components. |
 | md | 768 px | @media (min-width: 768px) | Below it, margins and panels compact, the top bar trail shows only the current page, and tables become cards. |
-| lg | 1024 px | @media (min-width: 1024px) | Below it, the sidebar becomes a drawer over a dimmed background and the menu appears in the top bar. From it up, the sidebar is fixed and collapsible (⌘B). |
+| lg | 1024 px | @media (min-width: 1024px) | Below it, the sidebar becomes a drawer over a dimmed background and the menu appears in the top bar. From it up, the sidebar is fixed and collapsible (Ctrl B). |
 | xl | 1280 px | @media (min-width: 1280px) | Below it, the Home hero stacks and 4-column grids go down to 2. |
 | 2xl | 1536 px | @media (min-width: 1536px) | No rule in the app yet — wide screens keep the maximum content width. |
 
@@ -81,7 +81,7 @@ Stacking order is a fixed scale: no z-index 9999. The higher on the list, the fu
 |  | tooltip — --ds-z-tooltip | 1600 | Tooltips and the “Skip to content” link. |  |
 |  | toast — --ds-z-toast | 1500 | Confirmation notices. |  |
 |  | popover — --ds-z-popover | 1400 | Menus that chips open. |  |
-|  | modal — --ds-z-modal | 1300 | Reserved. ⌘K search uses <dialog>, which already goes to the browser’s top layer. |  |
+|  | modal — --ds-z-modal | 1300 | Reserved. Ctrl K search uses <dialog>, which already goes to the browser’s top layer. |  |
 |  | overlay — --ds-z-overlay | 1200 | The drawer’s dimmed background — the drawer sits one level above. |  |
 |  | sticky — --ds-z-sticky | 1100 | The fixed top bar and this page’s navigation. |  |
 |  | dropdown — --ds-z-dropdown | 1000 | Reserved for dropdown lists. |  |

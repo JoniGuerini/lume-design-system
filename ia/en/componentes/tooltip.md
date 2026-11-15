@@ -11,7 +11,7 @@ In numbers: placements: 4 · delay: 450 ms · max width: 240 px · JavaScript: 0
 ```html
 <button type="button" class="ds-icon-btn" aria-label="Search"
   data-ds-tooltip="Search"
-  data-ds-tooltip-kbd="⌘K">
+  data-ds-tooltip-kbd="Ctrl K">
   <ds-icon name="search"></ds-icon>
 </button>
 ```
@@ -38,22 +38,22 @@ Markup of the examples in this section:
 
 The best place to teach a shortcut is the action’s tooltip. Use `data-ds-tooltip-kbd`.
 
-Search `⌘K`
+Search `Ctrl K`
 
-Collapse menu `⌘B`
+Collapse menu `Ctrl B`
 
 Close `Esc`
 
 Markup of the examples in this section:
 
 ```html
-<span class="ds-tooltip" data-open="">Search<kbd class="ds-kbd">⌘K</kbd></span>
+<span class="ds-tooltip" data-open="">Search<kbd class="ds-kbd">Ctrl K</kbd></span>
 
-<button type="button" class="ds-icon-btn ds-icon-btn--outline" aria-label="Search" data-ds-tooltip="Search" data-ds-tooltip-placement="top" data-ds-tooltip-kbd="⌘K"><ds-icon name="search"></ds-icon></button>
+<button type="button" class="ds-icon-btn ds-icon-btn--outline" aria-label="Search" data-ds-tooltip="Search" data-ds-tooltip-placement="top" data-ds-tooltip-kbd="Ctrl K"><ds-icon name="search"></ds-icon></button>
 
-<span class="ds-tooltip" data-open="">Collapse menu<kbd class="ds-kbd">⌘B</kbd></span>
+<span class="ds-tooltip" data-open="">Collapse menu<kbd class="ds-kbd">Ctrl B</kbd></span>
 
-<button type="button" class="ds-icon-btn ds-icon-btn--outline" aria-label="Collapse menu" data-ds-tooltip="Collapse menu" data-ds-tooltip-placement="top" data-ds-tooltip-kbd="⌘B"><ds-icon name="panel-left"></ds-icon></button>
+<button type="button" class="ds-icon-btn ds-icon-btn--outline" aria-label="Collapse menu" data-ds-tooltip="Collapse menu" data-ds-tooltip-placement="top" data-ds-tooltip-kbd="Ctrl B"><ds-icon name="panel-left"></ds-icon></button>
 
 <span class="ds-tooltip" data-open="">Close<kbd class="ds-kbd">Esc</kbd></span>
 

@@ -14,7 +14,7 @@ Mobile primeiro: o layout base vale para telas pequenas e cada breakpoint acresc
 | --- | --- | --- | --- |
 | sm | 640 px | @media (min-width: 640px) | Ainda sem regra no app — disponível para componentes. |
 | md | 768 px | @media (min-width: 768px) | Abaixo dele, margens e painéis compactam, a trilha da topbar mostra só a página atual e as tabelas viram cartões. |
-| lg | 1024 px | @media (min-width: 1024px) | Abaixo dele, a sidebar vira gaveta com fundo escurecido e o menu aparece na topbar. A partir dele, a sidebar fica fixa e recolhível (⌘B). |
+| lg | 1024 px | @media (min-width: 1024px) | Abaixo dele, a sidebar vira gaveta com fundo escurecido e o menu aparece na topbar. A partir dele, a sidebar fica fixa e recolhível (Ctrl B). |
 | xl | 1280 px | @media (min-width: 1280px) | Abaixo dele, o hero do Início empilha e as grades de 4 colunas passam para 2. |
 | 2xl | 1536 px | @media (min-width: 1536px) | Ainda sem regra no app — telas largas mantêm a largura máxima de conteúdo. |
 
@@ -81,7 +81,7 @@ A ordem de empilhamento é uma escala fixa: nada de z-index 9999. Quanto mais al
 |  | tooltip — --ds-z-tooltip | 1600 | Tooltips e o link “Pular para o conteúdo”. |  |
 |  | toast — --ds-z-toast | 1500 | Avisos de confirmação. |  |
 |  | popover — --ds-z-popover | 1400 | Menus que os chips abrem. |  |
-|  | modal — --ds-z-modal | 1300 | Reservado. A busca ⌘K usa <dialog>, que já vai para a camada superior do navegador. |  |
+|  | modal — --ds-z-modal | 1300 | Reservado. A busca Ctrl K usa <dialog>, que já vai para a camada superior do navegador. |  |
 |  | overlay — --ds-z-overlay | 1200 | Fundo escurecido da gaveta — a gaveta fica um nível acima. |  |
 |  | sticky — --ds-z-sticky | 1100 | Topbar fixa e a navegação desta página. |  |
 |  | dropdown — --ds-z-dropdown | 1000 | Reservado para listas suspensas. |  |

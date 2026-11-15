@@ -6,6 +6,7 @@ import { locale } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
 import { mountCodeCopy, codeBlock, tokenTable, a11yList } from '../component-doc.js';
 import { L } from '../i18n.js';
+import { MOD } from '../keys.js';
 
 export const styles = ['site/component-doc.css', 'site/pages/padroes-app-shell.css'];
 
@@ -14,8 +15,6 @@ export const styles = ['site/component-doc.css', 'site/pages/padroes-app-shell.c
 const ic = (s) => `<code class="ds-inline-code">${s}</code>`;
 const byName = new Map(tokens.map((t) => [t.name, t]));
 const px = (name) => byName.get(name)?.px ?? '—';
-const isMac = typeof navigator !== 'undefined' && navigator.platform.includes('Mac');
-const MOD = isMac ? '⌘' : 'Ctrl';
 
 const DEVICES = () => [
   { value: 'desktop', label: L('Desktop', 'Desktop', 'Escritorio'), w: 1280, h: 800 },

@@ -11,7 +11,7 @@ En números: posiciones: 4 · espera: 450 ms · ancho máximo: 240 px · JavaScr
 ```html
 <button type="button" class="ds-icon-btn" aria-label="Buscar"
   data-ds-tooltip="Buscar"
-  data-ds-tooltip-kbd="⌘K">
+  data-ds-tooltip-kbd="Ctrl K">
   <ds-icon name="search"></ds-icon>
 </button>
 ```
@@ -38,22 +38,22 @@ Marcado de los ejemplos de esta sección:
 
 El mejor lugar para enseñar un atajo es la pista de la acción. Usa `data-ds-tooltip-kbd`.
 
-Buscar `⌘K`
+Buscar `Ctrl K`
 
-Contraer menú `⌘B`
+Contraer menú `Ctrl B`
 
 Cerrar `Esc`
 
 Marcado de los ejemplos de esta sección:
 
 ```html
-<span class="ds-tooltip" data-open="">Buscar<kbd class="ds-kbd">⌘K</kbd></span>
+<span class="ds-tooltip" data-open="">Buscar<kbd class="ds-kbd">Ctrl K</kbd></span>
 
-<button type="button" class="ds-icon-btn ds-icon-btn--outline" aria-label="Buscar" data-ds-tooltip="Buscar" data-ds-tooltip-placement="top" data-ds-tooltip-kbd="⌘K"><ds-icon name="search"></ds-icon></button>
+<button type="button" class="ds-icon-btn ds-icon-btn--outline" aria-label="Buscar" data-ds-tooltip="Buscar" data-ds-tooltip-placement="top" data-ds-tooltip-kbd="Ctrl K"><ds-icon name="search"></ds-icon></button>
 
-<span class="ds-tooltip" data-open="">Contraer menú<kbd class="ds-kbd">⌘B</kbd></span>
+<span class="ds-tooltip" data-open="">Contraer menú<kbd class="ds-kbd">Ctrl B</kbd></span>
 
-<button type="button" class="ds-icon-btn ds-icon-btn--outline" aria-label="Contraer menú" data-ds-tooltip="Contraer menú" data-ds-tooltip-placement="top" data-ds-tooltip-kbd="⌘B"><ds-icon name="panel-left"></ds-icon></button>
+<button type="button" class="ds-icon-btn ds-icon-btn--outline" aria-label="Contraer menú" data-ds-tooltip="Contraer menú" data-ds-tooltip-placement="top" data-ds-tooltip-kbd="Ctrl B"><ds-icon name="panel-left"></ds-icon></button>
 
 <span class="ds-tooltip" data-open="">Cerrar<kbd class="ds-kbd">Esc</kbd></span>
 
