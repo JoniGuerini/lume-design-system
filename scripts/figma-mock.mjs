@@ -226,7 +226,12 @@ class ComponentSetNode extends ContainerNode {
     this._defs = {};
     this.key = `key-${this.id}`;
   }
-  get componentPropertyDefinitions() { return structuredClone(this._defs); }
+  get componentPropertyDefinitions() {
+    // como no Figma: duas variantes com o mesmo nome deixam o conjunto com erro, e as propriedades não se leem
+    const names = this.children.map((c) => c.name);
+    if (new Set(names).size !== names.length) fail('in get_componentPropertyDefinitions: Component set has existing errors');
+    return structuredClone(this._defs);
+  }
   addComponentProperty(name, type, def, opts) {
     if (!['TEXT', 'BOOLEAN', 'INSTANCE_SWAP'].includes(type)) fail(`addComponentProperty: tipo ${type} não pode ser adicionado assim`);
     if (Object.keys(this._defs).some((k) => k.split('#')[0] === name)) fail(`addComponentProperty: já existe "${name}"`);

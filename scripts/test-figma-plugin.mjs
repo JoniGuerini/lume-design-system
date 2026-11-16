@@ -60,12 +60,19 @@ try {
   stale.setPluginData('orbita-row', 'Ações');
   stale.resize(800, 4000);
   compPage.appendChild(stale);
+  // conjunto com erro (variante repetida, sobra de execuções antigas): a execução seguinte tem de consertar
+  const brokenSet = compPage.findAll((n) => n.type === 'COMPONENT_SET' && Object.keys(n._defs ?? {}).length)[0];
+  const extra = figma.createComponent();
+  extra.name = brokenSet.children[0].name;
+  extra.setPluginData('orbita-key', brokenSet.children[0].getPluginData('orbita-key'));
+  brokenSet.appendChild(extra);
   second = await run('2ª execução');
   const c2 = census();
 
   const lost = Object.keys(c1.keys).filter((k) => (k.startsWith('var/') || k.startsWith('cmp/') || k.startsWith('set/') || k.startsWith('icon/') || k.startsWith('block/')) && c2.keys[k] !== c1.keys[k]);
   const problems = [];
   if (!stale.removed) problems.push('bloco antigo que saiu do plugin continuou na página');
+  if (!extra.removed) problems.push(`conjunto com variante repetida (${brokenSet.name}) não foi consertado`);
   // nada se sobrepõe no nível da página depois de rodar de novo (blocos, títulos, capa)
   for (const page of figma.root.children) {
     const ns = page.children;

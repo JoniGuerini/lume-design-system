@@ -441,7 +441,8 @@ async function loadRegistry() {
     if (!id || LUME.pages[id]) continue;
     await page.loadAsync();
     LUME.pages[id] = page;
-    page.findAll(function (n) { return !!n.getPluginData(KEY); }).forEach(function (n) { LUME.registry[n.getPluginData(KEY)] = n; });
+    // chave repetida (cópia de execuções antigas): vale a primeira; as cópias saem na arrumação
+    page.findAll(function (n) { return !!n.getPluginData(KEY); }).forEach(function (n) { var k = n.getPluginData(KEY); if (!LUME.registry[k]) LUME.registry[k] = n; });
   }
 }
 
@@ -545,6 +546,16 @@ async function component(key, name, build, o) {
  * o: { description, columns (variantes por linha), gap, props: { 'Rótulo': ['TEXT', 'Botão'], 'Ícone': ['BOOLEAN', true],
  *      'Trocar ícone': ['INSTANCE_SWAP', 'search'] } }
  */
+/** O Figma recusa ler as propriedades de um conjunto com erro (variantes repetidas ou em conflito). */
+function setIsHealthy(set) {
+  try {
+    void set.componentPropertyDefinitions;
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 async function variants(key, name, items, o) {
   o = o || {};
   var comps = [];
@@ -570,6 +581,17 @@ async function variants(key, name, items, o) {
       var used = ch.type === 'COMPONENT' && typeof ch.getInstancesAsync === 'function' ? (await ch.getInstancesAsync()).length : 1;
       if (used) stage.appendChild(ch);
       else ch.remove();
+    }
+    if (!setIsHealthy(set)) {
+      // ainda com erro: refaz o conjunto com as mesmas variantes (os ids delas, e das instâncias, não mudam)
+      comps.forEach(function (c) { stage.appendChild(c); });
+      var where = set.parent;
+      var at = where ? where.children.indexOf(set) : -1;
+      set.remove();
+      set = figma.combineAsVariants(comps, stage);
+      if (where && where !== stage && at >= 0) where.insertChild(Math.min(at, where.children.length), set);
+      set.setPluginData(KEY, setKey);
+      LUME.registry[setKey] = set;
     }
   } else {
     comps.forEach(function (c) { stage.appendChild(c); });
