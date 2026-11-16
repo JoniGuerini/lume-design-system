@@ -1,0 +1,36 @@
+/**
+ * Dicionário do plugin: blocos Sidebar e Navbar (52-sidebar-navbar.js). Veja 01-i18n.js.
+ */
+
+Object.assign(DICT, {
+  'Principal': ['Main', 'Principal'],
+  'Com novidade': ['With news', 'Con novedad'],
+  'Título do grupo': ['Group title', 'Título del grupo'],
+  'Área da busca': ['Search area', 'Área de búsqueda'],
+  'Área do rodapé': ['Footer area', 'Área del pie'],
+  'Aberta e recolhida': ['Open and collapsed', 'Abierta y contraída'],
+  'Recolhida': ['Collapsed', 'Contraída'],
+  'Com a aba': ['With the tab', 'Con la pestaña'],
+  'Aba de recolher': ['Collapse tab', 'Pestaña de contraer'],
+  'Quando falta espaço': ['When space runs out', 'Cuando falta espacio'],
+  'Passos': ['Steps', 'Pasos'],
+  'Passo 1': ['Step 1', 'Paso 1'],
+  'Passo 2': ['Step 2', 'Paso 2'],
+  'Passo 3': ['Step 3', 'Paso 3'],
+  'Ícone de 20 px, rótulo e, se for o caso, a bolinha. Principal com 48 px; item de grupo com 40.': ['A 20 px icon, a label, and, when it applies, the dot. Main items are 48 px; group items, 40.', 'Ícono de 20 px, etiqueta y, si corresponde, el punto. Principal con 48 px; elemento de grupo con 40.'],
+  'Recolhe e abre o grupo; fechado, a seta gira para o lado.': ['Collapses and opens the group; when closed, the chevron turns sideways.', 'Contrae y abre el grupo; cerrado, la flecha gira hacia el lado.'],
+  'Marca, busca, a navegação principal, grupos que recolhem e o rodapé preso no pé do painel.': ['Brand, search, the main navigation, groups that collapse, and the footer pinned to the foot of the panel.', 'Marca, búsqueda, la navegación principal, grupos que se contraen y el pie fijo al final del panel.'],
+  'A navegação na lateral: marca, busca, os lugares de todo dia e grupos que recolhem. No desktop, encolhe até ficar só com os ícones; no celular, vira gaveta.': ['Navigation on the side: brand, search, everyday places, and groups that collapse. On desktop it shrinks down to just the icons; on phones it becomes a drawer.', 'La navegación en el lateral: marca, búsqueda, los lugares de todos los días y grupos que se contraen. En escritorio se encoge hasta quedarse solo con los íconos; en el móvil, se vuelve cajón.'],
+  'Principal (48 px, rótulo maior e mais escuro) e de grupo (40 px). Atual: fundo selecionado e contorno fino.': ['Main (48 px, larger and darker label) and group (40 px). Current: selected background and a thin outline.', 'Principal (48 px, etiqueta más grande y más oscura) y de grupo (40 px). Actual: fondo seleccionado y contorno fino.'],
+  'heading-xs. Recolhida, a sidebar troca o título por um fio curto.': ['heading-xs. When collapsed, the sidebar swaps the title for a short line.', 'heading-xs. Contraída, la sidebar cambia el título por una línea corta.'],
+  'No desktop, a sidebar recolhe para 76 px. Os ícones ficam na mesma coluna nos dois estados, por isso nada pula na animação.': ['On desktop, the sidebar collapses to 76 px. The icons stay in the same column in both states, so nothing jumps during the animation.', 'En escritorio, la sidebar se contrae a 76 px. Los íconos quedan en la misma columna en los dos estados, por eso nada salta en la animación.'],
+  'Só os ícones, na mesma coluna da aberta. A chama fica no lugar do botão e vira o ícone de expandir com o mouse ou o foco.': ['Just the icons, in the same column as when open. The flame takes the button’s place and turns into the expand icon with the pointer or focus.', 'Solo los íconos, en la misma columna que abierta. La llama ocupa el lugar del botón y se vuelve el ícono de expandir con el puntero o el foco.'],
+  '288 px. A aba aparece com o mouse sobre a sidebar ou com o foco.': ['288 px. The tab shows with the pointer over the sidebar or with focus.', '288 px. La pestaña aparece con el puntero sobre la sidebar o con el foco.'],
+  'Links diretos e botões de grupo, de 36 px. O grupo abre um menu com as páginas, e a seta gira.': ['Direct links and group buttons, 36 px. A group opens a menu with its pages, and the chevron turns.', 'Enlaces directos y botones de grupo, de 36 px. El grupo abre un menú con las páginas, y la flecha gira.'],
+  'A alternativa à sidebar: o mesmo painel flutuante, deitado no topo. Links diretos, um menu por grupo e a busca; no celular, vira a mesma gaveta.': ['The alternative to the sidebar: the same floating panel, lying along the top. Direct links, a menu per group, and search; on phones, it becomes the same drawer.', 'La alternativa a la sidebar: el mismo panel flotante, acostado arriba. Enlaces directos, un menú por grupo y la búsqueda; en el móvil, se vuelve el mismo cajón.'],
+  'Link, botão de grupo, aberto, atual e com novidade.': ['Link, group button, open, current, and with news.', 'Enlace, botón de grupo, abierto, actual y con novedad.'],
+  'Medido na própria barra, não na janela: primeiro a busca vira só o ícone, depois os últimos itens vão para o Mais.': ['Measured on the bar itself, not the window: first the search becomes just the icon, then the last items move into More.', 'Medido en la propia barra, no en la ventana: primero la búsqueda queda solo con el ícono, después los últimos elementos pasan a Más.'],
+  'Tudo cabe: links, grupos e a busca inteira, com o atalho.': ['Everything fits: links, groups, and the full search, with the shortcut.', 'Todo cabe: enlaces, grupos y la búsqueda entera, con el atajo.'],
+  'A busca encolhe: fica só a lupa, do tamanho de um botão.': ['Search shrinks: only the magnifier stays, the size of a button.', 'La búsqueda se encoge: queda solo la lupa, del tamaño de un botón.'],
+  'Os últimos vão para o Mais, um por vez, até caber.': ['The last ones move into More, one at a time, until it fits.', 'Los últimos pasan a Más, uno por vez, hasta que cabe.'],
+});
