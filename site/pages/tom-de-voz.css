@@ -1,0 +1,217 @@
+/* Página: Fundamentos › Tom de voz (prefixo vt-). Regras, anatomia e mensagens vêm de padroes-comum.css (pt-). */
+
+/* ───────── Voz ───────── */
+
+.vt-voice__not {
+  margin: var(--ds-space-050) 0 0;
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-caption);
+}
+
+/* ───────── Tons ───────── */
+
+.vt-tones {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-250);
+  padding: var(--ds-space-300);
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-xl);
+  background: var(--ds-color-bg-app);
+}
+
+.vt-tones__switch {
+  --ds-scrollbar: none;
+  align-self: flex-start;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.vt-tones__body {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 2fr);
+  gap: var(--ds-space-300);
+  align-items: start;
+}
+
+.vt-tone {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-100);
+}
+
+.vt-tone__name {
+  margin: 0;
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-heading-md);
+  letter-spacing: var(--ds-text-heading-md-tracking);
+}
+
+.vt-tone__desc {
+  margin: 0;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-md);
+}
+
+.vt-tone__apps {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: var(--ds-space-100) 0 0;
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-label-sm);
+}
+
+.vt-tone__apps span {
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-caption);
+}
+
+.vt-tone__traits {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-075);
+  margin: var(--ds-space-150) 0 0;
+  padding: var(--ds-space-150) 0 0;
+  border-top: 1px solid var(--ds-color-border-subtle);
+  list-style: none;
+}
+
+.vt-tone__traits li {
+  display: flex;
+  gap: var(--ds-space-100);
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-body-sm);
+}
+
+.vt-tone__traits .ds-icon {
+  flex: none;
+  margin-top: 2px;
+  color: var(--ds-color-fg-muted);
+}
+
+/* As cinco situações: componentes de verdade, parados no lugar */
+.vt-specs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--ds-space-200);
+}
+
+.vt-spec {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-100);
+  min-width: 0;
+}
+
+.vt-spec--wide {
+  grid-column: 1 / -1;
+}
+
+.vt-spec__label {
+  margin: 0;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-caption);
+}
+
+.ds-toast.vt-toast {
+  max-width: none;
+  opacity: 1;
+  transform: none;
+  pointer-events: none;
+}
+
+.ds-modal.vt-modal {
+  width: 100%;
+  max-height: none;
+  box-shadow: var(--ds-shadow-md);
+}
+
+.vt-spec .ds-empty {
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-xl);
+  background: var(--ds-color-bg-surface);
+}
+
+.vt-spec button {
+  pointer-events: none;
+}
+
+.vt-wait {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-150);
+  min-height: var(--ds-size-control-lg);
+  padding: 0 var(--ds-space-200);
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-xl);
+  background: var(--ds-color-bg-surface);
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+/* ───────── Tabelas ───────── */
+
+.vt-situations {
+  --doc-table-cols: minmax(100px, 0.5fr) minmax(0, 1.2fr) minmax(0, 1.2fr);
+}
+
+.vt-langs {
+  --doc-table-cols: minmax(110px, 0.6fr) repeat(3, minmax(0, 1fr));
+}
+
+.vt-langs .doc-table__row > span:not(:first-child) {
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+/* ───────── No seu app ───────── */
+
+.vt-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--ds-space-300);
+  margin: 0 0 var(--ds-space-250);
+  padding: 0;
+  list-style: none;
+}
+
+.vt-steps li {
+  display: flex;
+  gap: var(--ds-space-150);
+}
+
+#vt-app .cd-code + div {
+  margin-top: var(--ds-space-150);
+}
+
+/* ───────── Telas menores ───────── */
+
+@media (max-width: 1199.98px) {
+  .vt-tones__body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .vt-tones {
+    padding: var(--ds-space-200);
+  }
+
+  .vt-specs,
+  .vt-steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .vt-situations .doc-table__head,
+  .vt-langs .doc-table__head {
+    display: none;
+  }
+
+  .vt-situations .doc-table__row,
+  .vt-langs .doc-table__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--ds-space-050);
+  }
+}

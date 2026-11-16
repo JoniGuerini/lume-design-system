@@ -12,7 +12,7 @@ In numbers: forms: 2 · sizes: 3 · half star: when showing · ARIA role: radiog
 <div class="ds-rating" aria-label="How would you rate this page?"></div>
 
 <script type="module">
-  import { createRating } from 'https://lumeui.dev/v/1.8/lume.js';
+  import { createRating } from 'https://lumeui.dev/v/1.9/lume.js';
   createRating(document.querySelector('.ds-rating'), { name: 'score', value: 4 });
 </script>
 ```
@@ -42,7 +42,7 @@ To give a score, an empty element; JavaScript adds the stars. To show one, the m
 <span data-media></span>
 
 <script type="module">
-  import { createRating, ratingHtml } from 'https://lumeui.dev/v/1.8/lume.js';
+  import { createRating, ratingHtml } from 'https://lumeui.dev/v/1.9/lume.js';
 
   createRating(document.querySelector('.ds-rating'), {
     name: 'score',

@@ -135,7 +135,7 @@ Esqueleto y spinner son CSS (`ds-skeleton`, `ds-spinner`); los tiempos y el erro
 ```
 
 ```html
-import { toast } from 'https://lumeui.dev/v/1.8/lume.js';
+import { toast } from 'https://lumeui.dev/v/1.9/lume.js';
 
 // esqueleto solo después de 1 s; aviso de demora después de 3 s
 const esqueleto = setTimeout(() => mostrarEsqueleto(), 1000);

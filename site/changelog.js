@@ -8,10 +8,29 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '1.8.0';
+export const CURRENT_VERSION = '1.9.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '1.9.0',
+    date: '2026-11-16',
+    title: T('Tom de voz', 'Voice and tone', 'Voz y tono'),
+    summary: T(
+      'Um fundamento novo sobre escrita: a voz do Lume, quatro tons prontos com as mesmas situações escritas em cada um, regras e como padronizar os textos do seu app.',
+      'A new foundation about writing: Lume’s voice, four ready-made tones with the same situations written in each, rules, and how to standardize your app’s copy.',
+      'Un fundamento nuevo sobre la escritura: la voz de Lume, cuatro tonos listos con las mismas situaciones escritas en cada uno, reglas y cómo estandarizar los textos de tu app.',
+    ),
+    groups: [
+      {
+        name: T('Fundamentos', 'Foundations', 'Fundamentos'),
+        items: [
+          ['novo', T('Tom de voz: Neutro, Acolhedor, Profissional e Leve lado a lado em sucesso, erro, vazio, exclusão e espera, com componentes de verdade', 'Voice and tone: Neutral, Warm, Professional, and Playful side by side in success, error, empty, deletion, and waiting, with real components', 'Voz y tono: Neutro, Cercano, Profesional y Desenfadado lado a lado en éxito, error, vacío, eliminación y espera, con componentes reales'), '/fundamentos/tom-de-voz'],
+          ['novo', T('O que muda de idioma para idioma, um arquivo de mensagens por tom e um guia pronto para pedir textos a uma IA', 'What changes from language to language, one messages file per tone, and a ready-made guide for asking an AI for copy', 'Lo que cambia de un idioma a otro, un archivo de mensajes por tono y una guía lista para pedirle textos a una IA'), '/fundamentos/tom-de-voz'],
+        ],
+      },
+    ],
+  },
   {
     version: '1.8.0',
     date: '2026-11-15',

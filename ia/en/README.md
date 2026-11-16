@@ -15,18 +15,18 @@ Lume is a design system in native HTML, CSS, and JavaScript, with no dependencie
 
 ## Installation
 
-Lume is published with a fixed version at `https://lumeui.dev/v/1.8/` and can be loaded straight from another site. MIT license.
+Lume is published with a fixed version at `https://lumeui.dev/v/1.9/` and can be loaded straight from another site. MIT license.
 
 ```html
 <html lang="en" data-theme="light">
   <head>
-    <link rel="stylesheet" href="https://lumeui.dev/v/1.8/lume.css">
+    <link rel="stylesheet" href="https://lumeui.dev/v/1.9/lume.css">
   </head>
   <body>
     <button type="button" class="ds-btn ds-btn--primary">Save</button>
 
     <script type="module">
-      import { initTooltips } from 'https://lumeui.dev/v/1.8/lume.js';
+      import { initTooltips } from 'https://lumeui.dev/v/1.9/lume.js';
       initTooltips();
     </script>
   </body>
@@ -34,16 +34,16 @@ Lume is published with a fixed version at `https://lumeui.dev/v/1.8/` and can be
 ```
 
 - **One CSS file:** `lume.css` brings the fonts, the tokens, the base, and every component.
-- **One JavaScript file, if you prefer:** `lume.js` gathers the whole public API (`import { createModal, toast } from 'https://lumeui.dev/v/1.8/lume.js'`). The list and the naming convention are in `https://lumeui.dev/ia/en/recursos/api.md`. Anything not in it is internal: don't use it.
+- **One JavaScript file, if you prefer:** `lume.js` gathers the whole public API (`import { createModal, toast } from 'https://lumeui.dev/v/1.9/lume.js'`). The list and the naming convention are in `https://lumeui.dev/ia/en/recursos/api.md`. Anything not in it is internal: don't use it.
 - **Theme:** `data-theme="light"` or `data-theme="dark"` on `<html>`. To follow the system, call `initTheme()` from `https://lumeui.dev/ds/js/theme.js`.
 - **JavaScript only where needed:** visual components work with CSS alone. Interactive ones have a module in `https://lumeui.dev/ds/js/`. Import only the ones the screen uses; each component file shows which.
 - **Icons:** import `https://lumeui.dev/ds/icons/icons.js` once so `<ds-icon>` works.
 - **Language:** the components' system texts follow the browser language (Portuguese, English, or Spanish; anything else becomes English). To fix one, call `setLocale('en')` from `https://lumeui.dev/ds/js/i18n.js`.
-- **Version:** use the versioned address (`/v/1.8/`). The current version and the list are at `https://lumeui.dev/v/index.json`. `https://lumeui.dev/ds/` always serves the newest, and every version has a zip for those who prefer the files in the project (`https://lumeui.dev/v/1.8/lume-1.8.zip`).
+- **Version:** use the versioned address (`/v/1.9/`). The current version and the list are at `https://lumeui.dev/v/index.json`. `https://lumeui.dev/ds/` always serves the newest, and every version has a zip for those who prefer the files in the project (`https://lumeui.dev/v/1.9/lume-1.9.zip`).
 
 ## React
 
-In React projects, use the components in `lume/react/`, which ship in each version’s zip (`https://lumeui.dev/v/1.8/lume-1.8.zip`). The whole folder from the zip goes into `src/lume/`; the app imports `./lume/lume.css` once and the components from `./lume/react`.
+In React projects, use the components in `lume/react/`, which ship in each version’s zip (`https://lumeui.dev/v/1.9/lume-1.9.zip`). The whole folder from the zip goes into `src/lume/`; the app imports `./lume/lume.css` once and the components from `./lume/react`.
 
 ```tsx
 import './lume/lume.css';
@@ -83,7 +83,7 @@ Lume follows WCAG 2.2, level AA, in both themes. Components already come with ke
 ## Where everything is
 
 - **Components:** one file per component in `https://lumeui.dev/ia/en/componentes/`. Each has a code example, variants with their classes, states, anatomy, accessibility, tokens, and usage rules.
-- **Foundations:** color, typography, icons, spacing, radius, elevation, motion, and layout, in `https://lumeui.dev/ia/en/fundamentos/`.
+- **Foundations:** color, typography, icons, spacing, radius, elevation, motion, layout, and voice and tone, in `https://lumeui.dev/ia/en/fundamentos/`.
 - **Charts:** in `https://lumeui.dev/ia/en/graficos/`.
 - **Screen patterns:** app shell, forms, login, search, empty states, and chat, in `https://lumeui.dev/ia/en/padroes/`. Start with them when building a whole screen.
 - **Getting started:** `https://lumeui.dev/ia/en/primeiros-passos.md`.

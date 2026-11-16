@@ -20,7 +20,7 @@ In numbers: modes: 2 · base: range · thumb: 18 px · dependencies: 0.
 </div>
 
 <script type="module">
-  import { createSlider } from 'https://lumeui.dev/v/1.8/lume.js';
+  import { createSlider } from 'https://lumeui.dev/v/1.9/lume.js';
   createSlider(document.querySelector('.ds-slider'), {
     format: (value) => `${value}%`,
   });
@@ -123,7 +123,7 @@ Markup of the examples in this section:
 `onInput` follows the drag; `onChange` fires when the person lets go.
 
 ```html
-import { createSlider } from 'https://lumeui.dev/v/1.8/lume.js';
+import { createSlider } from 'https://lumeui.dev/v/1.9/lume.js';
 
 const volume = createSlider(document.querySelector('.ds-slider'), {
   format: (value) => `${value}%`,

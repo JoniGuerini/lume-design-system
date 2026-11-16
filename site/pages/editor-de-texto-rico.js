@@ -75,7 +75,7 @@ export default function renderEditor(page) {
 </form>
 
 <script type="module">
-  import { createEditor } from 'https://lumeui.dev/v/1.8/lume.js';
+  import { createEditor } from 'https://lumeui.dev/v/1.9/lume.js';
 
   const editor = createEditor(document.querySelector('.ds-editor'), {
     tools: ['history', 'marks', 'blocks', 'align', 'link'],
@@ -152,7 +152,7 @@ export function mount(root) {
 </div>
 
 <script type="module">
-  import { createEditor } from 'https://lumeui.dev/v/1.8/lume.js';
+  import { createEditor } from 'https://lumeui.dev/v/1.9/lume.js';
   const editor = createEditor(document.querySelector('.ds-editor'), {${s.tools === 'all' ? '' : `\n    tools: ['marks', 'link'],`}
     placeholder: '${placeholder()}',
   });${s.state === 'off' ? '\n  editor.setDisabled(true);' : ''}
