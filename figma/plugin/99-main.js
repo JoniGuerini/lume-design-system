@@ -7,8 +7,26 @@
 var ROWS = {
   Fundamentos: ['Fundamentos'],
   'Ícones': ['Ícones'],
+  // 'Gráficos' fica aqui para o plano gratuito, em que não há página própria
   Componentes: ['Ações', 'Formulário', 'Navegação', 'Camadas', 'Feedback', 'Dados e conteúdo', 'Gráficos', 'Padrões'],
+  'Gráficos': ['Gráficos', 'Indicadores'],
 };
+
+/**
+ * Blocos com `charts` (gráficos e indicadores) vão para a página Gráficos quando ela existe (plano pago);
+ * sem ela, ficam em Componentes, na linha de origem. O quadro de cada bloco é reaproveitado, então mudar de
+ * página não troca o id (os links “Ver no Figma” do site continuam valendo).
+ */
+function placeBlocks() {
+  var own = !!LUME.pages['Gráficos'];
+  BLOCKS.forEach(function (d) {
+    if (!d.charts) return;
+    if (!d.home) d.home = { page: d.page, row: d.row, order: d.order };
+    d.page = own ? 'Gráficos' : d.home.page;
+    d.row = own ? d.charts.row : d.home.row;
+    d.order = own ? d.charts.order : d.home.order;
+  });
+}
 
 var GAP_X = 96;
 var GAP_Y = 200;
@@ -160,7 +178,7 @@ function restack(page, pageId) {
 
 /** Arruma blocos e títulos: uma linha por categoria, blocos alinhados pelo topo. */
 async function arrange(page, pageId, built) {
-  if (pageId === 'Componentes') await cover(page, pageId);
+  if (pageId === 'Componentes' || pageId === 'Gráficos') await cover(page, pageId);
   // bloco de uma versão antiga que não existe mais (saiu ou mudou de id) ficaria parado por cima dos novos
   var ids = {};
   BLOCKS.forEach(function (d) { if (d.page === pageId) ids['block/' + d.id] = true; });
@@ -196,12 +214,19 @@ async function main(options) {
 
   // a página de ícones vem primeiro: os outros componentes usam os ícones
   for (var k of MAIN_PAGES) await ensurePage(k);
+  // Gráficos acompanha Componentes; vem antes dela, para os blocos saírem de lá antes da arrumação
+  if (wanted.indexOf('Componentes') >= 0) {
+    await optionalPage('Gráficos');
+    wanted = wanted.concat('Gráficos');
+  }
+  placeBlocks();
 
-  var order = ['Ícones', 'Fundamentos', 'Componentes'];
+  var order = ['Ícones', 'Fundamentos', 'Gráficos', 'Componentes'];
   var arranged = [];
   for (var pageId of order) {
     if (wanted.indexOf(pageId) < 0 && pageId !== 'Ícones') continue;
     var page = LUME.pages[pageId];
+    if (!page) continue;
     await figma.setCurrentPageAsync(page);
     pageBackground(page);
     if (pageId === 'Ícones' && wanted.indexOf('Ícones') < 0) {
@@ -243,7 +268,7 @@ async function main(options) {
   LUME.block = 'introdução';
   var intro = await introduction();
   // termina na Introdução (página própria ou topo de Fundamentos): é o começo do arquivo
-  var first = intro ? intro.parent : LUME.pages[wanted[wanted.length - 1]] || LUME.pages.Componentes;
+  var first = intro ? intro.parent : LUME.pages.Componentes;
   await figma.setCurrentPageAsync(first);
   if (intro && figma.viewport) figma.viewport.scrollAndZoomIntoView([intro]);
   var r = LUME.report;

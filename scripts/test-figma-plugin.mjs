@@ -139,15 +139,21 @@ try {
   if (stages(free, 'Claro') !== stages(free, 'Escuro')) problems.push(`plano pago: prévias Claro ${stages(free, 'Claro')}, Escuro ${stages(free, 'Escuro')}`);
   if (f2.dupes?.length) problems.push(`plano pago: chaves repetidas: ${f2.dupes.slice(0, 5).join(', ')}`);
   if (moved.length) problems.push(`plano pago: componentes que mudaram de id: ${moved.slice(0, 5).join(', ')}`);
+  // no plano pago, os gráficos ganham página própria: o quadro de cada bloco muda de página com o mesmo id
+  const chartIds = ['grafico-barras', 'grafico-linhas', 'grafico-rosca', 'grafico-heatmap', 'grafico-dispersao', 'indicadores'];
+  const chartsPage = free.root.children.find((p) => p.getPluginData('orbita-page') === 'Gráficos');
+  const notMoved = chartIds.filter((id) => { const n = free._all.get(f2.keys['block/' + id]); return f2.keys['block/' + id] !== f1.keys['block/' + id] || !chartsPage || !chartsPage.children.includes(n); });
+  if (notMoved.length) problems.push(`plano pago: gráficos que não foram para a página Gráficos com o mesmo id: ${notMoved.join(', ')}`);
+  if (f1.pages.some((p) => p.includes('Gráficos'))) problems.push('plano gratuito: não devia haver página Gráficos');
   for (const t of ['COMPONENT', 'COMPONENT_SET']) if (f1.byType[t] !== f2.byType[t]) problems.push(`plano pago: ${t}: ${f1.byType[t]} → ${f2.byType[t]}`);
 
   // idiomas: o mesmo arquivo em inglês, em espanhol e de volta ao português. Tudo é renomeado no lugar —
   // páginas, coleções, modos, sombras, componentes e propriedades — sem duplicar nem trocar ids, e nenhum
   // texto fica sem tradução (o que não está em figma/plugin/02-dicionario.js aparece em missing.json).
   const LANG_NAMES = {
-    en: { pages: 'Lume · Introduction · Lume · Foundations · Lume · Icons · Lume · Components', sem: 'Semantic', modes: 'Dark · Light', icon: 'Icon', stage: 'Light mode' },
-    es: { pages: 'Lume · Introducción · Lume · Fundamentos · Lume · Íconos · Lume · Componentes', sem: 'Semánticos', modes: 'Oscuro · Claro', icon: 'Ícono', stage: 'Modo Claro' },
-    'pt-BR': { pages: 'Lume · Introdução · Lume · Fundamentos · Lume · Ícones · Lume · Componentes', sem: 'Semânticos', modes: 'Escuro · Claro', icon: 'Ícone', stage: 'Modo Claro' },
+    en: { pages: 'Lume · Introduction · Lume · Foundations · Lume · Icons · Lume · Components · Lume · Charts', sem: 'Semantic', modes: 'Dark · Light', icon: 'Icon', stage: 'Light mode' },
+    es: { pages: 'Lume · Introducción · Lume · Fundamentos · Lume · Íconos · Lume · Componentes · Lume · Gráficos', sem: 'Semánticos', modes: 'Oscuro · Claro', icon: 'Ícono', stage: 'Modo Claro' },
+    'pt-BR': { pages: 'Lume · Introdução · Lume · Fundamentos · Lume · Ícones · Lume · Componentes · Lume · Gráficos', sem: 'Semânticos', modes: 'Escuro · Claro', icon: 'Ícone', stage: 'Modo Claro' },
   };
   const missing = {};
   const langRuns = [];

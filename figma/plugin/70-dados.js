@@ -695,6 +695,7 @@
     page: 'Componentes',
     row: 'Dados e conteúdo',
     order: 4,
+    charts: { row: 'Indicadores', order: 1 },
     group: 'Dados e conteúdo',
     title: 'Indicador e medidor',
     description: 'Quando o gráfico é um número: valor grande em algarismos proporcionais, variação com sinal, ícone e texto, e o medidor para uma razão contra um limite.',

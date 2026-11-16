@@ -41,11 +41,16 @@ function introCounts() {
     var p = LUME.pages[id];
     return p ? p.children.filter(function (n) { return (n.getPluginData(KEY) || '').indexOf('block/') === 0; }).length : 0;
   };
-  var comp = LUME.pages.Componentes;
-  var sets = comp ? comp.findAll(function (n) { return n.type === 'COMPONENT_SET'; }) : [];
+  var sets = [];
+  ['Componentes', 'Gráficos'].forEach(function (id) {
+    var p = LUME.pages[id];
+    if (p) sets = sets.concat(p.findAll(function (n) { return n.type === 'COMPONENT_SET'; }));
+  });
   return {
     fundamentos: blocks('Fundamentos'),
     componentes: blocks('Componentes'),
+    graficos: blocks('Gráficos'),
+    charts: !!LUME.pages['Gráficos'],
     sets: sets.length,
     variants: sets.reduce(function (a, s) { return a + s.children.length; }, 0),
     icons: META.iconCount || ICONS.length,
@@ -113,7 +118,7 @@ async function introduction() {
   ), { style: 'body-lg', color: 'color/refugio/200', w: 820, raw: true, name: 'Resumo' }));
   var facts = box('Fatos', { dir: 'H', gap: 48, pad: [16, 0, 0, 0] });
   var stats = [
-    [String(n.fundamentos + n.componentes), L3('blocos', 'blocks', 'bloques')],
+    [String(n.fundamentos + n.componentes + n.graficos), L3('blocos', 'blocks', 'bloques')],
     [String(n.sets), L3('conjuntos de variantes', 'variant sets', 'conjuntos de variantes')],
     [String(n.variants), L3('variantes', 'variants', 'variantes')],
     [String(n.icons), L3('ícones', 'icons', 'íconos')],
@@ -135,7 +140,9 @@ async function introduction() {
   add(body, await introSection(
     L3('O que tem neste arquivo', 'What’s in this file', 'Qué hay en este archivo'),
     own
-      ? L3('Além desta, três páginas, para ler na ordem: das decisões de base aos componentes prontos. Em cada uma, uma linha por categoria, com os blocos lado a lado.', 'Besides this one, three pages, meant to be read in order: from the base decisions to the finished components. On each, one row per category, with the blocks side by side.', 'Además de esta, tres páginas, para leer en orden: de las decisiones de base a los componentes listos. En cada una, una fila por categoría, con los bloques lado a lado.')
+      ? (n.charts
+        ? L3('Além desta, quatro páginas, para ler na ordem: das decisões de base aos componentes prontos e aos gráficos. Em cada uma, uma linha por categoria, com os blocos lado a lado.', 'Besides this one, four pages, meant to be read in order: from the base decisions to the finished components and the charts. On each, one row per category, with the blocks side by side.', 'Además de esta, cuatro páginas, para leer en orden: de las decisiones de base a los componentes listos y los gráficos. En cada una, una fila por categoría, con los bloques lado a lado.')
+        : L3('Além desta, três páginas, para ler na ordem: das decisões de base aos componentes prontos. Em cada uma, uma linha por categoria, com os blocos lado a lado.', 'Besides this one, three pages, meant to be read in order: from the base decisions to the finished components. On each, one row per category, with the blocks side by side.', 'Además de esta, tres páginas, para leer en orden: de las decisiones de base a los componentes listos. En cada una, una fila por categoría, con los bloques lado a lado.'))
       : L3('Três páginas, para ler na ordem: das decisões de base aos componentes prontos. Esta introdução fica no topo de Fundamentos.', 'Three pages, meant to be read in order: from the base decisions to the finished components. This introduction sits at the top of Foundations.', 'Tres páginas, para leer en orden: de las decisiones de base a los componentes listos. Esta introducción queda arriba de Fundamentos.'),
     [
       {
@@ -155,7 +162,11 @@ async function introduction() {
           : L3('Das ações aos padrões de tela, um bloco por componente, com todas as variantes e estados.', 'From actions to screen patterns, one block per component, with every variant and state.', 'De las acciones a los patrones de pantalla, un bloque por componente, con todas las variantes y estados.'),
         foot: n.componentes + L3(' blocos · ', ' blocks · ', ' bloques · ') + n.variants + L3(' variantes', ' variants', ' variantes'),
       },
-    ], 3, inner));
+    ].concat(n.charts ? [{
+        name: 'Gráficos', kicker: '04', title: L('Lume · Gráficos'),
+        body: L3('Barras, linhas, rosca, heatmap e dispersão, com a paleta testada para daltonismo, e os indicadores para quando o gráfico é um número.', 'Bar, line, donut, heatmap, and scatter, with the palette tested for color blindness, and the stat tiles for when the chart is a number.', 'Barras, líneas, dona, heatmap y dispersión, con la paleta probada para daltonismo, y los indicadores para cuando el gráfico es un número.'),
+        foot: n.graficos + L3(' blocos', ' blocks', ' bloques'),
+      }] : []), n.charts ? 4 : 3, inner));
 
   add(body, await introSection(
     L3('Princípios', 'Principles', 'Principios'),

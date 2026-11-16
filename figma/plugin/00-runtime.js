@@ -418,7 +418,7 @@ function exposes(node, field, propName) {
  * Páginas do Lume: id ('Componentes') → nome em português ('Lume · Componentes'), traduzido por L().
  * A página guarda o id (pluginData orbita-page); as de versões antigas são achadas pelo nome, em qualquer idioma.
  */
-var PAGES = { 'Introdução': 'Lume · Introdução', Fundamentos: 'Lume · Fundamentos', 'Ícones': 'Lume · Ícones', Componentes: 'Lume · Componentes' };
+var PAGES = { 'Introdução': 'Lume · Introdução', Fundamentos: 'Lume · Fundamentos', 'Ícones': 'Lume · Ícones', Componentes: 'Lume · Componentes', 'Gráficos': 'Lume · Gráficos' };
 
 /** As 3 páginas que todo arquivo tem; a Introdução só ganha página própria quando o plano permite (98-introducao.js). */
 var MAIN_PAGES = ['Fundamentos', 'Ícones', 'Componentes'];
@@ -477,6 +477,27 @@ async function ensurePage(id) {
   // a página vazia do arquivo novo vira uma do Lume: o plano gratuito aceita 3 páginas, e o Lume usa 3
   if (!page) page = await blankDefaultPage();
   if (!page) page = addPage();
+  page.name = L(PAGES[id]);
+  page.setPluginData(PAGE, id);
+  await page.loadAsync();
+  LUME.pages[id] = page;
+  return page;
+}
+
+/**
+ * Página extra, só quando o plano deixa (hoje, Gráficos): null no plano gratuito, que aceita 3 páginas.
+ * Sem ela, os blocos dessa página voltam para a de origem (ver placeBlocks em 99-main.js).
+ */
+async function optionalPage(id) {
+  var page = LUME.pages[id];
+  if (!page) {
+    try {
+      page = figma.createPage();
+    } catch (err) {
+      if (/Starter plan|d+ pages/.test(String(err && err.message))) return null;
+      throw err;
+    }
+  }
   page.name = L(PAGES[id]);
   page.setPluginData(PAGE, id);
   await page.loadAsync();
