@@ -93,30 +93,58 @@ async function cover(page, id) {
   return c;
 }
 
-/** Arruma blocos e títulos: uma linha por categoria, blocos alinhados pelo topo. */
-async function arrange(page, pageId, built) {
+/**
+ * Altura que o bloco ocupa de fato. Com conteúdo vazando pela borda (o Figma não corta quando clipsContent é falso),
+ * vale o que se vê, não a moldura: é o que evita um bloco invadir o de baixo.
+ */
+function occupiedHeight(n) {
+  var h = n.height;
+  try {
+    var rb = n.absoluteRenderBounds;
+    var t = n.absoluteTransform;
+    if (rb && t) h = Math.max(h, rb.y + rb.height - t[1][2]);
+  } catch (e) { /* sem medida visual: fica a altura */ }
+  return Math.ceil(h);
+}
+
+/** Blocos desta página por linha, na ordem: lidos da própria página, não só do que esta execução gerou. */
+function pageBlocks(page, row) {
+  return page.children
+    .filter(function (n) { return (n.getPluginData(KEY) || '').indexOf('block/') === 0 && n.getPluginData('orbita-row') === row; })
+    .sort(function (a, b) { return Number(a.getPluginData('orbita-order') || 0) - Number(b.getPluginData('orbita-order') || 0); });
+}
+
+/**
+ * Empilha capa, títulos e blocos pela altura que cada um tem agora. Só move: roda de novo no fim da execução,
+ * depois que o Figma termina de recalcular o auto layout, e corrige o que cresceu no caminho.
+ */
+function restack(page, pageId) {
   var y = 0;
-  if (pageId === 'Componentes') {
-    var cv = await cover(page, pageId);
+  var cv = live('cover/' + pageId);
+  if (cv && cv.parent === page) {
     cv.x = 0;
     cv.y = 0;
-    y = cv.height + GAP_Y;
+    y = occupiedHeight(cv) + GAP_Y;
   }
   for (var row of ROWS[pageId]) {
-    var blocks = built.filter(function (b) { return b.def.row === row; });
-    if (!blocks.length) continue;
-    var title = await rowTitle(page, 'row/' + pageId + '/' + row, row, blocks.length);
-    title.x = 0;
-    title.y = y;
-    y += title.height + 48;
+    var blocks = pageBlocks(page, row);
+    var title = live('row/' + pageId + '/' + row);
+    if (!blocks.length) {
+      if (title) title.remove();
+      continue;
+    }
+    if (title) {
+      title.x = 0;
+      title.y = y;
+      y += occupiedHeight(title) + 48;
+    }
     var x = 0;
     var tallest = 0;
-    blocks.sort(function (a, b) { return (a.def.order || 0) - (b.def.order || 0); });
     blocks.forEach(function (b) {
-      b.node.x = x;
-      b.node.y = y;
-      x += b.node.width + GAP_X;
-      tallest = Math.max(tallest, b.node.height);
+      b.x = x;
+      b.y = y;
+      x += b.width + GAP_X;
+      tallest = Math.max(tallest, occupiedHeight(b));
     });
     y += tallest + GAP_Y;
   }
@@ -125,9 +153,31 @@ async function arrange(page, pageId, built) {
     if ((n.type === 'COMPONENT' || n.type === 'COMPONENT_SET') && n.getPluginData(KEY) && n.getPluginData(KEY).indexOf('icon/') !== 0) {
       n.x = 0;
       n.y = y;
-      y += n.height + 48;
+      y += occupiedHeight(n) + 48;
     }
   });
+}
+
+/** Arruma blocos e títulos: uma linha por categoria, blocos alinhados pelo topo. */
+async function arrange(page, pageId, built) {
+  if (pageId === 'Componentes') await cover(page, pageId);
+  // bloco de uma versão antiga que não existe mais (saiu ou mudou de id) ficaria parado por cima dos novos
+  var ids = {};
+  BLOCKS.forEach(function (d) { if (d.page === pageId) ids['block/' + d.id] = true; });
+  page.children.slice().forEach(function (n) {
+    var k = n.getPluginData(KEY) || '';
+    if (k.indexOf('block/') === 0 && !ids[k]) {
+      // os componentes de dentro sobrevivem (instâncias em outros blocos continuam ligadas) e vão para baixo
+      n.findAll(function (c) { return (c.type === 'COMPONENT_SET' || c.type === 'COMPONENT') && !!c.getPluginData(KEY) && c.parent && c.parent.type !== 'COMPONENT_SET'; })
+        .forEach(function (c) { page.appendChild(c); });
+      n.remove();
+    }
+  });
+  for (var row of ROWS[pageId]) {
+    var count = pageBlocks(page, row).length;
+    if (count) await rowTitle(page, 'row/' + pageId + '/' + row, row, count);
+  }
+  restack(page, pageId);
 }
 
 async function main(options) {
@@ -148,6 +198,7 @@ async function main(options) {
   for (var k of MAIN_PAGES) await ensurePage(k);
 
   var order = ['Ícones', 'Fundamentos', 'Componentes'];
+  var arranged = [];
   for (var pageId of order) {
     if (wanted.indexOf(pageId) < 0 && pageId !== 'Ícones') continue;
     var page = LUME.pages[pageId];
@@ -175,6 +226,7 @@ async function main(options) {
     }
     LUME.block = 'arrumação';
     await arrange(page, pageId, built);
+    arranged.push(pageId);
   }
 
   // ícones que esta execução não tocou (geração em partes) também vão para o idioma ativo
@@ -182,6 +234,10 @@ async function main(options) {
     var ic = live('icon/' + i.name, 'COMPONENT');
     if (ic && ic.getPluginData('orbita-lang') !== LANG) nameIcon(ic, i);
   });
+
+  // segunda passada: o Figma pode terminar de recalcular o auto layout (instâncias, textos) depois da primeira
+  await new Promise(function (r) { setTimeout(r, 0); });
+  arranged.forEach(function (pid) { restack(LUME.pages[pid], pid); });
 
   say(L3('Introdução…', 'Introduction…', 'Introducción…'));
   LUME.block = 'introdução';

@@ -53,11 +53,28 @@ let second;
 try {
   first = await run('1ª execução');
   const c1 = census();
+  // bloco de uma versão antiga (saiu do plugin ou mudou de id): a execução seguinte tem de tirá-lo do caminho
+  const compPage = figma.root.children.find((p) => p.getPluginData('orbita-page') === 'Componentes');
+  const stale = figma.createFrame();
+  stale.setPluginData('orbita-key', 'block/bloco-que-saiu');
+  stale.setPluginData('orbita-row', 'Ações');
+  stale.resize(800, 4000);
+  compPage.appendChild(stale);
   second = await run('2ª execução');
   const c2 = census();
 
   const lost = Object.keys(c1.keys).filter((k) => (k.startsWith('var/') || k.startsWith('cmp/') || k.startsWith('set/') || k.startsWith('icon/')) && c2.keys[k] !== c1.keys[k]);
   const problems = [];
+  if (!stale.removed) problems.push('bloco antigo que saiu do plugin continuou na página');
+  // nada se sobrepõe no nível da página depois de rodar de novo (blocos, títulos, capa)
+  for (const page of figma.root.children) {
+    const ns = page.children;
+    for (let i = 0; i < ns.length; i++) for (let j = i + 1; j < ns.length; j++) {
+      const a = ns[i];
+      const b = ns[j];
+      if (a.x < b.x + b.width && b.x < a.x + a.width && a.y < b.y + b.height && b.y < a.y + a.height) problems.push(`sobreposição em ${page.name}: “${a.name}” × “${b.name}”`);
+    }
+  }
   if (c2.dupes?.length) problems.push(`chaves repetidas: ${c2.dupes.slice(0, 5).join(', ')}`);
   if (lost.length) problems.push(`componentes que mudaram de id (instâncias quebrariam): ${lost.slice(0, 5).join(', ')}`);
   if (c2.pages.length !== c1.pages.length) problems.push('páginas duplicadas');
