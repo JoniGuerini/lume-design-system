@@ -1,5 +1,5 @@
 /**
- * Dicionário do plugin: blocos Sidebar e Navbar (52-sidebar-navbar.js). Veja 01-i18n.js.
+ * Dicionário do plugin: blocos Sidebar e Navbar (52-sidebar-navbar.js) e a área de componentes de apoio. Veja 01-i18n.js.
  */
 
 Object.assign(DICT, {
@@ -33,4 +33,8 @@ Object.assign(DICT, {
   'Tudo cabe: links, grupos e a busca inteira, com o atalho.': ['Everything fits: links, groups, and the full search, with the shortcut.', 'Todo cabe: enlaces, grupos y la búsqueda entera, con el atajo.'],
   'A busca encolhe: fica só a lupa, do tamanho de um botão.': ['Search shrinks: only the magnifier stays, the size of a button.', 'La búsqueda se encoge: queda solo la lupa, del tamaño de un botón.'],
   'Os últimos vão para o Mais, um por vez, até caber.': ['The last ones move into More, one at a time, until it fits.', 'Los últimos pasan a Más, uno por vez, hasta que cabe.'],
+  /* área de componentes de apoio (99-main.js) */
+  'Peças': ['Parts', 'Piezas'],
+  'Componentes de apoio': ['Supporting components', 'Componentes de apoyo'],
+  'Os componentes principais que os blocos acima usam como instância. Edite aqui e os blocos acompanham.': ['The main components the blocks above use as instances. Edit them here and the blocks follow.', 'Los componentes principales que los bloques de arriba usan como instancia. Edítalos aquí y los bloques los siguen.'],
 });

@@ -206,6 +206,7 @@ class ComponentNode extends ContainerNode {
     return false;
   }
   createInstance() { return this._figma._instanceOf(this); }
+  async getInstancesAsync() { return [...this._figma._all.values()].filter((n) => !n.removed && n.type === 'INSTANCE' && n.mainComponent === this); }
   get componentPropertyDefinitions() {
     if (this.parent?.type === 'COMPONENT_SET') fail('variantes não têm definições próprias: leia do conjunto');
     return structuredClone(this._defs);

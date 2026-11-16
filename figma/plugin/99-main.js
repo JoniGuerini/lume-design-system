@@ -166,25 +166,92 @@ function restack(page, pageId) {
     });
     y += tallest + GAP_Y;
   }
-  // o que sobrou fora da página (componentes soltos de execuções antigas) vai para baixo
-  page.children.forEach(function (n) {
-    if ((n.type === 'COMPONENT' || n.type === 'COMPONENT_SET') && n.getPluginData(KEY) && n.getPluginData(KEY).indexOf('icon/') !== 0) {
-      n.x = 0;
-      n.y = y;
-      y += occupiedHeight(n) + 48;
-    }
+  // componentes principais que os blocos só usam como instância ficam juntos, numa área com título, no fim
+  var parts = live('parts/' + pageId, 'FRAME');
+  if (parts && parts.parent === page) {
+    parts.x = 0;
+    parts.y = y;
+  }
+}
+
+function pageOf(n) {
+  for (var p = n; p; p = p.parent) if (p.type === 'PAGE') return p;
+  return null;
+}
+
+/** Componentes soltos na página: os principais que os blocos usam só como instância (Calendário, App shell…). */
+function looseComponents(page) {
+  return page.children.filter(function (n) {
+    var k = n.getPluginData(KEY) || '';
+    return (n.type === 'COMPONENT' || n.type === 'COMPONENT_SET') && k && k.indexOf('icon/') !== 0;
   });
+}
+
+/**
+ * Junta os componentes principais soltos numa área própria (“Componentes de apoio”), no modo Claro, em grade.
+ * Cópias velhas da mesma chave (de execuções antigas) que nada usa saem: eram as peças escuras perdidas no fim da página.
+ */
+async function tidyParts(page, pageId) {
+  var key = 'parts/' + pageId;
+  var parts = live(key, 'FRAME');
+  // os de dentro da área, achados pela chave (o nome da moldura muda com o idioma)
+  var inside = parts ? parts.findAll(function (n) { return (n.type === 'COMPONENT' || n.type === 'COMPONENT_SET') && !!n.getPluginData(KEY) && n.parent && n.parent.type !== 'COMPONENT_SET'; }) : [];
+  var loose = looseComponents(page).concat(inside);
+  var keep = [];
+  for (var n of loose) {
+    var k = n.getPluginData(KEY) || '';
+    var insts = typeof n.getInstancesAsync === 'function' && n.type === 'COMPONENT' ? await n.getInstancesAsync() : null;
+    if (!k || live(k) === n) {
+      // usado só em outra página (ex.: o componente de um gráfico): vai para as peças de lá
+      var where = insts && insts.length ? insts.map(pageOf).filter(function (p, i, a) { return p && a.indexOf(p) === i; }) : [];
+      if (where.length === 1 && where[0] !== page) where[0].appendChild(n);
+      else keep.push(n);
+      continue;
+    }
+    // cópia de uma chave que já tem dono: só sai se nenhuma instância depende dela
+    var used = insts ? insts.length : 1;
+    if (used) keep.push(n);
+    else n.remove();
+  }
+  if (!keep.length) {
+    if (parts) {
+      keep.forEach(function (n) { page.appendChild(n); });
+      parts.remove();
+    }
+    return;
+  }
+  // a moldura é refeita, mas os componentes passam para a nova antes: os ids deles não mudam
+  keep.forEach(function (n) { page.appendChild(n); });
+  if (parts) parts.remove();
+  parts = box('Lume · Componentes de apoio', { dir: 'V', gap: 32, pad: 48, w: BLOCK_W, fill: 'color/bg/app', radius: 36 });
+  parts.setPluginData(KEY, key);
+  LUME.registry[key] = parts;
+  setMode(parts, 'Claro');
+  var head = box('Cabeçalho', { dir: 'V', gap: 6 });
+  add(head, await text('Componentes de apoio', { style: 'heading-lg', color: 'color/fg/default' }));
+  add(head, await text('Os componentes principais que os blocos acima usam como instância. Edite aqui e os blocos acompanham.', { style: 'body-sm', color: 'color/fg/subtle', w: BLOCK_W - 96 }));
+  add(parts, head);
+  var grid = box('Peças', { dir: 'H', wrap: true, gap: 48, rowGap: 48, w: BLOCK_W - 96 });
+  add(parts, grid);
+  keep.sort(function (a, b) { return a.name.localeCompare(b.name); }).forEach(function (n) { add(grid, n); });
+  page.appendChild(parts);
 }
 
 /** Arruma blocos e títulos: uma linha por categoria, blocos alinhados pelo topo. */
 async function arrange(page, pageId, built) {
   if (pageId === 'Componentes' || pageId === 'Gráficos') await cover(page, pageId);
   // bloco de uma versão antiga que não existe mais (saiu ou mudou de id) ficaria parado por cima dos novos
-  var ids = {};
-  BLOCKS.forEach(function (d) { if (d.page === pageId) ids['block/' + d.id] = true; });
+  var home = {};
+  BLOCKS.forEach(function (d) { home['block/' + d.id] = d.page; });
   page.children.slice().forEach(function (n) {
     var k = n.getPluginData(KEY) || '';
-    if (k.indexOf('block/') === 0 && !ids[k]) {
+    if (k.indexOf('block/') !== 0 || home[k] === pageId) return;
+    // bloco que agora mora em outra página (os gráficos): muda inteiro, com o mesmo id, mesmo que a montagem dele tenha falhado
+    if (home[k] && LUME.pages[home[k]]) {
+      LUME.pages[home[k]].appendChild(n);
+      return;
+    }
+    if (!home[k]) {
       // os componentes de dentro sobrevivem (instâncias em outros blocos continuam ligadas) e vão para baixo
       n.findAll(function (c) { return (c.type === 'COMPONENT_SET' || c.type === 'COMPONENT') && !!c.getPluginData(KEY) && c.parent && c.parent.type !== 'COMPONENT_SET'; })
         .forEach(function (c) { page.appendChild(c); });
@@ -195,6 +262,7 @@ async function arrange(page, pageId, built) {
     var count = pageBlocks(page, row).length;
     if (count) await rowTitle(page, 'row/' + pageId + '/' + row, row, count);
   }
+  await tidyParts(page, pageId);
   restack(page, pageId);
 }
 
@@ -262,7 +330,11 @@ async function main(options) {
 
   // segunda passada: o Figma pode terminar de recalcular o auto layout (instâncias, textos) depois da primeira
   await new Promise(function (r) { setTimeout(r, 0); });
-  arranged.forEach(function (pid) { restack(LUME.pages[pid], pid); });
+  // as peças de novo: um componente pode ter mudado de página na arrumação de outra
+  for (var pid of arranged) {
+    await tidyParts(LUME.pages[pid], pid);
+    restack(LUME.pages[pid], pid);
+  }
 
   say(L3('Introdução…', 'Introduction…', 'Introducción…'));
   LUME.block = 'introdução';

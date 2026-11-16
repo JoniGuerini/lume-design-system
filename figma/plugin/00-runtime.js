@@ -868,6 +868,8 @@ async function docBlock(def, content) {
   var w = def.width || BLOCK_W;
   // o quadro do bloco é reaproveitado: o id fica o mesmo e os links “Ver no Figma” do site continuam valendo
   var reuse = live(key, 'FRAME');
+  // bloco que mudou de página (ex.: os gráficos): vai para a página atual antes de ser esvaziado e montado
+  if (reuse && def.page && LUME.pages[def.page] && reuse.parent !== LUME.pages[def.page]) LUME.pages[def.page].appendChild(reuse);
   if (reuse) emptyBlock(reuse);
   else clearBlock(key);
   var block = box('Lume · ' + def.title, { dir: 'V', gap: 0, pad: 14, w: w, fill: 'color/bg/app', radius: 36 }, reuse || undefined);
