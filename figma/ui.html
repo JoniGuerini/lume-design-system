@@ -49,6 +49,9 @@
   .status[data-tone="done"]::before { background: var(--ds-color-success-solid); }
   .status[data-tone="error"] { color: var(--ds-color-danger-fg); }
   .status[data-tone="error"]::before { background: var(--ds-color-danger-solid); }
+  /* avisos da execução ficam na janela (a notificação do Figma some em segundos) */
+  .warnings { margin: var(--ds-space-100) 0 0; padding: var(--ds-space-150) var(--ds-space-200) var(--ds-space-150) var(--ds-space-400); max-height: 180px; overflow: auto; border-radius: var(--ds-radius-lg); background: var(--ds-color-danger-subtle, var(--ds-color-bg-sunken)); color: var(--ds-color-fg-default); font: var(--ds-text-caption); }
+  .warnings li + li { margin-top: var(--ds-space-050); }
   @keyframes pulse { to { opacity: 0.3; } }
   @media (prefers-reduced-motion: reduce) { .status[data-tone="busy"]::before { animation: none; } }
 </style>
@@ -103,9 +106,11 @@
     <div class="actions">
       <button type="button" class="ds-btn ds-btn--primary" data-run></button>
       <button type="button" class="ds-btn ds-btn--secondary" data-copy-links data-t="copyLinks" hidden></button>
+      <button type="button" class="ds-btn ds-btn--secondary" data-copy-warnings data-t="copyWarnings" hidden></button>
       <button type="button" class="ds-btn ds-btn--secondary" data-cancel data-t="close"></button>
     </div>
     <p class="status" data-log aria-live="polite"></p>
+    <ul class="warnings" data-warnings hidden></ul>
   </div>
 
 <script>
@@ -125,7 +130,7 @@
       languageHint: 'Nomes, textos e descrições de tudo o que o plugin cria. Trocar e rodar de novo renomeia o que já existe.',
       close: 'Fechar', run: 'Gerar no arquivo', again: 'Gerar de novo', starting: 'Começando…',
       ready: 'Variáveis e estilos de texto são sempre atualizados.',
-      copyLinks: 'Copiar links', copied: 'Links copiados. Cole na conversa com o Claude.',
+      copyLinks: 'Copiar links', copied: 'Links copiados. Cole na conversa com o Claude.', copyWarnings: 'Copiar avisos', warningsCopied: 'Avisos copiados', linksCopied: 'Links copiados',
     },
     en: {
       title: 'Generate the library',
@@ -141,7 +146,7 @@
       languageHint: 'Names, text, and descriptions of everything the plugin creates. Switching and running again renames what already exists.',
       close: 'Close', run: 'Generate in file', again: 'Generate again', starting: 'Starting…',
       ready: 'Variables and text styles are always updated.',
-      copyLinks: 'Copy links', copied: 'Links copied. Paste them in the chat with Claude.',
+      copyLinks: 'Copy links', copied: 'Links copied. Paste them in the chat with Claude.', copyWarnings: 'Copy warnings', warningsCopied: 'Warnings copied', linksCopied: 'Links copied',
     },
     es: {
       title: 'Generar la biblioteca',
@@ -157,7 +162,7 @@
       languageHint: 'Nombres, textos y descripciones de todo lo que crea el plugin. Cambiar y ejecutar de nuevo renombra lo que ya existe.',
       close: 'Cerrar', run: 'Generar en el archivo', again: 'Generar de nuevo', starting: 'Empezando…',
       ready: 'Las variables y los estilos de texto siempre se actualizan.',
-      copyLinks: 'Copiar enlaces', copied: 'Enlaces copiados. Pégalos en la conversación con Claude.',
+      copyLinks: 'Copiar enlaces', copied: 'Enlaces copiados. Pégalos en la conversación con Claude.', copyWarnings: 'Copiar avisos', warningsCopied: 'Avisos copiados', linksCopied: 'Enlaces copiados',
     },
   };
 
@@ -249,16 +254,24 @@
   // links dos blocos para o site: o iframe do plugin não tem navigator.clipboard, então vai por execCommand
   const copyLinks = document.querySelector('[data-copy-links]');
   let links = '';
-  copyLinks.addEventListener('click', () => {
+  const copyText = (text) => {
     const area = document.createElement('textarea');
-    area.value = links;
+    area.value = text;
     document.body.append(area);
     area.select();
     document.execCommand('copy');
     area.remove();
-    log.dataset.tone = 'done';
-    log.textContent = s().copied;
-  });
+  };
+  // o botão confirma a cópia no próprio rótulo, sem apagar o resumo nem os avisos
+  const flash = (button, label) => {
+    button.textContent = label;
+    setTimeout(() => { button.textContent = s()[button.dataset.t]; }, 2500);
+  };
+  copyLinks.addEventListener('click', () => { copyText(links); flash(copyLinks, s().linksCopied); });
+  const copyWarnings = document.querySelector('[data-copy-warnings]');
+  const warningList = document.querySelector('[data-warnings]');
+  let warnings = [];
+  copyWarnings.addEventListener('click', () => { copyText(warnings.join('\n')); flash(copyWarnings, s().warningsCopied); });
   document.querySelector('[data-cancel]').addEventListener('click', () => parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*'));
   onmessage = (event) => {
     const msg = event.data.pluginMessage;
@@ -270,7 +283,13 @@
       return;
     }
     idle = false;
-    log.textContent = msg.message;
+    // o resumo termina em “Avisos: a · b · c”: a lista vai para baixo, um por linha, e fica até a próxima execução
+    const parts = String(msg.message).split(/ (?:Avisos|Warnings): /);
+    log.textContent = parts[0];
+    warnings = msg.type === 'done' && parts[1] ? parts.slice(1).join(' ').split(' · ') : [];
+    warningList.replaceChildren(...warnings.map((w) => Object.assign(document.createElement('li'), { textContent: w })));
+    warningList.hidden = !warnings.length;
+    copyWarnings.hidden = !warnings.length;
     log.dataset.tone = msg.type === 'done' || msg.type === 'error' ? msg.type : 'busy';
     if (msg.type === 'done' || msg.type === 'error') {
       run.disabled = false;
