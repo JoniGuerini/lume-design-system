@@ -3,7 +3,7 @@ import { renderSidebarNav } from '../../ds/js/shell.js';
 import { mountDocNav } from '../doc-nav.js';
 import { mountCodeCopy, codeBlock, tokenTable, a11yList } from '../component-doc.js';
 import { controlPage, usageCards } from '../form-control-doc.js';
-import { ic, px, kbd, siteGroups, keyTable, apiTable, cards, steps, anatomyHtml, mountAnatomy, keepInPlace, liveAppHtml, mountLiveApp } from '../shell-doc.js';
+import { ic, px, kbd, siteGroups, keyTable, apiTable, cards, steps, anatomyHtml, mountAnatomy, keepInPlace, liveAppHtml, mountLiveApp, dropJumps } from '../shell-doc.js';
 import { CURRENT_VERSION } from '../changelog.js';
 import { L } from '../i18n.js';
 import { MOD } from '../keys.js';
@@ -339,6 +339,7 @@ export default function renderSidebar(page) {
 /* ───────── Comportamento ───────── */
 
 export function mount(root) {
+  dropJumps(root);
   const cleanups = [mountCodeCopy(root), mountDocNav(root)];
 
   // o exemplo estático: grupos abrem e fecham (sem gravar nada), e o clique só marca a página atual

@@ -15,9 +15,17 @@ export const ic = (s) => `<code class="ds-inline-code">${s}</code>`;
 const byName = new Map(tokens.map((t) => [t.name, t]));
 export const px = (name) => byName.get(name)?.px ?? '—';
 export const kbd = (keys) => keys.map((k) => `<kbd class="ds-kbd">${k}</kbd>`).join('');
+/** Fora do site (Storybook mostra uma seção por história), os botões que levam a outra seção não têm para onde ir. */
+export function dropJumps(root) {
+  if (inSite()) return;
+  root.querySelectorAll('[data-try], [data-try-width], [data-try-menu]').forEach((b) => b.remove());
+}
+
 export const embedded = () => document.documentElement.hasAttribute('data-embed');
 // fora do site (Storybook), não há o app para pôr no iframe
-const inSite = () => !!document.getElementById('main-scroll');
+function inSite() {
+  return !!document.getElementById('main-scroll');
+}
 
 /* ───────── Dados dos exemplos: as páginas do próprio Lume ───────── */
 

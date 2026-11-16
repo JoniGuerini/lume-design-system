@@ -4,7 +4,7 @@ import { createSlider } from '../../ds/js/slider.js';
 import { mountDocNav } from '../doc-nav.js';
 import { mountCodeCopy, codeBlock, tokenTable, a11yList } from '../component-doc.js';
 import { controlPage, usageCards } from '../form-control-doc.js';
-import { ic, px, kbd, siteGroups, keyTable, apiTable, cards, anatomyHtml, mountAnatomy, keepInPlace, liveAppHtml, mountLiveApp } from '../shell-doc.js';
+import { ic, px, kbd, siteGroups, keyTable, apiTable, cards, anatomyHtml, mountAnatomy, keepInPlace, liveAppHtml, mountLiveApp, dropJumps } from '../shell-doc.js';
 import { L } from '../i18n.js';
 import { MOD } from '../keys.js';
 
@@ -271,6 +271,7 @@ const state = (el) => {
 };
 
 export function mount(root) {
+  dropJumps(root);
   const cleanups = [mountCodeCopy(root), mountDocNav(root)];
   const groups = siteGroups();
 
