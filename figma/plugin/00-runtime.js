@@ -820,6 +820,14 @@ function defineBlock(def) {
   BLOCKS.push(def);
 }
 
+/** Esvazia o quadro do bloco, guardando os componentes de dentro na página (eles voltam na reconstrução). */
+function emptyBlock(frame) {
+  var page = frame.parent;
+  frame.findAll(function (n) { return (n.type === 'COMPONENT_SET' || n.type === 'COMPONENT') && !!n.getPluginData(KEY) && n.parent && n.parent.type !== 'COMPONENT_SET'; })
+    .forEach(function (n) { page.appendChild(n); });
+  frame.children.slice().forEach(function (n) { n.remove(); });
+}
+
 /** Tira do bloco antigo tudo que é componente (para sobreviver à reconstrução) e apaga o resto. */
 function clearBlock(key) {
   var old = live(key);
@@ -836,9 +844,12 @@ function clearBlock(key) {
  */
 async function docBlock(def, content) {
   var key = 'block/' + def.id;
-  clearBlock(key);
   var w = def.width || BLOCK_W;
-  var block = box('Lume · ' + def.title, { dir: 'V', gap: 0, pad: 14, w: w, fill: 'color/bg/app', radius: 36 });
+  // o quadro do bloco é reaproveitado: o id fica o mesmo e os links “Ver no Figma” do site continuam valendo
+  var reuse = live(key, 'FRAME');
+  if (reuse) emptyBlock(reuse);
+  else clearBlock(key);
+  var block = box('Lume · ' + def.title, { dir: 'V', gap: 0, pad: 14, w: w, fill: 'color/bg/app', radius: 36 }, reuse || undefined);
   block.setPluginData(KEY, key);
   block.setPluginData('orbita-row', def.row || '');
   block.setPluginData('orbita-order', String(def.order || 0));

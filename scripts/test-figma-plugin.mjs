@@ -63,7 +63,7 @@ try {
   second = await run('2ª execução');
   const c2 = census();
 
-  const lost = Object.keys(c1.keys).filter((k) => (k.startsWith('var/') || k.startsWith('cmp/') || k.startsWith('set/') || k.startsWith('icon/')) && c2.keys[k] !== c1.keys[k]);
+  const lost = Object.keys(c1.keys).filter((k) => (k.startsWith('var/') || k.startsWith('cmp/') || k.startsWith('set/') || k.startsWith('icon/') || k.startsWith('block/')) && c2.keys[k] !== c1.keys[k]);
   const problems = [];
   if (!stale.removed) problems.push('bloco antigo que saiu do plugin continuou na página');
   // nada se sobrepõe no nível da página depois de rodar de novo (blocos, títulos, capa)
@@ -76,7 +76,7 @@ try {
     }
   }
   if (c2.dupes?.length) problems.push(`chaves repetidas: ${c2.dupes.slice(0, 5).join(', ')}`);
-  if (lost.length) problems.push(`componentes que mudaram de id (instâncias quebrariam): ${lost.slice(0, 5).join(', ')}`);
+  if (lost.length) problems.push(`componentes ou blocos que mudaram de id (instâncias e links do site quebrariam): ${lost.slice(0, 5).join(', ')}`);
   if (c2.pages.length !== c1.pages.length) problems.push('páginas duplicadas');
   for (const t of ['COMPONENT', 'COMPONENT_SET']) if (c1.byType[t] !== c2.byType[t]) problems.push(`${t}: ${c1.byType[t]} → ${c2.byType[t]}`);
 
@@ -169,7 +169,7 @@ try {
     const c = census();
     const want = LANG_NAMES[lang];
     const tag = `idioma ${lang}`;
-    const changed = Object.keys(c2.keys).filter((k) => (k.startsWith('var/') || k.startsWith('cmp/') || k.startsWith('set/') || k.startsWith('icon/')) && c.keys[k] !== c2.keys[k]);
+    const changed = Object.keys(c2.keys).filter((k) => (k.startsWith('var/') || k.startsWith('cmp/') || k.startsWith('set/') || k.startsWith('icon/') || k.startsWith('block/')) && c.keys[k] !== c2.keys[k]);
     if (c.dupes?.length) problems.push(`${tag}: chaves repetidas: ${c.dupes.slice(0, 5).join(', ')}`);
     if (changed.length) problems.push(`${tag}: componentes que mudaram de id: ${changed.slice(0, 5).join(', ')}`);
     if (c.pages.join(' · ') !== want.pages) problems.push(`${tag}: páginas ${c.pages.join(' · ')}`);
