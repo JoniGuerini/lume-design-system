@@ -135,7 +135,7 @@ Skeleton and spinner are CSS (`ds-skeleton`, `ds-spinner`); the timings and per-
 ```
 
 ```html
-import { toast } from 'https://lumeui.dev/v/1.9/lume.js';
+import { toast } from 'https://lumeui.dev/v/1.8/lume.js';
 
 // skeleton only after 1 s; slow notice after 3 s
 const skeleton = setTimeout(() => showSkeleton(), 1000);

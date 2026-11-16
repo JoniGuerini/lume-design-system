@@ -166,7 +166,7 @@ The list combines `createFilters`, the table, `createPagination`, and `toast` wi
 ```
 
 ```html
-import { createFilters, createPagination, filtersToQuery, toast } from 'https://lumeui.dev/v/1.9/lume.js';
+import { createFilters, createPagination, filtersToQuery, toast } from 'https://lumeui.dev/v/1.8/lume.js';
 
 const pages = createPagination(document.querySelector('#pages'), {
   total: people.length, pageSize: 8,

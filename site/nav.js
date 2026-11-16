@@ -39,7 +39,6 @@ const RAW = [
       { label: T('Elevação', 'Elevation', 'Elevación'), icon: 'elevation', path: '/fundamentos/elevacao', load: () => import('./pages/elevacao.js'), description: T('Camadas de superfície e sombras para dar hierarquia.', 'Surface layers and shadows that create hierarchy.', 'Capas de superficie y sombras para dar jerarquía.') },
       { label: T('Movimento', 'Motion', 'Movimiento'), icon: 'motion', path: '/fundamentos/movimento', load: () => import('./pages/movimento.js'), description: T('Durações e curvas para transições com propósito.', 'Durations and curves for purposeful transitions.', 'Duraciones y curvas para transiciones con propósito.') },
       { label: T('Layout', 'Layout', 'Layout'), icon: 'layout', path: '/fundamentos/layout', load: () => import('./pages/layout.js'), description: T('Breakpoints, grid e dimensões do app shell.', 'Breakpoints, grid, and app shell dimensions.', 'Breakpoints, cuadrícula y dimensiones del app shell.') },
-      { label: T('Tom de voz', 'Voice and tone', 'Voz y tono'), icon: 'message-square', path: '/fundamentos/tom-de-voz', load: () => import('./pages/tom-de-voz.js'), description: T('Voz fixa, quatro tons e como escrever cada situação nos três idiomas.', 'A fixed voice, four tones, and how to write each situation in three languages.', 'Una voz fija, cuatro tonos y cómo escribir cada situación en los tres idiomas.') },
     ],
   },
   {

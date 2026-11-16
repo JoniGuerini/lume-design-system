@@ -68,7 +68,7 @@ site/                ← o site de documentação (usa o DS)
   roadmap.js         próximas etapas: página Roadmap e card do Início
   chart-data.js      dados de exemplo (fixos) das páginas de gráficos
   pages/             páginas (cada uma com seu .css): home, primeiros-passos, novidades,
-                     9 fundamentos, 60 componentes, 7 de gráficos, 12 padrões, 4 recursos,
+                     8 fundamentos, 60 componentes, 7 de gráficos, 12 padrões, 4 recursos,
                      placeholder, 404
 ```
 

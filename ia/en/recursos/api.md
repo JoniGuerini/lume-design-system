@@ -11,10 +11,10 @@ In numbers: public items: 102 · verbs: 5 · dependencies: 0.
 One file, `ds/lume.js`, gathers the whole API. The `ds/js/` modules can still be imported one by one, to load only what you need.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/1.9/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/1.8/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/1.9/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/1.8/lume.js';
 
   initTheme();
   const modal = createModal({ title: 'Publish changes?' });

@@ -142,7 +142,7 @@ Alerts and banners are markup; `toast` and `confirmModal` are one line each.
 ```
 
 ```html
-import { toast, confirmModal } from 'https://lumeui.dev/v/1.9/lume.js';
+import { toast, confirmModal } from 'https://lumeui.dev/v/1.8/lume.js';
 
 // Can be undone: do it now and offer Undo
 archive(report);

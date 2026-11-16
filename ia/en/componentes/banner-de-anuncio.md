@@ -16,7 +16,7 @@ In numbers: tones: 5 · at a time: 1 · remembers: localStorage · ARIA role: re
 </div>
 
 <script type="module">
-  import { createBanner } from 'https://lumeui.dev/v/1.9/lume.js';
+  import { createBanner } from 'https://lumeui.dev/v/1.8/lume.js';
   createBanner(document.querySelector('.ds-banner'), { id: 'lume-0.35' });
 </script>
 ```
@@ -94,7 +94,7 @@ The markup is the whole banner; JavaScript only closes it and remembers.
 </div>
 
 <script type="module">
-  import { createBanner } from 'https://lumeui.dev/v/1.9/lume.js';
+  import { createBanner } from 'https://lumeui.dev/v/1.8/lume.js';
 
   // a new id for each announcement: whoever closed the last one sees this one
   createBanner(document.querySelector('.ds-banner'), { id: 'lume-0.35' });

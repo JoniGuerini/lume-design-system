@@ -15,7 +15,7 @@ En números: paso predeterminado: 15 min · formatos: 12 · 24 h · valor enviad
 </div>
 
 <script type="module">
-  import { createTimePicker } from 'https://lumeui.dev/v/1.9/lume.js';
+  import { createTimePicker } from 'https://lumeui.dev/v/1.8/lume.js';
   createTimePicker(document.querySelector('#inicio'), {
     step: 15,
   });
@@ -109,7 +109,7 @@ Marcado de los ejemplos de esta sección:
 Funciona con `createForm`, como los otros campos.
 
 ```html
-import { createTimePicker } from 'https://lumeui.dev/v/1.9/lume.js';
+import { createTimePicker } from 'https://lumeui.dev/v/1.8/lume.js';
 
 const picker = createTimePicker(document.querySelector('#inicio'), {
   value: '09:00',

@@ -44,7 +44,7 @@ export default function renderStepper(page) {
         id: 'codigo',
         title: L('Código', 'Code', 'Código'),
         desc: L('O conteúdo de cada etapa é seu; o stepper só mostra o caminho.', 'Each step’s content is yours; the stepper only shows the way.', 'El contenido de cada etapa es tuyo; el stepper solo muestra el camino.'),
-        html: codeBlock(`import { createStepper } from 'https://lumeui.dev/v/1.9/lume.js';
+        html: codeBlock(`import { createStepper } from 'https://lumeui.dev/v/1.8/lume.js';
 
 const stepper = createStepper(document.querySelector('.ds-stepper'), {
   steps: [{ label: '${STEPS()[0].label}' }, { label: '${STEPS()[1].label}' }, { label: '${STEPS()[3].label}' }],
@@ -121,7 +121,7 @@ export function mount(root) {
     code: (s) => `<ol class="ds-stepper${s.orientation === 'vertical' ? ' ds-stepper--vertical' : ''}"></ol>
 
 <script type="module">
-  import { createStepper } from 'https://lumeui.dev/v/1.9/lume.js';
+  import { createStepper } from 'https://lumeui.dev/v/1.8/lume.js';
   createStepper(document.querySelector('.ds-stepper'), {
     steps: [${(s.text === 'on' ? STEPS() : plain()).map((x) => (x.description ? `{ label: '${x.label}', description: '${x.description}' }` : `{ label: '${x.label}' }`)).join(', ')}],
     current: 1,${s.clickable === 'on' ? '\n    clickable: true,' : ''}

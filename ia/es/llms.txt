@@ -1,6 +1,6 @@
 # Lume Design System
 
-> Design system en HTML, CSS y JavaScript nativos, sin dependencias: tokens, tipografía, 130 íconos propios, componentes, gráficos y patrones de pantalla, en los temas claro y oscuro. Versión 1.9.0.
+> Design system en HTML, CSS y JavaScript nativos, sin dependencias: tokens, tipografía, 130 íconos propios, componentes, gráficos y patrones de pantalla, en los temas claro y oscuro. Versión 1.8.0.
 
 Empieza por [LEEME](https://lumeui.dev/ia/es/LEEME.md): instalación, reglas generales y lo que nunca inventar. Cada página del sitio tiene un archivo Markdown abajo, generado a partir de ella.
 
@@ -25,7 +25,6 @@ Empieza por [LEEME](https://lumeui.dev/ia/es/LEEME.md): instalación, reglas gen
 - [Elevación](https://lumeui.dev/ia/es/fundamentos/elevacao.md): Capas de superficie y sombras para dar jerarquía.
 - [Movimiento](https://lumeui.dev/ia/es/fundamentos/movimento.md): Duraciones y curvas para transiciones con propósito.
 - [Layout](https://lumeui.dev/ia/es/fundamentos/layout.md): Breakpoints, cuadrícula y dimensiones del app shell.
-- [Voz y tono](https://lumeui.dev/ia/es/fundamentos/tom-de-voz.md): Una voz fija, cuatro tonos y cómo escribir cada situación en los tres idiomas.
 
 ## Componentes
 
