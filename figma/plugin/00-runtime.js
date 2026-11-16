@@ -555,6 +555,16 @@ async function variants(key, name, items, o) {
   var stage = figma.currentPage;
   if (set) {
     comps.forEach(function (c) { set.appendChild(c); });
+    // variante que esta execução não gerou (de uma versão antiga, ou cópia repetida) sai do conjunto: com duas
+    // variantes de mesmo nome, ou com propriedades diferentes, o Figma marca o conjunto com erro (“Component set
+    // has existing errors”) e todo bloco que o usa falha. Sem instâncias, ela é apagada; com instâncias, vira componente
+    // solto (elas continuam ligadas) e vai para a área de componentes de apoio na arrumação.
+    for (var ch of set.children.slice()) {
+      if (comps.indexOf(ch) >= 0) continue;
+      var used = ch.type === 'COMPONENT' && typeof ch.getInstancesAsync === 'function' ? (await ch.getInstancesAsync()).length : 1;
+      if (used) stage.appendChild(ch);
+      else ch.remove();
+    }
   } else {
     comps.forEach(function (c) { stage.appendChild(c); });
     set = figma.combineAsVariants(comps, stage);
