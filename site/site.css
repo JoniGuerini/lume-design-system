@@ -724,7 +724,7 @@
 .site-footer__col a {
   display: inline-flex;
   align-items: center;
-  gap: var(--ds-space-050);
+  gap: var(--ds-space-100);
   color: var(--ds-color-fg-muted);
   font: var(--ds-text-body-sm);
   text-decoration: none;

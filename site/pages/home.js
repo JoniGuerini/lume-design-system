@@ -1,4 +1,5 @@
 import { icon, iconList } from '../../ds/icons/icons.js';
+import { brandIcon } from '../brand-icons.js';
 import { palettes, tokens, contrast, generatedAt } from '../../ds/tokens.js';
 import { tr, numberFormat, dateFormat } from '../../ds/js/i18n.js';
 import { navigation } from '../nav.js';
@@ -437,11 +438,11 @@ export default function renderHome() {
           <div class="site-footer__col">
             <p class="site-footer__title">${c.foot.elsewhere}</p>
             <ul role="list">${[
-              ['Storybook', 'storybook/'],
-              ['Figma', 'https://www.figma.com/design/1yTJ881xoXjRmdi6NeTnYD/Lume-Design-System'],
-              ['LinkedIn', 'https://www.linkedin.com/in/joniguerini/'],
+              ['Storybook', 'storybook/', 'storybook'],
+              ['Figma', 'https://www.figma.com/design/1yTJ881xoXjRmdi6NeTnYD/Lume-Design-System', 'figma'],
+              ['LinkedIn', 'https://www.linkedin.com/in/joniguerini/', 'linkedin'],
             ]
-              .map(([label, href]) => `<li><a href="${href}" target="_blank" rel="noopener">${label}${icon('external-link', { size: 12 })}<span class="ds-visually-hidden">, ${c.foot.external}</span></a></li>`)
+              .map(([label, href, brand]) => `<li><a href="${href}" target="_blank" rel="noopener">${brandIcon(brand, 14)}${label}<span class="ds-visually-hidden">, ${c.foot.external}</span></a></li>`)
               .join('')}</ul>
           </div>
         </nav>
