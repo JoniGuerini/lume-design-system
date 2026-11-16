@@ -191,14 +191,20 @@ async function importTokens() {
   }
 }
 
-/** Carrega a fonte; sem ela (Inter Tight ou JetBrains Mono ausentes), cai para Inter no mesmo peso. */
+/** Carrega a fonte; sem ela (Geist, Geist Serif ou JetBrains Mono ausentes), cai para Inter no mesmo peso. */
 async function ensureFont(family, style) {
   var id = family + '/' + style;
   if (LUME.fonts[id]) return LUME.fonts[id];
-  try {
-    await figma.loadFontAsync({ family: family, style: style });
-    LUME.fonts[id] = { family: family, style: style };
-  } catch (err) {
+  // o mesmo peso tem nomes diferentes conforme o arquivo da fonte: “Semi Bold” (Inter) ou “SemiBold” (Geist da Vercel)
+  var styles = [style, style.replace(/ /g, ''), style.replace(/(Semi|Extra)(Bold)/, '$1 $2')].filter(function (v, i, a) { return a.indexOf(v) === i; });
+  for (var st of styles) {
+    try {
+      await figma.loadFontAsync({ family: family, style: st });
+      LUME.fonts[id] = { family: family, style: st };
+      return LUME.fonts[id];
+    } catch (e) { /* tenta o próximo nome */ }
+  }
+  {
     warn(L3('Fonte ausente: ', 'Missing font: ', 'Fuente ausente: ') + family + ' ' + style + L3(' (usei Inter)', ' (used Inter)', ' (usé Inter)'));
     var fallback = { family: 'Inter', style: style };
     try { await figma.loadFontAsync(fallback); } catch (e2) { fallback = { family: 'Inter', style: 'Regular' }; await figma.loadFontAsync(fallback); }
@@ -208,7 +214,7 @@ async function ensureFont(family, style) {
 }
 
 async function loadFonts() {
-  var list = [['Inter', 'Regular'], ['Inter', 'Medium'], ['Inter', 'Semi Bold'], ['Inter', 'Bold'], ['Inter Tight', 'Semi Bold'], ['Inter Tight', 'Bold'], ['JetBrains Mono', 'Regular']];
+  var list = [['Inter', 'Regular'], ['Inter', 'Medium'], ['Inter', 'Semi Bold'], ['Inter', 'Bold'], ['JetBrains Mono', 'Regular']];
   for (var f of list) await ensureFont(f[0], f[1]);
 }
 
