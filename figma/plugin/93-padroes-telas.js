@@ -553,8 +553,12 @@
   async function kpi(k, w) {
     var t = box(k[0], { dir: 'V', gap: 'space/075', pad: 'space/200', w: w, radius: 'radius/lg', fill: 'color/bg/surface', stroke: 'color/border/subtle' });
     add(t, await text(k[0], { style: 'caption', color: 'color/fg/muted' }));
+<<<<<<< Updated upstream
     // o número grande é Geist Sans seminegrito, como .ds-stat__value (a Geist Serif só tem o Regular)
     add(t, await text(k[1], { style: 'heading-sm', size: 28, color: 'color/fg/default', raw: LANG === 'pt-BR', name: 'Valor' }));
+=======
+    add(t, await text(k[1], { style: 'heading-lg', color: 'color/fg/default', raw: LANG === 'pt-BR', name: 'Valor' }));
+>>>>>>> Stashed changes
     var d = box('Variação', { dir: 'H', gap: 'space/050', cross: 'center' });
     var down = k[2].charAt(0) === '−';
     add(d, icon(down ? 'trending-down' : 'trending-up', 14, k[3] ? 'color/success/fg' : 'color/danger/fg'));
