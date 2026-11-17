@@ -53,7 +53,7 @@ Markup of the examples in this section:
 </li><li class="ds-notify__item">
 <a class="ds-notify__link" href="#/novidades">
 <span class="ds-notify__icon"><ds-icon name="megaphone"></ds-icon></span>
-<span class="ds-notify__body"><span class="ds-notify__item-title">Lume 0.33</span><span class="ds-notify__text">Rating and toolbar.</span><time class="ds-notify__time">Nov 6</time></span>
+<span class="ds-notify__body"><span class="ds-notify__item-title">Lume 0.33</span><span class="ds-notify__text">Rating and toolbar.</span><time class="ds-notify__time">Nov 8</time></span>
 </a>
 </li></ul>
 </div>

@@ -197,4 +197,8 @@ What’s already in React. Each name leads to the component’s page, with the u
 
 ## What’s next
 
-All 60 components are already in React.
+One stage per version, up to all 60 components. Until a component arrives, use the HTML markup from its page with className: the CSS is the same.
+
+|   |   |   |
+| --- | --- | --- |
+| `1.8.2` | React 18 support: The React components tested on React 18 too, not just 19. | Next |

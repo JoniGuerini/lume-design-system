@@ -56,9 +56,9 @@ Marcação dos exemplos desta seção:
 
 Dois padrões de grade cobrem o site. Arraste para mudar a largura do contêiner e veja como cada um se reorganiza. O espaço entre itens é sempre space.150 (12 px).
 
-Largura do contêiner — 1040 px
+Largura do contêiner — 1020 px
 
-Colunas fixas que colapsam — 4 colunas — auto-fill com mínimo — 4 colunas
+Colunas fixas que colapsam — 4 colunas — auto-fill com mínimo — 3 colunas
 
 ```html
 /* colunas fixas: cartões de mesma importância */

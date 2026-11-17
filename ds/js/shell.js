@@ -17,7 +17,8 @@ const SIDEBAR_KEY = 'ds-sidebar';
 const LAYOUT_KEY = 'ds-layout';
 export const LAYOUTS = ['sidebar', 'navbar'];
 const GROUPS_KEY = 'ds-nav-groups';
-const mobileQuery = matchMedia('(max-width: 1023.98px)');
+// só existe no navegador; createShell só roda lá (no servidor, o import não pode quebrar)
+const mobileQuery = typeof matchMedia === 'function' ? matchMedia('(max-width: 1023.98px)') : null;
 
 const store = {
   get(key, fallback) {

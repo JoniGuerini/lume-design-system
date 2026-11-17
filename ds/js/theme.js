@@ -13,8 +13,10 @@ const VERSION = '3';
 export const THEMES = ['light', 'dark'];
 const PREFERENCES = ['system', ...THEMES];
 const DEFAULT = 'system';
-const root = document.documentElement;
-const darkQuery = matchMedia('(prefers-color-scheme: dark)');
+// no servidor (renderização no servidor) não há documento: o tema só é aplicado quando o navegador assume
+const BROWSER = typeof document !== 'undefined';
+const root = BROWSER ? document.documentElement : null;
+const darkQuery = BROWSER && typeof matchMedia === 'function' ? matchMedia('(prefers-color-scheme: dark)') : null;
 
 const read = (key) => {
   try {
@@ -43,7 +45,7 @@ export function getThemePreference() {
 
 /** Tema resolvido de uma preferência: "system" vira claro ou escuro, como o aparelho. */
 export function themeFor(preference) {
-  if (preference === 'system') return darkQuery.matches ? 'dark' : 'light';
+  if (preference === 'system') return darkQuery?.matches ? 'dark' : 'light';
   return THEMES.includes(preference) ? preference : 'light';
 }
 
@@ -55,7 +57,7 @@ export function resolvedTheme() {
 let pending = null;
 
 function apply(next) {
-  if (next === (pending ?? root.dataset.theme)) return;
+  if (!root || next === (pending ?? root.dataset.theme)) return;
   pending = next;
   const run = () => {
     root.dataset.theme = next;
@@ -70,7 +72,7 @@ function apply(next) {
 }
 
 function announce() {
-  root.dispatchEvent(new CustomEvent('ds:themechange', { detail: { preference: getThemePreference(), resolved: resolvedTheme() } }));
+  root?.dispatchEvent(new CustomEvent('ds:themechange', { detail: { preference: getThemePreference(), resolved: resolvedTheme() } }));
 }
 
 /** Troca entre claro e escuro; a escolha fica salva e o tema deixa de seguir o sistema. */
@@ -86,6 +88,7 @@ export function setTheme(preference) {
 }
 
 function syncControls() {
+  if (!BROWSER) return;
   const dark = resolvedTheme() === 'dark';
   document.querySelectorAll('[data-theme-toggle]').forEach((btn) => btn.setAttribute('aria-pressed', String(dark)));
 }
@@ -99,9 +102,10 @@ export function mountThemeControls(scope = document) {
 }
 
 export function initTheme() {
+  if (!root) return;
   root.dataset.theme = resolvedTheme();
   // enquanto a pessoa não escolher, acompanha a troca de claro/escuro do sistema
-  darkQuery.addEventListener('change', () => {
+  darkQuery?.addEventListener('change', () => {
     if (getThemePreference() !== 'system') return;
     apply(resolvedTheme());
     syncControls();

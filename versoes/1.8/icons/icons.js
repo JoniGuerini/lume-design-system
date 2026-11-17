@@ -234,28 +234,33 @@ export function icon(name, { size = 20, strokeWidth, label, className = '' } = {
   return `<svg class="ds-icon${className ? ` ${className}` : ''}" width="${px}" height="${px}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round" focusable="false" ${a11y}>${def?.body ?? FALLBACK}</svg>`;
 }
 
-/** <ds-icon name="home" size="20" label="Início"></ds-icon> */
-class DsIcon extends HTMLElement {
-  static observedAttributes = ['name', 'size', 'stroke', 'label'];
+/**
+ * <ds-icon name="home" size="20" label="Início"></ds-icon>
+ * Só se registra onde há navegador: no servidor (Next.js, renderização no servidor) o import não quebra, e icon() continua valendo.
+ */
+if (typeof HTMLElement !== 'undefined' && typeof customElements !== 'undefined' && !customElements.get('ds-icon')) {
+  class DsIcon extends HTMLElement {
+    static observedAttributes = ['name', 'size', 'stroke', 'label'];
 
-  connectedCallback() {
-    this.render();
+    connectedCallback() {
+      this.render();
+    }
+
+    attributeChangedCallback() {
+      if (this.isConnected) this.render();
+    }
+
+    render() {
+      const size = this.getAttribute('size') ?? 20;
+      const stroke = this.getAttribute('stroke');
+      this.style.width = this.style.height = `${size}px`;
+      this.innerHTML = icon(this.getAttribute('name'), {
+        size,
+        strokeWidth: stroke ? Number(stroke) : undefined,
+        label: this.getAttribute('label') ?? undefined,
+      });
+    }
   }
 
-  attributeChangedCallback() {
-    if (this.isConnected) this.render();
-  }
-
-  render() {
-    const size = this.getAttribute('size') ?? 20;
-    const stroke = this.getAttribute('stroke');
-    this.style.width = this.style.height = `${size}px`;
-    this.innerHTML = icon(this.getAttribute('name'), {
-      size,
-      strokeWidth: stroke ? Number(stroke) : undefined,
-      label: this.getAttribute('label') ?? undefined,
-    });
-  }
+  customElements.define('ds-icon', DsIcon);
 }
-
-if (!customElements.get('ds-icon')) customElements.define('ds-icon', DsIcon);

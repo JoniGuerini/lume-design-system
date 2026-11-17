@@ -13,7 +13,9 @@ export const LOCALES = ['pt-BR', 'en', 'es'];
 export const LOCALE_NAMES = { 'pt-BR': 'Português', en: 'English', es: 'Español' };
 const PREFERENCES = ['system', ...LOCALES];
 const FALLBACK = 'en';
-const root = document.documentElement;
+// no servidor (renderização no servidor) não há documento: o idioma fica no padrão até o navegador assumir
+const BROWSER = typeof document !== 'undefined';
+const root = BROWSER ? document.documentElement : null;
 
 export function getLocalePreference() {
   try {
@@ -25,7 +27,8 @@ export function getLocalePreference() {
 
 /** O primeiro idioma do sistema que o Lume tem; senão, inglês. */
 export function systemLocale() {
-  for (const tag of navigator.languages?.length ? navigator.languages : [navigator.language]) {
+  const nav = typeof navigator === 'undefined' ? {} : navigator;
+  for (const tag of nav.languages?.length ? nav.languages : [nav.language]) {
     const lang = String(tag).toLowerCase();
     if (lang.startsWith('pt')) return 'pt-BR';
     if (lang.startsWith('es')) return 'es';
@@ -47,18 +50,21 @@ export function setLocale(preference, { persist = true } = {}) {
     } catch {}
   }
   current = resolve(preference);
+  if (!root) return;
   root.lang = current;
   root.dispatchEvent(new CustomEvent('ds:localechange', { detail: { preference, locale: current } }));
 }
 
 export function initLocale() {
-  root.lang = current;
+  if (root) root.lang = current;
 }
 
 // quem segue o sistema acompanha a troca de idioma do navegador
-addEventListener('languagechange', () => {
-  if (getLocalePreference() === 'system' && systemLocale() !== current) setLocale('system', { persist: false });
-});
+if (BROWSER) {
+  addEventListener('languagechange', () => {
+    if (getLocalePreference() === 'system' && systemLocale() !== current) setLocale('system', { persist: false });
+  });
+}
 
 /** Texto do idioma atual num objeto { 'pt-BR', en, es }; qualquer outro valor volta como veio. */
 export function tr(text) {

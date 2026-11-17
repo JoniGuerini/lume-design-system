@@ -53,7 +53,7 @@ Markup of the examples in this section:
 
 <div class="ds-form-field">
 <label class="ds-form-field__label" for="dp-filled">Delivery date</label>
-<div class="ds-field"><input class="ds-field__input" id="dp-filled" type="text" autocomplete="off" placeholder="mm/dd/yyyy"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-haspopup="dialog" aria-expanded="false" aria-controls="ds-datepicker-5" aria-label="Open calendar"><ds-icon name="calendar"></ds-icon></button><input type="hidden" name="dp-filled" value="2026-11-18"></div>
+<div class="ds-field"><input class="ds-field__input" id="dp-filled" type="text" autocomplete="off" placeholder="mm/dd/yyyy"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-haspopup="dialog" aria-expanded="false" aria-controls="ds-datepicker-5" aria-label="Open calendar"><ds-icon name="calendar"></ds-icon></button><input type="hidden" name="dp-filled" value="2026-11-20"></div>
 </div>
 ```
 

@@ -8,10 +8,29 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '1.8.0';
+export const CURRENT_VERSION = '1.8.1';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '1.8.1',
+    date: '2026-11-17',
+    title: T('Lume no servidor', 'Lume on the server', 'Lume en el servidor'),
+    summary: T(
+      'Importar o Lume no Next.js e em outros frameworks que renderizam no servidor não quebra mais: o que depende do navegador só liga quando ele está lá.',
+      'Importing Lume in Next.js and other server-rendering frameworks no longer breaks: whatever needs the browser only switches on when it’s there.',
+      'Importar Lume en Next.js y otros frameworks que renderizan en el servidor ya no rompe: lo que depende del navegador solo se activa cuando está.',
+    ),
+    groups: [
+      {
+        name: T('JavaScript', 'JavaScript', 'JavaScript'),
+        items: [
+          ['correcao', T('lume.js e todos os módulos podem ser importados sem navegador: <ds-icon>, idioma, tema, menu e shell esperam o navegador para se ligar', 'lume.js and every module can be imported without a browser: <ds-icon>, language, theme, menu, and shell wait for the browser to switch on', 'lume.js y todos los módulos se pueden importar sin navegador: <ds-icon>, idioma, tema, menú y shell esperan al navegador para activarse'), '/recursos/api'],
+          ['melhoria', T('icon() continua funcionando no servidor e devolve o SVG pronto para a página', 'icon() still works on the server and returns the SVG ready for the page', 'icon() sigue funcionando en el servidor y devuelve el SVG listo para la página'), '/fundamentos/icones'],
+        ],
+      },
+    ],
+  },
   {
     version: '1.8.0',
     date: '2026-11-15',

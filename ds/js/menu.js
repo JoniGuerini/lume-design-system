@@ -227,9 +227,11 @@ export function createMenu(trigger, { label, options = [], value, onChange, mode
   return api;
 }
 
-// fecha ao clicar fora, rolar ou redimensionar
-document.addEventListener('pointerdown', (event) => {
-  if (openMenu && !event.target.closest('.ds-menu, [aria-haspopup="menu"]')) openMenu.close(false);
-});
-document.addEventListener('scroll', (event) => !event.target.closest?.('.ds-menu') && openMenu?.close(false), true);
-addEventListener('resize', () => openMenu?.close(false));
+// fecha ao clicar fora, rolar ou redimensionar (só no navegador: no servidor o import não pode quebrar)
+if (typeof document !== 'undefined') {
+  document.addEventListener('pointerdown', (event) => {
+    if (openMenu && !event.target.closest('.ds-menu, [aria-haspopup="menu"]')) openMenu.close(false);
+  });
+  document.addEventListener('scroll', (event) => !event.target.closest?.('.ds-menu') && openMenu?.close(false), true);
+  addEventListener('resize', () => openMenu?.close(false));
+}
