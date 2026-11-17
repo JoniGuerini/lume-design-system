@@ -4,6 +4,22 @@ O design system do app Lume (até a versão 0.7, chamado Órbita).
 Design system escuro-quente, plano e calmo: acento pêssego, contornos finos, títulos bem apertados e páginas montadas como painéis.
 Sem dependências: HTML, CSS custom properties e JavaScript nativo (ES modules). Funciona com qualquer stack.
 
+## Usar
+
+Documentação: https://lumeui.dev (português, inglês e espanhol).
+
+```bash
+npm install @joniguerini/lume
+```
+
+```js
+import '@joniguerini/lume/lume.css';
+import { initTheme } from '@joniguerini/lume';          // HTML e JavaScript
+import { Button } from '@joniguerini/lume/react';         // React 18+, compilado e com tipos
+```
+
+Sem npm: `<link rel="stylesheet" href="https://lumeui.dev/v/1.9/lume.css">` e `import … from 'https://lumeui.dev/v/1.9/lume.js'`.
+
 ## Rodar
 
 ```bash
@@ -14,7 +30,7 @@ Abre em http://localhost:5173. O servidor gera os tokens ao iniciar e de novo se
 
 Para só gerar os tokens: `npm run tokens`. Para exportar para o Figma e outras ferramentas: `npm run tokens:export` (gera `dist/tokens/`; ferramenta interna, não aparece no site).
 
-Para publicar: `npm run build` gera os tokens, roda o teste do plugin do Figma e monta em `dist/site/` só o site (`index.html`, `ds/`, `site/`, o favicon e a documentação para IAs), mais o pacote: `ds/lume.css` e cada versão em `v/<linha>/`, com zip. As linhas anteriores ficam em `versoes/`. Licença MIT (`LICENSE`). Storybook: `npm run stories` gera as histórias e `npm run storybook` abre (as dependências ficam só em `storybook/`). O `vercel.json` já aponta o Vercel para esse comando e essa pasta.
+Para publicar: `npm run build` gera os tokens, roda o teste do plugin do Figma e monta em `dist/site/` só o site (`index.html`, `ds/`, `site/`, o favicon e a documentação para IAs), mais o pacote: `ds/lume.css` e cada versão em `v/<linha>/`, com zip. As linhas anteriores ficam em `versoes/`. Licença MIT (`LICENSE`). Storybook: `npm run stories` gera as histórias e `npm run storybook` abre (as dependências ficam só em `storybook/`). O `vercel.json` já aponta o Vercel para esse comando e essa pasta. Pacote do npm: `npm run npm:build` monta `dist/npm/pacote/` (passo a passo em `npm/PUBLICAR.md`).
 
 ### Plugin do Figma
 

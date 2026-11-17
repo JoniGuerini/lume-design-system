@@ -15,18 +15,18 @@ Lume es un design system en HTML, CSS y JavaScript nativos, sin dependencias. Re
 
 ## Instalación
 
-Lume está publicado con versión fija en `https://lumeui.dev/v/1.8/` y se puede cargar directamente desde otro sitio. Licencia MIT.
+Lume está publicado con versión fija en `https://lumeui.dev/v/1.9/` y se puede cargar directamente desde otro sitio. Licencia MIT.
 
 ```html
 <html lang="es" data-theme="light">
   <head>
-    <link rel="stylesheet" href="https://lumeui.dev/v/1.8/lume.css">
+    <link rel="stylesheet" href="https://lumeui.dev/v/1.9/lume.css">
   </head>
   <body>
     <button type="button" class="ds-btn ds-btn--primary">Guardar</button>
 
     <script type="module">
-      import { initTooltips } from 'https://lumeui.dev/v/1.8/lume.js';
+      import { initTooltips } from 'https://lumeui.dev/v/1.9/lume.js';
       initTooltips();
     </script>
   </body>
@@ -34,20 +34,20 @@ Lume está publicado con versión fija en `https://lumeui.dev/v/1.8/` y se puede
 ```
 
 - **Un solo CSS:** `lume.css` trae las fuentes, los tokens, la base y todos los componentes.
-- **Un solo JavaScript, si prefieres:** `lume.js` reúne toda la API pública (`import { createModal, toast } from 'https://lumeui.dev/v/1.8/lume.js'`). La lista y la convención de nombres están en `https://lumeui.dev/ia/es/recursos/api.md`. Lo que no está en él es interno: no lo uses.
+- **Un solo JavaScript, si prefieres:** `lume.js` reúne toda la API pública (`import { createModal, toast } from 'https://lumeui.dev/v/1.9/lume.js'`). La lista y la convención de nombres están en `https://lumeui.dev/ia/es/recursos/api.md`. Lo que no está en él es interno: no lo uses.
 - **Tema:** `data-theme="light"` (claro) o `data-theme="dark"` (oscuro) en `<html>`. Para seguir el sistema, llama a `initTheme()` de `https://lumeui.dev/ds/js/theme.js`.
 - **JavaScript solo donde hace falta:** los componentes visuales funcionan solo con CSS. Los interactivos tienen un módulo en `https://lumeui.dev/ds/js/`. Importa solo los que usa la pantalla; el archivo de cada componente indica cuál.
 - **Íconos:** importa `https://lumeui.dev/ds/icons/icons.js` una vez para que `<ds-icon>` funcione.
 - **Idioma:** los textos de sistema de los componentes siguen el idioma del navegador (portugués, inglés o español; cualquier otro pasa a inglés). Para fijar uno, llama a `setLocale('es')` de `https://lumeui.dev/ds/js/i18n.js`.
-- **Versión:** usa la dirección con versión (`/v/1.8/`). La versión actual y la lista están en `https://lumeui.dev/v/index.json`. `https://lumeui.dev/ds/` siempre trae la más nueva, y cada versión tiene un zip para quien prefiere los archivos en el proyecto (`https://lumeui.dev/v/1.8/lume-1.8.zip`).
+- **Versión:** usa la dirección con versión (`/v/1.9/`). La versión actual y la lista están en `https://lumeui.dev/v/index.json`. `https://lumeui.dev/ds/` siempre trae la más nueva, y cada versión tiene un zip para quien prefiere los archivos en el proyecto (`https://lumeui.dev/v/1.9/lume-1.9.zip`).
 
 ## React
 
-En proyectos React, usa los componentes de `lume/react/`, que vienen en el zip de cada versión (`https://lumeui.dev/v/1.8/lume-1.8.zip`). La carpeta del zip va entera a `src/lume/`; la app importa `./lume/lume.css` una vez y los componentes de `./lume/react`.
+En proyectos React, instala el paquete `@joniguerini/lume` (`npm install @joniguerini/lume`): la app importa `@joniguerini/lume/lume.css` una vez y los componentes de `@joniguerini/lume/react`, ya compilados y con tipos. Funciona con Vite, Next.js y React 18 o más nuevo. Quien prefiere los archivos en el proyecto, como en shadcn, lleva la carpeta del zip de la versión (`https://lumeui.dev/v/1.9/lume-1.9.zip`) a `src/lume/` e importa de `./lume/react`.
 
 ```tsx
-import './lume/lume.css';
-import { Button, Alert } from './lume/react';
+import '@joniguerini/lume/lume.css';
+import { Button, Alert } from '@joniguerini/lume/react';
 
 <Button variant="primary" icon="check">Guardar cambios</Button>
 <Alert tone="success" title="Cambios guardados" />
@@ -56,7 +56,7 @@ import { Button, Alert } from './lume/react';
 - **Usa el componente React cuando exista** (lista en `https://lumeui.dev/ia/es/recursos/react.md`). Las props siguen las variantes de la página de cada componente: `variant`, `size`, `tone`.
 - **Lo que aún no tiene componente React** usa el marcado HTML de la página del componente, con `className` en lugar de `class`. El CSS es el mismo.
 - **Íconos:** `<Icon name="…" />`, con los nombres de la lista de íconos. TypeScript rechaza un nombre que no existe.
-- **No instales un paquete npm de Lume:** no existe. Los archivos quedan en el proyecto, como en shadcn.
+- **El único paquete npm es `@joniguerini/lume`.** No inventes otro nombre (como `lume`, `lumeui` o `@lume/react`): no son de Lume.
 
 ## Dirección visual
 

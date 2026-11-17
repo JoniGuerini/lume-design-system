@@ -15,7 +15,7 @@ In numbers: modes: 2 · languages: 3 · value sent: ISO · ARIA role: dialog.
 </div>
 
 <script type="module">
-  import { createDatePicker } from 'https://lumeui.dev/v/1.8/lume.js';
+  import { createDatePicker } from 'https://lumeui.dev/v/1.9/lume.js';
   createDatePicker(document.querySelector('#entrega'), {
   });
 </script>
@@ -108,7 +108,7 @@ Markup of the examples in this section:
 It works with `createForm`: `required` and format errors show up as in the other fields. The ISO value goes in a hidden input, with the field’s `name`.
 
 ```html
-import { createDatePicker } from 'https://lumeui.dev/v/1.8/lume.js';
+import { createDatePicker } from 'https://lumeui.dev/v/1.9/lume.js';
 
 const picker = createDatePicker(document.querySelector('#entrega'), {
   min: new Date(),

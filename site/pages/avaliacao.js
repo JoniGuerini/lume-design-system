@@ -59,7 +59,7 @@ export default function renderRating(page) {
 <span data-media></span>
 
 <script type="module">
-  import { createRating, ratingHtml } from 'https://lumeui.dev/v/1.8/lume.js';
+  import { createRating, ratingHtml } from 'https://lumeui.dev/v/1.9/lume.js';
 
   createRating(document.querySelector('.ds-rating'), {
     name: '${L('nota', 'score', 'nota')}',
@@ -129,13 +129,13 @@ export function mount(root) {
         ? `<span data-media></span>
 
 <script type="module">
-  import { ratingHtml } from 'https://lumeui.dev/v/1.8/lume.js';
+  import { ratingHtml } from 'https://lumeui.dev/v/1.9/lume.js';
   document.querySelector('[data-media]').innerHTML = ratingHtml(${s.value}, { ${s.size ? `size: '${s.size}', ` : ''}text: true });
 </script>`
         : `<div class="ds-rating${s.size ? ` ds-rating--${s.size}` : ''}" aria-label="${ask()}"></div>
 
 <script type="module">
-  import { createRating } from 'https://lumeui.dev/v/1.8/lume.js';
+  import { createRating } from 'https://lumeui.dev/v/1.9/lume.js';
   createRating(document.querySelector('.ds-rating'), { name: '${L('nota', 'score', 'nota')}', value: ${Math.round(Number(s.value))} });
 </script>`,
   });

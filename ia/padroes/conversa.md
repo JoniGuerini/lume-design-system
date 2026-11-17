@@ -15,7 +15,7 @@ Como posso ajudar?
 Pergunte em português, anexe um arquivo ou digite / para ver os comandos.
 
 ```html
-import { createComposer, messageHtml, typingHtml, streamText } from 'https://lumeui.dev/v/1.8/lume.js';
+import { createComposer, messageHtml, typingHtml, streamText } from 'https://lumeui.dev/v/1.9/lume.js';
 
 const thread = document.querySelector('.ds-thread');   // role="log" aria-live="polite"
 
@@ -489,7 +489,7 @@ O CSS vem em `ds/ds.css`; o comportamento, em `ds/js/composer.js`.
 ```
 
 ```html
-import { createComposer } from 'https://lumeui.dev/v/1.8/lume.js';
+import { createComposer } from 'https://lumeui.dev/v/1.9/lume.js';
 
 const composer = createComposer(document.querySelector('#composer'), {
   label: 'Mensagem para o Lume',

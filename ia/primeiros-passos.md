@@ -8,11 +8,11 @@ Em números: dependências: 0 · arquivo de CSS: 1 · tokens: 383 · temas: 2.
 
 ## Instalação
 
-Três passos, sem terminal. Prefere ter os arquivos no projeto? Baixe o zip da versão e leve a pasta para o seu projeto.
+Três passos, sem terminal. Prefere ter os arquivos no projeto? Baixe o zip da versão e leve a pasta para o seu projeto. Usa npm? `npm install @joniguerini/lume` e importe `@joniguerini/lume/lume.css`; no React, os componentes vêm de `@joniguerini/lume/react`.
 
-- Passo 1: — Carregue o CSS — Cole esta linha no `<head>`: um arquivo só traz as fontes, os tokens, a base e todos os componentes. O `1.8` no endereço é a versão; o seu projeto só muda quando você trocar esse número. Licença MIT. — `<link rel="stylesheet" href="https://lumeui.dev/v/1.8/lume.css">`
+- Passo 1: — Carregue o CSS — Cole esta linha no `<head>`: um arquivo só traz as fontes, os tokens, a base e todos os componentes. O `1.9` no endereço é a versão; o seu projeto só muda quando você trocar esse número. Licença MIT. — `<link rel="stylesheet" href="https://lumeui.dev/v/1.9/lume.css">`
 - Passo 2: — Escolha o tema — `light` é o claro e `dark`, o escuro. Para seguir o sistema (o padrão do site), `initTheme()` escolhe um dos dois. — `<html lang="pt-BR" data-theme="light">`
-- Passo 3: — Ligue só o JavaScript que usar — Componentes visuais funcionam só com CSS. Para os interativos, importe de `lume.js` o que a tela usa. — `<script type="module"> import { initTooltips, mountSelects } from 'https://lumeui.dev/v/1.8/lume.js'; initTooltips(); mountSelects(document); </script>`
+- Passo 3: — Ligue só o JavaScript que usar — Componentes visuais funcionam só com CSS. Para os interativos, importe de `lume.js` o que a tela usa. — `<script type="module"> import { initTooltips, mountSelects } from 'https://lumeui.dev/v/1.9/lume.js'; initTooltips(); mountSelects(document); </script>`
 
 ## Sua primeira tela
 

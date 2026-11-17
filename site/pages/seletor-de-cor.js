@@ -78,7 +78,7 @@ export default function renderColorPicker(page) {
 </div>
 
 <script type="module">
-  import { createColorField } from 'https://lumeui.dev/v/1.8/lume.js';
+  import { createColorField } from 'https://lumeui.dev/v/1.9/lume.js';
 
   createColorField(document.querySelector('#marca'), {
     value: '${START}',
@@ -145,7 +145,7 @@ export function mount(root) {
         ? `<div class="ds-field"><input class="ds-field__input" id="marca" name="marca" type="text"></div>
 
 <script type="module">
-  import { createColorField } from 'https://lumeui.dev/v/1.8/lume.js';
+  import { createColorField } from 'https://lumeui.dev/v/1.9/lume.js';
   createColorField(document.querySelector('#marca'), {
     value: '${START}',${s.swatches === 'on' ? `\n    ${swatchesCode()},` : ''}
   });
@@ -153,7 +153,7 @@ export function mount(root) {
         : `<div class="ds-color-picker"></div>
 
 <script type="module">
-  import { createColorPicker } from 'https://lumeui.dev/v/1.8/lume.js';
+  import { createColorPicker } from 'https://lumeui.dev/v/1.9/lume.js';
   createColorPicker(document.querySelector('.ds-color-picker'), {
     value: '${START}',${s.swatches === 'on' ? `\n    ${swatchesCode()},` : ''}
     onChange: (hex) => console.log(hex),

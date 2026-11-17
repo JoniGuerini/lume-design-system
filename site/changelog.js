@@ -8,10 +8,36 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '1.8.1';
+export const CURRENT_VERSION = '1.9.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '1.9.0',
+    date: '2026-11-17',
+    title: T('Lume no npm', 'Lume on npm', 'Lume en npm'),
+    summary: T(
+      'O Lume agora se instala com npm install @joniguerini/lume: CSS, JavaScript e os componentes React num pacote só, já compilados e com tipos. Copiar os arquivos para o projeto continua valendo.',
+      'Lume now installs with npm install @joniguerini/lume: CSS, JavaScript, and the React components in a single package, already compiled and typed. Copying the files into your project still works.',
+      'Lume ahora se instala con npm install @joniguerini/lume: CSS, JavaScript y los componentes React en un solo paquete, ya compilados y con tipos. Copiar los archivos al proyecto sigue valiendo.',
+    ),
+    groups: [
+      {
+        name: T('Pacote', 'Package', 'Paquete'),
+        items: [
+          ['novo', T('npm install @joniguerini/lume: o CSS (@joniguerini/lume/lume.css), o JavaScript com tipos e os ícones', 'npm install @joniguerini/lume: the CSS (@joniguerini/lume/lume.css), the typed JavaScript, and the icons', 'npm install @joniguerini/lume: el CSS (@joniguerini/lume/lume.css), el JavaScript con tipos y los íconos'), '/primeiros-passos'],
+          ['novo', T('Componentes React em @joniguerini/lume/react, compilados e com tipos, prontos para Vite e Next.js (React 18 ou mais novo)', 'React components at @joniguerini/lume/react, compiled and typed, ready for Vite and Next.js (React 18 or newer)', 'Componentes React en @joniguerini/lume/react, compilados y con tipos, listos para Vite y Next.js (React 18 o más nuevo)'), '/recursos/react'],
+          ['novo', T('npx @joniguerini/lume init copia o Lume para o projeto; add traz só um componente, com o que ele precisa', 'npx @joniguerini/lume init copies Lume into your project; add brings a single component, with what it needs', 'npx @joniguerini/lume init copia Lume al proyecto; add trae solo un componente, con lo que necesita'), '/recursos/react'],
+        ],
+      },
+      {
+        name: T('Para IAs', 'For AI', 'Para IA'),
+        items: [
+          ['melhoria', T('Os guias e as skills ensinam a instalar pelo npm e avisam que o pacote só tem esse nome', 'The guides and skills teach installing from npm and point out that the package has only that name', 'Las guías y las skills enseñan a instalar desde npm y avisan que el paquete solo tiene ese nombre'), '/recursos/ia'],
+        ],
+      },
+    ],
+  },
   {
     version: '1.8.1',
     date: '2026-11-17',

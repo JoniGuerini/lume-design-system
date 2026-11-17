@@ -2,13 +2,21 @@
 
 Lume section: Resources. Page: https://lumeui.dev/#/recursos/react
 
-.tsx components to copy into your project, on top of Lume’s same CSS and JavaScript. No package to install: the folder comes in each version’s zip.
+React components on top of Lume’s same CSS and JavaScript, already compiled and typed. Install from npm or, if you’d rather have the files in your project, copy the .tsx files.
 
 In numbers: of the 60 components: 60 · React: 18+ · dependencies: 0.
 
 ## Install
 
-Download the 1.8 zip, unzip it, and move the folder into `src/` named `lume`. The components are in `lume/react/` and import the JavaScript and icons from that same folder. It works with Vite, Next.js, and any React 18 or newer project.
+One package brings the CSS, the JavaScript, and the React components, already compiled and typed. It works with Vite, Next.js, and any React 18 or newer project.
+
+```html
+npm install @joniguerini/lume
+```
+
+### Prefer the files in your project?
+
+As with shadcn: download the 1.9 zip and move the folder into `src/` named `lume`, or run `npx @joniguerini/lume init`. The components live in `lume/react/`, as .tsx, to read and change freely; your imports then become `./lume/react`.
 
 ```html
 src/
@@ -28,12 +36,12 @@ Markup of the examples in this section:
 
 ## Use
 
-Import `lume.css` once, at the app’s entry, and the components from `./lume/react`.
+Import `lume.css` once, at the app’s entry, and the components from `@joniguerini/lume/react`. In Next.js, the CSS goes in the root layout; the components already arrive marked for the client.
 
 ```html
 import { createRoot } from 'react-dom/client';
-import './lume/lume.css';
-import { initTheme } from './lume/lume.js';
+import '@joniguerini/lume/lume.css';
+import { initTheme } from '@joniguerini/lume';
 import { App } from './App';
 
 initTheme();
@@ -42,7 +50,7 @@ createRoot(document.getElementById('root')!).render(<App />);
 
 ```html
 import { useState } from 'react';
-import { Alert, Badge, Button, Panel } from './lume/react';
+import { Alert, Badge, Button, Panel } from '@joniguerini/lume/react';
 
 export function App() {
   const [saving, setSaving] = useState(false);
@@ -57,7 +65,7 @@ export function App() {
 }
 ```
 
-With an AI: point it to `https://lumeui.dev/llms.txt` and say the project uses the components in `lume/react`.
+With an AI: point it to `https://lumeui.dev/llms.txt` and say the project uses the components in `@joniguerini/lume/react`.
 
 Markup of the examples in this section:
 
@@ -190,15 +198,11 @@ What’s already in React. Each name leads to the component’s page, with the u
 |   |   |
 | --- | --- |
 | A thin layer | Each component only builds Lume’s markup, with the same classes. The look comes from `lume.css`; fix it there, it’s fixed in React. |
-| Your files | The .tsx files live in your project, as with shadcn: you can read, change, and delete what you don’t use. No npm. |
+| Your files | From npm, they come compiled and typed. Copied, the .tsx files live in your project, as with shadcn: you can read, change, and delete what you don’t use. |
 | TypeScript | Typed, commented props, with a link to each component’s page. `IconName` lists the 154 icons: a wrong name won’t compile. |
 | Language | The text a component writes on its own ("Close", "Loading") follows Lume’s language and changes with `setLocale`. `useLocale()` does the same for yours. |
-| Versions | The `react/` folder ships with every line: `/v/1.8/react/`. Updating means swapping the Lume folder for the new line’s. |
+| Versions | From npm, updating is `npm update @joniguerini/lume`; the package version is Lume’s. Copied, the `react/` folder ships with every line (`/v/1.9/react/`) and updating means swapping the folder. |
 
 ## What’s next
 
-One stage per version, up to all 60 components. Until a component arrives, use the HTML markup from its page with className: the CSS is the same.
-
-|   |   |   |
-| --- | --- | --- |
-| `1.8.2` | React 18 support: The React components tested on React 18 too, not just 19. | Next |
+All 60 components are already in React.

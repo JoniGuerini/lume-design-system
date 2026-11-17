@@ -2,13 +2,21 @@
 
 Seção do Lume: Recursos. Página: https://lumeui.dev/#/recursos/react
 
-Componentes .tsx para copiar no projeto, por cima do mesmo CSS e JavaScript do Lume. Sem pacote para instalar: a pasta vem no zip de cada versão.
+Componentes React por cima do mesmo CSS e JavaScript do Lume, já compilados e com tipos. Instale pelo npm ou, se preferir os arquivos no projeto, copie os .tsx.
 
 Em números: dos 60 componentes: 60 · React: 18+ · dependências: 0.
 
 ## Instalar
 
-Baixe o zip da versão 1.8, descompacte e leve a pasta para dentro de `src/` com o nome `lume`. Os componentes estão em `lume/react/` e importam o JavaScript e os ícones da própria pasta. Funciona com Vite, Next.js e qualquer projeto React 18 ou mais novo.
+Um pacote só traz o CSS, o JavaScript e os componentes React, já compilados e com tipos. Funciona com Vite, Next.js e qualquer projeto React 18 ou mais novo.
+
+```html
+npm install @joniguerini/lume
+```
+
+### Prefere os arquivos no projeto?
+
+Como no shadcn: baixe o zip da versão 1.9 e leve a pasta para `src/` com o nome `lume`, ou rode `npx @joniguerini/lume init`. Os componentes ficam em `lume/react/`, em .tsx, para ler e mudar à vontade; aí os imports passam a ser `./lume/react`.
 
 ```html
 src/
@@ -28,12 +36,12 @@ Marcação dos exemplos desta seção:
 
 ## Usar
 
-Importe o `lume.css` uma vez, na entrada do app, e os componentes de `./lume/react`.
+Importe o `lume.css` uma vez, na entrada do app, e os componentes de `@joniguerini/lume/react`. No Next.js, o CSS vai no layout raiz; os componentes já chegam marcados para o cliente.
 
 ```html
 import { createRoot } from 'react-dom/client';
-import './lume/lume.css';
-import { initTheme } from './lume/lume.js';
+import '@joniguerini/lume/lume.css';
+import { initTheme } from '@joniguerini/lume';
 import { App } from './App';
 
 initTheme();
@@ -42,7 +50,7 @@ createRoot(document.getElementById('root')!).render(<App />);
 
 ```html
 import { useState } from 'react';
-import { Alert, Badge, Button, Panel } from './lume/react';
+import { Alert, Badge, Button, Panel } from '@joniguerini/lume/react';
 
 export function App() {
   const [saving, setSaving] = useState(false);
@@ -57,7 +65,7 @@ export function App() {
 }
 ```
 
-Com uma IA: aponte para `https://lumeui.dev/llms.txt` e diga que o projeto usa os componentes de `lume/react`.
+Com uma IA: aponte para `https://lumeui.dev/llms.txt` e diga que o projeto usa os componentes de `@joniguerini/lume/react`.
 
 Marcação dos exemplos desta seção:
 
@@ -190,10 +198,10 @@ O que já está em React. Cada nome leva à página do componente, onde estão o
 |   |   |
 | --- | --- |
 | Uma camada fina | Cada componente só monta a marcação do Lume, com as mesmas classes. O visual vem do `lume.css`; corrigiu lá, corrigiu no React. |
-| Seus arquivos | Os .tsx ficam no seu projeto, como no shadcn: dá para ler, mudar e apagar o que não usar. Nada de npm. |
+| Seus arquivos | Pelo npm, vêm compilados e com tipos. Copiados, os .tsx ficam no seu projeto, como no shadcn: dá para ler, mudar e apagar o que não usar. |
 | TypeScript | Props tipadas e comentadas, com o link da página de cada componente. `IconName` lista os 154 ícones: nome errado não compila. |
 | Idioma | Os textos que o componente escreve sozinho ("Fechar", "Carregando") seguem o idioma do Lume e mudam com `setLocale`. `useLocale()` faz o mesmo nos seus. |
-| Versões | A pasta `react/` vai em cada linha: `/v/1.8/react/`. Atualizar é trocar a pasta do Lume pela da linha nova. |
+| Versões | Pelo npm, atualizar é `npm update @joniguerini/lume`; a versão do pacote é a do Lume. Copiado, a pasta `react/` vai em cada linha (`/v/1.9/react/`) e atualizar é trocar a pasta. |
 
 ## O que vem
 

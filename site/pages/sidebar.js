@@ -166,7 +166,7 @@ const htmlCode = () => `<aside class="ds-sidebar" id="sidebar" aria-label="${L('
 <!-- ${L('a aba de recolher fica fora da sidebar, presa na borda dela', 'the collapse tab lives outside the sidebar, pinned to its edge', 'la pestaña de contraer queda fuera de la sidebar, fija en su borde')} -->
 <button class="ds-shell__edge" data-shell-toggle aria-controls="sidebar"><ds-icon name="chevron-left" size="16"></ds-icon></button>`;
 
-const jsCode = () => `import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/1.8/lume.js';
+const jsCode = () => `import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/1.9/lume.js';
 
 const nav = document.getElementById('sidebar-nav');
 renderSidebarNav(nav, [
