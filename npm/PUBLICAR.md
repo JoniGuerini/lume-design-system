@@ -2,7 +2,18 @@
 
 O pacote é `@joniguerini/lume` (publicado desde a 1.9.0, em 17/11/2026). O nome fica num lugar só: a constante `NAME` no topo de `scripts/build-npm.mjs`; o README do pacote e o comando `npx` leem dali.
 
-## Sozinho, pelo GitHub (o caminho normal)
+## Hoje: à mão, num comando
+
+```bash
+npm run build          # a versão nova no changelog e versoes/<linha>/ em dia
+npm run publicar       # monta o pacote, confere se a versão já está no npm e publica (pede a chave de segurança)
+```
+
+Se a versão já estiver no npm, o `npm run publicar` para sem publicar nada.
+
+## Sozinho, pelo GitHub (desligado por enquanto)
+
+**Em 17/11/2026 o GitHub Actions ficou bloqueado na conta dele** (“account is locked due to a billing issue”, depois de uma verificação de cartão recusada; nada a pagar). O workflow foi desligado (`gh workflow disable publicar-npm.yml`) para não falhar a cada versão. Quando o suporte do GitHub destravar: `gh workflow enable publicar-npm.yml`, rodar o ensaio e, se a conexão do npm tiver vencido (validade até 19/11/2026, 21:41 UTC), apagar e criar de novo com os mesmos campos.
 
 O workflow `.github/workflows/publicar-npm.yml` publica quando o `site/changelog.js` muda na `main` e a versão dele ainda não está no npm. Nada a fazer além do de sempre ao fechar uma versão:
 
@@ -22,7 +33,7 @@ Não há token guardado: o npm confia no workflow pelo **Trusted Publisher**, co
 
 Para conferir sem publicar: aba Actions › Publicar no npm › Run workflow, com **Ensaio** marcado (o padrão). Ele monta e mostra o conteúdo do pacote, e para antes de publicar.
 
-## À mão (se o GitHub estiver fora)
+## Passo a passo, sem o atalho
 
 ```bash
 npm run build
