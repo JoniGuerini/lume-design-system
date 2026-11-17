@@ -1,0 +1,157 @@
+<!doctype html>
+<!--
+  A chama do Lume acendendo, para o Instagram (1080×1920, 9 s, volta ao começo sem corte).
+  Tudo é função do tempo: seek(t) calcula cada estilo, sem transições nem timers (como o filme.html).
+  Plano e sem brilho, como o próprio Lume: a chama e o nome, na ardósia do tema escuro.
+  Gravar: node video/render-logo.mjs (veja o topo do arquivo).
+-->
+<html lang="pt-BR" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <title>Lume · a chama</title>
+    <link rel="stylesheet" href="../ds/ds.css" />
+    <style>
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+      html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--ds-color-bg-app); }
+      #stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--ds-color-bg-app); color: var(--ds-color-fg-default); }
+
+      /* a chama: um SVG só, 24 × 24 como o favicon, desenhado grande */
+      .flame { position: absolute; left: 0; top: 0; width: 24px; height: 24px; overflow: visible; transform-origin: 0 0; }
+      .flame__outer, .flame__inner, .flame__ember { transform-box: view-box; }
+      .spark { position: absolute; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 50%; background: #c97b63; }
+
+      .word { position: absolute; left: 0; top: 0; display: flex; font: 400 210px/1 var(--ds-font-family-display); letter-spacing: -0.02em; white-space: nowrap; }
+      .word span { display: inline-block; }
+
+      .eyebrow { position: absolute; left: 0; right: 0; top: 1120px; color: var(--ds-color-fg-muted); font: 400 46px/1 var(--ds-font-family-sans); letter-spacing: -0.01em; text-align: center; }
+
+      .foot { position: absolute; left: 0; right: 0; top: 1560px; display: grid; justify-items: center; gap: 26px; }
+      .url { display: inline-flex; align-items: center; height: 96px; padding-inline: 52px; border: 2px solid var(--ds-color-border-control); border-radius: 48px; color: var(--ds-color-fg-default); font: 500 40px/1 var(--ds-font-family-sans); }
+      .npm { color: var(--ds-color-fg-subtle); font: 400 30px/1 var(--ds-font-family-mono); }
+    </style>
+  </head>
+  <body>
+    <div id="stage">
+      <svg class="flame" id="flame" viewBox="0 0 24 24" aria-hidden="true">
+        <circle class="flame__ember" id="ember" cx="12" cy="17" r="2.2" fill="#c97b63" />
+        <path class="flame__outer" id="outer" fill-rule="evenodd" clip-rule="evenodd" fill="#c97b63"
+          d="M12.963 2.286a.75.75 0 0 0-1.071-.136 9.742 9.742 0 0 0-3.539 6.176 7.547 7.547 0 0 1-1.705-1.715.75.75 0 0 0-1.152-.082A9 9 0 1 0 15.68 4.534a7.46 7.46 0 0 1-2.717-2.248z" />
+        <path class="flame__inner" id="inner" fill="#ffffff" fill-opacity="0.28"
+          d="M15.75 14.25a3.75 3.75 0 1 1-7.313-1.172c.628.465 1.35.81 2.133 1.001a5.99 5.99 0 0 1 1.925-3.546 3.75 3.75 0 0 1 3.255 3.717z" />
+      </svg>
+      <div id="sparks"></div>
+      <div class="word" id="word"><span>L</span><span>u</span><span>m</span><span>e</span></div>
+      <p class="eyebrow" id="eyebrow">Design system</p>
+      <div class="foot" id="foot">
+        <span class="url" id="url">lumeui.dev</span>
+        <span class="npm" id="npm">npm i @joniguerini/lume</span>
+      </div>
+    </div>
+
+    <script type="module">
+      const DUR = 9;
+      const $ = (id) => document.getElementById(id);
+      const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+      const lerp = (a, b, k) => a + (b - a) * k;
+      // fração do trecho [a, b] em que t está
+      const part = (t, a, b) => clamp((t - a) / (b - a));
+      const easeOut = (k) => 1 - (1 - k) ** 3;
+      const easeInOut = (k) => (k < 0.5 ? 4 * k ** 3 : 1 - (-2 * k + 2) ** 3 / 2);
+      const back = (k) => { const c = 1.6; return 1 + (c + 1) * (k - 1) ** 3 + c * (k - 1) ** 2; };
+
+      // faíscas: saem da base da chama quando ela acende e somem subindo
+      const SPARKS = [
+        { dx: -70, h: 360, at: 0.95, s: 1 }, { dx: 55, h: 430, at: 1.05, s: 0.8 }, { dx: -20, h: 520, at: 1.15, s: 0.65 },
+        { dx: 95, h: 300, at: 1.3, s: 0.7 }, { dx: -110, h: 260, at: 1.45, s: 0.55 }, { dx: 25, h: 600, at: 1.6, s: 0.5 },
+      ];
+      const sparkEls = SPARKS.map(() => {
+        const el = document.createElement('i');
+        el.className = 'spark';
+        $('sparks').append(el);
+        return el;
+      });
+
+      // medidas da marca no fim (chama à esquerda do nome, o conjunto no centro)
+      let word = { w: 0, h: 0 };
+      const BIG = 420; // tamanho da chama sozinha (lado do quadrado de 24 × 24)
+      const SMALL = 196;
+      const GAP = 34;
+
+      function seek(time) {
+        const t = ((time % DUR) + DUR) % DUR;
+
+        // 1. brasa: aparece e pulsa duas vezes
+        const emberIn = easeOut(part(t, 0.1, 0.6));
+        const pulse = 1 + 0.12 * Math.sin(part(t, 0.3, 0.95) * Math.PI * 2) * (1 - part(t, 0.8, 1));
+        const ignite = part(t, 0.85, 1.75);
+        const emberScale = emberIn * pulse * (1 - easeOut(part(t, 0.95, 1.3)));
+        $('ember').setAttribute('transform', `translate(12 17) scale(${emberScale.toFixed(4)}) translate(-12 -17)`);
+
+        // 2. a chama sobe da brasa, com um pouco de sobra, e passa a tremular
+        const grow = ignite > 0 ? back(ignite) : 0;
+        const flick = part(t, 1.4, 2.2);
+        const time2 = t * Math.PI * 2;
+        const sway = (Math.sin(time2 * 0.9) * 2.4 + Math.sin(time2 * 2.3) * 0.9) * flick;
+        const breathe = 1 + (Math.sin(time2 * 1.7) * 0.022 + Math.sin(time2 * 3.1) * 0.012) * flick;
+        const sx = lerp(0.55, 1, easeOut(ignite));
+        $('outer').setAttribute('transform', `translate(12 21) skewX(${sway.toFixed(3)}) scale(${(sx / breathe ** 0.5).toFixed(4)} ${(grow * breathe).toFixed(4)}) translate(-12 -21)`);
+        const innerIn = back(part(t, 1.35, 2.05));
+        const innerFlick = 1 + (Math.sin(time2 * 2.6 + 1) * 0.07 + Math.sin(time2 * 4.4) * 0.03) * flick;
+        $('inner').setAttribute('transform', `translate(12 18) skewX(${(-sway * 0.6).toFixed(3)}) scale(${(innerIn * innerFlick ** 0.4).toFixed(4)} ${(innerIn * innerFlick).toFixed(4)}) translate(-12 -18)`);
+        $('inner').style.opacity = innerIn > 0 ? 1 : 0;
+
+        // 3. a chama vai para o lado e o nome entra (chama de 24 para nome de 28, como na sidebar)
+        const move = easeInOut(part(t, 3.0, 4.0));
+        const size = lerp(BIG, SMALL, move);
+        const total = SMALL + GAP + word.w;
+        const endX = 540 - total / 2;
+        const cx = lerp(540 - BIG / 2, endX, move);
+        const cy = lerp(960 - BIG * 0.55, 960 - SMALL / 2, move);
+        $('flame').style.transform = `translate(${cx}px, ${cy}px) scale(${size / 24})`;
+
+        // as faíscas acompanham a base da chama grande
+        const baseX = 540, baseY = 960 - BIG * 0.55 + BIG * (20 / 24);
+        SPARKS.forEach((s, i) => {
+          const k = part(t, s.at, s.at + 1.1);
+          const el = sparkEls[i];
+          el.style.opacity = k > 0 && k < 1 ? (1 - k) ** 1.4 : 0;
+          el.style.transform = `translate(${baseX + s.dx * easeOut(k) + Math.sin(k * 6 + i) * 14}px, ${baseY - s.h * easeOut(k)}px) scale(${s.s * (1 - k * 0.6)})`;
+        });
+
+        // o nome: letra por letra, subindo de dentro de uma máscara
+        const wx = endX + SMALL + GAP;
+        const wy = 960 - word.h / 2 + 6;
+        $('word').style.transform = `translate(${wx}px, ${wy}px)`;
+        $('word').querySelectorAll('span').forEach((el, i) => {
+          const k = easeOut(part(t, 3.55 + i * 0.12, 4.25 + i * 0.12));
+          el.style.opacity = k;
+          el.style.transform = `translateY(${(1 - k) * 60}px)`;
+        });
+
+        // 4. o que é e onde ver
+        const eb = easeOut(part(t, 4.6, 5.3));
+        $('eyebrow').style.opacity = eb;
+        $('eyebrow').style.transform = `translateY(${(1 - eb) * 24}px)`;
+        const ft = easeOut(part(t, 5.2, 6.0));
+        $('url').style.opacity = ft;
+        $('url').style.transform = `translateY(${(1 - ft) * 30}px)`;
+        const np = easeOut(part(t, 5.5, 6.3));
+        $('npm').style.opacity = np;
+        $('npm').style.transform = `translateY(${(1 - np) * 30}px)`;
+
+        // 5. fecho: tudo some e a chama volta a ser brasa, para o vídeo voltar ao começo sem corte
+        const out = easeInOut(part(t, 8.1, 8.85));
+        $('eyebrow').style.opacity = eb * (1 - out);
+        for (const id of ['word', 'foot', 'flame']) $(id).style.opacity = 1 - out;
+      }
+
+      await document.fonts.ready;
+      const r = $('word').getBoundingClientRect();
+      word = { w: r.width, h: r.height };
+      window.DUR = DUR;
+      window.seek = seek;
+      seek(Number(new URLSearchParams(location.search).get('t') ?? 6));
+      window.ready = true;
+    </script>
+  </body>
+</html>
