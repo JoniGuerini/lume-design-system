@@ -1,0 +1,25 @@
+name: Sugestão
+description: Ideia de componente, padrão ou melhoria
+labels: [sugestão]
+body:
+  - type: markdown
+    attributes:
+      value: "Pode escrever em português, inglês ou espanhol. Para componente novo, conte o problema que ele resolve, não só o nome."
+  - type: textarea
+    id: ideia
+    attributes:
+      label: A ideia
+      description: O que você gostaria de ver no Lume e por quê.
+    validations:
+      required: true
+  - type: textarea
+    id: exemplo
+    attributes:
+      label: Exemplos
+      description: Links de outros design systems ou capturas, se tiver.
+  - type: checkboxes
+    id: pr
+    attributes:
+      label: Contribuição
+      options:
+        - label: Eu gostaria de abrir um PR com isso, se for aceito

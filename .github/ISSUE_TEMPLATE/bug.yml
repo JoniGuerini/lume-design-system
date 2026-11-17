@@ -1,0 +1,37 @@
+name: Bug
+description: Algo não funciona ou aparece errado
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "Obrigado por avisar! Pode escrever em português, inglês ou espanhol."
+  - type: input
+    id: onde
+    attributes:
+      label: Onde acontece
+      description: Página do lumeui.dev ou componente
+      placeholder: "https://lumeui.dev/#/componentes/selecao"
+    validations:
+      required: true
+  - type: textarea
+    id: oque
+    attributes:
+      label: O que acontece
+      description: O que você fez, o que esperava e o que aconteceu. Uma captura de tela ajuda muito.
+    validations:
+      required: true
+  - type: dropdown
+    id: tema
+    attributes:
+      label: Tema
+      options: [Claro, Escuro, Os dois]
+  - type: input
+    id: navegador
+    attributes:
+      label: Navegador e sistema
+      placeholder: "Chrome 142 no Windows 11"
+  - type: dropdown
+    id: uso
+    attributes:
+      label: Como você usa o Lume
+      options: [Só no site lumeui.dev, HTML e JavaScript, React, Pacote do npm]

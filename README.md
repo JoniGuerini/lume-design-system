@@ -1,8 +1,10 @@
 # Lume Design System
 
-O design system do app Lume (até a versão 0.7, chamado Órbita).
-Design system escuro-quente, plano e calmo: acento pêssego, contornos finos, títulos bem apertados e páginas montadas como painéis.
-Sem dependências: HTML, CSS custom properties e JavaScript nativo (ES modules). Funciona com qualquer stack.
+Design system aberto, com tokens, 154 ícones, 60 componentes, gráficos e 12 padrões de tela. Tem tema claro e escuro, em português, inglês e espanhol, e é feito só com HTML, CSS e JavaScript nativos, sem dependências. Tem camada React e documentação para IAs.
+
+**[lumeui.dev](https://lumeui.dev)** · [Storybook](https://lumeui.dev/storybook/) · [Figma](https://www.figma.com/design/1yTJ881xoXjRmdi6NeTnYD/Lume-Design-System) · [npm](https://www.npmjs.com/package/@joniguerini/lume) · [Como contribuir](CONTRIBUTING.md)
+
+> *An open design system: tokens, components, charts and screen patterns in plain HTML, CSS and JavaScript, with React bindings. Docs in English, Portuguese and Spanish at [lumeui.dev](https://lumeui.dev).*
 
 ## Usar
 
@@ -155,9 +157,13 @@ Todos os gráficos seguem o tema sozinhos (as cores são tokens `--ds-color-char
 ## Personalizar
 
 - **Cor da marca:** em `tokens/palettes.json`, mude `hue` (e `chroma`) de `brand`. Ex.: `50` pêssego, `275` índigo, `152` verde.
-- **Temas:** `<html data-theme="dark|light|system">`. Escuro é o padrão. Qualquer elemento pode ter um `data-theme` próprio (temas aninhados).
+- **Temas:** `<html data-theme="dark|light|system">`. Por padrão segue o sistema. Qualquer elemento pode ter um `data-theme` próprio (temas aninhados).
 - **Sem imagens nem texturas:** a personalidade vem das superfícies opacas em camadas, dos contornos finos, da tipografia e do acento pêssego. Fundos são sempre cores sólidas — nada de degradê, vidro ou blur.
 - **Nova página:** crie `site/pages/minha-pagina.js` exportando `default function render(page)` (e, se quiser, `mount(root)` que devolve uma função de limpeza, e `styles = 'site/pages/minha-pagina.css'`). Depois adicione `load: () => import('./pages/minha-pagina.js')` ao item em `site/nav.js`. Páginas de fundamentos seguem o modelo de `cores.js`: `.doc-header` → `.doc-nav` → `.doc-section`.
+
+## Contribuir
+
+Bugs, ideias e correções são bem-vindos. Veja o [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Atalhos
 
