@@ -1,0 +1,25 @@
+name: Idea
+description: A component, pattern or improvement you'd like to see
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: "You can write in English, Portuguese or Spanish. For a new component, describe the problem it solves, not just its name."
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+      description: What you'd like to see in Lume, and why.
+    validations:
+      required: true
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples
+      description: Links to other design systems or screenshots, if you have them.
+  - type: checkboxes
+    id: pr
+    attributes:
+      label: Contributing
+      options:
+        - label: I'd like to open a pull request for this, if it's accepted

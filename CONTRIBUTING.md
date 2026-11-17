@@ -1,54 +1,55 @@
-# Como contribuir com o Lume
+# Contributing to Lume
 
-Obrigado pelo interesse! O Lume é mantido por uma pessoa só, então o jeito de contribuir é simples e direto.
+Thanks for your interest! Lume is maintained by one person, so contributing is kept simple.
 
-> *English: bug reports and small pull requests (fixes, accessibility, translations) are welcome. For anything bigger, please open an issue first. Issues and PRs can be written in English, Portuguese or Spanish.*
+Issues and pull requests can be written in English, Portuguese or Spanish.
 
-## Achou um bug ou tem uma ideia?
+## Found a bug or have an idea?
 
-Abra uma [Issue](../../issues/new/choose). Ela pode ser em português, inglês ou espanhol. Para bug, diga em qual página ou componente acontece, o tema (claro ou escuro) e o navegador. Uma captura de tela ajuda muito.
+Open an [issue](../../issues/new/choose). For a bug, tell us which page or component it happens on, the theme (light or dark) and the browser. A screenshot helps a lot.
 
 ## Pull requests
 
-São bem-vindos **PRs pequenos**:
+**Small pull requests** are welcome:
 
-- correções de bugs;
-- melhorias de acessibilidade (teclado, leitor de tela, contraste);
-- textos e traduções (português, inglês e espanhol);
-- erros na documentação.
+- bug fixes;
+- accessibility improvements (keyboard, screen readers, contrast);
+- texts and translations (English, Portuguese and Spanish);
+- documentation fixes.
 
-Para **componente novo, mudança visual ou de API**, abra uma Issue antes de escrever código. Assim a gente combina se aquilo entra e como, e ninguém perde trabalho. Nem todo PR é aceito, mesmo quando está certo: o Lume tem uma direção visual definida e prefere menos peças a mais.
+For a **new component, a visual change or an API change**, please open an issue before writing code. That way we agree on whether and how it fits, and nobody loses work. Not every pull request is merged, even a correct one: Lume has a defined visual direction and prefers fewer pieces over more.
 
-## Rodar o projeto
+## Running the project
 
-Precisa só do Node 18 ou mais novo. Não há dependências para instalar.
-
-```bash
-npm run dev            # abre o site em http://localhost:5173
-```
-
-O servidor gera os tokens sozinho e acompanha as mudanças em `tokens/`.
-
-## Regras do código
-
-- **Sem dependências:** HTML, CSS e JavaScript nativos. Nada de pacotes novos.
-- **Tokens são a fonte da verdade:** cores, espaços e tipografia vêm de `tokens/*.json`. `ds/tokens.css` e `ds/tokens.js` são gerados, não edite. Componentes usam só tokens semânticos (`var(--ds-color-fg-muted)`, nunca uma cor solta).
-- **Três idiomas:** todo texto novo nasce em português, inglês e espanhol. Nos componentes, por `msg()` (`ds/js/messages.js`). No site, por `T(pt, en, es)` ou `L(pt, en, es)`.
-- **Estados:** toda regra com `:hover`, `:focus-visible` ou `:active` tem a irmã com `[data-state="hover|focus|pressed"]`.
-- **Acessibilidade:** teclado completo, nome acessível, contraste WCAG AA nos dois temas.
-- **Plano:** sem degradê de fundo, vidro, blur, brilho ou imagens decorativas.
-
-## Antes de abrir o PR
+You only need Node 18 or newer. There are no dependencies to install.
 
 ```bash
-npm run build          # tokens, React e o site
-npm run test:a11y      # acessibilidade e contraste em todas as páginas, nos dois temas
+npm run dev            # opens the site at http://localhost:5173
 ```
 
-Se mudou CSS, rode também `npm run test:visual`. Na primeira vez, rode `npm run test:visual -- --atualizar` antes de mexer, para gerar as fotos de referência no seu computador. Depois, rode de novo e confira o relatório em `dist/test-visual/relatorio.html`.
+The server generates the tokens on its own and watches `tokens/` for changes.
 
-Não precisa mexer no changelog, no número da versão nem nos arquivos gerados para IAs (`ia/`) e para o Storybook. Isso é feito na hora de lançar a versão.
+## Code rules
 
-## Licença
+- **No dependencies:** plain HTML, CSS and JavaScript. No new packages.
+- **Tokens are the source of truth:** colors, spacing and typography come from `tokens/*.json`. `ds/tokens.css` and `ds/tokens.js` are generated, don't edit them. Components use semantic tokens only (`var(--ds-color-fg-muted)`, never a raw color).
+- **Three languages:** every new text ships in English, Portuguese and Spanish. In components, through `msg()` (`ds/js/messages.js`); on the site, through `T(pt, en, es)` or `L(pt, en, es)`.
+- **States:** every rule with `:hover`, `:focus-visible` or `:active` has a sibling with `[data-state="hover|focus|pressed"]`, so states can be shown on the docs pages.
+- **Works without a browser:** modules in `ds/` must import cleanly on the server (Next.js). Touch `document` or `window` only inside functions that run in the browser.
+- **Accessibility:** full keyboard support, accessible names, WCAG AA contrast in both themes.
+- **Flat:** no background gradients, glass, blur, glow or decorative images.
 
-Ao contribuir, você concorda que o seu código seja distribuído sob a [licença MIT](LICENSE) do projeto.
+## Before opening the pull request
+
+```bash
+npm run build          # tokens, React types and the site
+npm run test:a11y      # accessibility and contrast on every page, in both themes
+```
+
+If you changed CSS, also run `npm run test:visual`. The first time, run `npm run test:visual -- --atualizar` before making changes, to create the reference screenshots on your machine. Then run it again and check the report at `dist/test-visual/relatorio.html`.
+
+You don't need to touch the changelog, the version number or the generated files for AI assistants (`ia/`) and Storybook. That happens when a version is released.
+
+## License
+
+By contributing, you agree that your code is distributed under the project's [MIT license](LICENSE).

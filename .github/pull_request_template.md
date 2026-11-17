@@ -1,15 +1,15 @@
-## O que muda
+## What changes
 
-<!-- Uma ou duas frases. Se resolve uma Issue, escreva "Fecha #123". -->
+<!-- One or two sentences. If it fixes an issue, write "Closes #123". -->
 
-## Como testar
+## How to test
 
-<!-- Página do site ou passos para ver a mudança. -->
+<!-- The site page or the steps to see the change. -->
 
-## Conferido
+## Checked
 
-- [ ] `npm run build` passou
-- [ ] `npm run test:a11y` passou
-- [ ] Testei nos temas claro e escuro
-- [ ] Texto novo está em português, inglês e espanhol
-- [ ] Mudou CSS: rodei `npm run test:visual`
+- [ ] `npm run build` passes
+- [ ] `npm run test:a11y` passes
+- [ ] Tested in the light and dark themes
+- [ ] New text is in English, Portuguese and Spanish
+- [ ] Changed CSS: ran `npm run test:visual`

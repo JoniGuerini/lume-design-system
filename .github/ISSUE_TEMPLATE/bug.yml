@@ -1,37 +1,37 @@
 name: Bug
-description: Algo não funciona ou aparece errado
+description: Something doesn't work or looks wrong
 labels: [bug]
 body:
   - type: markdown
     attributes:
-      value: "Obrigado por avisar! Pode escrever em português, inglês ou espanhol."
+      value: "Thanks for letting us know! You can write in English, Portuguese or Spanish."
   - type: input
-    id: onde
+    id: where
     attributes:
-      label: Onde acontece
-      description: Página do lumeui.dev ou componente
+      label: Where it happens
+      description: The lumeui.dev page or the component
       placeholder: "https://lumeui.dev/#/componentes/selecao"
     validations:
       required: true
   - type: textarea
-    id: oque
+    id: what
     attributes:
-      label: O que acontece
-      description: O que você fez, o que esperava e o que aconteceu. Uma captura de tela ajuda muito.
+      label: What happens
+      description: What you did, what you expected and what happened. A screenshot helps a lot.
     validations:
       required: true
   - type: dropdown
-    id: tema
+    id: theme
     attributes:
-      label: Tema
-      options: [Claro, Escuro, Os dois]
+      label: Theme
+      options: [Light, Dark, Both]
   - type: input
-    id: navegador
+    id: browser
     attributes:
-      label: Navegador e sistema
-      placeholder: "Chrome 142 no Windows 11"
+      label: Browser and OS
+      placeholder: "Chrome 142 on Windows 11"
   - type: dropdown
-    id: uso
+    id: usage
     attributes:
-      label: Como você usa o Lume
-      options: [Só no site lumeui.dev, HTML e JavaScript, React, Pacote do npm]
+      label: How you use Lume
+      options: [Only on the lumeui.dev site, HTML and JavaScript, React, npm package]
