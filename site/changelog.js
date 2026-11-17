@@ -8,10 +8,35 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '1.9.0';
+export const CURRENT_VERSION = '1.9.1';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '1.9.1',
+    date: '2026-11-17',
+    title: T('Publicação automática', 'Automatic publishing', 'Publicación automática'),
+    summary: T(
+      'Cada versão nova do Lume chega ao npm sozinha, pelo GitHub, com o selo de procedência: dá para conferir que o pacote saiu deste repositório. O Storybook passou a ser em inglês, e os atalhos para o Storybook, o Figma e o GitHub ficam ao lado de cada exemplo.',
+      'Every new Lume release reaches npm on its own, through GitHub, with a provenance badge: you can check that the package was built from this repository. Storybook is now in English, and shortcuts to Storybook, Figma and GitHub sit next to every example.',
+      'Cada versión nueva de Lume llega a npm sola, por GitHub, con el sello de procedencia: se puede comprobar que el paquete salió de este repositorio. Storybook pasó a estar en inglés, y los atajos a Storybook, Figma y GitHub quedan junto a cada ejemplo.',
+    ),
+    groups: [
+      {
+        name: T('Pacote', 'Package', 'Paquete'),
+        items: [
+          ['melhoria', T('@joniguerini/lume publicado pelo GitHub a cada versão, com procedência (provenance) verificável no npm', '@joniguerini/lume published by GitHub on every release, with provenance you can verify on npm', '@joniguerini/lume publicado por GitHub en cada versión, con procedencia (provenance) verificable en npm'), '/recursos/react'],
+        ],
+      },
+      {
+        name: T('Documentação', 'Docs', 'Documentación'),
+        items: [
+          ['melhoria', T('Storybook em inglês: menu, nomes das histórias, controles e a aba Docs; o conteúdo continua nos três idiomas', 'Storybook in English: menu, story names, controls, and the Docs tab; the content still comes in all three languages', 'Storybook en inglés: menú, nombres de las historias, controles y la pestaña Docs; el contenido sigue en los tres idiomas'), '/componentes/botao'],
+          ['melhoria', T('Ver no Storybook, no Figma e no GitHub ao lado do exemplo de cada componente e gráfico, inclusive Sidebar e Navbar', 'View in Storybook, Figma, and GitHub next to the example of every component and chart, Sidebar and Navbar included', 'Ver en Storybook, Figma y GitHub junto al ejemplo de cada componente y gráfico, incluidos Sidebar y Navbar'), '/componentes/sidebar'],
+        ],
+      },
+    ],
+  },
   {
     version: '1.9.0',
     date: '2026-11-17',

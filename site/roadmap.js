@@ -20,7 +20,6 @@ const R = (version, status, tone, title, text, items) => ({ version, group: 'rel
 
 /* Lume no npm (pedido dele em 17/11/2026: “montar um roadmap e ir uma por uma”). Etapa entregue sai daqui. */
 const STAGES = [
-  R('1.9.1', NEXT, 'brand', T('Publicação automática', 'Automatic publishing', 'Publicación automática'), T('Cada versão nova do Lume chega ao npm sozinha, pelo GitHub.', 'Every new Lume release reaches npm on its own, through GitHub.', 'Cada versión nueva de Lume llega a npm sola, por GitHub.'), []),
 ];
 
 const LEFT_OUT = [];
