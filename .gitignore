@@ -18,3 +18,11 @@ test/visual/referencia/
 
 # Contexto do Claude Code: fica só no computador (saiu do repositório quando ele ficou público, 17/11/2026)
 CLAUDE.md
+
+# Segredos e configurações locais: nunca entram no repositório (que é público)
+.env
+.env.*
+.vercel/
+.npmrc
+*.pem
+*.key
