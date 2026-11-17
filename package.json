@@ -16,7 +16,8 @@
     "test:visual": "node scripts/test-visual.mjs",
     "test:a11y": "node scripts/test-a11y.mjs",
     "stories": "node scripts/build-stories.mjs",
-    "storybook": "cd storybook && npm run storybook"
+    "storybook": "cd storybook && npm run storybook",
+    "npm:build": "node scripts/build-npm.mjs"
   },
   "engines": {
     "node": ">=18"
