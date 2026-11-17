@@ -201,7 +201,7 @@ export function Introducao() {
           </div>
           <div className="li-use__card">
             <p className="li-use__title"><Icon name="layers" />React</p>
-            <p className="li-use__text">{t('Os mesmos componentes em .tsx, na seção React daqui e na pasta react/ de cada versão.', 'The same components as .tsx, in the React section here and in each version’s react/ folder.', 'Los mismos componentes en .tsx, en la sección React de aquí y en la carpeta react/ de cada versión.')}</p>
+            <p className="li-use__text">{t('Os mesmos componentes, compilados e com tipos: npm install @joniguerini/lume e import de @joniguerini/lume/react. Na seção React daqui, ao vivo.', 'The same components, compiled and typed: npm install @joniguerini/lume and import from @joniguerini/lume/react. Live in the React section here.', 'Los mismos componentes, compilados y con tipos: npm install @joniguerini/lume e import de @joniguerini/lume/react. En vivo en la sección React de aquí.')}</p>
             <a className="ds-link ds-link--standalone" href="https://lumeui.dev/#/recursos/react" target="_blank" rel="noopener">{t('Usar com React', 'Use with React', 'Usar con React')}<Arrow /></a>
           </div>
           <div className="li-use__card">
