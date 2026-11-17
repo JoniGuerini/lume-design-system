@@ -15,11 +15,14 @@ import { THEME_IDS, themeLabel, themeSwitch, markThemeSwitch } from './themes.js
 import { copyText } from '../ds/js/toast.js';
 import { tr } from '../ds/js/i18n.js';
 import { T } from './i18n.js';
+import { brandIcon } from './brand-icons.js';
+import { figmaUrl } from './figma-links.js';
+import { githubUrl } from './github-links.js';
 
 const TEXT = T(
-  { copy: 'Copiar código', copied: 'Código copiado', stageTheme: 'Tema do palco', token: 'Token', role: 'Papel' },
-  { copy: 'Copy code', copied: 'Code copied', stageTheme: 'Stage theme', token: 'Token', role: 'Role' },
-  { copy: 'Copiar código', copied: 'Código copiado', stageTheme: 'Tema del escenario', token: 'Token', role: 'Función' },
+  { copy: 'Copiar código', copied: 'Código copiado', stageTheme: 'Tema do palco', token: 'Token', role: 'Papel', storybook: 'Ver no Storybook', figma: 'Ver no Figma', github: 'Ver no GitHub', external: 'abre em outra aba' },
+  { copy: 'Copy code', copied: 'Code copied', stageTheme: 'Stage theme', token: 'Token', role: 'Role', storybook: 'View in Storybook', figma: 'View in Figma', github: 'View on GitHub', external: 'opens in a new tab' },
+  { copy: 'Copiar código', copied: 'Código copiado', stageTheme: 'Tema del escenario', token: 'Token', role: 'Función', storybook: 'Ver en Storybook', figma: 'Ver en Figma', github: 'Ver en GitHub', external: 'se abre en otra pestaña' },
 );
 
 export const escapeHtml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -58,13 +61,34 @@ export function followSiteTheme(root, stageSelector, attr) {
 
 /* ───────── Playground ───────── */
 
+/**
+ * Atalhos para o mesmo componente fora do site (Storybook, Figma, GitHub), no canto do palco, ao lado do tema.
+ * O caminho vem da rota aberta; fora do site (no Storybook, por exemplo) não há rota e os atalhos não aparecem.
+ */
+function elsewhereLinks(t) {
+  const path = (location.hash.match(/^#(\/[^?]*)/) || [])[1] || '';
+  if (!/^\/(componentes|graficos)\//.test(path)) return '';
+  const [, group, slug] = path.split('/');
+  const links = [
+    ['storybook', t.storybook, `storybook/?path=/docs/${group}-${slug}--documenta%C3%A7%C3%A3o`],
+    ['figma', t.figma, figmaUrl(path)],
+    ['github', t.github, githubUrl(path)],
+  ].filter((l) => l[2]);
+  return links
+    .map(([brand, label, href]) => `<a class="cd-playground__link" href="${href}" target="_blank" rel="noopener" aria-label="${label}, ${t.external}" data-ds-tooltip="${label}">${brandIcon(brand, 16)}</a>`)
+    .join('');
+}
+
 export function playgroundMarkup(id, { wide = false } = {}) {
   const t = tr(TEXT);
   const th = siteTheme();
   return `<div class="cd-playground${wide ? ' cd-playground--wide' : ''}" data-playground="${id}">
     <div class="cd-playground__stage" data-stage data-theme="${th}">
       <div class="cd-playground__preview" data-preview></div>
-      ${themeSwitch('stage-theme', th, { label: t.stageTheme, className: 'cd-playground__theme' })}
+      <div class="cd-playground__tools">
+        ${elsewhereLinks(t)}
+        ${themeSwitch('stage-theme', th, { label: t.stageTheme, className: 'cd-playground__theme' })}
+      </div>
     </div>
     <div class="cd-playground__controls" data-controls></div>
     <div class="cd-playground__code" data-code></div>

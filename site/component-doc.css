@@ -45,10 +45,35 @@
   --ds-chart-surface: var(--ds-color-bg-canvas);
 }
 
-.cd-playground__theme {
+/* canto do palco: atalhos para o Storybook, o Figma e o GitHub, e o tema do palco */
+.cd-playground__tools {
   position: absolute;
   top: var(--ds-space-200);
   right: var(--ds-space-200);
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-075);
+}
+
+/* mesmo círculo do botão de tema, com o ícone da marca */
+.cd-playground__link {
+  display: inline-grid;
+  place-items: center;
+  width: var(--ds-size-control-compact);
+  height: var(--ds-size-control-compact);
+  border: 1px solid var(--ds-color-border-default);
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-color-bg-field);
+  color: var(--ds-color-fg-default);
+  transition:
+    background-color var(--ds-duration-fast) var(--ds-easing-standard),
+    border-color var(--ds-duration-fast) var(--ds-easing-standard);
+}
+
+.cd-playground__link:hover,
+.cd-playground__link[data-state="hover"] {
+  border-color: var(--ds-color-border-strong);
+  background: var(--ds-color-bg-field-hover);
 }
 
 .cd-playground__controls {
