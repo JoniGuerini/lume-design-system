@@ -3,34 +3,34 @@ import * as page from '../../../site/pages/espacamento.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/fundamentos/espacamento", group: '', label: "Espaçamento" };
+const INFO = { path: "/fundamentos/espacamento", group: '', label: "Spacing" };
 
 export default {
-  title: "Fundamentos/Espaçamento",
+  title: "Foundations/Spacing",
   id: "fundamentos-espacamento",
-  parameters: { docs: { description: { component: "Uma escala de 4 em 4 px que dá ritmo à interface. Espaço pequeno junta, espaço grande separa — sempre com um token.\n\nDocumentação completa: https://lumeui.dev/#/fundamentos/espacamento" } } },
+  parameters: { docs: { description: { component: "A 4 px scale that gives the interface its rhythm. Small space groups, large space separates — always with a token.\n\nFull documentation: https://lumeui.dev/#/fundamentos/espacamento" } } },
 };
 
 export const Escala = {
-  name: "Escala",
-  parameters: { docs: { description: { story: "Cada passo é um múltiplo de 4 px, em rem — acompanha o zoom do navegador. Clique num passo para copiar a variável." } } },
+  name: "Scale",
+  parameters: { docs: { description: { story: "Each step is a multiple of 4 px, in rem — it follows the browser zoom. Click a step to copy the variable." } } },
   render: () => liveStory(page, "escala", INFO),
 };
 
 export const Pratica = {
-  name: "Na prática",
-  parameters: { docs: { description: { story: "Um componente usa poucos tokens, cada um com um papel. Troque a densidade para ver a escala trabalhando junta." } } },
+  name: "In practice",
+  parameters: { docs: { description: { story: "A component uses few tokens, each with one role. Change the density to see the scale working together." } } },
   render: () => liveStory(page, "pratica", INFO),
 };
 
 export const Ritmo = {
-  name: "Ritmo",
-  parameters: { docs: { description: { story: "Proximidade agrupa. Use espaço pequeno dentro de um grupo e um salto claro entre grupos — o olho entende a estrutura antes de ler." } } },
+  name: "Rhythm",
+  parameters: { docs: { description: { story: "Proximity groups. Use small space inside a group and a clear jump between groups — the eye understands the structure before reading." } } },
   render: () => liveStory(page, "ritmo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Poucas regras, aplicadas sempre." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "Few rules, always applied." } } },
   render: () => liveStory(page, "uso", INFO),
 };

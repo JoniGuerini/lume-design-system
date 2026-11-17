@@ -3,46 +3,46 @@ import * as page from '../../../site/pages/checkbox-radio.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/checkbox-radio", group: '', label: "Checkbox e radio" };
+const INFO = { path: "/componentes/checkbox-radio", group: '', label: "Checkbox and radio" };
 
 export default {
-  title: "Componentes/Formulários/Checkbox e radio",
+  title: "Components/Forms/Checkbox and radio",
   id: "componentes-checkbox-radio",
-  parameters: { docs: { description: { component: "Checkbox para marcar itens independentes; radio para escolher um só entre poucas opções. Os dois com rótulo clicável.\n\nDocumentação completa: https://lumeui.dev/#/componentes/checkbox-radio" } } },
+  parameters: { docs: { description: { component: "A checkbox to check independent items; a radio to pick just one among a few options. Both with a clickable label.\n\nFull documentation: https://lumeui.dev/#/componentes/checkbox-radio" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Inputs nativos com aparência própria. O do palco funciona — clique no rótulo." } } },
+  parameters: { docs: { description: { story: "Native inputs with their own look. The one on the stage works — click the label." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Qual = {
-  name: "Checkbox ou radio?",
-  parameters: { docs: { description: { story: "A pergunta é uma só: dá para marcar mais de uma opção?" } } },
+  name: "Checkbox or radio?",
+  parameters: { docs: { description: { story: "There’s only one question: can people pick more than one option?" } } },
   render: () => liveStory(page, "qual", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "Marcado usa a cor da marca; o contorno desmarcado tem contraste de 3:1 para ser visto sem depender do rótulo. Hover e foco podem ser forçados com data-state." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "Checked uses the brand color; the unchecked outline has 3:1 contrast so it can be seen without relying on the label. Hover and focus can be forced with data-state." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Grupos = {
-  name: "Grupos",
-  parameters: { docs: { description: { story: "Opções relacionadas ficam num <fieldset> com <legend>: o leitor de tela anuncia a pergunta antes das respostas." } } },
+  name: "Groups",
+  parameters: { docs: { description: { story: "Related options sit in a <fieldset> with a <legend>: the screen reader announces the question before the answers." } } },
   render: () => liveStory(page, "grupos", INFO),
 };
 
 export const Todos = {
-  name: "Selecionar todos",
-  parameters: { docs: { description: { story: "O estado indeterminado só faz sentido num checkbox que resume outros: alguns marcados, outros não." } } },
+  name: "Select all",
+  parameters: { docs: { description: { story: "The indeterminate state only makes sense in a checkbox that summarizes others: some checked, some not." } } },
   render: () => liveStory(page, "todos", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Três regras para escolhas claras." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "Three rules for clear choices." } } },
   render: () => liveStory(page, "uso", INFO),
 };

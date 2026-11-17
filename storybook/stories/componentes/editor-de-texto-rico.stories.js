@@ -3,40 +3,40 @@ import * as page from '../../../site/pages/editor-de-texto-rico.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/editor-de-texto-rico", group: '', label: "Editor de texto rico" };
+const INFO = { path: "/componentes/editor-de-texto-rico", group: '', label: "Rich text editor" };
 
 export default {
-  title: "Componentes/Formulários/Editor de texto rico",
+  title: "Components/Forms/Rich text editor",
   id: "componentes-editor-de-texto-rico",
-  parameters: { docs: { description: { component: "Um campo de texto que formata: títulos, listas, citações, negrito, itálico e links, com a barra de ferramentas do Lume. Sem dependências, sobre o contenteditable do navegador, e o HTML que sai é sempre limpo.\n\nDocumentação completa: https://lumeui.dev/#/componentes/editor-de-texto-rico" } } },
+  parameters: { docs: { description: { component: "A text field that formats: headings, lists, quotes, bold, italic, and links, with Lume’s toolbar. No dependencies, built on the browser’s contenteditable, and the HTML it produces is always clean.\n\nFull documentation: https://lumeui.dev/#/componentes/editor-de-texto-rico" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Escreva, selecione e formate. No começo de uma linha, # vira título e - vira lista; Ctrl + K põe um link." } } },
+  parameters: { docs: { description: { story: "Write, select, and format. At the start of a line, # becomes a heading and - a list; Ctrl + K adds a link." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "A barra mostra os grupos que você pedir em tools, na ordem." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "The toolbar shows the groups you ask for in tools, in order." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "O contorno e o foco são os do Campo. Na barra, o botão apertado mostra a formatação de onde está o cursor." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "The border and focus are the Field’s. In the toolbar, the pressed button shows the formatting where the cursor is." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Codigo = {
-  name: "Código",
-  parameters: { docs: { description: { story: "Com name, o editor cria um campo oculto com o HTML, e o formulário envia como qualquer outro campo." } } },
+  name: "Code",
+  parameters: { docs: { description: { story: "With name, the editor creates a hidden field with the HTML, and the form sends it like any other field." } } },
   render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando a formatação ajuda quem vai ler." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When formatting helps whoever will read it." } } },
   render: () => liveStory(page, "uso", INFO),
 };

@@ -3,28 +3,28 @@ import * as page from '../../../site/pages/calendario.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/calendario", group: '', label: "Calendário" };
+const INFO = { path: "/componentes/calendario", group: '', label: "Calendar" };
 
 export default {
-  title: "Componentes/Conteúdo/Calendário",
+  title: "Components/Content/Calendar",
   id: "componentes-calendario",
-  parameters: { docs: { description: { component: "Mês, semana e dia na mesma peça, com eventos. Datas, nomes e o primeiro dia da semana vêm do idioma — e dá para usar inteiro pelo teclado.\n\nDocumentação completa: https://lumeui.dev/#/componentes/calendario" } } },
+  parameters: { docs: { description: { component: "Month, week, and day in the same piece, with events. Dates, names, and the first day of the week come from the locale — and it’s fully usable by keyboard.\n\nFull documentation: https://lumeui.dev/#/componentes/calendario" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "O calendário de verdade, com eventos em volta de hoje. Troque a visão no próprio calendário, clique num evento ou num dia, use as setas no mês." } } },
+  parameters: { docs: { description: { story: "The real calendar, with events around today. Switch views in the calendar itself, click an event or a day, use the arrows in the month." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Eventos = {
-  name: "Eventos",
-  parameters: { docs: { description: { story: "Três formas, conforme a duração, e seis tons. O tom nunca é a única pista: o título diz o que é." } } },
+  name: "Events",
+  parameters: { docs: { description: { story: "Three shapes, depending on duration, and six tones. Tone is never the only cue: the title says what it is." } } },
   render: () => liveStory(page, "eventos", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "O calendário mostra o tempo. Para escolher uma data num formulário, um campo de data basta." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "The calendar shows time. To pick a date in a form, a date field is enough." } } },
   render: () => liveStory(page, "uso", INFO),
 };

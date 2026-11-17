@@ -3,12 +3,12 @@ import * as page from '../../../site/pages/padroes-avisos.js';
 import { patternStory } from '../live.js';
 
 export default {
-  title: "Padrões/Avisos e confirmações",
+  title: "Patterns/Notices and confirmations",
   id: 'padroes-avisos',
-  parameters: { docs: { description: { component: "Toast, alerta, banner ou modal, e desfazer no lugar de “tem certeza?”.\\n\\nDocumentação completa, com anatomia, regras, mensagens e acessibilidade: https://lumeui.dev/#/padroes/avisos" } } },
+  parameters: { docs: { description: { component: "Toast, alert, banner or modal, and undo instead of “are you sure?”.\\n\\nFull documentation, with anatomy, rules, messages and accessibility: https://lumeui.dev/#/padroes/avisos" } } },
 };
 
 export const Exemplo = {
-  name: 'Exemplo ao vivo',
+  name: 'Live example',
   render: () => patternStory(page, 'av-exemplo'),
 };

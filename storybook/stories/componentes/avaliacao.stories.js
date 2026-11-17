@@ -3,40 +3,40 @@ import * as page from '../../../site/pages/avaliacao.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/avaliacao", group: '', label: "Avaliação" };
+const INFO = { path: "/componentes/avaliacao", group: '', label: "Rating" };
 
 export default {
-  title: "Componentes/Formulários/Avaliação",
+  title: "Components/Forms/Rating",
   id: "componentes-avaliacao",
-  parameters: { docs: { description: { component: "Estrelas para dar uma nota ou mostrar a média. Para dar nota, cada estrela é um rádio: o formulário envia o valor sem código.\n\nDocumentação completa: https://lumeui.dev/#/componentes/avaliacao" } } },
+  parameters: { docs: { description: { component: "Stars to give a score or show the average. To give a score, each star is a radio: the form sends the value with no extra code.\n\nFull documentation: https://lumeui.dev/#/componentes/avaliacao" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Passe o mouse para ver a nota antes de clicar; clique de novo na mesma estrela para tirar a nota." } } },
+  parameters: { docs: { description: { story: "Hover to preview the score before clicking; click the same star again to clear it." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "Dar nota usa createRating. Só mostrar usa ratingHtml, que aceita qualquer decimal e corta a estrela no ponto certo." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "Giving a score uses createRating. Just showing uses ratingHtml, which takes any decimal and cuts the star at the right point." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "A estrela acesa usa a cor do indicador. Com o mouse, as estrelas até a do mouse acendem antes do clique." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "A lit star uses the indicator color. On hover, the stars up to the pointer light up before the click." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Codigo = {
-  name: "Código",
-  parameters: { docs: { description: { story: "Para dar nota, um elemento vazio; o JavaScript põe as estrelas. Para mostrar, a marcação vem pronta." } } },
+  name: "Code",
+  parameters: { docs: { description: { story: "To give a score, an empty element; JavaScript adds the stars. To show one, the markup comes ready." } } },
   render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When to use it and when to prefer something else." } } },
   render: () => liveStory(page, "uso", INFO),
 };

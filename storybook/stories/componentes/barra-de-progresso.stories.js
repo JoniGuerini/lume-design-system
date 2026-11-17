@@ -3,28 +3,28 @@ import * as page from '../../../site/pages/barra-de-progresso.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/barra-de-progresso", group: '', label: "Barra de progresso" };
+const INFO = { path: "/componentes/barra-de-progresso", group: '', label: "Progress bar" };
 
 export default {
-  title: "Componentes/Feedback/Barra de progresso",
+  title: "Components/Feedback/Progress bar",
   id: "componentes-barra-de-progresso",
-  parameters: { docs: { description: { component: "Mostra quanto de uma tarefa já foi feito. Quando não dá para saber quanto falta, a versão indeterminada diz que algo está acontecendo.\n\nDocumentação completa: https://lumeui.dev/#/componentes/barra-de-progresso" } } },
+  parameters: { docs: { description: { component: "Shows how much of a task is done. When there’s no way to know how much is left, the indeterminate version says something is happening.\n\nFull documentation: https://lumeui.dev/#/componentes/barra-de-progresso" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Só CSS, sobre o progress nativo. Sem value, a barra fica indeterminada." } } },
+  parameters: { docs: { description: { story: "Just CSS, on top of native progress. Without value, the bar is indeterminate." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "Use o tom para o resultado, não para o meio do caminho." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "Use a tone for the result, not along the way." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Barra, spinner ou medidor?" } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "Bar, spinner, or meter?" } } },
   render: () => liveStory(page, "uso", INFO),
 };

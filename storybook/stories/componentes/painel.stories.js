@@ -3,46 +3,46 @@ import * as page from '../../../site/pages/painel.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/painel", group: '', label: "Painel" };
+const INFO = { path: "/componentes/painel", group: '', label: "Panel" };
 
 export default {
-  title: "Componentes/Conteúdo/Painel",
+  title: "Components/Content/Panel",
   id: "componentes-painel",
-  parameters: { docs: { description: { component: "A superfície de uma tarefa do produto: rótulo, título, controles e conteúdo em seções com respiro. Tudo plano — o destaque vem da hierarquia, não de efeito.\n\nDocumentação completa: https://lumeui.dev/#/componentes/painel" } } },
+  parameters: { docs: { description: { component: "The surface of a product task: label, title, controls, and content in airy sections. All flat — emphasis comes from hierarchy, not effects.\n\nFull documentation: https://lumeui.dev/#/componentes/painel" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Ligue e desligue as partes. Só o cabeçalho e o conteúdo são obrigatórios." } } },
+  parameters: { docs: { description: { story: "Turn the parts on and off. Only the header and the content are required." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Anatomia = {
-  name: "Anatomia",
-  parameters: { docs: { description: { story: "Sete partes, sempre na mesma ordem. Quem já viu um painel sabe ler qualquer outro." } } },
+  name: "Anatomy",
+  parameters: { docs: { description: { story: "Seven parts, always in the same order. Anyone who has seen one panel can read any other." } } },
   render: () => liveStory(page, "anatomia", INFO),
 };
 
 export const Secoes = {
-  name: "Seções",
-  parameters: { docs: { description: { story: "O carimbo dá ordem ao conteúdo. Use números para etapas, tempos para roteiros e só o rótulo quando a ordem não importa." } } },
+  name: "Sections",
+  parameters: { docs: { description: { story: "The stamp gives the content order. Use numbers for steps, times for scripts, and just the label when order doesn’t matter." } } },
   render: () => liveStory(page, "secoes", INFO),
 };
 
 export const Variacoes = {
-  name: "Variações",
-  parameters: { docs: { description: { story: "Uma estrutura, três jeitos de encaixar na tela." } } },
+  name: "Variations",
+  parameters: { docs: { description: { story: "One structure, three ways to fit on the screen." } } },
   render: () => liveStory(page, "variacoes", INFO),
 };
 
 export const PainelCard = {
-  name: "Painel ou card?",
-  parameters: { docs: { description: { story: "Os dois são superfícies, mas resolvem coisas diferentes." } } },
+  name: "Panel or card?",
+  parameters: { docs: { description: { story: "Both are surfaces, but they solve different things." } } },
   render: () => liveStory(page, "painel-card", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "O painel é para telas do produto — não para páginas inteiras." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "The panel is for product screens — not for whole pages." } } },
   render: () => liveStory(page, "uso", INFO),
 };

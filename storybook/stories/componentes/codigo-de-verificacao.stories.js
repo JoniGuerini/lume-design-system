@@ -3,40 +3,40 @@ import * as page from '../../../site/pages/codigo-de-verificacao.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/codigo-de-verificacao", group: '', label: "Código de verificação" };
+const INFO = { path: "/componentes/codigo-de-verificacao", group: '', label: "Verification code" };
 
 export default {
-  title: "Componentes/Formulários/Código de verificação",
+  title: "Components/Forms/Verification code",
   id: "componentes-codigo-de-verificacao",
-  parameters: { docs: { description: { component: "Para o código de login em duas etapas. Parece seis casas, mas é um campo só, e por isso colar e o preenchimento automático do celular funcionam sem esforço.\n\nDocumentação completa: https://lumeui.dev/#/componentes/codigo-de-verificacao" } } },
+  parameters: { docs: { description: { component: "For the two-step sign-in code. It looks like six boxes, but it’s a single field, which is why pasting and the phone’s autofill just work.\n\nFull documentation: https://lumeui.dev/#/componentes/codigo-de-verificacao" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Digite ou cole um código. Ao completar, o componente avisa." } } },
+  parameters: { docs: { description: { story: "Type or paste a code. When it’s complete, the component lets you know." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "O número de casas segue o seu serviço de verificação." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "The number of boxes follows your verification service." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "Foco e erro podem ser forçados com data-state e data-error." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "Focus and error can be forced with data-state and data-error." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Exemplo = {
-  name: "Numa tela de verificação",
-  parameters: { docs: { description: { story: "Experimente: o código certo aqui é 123456. Errar mostra a mensagem, limpa o campo e devolve o foco, para tentar de novo sem usar o mouse." } } },
+  name: "On a verification screen",
+  parameters: { docs: { description: { story: "Try it: the right code here is 123456. A wrong one shows the message, clears the field, and returns focus, so you can try again without the mouse." } } },
   render: () => liveStory(page, "exemplo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando usar e o que oferecer junto." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When to use it and what to offer with it." } } },
   render: () => liveStory(page, "uso", INFO),
 };

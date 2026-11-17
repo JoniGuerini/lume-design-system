@@ -3,70 +3,70 @@ import * as page from '../../../site/pages/graficos-indicadores.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/graficos/indicadores", group: '', label: "Indicadores" };
+const INFO = { path: "/graficos/indicadores", group: '', label: "Indicators" };
 
 export default {
-  title: "Gráficos/Indicadores",
+  title: "Charts/Indicators",
   id: "graficos-indicadores",
-  parameters: { docs: { description: { component: "Quando o gráfico é um número. O valor de agora, quanto mudou e para onde vai — sem eixo, sem legenda, sem esforço para ler.\n\nDocumentação completa: https://lumeui.dev/#/graficos/indicadores" } } },
+  parameters: { docs: { description: { component: "When the chart is a number. The current value, how much it changed, and where it’s heading — no axis, no legend, no effort to read.\n\nFull documentation: https://lumeui.dev/#/graficos/indicadores" } } },
 };
 
 export const InPlayground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Monte o indicador, veja em cada tema e copie o código. Troque “Bom quando” para ver a mesma alta virar piora." } } },
+  parameters: { docs: { description: { story: "Build the indicator, see it in each theme, and copy the code. Switch “Good when” to watch the same rise become worse." } } },
   render: () => liveStory(page, "in-playground", INFO),
 };
 
 export const InAnatomia = {
-  name: "Anatomia",
-  parameters: { docs: { description: { story: "Cinco partes, sempre nesta ordem. Só o rótulo e o valor são obrigatórios." } } },
+  name: "Anatomy",
+  parameters: { docs: { description: { story: "Five parts, always in this order. Only the label and the value are required." } } },
   render: () => liveStory(page, "in-anatomia", INFO),
 };
 
 export const InKpis = {
-  name: "Linha de indicadores",
-  parameters: { docs: { description: { story: "Os números que abrem um painel. Mesma estrutura, mesmo período de comparação, do mais importante para o menos." } } },
+  name: "Indicator row",
+  parameters: { docs: { description: { story: "The numbers that open a dashboard. Same structure, same comparison period, from most to least important." } } },
   render: () => liveStory(page, "in-kpis", INFO),
 };
 
 export const InDestaque = {
-  name: "Número de destaque",
-  parameters: { docs: { description: { story: "O número que a tela inteira existe para mostrar. Um só por vista, na mesma sans do resto — fonte de display ou serifada parece enfeite." } } },
+  name: "Hero number",
+  parameters: { docs: { description: { story: "The number the whole screen exists to show. Only one per view, in the same sans as the rest — a display or serif font looks like decoration." } } },
   render: () => liveStory(page, "in-destaque", INFO),
 };
 
 export const InSparkline = {
   name: "Sparkline",
-  parameters: { docs: { description: { story: "A tendência sem eixos, em linha com o texto. Estica na largura de quem a contém e o traço não deforma." } } },
+  parameters: { docs: { description: { story: "The trend without axes, inline with the text. It stretches to its container’s width and the stroke doesn’t distort." } } },
   render: () => liveStory(page, "in-sparkline", INFO),
 };
 
 export const InMedidor = {
-  name: "Medidor",
-  parameters: { docs: { description: { story: "Uma razão contra um limite. O preenchimento carrega a gravidade — marca, atenção, crítico — e a trilha é um tom mais claro da mesma cor. A partir da atenção, ganha ícone." } } },
+  name: "Meter",
+  parameters: { docs: { description: { story: "A ratio against a limit. The fill carries the severity — brand, warning, critical — and the track is a lighter tint of the same color. From warning on, it gets an icon." } } },
   render: () => liveStory(page, "in-medidor", INFO),
 };
 
 export const InVariacao = {
-  name: "Variação",
-  parameters: { docs: { description: { story: "A cor sai de dois fatos: para onde o número foi e se isso é bom. A mesma alta pode ser melhora ou piora — por isso o sinal, o ícone e o texto vêm sempre juntos." } } },
+  name: "Change",
+  parameters: { docs: { description: { story: "The color comes from two facts: where the number went and whether that’s good. The same rise can be better or worse — that’s why the sign, icon, and text always come together." } } },
   render: () => liveStory(page, "in-variacao", INFO),
 };
 
 export const InAcessibilidade = {
-  name: "Acessibilidade",
-  parameters: { docs: { description: { story: "O indicador é texto, então já começa acessível. Estes detalhes completam." } } },
+  name: "Accessibility",
+  parameters: { docs: { description: { story: "The indicator is text, so it starts out accessible. These details complete it." } } },
   render: () => liveStory(page, "in-acessibilidade", INFO),
 };
 
 export const InUso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando um número basta — e como não estragá-lo." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When a number is enough — and how not to ruin it." } } },
   render: () => liveStory(page, "in-uso", INFO),
 };
 
 export const InApi = {
   name: "API",
-  parameters: { docs: { description: { story: "Três funções que devolvem HTML, sem estado — use em qualquer lugar, inclusive dentro de tabelas e cards." } } },
+  parameters: { docs: { description: { story: "Three functions that return HTML, with no state — use them anywhere, including inside tables and cards." } } },
   render: () => liveStory(page, "in-api", INFO),
 };

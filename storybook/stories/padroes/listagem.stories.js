@@ -3,12 +3,12 @@ import * as page from '../../../site/pages/padroes-listagem.js';
 import { patternStory } from '../live.js';
 
 export default {
-  title: "Padrões/Listagem de dados",
+  title: "Patterns/Data listing",
   id: 'padroes-listagem',
-  parameters: { docs: { description: { component: "Tabela com filtros, ordenação, seleção e ações em lote com desfazer.\\n\\nDocumentação completa, com anatomia, regras, mensagens e acessibilidade: https://lumeui.dev/#/padroes/listagem" } } },
+  parameters: { docs: { description: { component: "A table with filters, sorting, selection and bulk actions with undo.\\n\\nFull documentation, with anatomy, rules, messages and accessibility: https://lumeui.dev/#/padroes/listagem" } } },
 };
 
 export const Exemplo = {
-  name: 'Exemplo ao vivo',
+  name: 'Live example',
   render: () => patternStory(page, 'dl-exemplo'),
 };

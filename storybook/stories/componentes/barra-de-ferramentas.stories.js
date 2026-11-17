@@ -3,40 +3,40 @@ import * as page from '../../../site/pages/barra-de-ferramentas.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/barra-de-ferramentas", group: '', label: "Barra de ferramentas" };
+const INFO = { path: "/componentes/barra-de-ferramentas", group: '', label: "Toolbar" };
 
 export default {
-  title: "Componentes/Ações/Barra de ferramentas",
+  title: "Components/Actions/Toolbar",
   id: "componentes-barra-de-ferramentas",
-  parameters: { docs: { description: { component: "Agrupa botões de ícone de uma mesma área, como os de formatação de um editor. A barra inteira é uma parada só do Tab; as setas andam entre os botões.\n\nDocumentação completa: https://lumeui.dev/#/componentes/barra-de-ferramentas" } } },
+  parameters: { docs: { description: { component: "Groups icon buttons for the same area, like an editor’s formatting buttons. The whole bar is a single Tab stop; the arrow keys move between buttons.\n\nFull documentation: https://lumeui.dev/#/componentes/barra-de-ferramentas" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Os botões mudam o texto de verdade. No alinhamento, só um fica apertado." } } },
+  parameters: { docs: { description: { story: "The buttons really change the text. In alignment, only one stays pressed." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "Com contorno, para a barra que fica sobre o conteúdo; ds-toolbar--plain quando ela já está dentro de uma superfície, como o cabeçalho de um card." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "With an outline, for a bar that sits over content; ds-toolbar--plain when it is already inside a surface, like a card header." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "O botão apertado ganha o fundo de selecionado, que continua com o mouse em cima. Desativado fica de fora das setas." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "A pressed button gets the selected background, which stays on hover. Disabled buttons are skipped by the arrow keys." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Codigo = {
-  name: "Código",
-  parameters: { docs: { description: { story: "Os botões são seus; a barra cuida do Tab, das setas e do aria-pressed." } } },
+  name: "Code",
+  parameters: { docs: { description: { story: "The buttons are yours; the bar handles Tab, the arrow keys, and aria-pressed." } } },
   render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When to use it and when to prefer something else." } } },
   render: () => liveStory(page, "uso", INFO),
 };

@@ -3,34 +3,34 @@ import * as page from '../../../site/pages/graficos-dispersao.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/graficos/dispersao", group: '', label: "Dispersão" };
+const INFO = { path: "/graficos/dispersao", group: '', label: "Scatter" };
 
 export default {
-  title: "Gráficos/Dispersão",
+  title: "Charts/Scatter",
   id: "graficos-dispersao",
-  parameters: { docs: { description: { component: "A relação entre duas medidas: cada ponto é um item. Pontos de 8 px com anel, até três séries, nome só em quem merece — e um alvo generoso para o hover achar o ponto mais próximo.\n\nDocumentação completa: https://lumeui.dev/#/graficos/dispersao" } } },
+  parameters: { docs: { description: { component: "The relationship between two measures: each point is an item. 8 px dots with a ring, up to three series, names only where they’re earned — and a generous target so hover finds the closest point.\n\nFull documentation: https://lumeui.dev/#/graficos/dispersao" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Ligue séries, bolhas, referências e rótulos. Passe o mouse perto de um ponto — não precisa acertar o centro." } } },
+  parameters: { docs: { description: { story: "Turn on series, bubbles, references, and labels. Hover near a point — you don’t need to hit the center." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "Da nuvem simples às bolhas. Em todas, o hover acha o ponto mais próximo e a tabela lista cada um." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "From a simple cloud to bubbles. In all of them, hover finds the closest point and the table lists each one." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Alvo = {
-  name: "Alvo de 24 px",
-  parameters: { docs: { description: { story: "Um ponto de 8 px é pequeno demais para mirar. O hover procura o ponto mais perto do ponteiro, até 24 px de distância." } } },
+  name: "24 px target",
+  parameters: { docs: { description: { story: "An 8 px dot is too small to aim at. Hover looks for the point closest to the pointer, up to 24 px away." } } },
   render: () => liveStory(page, "alvo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Dispersão responde “uma coisa anda com a outra?”. Para o resto, há gráficos melhores." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "A scatter answers “does one thing move with the other?”. For everything else, there are better charts." } } },
   render: () => liveStory(page, "uso", INFO),
 };

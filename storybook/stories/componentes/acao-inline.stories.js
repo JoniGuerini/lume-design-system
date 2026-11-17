@@ -3,40 +3,40 @@ import * as page from '../../../site/pages/acao-inline.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/acao-inline", group: '', label: "Ação inline" };
+const INFO = { path: "/componentes/acao-inline", group: '', label: "Inline action" };
 
 export default {
-  title: "Componentes/Ações/Ação inline",
+  title: "Components/Actions/Inline action",
   id: "componentes-acao-inline",
-  parameters: { docs: { description: { component: "A ação mais discreta do sistema. Vive dentro do conteúdo — “Na cena +”, “Ver histórico →” — e só se destaca quando o ponteiro chega.\n\nDocumentação completa: https://lumeui.dev/#/componentes/acao-inline" } } },
+  parameters: { docs: { description: { component: "The quietest action in the system. It lives inside the content — “In the scene +”, “See history →” — and only stands out when the pointer arrives.\n\nFull documentation: https://lumeui.dev/#/componentes/acao-inline" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Escolha o elemento, o ícone e o sinal. O palco mostra a ação dentro de uma seção, onde ela costuma morar." } } },
+  parameters: { docs: { description: { story: "Pick the element, icon, and sign. The stage shows the action inside a section, where it usually lives." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Formas = {
-  name: "Formas",
-  parameters: { docs: { description: { story: "O sinal no fim conta o que acontece: + adiciona ou abre algo aqui; → leva para outro lugar." } } },
+  name: "Forms",
+  parameters: { docs: { description: { story: "The sign at the end tells what happens: + adds or opens something here; → takes you elsewhere." } } },
   render: () => liveStory(page, "formas", INFO),
 };
 
 export const Disclosure = {
-  name: "Mostrar e esconder",
-  parameters: { docs: { description: { story: "Com <details>, a ação inline abre conteúdo extra no lugar. O + gira e vira × quando está aberto. Experimente:" } } },
+  name: "Show and hide",
+  parameters: { docs: { description: { story: "With <details>, the inline action opens extra content in place. The + rotates into an × when open. Try it:" } } },
   render: () => liveStory(page, "disclosure", INFO),
 };
 
 export const InlineGhost = {
-  name: "Inline ou ghost?",
-  parameters: { docs: { description: { story: "Os dois são discretos. A diferença é onde estão." } } },
+  name: "Inline or ghost?",
+  parameters: { docs: { description: { story: "Both are quiet. The difference is where they live." } } },
   render: () => liveStory(page, "inline-ghost", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Três regras para ela continuar discreta." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "Three rules to keep it quiet." } } },
   render: () => liveStory(page, "uso", INFO),
 };

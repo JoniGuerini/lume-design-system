@@ -3,34 +3,34 @@ import * as page from '../../../site/pages/acordeao.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/acordeao", group: '', label: "Acordeão" };
+const INFO = { path: "/componentes/acordeao", group: '', label: "Accordion" };
 
 export default {
-  title: "Componentes/Navegação/Acordeão",
+  title: "Components/Navigation/Accordion",
   id: "componentes-acordeao",
-  parameters: { docs: { description: { component: "Seções que abrem e fecham no lugar. Boa para perguntas frequentes e detalhes que só parte das pessoas quer ler.\n\nDocumentação completa: https://lumeui.dev/#/componentes/acordeao" } } },
+  parameters: { docs: { description: { component: "Sections that open and close in place. Good for FAQs and details only some people want to read.\n\nFull documentation: https://lumeui.dev/#/componentes/acordeao" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Só HTML e CSS, sobre o details nativo: sem JavaScript, a busca do navegador também encontra o texto fechado." } } },
+  parameters: { docs: { description: { story: "Just HTML and CSS, on top of native details: no JavaScript, and the browser’s find also reaches closed text." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "Com o mesmo name nos itens, abrir um fecha os outros. Sem ele, vários ficam abertos." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "With the same name on items, opening one closes the others. Without it, several stay open." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "Hover e foco podem ser forçados com data-state no cabeçalho." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "Hover and focus can be forced with data-state on the header." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When to use it and when to prefer something else." } } },
   render: () => liveStory(page, "uso", INFO),
 };

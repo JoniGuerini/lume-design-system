@@ -6,37 +6,37 @@ import { liveStory } from '../live.js';
 const INFO = { path: "/componentes/kanban", group: '', label: "Kanban" };
 
 export default {
-  title: "Componentes/Conteúdo/Kanban",
+  title: "Components/Content/Kanban",
   id: "componentes-kanban",
-  parameters: { docs: { description: { component: "Colunas de cartões que passam de uma para outra: etapas de um trabalho, do planejado ao feito. É a lista arrastável com várias listas do mesmo grupo, e o número de cada coluna acompanha.\n\nDocumentação completa: https://lumeui.dev/#/componentes/kanban" } } },
+  parameters: { docs: { description: { component: "Columns of cards that move from one to another: stages of work, from planned to done. It’s the sortable list with several lists in the same group, and each column’s count keeps up.\n\nFull documentation: https://lumeui.dev/#/componentes/kanban" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Arraste um cartão para outra coluna. No teclado: Espaço pega, ← → trocam de coluna, ↑ ↓ mudam a ordem." } } },
+  parameters: { docs: { description: { story: "Drag a card to another column. On the keyboard: Space picks up, ← → change columns, ↑ ↓ change the order." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "O cartão inteiro arrasta, ou só a alça quando ele tem links e botões." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "The whole card drags, or only the handle when it has links and buttons." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "Os mesmos da lista arrastável, no cartão." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "The same as the sortable list, on the card." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Codigo = {
-  name: "Código",
-  parameters: { docs: { description: { story: "O data-id da coluna e o de cada cartão formam o que toObject() devolve." } } },
+  name: "Code",
+  parameters: { docs: { description: { story: "The column’s data-id and each card’s make up what toObject() returns." } } },
   render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Para etapas, não para categorias." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "For stages, not categories." } } },
   render: () => liveStory(page, "uso", INFO),
 };

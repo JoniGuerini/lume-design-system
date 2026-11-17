@@ -6,49 +6,49 @@ import { liveStory } from '../live.js';
 const INFO = { path: "/componentes/avatar", group: '', label: "Avatar" };
 
 export default {
-  title: "Componentes/Conteúdo/Avatar",
+  title: "Components/Content/Avatar",
   id: "componentes-avatar",
-  parameters: { docs: { description: { component: "Representa uma pessoa ou conta. Foto quando existe, iniciais num tom estável quando não — e sempre com um nome por trás.\n\nDocumentação completa: https://lumeui.dev/#/componentes/avatar" } } },
+  parameters: { docs: { description: { component: "Represents a person or account. A photo when there is one, initials in a stable tone when there isn’t — and always a name behind it.\n\nFull documentation: https://lumeui.dev/#/componentes/avatar" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Troque o nome para ver as iniciais e o tom mudarem. “Imagem que falhou” mostra o fallback em ação." } } },
+  parameters: { docs: { description: { story: "Change the name to see the initials and tone change. “Failed image” shows the fallback in action." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Tamanhos = {
-  name: "Tamanhos",
-  parameters: { docs: { description: { story: "Cinco tamanhos. As iniciais e o status acompanham a proporção sozinhos." } } },
+  name: "Sizes",
+  parameters: { docs: { description: { story: "Five sizes. The initials and status follow the proportion on their own." } } },
   render: () => liveStory(page, "tamanhos", INFO),
 };
 
 export const TiposDeConteudo = {
-  name: "Conteúdo",
-  parameters: { docs: { description: { story: "A ordem de preferência é sempre a mesma: imagem, iniciais, ícone." } } },
+  name: "Content",
+  parameters: { docs: { description: { story: "The order of preference is always the same: image, initials, icon." } } },
   render: () => liveStory(page, "tipos-de-conteudo", INFO),
 };
 
 export const Tons = {
-  name: "Tons",
-  parameters: { docs: { description: { story: "Nove tons das paletas de apoio, levemente tingidos sobre a superfície. O tom vem do nome: a mesma pessoa tem sempre a mesma cor, em qualquer tela." } } },
+  name: "Tones",
+  parameters: { docs: { description: { story: "Nine tones from the supporting palettes, lightly tinted over the surface. The tone comes from the name: the same person always gets the same color, on any screen." } } },
   render: () => liveStory(page, "tons", INFO),
 };
 
 export const Status = {
   name: "Status",
-  parameters: { docs: { description: { story: "Um ponto no canto, com um anel na cor do fundo para separar. Status não é só cor: diga também no nome acessível ou no texto ao lado." } } },
+  parameters: { docs: { description: { story: "A dot in the corner, with a ring in the background color to separate it. Status isn’t just color: say it in the accessible name or the text beside it too." } } },
   render: () => liveStory(page, "status", INFO),
 };
 
 export const Grupo = {
-  name: "Grupo",
-  parameters: { docs: { description: { story: "Avatares sobrepostos para mostrar quem participa. Até quatro rostos e um “+N” para o resto. Passe o mouse para ver os nomes." } } },
+  name: "Group",
+  parameters: { docs: { description: { story: "Overlapping avatars to show who’s taking part. Up to four faces and a “+N” for the rest. Hover to see the names." } } },
   render: () => liveStory(page, "grupo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Três cuidados para o avatar ajudar a reconhecer pessoas." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "Three things that help the avatar make people recognizable." } } },
   render: () => liveStory(page, "uso", INFO),
 };

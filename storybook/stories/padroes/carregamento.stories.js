@@ -3,12 +3,12 @@ import * as page from '../../../site/pages/padroes-carregamento.js';
 import { patternStory } from '../live.js';
 
 export default {
-  title: "Padrões/Carregamento e erros",
+  title: "Patterns/Loading and errors",
   id: 'padroes-carregamento',
-  parameters: { docs: { description: { component: "Esqueleto, demora, erro por parte, falha ao salvar e página não encontrada.\\n\\nDocumentação completa, com anatomia, regras, mensagens e acessibilidade: https://lumeui.dev/#/padroes/carregamento" } } },
+  parameters: { docs: { description: { component: "Skeletons, slow loads, partial errors, failed saves and page not found.\\n\\nFull documentation, with anatomy, rules, messages and accessibility: https://lumeui.dev/#/padroes/carregamento" } } },
 };
 
 export const Exemplo = {
-  name: 'Exemplo ao vivo',
+  name: 'Live example',
   render: () => patternStory(page, 'lo-exemplo'),
 };

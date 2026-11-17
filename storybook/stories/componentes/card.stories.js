@@ -6,31 +6,31 @@ import { liveStory } from '../live.js';
 const INFO = { path: "/componentes/card", group: '', label: "Card" };
 
 export default {
-  title: "Componentes/Conteúdo/Card",
+  title: "Components/Content/Card",
   id: "componentes-card",
-  parameters: { docs: { description: { component: "A superfície básica para agrupar conteúdo. Separa uma coisa da outra com fundo e contorno finos, sem sombra.\n\nDocumentação completa: https://lumeui.dev/#/componentes/card" } } },
+  parameters: { docs: { description: { component: "The basic surface for grouping content. It sets things apart with a background and thin outline, no shadow.\n\nFull documentation: https://lumeui.dev/#/componentes/card" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Só CSS. Para uma tarefa com rótulo, título e controles, use o Painel." } } },
+  parameters: { docs: { description: { story: "Just CSS. For a task with a label, title, and controls, use the Panel." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "Um card é só um contêiner; o clicável é um link inteiro." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "A card is just a container; the clickable one is a whole link." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "Só o clicável muda. Hover e foco podem ser forçados com data-state." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "Only the clickable one changes. Hover and focus can be forced with data-state." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When to use it and when to prefer something else." } } },
   render: () => liveStory(page, "uso", INFO),
 };

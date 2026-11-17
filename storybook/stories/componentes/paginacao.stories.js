@@ -3,40 +3,40 @@ import * as page from '../../../site/pages/paginacao.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/paginacao", group: '', label: "Paginação" };
+const INFO = { path: "/componentes/paginacao", group: '', label: "Pagination" };
 
 export default {
-  title: "Componentes/Navegação/Paginação",
+  title: "Components/Navigation/Pagination",
   id: "componentes-paginacao",
-  parameters: { docs: { description: { component: "Divide uma lista longa em páginas e diz onde a pessoa está. Use quando ela precisa voltar a um ponto ou comparar páginas.\n\nDocumentação completa: https://lumeui.dev/#/componentes/paginacao" } } },
+  parameters: { docs: { description: { component: "Splits a long list into pages and shows where the person is. Use it when people need to return to a spot or compare pages.\n\nFull documentation: https://lumeui.dev/#/componentes/paginacao" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Experimente trocar o total e os itens por página." } } },
+  parameters: { docs: { description: { story: "Try changing the total and the items per page." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "As partes aparecem conforme a necessidade: poucas páginas não precisam de reticências." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "Parts appear as needed: a few pages don’t need an ellipsis." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "Hover e foco podem ser forçados com data-state." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "Hover and focus can be forced with data-state." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Codigo = {
-  name: "Código",
-  parameters: { docs: { description: { story: "onChange avisa a página e o tamanho; quem carrega os dados é você." } } },
+  name: "Code",
+  parameters: { docs: { description: { story: "onChange reports the page and size; you load the data." } } },
   render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When to use it and when to prefer something else." } } },
   render: () => liveStory(page, "uso", INFO),
 };

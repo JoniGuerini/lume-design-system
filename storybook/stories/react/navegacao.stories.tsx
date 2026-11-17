@@ -6,7 +6,7 @@ import {
 import { mount } from './mount';
 
 export default {
-  title: 'React/Navegação e camadas',
+  title: 'React/Navigation and layers',
   id: 'react-navegacao',
   parameters: { docs: { description: { component: 'Abas, menus, paginação e camadas abertas e fechadas pelo estado do React.\n\nDocumentação: https://lumeui.dev/#/recursos/react' } } },
 };
@@ -34,7 +34,7 @@ function Navegacao() {
   );
 }
 
-export const NavegacaoStory = { name: 'Navegação', render: () => mount(<Navegacao />) };
+export const NavegacaoStory = { name: 'Navigation', render: () => mount(<Navegacao />) };
 
 function Camadas() {
   const modal = useDisclosure();
@@ -56,7 +56,7 @@ function Camadas() {
   );
 }
 
-export const CamadasStory = { name: 'Camadas', render: () => mount(<Camadas />) };
+export const CamadasStory = { name: 'Layers', render: () => mount(<Camadas />) };
 
 /* ───────── App shell: sidebar ou navbar ───────── */
 
@@ -122,7 +122,7 @@ function Shell() {
 }
 
 export const ShellStory = {
-  name: 'App shell: sidebar ou navbar',
+  name: 'App shell: sidebar or navbar',
   parameters: { docs: { description: { story: 'AppShell com layout="sidebar" ou layout="navbar". https://lumeui.dev/#/componentes/navbar' } } },
   render: () => mount(<Shell />),
 };

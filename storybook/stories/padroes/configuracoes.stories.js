@@ -3,12 +3,12 @@ import * as page from '../../../site/pages/padroes-configuracoes.js';
 import { patternStory } from '../live.js';
 
 export default {
-  title: "Padrões/Configurações",
+  title: "Patterns/Settings",
   id: 'padroes-configuracoes',
-  parameters: { docs: { description: { component: "Seções, salvar na hora ou no botão e a zona de perigo.\\n\\nDocumentação completa, com anatomia, regras, mensagens e acessibilidade: https://lumeui.dev/#/padroes/configuracoes" } } },
+  parameters: { docs: { description: { component: "Sections, saving instantly or with a button, and the danger zone.\\n\\nFull documentation, with anatomy, rules, messages and accessibility: https://lumeui.dev/#/padroes/configuracoes" } } },
 };
 
 export const Exemplo = {
-  name: 'Exemplo ao vivo',
+  name: 'Live example',
   render: () => patternStory(page, 'cf-exemplo'),
 };

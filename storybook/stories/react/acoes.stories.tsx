@@ -3,7 +3,7 @@ import { Button, IconButton, InlineAction, Chip, ChipGroup, Badge, Alert, Avatar
 import { mount } from './mount';
 
 export default {
-  title: 'React/Ações e conteúdo',
+  title: 'React/Actions and content',
   id: 'react-acoes',
   parameters: {
     docs: {
@@ -55,10 +55,10 @@ function Filtros() {
   );
 }
 
-export const Chips = { name: 'Chip (filtro)', render: () => mount(<Filtros />) };
+export const Chips = { name: 'Chip (filter)', render: () => mount(<Filtros />) };
 
 export const Conjunto = {
-  name: 'Conjunto',
+  name: 'Together',
   render: () =>
     mount(
       <div style={{ display: 'grid', gap: 20, maxWidth: 640 }}>
@@ -130,7 +130,7 @@ function PecasPequenas() {
   );
 }
 
-export const LinkDivisorProgresso = { name: 'Link, divisor e progresso circular', render: () => mount(<PecasPequenas />) };
+export const LinkDivisorProgresso = { name: 'Link, divider and circular progress', render: () => mount(<PecasPequenas />) };
 
 function Avisos() {
   const [items, setItems] = useState<NotificationItem[]>([
@@ -156,4 +156,4 @@ function Avisos() {
   );
 }
 
-export const BannerECentral = { name: 'Banner e central de notificações', render: () => mount(<Avisos />) };
+export const BannerECentral = { name: 'Banner and notification center', render: () => mount(<Avisos />) };

@@ -3,28 +3,28 @@ import * as page from '../../../site/pages/tecla.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/tecla", group: '', label: "Tecla" };
+const INFO = { path: "/componentes/tecla", group: '', label: "Keyboard key" };
 
 export default {
-  title: "Componentes/Conteúdo/Tecla",
+  title: "Components/Content/Keyboard key",
   id: "componentes-tecla",
-  parameters: { docs: { description: { component: "Mostra uma tecla ou um atalho no meio do texto, em menus e em tooltips. Ajuda a pessoa a aprender o caminho mais rápido.\n\nDocumentação completa: https://lumeui.dev/#/componentes/tecla" } } },
+  parameters: { docs: { description: { component: "Shows a key or shortcut within text, in menus, and in tooltips. It helps people learn the faster way.\n\nFull documentation: https://lumeui.dev/#/componentes/tecla" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Só CSS, sobre o elemento nativo. É uma etiqueta, não um botão." } } },
+  parameters: { docs: { description: { story: "Just CSS, on top of the native element. It’s a label, not a button." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "Uma tecla por etiqueta: um atalho de duas teclas são duas etiquetas." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "One key per label: a two-key shortcut is two labels." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When to use it and when to prefer something else." } } },
   render: () => liveStory(page, "uso", INFO),
 };

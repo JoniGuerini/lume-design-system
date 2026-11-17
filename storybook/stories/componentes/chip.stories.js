@@ -6,43 +6,43 @@ import { liveStory } from '../live.js';
 const INFO = { path: "/componentes/chip", group: '', label: "Chip" };
 
 export default {
-  title: "Componentes/Ações/Chip",
+  title: "Components/Actions/Chip",
   id: "componentes-chip",
-  parameters: { docs: { description: { component: "Pílula com contorno para filtrar, escolher e mostrar seleções. Mais leve que um botão, pensada para aparecer em grupo.\n\nDocumentação completa: https://lumeui.dev/#/componentes/chip" } } },
+  parameters: { docs: { description: { component: "An outlined pill to filter, choose, and show selections. Lighter than a button, made to appear in groups.\n\nFull documentation: https://lumeui.dev/#/componentes/chip" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Escolha o tipo, o tamanho e o estado. O código acompanha." } } },
+  parameters: { docs: { description: { story: "Pick the type, size, and state. The code follows along." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Tipos = {
-  name: "Tipos",
-  parameters: { docs: { description: { story: "O mesmo visual, três trabalhos diferentes. Todos funcionam aqui." } } },
+  name: "Types",
+  parameters: { docs: { description: { story: "The same look, three different jobs. They all work here." } } },
   render: () => liveStory(page, "tipos", INFO),
 };
 
 export const Grupo = {
-  name: "Filtros em grupo",
-  parameters: { docs: { description: { story: "Filtros combinam: ligue mais de um. Nenhum ligado é o mesmo que todos." } } },
+  name: "Grouped filters",
+  parameters: { docs: { description: { story: "Filters combine: turn on more than one. None on is the same as all." } } },
   render: () => liveStory(page, "grupo", INFO),
 };
 
 export const Tamanhos = {
-  name: "Tamanhos",
-  parameters: { docs: { description: { story: "Médio acompanha botões e campos; pequeno vai em barras de filtro e dentro de cards." } } },
+  name: "Sizes",
+  parameters: { docs: { description: { story: "Medium goes with buttons and fields; small goes in filter bars and inside cards." } } },
   render: () => liveStory(page, "tamanhos", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "Selecionado ganha fundo e contorno mais forte — e, no filtro, a marca de check, para não depender só da cor. Force um estado com data-state." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "Selected gets a background and a stronger outline — and, in the filter, a check mark, so it doesn’t rely on color alone. Force a state with data-state." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Três regras para chips que ajudam em vez de enfeitar." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "Three rules for chips that help instead of decorate." } } },
   render: () => liveStory(page, "uso", INFO),
 };

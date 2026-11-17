@@ -1,11 +1,11 @@
 export const Configuravel = {
-  name: 'Configurável',
-  args: { variante: 'primary', tamanho: 'md', rotulo: 'Salvar', icone: 'pencil', desativado: false },
+  name: 'Configurable',
+  args: { variant: 'primary', size: 'md', label: 'Save', icon: 'pencil', disabled: false },
   argTypes: {
-    variante: { control: 'select', options: ['primary', 'secondary', 'ghost', 'subtle', 'danger'] },
-    tamanho: { control: 'inline-radio', options: ['sm', 'md', 'lg'] },
-    icone: { control: 'select', options: ['', 'pencil', 'plus', 'check', 'download', 'trash', 'send'] },
+    variant: { control: 'select', options: ['primary', 'secondary', 'ghost', 'subtle', 'danger'] },
+    size: { control: 'inline-radio', options: ['sm', 'md', 'lg'] },
+    icon: { control: 'select', options: ['', 'pencil', 'plus', 'check', 'download', 'trash', 'send'] },
   },
-  render: ({ variante, tamanho, rotulo, icone, desativado }) =>
-    `<button type="button" class="ds-btn ds-btn--${variante}${tamanho !== 'md' ? ` ds-btn--${tamanho}` : ''}"${desativado ? ' disabled' : ''}>${icone ? `<ds-icon name="${icone}"></ds-icon>` : ''}${rotulo}</button>`,
+  render: ({ variant, size, label, icon, disabled }) =>
+    `<button type="button" class="ds-btn ds-btn--${variant}${size !== 'md' ? ` ds-btn--${size}` : ''}"${disabled ? ' disabled' : ''}>${icon ? `<ds-icon name="${icon}"></ds-icon>` : ''}${label}</button>`,
 };

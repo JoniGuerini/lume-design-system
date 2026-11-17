@@ -3,40 +3,40 @@ import * as page from '../../../site/pages/upload.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/upload", group: '', label: "Upload de arquivo" };
+const INFO = { path: "/componentes/upload", group: '', label: "File upload" };
 
 export default {
-  title: "Componentes/Formulários/Upload de arquivo",
+  title: "Components/Forms/File upload",
   id: "componentes-upload",
-  parameters: { docs: { description: { component: "Para enviar arquivos, arrastando ou escolhendo. Cada arquivo tem o próprio progresso e o próprio erro, então uma falha não atrapalha os outros.\n\nDocumentação completa: https://lumeui.dev/#/componentes/upload" } } },
+  parameters: { docs: { description: { component: "For sending files, by dragging or browsing. Each file has its own progress and its own error, so one failure doesn’t get in the way of the others.\n\nFull documentation: https://lumeui.dev/#/componentes/upload" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Os arquivos não saem do seu computador: o envio é simulado." } } },
+  parameters: { docs: { description: { story: "Files don’t leave your computer: the upload is simulated." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "Sem a opção upload, os arquivos ficam no input e seguem com o formulário. Com ela, cada um é enviado assim que entra na lista." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "Without the upload option, files stay in the input and go with the form. With it, each one is sent as soon as it joins the list." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "A área pode ser forçada com data-state e data-dragging." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "The area can be forced with data-state and data-dragging." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Codigo = {
-  name: "Código",
-  parameters: { docs: { description: { story: "A função upload recebe o arquivo, avisa o progresso (de 0 a 1) e devolve uma promessa. O erro que ela lançar aparece na linha do arquivo." } } },
+  name: "Code",
+  parameters: { docs: { description: { story: "The upload function receives the file, reports progress (0 to 1), and returns a promise. Any error it throws shows on the file’s row." } } },
   render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando usar e o que combinar." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When to use it and what to pair it with." } } },
   render: () => liveStory(page, "uso", INFO),
 };

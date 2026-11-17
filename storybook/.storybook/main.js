@@ -26,7 +26,7 @@ export default {
   // o design system e o CSS das páginas do site (os exemplos usam o mesmo arranjo das páginas)
   staticDirs: [{ from: '../../ds', to: '/ds' }, { from: '../../site', to: '/site' }, { from: '../../assets', to: '/assets' }],
   core: { disableTelemetry: true, disableWhatsNewNotifications: true },
-  docs: { defaultName: 'Documentação' },
+  docs: { defaultName: 'Docs' },
   viteFinal: (config) => ({
     ...config,
     base: './',

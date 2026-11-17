@@ -6,31 +6,31 @@ import { liveStory } from '../live.js';
 const INFO = { path: "/componentes/popover", group: '', label: "Popover" };
 
 export default {
-  title: "Componentes/Camadas/Popover",
+  title: "Components/Overlays/Popover",
   id: "componentes-popover",
-  parameters: { docs: { description: { component: "Conteúdo que abre ao clicar, preso ao gatilho, sem bloquear a tela. Fica entre o Tooltip, que só dá uma dica, e o Modal, que interrompe.\n\nDocumentação completa: https://lumeui.dev/#/componentes/popover" } } },
+  parameters: { docs: { description: { component: "Content that opens on click, attached to its trigger, without blocking the screen. It sits between the Tooltip, which only gives a hint, and the Modal, which interrupts.\n\nFull documentation: https://lumeui.dev/#/componentes/popover" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Se não couber no lado escolhido, ele abre no oposto." } } },
+  parameters: { docs: { description: { story: "If it doesn’t fit on the chosen side, it opens on the opposite one." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "Pode ser só um texto, ter título e botão de fechar, ou levar controles." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "It can be just text, have a title and close button, or hold controls." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Codigo = {
-  name: "Código",
-  parameters: { docs: { description: { story: "Com data-popover-close, um botão de dentro também fecha o painel." } } },
+  name: "Code",
+  parameters: { docs: { description: { story: "With data-popover-close, a button inside also closes the panel." } } },
   render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Qual camada escolher." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "Which layer to choose." } } },
   render: () => liveStory(page, "uso", INFO),
 };

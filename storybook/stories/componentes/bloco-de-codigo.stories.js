@@ -3,28 +3,28 @@ import * as page from '../../../site/pages/bloco-de-codigo.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/bloco-de-codigo", group: '', label: "Bloco de código" };
+const INFO = { path: "/componentes/bloco-de-codigo", group: '', label: "Code block" };
 
 export default {
-  title: "Componentes/Conteúdo/Bloco de código",
+  title: "Components/Content/Code block",
   id: "componentes-bloco-de-codigo",
-  parameters: { docs: { description: { component: "Mostra código com a fonte certa, e um botão copia tudo de uma vez. É o que aparece em todos os playgrounds deste site.\n\nDocumentação completa: https://lumeui.dev/#/componentes/bloco-de-codigo" } } },
+  parameters: { docs: { description: { component: "Shows code in the right font, and a button copies it all at once. It’s what appears in every playground on this site.\n\nFull documentation: https://lumeui.dev/#/componentes/bloco-de-codigo" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "O botão copia só o código, e um aviso confirma." } } },
+  parameters: { docs: { description: { story: "The button copies only the code, and a notice confirms it." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "Sem o botão, é só .ds-code. Para um termo no meio do texto, use .ds-inline-code." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "Without the button, it’s just .ds-code. For a term within text, use .ds-inline-code." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When to use it and when to prefer something else." } } },
   render: () => liveStory(page, "uso", INFO),
 };

@@ -3,40 +3,40 @@ import * as page from '../../../site/pages/visualizador-de-imagem.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/visualizador-de-imagem", group: '', label: "Visualizador de imagem" };
+const INFO = { path: "/componentes/visualizador-de-imagem", group: '', label: "Image viewer" };
 
 export default {
-  title: "Componentes/Conteúdo/Visualizador de imagem",
+  title: "Components/Content/Image viewer",
   id: "componentes-visualizador-de-imagem",
-  parameters: { docs: { description: { component: "Abre uma imagem grande por cima da página, com zoom, arrastar e as outras da mesma galeria. A miniatura fica na página; a imagem inteira, só quando a pessoa pede.\n\nDocumentação completa: https://lumeui.dev/#/componentes/visualizador-de-imagem" } } },
+  parameters: { docs: { description: { component: "Opens a large image over the page, with zoom, panning, and the others in the same gallery. The thumbnail stays on the page; the full image only when people ask for it.\n\nFull documentation: https://lumeui.dev/#/componentes/visualizador-de-imagem" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Clique numa captura. Dentro, use a roda do mouse ou + e −, arraste para andar e ← → para trocar." } } },
+  parameters: { docs: { description: { story: "Click a capture. Inside, use the mouse wheel or + and −, drag to move around, and ← → to switch." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "O mesmo visualizador, aberto por miniaturas ou por código." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "The same viewer, opened from thumbnails or from code." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "A miniatura aproxima de leve com o mouse e mostra o anel com o foco. O cursor de lupa avisa que abre." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "The thumbnail zooms in slightly on hover and shows the ring on focus. The magnifier cursor says it opens." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Codigo = {
-  name: "Código",
-  parameters: { docs: { description: { story: "A miniatura é um link para a imagem grande: sem JavaScript, ela ainda abre. mountImageViewer liga todos os links de uma área." } } },
+  name: "Code",
+  parameters: { docs: { description: { story: "The thumbnail is a link to the large image: without JavaScript, it still opens. mountImageViewer wires every link in an area." } } },
   render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Visualizador, carrossel ou modal?" } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "Viewer, carousel, or modal?" } } },
   render: () => liveStory(page, "uso", INFO),
 };

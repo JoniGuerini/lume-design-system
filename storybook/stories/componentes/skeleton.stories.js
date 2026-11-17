@@ -6,25 +6,25 @@ import { liveStory } from '../live.js';
 const INFO = { path: "/componentes/skeleton", group: '', label: "Skeleton" };
 
 export default {
-  title: "Componentes/Feedback/Skeleton",
+  title: "Components/Feedback/Skeleton",
   id: "componentes-skeleton",
-  parameters: { docs: { description: { component: "Mostra a forma do conteúdo antes de ele chegar. A tela não pula quando os dados carregam, e a espera parece menor.\n\nDocumentação completa: https://lumeui.dev/#/componentes/skeleton" } } },
+  parameters: { docs: { description: { component: "Shows the shape of the content before it arrives. The screen doesn’t jump when data loads, and the wait feels shorter.\n\nFull documentation: https://lumeui.dev/#/componentes/skeleton" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Formas lisas que pulsam devagar, sem o brilho que atravessa a tela." } } },
+  parameters: { docs: { description: { story: "Flat shapes that pulse slowly, with no shine sweeping across the screen." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "Monte a forma com três peças: linha, círculo e bloco." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "Build the shape from three pieces: line, circle, and block." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When to use it and when to prefer something else." } } },
   render: () => liveStory(page, "uso", INFO),
 };

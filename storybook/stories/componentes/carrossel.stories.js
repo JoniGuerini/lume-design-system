@@ -3,40 +3,40 @@ import * as page from '../../../site/pages/carrossel.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/carrossel", group: '', label: "Carrossel" };
+const INFO = { path: "/componentes/carrossel", group: '', label: "Carousel" };
 
 export default {
-  title: "Componentes/Conteúdo/Carrossel",
+  title: "Components/Content/Carousel",
   id: "componentes-carrossel",
-  parameters: { docs: { description: { component: "Mostra destaques ou uma galeria um por vez, num espaço só. Use quando a ordem importa menos que o espaço; se tudo é importante, prefira uma grade.\n\nDocumentação completa: https://lumeui.dev/#/componentes/carrossel" } } },
+  parameters: { docs: { description: { component: "Shows highlights or a gallery one at a time, in a single space. Use it when space matters more than order; if everything matters, prefer a grid.\n\nFull documentation: https://lumeui.dev/#/componentes/carrossel" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Use as setas, os pontos ou arraste. Com a passagem automática, o mouse em cima ou o foco dentro param o carrossel." } } },
+  parameters: { docs: { description: { story: "Use the arrows, the dots, or swipe. With autoplay, hovering or focusing inside stops the carousel." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "Quantos aparecem de uma vez vem do CSS, em --ds-carousel-per-view: dá para mudar por largura de tela sem mexer no JavaScript." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "How many show at once comes from CSS, in --ds-carousel-per-view: you can change it per screen width without touching JavaScript." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "O ponto atual estica e escurece: muda de forma, não só de cor. Sem loop, a seta da ponta fica desativada." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "The current dot stretches and darkens: it changes shape, not just color. Without loop, the arrow at the end is disabled." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Codigo = {
-  name: "Código",
-  parameters: { docs: { description: { story: "Os slides são seus; o carrossel põe a barra de baixo, o teclado e os rótulos." } } },
+  name: "Code",
+  parameters: { docs: { description: { story: "The slides are yours; the carousel adds the bottom bar, the keyboard, and the labels." } } },
   render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When to use it and when to prefer something else." } } },
   render: () => liveStory(page, "uso", INFO),
 };

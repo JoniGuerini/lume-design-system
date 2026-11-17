@@ -6,37 +6,37 @@ import { liveStory } from '../live.js';
 const INFO = { path: "/componentes/link", group: '', label: "Link" };
 
 export default {
-  title: "Componentes/Navegação/Link",
+  title: "Components/Navigation/Link",
   id: "componentes-link",
-  parameters: { docs: { description: { component: "Leva a outra página. No meio do texto, sublinhado; solto, no fim de um card ou de uma lista, com uma seta. Quando sai do site, o ícone de link externo avisa antes do clique.\n\nDocumentação completa: https://lumeui.dev/#/componentes/link" } } },
+  parameters: { docs: { description: { component: "Takes you to another page. Inside text, underlined; standalone, at the end of a card or list, with an arrow. When it leaves the site, the external-link icon says so before the click.\n\nFull documentation: https://lumeui.dev/#/componentes/link" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Só CSS, sobre o a nativo. Link é para ir a algum lugar; para fazer algo, use um botão." } } },
+  parameters: { docs: { description: { story: "Just CSS, on top of native a. A link goes somewhere; to do something, use a button." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "A forma vem de onde o link está, não da importância dele." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "The form comes from where the link sits, not from how important it is." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "No hover a cor escurece e o sublinhado fica inteiro; o foco usa o anel de todo o Lume." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "On hover the color deepens and the underline turns solid; focus uses the ring used across Lume." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Codigo = {
-  name: "Código",
-  parameters: { docs: { description: { story: "O ícone vem da biblioteca do Lume. Para o externo, o texto escondido também." } } },
+  name: "Code",
+  parameters: { docs: { description: { story: "The icon comes from Lume’s library. For external links, the hidden text too." } } },
   render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Link ou botão?" } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "Link or button?" } } },
   render: () => liveStory(page, "uso", INFO),
 };

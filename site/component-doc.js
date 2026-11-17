@@ -70,7 +70,7 @@ function elsewhereLinks(t) {
   if (!/^\/(componentes|graficos)\//.test(path)) return '';
   const [, group, slug] = path.split('/');
   const links = [
-    ['storybook', t.storybook, `storybook/?path=/docs/${group}-${slug}--documenta%C3%A7%C3%A3o`],
+    ['storybook', t.storybook, `storybook/?path=/docs/${group}-${slug}--docs`],
     ['figma', t.figma, figmaUrl(path)],
     ['github', t.github, githubUrl(path)],
   ].filter((l) => l[2]);

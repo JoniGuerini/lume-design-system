@@ -3,40 +3,40 @@ import * as page from '../../../site/pages/icones.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/fundamentos/icones", group: '', label: "Ícones" };
+const INFO = { path: "/fundamentos/icones", group: '', label: "Icons" };
 
 export default {
-  title: "Fundamentos/Ícones",
+  title: "Foundations/Icons",
   id: "fundamentos-icones",
-  parameters: { docs: { description: { component: "Uma biblioteca própria, desenhada no mesmo grid e com o mesmo traço. Contorno fino, pontas redondas e cor herdada do texto.\n\nDocumentação completa: https://lumeui.dev/#/fundamentos/icones" } } },
+  parameters: { docs: { description: { component: "A custom library, drawn on the same grid with the same stroke. Thin outlines, round caps, and color inherited from the text.\n\nFull documentation: https://lumeui.dev/#/fundamentos/icones" } } },
 };
 
 export const Biblioteca = {
-  name: "Biblioteca",
-  parameters: { docs: { description: { story: "Busque pelo nome ou por palavras em português, inglês ou espanhol. Clique num ícone para copiar o código." } } },
+  name: "Library",
+  parameters: { docs: { description: { story: "Search by name or by words in English, Portuguese, or Spanish. Click an icon to copy its code." } } },
   render: () => liveStory(page, "biblioteca", INFO),
 };
 
 export const Anatomia = {
-  name: "Anatomia",
-  parameters: { docs: { description: { story: "As mesmas regras para todos os ícones. É isso que faz a biblioteca parecer uma família." } } },
+  name: "Anatomy",
+  parameters: { docs: { description: { story: "The same rules for every icon. That’s what makes the library feel like one family." } } },
   render: () => liveStory(page, "anatomia", INFO),
 };
 
 export const Tamanhos = {
-  name: "Tamanhos",
-  parameters: { docs: { description: { story: "Cinco tamanhos, todos em tokens. Abaixo de 16 px o traço engrossa sozinho para manter a leitura." } } },
+  name: "Sizes",
+  parameters: { docs: { description: { story: "Five sizes, all tokens. Below 16 px the stroke thickens on its own to stay legible." } } },
   render: () => liveStory(page, "tamanhos", INFO),
 };
 
 export const Codigo = {
-  name: "Em código",
-  parameters: { docs: { description: { story: "Dois jeitos de usar: a função icon() em JavaScript ou o elemento <ds-icon> direto no HTML." } } },
+  name: "In code",
+  parameters: { docs: { description: { story: "Two ways to use them: the icon() function in JavaScript or the <ds-icon> element right in the HTML." } } },
   render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Ícone ajuda a reconhecer, não substitui a palavra." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "An icon helps recognition; it doesn’t replace the word." } } },
   render: () => liveStory(page, "uso", INFO),
 };

@@ -6,43 +6,43 @@ import { liveStory } from '../live.js';
 const INFO = { path: "/fundamentos/layout", group: '', label: "Layout" };
 
 export default {
-  title: "Fundamentos/Layout",
+  title: "Foundations/Layout",
   id: "fundamentos-layout",
-  parameters: { docs: { description: { component: "Onde as coisas ficam e como se reorganizam. Cinco breakpoints, um shell com medidas fixas e larguras máximas que protegem a leitura.\n\nDocumentação completa: https://lumeui.dev/#/fundamentos/layout" } } },
+  parameters: { docs: { description: { component: "Where things go and how they rearrange. Five breakpoints, a shell with fixed measures, and maximum widths that protect reading.\n\nFull documentation: https://lumeui.dev/#/fundamentos/layout" } } },
 };
 
 export const Breakpoints = {
   name: "Breakpoints",
-  parameters: { docs: { description: { story: "Mobile primeiro: o layout base vale para telas pequenas e cada breakpoint acrescenta regras a partir da sua largura. Redimensione a janela para ver o marcador andar." } } },
+  parameters: { docs: { description: { story: "Mobile first: the base layout covers small screens and each breakpoint adds rules from its width up. Resize the window to watch the marker move." } } },
   render: () => liveStory(page, "breakpoints", INFO),
 };
 
 export const AnatomiaShell = {
   name: "App shell",
-  parameters: { docs: { description: { story: "Dois painéis sobre o fundo do app: sidebar e conteúdo, com a topbar dentro do conteúdo. O diagrama está em escala de uma janela de 1440 × 900." } } },
+  parameters: { docs: { description: { story: "Two panels over the app background: sidebar and content, with the top bar inside the content. The diagram is scaled to a 1440 × 900 window." } } },
   render: () => liveStory(page, "anatomia-shell", INFO),
 };
 
 export const Larguras = {
-  name: "Larguras",
-  parameters: { docs: { description: { story: "Telas largas não devem esticar o conteúdo até a borda. As páginas param em 1160 px e o texto corrido em 720 px." } } },
+  name: "Widths",
+  parameters: { docs: { description: { story: "Wide screens shouldn’t stretch content to the edge. Pages stop at 1160 px and running text at 720 px." } } },
   render: () => liveStory(page, "larguras", INFO),
 };
 
 export const Grade = {
-  name: "Grade",
-  parameters: { docs: { description: { story: "Dois padrões de grade cobrem o site. Arraste para mudar a largura do contêiner e veja como cada um se reorganiza. O espaço entre itens é sempre space.150 (12 px)." } } },
+  name: "Grid",
+  parameters: { docs: { description: { story: "Two grid patterns cover the site. Drag to change the container width and watch how each one rearranges. The space between items is always space.150 (12 px)." } } },
   render: () => liveStory(page, "grade", INFO),
 };
 
 export const Camadas = {
-  name: "Camadas",
-  parameters: { docs: { description: { story: "A ordem de empilhamento é uma escala fixa: nada de z-index 9999. Quanto mais alto na lista, mais na frente." } } },
+  name: "Layers",
+  parameters: { docs: { description: { story: "Stacking order is a fixed scale: no z-index 9999. The higher on the list, the further in front." } } },
   render: () => liveStory(page, "camadas", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Regras para o layout continuar previsível em qualquer tela." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "Rules to keep the layout predictable on any screen." } } },
   render: () => liveStory(page, "uso", INFO),
 };

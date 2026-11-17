@@ -6,25 +6,25 @@ import { liveStory } from '../live.js';
 const INFO = { path: "/componentes/spinner", group: '', label: "Spinner" };
 
 export default {
-  title: "Componentes/Feedback/Spinner",
+  title: "Components/Feedback/Spinner",
   id: "componentes-spinner",
-  parameters: { docs: { description: { component: "Diz que algo está acontecendo numa espera curta. Herda a cor do texto, então funciona em qualquer lugar, inclusive dentro de botões.\n\nDocumentação completa: https://lumeui.dev/#/componentes/spinner" } } },
+  parameters: { docs: { description: { component: "Says something is happening during a short wait. It inherits the text color, so it works anywhere, including inside buttons.\n\nFull documentation: https://lumeui.dev/#/componentes/spinner" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Só CSS, e a cor vem do texto em volta." } } },
+  parameters: { docs: { description: { story: "Just CSS, with the color coming from the surrounding text." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "Sempre que couber, diga o que está acontecendo." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "Whenever it fits, say what’s happening." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When to use it and when to prefer something else." } } },
   render: () => liveStory(page, "uso", INFO),
 };

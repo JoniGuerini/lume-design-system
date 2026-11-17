@@ -3,34 +3,34 @@ import * as page from '../../../site/pages/controle-segmentado.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/controle-segmentado", group: '', label: "Controle segmentado" };
+const INFO = { path: "/componentes/controle-segmentado", group: '', label: "Segmented control" };
 
 export default {
-  title: "Componentes/Navegação/Controle segmentado",
+  title: "Components/Navigation/Segmented control",
   id: "componentes-controle-segmentado",
-  parameters: { docs: { description: { component: "Poucas opções lado a lado, sempre visíveis, com uma escolhida. A troca vale na hora, como nos seletores de layout e de visão do calendário.\n\nDocumentação completa: https://lumeui.dev/#/componentes/controle-segmentado" } } },
+  parameters: { docs: { description: { component: "A few options side by side, always visible, with one selected. The change applies right away, as in the layout and calendar view selectors.\n\nFull documentation: https://lumeui.dev/#/componentes/controle-segmentado" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Clique ou use as setas do teclado: a escolha vale na hora." } } },
+  parameters: { docs: { description: { story: "Click or use the arrow keys: the choice applies right away." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "Com texto, ou só com ícones quando o sentido é conhecido. Ícone sozinho precisa de nome e tooltip." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "With text, or icons only when the meaning is familiar. An icon alone needs a name and a tooltip." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "A opção escolhida sobe com o fundo dos campos; as outras ficam apagadas." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "The chosen option rises with the field background; the others stay muted." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When to use it and when to prefer something else." } } },
   render: () => liveStory(page, "uso", INFO),
 };

@@ -3,40 +3,40 @@ import * as page from '../../../site/pages/graficos-linhas.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/graficos/linhas", group: '', label: "Linhas e áreas" };
+const INFO = { path: "/graficos/linhas", group: '', label: "Lines and areas" };
 
 export default {
-  title: "Gráficos/Linhas e áreas",
+  title: "Charts/Lines and areas",
   id: "graficos-linhas",
-  parameters: { docs: { description: { component: "Para mostrar como algo muda no tempo. Traço de 2 px, um eixo só, a mira encontra o mês e o nome fica no fim da linha — sem caixa de legenda para decifrar.\n\nDocumentação completa: https://lumeui.dev/#/graficos/linhas" } } },
+  parameters: { docs: { description: { component: "To show how something changes over time. A 2 px stroke, a single axis, the crosshair finds the month, and the name sits at the end of the line — no legend box to decipher.\n\nFull documentation: https://lumeui.dev/#/graficos/linhas" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Troque o tipo, as séries e os detalhes. O gráfico segue o tema do palco e o código acompanha." } } },
+  parameters: { docs: { description: { story: "Change the type, the series, and the details. The chart follows the stage theme and the code follows along." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "O mesmo componente cobre as perguntas mais comuns sobre o tempo. Passe o mouse em qualquer uma." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "The same component covers the most common questions about time. Hover any of them." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Mira = {
-  name: "Mira e tooltip",
-  parameters: { docs: { description: { story: "Ninguém mira numa linha de 2 px. A mira vertical acha o mês mais próximo e um único tooltip mostra todas as séries ali." } } },
+  name: "Crosshair and tooltip",
+  parameters: { docs: { description: { story: "No one aims at a 2 px line. The vertical crosshair finds the closest month and a single tooltip shows every series there." } } },
   render: () => liveStory(page, "mira", INFO),
 };
 
 export const UmEixo = {
-  name: "Um eixo só",
-  parameters: { docs: { description: { story: "Nada de dois eixos y. Duas grandezas de escalas diferentes viram um índice comum ou dois gráficos alinhados." } } },
+  name: "A single axis",
+  parameters: { docs: { description: { story: "No dual y-axes. Two quantities on different scales become a common index or two aligned charts." } } },
   render: () => liveStory(page, "um-eixo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Escolha a linha quando a pergunta tem “quando” ou “desde”. Quatro cuidados resolvem quase tudo." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "Choose a line when the question has “when” or “since”. Four precautions solve almost everything." } } },
   render: () => liveStory(page, "uso", INFO),
 };

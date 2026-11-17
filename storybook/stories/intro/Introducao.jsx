@@ -14,7 +14,7 @@ const LINE = CURRENT_VERSION.split('.').slice(0, 2).join('.');
 const FIGMA_URL = 'https://www.figma.com/design/1yTJ881xoXjRmdi6NeTnYD/Lume-Design-System';
 const COMPONENTS = SECTIONS.reduce((n, s) => n + s.items.length, 0);
 
-const read = () => ({ lang: document.documentElement.lang || 'pt-BR', theme: document.documentElement.dataset.theme || 'light' });
+const read = () => ({ lang: document.documentElement.lang || 'en', theme: document.documentElement.dataset.theme || 'light' });
 function useGlobals() {
   const [g, setG] = useState(read);
   useEffect(() => {
@@ -39,7 +39,7 @@ const Flame = ({ size = 48 }) => (
 );
 
 /** Abre a documentação de um componente no próprio Storybook (o link sai do iframe da página). */
-const storyHref = (slug) => `./?path=/docs/componentes-${slug}--documenta%C3%A7%C3%A3o`;
+const storyHref = (slug) => `./?path=/docs/componentes-${slug}--docs`;
 
 function Section({ title, lead, children }) {
   return (
@@ -107,7 +107,7 @@ function Code({ code }) {
 export function Introducao() {
   const { lang } = useGlobals();
   const t = (pt, en, es) => (lang === 'en' ? en : lang === 'es' ? es : pt);
-  const tr = (o) => o[lang] || o['pt-BR'];
+  const tr = (o) => o[lang] || o.en;
 
   const stats = [
     [COMPONENTS, t('componentes', 'components', 'componentes')],

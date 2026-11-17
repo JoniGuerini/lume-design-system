@@ -3,34 +3,34 @@ import * as page from '../../../site/pages/graficos-barras.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/graficos/barras", group: '', label: "Barras" };
+const INFO = { path: "/graficos/barras", group: '', label: "Bars" };
 
 export default {
-  title: "Gráficos/Barras",
+  title: "Charts/Bars",
   id: "graficos-barras",
-  parameters: { docs: { description: { component: "Compara grandezas lado a lado. Uma base no zero, barras finas, a ponta arredondada carregando o dado — e o número só onde ele conta a história.\n\nDocumentação completa: https://lumeui.dev/#/graficos/barras" } } },
+  parameters: { docs: { description: { component: "Compares quantities side by side. A baseline at zero, thin bars, the rounded end carrying the data — and the number only where it tells the story.\n\nFull documentation: https://lumeui.dev/#/graficos/barras" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Troque orientação, layout, séries e rótulos. O gráfico é o de verdade: passe o mouse, use as setas, esconda séries na legenda ou abra a tabela." } } },
+  parameters: { docs: { description: { story: "Change orientation, layout, series, and labels. The chart is the real one: hover, use the arrows, hide series in the legend, or open the table." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "Cada forma responde a uma pergunta. Escolha pela pergunta, não pela aparência." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "Each form answers a question. Choose by the question, not by the look." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "O gráfico responde ao ponteiro, ao teclado e aos dados. Os dois primeiros começam com o estado aplicado — interaja para ver de novo." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "The chart responds to the pointer, the keyboard, and the data. The first two start with the state applied — interact to see it again." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Barras comparam comprimento. Quase todo erro vem de esquecer isso." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "Bars compare length. Almost every mistake comes from forgetting that." } } },
   render: () => liveStory(page, "uso", INFO),
 };

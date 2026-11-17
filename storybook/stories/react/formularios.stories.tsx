@@ -6,7 +6,7 @@ import {
 import { mount } from './mount';
 
 export default {
-  title: 'React/Formulários',
+  title: 'React/Forms',
   id: 'react-formularios',
   parameters: { docs: { description: { component: 'Controles de formulário com o valor no estado do React e a validação do Lume (Form).\n\nDocumentação: https://lumeui.dev/#/recursos/react' } } },
 };
@@ -53,7 +53,7 @@ function Cadastro() {
   );
 }
 
-export const Formulario = { name: 'Form completo', render: () => mount(<Cadastro />) };
+export const Formulario = { name: 'Full form', render: () => mount(<Cadastro />) };
 
 const PALETA = ['#d95c0a', '#2a8ed6', '#d0578f', '#a66700', '#009b8d', '#e04848', '#9370db', '#2f9e5b'];
 

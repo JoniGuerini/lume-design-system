@@ -6,31 +6,31 @@ import { liveStory } from '../live.js';
 const INFO = { path: "/graficos/heatmap", group: '', label: "Heatmap" };
 
 export default {
-  title: "Gráficos/Heatmap",
+  title: "Charts/Heatmap",
   id: "graficos-heatmap",
-  parameters: { docs: { description: { component: "Intensidade numa grade — dia × hora, ou dia a dia no ano. Um tom só que fica mais forte com o valor; dois tons com o meio neutro quando a pergunta é acima ou abaixo de uma referência.\n\nDocumentação completa: https://lumeui.dev/#/graficos/heatmap" } } },
+  parameters: { docs: { description: { component: "Intensity on a grid — day × hour, or day by day across the year. A single hue that gets stronger with the value; two hues with a neutral middle when the question is above or below a reference.\n\nFull documentation: https://lumeui.dev/#/graficos/heatmap" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Troque a escala, as faixas e os dados. Passe o mouse nas células ou foque o mapa e use as setas." } } },
+  parameters: { docs: { description: { story: "Change the scale, the bands, and the data. Hover the cells or focus the map and use the arrows." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "Matriz para padrões que se repetem (dia da semana × hora); calendário para o ano inteiro de uma vez." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "A matrix for repeating patterns (weekday × hour); a calendar for the whole year at once." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Escalas = {
-  name: "Escala e faixas",
-  parameters: { docs: { description: { story: "O valor vira uma faixa de cor, não um tom contínuo — faixas o olho consegue comparar. No escuro, a âncora inverte: mais é mais claro." } } },
+  name: "Scale and bands",
+  parameters: { docs: { description: { story: "The value becomes a color band, not a continuous tone — bands are something the eye can compare. In dark mode, the anchor flips: more is lighter." } } },
   render: () => liveStory(page, "escalas", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "O heatmap mostra padrão, não valor exato. Use quando a pergunta é “onde concentra?”." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "A heatmap shows a pattern, not an exact value. Use it when the question is “where does it concentrate?”." } } },
   render: () => liveStory(page, "uso", INFO),
 };

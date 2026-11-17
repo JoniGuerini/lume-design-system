@@ -6,49 +6,49 @@ import { liveStory } from '../live.js';
 const INFO = { path: "/componentes/navbar", group: '', label: "Navbar" };
 
 export default {
-  title: "Componentes/Navegação/Navbar",
+  title: "Components/Navigation/Navbar",
   id: "componentes-navbar",
-  parameters: { docs: { description: { component: "A mesma navegação da sidebar, deitada no topo: links diretos, um menu por grupo e a busca. Quando falta espaço, a busca encolhe e os últimos itens vão para o Mais.\n\nDocumentação completa: https://lumeui.dev/#/componentes/navbar" } } },
+  parameters: { docs: { description: { component: "The same navigation as the sidebar, lying across the top: direct links, a menu per group, and search. When space runs out, search shrinks and the last items move into More.\n\nFull documentation: https://lumeui.dev/#/componentes/navbar" } } },
 };
 
 export const AoVivo = {
-  name: "Ao vivo",
-  parameters: { docs: { description: { story: "A navbar deste site, com as páginas de verdade. Diminua a janela e veja a busca encolher e os itens irem para o Mais. Os menus abrem, e escolher uma página só marca o grupo dela." } } },
+  name: "Live",
+  parameters: { docs: { description: { story: "This site’s navbar, with the real pages. Shrink the window and watch search shrink and items move into More. The menus open, and choosing a page only marks its group." } } },
   render: () => liveStory(page, "ao-vivo", INFO),
 };
 
 export const Anatomia = {
-  name: "Anatomia",
-  parameters: { docs: { description: { story: "Numa largura em que já falta espaço, para o Mais aparecer. Passe o mouse ou foque uma parte da lista para destacá-la." } } },
+  name: "Anatomy",
+  parameters: { docs: { description: { story: "At a width where space is already short, so More shows up. Hover or focus a part in the list to highlight it." } } },
   render: () => liveStory(page, "anatomia", INFO),
 };
 
 export const Espaco = {
-  name: "Quando falta espaço",
-  parameters: { docs: { description: { story: "A navbar nunca quebra em duas linhas nem corta um item no meio. Ela abre mão das coisas nesta ordem." } } },
+  name: "When space runs out",
+  parameters: { docs: { description: { story: "The navbar never wraps onto two lines or cuts an item in half. It gives things up in this order." } } },
   render: () => liveStory(page, "espaco", INFO),
 };
 
 export const Menus = {
-  name: "Menus dos grupos",
-  parameters: { docs: { description: { story: "Cada botão de grupo abre um menu com as páginas daquele grupo. Lista longa vira grade, sem rolagem." } } },
+  name: "Group menus",
+  parameters: { docs: { description: { story: "Each group button opens a menu with that group’s pages. A long list becomes a grid, with no scrolling." } } },
   render: () => liveStory(page, "menus", INFO),
 };
 
 export const Escolha = {
-  name: "Sidebar ou navbar",
-  parameters: { docs: { description: { story: "Os dois levam aos mesmos lugares. A diferença está em quantos lugares são e em quanto espaço o conteúdo pede." } } },
+  name: "Sidebar or navbar",
+  parameters: { docs: { description: { story: "Both lead to the same places. The difference is how many places there are and how much room the content needs." } } },
   render: () => liveStory(page, "escolha", INFO),
 };
 
 export const Codigo = {
-  name: "Código",
-  parameters: { docs: { description: { story: "A navbar mora no .ds-shell, ao lado da sidebar, e aparece com data-layout=\"navbar\". Os grupos são os mesmos." } } },
+  name: "Code",
+  parameters: { docs: { description: { story: "The navbar lives in .ds-shell, next to the sidebar, and shows with data-layout=\"navbar\". The groups are the same." } } },
   render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando a navbar é a melhor escolha." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When the navbar is the better choice." } } },
   render: () => liveStory(page, "uso", INFO),
 };

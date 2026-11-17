@@ -16,7 +16,7 @@ initTooltips();
  * Tema e idioma também nas páginas sem história (a Introdução): a barra de cima avisa pelo canal do Storybook,
  * e o evento lume:globals redesenha quem estiver ouvindo.
  */
-const applyGlobals = ({ theme = 'light', locale = 'pt-BR' } = {}) => {
+const applyGlobals = ({ theme = 'light', locale = 'en' } = {}) => {
   document.documentElement.dataset.theme = theme;
   document.documentElement.lang = locale;
   setLocale(locale, { persist: false });
@@ -27,7 +27,7 @@ channel.on('setGlobals', ({ globals }) => applyGlobals(globals));
 channel.on('globalsUpdated', ({ globals }) => applyGlobals(globals));
 
 const withLume = (story, context) => {
-  const { theme = 'light', locale = 'pt-BR' } = context.globals;
+  const { theme = 'light', locale = 'en' } = context.globals;
   document.documentElement.dataset.theme = theme;
   document.documentElement.lang = locale;
   setLocale(locale, { persist: false });
@@ -45,20 +45,21 @@ export default {
   decorators: [withLume],
   globalTypes: {
     theme: {
-      description: 'Tema',
-      toolbar: { title: 'Tema', icon: 'mirror', items: [{ value: 'light', title: 'Claro' }, { value: 'dark', title: 'Escuro' }], dynamicTitle: true },
+      description: 'Theme',
+      toolbar: { title: 'Theme', icon: 'mirror', items: [{ value: 'light', title: 'Light' }, { value: 'dark', title: 'Dark' }], dynamicTitle: true },
     },
     locale: {
-      description: 'Idioma',
-      toolbar: { title: 'Idioma', icon: 'globe', items: [{ value: 'pt-BR', title: 'Português' }, { value: 'en', title: 'English' }, { value: 'es', title: 'Español' }], dynamicTitle: true },
+      description: 'Language',
+      toolbar: { title: 'Language', icon: 'globe', items: [{ value: 'en', title: 'English' }, { value: 'pt-BR', title: 'Português' }, { value: 'es', title: 'Español' }], dynamicTitle: true },
     },
   },
-  initialGlobals: { theme: 'light', locale: 'pt-BR' },
+  // em inglês por padrão, como o resto do Storybook; o conteúdo troca de idioma pela barra de cima
+  initialGlobals: { theme: 'light', locale: 'en' },
   parameters: {
     layout: 'padded',
     controls: { expanded: true },
     backgrounds: { disable: true },
-    options: { storySort: { order: ['Lume', 'Fundamentos', 'Componentes', 'Gráficos', 'Padrões', 'React'] } },
+    options: { storySort: { order: ['Lume', ['Introduction'], 'Foundations', 'Components', 'Charts', 'Patterns', 'React'] } },
   },
   tags: ['autodocs'],
 };

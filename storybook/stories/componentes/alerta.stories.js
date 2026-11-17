@@ -3,42 +3,42 @@ import * as page from '../../../site/pages/alerta.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/alerta", group: '', label: "Alerta" };
+const INFO = { path: "/componentes/alerta", group: '', label: "Alert" };
 
 export default {
-  title: "Componentes/Feedback/Alerta",
+  title: "Components/Feedback/Alert",
   id: "componentes-alerta",
-  parameters: { docs: { description: { component: "Uma mensagem na própria página, que fica à vista até deixar de valer. Para confirmar algo que acabou de acontecer e sumir, use o Toast.\n\nDocumentação completa: https://lumeui.dev/#/componentes/alerta" } } },
+  parameters: { docs: { description: { component: "A message on the page itself, which stays visible until it no longer applies. To confirm something that just happened and then disappear, use the Toast.\n\nFull documentation: https://lumeui.dev/#/componentes/alerta" } } },
 };
 
 export const Configuravel = {
-  name: 'Configurável',
-  args: { tom: 'info', titulo: 'Atualização disponível', texto: 'A versão nova entra no ar hoje à noite.', compacto: false },
-  argTypes: { tom: { control: 'select', options: ['info', 'success', 'warning', 'danger'] } },
-  render: ({ tom, titulo, texto, compacto }) =>
-    `<div class="ds-alert ds-alert--${tom}${compacto ? ' ds-alert--compact' : ''}" role="status"><div class="ds-alert__body">${titulo && !compacto ? `<p class="ds-alert__title">${titulo}</p>` : ''}<p class="ds-alert__text">${texto}</p></div></div>`,
+  name: 'Configurable',
+  args: { tone: 'info', title: 'Update available', text: 'The new version goes live tonight.', compact: false },
+  argTypes: { tone: { control: 'select', options: ['info', 'success', 'warning', 'danger'] } },
+  render: ({ tone, title, text, compact }) =>
+    `<div class="ds-alert ds-alert--${tone}${compact ? ' ds-alert--compact' : ''}" role="status"><div class="ds-alert__body">${title && !compact ? `<p class="ds-alert__title">${title}</p>` : ''}<p class="ds-alert__text">${text}</p></div></div>`,
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Só HTML e CSS. O botão de fechar, quando houver, é você quem liga." } } },
+  parameters: { docs: { description: { story: "Just HTML and CSS. You wire up the close button, if there is one." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Tons = {
-  name: "Tons",
-  parameters: { docs: { description: { story: "O tom nunca vem sozinho: ícone e texto dizem o mesmo que a cor." } } },
+  name: "Tones",
+  parameters: { docs: { description: { story: "The tone never comes alone: the icon and text say the same as the color." } } },
   render: () => liveStory(page, "tons", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "Com ação para resolver, ou compacto para caber dentro de um painel." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "With an action to resolve it, or compact to fit inside a panel." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Alerta, Toast ou Modal?" } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "Alert, Toast, or Modal?" } } },
   render: () => liveStory(page, "uso", INFO),
 };

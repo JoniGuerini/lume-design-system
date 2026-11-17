@@ -3,34 +3,34 @@ import * as page from '../../../site/pages/raios.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/fundamentos/raios", group: '', label: "Raios" };
+const INFO = { path: "/fundamentos/raios", group: '', label: "Radius" };
 
 export default {
-  title: "Fundamentos/Raios",
+  title: "Foundations/Radius",
   id: "fundamentos-raios",
-  parameters: { docs: { description: { component: "Cantos generosos dão o tom calmo do Lume. Uma escala curta — do detalhe à pílula — e uma regra simples para cantos dentro de cantos.\n\nDocumentação completa: https://lumeui.dev/#/fundamentos/raios" } } },
+  parameters: { docs: { description: { component: "Generous corners set Lume’s calm tone. A short scale — from detail to pill — and one simple rule for corners inside corners.\n\nFull documentation: https://lumeui.dev/#/fundamentos/raios" } } },
 };
 
 export const Escala = {
-  name: "Escala",
-  parameters: { docs: { description: { story: "Nove passos. Quanto maior a superfície, maior o raio. Clique num raio para copiar a variável." } } },
+  name: "Scale",
+  parameters: { docs: { description: { story: "Nine steps. The bigger the surface, the bigger the radius. Click a radius to copy the variable." } } },
   render: () => liveStory(page, "escala", INFO),
 };
 
 export const Aninhados = {
-  name: "Raios aninhados",
-  parameters: { docs: { description: { story: "Quando uma superfície arredondada fica dentro de outra, o raio de dentro é o de fora menos o espaçamento. Assim as curvas ficam paralelas." } } },
+  name: "Nested radii",
+  parameters: { docs: { description: { story: "When a rounded surface sits inside another, the inner radius is the outer one minus the padding. That keeps the curves parallel." } } },
   render: () => liveStory(page, "aninhados", INFO),
 };
 
 export const OndeUsar = {
-  name: "Onde usar",
-  parameters: { docs: { description: { story: "Cada componente já vem com o raio certo. Os exemplos abaixo são os componentes reais." } } },
+  name: "Where to use",
+  parameters: { docs: { description: { story: "Each component already comes with the right radius. The examples below are the real components." } } },
   render: () => liveStory(page, "onde-usar", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "O raio também é hierarquia: cantos menores para o que é pequeno, maiores para o que contém." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "Radius is hierarchy too: smaller corners for small things, larger ones for what contains them." } } },
   render: () => liveStory(page, "uso", INFO),
 };

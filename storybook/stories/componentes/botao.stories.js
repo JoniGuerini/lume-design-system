@@ -3,64 +3,64 @@ import * as page from '../../../site/pages/botao.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/botao", group: '', label: "Botão" };
+const INFO = { path: "/componentes/botao", group: '', label: "Button" };
 
 export default {
-  title: "Componentes/Ações/Botão",
+  title: "Components/Actions/Button",
   id: "componentes-botao",
-  parameters: { docs: { description: { component: "Dispara uma ação. Plano e direto: a cor fica para a ação principal, o resto se apoia em contorno e transparência.\n\nDocumentação completa: https://lumeui.dev/#/componentes/botao" } } },
+  parameters: { docs: { description: { component: "Triggers an action. Flat and direct: color goes to the main action, the rest leans on outlines and transparency.\n\nFull documentation: https://lumeui.dev/#/componentes/botao" } } },
 };
 
 export const Configuravel = {
-  name: 'Configurável',
-  args: { variante: 'primary', tamanho: 'md', rotulo: 'Salvar', icone: 'pencil', desativado: false },
+  name: 'Configurable',
+  args: { variant: 'primary', size: 'md', label: 'Save', icon: 'pencil', disabled: false },
   argTypes: {
-    variante: { control: 'select', options: ['primary', 'secondary', 'ghost', 'subtle', 'danger'] },
-    tamanho: { control: 'inline-radio', options: ['sm', 'md', 'lg'] },
-    icone: { control: 'select', options: ['', 'pencil', 'plus', 'check', 'download', 'trash', 'send'] },
+    variant: { control: 'select', options: ['primary', 'secondary', 'ghost', 'subtle', 'danger'] },
+    size: { control: 'inline-radio', options: ['sm', 'md', 'lg'] },
+    icon: { control: 'select', options: ['', 'pencil', 'plus', 'check', 'download', 'trash', 'send'] },
   },
-  render: ({ variante, tamanho, rotulo, icone, desativado }) =>
-    `<button type="button" class="ds-btn ds-btn--${variante}${tamanho !== 'md' ? ` ds-btn--${tamanho}` : ''}"${desativado ? ' disabled' : ''}>${icone ? `<ds-icon name="${icone}"></ds-icon>` : ''}${rotulo}</button>`,
+  render: ({ variant, size, label, icon, disabled }) =>
+    `<button type="button" class="ds-btn ds-btn--${variant}${size !== 'md' ? ` ds-btn--${size}` : ''}"${disabled ? ' disabled' : ''}>${icon ? `<ds-icon name="${icon}"></ds-icon>` : ''}${label}</button>`,
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Monte o botão, veja em cada tema e copie o código pronto." } } },
+  parameters: { docs: { description: { story: "Build the button, check it in each theme, and copy the ready code." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "A variante diz o peso da ação. Quanto mais importante, mais cor — e só uma ação ganha a cor da marca." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "The variant says how much weight the action carries. The more important, the more color — and only one action gets the brand color." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Tamanhos = {
-  name: "Tamanhos",
-  parameters: { docs: { description: { story: "Médio é o padrão. Pequeno para barras densas e tabelas; grande para chamadas e telas de toque." } } },
+  name: "Sizes",
+  parameters: { docs: { description: { story: "Medium is the default. Small for dense bars and tables; large for calls to action and touch screens." } } },
   render: () => liveStory(page, "tamanhos", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "Todas as variantes reagem do mesmo jeito: hover clareia ou realça, pressionado escurece, foco ganha o anel. Para documentar e testar, force um estado com data-state." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "Every variant reacts the same way: hover lightens or highlights, pressed darkens, focus gets the ring. To document and test, force a state with data-state." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Anatomia = {
-  name: "Anatomia",
-  parameters: { docs: { description: { story: "Três partes. O ícone é opcional; o rótulo, nunca — exceto no botão de ícone." } } },
+  name: "Anatomy",
+  parameters: { docs: { description: { story: "Three parts. The icon is optional; the label never is — except in the icon button." } } },
   render: () => liveStory(page, "anatomia", INFO),
 };
 
 export const Icone = {
-  name: "Botão de ícone",
-  parameters: { docs: { description: { story: "Para ações reconhecíveis sem texto — fechar, buscar, mais opções. Sem fundo por padrão; passe o mouse para ver a dica." } } },
+  name: "Icon button",
+  parameters: { docs: { description: { story: "For actions recognizable without text — close, search, more options. No background by default; hover to see the hint." } } },
   render: () => liveStory(page, "icone", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Três regras que resolvem a maioria das telas." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "Three rules that solve most screens." } } },
   render: () => liveStory(page, "uso", INFO),
 };

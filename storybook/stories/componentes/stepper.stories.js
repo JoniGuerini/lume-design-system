@@ -6,37 +6,37 @@ import { liveStory } from '../live.js';
 const INFO = { path: "/componentes/stepper", group: '', label: "Stepper" };
 
 export default {
-  title: "Componentes/Navegação/Stepper",
+  title: "Components/Navigation/Stepper",
   id: "componentes-stepper",
-  parameters: { docs: { description: { component: "Mostra as etapas de um fluxo, quantas faltam e onde a pessoa está. Bom para cadastros e configurações em partes.\n\nDocumentação completa: https://lumeui.dev/#/componentes/stepper" } } },
+  parameters: { docs: { description: { component: "Shows the steps of a flow, how many are left, and where the person is. Good for sign-ups and multi-part setups.\n\nFull documentation: https://lumeui.dev/#/componentes/stepper" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Avance e volte. Com etapas clicáveis, dá para retornar às já feitas." } } },
+  parameters: { docs: { description: { story: "Move forward and back. With clickable steps, you can return to finished ones." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "Na horizontal cabem poucas etapas com nomes curtos. Com descrições longas ou muitas etapas, use a vertical." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "Horizontal fits a few steps with short names. With long descriptions or many steps, use vertical." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "Cada etapa recebe data-state: feita, atual ou próxima. A diferença vem também do número e da marca, não só da cor." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "Each step gets data-state: done, current, or upcoming. The difference also comes from the number and check, not just color." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Codigo = {
-  name: "Código",
-  parameters: { docs: { description: { story: "O conteúdo de cada etapa é seu; o stepper só mostra o caminho." } } },
+  name: "Code",
+  parameters: { docs: { description: { story: "Each step’s content is yours; the stepper only shows the way." } } },
   render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When to use it and when to prefer something else." } } },
   render: () => liveStory(page, "uso", INFO),
 };

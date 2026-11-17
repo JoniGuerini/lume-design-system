@@ -3,46 +3,46 @@ import * as page from '../../../site/pages/tabela.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/tabela", group: '', label: "Tabela" };
+const INFO = { path: "/componentes/tabela", group: '', label: "Table" };
 
 export default {
-  title: "Componentes/Conteúdo/Tabela",
+  title: "Components/Content/Table",
   id: "componentes-tabela",
-  parameters: { docs: { description: { component: "Para comparar dados em linhas e colunas. Números alinhados, cabeçalho que ordena e seleção que não depende só da cor.\n\nDocumentação completa: https://lumeui.dev/#/componentes/tabela" } } },
+  parameters: { docs: { description: { component: "For comparing data in rows and columns. Aligned numbers, a header that sorts, and selection that doesn’t rely on color alone.\n\nFull documentation: https://lumeui.dev/#/componentes/tabela" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Combine densidade, seleção, cabeçalho fixo e legenda. O código mostra duas linhas de exemplo." } } },
+  parameters: { docs: { description: { story: "Combine density, selection, sticky header, and caption. The code shows two sample rows." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Interacao = {
-  name: "Ordenar e selecionar",
-  parameters: { docs: { description: { story: "Clique num cabeçalho para ordenar (de novo inverte). Marque linhas para agir em lote — a contagem aparece em cima." } } },
+  name: "Sort and select",
+  parameters: { docs: { description: { story: "Click a header to sort (again to reverse). Check rows to act in bulk — the count shows on top." } } },
   render: () => liveStory(page, "interacao", INFO),
 };
 
 export const Anatomia = {
-  name: "Anatomia",
-  parameters: { docs: { description: { story: "Uma tabela nativa com cinco peças. Nada de grid de divs: a semântica vem pronta." } } },
+  name: "Anatomy",
+  parameters: { docs: { description: { story: "A native table with five pieces. No grid of divs: the semantics come built in." } } },
   render: () => liveStory(page, "anatomia", INFO),
 };
 
 export const Densidade = {
-  name: "Densidade",
-  parameters: { docs: { description: { story: "Confortável é o padrão. Compacta para telas de operação, com muitas linhas para varrer." } } },
+  name: "Density",
+  parameters: { docs: { description: { story: "Comfortable is the default. Compact for operational screens, with many rows to scan." } } },
   render: () => liveStory(page, "densidade", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "Uma tabela sem dados ainda é uma tabela: mantenha o cabeçalho e diga o que fazer. Carregando, mostre a forma das linhas — sem brilho." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "A table without data is still a table: keep the header and say what to do. While loading, show the shape of the rows — no shimmer." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Três regras para tabelas fáceis de ler." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "Three rules for easy-to-read tables." } } },
   render: () => liveStory(page, "uso", INFO),
 };

@@ -3,34 +3,34 @@ import * as page from '../../../site/pages/banner-de-anuncio.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/banner-de-anuncio", group: '', label: "Banner de anúncio" };
+const INFO = { path: "/componentes/banner-de-anuncio", group: '', label: "Announcement banner" };
 
 export default {
-  title: "Componentes/Feedback/Banner de anúncio",
+  title: "Components/Feedback/Announcement banner",
   id: "componentes-banner-de-anuncio",
-  parameters: { docs: { description: { component: "Uma faixa no topo do app para um recado que vale para todo mundo: uma versão nova, uma mudança que vem aí. A pessoa fecha e o banner lembra que ela já viu.\n\nDocumentação completa: https://lumeui.dev/#/componentes/banner-de-anuncio" } } },
+  parameters: { docs: { description: { component: "A strip at the top of the app for a message that applies to everyone: a new version, a change on the way. People close it and the banner remembers they saw it.\n\nFull documentation: https://lumeui.dev/#/componentes/banner-de-anuncio" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Feche o banner: com id, createBanner guarda no navegador e ele não volta ao recarregar." } } },
+  parameters: { docs: { description: { story: "Close the banner: with an id, createBanner stores it in the browser and it doesn’t come back on reload." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "O tom diz o tipo de recado; o ícone e o texto dizem o mesmo que a cor." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "The tone says what kind of message it is; the icon and text say the same as the color." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Codigo = {
-  name: "Código",
-  parameters: { docs: { description: { story: "A marcação é do banner inteiro; o JavaScript só fecha e lembra." } } },
+  name: "Code",
+  parameters: { docs: { description: { story: "The markup is the whole banner; JavaScript only closes it and remembers." } } },
   render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Banner, alerta ou toast?" } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "Banner, alert, or toast?" } } },
   render: () => liveStory(page, "uso", INFO),
 };

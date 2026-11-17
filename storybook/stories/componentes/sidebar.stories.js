@@ -6,49 +6,49 @@ import { liveStory } from '../live.js';
 const INFO = { path: "/componentes/sidebar", group: '', label: "Sidebar" };
 
 export default {
-  title: "Componentes/Navegação/Sidebar",
+  title: "Components/Navigation/Sidebar",
   id: "componentes-sidebar",
-  parameters: { docs: { description: { component: "A navegação na lateral: marca, busca, os lugares de todo dia e grupos que recolhem. No desktop, ela encolhe até ficar só com os ícones; no celular, vira gaveta.\n\nDocumentação completa: https://lumeui.dev/#/componentes/sidebar" } } },
+  parameters: { docs: { description: { component: "Navigation on the side: brand, search, everyday places, and groups that collapse. On desktop it shrinks down to just the icons; on phones it becomes a drawer.\n\nFull documentation: https://lumeui.dev/#/componentes/sidebar" } } },
 };
 
 export const Anatomia = {
-  name: "Anatomia",
-  parameters: { docs: { description: { story: "A sidebar do próprio site, com menos páginas. Os grupos abrem e fecham, e clicar num item marca a página atual. Passe o mouse ou foque uma parte da lista para destacá-la." } } },
+  name: "Anatomy",
+  parameters: { docs: { description: { story: "This site’s own sidebar, with fewer pages. Groups open and close, and clicking an item marks the current page. Hover or focus a part in the list to highlight it." } } },
   render: () => liveStory(page, "anatomia", INFO),
 };
 
 export const Item = {
   name: "Item",
-  parameters: { docs: { description: { story: "Ícone de 20 px, rótulo e, se for o caso, a bolinha. Os estados podem ser forçados com data-state." } } },
+  parameters: { docs: { description: { story: "A 20 px icon, a label, and, when it applies, the dot. States can be forced with data-state." } } },
   render: () => liveStory(page, "item", INFO),
 };
 
 export const Recolhida = {
-  name: "Aberta e recolhida",
-  parameters: { docs: { description: { story: "No desktop, a sidebar recolhe para 76 px e deixa o conteúdo respirar. Os ícones ficam na mesma coluna nos dois estados, por isso nada pula na animação." } } },
+  name: "Open and collapsed",
+  parameters: { docs: { description: { story: "On desktop, the sidebar collapses to 76 px and lets the content breathe. The icons stay in the same column in both states, so nothing jumps during the animation." } } },
   render: () => liveStory(page, "recolhida", INFO),
 };
 
 export const Gaveta = {
-  name: "No celular",
-  parameters: { docs: { description: { story: "Abaixo de 1024 px a sidebar sai da tela e vira gaveta, aberta pelo botão de menu da topbar. A navbar usa a mesma gaveta." } } },
+  name: "On phones",
+  parameters: { docs: { description: { story: "Below 1024 px the sidebar leaves the screen and becomes a drawer, opened by the top bar’s menu button. The navbar uses the same drawer." } } },
   render: () => liveStory(page, "gaveta", INFO),
 };
 
 export const Comportamento = {
-  name: "Comportamento",
-  parameters: { docs: { description: { story: "Os detalhes que fazem a sidebar parecer quieta: nada muda sem motivo e tudo volta como estava." } } },
+  name: "Behavior",
+  parameters: { docs: { description: { story: "The details that make the sidebar feel quiet: nothing changes without a reason and everything comes back as it was." } } },
   render: () => liveStory(page, "comportamento", INFO),
 };
 
 export const Codigo = {
-  name: "Código",
-  parameters: { docs: { description: { story: "O HTML é fixo; a navegação é desenhada a partir de uma lista. A sidebar vive dentro do .ds-shell: veja o App shell para a moldura inteira." } } },
+  name: "Code",
+  parameters: { docs: { description: { story: "The HTML is fixed; the navigation is drawn from a list. The sidebar lives inside .ds-shell: see App shell for the whole frame." } } },
   render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "A sidebar some quando está bem feita." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "The sidebar disappears when it’s done well." } } },
   render: () => liveStory(page, "uso", INFO),
 };

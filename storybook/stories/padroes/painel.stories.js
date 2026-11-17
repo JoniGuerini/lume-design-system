@@ -3,12 +3,12 @@ import * as page from '../../../site/pages/padroes-painel.js';
 import { patternStory } from '../live.js';
 
 export default {
-  title: "Padrões/Painel de indicadores",
+  title: "Patterns/Metrics dashboard",
   id: 'padroes-painel',
-  parameters: { docs: { description: { component: "Uma pergunta, números comparados, um gráfico principal e o que pede atenção.\\n\\nDocumentação completa, com anatomia, regras, mensagens e acessibilidade: https://lumeui.dev/#/padroes/painel" } } },
+  parameters: { docs: { description: { component: "One question, compared numbers, a main chart and what needs attention.\\n\\nFull documentation, with anatomy, rules, messages and accessibility: https://lumeui.dev/#/padroes/painel" } } },
 };
 
 export const Exemplo = {
-  name: 'Exemplo ao vivo',
+  name: 'Live example',
   render: () => patternStory(page, 'pi-exemplo'),
 };

@@ -6,43 +6,43 @@ import { liveStory } from '../live.js';
 const INFO = { path: "/componentes/modal", group: '', label: "Modal" };
 
 export default {
-  title: "Componentes/Camadas/Modal",
+  title: "Components/Overlays/Modal",
   id: "componentes-modal",
-  parameters: { docs: { description: { component: "Interrompe o fluxo para uma decisão ou uma tarefa curta. Use pouco: tudo o que pode ficar na página, fica na página.\n\nDocumentação completa: https://lumeui.dev/#/componentes/modal" } } },
+  parameters: { docs: { description: { component: "Interrupts the flow for a decision or a short task. Use it sparingly: whatever can stay on the page, stays on the page.\n\nFull documentation: https://lumeui.dev/#/componentes/modal" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "A prévia acompanha as escolhas. “Abrir de verdade” mostra o modal sobre a página, com foco, Esc e clique fora funcionando." } } },
+  parameters: { docs: { description: { story: "The preview follows your choices. “Open for real” shows the modal over the page, with focus, Esc, and outside click working." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Anatomia = {
-  name: "Anatomia",
-  parameters: { docs: { description: { story: "Cinco partes. Título e ao menos uma saída são obrigatórios; o resto depende da decisão." } } },
+  name: "Anatomy",
+  parameters: { docs: { description: { story: "Five parts. A title and at least one way out are required; the rest depends on the decision." } } },
   render: () => liveStory(page, "anatomia", INFO),
 };
 
 export const Tamanhos = {
-  name: "Tamanhos",
-  parameters: { docs: { description: { story: "A largura acompanha o conteúdo, nunca a tela. No celular todos ocupam a largura disponível." } } },
+  name: "Sizes",
+  parameters: { docs: { description: { story: "The width follows the content, never the screen. On phones they all take the available width." } } },
   render: () => liveStory(page, "tamanhos", INFO),
 };
 
 export const Confirmacao = {
-  name: "Confirmação destrutiva",
-  parameters: { docs: { description: { story: "Para o que não tem volta. O tom de perigo muda o ícone e a ação — e o foco começa em “Cancelar”." } } },
+  name: "Destructive confirmation",
+  parameters: { docs: { description: { story: "For what can’t be undone. The danger tone changes the icon and the action — and focus starts on “Cancel”." } } },
   render: () => liveStory(page, "confirmacao", INFO),
 };
 
 export const Comportamento = {
-  name: "Comportamento",
-  parameters: { docs: { description: { story: "O <dialog> nativo resolve foco e camadas. O componente cuida do resto." } } },
+  name: "Behavior",
+  parameters: { docs: { description: { story: "The native <dialog> handles focus and layering. The component takes care of the rest." } } },
   render: () => liveStory(page, "comportamento", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Antes de abrir um modal, pergunte se a página não resolve." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "Before opening a modal, ask whether the page can handle it." } } },
   render: () => liveStory(page, "uso", INFO),
 };

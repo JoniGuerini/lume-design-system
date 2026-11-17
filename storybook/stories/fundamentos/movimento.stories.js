@@ -3,40 +3,40 @@ import * as page from '../../../site/pages/movimento.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/fundamentos/movimento", group: '', label: "Movimento" };
+const INFO = { path: "/fundamentos/movimento", group: '', label: "Motion" };
 
 export default {
-  title: "Fundamentos/Movimento",
+  title: "Foundations/Motion",
   id: "fundamentos-movimento",
-  parameters: { docs: { description: { component: "Movimento explica o que mudou e de onde veio. Poucas durações, poucas curvas e sempre o mesmo par para o mesmo tipo de mudança.\n\nDocumentação completa: https://lumeui.dev/#/fundamentos/movimento" } } },
+  parameters: { docs: { description: { component: "Motion explains what changed and where it came from. Few durations, few curves, and always the same pair for the same kind of change.\n\nFull documentation: https://lumeui.dev/#/fundamentos/movimento" } } },
 };
 
 export const Duracoes = {
-  name: "Durações",
-  parameters: { docs: { description: { story: "Quanto maior a superfície e a distância percorrida, maior a duração. Toque uma por vez ou todas juntas para comparar — todas com a curva standard." } } },
+  name: "Durations",
+  parameters: { docs: { description: { story: "The bigger the surface and the distance traveled, the longer the duration. Play one at a time or all together to compare — all with the standard curve." } } },
   render: () => liveStory(page, "duracoes", INFO),
 };
 
 export const Curvas = {
-  name: "Curvas",
-  parameters: { docs: { description: { story: "A curva define o ritmo. Os gráficos usam os quatro números reais de cada token; as demonstrações rodam em 480 ms (duration.slower) para dar tempo de perceber a diferença." } } },
+  name: "Curves",
+  parameters: { docs: { description: { story: "The curve sets the rhythm. The graphs use each token’s four real numbers; the demos run at 480 ms (duration.slower) so there’s time to notice the difference." } } },
   render: () => liveStory(page, "curvas", INFO),
 };
 
 export const Receitas = {
-  name: "Receitas",
-  parameters: { docs: { description: { story: "As combinações que os componentes usam de verdade. Cada demonstração abaixo roda com o mesmo CSS dos componentes." } } },
+  name: "Recipes",
+  parameters: { docs: { description: { story: "The combinations the components actually use. Each demo below runs on the same CSS as the components." } } },
   render: () => liveStory(page, "receitas", INFO),
 };
 
 export const Reduzido = {
-  name: "Movimento reduzido",
-  parameters: { docs: { description: { story: "Quem pede menos movimento no sistema operacional recebe a mesma interface, com as mudanças de estado instantâneas. Nada depende de animação para funcionar." } } },
+  name: "Reduced motion",
+  parameters: { docs: { description: { story: "People who ask the operating system for less motion get the same interface, with instant state changes. Nothing depends on animation to work." } } },
   render: () => liveStory(page, "reduzido", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Movimento bom passa despercebido. Três regras para manter assim." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "Good motion goes unnoticed. Three rules to keep it that way." } } },
   render: () => liveStory(page, "uso", INFO),
 };

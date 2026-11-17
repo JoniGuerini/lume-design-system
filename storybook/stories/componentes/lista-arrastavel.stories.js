@@ -3,40 +3,40 @@ import * as page from '../../../site/pages/lista-arrastavel.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/lista-arrastavel", group: '', label: "Lista arrastável" };
+const INFO = { path: "/componentes/lista-arrastavel", group: '', label: "Sortable list" };
 
 export default {
-  title: "Componentes/Conteúdo/Lista arrastável",
+  title: "Components/Content/Sortable list",
   id: "componentes-lista-arrastavel",
-  parameters: { docs: { description: { component: "Mudar a ordem de uma lista arrastando, com o mouse, o toque ou o teclado. O item deixa um encaixe vazio onde vai cair, e cada passo é anunciado para o leitor de tela.\n\nDocumentação completa: https://lumeui.dev/#/componentes/lista-arrastavel" } } },
+  parameters: { docs: { description: { component: "Change the order of a list by dragging, with the mouse, touch, or keyboard. The item leaves an empty slot where it will land, and each step is announced to screen readers.\n\nFull documentation: https://lumeui.dev/#/componentes/lista-arrastavel" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Arraste pela alça. No teclado: Tab até a alça, Espaço pega, as setas movem e Espaço solta." } } },
+  parameters: { docs: { description: { story: "Drag by the handle. On the keyboard: Tab to the handle, Space picks up, the arrows move it, and Space drops." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "Caixas soltas, linhas dentro de um card ou itens lado a lado." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "Separate boxes, rows inside a card, or items side by side." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "Enquanto arrasta, o item vira um encaixe tracejado e uma cópia elevada segue o ponteiro. Pego pelo teclado, ele ganha o contorno da marca." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "While dragging, the item becomes a dashed slot and a raised copy follows the pointer. Picked up with the keyboard, it gets the brand outline." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Codigo = {
-  name: "Código",
-  parameters: { docs: { description: { story: "O data-id de cada item é o que toArray() devolve e o que você salva." } } },
+  name: "Code",
+  parameters: { docs: { description: { story: "Each item’s data-id is what toArray() returns and what you save." } } },
   render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando a ordem é da pessoa." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When the order belongs to the person." } } },
   render: () => liveStory(page, "uso", INFO),
 };

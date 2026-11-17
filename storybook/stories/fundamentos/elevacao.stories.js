@@ -3,28 +3,28 @@ import * as page from '../../../site/pages/elevacao.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/fundamentos/elevacao", group: '', label: "Elevação" };
+const INFO = { path: "/fundamentos/elevacao", group: '', label: "Elevation" };
 
 export default {
-  title: "Fundamentos/Elevação",
+  title: "Foundations/Elevation",
   id: "fundamentos-elevacao",
-  parameters: { docs: { description: { component: "No Lume, profundidade vem primeiro da cor da superfície e só depois da sombra. Camadas claras, sombras macias e uma ordem de empilhamento sem surpresas.\n\nDocumentação completa: https://lumeui.dev/#/fundamentos/elevacao" } } },
+  parameters: { docs: { description: { component: "In Lume, depth comes first from the surface color and only then from the shadow. Clear layers, soft shadows, and a stacking order with no surprises.\n\nFull documentation: https://lumeui.dev/#/fundamentos/elevacao" } } },
 };
 
 export const Camadas = {
-  name: "Camadas de superfície",
-  parameters: { docs: { description: { story: "Cada degrau é uma superfície um pouco mais alta. Nos temas escuros, subir é clarear; nos claros, a camada mais alta é o branco." } } },
+  name: "Surface layers",
+  parameters: { docs: { description: { story: "Each step is a slightly higher surface. In the dark themes, going up means lighter; in the light ones, the highest layer is white." } } },
   render: () => liveStory(page, "camadas", INFO),
 };
 
 export const Sombras = {
-  name: "Sombras",
-  parameters: { docs: { description: { story: "Seis sombras em duas camadas — uma curta e definida, outra longa e difusa. No escuro são pretas e densas; no Lume claro, uma ardósia bem suave. Clique numa sombra para copiar." } } },
+  name: "Shadows",
+  parameters: { docs: { description: { story: "Six two-layer shadows — one short and defined, one long and diffuse. In the dark theme they’re black and dense; in Lume light, a very soft slate. Click a shadow to copy it." } } },
   render: () => liveStory(page, "sombras", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Menos sombra, mais intenção." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "Less shadow, more intent." } } },
   render: () => liveStory(page, "uso", INFO),
 };

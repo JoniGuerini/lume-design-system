@@ -3,40 +3,40 @@ import * as page from '../../../site/pages/arvore.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/arvore", group: '', label: "Árvore" };
+const INFO = { path: "/componentes/arvore", group: '', label: "Tree" };
 
 export default {
-  title: "Componentes/Navegação/Árvore",
+  title: "Components/Navigation/Tree",
   id: "componentes-arvore",
-  parameters: { docs: { description: { component: "Mostra níveis aninhados, como pastas ou categorias, sem ocupar a tela toda. Só as partes abertas aparecem.\n\nDocumentação completa: https://lumeui.dev/#/componentes/arvore" } } },
+  parameters: { docs: { description: { component: "Shows nested levels, like folders or categories, without taking over the screen. Only the open parts appear.\n\nFull documentation: https://lumeui.dev/#/componentes/arvore" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Experimente pelo teclado: setas para andar, abrir e fechar, e letras para pular." } } },
+  parameters: { docs: { description: { story: "Try it from the keyboard: arrows to move, open, and close, and letters to jump." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "Ícones e informações laterais são opcionais." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "Icons and side information are optional." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "Hover e foco podem ser forçados com data-state na linha." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "Hover and focus can be forced with data-state on the row." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Codigo = {
-  name: "Código",
-  parameters: { docs: { description: { story: "O aria-label do .ds-tree dá nome à árvore para o leitor de tela." } } },
+  name: "Code",
+  parameters: { docs: { description: { story: "The aria-label on .ds-tree names the tree for screen readers." } } },
   render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When to use it and when to prefer something else." } } },
   render: () => liveStory(page, "uso", INFO),
 };

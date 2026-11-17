@@ -6,25 +6,25 @@ import { liveStory } from '../live.js';
 const INFO = { path: "/componentes/breadcrumb", group: '', label: "Breadcrumb" };
 
 export default {
-  title: "Componentes/Navegação/Breadcrumb",
+  title: "Components/Navigation/Breadcrumb",
   id: "componentes-breadcrumb",
-  parameters: { docs: { description: { component: "Mostra o caminho até a página atual e deixa voltar a qualquer nível. É o que aparece no topo deste site.\n\nDocumentação completa: https://lumeui.dev/#/componentes/breadcrumb" } } },
+  parameters: { docs: { description: { component: "Shows the path to the current page and lets you go back to any level. It’s what appears at the top of this site.\n\nFull documentation: https://lumeui.dev/#/componentes/breadcrumb" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Só HTML e CSS. O último item é a página atual, sem link." } } },
+  parameters: { docs: { description: { story: "Just HTML and CSS. The last item is the current page, with no link." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "Em telas estreitas, só a página atual aparece, e o título da página já situa a pessoa." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "On narrow screens, only the current page appears, and the page title already orients people." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When to use it and when to prefer something else." } } },
   render: () => liveStory(page, "uso", INFO),
 };

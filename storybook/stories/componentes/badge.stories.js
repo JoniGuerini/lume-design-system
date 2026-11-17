@@ -6,50 +6,50 @@ import { liveStory } from '../live.js';
 const INFO = { path: "/componentes/badge", group: '', label: "Badge" };
 
 export default {
-  title: "Componentes/Feedback/Badge",
+  title: "Components/Feedback/Badge",
   id: "componentes-badge",
-  parameters: { docs: { description: { component: "Rótulo curto de status ou de contagem. Pequeno, discreto e sempre com significado — nunca enfeite.\n\nDocumentação completa: https://lumeui.dev/#/componentes/badge" } } },
+  parameters: { docs: { description: { component: "A short status or count label. Small, quiet, and always meaningful — never decoration.\n\nFull documentation: https://lumeui.dev/#/componentes/badge" } } },
 };
 
 export const Configuravel = {
-  name: 'Configurável',
-  args: { tom: 'success', rotulo: 'Publicado', pequeno: false },
-  argTypes: { tom: { control: 'select', options: ['neutral', 'brand', 'info', 'success', 'warning', 'danger'] } },
-  render: ({ tom, rotulo, pequeno }) => `<span class="ds-badge ds-badge--${tom}${pequeno ? ' ds-badge--sm' : ''}">${rotulo}</span>`,
+  name: 'Configurable',
+  args: { tone: 'success', label: 'Published', small: false },
+  argTypes: { tone: { control: 'select', options: ['neutral', 'brand', 'info', 'success', 'warning', 'danger'] } },
+  render: ({ tone, label, small }) => `<span class="ds-badge ds-badge--${tone}${small ? ' ds-badge--sm' : ''}">${label}</span>`,
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Escolha o tom, o tamanho e o tipo. Na contagem, o rótulo vira número (acima de 99, “99+”)." } } },
+  parameters: { docs: { description: { story: "Pick the tone, size, and type. In count mode, the label becomes a number (above 99, “99+”)." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Tons = {
-  name: "Tons",
-  parameters: { docs: { description: { story: "O tom diz o tipo de status. Fundo suave, texto forte e contorno fino — legível nos dois temas, sem gritar." } } },
+  name: "Tones",
+  parameters: { docs: { description: { story: "The tone says the type of status. A soft background, strong text, and a thin outline — legible in both themes, without shouting." } } },
   render: () => liveStory(page, "tons", INFO),
 };
 
 export const Tamanhos = {
-  name: "Tamanhos",
-  parameters: { docs: { description: { story: "Médio ao lado de texto comum; pequeno em tabelas, listas densas e cabeçalhos de card." } } },
+  name: "Sizes",
+  parameters: { docs: { description: { story: "Medium next to regular text; small in tables, dense lists, and card headers." } } },
   render: () => liveStory(page, "tamanhos", INFO),
 };
 
 export const Contagem = {
-  name: "Contagem",
-  parameters: { docs: { description: { story: "ds-badge--count centraliza o número e mantém a largura mínima de um círculo. Zero não aparece; acima de 99, mostre “99+”." } } },
+  name: "Count",
+  parameters: { docs: { description: { story: "ds-badge--count centers the number and keeps a circle’s minimum width. Zero doesn’t show; above 99, show “99+”." } } },
   render: () => liveStory(page, "contagem", INFO),
 };
 
 export const Onde = {
-  name: "Onde usar",
-  parameters: { docs: { description: { story: "Badge acompanha algo — uma linha, um título, um item. Ele nunca está sozinho na tela." } } },
+  name: "Where to use",
+  parameters: { docs: { description: { story: "A badge goes with something — a row, a title, an item. It’s never alone on the screen." } } },
   render: () => liveStory(page, "onde", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Badge é informação. Se não informa nada, não é badge." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "A badge is information. If it doesn’t inform, it isn’t a badge." } } },
   render: () => liveStory(page, "uso", INFO),
 };

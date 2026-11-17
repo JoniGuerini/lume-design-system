@@ -3,40 +3,40 @@ import * as page from '../../../site/pages/campo-numerico.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/campo-numerico", group: '', label: "Campo numérico" };
+const INFO = { path: "/componentes/campo-numerico", group: '', label: "Number field" };
 
 export default {
-  title: "Componentes/Formulários/Campo numérico",
+  title: "Components/Forms/Number field",
   id: "componentes-campo-numerico",
-  parameters: { docs: { description: { component: "Para um número exato, quando digitar é tão útil quanto ajustar aos poucos. Respeita limites, passo e o formato do idioma.\n\nDocumentação completa: https://lumeui.dev/#/componentes/campo-numerico" } } },
+  parameters: { docs: { description: { component: "For an exact number, when typing is as useful as adjusting little by little. It respects limits, a step, and the language’s format.\n\nFull documentation: https://lumeui.dev/#/componentes/campo-numerico" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Digite, use as setas do teclado ou segure os botões para repetir o passo." } } },
+  parameters: { docs: { description: { story: "Type, use the arrow keys, or hold the buttons to repeat the step." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "O formato usa as opções de Intl.NumberFormat: moeda, porcentagem ou unidade, sempre no idioma atual." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "The format uses Intl.NumberFormat options: currency, percent, or unit, always in the current language." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "Os mesmos do Campo de texto, mais os botões desativados nos limites." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "The same as the Text field, plus disabled buttons at the limits." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Codigo = {
-  name: "Código",
-  parameters: { docs: { description: { story: "O formulário recebe o número puro, num input oculto com o name do campo." } } },
+  name: "Code",
+  parameters: { docs: { description: { story: "The form receives the plain number, in a hidden input with the field’s name." } } },
   render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When to use it and when to prefer something else." } } },
   render: () => liveStory(page, "uso", INFO),
 };

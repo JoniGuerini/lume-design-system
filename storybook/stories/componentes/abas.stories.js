@@ -3,46 +3,46 @@ import * as page from '../../../site/pages/abas.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/abas", group: '', label: "Abas" };
+const INFO = { path: "/componentes/abas", group: '', label: "Tabs" };
 
 export default {
-  title: "Componentes/Navegação/Abas",
+  title: "Components/Navigation/Tabs",
   id: "componentes-abas",
-  parameters: { docs: { description: { component: "Alternam entre vistas do mesmo assunto sem sair da página. Uma aba ativa por vez, sempre com o painel logo abaixo.\n\nDocumentação completa: https://lumeui.dev/#/componentes/abas" } } },
+  parameters: { docs: { description: { component: "Switch between views of the same subject without leaving the page. One active tab at a time, always with its panel right below.\n\nFull documentation: https://lumeui.dev/#/componentes/abas" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Monte as abas e use de verdade: clique ou navegue com as setas. O código acompanha." } } },
+  parameters: { docs: { description: { story: "Build the tabs and use them for real: click or navigate with the arrows. The code follows along." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Aparencias = {
-  name: "Aparências",
-  parameters: { docs: { description: { story: "A sublinhada organiza seções de conteúdo; a segmentada troca a vista de uma mesma coisa. As duas vêm em médio e pequeno." } } },
+  name: "Appearances",
+  parameters: { docs: { description: { story: "Underline organizes content sections; segmented switches the view of the same thing. Both come in medium and small." } } },
   render: () => liveStory(page, "aparencias", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "Hover e foco podem ser forçados com data-state." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "Hover and focus can be forced with data-state." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Anatomia = {
-  name: "Anatomia",
-  parameters: { docs: { description: { story: "Quatro partes. Cada aba aponta para o seu painel, e o painel aponta de volta." } } },
+  name: "Anatomy",
+  parameters: { docs: { description: { story: "Four parts. Each tab points to its panel, and the panel points back." } } },
   render: () => liveStory(page, "anatomia", INFO),
 };
 
 export const Comportamento = {
-  name: "Comportamento",
-  parameters: { docs: { description: { story: "Na ativação automática, as setas já trocam o painel. Na manual, as setas só movem o foco — use quando abrir um painel custa caro (busca, carregamento)." } } },
+  name: "Behavior",
+  parameters: { docs: { description: { story: "With automatic activation, the arrows switch the panel right away. With manual, the arrows only move focus — use it when opening a panel is expensive (search, loading)." } } },
   render: () => liveStory(page, "comportamento", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Três regras para abas que não confundem." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "Three rules for tabs that don’t confuse." } } },
   render: () => liveStory(page, "uso", INFO),
 };

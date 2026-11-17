@@ -3,12 +3,12 @@ import * as page from '../../../site/pages/padroes-detalhe.js';
 import { patternStory } from '../live.js';
 
 export default {
-  title: "Padrões/Detalhe e edição",
+  title: "Patterns/Detail and editing",
   id: 'padroes-detalhe',
-  parameters: { docs: { description: { component: "A página de um item: cabeçalho, abas, histórico e edição no lugar.\\n\\nDocumentação completa, com anatomia, regras, mensagens e acessibilidade: https://lumeui.dev/#/padroes/detalhe" } } },
+  parameters: { docs: { description: { component: "An item’s page: header, tabs, history and in-place editing.\\n\\nFull documentation, with anatomy, rules, messages and accessibility: https://lumeui.dev/#/padroes/detalhe" } } },
 };
 
 export const Exemplo = {
-  name: 'Exemplo ao vivo',
+  name: 'Live example',
   render: () => patternStory(page, 'de-exemplo'),
 };

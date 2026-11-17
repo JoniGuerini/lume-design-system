@@ -3,34 +3,34 @@ import * as page from '../../../site/pages/barra-de-rolagem.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/barra-de-rolagem", group: '', label: "Barra de rolagem" };
+const INFO = { path: "/componentes/barra-de-rolagem", group: '', label: "Scrollbar" };
 
 export default {
-  title: "Componentes/Navegação/Barra de rolagem",
+  title: "Components/Navigation/Scrollbar",
   id: "componentes-barra-de-rolagem",
-  parameters: { docs: { description: { component: "Uma barra só, sem trilho nem setas, igual em qualquer sistema. Aparece enquanto a pessoa rola e não ocupa espaço no layout.\n\nDocumentação completa: https://lumeui.dev/#/componentes/barra-de-rolagem" } } },
+  parameters: { docs: { description: { component: "A single bar, with no track or arrows, the same on every system. It appears while people scroll and takes up no layout space.\n\nFull documentation: https://lumeui.dev/#/componentes/barra-de-rolagem" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Role a área com a roda, o toque ou o teclado, e tente arrastar a barra. Na horizontal, use Shift + roda." } } },
+  parameters: { docs: { description: { story: "Scroll the area with the wheel, touch, or keyboard, and try dragging the bar. For horizontal, use Shift + wheel." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "Hover pode ser forçado com data-state; arrastando, com data-active." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "Hover can be forced with data-state; dragging, with data-active." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Codigo = {
-  name: "Código",
-  parameters: { docs: { description: { story: "Basta ligar uma vez. Áreas que entram depois também recebem a barra." } } },
+  name: "Code",
+  parameters: { docs: { description: { story: "Just turn it on once. Areas added later get the bar too." } } },
   render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When to use it and when to prefer something else." } } },
   render: () => liveStory(page, "uso", INFO),
 };

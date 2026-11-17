@@ -83,7 +83,8 @@ async function main() {
     await send('Runtime.enable');
     await send('Page.navigate', { url: `${BASE}/index.html#/` });
     await new Promise((r) => setTimeout(r, 1500));
-    await evaluate(`localStorage.setItem('ds-locale', 'pt-BR'); localStorage.setItem('ds-theme', 'light'); true`);
+    // os nomes da sidebar e das histórias saem em inglês (o conteúdo de cada história continua seguindo o botão de idioma)
+    await evaluate(`localStorage.setItem('ds-locale', 'en'); localStorage.setItem('ds-theme', 'light'); true`);
     await send('Page.navigate', { url: `${BASE}/index.html?stories=1#/` });
     await new Promise((r) => setTimeout(r, 2500));
     const pages = await evaluate(`import('/site/nav.js').then((m) => { return ['fundamentos', 'componentes', 'graficos'].flatMap((gid) => { const g = m.navigation.find((x) => x.id === gid); return g.items.map((p) => ({ group: gid, groupLabel: g.label, path: p.path, label: p.label, section: g.sectionLabel(p.section), file: String(p.load).match(/pages.([a-z0-9-]+).js/)?.[1] })); }); })`);
@@ -105,7 +106,7 @@ async function main() {
           item.description[lang] = p.description;
         });
       }
-      i18n.setLocale('pt-BR', { persist: false });
+      i18n.setLocale('en', { persist: false });
       return out;
     })`);
     await writeFile(path.join(ROOT, 'storybook', 'stories', 'indice.js'), `// Gerado por scripts/build-stories.mjs a partir de site/nav.js. Não edite: rode npm run stories.\nexport const SECTIONS = ${JSON.stringify(indice.sections, null, 2)};\n`);
@@ -139,9 +140,9 @@ import { liveStory } from '../live.js';
 const INFO = { path: ${JSON.stringify(p.path)}, group: '', label: ${JSON.stringify(p.label)} };
 
 export default {
-  title: ${JSON.stringify(p.group !== 'componentes' ? `${p.groupLabel}/${p.label}` : `Componentes/${p.section}/${p.label}`)},
+  title: ${JSON.stringify(p.group !== 'componentes' ? `${p.groupLabel}/${p.label}` : `Components/${p.section}/${p.label}`)},
   id: ${JSON.stringify(`${p.group}-${slug}`)},
-  parameters: { docs: { description: { component: ${JSON.stringify(`${lead}\n\nDocumentação completa: https://lumeui.dev/#${p.path}`)} } } },
+  parameters: { docs: { description: { component: ${JSON.stringify(`${lead}\n\nFull documentation: https://lumeui.dev/#${p.path}`)} } } },
 };
 
 ${extras}${stories}

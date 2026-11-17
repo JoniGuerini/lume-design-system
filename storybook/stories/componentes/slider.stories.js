@@ -6,37 +6,37 @@ import { liveStory } from '../live.js';
 const INFO = { path: "/componentes/slider", group: '', label: "Slider" };
 
 export default {
-  title: "Componentes/Formulários/Slider",
+  title: "Components/Forms/Slider",
   id: "componentes-slider",
-  parameters: { docs: { description: { component: "Para escolher um valor ou uma faixa quando a posição importa mais que o número exato, como volume, brilho ou uma faixa de preço.\n\nDocumentação completa: https://lumeui.dev/#/componentes/slider" } } },
+  parameters: { docs: { description: { component: "For choosing a value or a range when position matters more than the exact number, like volume, brightness, or a price range.\n\nFull documentation: https://lumeui.dev/#/componentes/slider" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Por baixo é um input type=\"range\" nativo, com teclado e leitor de tela prontos." } } },
+  parameters: { docs: { description: { story: "Underneath it’s a native input type=\"range\", with keyboard and screen reader support built in." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "O valor fica ao lado do rótulo, sempre visível. Marcas ajudam quando alguns pontos têm nome." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "The value sits next to the label, always visible. Marks help when some points have names." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "Hover e foco podem ser forçados com data-state no .ds-slider." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "Hover and focus can be forced with data-state on .ds-slider." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Codigo = {
-  name: "Código",
-  parameters: { docs: { description: { story: "onInput acompanha o arraste; onChange avisa quando a pessoa solta." } } },
+  name: "Code",
+  parameters: { docs: { description: { story: "onInput follows the drag; onChange fires when the person lets go." } } },
   render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When to use it and when to prefer something else." } } },
   render: () => liveStory(page, "uso", INFO),
 };

@@ -6,37 +6,37 @@ import { liveStory } from '../live.js';
 const INFO = { path: "/componentes/toast", group: '', label: "Toast" };
 
 export default {
-  title: "Componentes/Feedback/Toast",
+  title: "Components/Feedback/Toast",
   id: "componentes-toast",
-  parameters: { docs: { description: { component: "Confirma que algo aconteceu, sem interromper. Aparece embaixo, some sozinho e pode trazer uma ação curta, como desfazer.\n\nDocumentação completa: https://lumeui.dev/#/componentes/toast" } } },
+  parameters: { docs: { description: { component: "Confirms that something happened, without interrupting. It shows at the bottom, goes away on its own, and can carry a short action, like undo.\n\nFull documentation: https://lumeui.dev/#/componentes/toast" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "A prévia mostra o visual. “Mostrar toast” — ou um dos seis pontos da miniatura — dispara o de verdade, na posição escolhida." } } },
+  parameters: { docs: { description: { story: "The preview shows the look. “Show toast” — or one of the six dots in the thumbnail — fires the real one, in the chosen position." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Tons = {
-  name: "Tons",
-  parameters: { docs: { description: { story: "O fundo é sempre o invertido — o toast se destaca de qualquer tela. O tom aparece só no ícone, para a cor não gritar." } } },
+  name: "Tones",
+  parameters: { docs: { description: { story: "The background is always inverse — the toast stands out on any screen. The tone shows only in the icon, so the color doesn’t shout." } } },
   render: () => liveStory(page, "tons", INFO),
 };
 
 export const Acao = {
-  name: "Com ação",
-  parameters: { docs: { description: { story: "Uma ação só, curta e reversível — “Desfazer”, “Ver”, “Tentar de novo”. Com ação, o toast fica 5 s." } } },
+  name: "With an action",
+  parameters: { docs: { description: { story: "A single action, short and reversible — “Undo”, “View”, “Try again”. With an action, the toast stays 5 s." } } },
   render: () => liveStory(page, "acao", INFO),
 };
 
 export const Comportamento = {
-  name: "Comportamento",
-  parameters: { docs: { description: { story: "Previsível: sempre no mesmo lugar, sempre saindo sozinho." } } },
+  name: "Behavior",
+  parameters: { docs: { description: { story: "Predictable: always in the same place, always leaving on its own." } } },
   render: () => liveStory(page, "comportamento", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Para confirmar, não para conversar." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "To confirm, not to chat." } } },
   render: () => liveStory(page, "uso", INFO),
 };

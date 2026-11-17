@@ -3,7 +3,7 @@ import { Table, Badge, BarChart, LineChart, DonutChart, StatTile, Calendar, Code
 import { mount } from './mount';
 
 export default {
-  title: 'React/Dados e gráficos',
+  title: 'React/Data and charts',
   id: 'react-dados',
   parameters: { docs: { description: { component: 'Tabela, gráficos, calendário, carrossel, painéis redimensionáveis, visualizador de imagem, lista arrastável, kanban e bloco de código em React.\n\nDocumentação: https://lumeui.dev/#/recursos/react' } } },
 };
@@ -39,7 +39,7 @@ function Tabela() {
 export const TabelaStory = { name: 'Table', render: () => mount(<div style={{ maxWidth: 640 }}><Tabela /></div>) };
 
 export const Graficos = {
-  name: 'Gráficos',
+  name: 'Charts',
   render: () =>
     mount(
       <div style={{ display: 'grid', gap: 16, maxWidth: 720 }}>

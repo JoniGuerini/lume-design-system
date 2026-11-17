@@ -3,34 +3,34 @@ import * as page from '../../../site/pages/voltar-ao-topo.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/voltar-ao-topo", group: '', label: "Voltar ao topo" };
+const INFO = { path: "/componentes/voltar-ao-topo", group: '', label: "Back to top" };
 
 export default {
-  title: "Componentes/Navegação/Voltar ao topo",
+  title: "Components/Navigation/Back to top",
   id: "componentes-voltar-ao-topo",
-  parameters: { docs: { description: { component: "Em páginas longas, leva de volta ao começo com um clique. Fica escondido até a pessoa ter rolado bastante.\n\nDocumentação completa: https://lumeui.dev/#/componentes/voltar-ao-topo" } } },
+  parameters: { docs: { description: { component: "On long pages, it takes you back to the start in one click. It stays hidden until you’ve scrolled a good way.\n\nFull documentation: https://lumeui.dev/#/componentes/voltar-ao-topo" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Role a área até o botão aparecer no canto e clique nele. Este site usa o mesmo botão: role esta página para ver." } } },
+  parameters: { docs: { description: { story: "Scroll the area until the button appears in the corner, then click it. This site uses the same button: scroll this page to see it." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "Hover e foco podem ser forçados com data-state. O botão só aparece com data-visible." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "Hover and focus can be forced with data-state. The button appears only with data-visible." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Codigo = {
-  name: "Código",
-  parameters: { docs: { description: { story: "O botão entra em parent, que precisa ter position." } } },
+  name: "Code",
+  parameters: { docs: { description: { story: "The button goes into parent, which needs a position." } } },
   render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When to use it and when to prefer something else." } } },
   render: () => liveStory(page, "uso", INFO),
 };

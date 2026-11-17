@@ -3,40 +3,40 @@ import * as page from '../../../site/pages/campo-de-tags.js';
 import { liveStory } from '../live.js';
 
 // a seção da página do site, ao vivo: o JavaScript da página liga o exemplo (setas, menus, campos…)
-const INFO = { path: "/componentes/campo-de-tags", group: '', label: "Campo de tags" };
+const INFO = { path: "/componentes/campo-de-tags", group: '', label: "Tag field" };
 
 export default {
-  title: "Componentes/Formulários/Campo de tags",
+  title: "Components/Forms/Tag field",
   id: "componentes-campo-de-tags",
-  parameters: { docs: { description: { component: "Para vários valores livres dentro de um campo só, como assuntos, destinatários ou palavras-chave. Se as opções são uma lista fechada, use a Seleção múltipla.\n\nDocumentação completa: https://lumeui.dev/#/componentes/campo-de-tags" } } },
+  parameters: { docs: { description: { component: "For several free values inside one field, like topics, recipients, or keywords. If the options are a closed list, use the multiple Select.\n\nFull documentation: https://lumeui.dev/#/componentes/campo-de-tags" } } },
 };
 
 export const Playground = {
   name: "Playground",
-  parameters: { docs: { description: { story: "Digite e tecle Enter ou vírgula. Cole uma lista separada por vírgulas. Com o campo vazio, Backspace marca a última tag e, de novo, apaga." } } },
+  parameters: { docs: { description: { story: "Type and press Enter or comma. Paste a comma-separated list. With the field empty, Backspace marks the last tag and, pressed again, deletes it." } } },
   render: () => liveStory(page, "playground", INFO),
 };
 
 export const Variantes = {
-  name: "Variantes",
-  parameters: { docs: { description: { story: "O campo cresce em linhas conforme as tags entram. Regras próprias explicam por que uma tag não entrou." } } },
+  name: "Variants",
+  parameters: { docs: { description: { story: "The field grows in lines as tags come in. Custom rules explain why a tag didn’t get in." } } },
   render: () => liveStory(page, "variantes", INFO),
 };
 
 export const Estados = {
-  name: "Estados",
-  parameters: { docs: { description: { story: "Hover e foco seguem o Campo de texto e podem ser forçados com data-state." } } },
+  name: "States",
+  parameters: { docs: { description: { story: "Hover and focus follow the Text field and can be forced with data-state." } } },
   render: () => liveStory(page, "estados", INFO),
 };
 
 export const Codigo = {
-  name: "Código",
-  parameters: { docs: { description: { story: "Funciona com createForm: com required, ter pelo menos uma tag já basta." } } },
+  name: "Code",
+  parameters: { docs: { description: { story: "It works with createForm: with required, having at least one tag is enough." } } },
   render: () => liveStory(page, "codigo", INFO),
 };
 
 export const Uso = {
-  name: "Uso",
-  parameters: { docs: { description: { story: "Quando usar e quando preferir outra coisa." } } },
+  name: "Usage",
+  parameters: { docs: { description: { story: "When to use it and when to prefer something else." } } },
   render: () => liveStory(page, "uso", INFO),
 };
