@@ -1,6 +1,6 @@
 /**
  * Rodapé das páginas internas: a página anterior e a próxima, na ordem do menu, e uma linha com a versão,
- * a mesma página em Markdown (para IAs), nos fundamentos, componentes e gráficos a documentação no Storybook e, quando a página tem bloco, o Figma.
+ * a mesma página em Markdown (para IAs), nos fundamentos, componentes e gráficos a documentação no Storybook, quando a página tem bloco, o Figma e, nos componentes, o arquivo no GitHub.
  * O Início tem o rodapé próprio (site/pages/home.js).
  */
 import { icon } from '../ds/icons/icons.js';
@@ -10,11 +10,12 @@ import { pages } from './nav.js';
 import { CURRENT_VERSION } from './changelog.js';
 import { T } from './i18n.js';
 import { figmaUrl } from './figma-links.js';
+import { githubUrl } from './github-links.js';
 
 const COPY = T(
-  { label: 'Navegação entre páginas', prev: 'Anterior', next: 'Próxima', markdown: 'Esta página em Markdown', storybook: 'Ver no Storybook', figma: 'Ver no Figma', external: 'abre em outra aba' },
-  { label: 'Page navigation', prev: 'Previous', next: 'Next', markdown: 'This page in Markdown', storybook: 'View in Storybook', figma: 'View in Figma', external: 'opens in a new tab' },
-  { label: 'Navegación entre páginas', prev: 'Anterior', next: 'Siguiente', markdown: 'Esta página en Markdown', storybook: 'Ver en Storybook', figma: 'Ver en Figma', external: 'se abre en otra pestaña' },
+  { label: 'Navegação entre páginas', prev: 'Anterior', next: 'Próxima', markdown: 'Esta página em Markdown', storybook: 'Ver no Storybook', figma: 'Ver no Figma', github: 'Ver no GitHub', external: 'abre em outra aba' },
+  { label: 'Page navigation', prev: 'Previous', next: 'Next', markdown: 'This page in Markdown', storybook: 'View in Storybook', figma: 'View in Figma', github: 'View on GitHub', external: 'opens in a new tab' },
+  { label: 'Navegación entre páginas', prev: 'Anterior', next: 'Siguiente', markdown: 'Esta página en Markdown', storybook: 'Ver en Storybook', figma: 'Ver en Figma', github: 'Ver en GitHub', external: 'se abre en otra pestaña' },
 );
 
 // páginas que o npm run ia converte em Markdown (Novidades, Roadmap e a própria página para IAs ficam de fora)
@@ -39,6 +40,8 @@ export function pageFooterHtml(page) {
   if (/^\/(fundamentos|componentes|graficos)\//.test(page.path)) links.push(`<a href="storybook/?path=/docs/${page.path.split('/')[1]}-${page.path.split('/').pop()}--documenta%C3%A7%C3%A3o" target="_blank" rel="noopener">${brandIcon('storybook', 14)}${c.storybook}<span class="ds-visually-hidden">, ${c.external}</span></a>`);
   const figma = figmaUrl(page.path);
   if (figma) links.push(`<a href="${figma}" target="_blank" rel="noopener">${brandIcon('figma', 14)}${c.figma}<span class="ds-visually-hidden">, ${c.external}</span></a>`);
+  const github = githubUrl(page.path);
+  if (github) links.push(`<a href="${github}" target="_blank" rel="noopener">${brandIcon('github', 14)}${c.github}<span class="ds-visually-hidden">, ${c.external}</span></a>`);
   return `<footer class="site-page-footer">
     <nav class="site-pager" aria-label="${c.label}">
       ${prev ? card(prev, 'prev') : '<span></span>'}
