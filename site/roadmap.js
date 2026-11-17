@@ -16,8 +16,14 @@ const I = (name, text, doc) => ({ name, text, doc });
 
 const P = (version, status, tone, title, text, items) => ({ version, group: 'patterns', tone, status, title, text, items });
 
-/* Padrões de tela pedidos depois da 1.0, um por versão; ele avalia no fim quais ficam. Etapa entregue sai daqui. */
+const R = (version, status, tone, title, text, items) => ({ version, group: 'release', tone, status, title, text, items });
+
+/* Lume no npm (pedido dele em 17/11/2026: “montar um roadmap e ir uma por uma”). Etapa entregue sai daqui. */
 const STAGES = [
+  R('1.8.1', NEXT, 'brand', T('Lume no servidor', 'Lume on the server', 'Lume en el servidor'), T('Importar o Lume no Next.js e em outros frameworks com renderização no servidor sem quebrar: os ícones só se registram no navegador, e os componentes React chegam marcados para o cliente.', 'Import Lume in Next.js and other server-rendered frameworks without breaking: icons only register in the browser, and the React components arrive marked for the client.', 'Importar Lume en Next.js y otros frameworks con renderizado en el servidor sin romper: los íconos solo se registran en el navegador, y los componentes React llegan marcados para el cliente.'), []),
+  R('1.8.2', PLANNED, 'neutral', T('React 18', 'React 18', 'React 18'), T('Os componentes React testados também no React 18, além do 19.', 'The React components tested on React 18 too, not just 19.', 'Los componentes React probados también en React 18, además del 19.'), []),
+  R('1.9', PLANNED, 'neutral', T('Lume no npm', 'Lume on npm', 'Lume en npm'), T('Um npm install e um import, em HTML ou React, já compilado e com tipos. O comando npx copia o Lume ou um componente para o projeto. A instalação no site e nos guias para IAs passa a começar por aqui.', 'One npm install and one import, in HTML or React, already compiled and typed. The npx command copies Lume or a single component into your project. Installation on the site and in the AI guides starts here.', 'Un npm install y un import, en HTML o React, ya compilado y con tipos. El comando npx copia Lume o un componente al proyecto. La instalación en el sitio y en las guías para IA empieza aquí.'), []),
+  R('1.9.1', PLANNED, 'neutral', T('Publicação automática', 'Automatic publishing', 'Publicación automática'), T('Cada versão nova do Lume chega ao npm sozinha, pelo GitHub.', 'Every new Lume release reaches npm on its own, through GitHub.', 'Cada versión nueva de Lume llega a npm sola, por GitHub.'), []),
 ];
 
 const LEFT_OUT = [];
