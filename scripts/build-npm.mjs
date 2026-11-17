@@ -77,8 +77,10 @@ for (const f of await readdir(path.join(OUT, 'react'))) {
 for (const f of await readdir(path.join(OUT, 'react'))) {
   if (!f.endsWith('.js') && !f.endsWith('.d.ts')) continue;
   const file = path.join(OUT, 'react', f);
-  const src = await readFile(file, 'utf8');
-  await writeFile(file, src.replace(/((?:from|import)\s*['"])(\.{1,2}\/[^'"]+?)(['"])/g, (m, a, spec, b) => (/\.(m?js|css|json)$/.test(spec) ? m : `${a}${spec}.js${b}`)));
+  let src = (await readFile(file, 'utf8')).replace(/((?:from|import)\s*['"])(\.{1,2}\/[^'"]+?)(['"])/g, (m, a, spec, b) => (/\.(m?js|css|json)$/.test(spec) ? m : `${a}${spec}.js${b}`));
+  // Next.js (App Router): componentes com hooks e eventos só rodam no cliente; sem a marca, o import de um Server Component falha
+  if (f.endsWith('.js') && !src.startsWith('"use client"')) src = `"use client";\n${src}`;
+  await writeFile(file, src);
 }
 
 /* ───────── Comando npx, README e package.json ───────── */
