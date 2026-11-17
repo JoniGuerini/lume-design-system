@@ -71,9 +71,20 @@ const FILES = {
   tecla: C('chip'),
 };
 
-/** Endereço do arquivo do componente no GitHub, ou null para páginas sem arquivo próprio. */
+// gráficos: cada tipo tem o próprio módulo em ds/js/charts/; a visão geral abre a entrada, e os indicadores, o CSS deles
+const CHARTS = {
+  'visao-geral': J('charts'),
+  barras: J('charts/bar'),
+  linhas: J('charts/line'),
+  rosca: J('charts/donut'),
+  heatmap: J('charts/heatmap'),
+  dispersao: J('charts/scatter'),
+  indicadores: C('chart'),
+};
+
+/** Endereço do arquivo do componente ou do gráfico no GitHub, ou null para páginas sem arquivo próprio. */
 export function githubUrl(path) {
-  const m = /^\/componentes\/([a-z-]+)$/.exec(path);
-  const file = m && FILES[m[1]];
+  const m = /^\/(componentes|graficos)\/([a-z-]+)$/.exec(path);
+  const file = m && (m[1] === 'graficos' ? CHARTS : FILES)[m[2]];
   return file ? `${GITHUB_REPO}/blob/main/${file}` : null;
 }
