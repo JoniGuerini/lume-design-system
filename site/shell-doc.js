@@ -10,6 +10,7 @@ import { locale } from '../ds/js/i18n.js';
 import { themeSwitch, markThemeSwitch } from './themes.js';
 import { navigation } from './nav.js';
 import { L } from './i18n.js';
+import { elsewhereLinksHtml } from './component-doc.js';
 
 export const ic = (s) => `<code class="ds-inline-code">${s}</code>`;
 const byName = new Map(tokens.map((t) => [t.name, t]));
@@ -206,6 +207,7 @@ export function liveAppHtml(layout) {
       ${segmented('device', L('Tamanho da tela', 'Screen size', 'Tamaño de pantalla'), DEVICES(), 'desktop')}
       <button type="button" class="ds-btn ds-btn--secondary ds-btn--sm" data-demo-toggle disabled>${icon(layout === 'navbar' ? 'menu' : 'panel-left', { size: 16 })}<span data-demo-toggle-label>${layout === 'navbar' ? L('Abrir gaveta', 'Open drawer', 'Abrir cajón') : L('Recolher menu', 'Collapse menu', 'Contraer menú')}</span></button>
       <span class="pa-demo__spacer"></span>
+      ${layout === 'sidebar' ? elsewhereLinksHtml() : '' /* na Navbar, os atalhos já ficam no exemplo do topo */}
       ${themeSwitch('demo-theme', resolvedTheme())}
       <button type="button" class="ds-icon-btn ds-icon-btn--muted" data-demo-reload aria-label="${L('Recarregar o exemplo', 'Reload the example', 'Recargar el ejemplo')}" data-ds-tooltip="${L('Recarregar o exemplo', 'Reload the example', 'Recargar el ejemplo')}">${icon('refresh', { size: 18 })}</button>
     </div>

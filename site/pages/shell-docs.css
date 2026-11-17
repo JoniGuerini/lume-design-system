@@ -99,7 +99,17 @@
   background: var(--ds-color-bg-surface);
 }
 
+/* largura à esquerda; Storybook, Figma e GitHub à direita, como no canto do Playground */
+.sh-navdemo__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--ds-space-200);
+}
+
 .sh-navdemo__width {
+  flex: 1 1 280px;
   max-width: 420px;
 }
 

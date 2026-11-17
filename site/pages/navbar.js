@@ -2,7 +2,7 @@ import { icon } from '../../ds/icons/icons.js';
 import { renderNavbarNav } from '../../ds/js/shell.js';
 import { createSlider } from '../../ds/js/slider.js';
 import { mountDocNav } from '../doc-nav.js';
-import { mountCodeCopy, codeBlock, tokenTable, a11yList } from '../component-doc.js';
+import { mountCodeCopy, codeBlock, tokenTable, a11yList, elsewhereLinksHtml } from '../component-doc.js';
 import { controlPage, usageCards } from '../form-control-doc.js';
 import { ic, px, kbd, siteGroups, keyTable, apiTable, cards, anatomyHtml, mountAnatomy, keepInPlace, liveAppHtml, mountLiveApp, dropJumps } from '../shell-doc.js';
 import { L } from '../i18n.js';
@@ -28,12 +28,15 @@ const bar = (kind) => `<div class="ds-navbar sh-navbar" data-sh-navbar="${kind}"
 </div>`;
 
 const liveHtml = () => `<div class="sh-navdemo">
+  <div class="sh-navdemo__top">
   <div class="ds-form-field sh-navdemo__width">
     <div class="ds-slider__head">
       <label class="ds-form-field__label" for="sh-navbar-width">${L('Largura da janela', 'Window width', 'Ancho de la ventana')}</label>
       <output class="ds-slider__value" for="sh-navbar-width"></output>
     </div>
     <div class="ds-slider"><input class="ds-slider__input" id="sh-navbar-width" type="range" min="${MIN}" max="${MAX}" step="10" value="${START}"></div>
+  </div>
+  ${elsewhereLinksHtml()}
   </div>
   <div class="sh-navstage" data-sh-stage>
     <div class="sh-navscale" data-sh-scale>${bar('live')}</div>

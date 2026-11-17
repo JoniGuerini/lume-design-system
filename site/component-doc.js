@@ -79,6 +79,12 @@ function elsewhereLinks(t) {
     .join('');
 }
 
+/** O mesmo trio de atalhos, para as páginas cujo exemplo não é um Playground (Sidebar e Navbar). */
+export function elsewhereLinksHtml() {
+  const links = elsewhereLinks(tr(TEXT));
+  return links ? `<span class="cd-elsewhere">${links}</span>` : '';
+}
+
 export function playgroundMarkup(id, { wide = false } = {}) {
   const t = tr(TEXT);
   const th = siteTheme();

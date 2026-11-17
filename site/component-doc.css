@@ -70,6 +70,12 @@
     border-color var(--ds-duration-fast) var(--ds-easing-standard);
 }
 
+.cd-elsewhere {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-075);
+}
+
 .cd-playground__link:hover,
 .cd-playground__link[data-state="hover"] {
   border-color: var(--ds-color-border-strong);
