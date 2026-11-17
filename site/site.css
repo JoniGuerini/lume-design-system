@@ -978,6 +978,13 @@
   opacity: 0.8;
 }
 
+/* o GitHub não tem cor de marca: segue o texto, para aparecer nos dois temas */
+.site-toplink__mono,
+.site-brand-icon--mono,
+.site-footer__col a .site-brand-icon--mono {
+  color: var(--ds-color-fg-default);
+}
+
 .site-topdivider {
   width: 1px;
   height: 20px;

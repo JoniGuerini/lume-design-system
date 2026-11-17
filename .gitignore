@@ -15,3 +15,6 @@ desktop.ini
 
 # Referências dos testes visuais: valem só para o computador que as gerou (npm run test:visual -- --atualizar)
 test/visual/referencia/
+
+# Contexto do Claude Code: fica só no computador (saiu do repositório quando ele ficou público, 17/11/2026)
+CLAUDE.md

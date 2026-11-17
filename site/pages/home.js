@@ -440,6 +440,7 @@ export default function renderHome() {
             <ul role="list">${[
               ['Storybook', 'storybook/', 'storybook'],
               ['Figma', 'https://www.figma.com/design/1yTJ881xoXjRmdi6NeTnYD/Lume-Design-System', 'figma'],
+              ['GitHub', 'https://github.com/JoniGuerini/lume-design-system', 'github'],
               ['LinkedIn', 'https://www.linkedin.com/in/joniguerini/', 'linkedin'],
             ]
               .map(([label, href, brand]) => `<li><a href="${href}" target="_blank" rel="noopener">${brandIcon(brand, 14)}${label}<span class="ds-visually-hidden">, ${c.foot.external}</span></a></li>`)
