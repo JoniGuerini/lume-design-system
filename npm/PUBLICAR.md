@@ -1,36 +1,38 @@
-# Publicar o Lume no npm (ainda não publicado)
+# Publicar o Lume no npm
 
-Tudo está pronto até o ponto de criar o pacote no npm. Falta só decidir o nome e publicar.
+O pacote é `@joniguerini/lume` (publicado desde a 1.9.0, em 17/11/2026). O nome fica num lugar só: a constante `NAME` no topo de `scripts/build-npm.mjs`; o README do pacote e o comando `npx` leem dali.
 
-## 1. Escolher o nome
+## Sozinho, pelo GitHub (o caminho normal)
 
-O nome fica num lugar só: a constante `NAME` no topo de `scripts/build-npm.mjs` (hoje `@joniguerini/lume`, provisório).
-O README do pacote e o comando `npx` leem dali.
-
-- Com escopo pessoal (`@joniguerini/…`): o npm nunca recusa por parecer com outro nome.
-- Sem escopo (`lume-design-system`, `lume-ds`…): o npm só diz se aceita na hora de publicar. Ele já recusou `lumeui` por ser parecido com `lume-ui`.
-- `@lumeui/…` exige a organização `lumeui` no npm, que não estava livre.
-
-## 2. Montar e testar
+O workflow `.github/workflows/publicar-npm.yml` publica quando o `site/changelog.js` muda na `main` e a versão dele ainda não está no npm. Nada a fazer além do de sempre ao fechar uma versão:
 
 ```bash
-npm run build          # deixa versoes/<linha>/ em dia
-npm run npm:build      # monta dist/npm/pacote/ (na primeira vez, baixa o TypeScript só para compilar o React)
-npm pack ./dist/npm/pacote --pack-destination dist/npm
+npm run build          # deixa versoes/<linha>/ em dia (o pacote sai dali)
+git push               # o changelog com a versão nova chega na main
 ```
 
-Teste feito em 17/11/2026 com a 1.8.0: o `.tgz` instalado num projeto Vite + React 19 + TypeScript estrito passou no `tsc --noEmit` e no `vite build`, e a página abriu sem erros (AppShell, Button, Chip, `initTheme` e `toast`). O `npx … add modal` copiou o modal com o que ele precisa.
+Ele monta o pacote, confere se a versão já existe no npm (se existir, para sem erro) e publica com a procedência do repositório (`--provenance`). Acompanhe na aba **Actions** do GitHub.
 
-## 3. Publicar
+Não há token guardado: o npm confia no workflow pelo **Trusted Publisher**, configurado uma vez em npmjs.com › `@joniguerini/lume` › Settings › Trusted Publisher › GitHub Actions:
+
+- Organization or user: `JoniGuerini`
+- Repository: `lume-design-system`
+- Workflow filename: `publicar-npm.yml`
+- Environment: (vazio)
+
+Para conferir sem publicar: aba Actions › Publicar no npm › Run workflow, com **Ensaio** marcado (o padrão). Ele monta e mostra o conteúdo do pacote, e para antes de publicar.
+
+## À mão (se o GitHub estiver fora)
 
 ```bash
+npm run build
+npm run npm:build      # monta dist/npm/pacote/ (na primeira vez, baixa o TypeScript só para compilar o React)
 npm login
 npm publish dist/npm/pacote --access public
 ```
 
-O npm pede a chave de segurança (2FA) de quem publica. Cada versão nova do Lume = `npm run build`, `npm run npm:build` e `npm publish` de novo (a versão vem do changelog).
+O npm pede a chave de segurança (2FA) de quem publica. A mesma versão nunca se publica duas vezes: para corrigir, suba a versão no changelog.
 
-## Depois de publicar
+## Testes já feitos
 
-- Contar no site: Primeiros passos (instalação), Recursos › Usar com React e os guias para IAs (`ia/`, nos três idiomas).
-- Atualizar a contagem e o nome no README do repositório.
+17/11/2026, com a 1.9.0 instalada direto do npm: Vite + React 19 e TypeScript estrito (`tsc --noEmit` e `vite build`), Next.js 16 com página gerada no servidor, React 18.3 com todos os componentes no navegador em StrictMode, e `npx @joniguerini/lume add modal`. A primeira publicação levou uns 4 minutos para abrir ao público (antes, o npm mostra um marcador `0.0.0-stage` só para o dono).

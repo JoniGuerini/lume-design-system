@@ -1,0 +1,68 @@
+# Publica o pacote @joniguerini/lume no npm quando sai uma versão nova do Lume.
+#
+# Roda quando o site/changelog.js muda na main (é onde nasce cada versão) ou à mão, pela aba Actions.
+# Só publica se a versão do changelog ainda não estiver no npm: rodar de novo nunca duplica nada.
+# O pacote é montado de versoes/<linha>/, que já vem em dia no commit (npm run build antes de cada versão).
+#
+# Sem token guardado: o npm confia neste workflow pelo "Trusted Publisher" (OIDC), configurado em
+# npmjs.com › @joniguerini/lume › Settings › Trusted Publisher (repositório JoniGuerini/lume-design-system,
+# arquivo publicar-npm.yml). Cada publicação sai com a procedência (provenance) deste repositório.
+name: Publicar no npm
+
+on:
+  push:
+    branches: [main]
+    paths: ['site/changelog.js']
+  workflow_dispatch:
+    inputs:
+      ensaio:
+        description: 'Ensaio: monta e confere o pacote, mas não publica'
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: publicar-npm
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: 'https://registry.npmjs.org'
+
+      # o Trusted Publisher pede npm 11.5.1 ou mais novo
+      - run: npm install -g npm@11.16.0
+
+      - name: Montar o pacote
+        run: node scripts/build-npm.mjs
+
+      - name: A versão já está no npm?
+        id: versao
+        run: |
+          NAME=$(node -p "require('./dist/npm/pacote/package.json').name")
+          VERSION=$(node -p "require('./dist/npm/pacote/package.json').version")
+          echo "nome=$NAME" >> "$GITHUB_OUTPUT"
+          echo "versao=$VERSION" >> "$GITHUB_OUTPUT"
+          if npm view "$NAME@$VERSION" version > /dev/null 2>&1; then
+            echo "publicar=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::$NAME@$VERSION já está no npm: nada a publicar."
+          else
+            echo "publicar=true" >> "$GITHUB_OUTPUT"
+            echo "::notice::$NAME@$VERSION ainda não está no npm."
+          fi
+
+      - name: Conferir o conteúdo
+        run: npm pack ./dist/npm/pacote --dry-run
+
+      - name: Publicar
+        if: steps.versao.outputs.publicar == 'true' && !(github.event_name == 'workflow_dispatch' && inputs.ensaio)
+        run: npm publish ./dist/npm/pacote --access public --provenance
