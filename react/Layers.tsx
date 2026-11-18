@@ -29,7 +29,7 @@ interface DialogBase {
   open: boolean;
   /**
    * Chamado quando o diálogo fecha por dentro: uma ação (com o value dela), o ×, Esc ou clique fora (undefined).
-   * Ponha open em false aqui.
+   * Ponha open em false aqui. Quando você mesmo passa open={false}, ele não é chamado.
    */
   onClose: (value?: string) => void;
   title: ReactNode;
@@ -53,8 +53,19 @@ function DialogShell({
   const dialog = useRef<HTMLDialogElement>(null);
   const api = useRef<{ open(): Promise<unknown>; close(v?: string): void; destroy(): void; isOpen: boolean } | null>(null);
   const closed = useLatest(onClose);
+  // fechado por quem é dono do estado (open={false}): não avisa de volta, porque ninguém escolheu nada
+  const external = useRef(false);
   useEffect(() => {
-    const c = enhanceModal(dialog.current!, { dismissible, onClose: (v?: string) => closed.current(v) });
+    const c = enhanceModal(dialog.current!, {
+      dismissible,
+      onClose: (v?: string) => {
+        if (external.current) {
+          external.current = false;
+          return;
+        }
+        closed.current(v);
+      },
+    });
     api.current = c;
     return () => {
       c.destroy();
@@ -64,8 +75,14 @@ function DialogShell({
   }, [dismissible]);
   useEffect(() => {
     if (!api.current) return;
-    if (open && !api.current.isOpen) api.current.open();
-    if (!open && api.current.isOpen) api.current.close();
+    if (open && !api.current.isOpen) {
+      external.current = false;
+      api.current.open();
+    }
+    if (!open && api.current.isOpen) {
+      external.current = true;
+      api.current.close();
+    }
   }, [open, dismissible]);
   return (
     <dialog ref={dialog} className={className} aria-labelledby={`${id}-title`} aria-describedby={children ? `${id}-body` : undefined}>

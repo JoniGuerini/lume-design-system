@@ -166,13 +166,13 @@
   flex-direction: row-reverse;
 }
 
-/* Coluna de seleção (checkbox nativo) */
+/* Coluna de seleção (checkbox nativo; o Checkbox do Lume, .ds-checkbox__input, fica com o próprio desenho) */
 .ds-table .ds-table__check {
   width: 48px;
   padding-inline-end: 0;
 }
 
-.ds-table__check input {
+.ds-table__check input[type="checkbox"]:not(.ds-checkbox__input) {
   display: block;
   width: 16px;
   height: 16px;

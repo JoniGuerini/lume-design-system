@@ -8,10 +8,37 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '1.9.1';
+export const CURRENT_VERSION = '1.9.2';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '1.9.2',
+    date: '2026-11-18',
+    title: T('Correções do uso real', 'Fixes from real use', 'Correcciones del uso real'),
+    summary: T(
+      'O app Lume passou a usar o design system inteiro, e o uso real achou quatro pontos: a seleção e o menu dentro de um modal, o botão de tema no React, o aviso de fechamento do modal e o checkbox na tabela.',
+      'The Lume app now runs entirely on the design system, and real use turned up four issues: select and menu inside a modal, the theme button in React, the modal close callback, and the checkbox in tables.',
+      'La app Lume pasó a usar el design system entero, y el uso real encontró cuatro puntos: la selección y el menú dentro de un modal, el botón de tema en React, el aviso de cierre del modal y el checkbox en la tabla.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['correcao', T('Seleção dentro de um modal: a lista abre na frente do diálogo e recebe o clique', 'Select inside a modal: the list opens in front of the dialog and takes clicks', 'Selección dentro de un modal: la lista se abre delante del diálogo y recibe el clic'), '/componentes/selecao'],
+          ['correcao', T('Menu dentro de um modal: abre na frente do diálogo e recebe o clique', 'Menu inside a modal: it opens in front of the dialog and takes clicks', 'Menú dentro de un modal: se abre delante del diálogo y recibe el clic'), '/componentes/menu'],
+          ['correcao', T('Tabela: o estilo do checkbox da coluna de seleção não muda mais o Checkbox do Lume', 'Table: the selection column checkbox style no longer changes the Lume Checkbox', 'Tabla: el estilo del checkbox de la columna de selección ya no cambia el Checkbox de Lume'), '/componentes/tabela'],
+        ],
+      },
+      {
+        name: T('React', 'React', 'React'),
+        items: [
+          ['correcao', T('ThemeToggle: o sol e a lua ficam no centro do botão', 'ThemeToggle: the sun and the moon sit in the center of the button', 'ThemeToggle: el sol y la luna quedan en el centro del botón'), '/recursos/react'],
+          ['correcao', T('Modal e Drawer: onClose só é chamado quando a pessoa fecha, não quando você passa open={false}', 'Modal and Drawer: onClose is called only when the person closes it, not when you pass open={false}', 'Modal y Drawer: onClose solo se llama cuando la persona cierra, no cuando pasas open={false}'), '/componentes/modal'],
+        ],
+      },
+    ],
+  },
   {
     version: '1.9.1',
     date: '2026-11-17',

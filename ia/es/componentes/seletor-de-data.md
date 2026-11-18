@@ -53,7 +53,7 @@ Marcado de los ejemplos de esta sección:
 
 <div class="ds-form-field">
 <label class="ds-form-field__label" for="dp-filled">Fecha de entrega</label>
-<div class="ds-field"><input class="ds-field__input" id="dp-filled" type="text" autocomplete="off" placeholder="dd/mm/aaaa"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-haspopup="dialog" aria-expanded="false" aria-controls="ds-datepicker-5" aria-label="Abrir calendario"><ds-icon name="calendar"></ds-icon></button><input type="hidden" name="dp-filled" value="2026-11-20"></div>
+<div class="ds-field"><input class="ds-field__input" id="dp-filled" type="text" autocomplete="off" placeholder="dd/mm/aaaa"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-haspopup="dialog" aria-expanded="false" aria-controls="ds-datepicker-5" aria-label="Abrir calendario"><ds-icon name="calendar"></ds-icon></button><input type="hidden" name="dp-filled" value="2026-11-21"></div>
 </div>
 ```
 

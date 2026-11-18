@@ -1,4 +1,4 @@
-/* Lume Design System 1.9.1 · MIT · https://lumeui.dev */
+/* Lume Design System 1.9.2 · MIT · https://lumeui.dev */
 /* Lume Design System — ponto de entrada CSS */
 /*
  * Fontes do Lume, servidas daqui (sem Google Fonts nem CDN): a mesma letra em qualquer aparelho e rede.
@@ -1998,8 +1998,9 @@ ds-icon {
   background: var(--ds-color-bg-field-hover);
 }
 
-/* os dois ícones na mesma célula (os filhos são <ds-icon>; a classe .ds-icon fica no svg de dentro) */
-.ds-theme-toggle > ds-icon {
+/* os dois ícones na mesma célula (no HTML os filhos são <ds-icon>; no React, o próprio <svg class="ds-icon">) */
+.ds-theme-toggle > ds-icon,
+.ds-theme-toggle > .ds-icon {
   grid-area: 1 / 1;
   display: grid;
   place-items: center;
@@ -2016,7 +2017,8 @@ ds-icon {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ds-theme-toggle > ds-icon {
+  .ds-theme-toggle > ds-icon,
+  .ds-theme-toggle > .ds-icon {
     transition: none;
   }
 }
@@ -4864,13 +4866,13 @@ button.ds-stepper__content[data-state="hover"] .ds-stepper__label {
   flex-direction: row-reverse;
 }
 
-/* Coluna de seleção (checkbox nativo) */
+/* Coluna de seleção (checkbox nativo; o Checkbox do Lume, .ds-checkbox__input, fica com o próprio desenho) */
 .ds-table .ds-table__check {
   width: 48px;
   padding-inline-end: 0;
 }
 
-.ds-table__check input {
+.ds-table__check input[type="checkbox"]:not(.ds-checkbox__input) {
   display: block;
   width: 16px;
   height: 16px;

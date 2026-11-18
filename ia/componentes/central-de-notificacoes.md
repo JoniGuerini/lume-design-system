@@ -53,7 +53,7 @@ Marcação dos exemplos desta seção:
 </li><li class="ds-notify__item">
 <a class="ds-notify__link" href="#/novidades">
 <span class="ds-notify__icon"><ds-icon name="megaphone"></ds-icon></span>
-<span class="ds-notify__body"><span class="ds-notify__item-title">Lume 0.33</span><span class="ds-notify__text">Avaliação e barra de ferramentas.</span><time class="ds-notify__time">8 de nov.</time></span>
+<span class="ds-notify__body"><span class="ds-notify__item-title">Lume 0.33</span><span class="ds-notify__text">Avaliação e barra de ferramentas.</span><time class="ds-notify__time">9 de nov.</time></span>
 </a>
 </li></ul>
 </div>

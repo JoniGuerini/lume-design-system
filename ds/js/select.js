@@ -25,6 +25,7 @@
  */
 import { icon } from '../icons/icons.js';
 import { msg } from './i18n.js';
+import { panelHost } from './field-support.js';
 
 let uid = 0;
 let current = null;
@@ -284,7 +285,8 @@ export function createSelect(select, config = {}) {
       <p class="ds-select-popup__empty" role="status" hidden></p>
       ${multiple && Number.isFinite(opts.max) ? `<p class="ds-select-popup__note" hidden>${icon('info', { size: 14 })}<span>Limite de ${opts.max}. Desmarque uma opção para escolher outra.</span></p>` : ''}
       ${multiple && opts.footer ? `<div class="ds-select-popup__footer"><span class="ds-select-popup__count" aria-live="polite"></span><span class="ds-select-popup__actions"><button type="button" class="ds-btn ds-btn--ghost ds-btn--sm" tabindex="-1" data-select-all>Selecionar todos</button><button type="button" class="ds-btn ds-btn--ghost ds-btn--sm" tabindex="-1" data-clear-all>Limpar</button></span></div>` : ''}`;
-    document.body.append(popup);
+    // dentro de um <dialog> modal, a lista entra no próprio diálogo (a camada do topo cobre o body)
+    panelHost(control).append(popup);
     listEl = popup.querySelector('.ds-select-popup__list');
     searchEl = popup.querySelector('.ds-select-popup__search input');
     refreshOptions();

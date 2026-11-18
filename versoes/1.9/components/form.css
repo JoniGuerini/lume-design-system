@@ -279,8 +279,9 @@
   background: var(--ds-color-bg-field-hover);
 }
 
-/* os dois ícones na mesma célula (os filhos são <ds-icon>; a classe .ds-icon fica no svg de dentro) */
-.ds-theme-toggle > ds-icon {
+/* os dois ícones na mesma célula (no HTML os filhos são <ds-icon>; no React, o próprio <svg class="ds-icon">) */
+.ds-theme-toggle > ds-icon,
+.ds-theme-toggle > .ds-icon {
   grid-area: 1 / 1;
   display: grid;
   place-items: center;
@@ -297,7 +298,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ds-theme-toggle > ds-icon {
+  .ds-theme-toggle > ds-icon,
+  .ds-theme-toggle > .ds-icon {
     transition: none;
   }
 }

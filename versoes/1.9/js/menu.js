@@ -33,6 +33,7 @@
  * Teclado: ↓/↑ abrem e movem, Home/End, Enter/Espaço escolhem, Esc fecha, letras pulam para o item.
  */
 import { icon } from '../icons/icons.js';
+import { panelHost } from './field-support.js';
 
 let uid = 0;
 let openMenu = null;
@@ -125,6 +126,9 @@ export function createMenu(trigger, { label, options = [], value, onChange, mode
 
   function open(focus = 'current') {
     if (openMenu && openMenu !== api) openMenu.close(false);
+    // dentro de um <dialog> modal, o menu vai para o próprio diálogo (a camada do topo cobre o body)
+    const host = panelHost(trigger);
+    if (menu.parentElement !== host) host.append(menu);
     render();
     position();
     menu.setAttribute('data-open', '');
