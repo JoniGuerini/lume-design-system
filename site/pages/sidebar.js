@@ -78,8 +78,8 @@ const PARTS = () => [
 
 /* ───────── Estados de um item ───────── */
 
-const item = (glyph, label, attrs = '', { lg = false, dot = false } = {}) =>
-  `<a class="ds-nav-item${lg ? ' ds-nav-item--lg' : ''}" href="#/" ${attrs}>${icon(glyph, { size: 20 })}<span class="ds-nav-item__label">${label}</span>${dot ? `<span class="ds-dot" aria-label="${L('Novo', 'New', 'Nuevo')}"></span>` : ''}</a>`;
+const item = (glyph, label, attrs = '', { lg = false, dot = false, count } = {}) =>
+  `<a class="ds-nav-item${lg ? ' ds-nav-item--lg' : ''}" href="#/" ${attrs}>${icon(glyph, { size: 20 })}<span class="ds-nav-item__label">${label}</span>${count !== undefined ? `<span class="ds-nav-item__count">${count}</span>` : ''}${dot ? `<span class="ds-dot" aria-label="${L('Novo', 'New', 'Nuevo')}"></span>` : ''}</a>`;
 
 const STATES = () => [
   [item('home', L('Início', 'Home', 'Inicio'), '', { lg: true }), L('Principal', 'Main', 'Principal'), L(`${px('size.control.lg')} px, rótulo maior e mais escuro`, `${px('size.control.lg')} px, larger and darker label`, `${px('size.control.lg')} px, etiqueta más grande y más oscura`)],
@@ -88,6 +88,7 @@ const STATES = () => [
   [item('palette', L('Cores', 'Color', 'Colores'), 'data-state="focus"'), L('Foco', 'Focus', 'Foco'), L('Anel por dentro do item', 'Ring inside the item', 'Anillo por dentro del elemento')],
   [item('palette', L('Cores', 'Color', 'Colores'), 'aria-current="page"'), L('Atual', 'Current', 'Actual'), 'bg.selected · border.subtle'],
   [item('megaphone', L('Novidades', 'What’s new', 'Novedades'), '', { dot: true }), L('Com novidade', 'With news', 'Con novedad'), 'brand.indicator'],
+  [item('component', L('Componentes', 'Components', 'Componentes'), '', { count: 60 }), L('Com contagem', 'With a count', 'Con conteo'), 'count · fg.subtle'],
 ];
 
 const statesHtml = () => `<div class="ds-sidebar sh-sidebar sh-states" data-ds-tooltips="off" inert>
@@ -166,7 +167,7 @@ const htmlCode = () => `<aside class="ds-sidebar" id="sidebar" aria-label="${L('
 <!-- ${L('a aba de recolher fica fora da sidebar, presa na borda dela', 'the collapse tab lives outside the sidebar, pinned to its edge', 'la pestaña de contraer queda fuera de la sidebar, fija en su borde')} -->
 <button class="ds-shell__edge" data-shell-toggle aria-controls="sidebar"><ds-icon name="chevron-left" size="16"></ds-icon></button>`;
 
-const jsCode = () => `import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/1.9/lume.js';
+const jsCode = () => `import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/1.10/lume.js';
 
 const nav = document.getElementById('sidebar-nav');
 renderSidebarNav(nav, [
@@ -215,7 +216,7 @@ export default function renderSidebar(page) {
       {
         id: 'item',
         title: L('Item', 'Item', 'Elemento'),
-        desc: L(`Ícone de 20 px, rótulo e, se for o caso, a bolinha. Os estados podem ser forçados com ${ic('data-state')}.`, `A 20 px icon, a label, and, when it applies, the dot. States can be forced with ${ic('data-state')}.`, `Ícono de 20 px, etiqueta y, si corresponde, el punto. Los estados se pueden forzar con ${ic('data-state')}.`),
+        desc: L(`Ícone de 20 px, rótulo e, se for o caso, a contagem ou a bolinha. Os estados podem ser forçados com ${ic('data-state')}.`, `A 20 px icon, a label, and, when it applies, the count or the dot. States can be forced with ${ic('data-state')}.`, `Ícono de 20 px, etiqueta y, si corresponde, el conteo o el punto. Los estados se pueden forzar con ${ic('data-state')}.`),
         html: statesHtml(),
       },
       {
@@ -306,7 +307,7 @@ export default function renderSidebar(page) {
           <h3 class="doc-subhead">JavaScript</h3>
           ${codeBlock(jsCode())}
           ${apiTable([
-            ['renderSidebarNav(el, groups)', L(`Desenha a navegação. Cada item: ${ic('label')}, ${ic('icon')}, ${ic('href')} e, se quiser, ${ic('dot')} e ${ic('section')}.`, `Draws the navigation. Each item: ${ic('label')}, ${ic('icon')}, ${ic('href')} and, optionally, ${ic('dot')} and ${ic('section')}.`, `Dibuja la navegación. Cada elemento: ${ic('label')}, ${ic('icon')}, ${ic('href')} y, si quieres, ${ic('dot')} y ${ic('section')}.`)],
+            ['renderSidebarNav(el, groups)', L(`Desenha a navegação. Cada item: ${ic('label')}, ${ic('icon')}, ${ic('href')} e, se quiser, ${ic('count')}, ${ic('dot')} e ${ic('section')}.`, `Draws the navigation. Each item: ${ic('label')}, ${ic('icon')}, ${ic('href')} and, optionally, ${ic('count')}, ${ic('dot')} and ${ic('section')}.`, `Dibuja la navegación. Cada elemento: ${ic('label')}, ${ic('icon')}, ${ic('href')} y, si quieres, ${ic('count')}, ${ic('dot')} y ${ic('section')}.`)],
             ['setActiveNavItem(el, href)', L('Marca a página atual, abre o grupo dela e rola até ela.', 'Marks the current page, opens its group, and scrolls to it.', 'Marca la página actual, abre su grupo y se desplaza hasta ella.')],
             ['createShell(el, { persist, initial })', L(`Liga recolher, gaveta e grupos. ${ic('persist: false')} não grava nada; ${ic('initial')} força “expanded” ou “collapsed”.`, `Wires collapse, drawer, and groups. ${ic('persist: false')} saves nothing; ${ic('initial')} forces “expanded” or “collapsed”.`, `Conecta contraer, cajón y grupos. ${ic('persist: false')} no guarda nada; ${ic('initial')} fuerza “expanded” o “collapsed”.`)],
             ['shell.toggle() · setCollapsed() · setMobileOpen()', L('Mudam o estado como os botões e o atalho fazem.', 'Change the state the way the buttons and the shortcut do.', 'Cambian el estado como lo hacen los botones y el atajo.')],

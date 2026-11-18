@@ -203,7 +203,7 @@ La navbar vive en `.ds-shell`, junto a la sidebar, y aparece con `data-layout="n
 ### JavaScript
 
 ```html
-import { createShell, renderSidebarNav, renderNavbarNav } from 'https://lumeui.dev/v/1.9/lume.js';
+import { createShell, renderSidebarNav, renderNavbarNav } from 'https://lumeui.dev/v/1.10/lume.js';
 
 const groups = [
   { id: 'main', items: [

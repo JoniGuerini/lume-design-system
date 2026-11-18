@@ -81,7 +81,7 @@ function menuCode(state) {
     return `    { ${parts.join(', ')} },`;
   };
   return [
-    "import { createMenu } from 'https://lumeui.dev/v/1.9/lume.js';",
+    "import { createMenu } from 'https://lumeui.dev/v/1.10/lume.js';",
     '',
     `const menu = createMenu(${L('gatilho', 'trigger', 'disparador')}, {`,
     action ? "  mode: 'action'," : null,
@@ -213,10 +213,12 @@ export default function renderMenu(page) {
         <ul class="mn-items__legend" role="list">
           ${[
             [L('Rótulo do menu', 'Menu label', 'Etiqueta del menú'), `label: '${sortBy()}'`, L('Opcional. Diz o que está sendo escolhido e vira o nome do menu.', 'Optional. Says what’s being chosen and becomes the menu’s name.', 'Opcional. Dice qué se está eligiendo y se vuelve el nombre del menú.')],
+            [L('Nome sem título', 'Name without a heading', 'Nombre sin título'), 'hideLabel: true', L('O rótulo some da lista e fica só como nome para o leitor de tela. Para menus de ações de uma linha, em que o gatilho já diz do que se trata.', 'The label leaves the list and stays only as the name for screen readers. For a row’s action menus, where the trigger already says what it’s about.', 'La etiqueta sale de la lista y queda solo como nombre para el lector de pantalla. Para menús de acciones de una fila, donde el disparador ya dice de qué se trata.')],
             [L('Item com ícone', 'Item with icon', 'Elemento con ícono'), "{ value, label, icon: 'clock' }", L('Ícone de 18 px à esquerda. Use em todos os itens ou em nenhum.', 'An 18 px icon on the left. Use it on every item or on none.', 'Ícono de 18 px a la izquierda. Úsalo en todos los elementos o en ninguno.')],
             [L('Selecionado', 'Selected', 'Seleccionado'), "value: 'name'", L('No modo seleção, a marca na cor da marca indica o valor atual.', 'In selection mode, the mark in the brand color shows the current value.', 'En el modo selección, la marca en el color de la marca indica el valor actual.')],
             [L('Grupo', 'Group', 'Grupo'), `{ type: 'group', label: '${L('Arquivo', 'File', 'Archivo')}' }`, L('Um título pequeno para separar assuntos numa lista longa.', 'A small heading to separate topics in a long list.', 'Un título pequeño para separar temas en una lista larga.')],
             [L('Atalho', 'Shortcut', 'Atajo'), "shortcut: '" + combo('D') + "'", L('Só no modo ação. Ensina a tecla sem ocupar espaço.', 'Action mode only. Teaches the key without taking up space.', 'Solo en el modo acción. Enseña la tecla sin ocupar espacio.')],
+            [L('Meta', 'Meta', 'Meta'), "meta: '37'", L('Texto curto à direita, como a contagem de cada filtro. Fica apagado para não competir com o rótulo.', 'Short text on the right, like each filter’s count. It stays muted so it doesn’t compete with the label.', 'Texto corto a la derecha, como el conteo de cada filtro. Queda atenuado para no competir con la etiqueta.')],
             [L('Desativado', 'Disabled', 'Desactivado'), 'disabled: true', L('Fica visível, mas pulado pelo teclado. Prefira esconder se nunca vai funcionar.', 'Stays visible but is skipped by the keyboard. Prefer hiding it if it will never work.', 'Queda visible, pero el teclado lo salta. Prefiere ocultarlo si nunca va a funcionar.')],
             [L('Separador', 'Separator', 'Separador'), "{ type: 'separator' }", L('Uma linha entre blocos — antes do que é destrutivo, por exemplo.', 'A line between blocks — before what’s destructive, for example.', 'Una línea entre bloques — antes de lo destructivo, por ejemplo.')],
             [L('Perigo', 'Danger', 'Peligro'), "tone: 'danger'", L('Para excluir e afins. Sempre por último, depois de um separador.', 'For delete and the like. Always last, after a separator.', 'Para eliminar y similares. Siempre al final, después de un separador.')],

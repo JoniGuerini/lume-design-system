@@ -54,7 +54,7 @@ Cada elemento es un objeto. Pasa una función en `items` y la lista se lee de nu
 |  `perform()`  | Lo que pasa con Enter o con el clic. La paleta se cierra antes. |
 
 ```html
-import { createCommandPalette } from 'https://lumeui.dev/v/1.9/lume.js';
+import { createCommandPalette } from 'https://lumeui.dev/v/1.10/lume.js';
 
 const palette = createCommandPalette({
   placeholder: 'Buscar páginas y acciones…',
@@ -122,7 +122,7 @@ Un filtro que solo existe en la memoria se pierde al recargar y no se puede comp
 - Un valor que no existe (un estado borrado) se ignora, no rompe la página.
 
 ```html
-import { filtersToQuery, filtersFromQuery } from 'https://lumeui.dev/v/1.9/lume.js';
+import { filtersToQuery, filtersFromQuery } from 'https://lumeui.dev/v/1.10/lume.js';
 
 // al filtrar: cambia la URL sin apilar una entrada por letra escrita
 history.replaceState(null, '', '?' + filtersToQuery(filters.value, config));
@@ -179,7 +179,7 @@ Marcado de los ejemplos de esta sección:
 ```html
 <button type="button" class="ds-icon-btn ds-icon-btn--outline" aria-label="Nuevo pedido" data-ds-tooltip="Nuevo pedido" data-ds-tooltip-kbd="N" aria-keyshortcuts="N"><ds-icon name="plus"></ds-icon></button>
 
-<button type="button" class="ds-chip" data-shortcut-menu="" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-236">Pedido<span class="ds-chip__chevron"><ds-icon name="chevron-down"></ds-icon></span></button>
+<button type="button" class="ds-chip" data-shortcut-menu="" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-238">Pedido<span class="ds-chip__chevron"><ds-icon name="chevron-down"></ds-icon></span></button>
 
 <kbd class="ds-kbd">Ctrl</kbd>
 
@@ -204,7 +204,7 @@ La paleta y los filtros son módulos independientes; los dos solo piden datos y 
 ### Filtros
 
 ```html
-import { createFilters } from 'https://lumeui.dev/v/1.9/lume.js';
+import { createFilters } from 'https://lumeui.dev/v/1.10/lume.js';
 
 const filters = createFilters(document.querySelector('#filtros'), {
   label: 'Filtrar pedidos',

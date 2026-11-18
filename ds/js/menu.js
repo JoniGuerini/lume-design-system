@@ -21,6 +21,10 @@
  *   });
  *
  * Itens especiais: { type: 'separator' }, { type: 'group', label } e { …, disabled: true }.
+ * meta: texto curto à direita do item, como uma contagem ({ value, label, meta: '37' }).
+ *
+ * label vira o título pequeno no topo e o nome do menu. Com hideLabel: true, o título some e o nome
+ * fica só para o leitor de tela (menus de ações de uma linha, que não precisam de título visível).
  *
  * Colunas — listas longas viram uma grade em vez de rolar: maxRows é o máximo de itens por coluna;
  * passando disso, os itens seguem para a coluna do lado, equilibrados (16 itens com maxRows 5 → 4 × 4).
@@ -64,11 +68,12 @@ export function menuContent({ label, options = [], value, mode = 'radio', rows =
           : o.shortcut
             ? `<span class="ds-menu__shortcut">${escape(o.shortcut)}</span>`
             : '';
+        const meta = o.meta !== undefined && o.meta !== null && o.meta !== '' ? `<span class="ds-menu__meta">${escape(o.meta)}</span>` : '';
         const cls = `ds-menu__item${o.tone === 'danger' ? ' ds-menu__item--danger' : ''}`;
         const state = radio ? ` aria-checked="${o.value === value}"` : '';
         const disabled = o.disabled ? ' aria-disabled="true"' : '';
         return `<button type="button" class="${cls}" role="${radio ? 'menuitemradio' : 'menuitem'}" tabindex="-1"${state}${disabled} data-value="${escape(o.value)}">
-          ${lead}<span class="ds-menu__text">${escape(o.label)}</span>${trail}
+          ${lead}<span class="ds-menu__text">${escape(o.label)}</span>${meta}${trail}
         </button>`;
       })
       .join('');
@@ -90,7 +95,7 @@ export function menuContent({ label, options = [], value, mode = 'radio', rows =
   );
 }
 
-export function createMenu(trigger, { label, options = [], value, onChange, mode = 'radio', maxRows = 0, sectionColumns = false } = {}) {
+export function createMenu(trigger, { label, hideLabel = false, options = [], value, onChange, mode = 'radio', maxRows = 0, sectionColumns = false } = {}) {
   const id = `ds-menu-${++uid}`;
   const menu = document.createElement('div');
   menu.className = 'ds-menu';
@@ -110,7 +115,7 @@ export function createMenu(trigger, { label, options = [], value, onChange, mode
   const items = () => [...menu.querySelectorAll('.ds-menu__item:not([aria-disabled="true"])')];
 
   function render() {
-    menu.innerHTML = menuContent({ label, options, value: current, mode, rows, sectionColumns });
+    menu.innerHTML = menuContent({ label: hideLabel ? undefined : label, options, value: current, mode, rows, sectionColumns });
   }
 
   function position() {

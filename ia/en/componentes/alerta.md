@@ -103,6 +103,7 @@ The role depends on when the alert appears.
 - After an action — `role="alert"` announces right away, as in a save error. Use it only for what’s urgent.
 - A non-urgent notice — `role="status"` announces without interrupting what the person is hearing.
 - Already on the page — Those already there on load need no role: they’re read in normal order.
+- In React — `` picks on its own: `tone="danger"` becomes `role="alert"` and the other tones, `role="status"`. Pass `role` to change it, or `role="none"` for a notice that’s already on the page at load.
 - Not only color — Each tone has its own icon and explanatory text.
 
 ## Tokens used

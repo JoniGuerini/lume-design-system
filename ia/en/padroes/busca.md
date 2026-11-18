@@ -54,7 +54,7 @@ Each item is an object. Pass a function in `items` and the list is read again on
 |  `perform()`  | What happens on Enter or click. The palette closes first. |
 
 ```html
-import { createCommandPalette } from 'https://lumeui.dev/v/1.9/lume.js';
+import { createCommandPalette } from 'https://lumeui.dev/v/1.10/lume.js';
 
 const palette = createCommandPalette({
   placeholder: 'Search pages and actions…',
@@ -122,7 +122,7 @@ A filter that only exists in memory is lost on reload and can’t be shared. Kee
 - A value that doesn’t exist (a deleted status) is ignored; it doesn’t break the page.
 
 ```html
-import { filtersToQuery, filtersFromQuery } from 'https://lumeui.dev/v/1.9/lume.js';
+import { filtersToQuery, filtersFromQuery } from 'https://lumeui.dev/v/1.10/lume.js';
 
 // on filtering: replace the URL without stacking one entry per typed letter
 history.replaceState(null, '', '?' + filtersToQuery(filters.value, config));
@@ -179,7 +179,7 @@ Markup of the examples in this section:
 ```html
 <button type="button" class="ds-icon-btn ds-icon-btn--outline" aria-label="New order" data-ds-tooltip="New order" data-ds-tooltip-kbd="N" aria-keyshortcuts="N"><ds-icon name="plus"></ds-icon></button>
 
-<button type="button" class="ds-chip" data-shortcut-menu="" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-236">Order<span class="ds-chip__chevron"><ds-icon name="chevron-down"></ds-icon></span></button>
+<button type="button" class="ds-chip" data-shortcut-menu="" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-238">Order<span class="ds-chip__chevron"><ds-icon name="chevron-down"></ds-icon></span></button>
 
 <kbd class="ds-kbd">Ctrl</kbd>
 
@@ -204,7 +204,7 @@ The palette and the filters are independent modules; both only ask for data and 
 ### Filters
 
 ```html
-import { createFilters } from 'https://lumeui.dev/v/1.9/lume.js';
+import { createFilters } from 'https://lumeui.dev/v/1.10/lume.js';
 
 const filters = createFilters(document.querySelector('#filters'), {
   label: 'Filter orders',

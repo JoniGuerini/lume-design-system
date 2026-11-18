@@ -142,6 +142,11 @@
   min-height: 120px;
 }
 
+/* com descrição: dois exemplos mais largos, para o toast não espremer o texto */
+.ts-tones--wide {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr));
+}
+
 .ts-tones__try {
   margin-top: var(--ds-space-100);
 }

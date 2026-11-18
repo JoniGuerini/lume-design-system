@@ -9,7 +9,7 @@ En números: tonos: 5 · duración predeterminada: 2,2 s · en pantalla a la vez
 ## Ejemplo
 
 ```html
-import { toast } from 'https://lumeui.dev/v/1.9/lume.js';
+import { toast } from 'https://lumeui.dev/v/1.10/lume.js';
 
 toast('Cambios guardados', {
   tone: 'success',
@@ -66,6 +66,27 @@ Marcado de los ejemplos de esta sección:
 </div>
 
 <button type="button" class="ds-inline-action" data-show-tone="warning"><ds-icon name="play"></ds-icon>Mostrar</button>
+```
+
+## Con descripción
+
+Cuando el resultado pide un detalle, `description` pone una segunda línea, más atenuada, debajo del mensaje. El mensaje sigue corto y se vuelve el título.
+
+Título y descripción `description: 'Ana Souza'` — El ícono y los botones se alinean con la primera línea.
+
+Con acción `description + action` — La descripción salta de línea si hace falta; el mensaje, no.
+
+Marcado de los ejemplos de esta sección:
+
+```html
+<div class="ds-toast ds-toast--success ds-toast--stacked" data-open=""><span class="ds-toast__icon"><ds-icon name="check-circle"></ds-icon></span>
+<span class="ds-toast__message"><span class="ds-toast__title">Nombre guardado</span><span class="ds-toast__description">Ana Souza</span></span>
+</div>
+
+<div class="ds-toast ds-toast--stacked" data-open=""><span class="ds-toast__icon"><ds-icon name="check"></ds-icon></span>
+<span class="ds-toast__message"><span class="ds-toast__title">Sesión reprogramada</span><span class="ds-toast__description">Jueves, 20 de noviembre, a las 14:00</span></span>
+<button type="button" class="ds-toast__action" data-toast-action="">Deshacer</button>
+</div>
 ```
 
 ## Con acción

@@ -9,7 +9,7 @@ Em números: modos: 2 · tipos de item: 6 · teclas: 8 · função: createMenu.
 ## Exemplo
 
 ```html
-import { createMenu } from 'https://lumeui.dev/v/1.9/lume.js';
+import { createMenu } from 'https://lumeui.dev/v/1.10/lume.js';
 
 const menu = createMenu(gatilho, {
   label: 'Ordenar por',
@@ -70,10 +70,12 @@ Marcação dos exemplos desta seção:
 Cada item é um objeto em `options`. Os especiais organizam a lista sem virar opção.
 
 - Rótulo do menu `label: 'Ordenar por'` — Opcional. Diz o que está sendo escolhido e vira o nome do menu.
+- Nome sem título `hideLabel: true` — O rótulo some da lista e fica só como nome para o leitor de tela. Para menus de ações de uma linha, em que o gatilho já diz do que se trata.
 - Item com ícone `{ value, label, icon: 'clock' }` — Ícone de 18 px à esquerda. Use em todos os itens ou em nenhum.
 - Selecionado `value: 'name'` — No modo seleção, a marca na cor da marca indica o valor atual.
 - Grupo `{ type: 'group', label: 'Arquivo' }` — Um título pequeno para separar assuntos numa lista longa.
 - Atalho `shortcut: 'Ctrl D'` — Só no modo ação. Ensina a tecla sem ocupar espaço.
+- Meta `meta: '37'` — Texto curto à direita, como a contagem de cada filtro. Fica apagado para não competir com o rótulo.
 - Desativado `disabled: true` — Fica visível, mas pulado pelo teclado. Prefira esconder se nunca vai funcionar.
 - Separador `{ type: 'separator' }` — Uma linha entre blocos — antes do que é destrutivo, por exemplo.
 - Perigo `tone: 'danger'` — Para excluir e afins. Sempre por último, depois de um separador.

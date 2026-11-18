@@ -65,16 +65,20 @@ function ensureRegion(position) {
 const escape = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 
 /** HTML interno do toast — usado pela API e pelas prévias estáticas da documentação. */
-export function toastContent(message, { icon: name, tone = 'neutral', action, dismissible = false } = {}) {
+export function toastContent(message, { icon: name, tone = 'neutral', action, dismissible = false, description } = {}) {
   const toned = tone !== 'neutral';
   const glyph = name ?? TONE_ICONS[tone] ?? 'check';
+  const text = description
+    ? `<span class="ds-toast__message"><span class="ds-toast__title">${escape(message)}</span><span class="ds-toast__description">${escape(description)}</span></span>`
+    : `<span class="ds-toast__message">${escape(message)}</span>`;
   return `<span class="ds-toast__icon">${icon(glyph, { size: toned ? 14 : 18 })}</span>
-    <span class="ds-toast__message">${escape(message)}</span>
+    ${text}
     ${action ? `<button type="button" class="ds-toast__action" data-toast-action>${escape(action.label)}</button>` : ''}
     ${dismissible ? `<button type="button" class="ds-toast__close" data-toast-close aria-label="${msg('toast.close')}">${icon('x', { size: 16 })}</button>` : ''}`;
 }
 
-export const toastClasses = ({ tone = 'neutral' } = {}) => `ds-toast${tone !== 'neutral' ? ` ds-toast--${tone}` : ''}`;
+export const toastClasses = ({ tone = 'neutral', description } = {}) =>
+  `ds-toast${tone !== 'neutral' ? ` ds-toast--${tone}` : ''}${description ? ' ds-toast--stacked' : ''}`;
 
 export function toast(message, options = {}) {
   const { action, duration } = options;

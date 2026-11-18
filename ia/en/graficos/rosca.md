@@ -9,7 +9,7 @@ In numbers: max slices: 6 · default thickness: 24 px · gap between slices: 2 p
 ## Example
 
 ```html
-import { createDonutChart } from 'https://lumeui.dev/v/1.9/lume.js';
+import { createDonutChart } from 'https://lumeui.dev/v/1.10/lume.js';
 
 donutChart(document.querySelector('#payments'), {
   title: 'Payments by method',

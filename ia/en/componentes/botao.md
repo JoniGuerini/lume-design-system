@@ -4,7 +4,7 @@ Lume section: Components. Page: https://lumeui.dev/#/componentes/botao
 
 Triggers an action. Flat and direct: color goes to the main action, the rest leans on outlines and transparency.
 
-In numbers: variants: 5 · sizes: 3 · states: 5 · primary contrast: 7.80:1.
+In numbers: variants: 5 · sizes: 3 · states: 6 · primary contrast: 7.80:1.
 
 ## Example
 
@@ -89,17 +89,17 @@ Markup of the examples in this section:
 
 <button type="button" class="ds-btn ds-btn--primary" disabled="">Save</button>
 
+<button type="button" class="ds-btn ds-btn--primary" aria-busy="true" aria-disabled="true"><span class="ds-spinner ds-spinner--sm" aria-hidden="true"></span>Saving</button>
+
 <button type="button" class="ds-btn ds-btn--secondary">Save</button>
 
 <button type="button" class="ds-btn ds-btn--secondary" disabled="">Save</button>
 
+<button type="button" class="ds-btn ds-btn--secondary" aria-busy="true" aria-disabled="true"><span class="ds-spinner ds-spinner--sm" aria-hidden="true"></span>Saving</button>
+
 <button type="button" class="ds-btn ds-btn--ghost">Save</button>
 
 <button type="button" class="ds-btn ds-btn--ghost" disabled="">Save</button>
-
-<button type="button" class="ds-btn ds-btn--subtle">Save</button>
-
-<button type="button" class="ds-btn ds-btn--subtle" disabled="">Save</button>
 ```
 
 ## Anatomy
@@ -168,6 +168,7 @@ The button comes accessible. These are the decisions that are still yours.
 - Focus always visible — A 2 px ring in the focus color, with 2 px of offset — in both themes, in every variant.
 - Contrast checked — Primary text on the brand: 7.80:1 in Lume light and 9.09:1 in Lume dark, above the 4.5:1 minimum.
 - Icon only? Give it a name — Put an `aria-label` on the button and a hint with the same text.
+- Busy without a second click — While saving, the button gets `aria-busy="true"` and `aria-disabled="true"`: the spinner replaces the icon, the label says what’s happening (“Saving”), and focus stays on it. In React, `busy` does all of this and holds back the form submit.
 - Disable with care — `disabled` removes the button from focus. If people need to discover the action, use `aria-disabled="true"` and explain why.
 
 ## Tokens used

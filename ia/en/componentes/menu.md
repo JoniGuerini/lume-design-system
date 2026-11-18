@@ -9,7 +9,7 @@ In numbers: modes: 2 · item types: 6 · keys: 8 · function: createMenu.
 ## Example
 
 ```html
-import { createMenu } from 'https://lumeui.dev/v/1.9/lume.js';
+import { createMenu } from 'https://lumeui.dev/v/1.10/lume.js';
 
 const menu = createMenu(trigger, {
   label: 'Sort by',
@@ -70,10 +70,12 @@ Markup of the examples in this section:
 Each item is an object in `options`. The special ones organize the list without becoming options.
 
 - Menu label `label: 'Sort by'` — Optional. Says what’s being chosen and becomes the menu’s name.
+- Name without a heading `hideLabel: true` — The label leaves the list and stays only as the name for screen readers. For a row’s action menus, where the trigger already says what it’s about.
 - Item with icon `{ value, label, icon: 'clock' }` — An 18 px icon on the left. Use it on every item or on none.
 - Selected `value: 'name'` — In selection mode, the mark in the brand color shows the current value.
 - Group `{ type: 'group', label: 'File' }` — A small heading to separate topics in a long list.
 - Shortcut `shortcut: 'Ctrl D'` — Action mode only. Teaches the key without taking up space.
+- Meta `meta: '37'` — Short text on the right, like each filter’s count. It stays muted so it doesn’t compete with the label.
 - Disabled `disabled: true` — Stays visible but is skipped by the keyboard. Prefer hiding it if it will never work.
 - Separator `{ type: 'separator' }` — A line between blocks — before what’s destructive, for example.
 - Danger `tone: 'danger'` — For delete and the like. Always last, after a separator.

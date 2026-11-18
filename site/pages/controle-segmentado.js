@@ -10,12 +10,14 @@ export const styles = ['site/component-doc.css', 'site/pages/form-controls.css']
 const VIEWS = () => [['mes', L('Mês', 'Month', 'Mes')], ['semana', L('Semana', 'Week', 'Semana')], ['dia', L('Dia', 'Day', 'Día')]];
 const LAYOUTS = () => [['lista', 'list', L('Lista', 'List', 'Lista')], ['grade', 'grid', L('Grade', 'Grid', 'Cuadrícula')]];
 
-const textGroup = (label, checked = 'mes', disabled = false, extra = '') => `<div class="ds-segmented fc-segmented" role="radiogroup" aria-label="${label}" data-demo${extra}>
+const textGroup = (label, checked = 'mes', disabled = false, extra = '', mods = '') => `<div class="ds-segmented fc-segmented${mods}" role="radiogroup" aria-label="${label}" data-demo${extra}>
   ${VIEWS().map(([v, t]) => `<button type="button" class="ds-segmented__item" role="radio" data-value="${v}" aria-checked="${v === checked}"${disabled ? ' disabled' : ''}>${t}</button>`).join('')}
 </div>`;
 const iconGroup = (label) => `<div class="ds-segmented" role="radiogroup" aria-label="${label}" data-demo>
   ${LAYOUTS().map(([v, ic, t], i) => `<button type="button" class="ds-segmented__item" role="radio" data-value="${v}" aria-checked="${i === 0}" aria-label="${t}" data-ds-tooltip="${t}">${icon(ic, { size: 16 })}</button>`).join('')}
 </div>`;
+
+const withSize = (html, size) => (size === 'md' ? html : html.replace('class="ds-segmented', `class="ds-segmented ds-segmented--${size}`));
 
 export default function renderControleSegmentado(page) {
   const label = L('Visão', 'View', 'Vista');
@@ -24,7 +26,7 @@ export default function renderControleSegmentado(page) {
     stats: [
       [L('altura', 'height', 'altura'), '36 px'],
       [L('opções', 'options', 'opciones'), '2 – 4'],
-      [L('tipos', 'types', 'tipos'), 2],
+      [L('tamanhos', 'sizes', 'tamaños'), 3],
       [L('papel ARIA', 'ARIA role', 'rol ARIA'), 'radiogroup'],
     ],
     sections: [
@@ -36,6 +38,17 @@ export default function renderControleSegmentado(page) {
         html: examples([
           example(L('Com texto', 'With text', 'Con texto'), 'ds-segmented', L('O mais claro, para até quatro opções curtas.', 'The clearest, for up to four short options.', 'Lo más claro, para hasta cuatro opciones cortas.'), textGroup(label)),
           example(L('Com ícones', 'With icons', 'Con íconos'), 'aria-label', L('Compacto, com o nome no tooltip e para o leitor de tela.', 'Compact, with the name in the tooltip and for screen readers.', 'Compacto, con el nombre en el tooltip y para el lector de pantalla.'), iconGroup(L('Exibição', 'Display', 'Vista'))),
+        ]),
+      },
+      {
+        id: 'tamanhos',
+        title: L('Tamanhos e largura', 'Sizes and width', 'Tamaños y ancho'),
+        desc: L('Médio é o padrão, na altura do Chip e das abas. O pequeno serve a barras densas; o grande alinha com campos e botões médios num formulário. Em painéis estreitos, a largura toda divide o espaço por igual.', 'Medium is the default, at the height of Chips and tabs. Small fits dense bars; large lines up with medium fields and buttons in a form. In narrow panels, full width splits the space evenly.', 'Mediano es el predeterminado, a la altura del Chip y las pestañas. El pequeño sirve a barras densas; el grande se alinea con campos y botones medianos en un formulario. En paneles estrechos, el ancho completo divide el espacio por igual.'),
+        html: examples([
+          example(L('Pequeno', 'Small', 'Pequeño'), 'ds-segmented--sm', '32 px', textGroup(label, 'mes', false, '', ' ds-segmented--sm')),
+          example(L('Médio', 'Medium', 'Mediano'), 'ds-segmented', L('36 px, o padrão', '36 px, the default', '36 px, el predeterminado'), textGroup(label)),
+          example(L('Grande', 'Large', 'Grande'), 'ds-segmented--lg', L('40 px, ao lado de campos', '40 px, next to fields', '40 px, junto a campos'), textGroup(label, 'mes', false, '', ' ds-segmented--lg')),
+          example(L('Largura toda', 'Full width', 'Ancho completo'), 'ds-segmented--fill', L('As opções dividem a largura do contêiner.', 'The options split the container’s width.', 'Las opciones dividen el ancho del contenedor.'), `<div style="width:100%;max-width:320px">${textGroup(label, 'semana', false, '', ' ds-segmented--fill')}</div>`),
         ]),
       },
       {
@@ -91,24 +104,27 @@ export function mount(root) {
   const label = L('Visão', 'View', 'Vista');
   const unmountPlayground = mountPlayground(root, {
     id: 'segmented',
-    controls: [{ id: 'kind', label: L('Tipo', 'Type', 'Tipo'), value: 'text', options: [{ value: 'text', label: L('Com texto', 'With text', 'Con texto') }, { value: 'icons', label: L('Com ícones', 'With icons', 'Con íconos') }] }],
-    render: (s) => (s.kind === 'text' ? textGroup(label) : iconGroup(label)),
+    controls: [
+      { id: 'kind', label: L('Tipo', 'Type', 'Tipo'), value: 'text', options: [{ value: 'text', label: L('Com texto', 'With text', 'Con texto') }, { value: 'icons', label: L('Com ícones', 'With icons', 'Con íconos') }] },
+      { id: 'size', label: L('Tamanho', 'Size', 'Tamaño'), value: 'md', options: [{ value: 'sm', label: L('Pequeno', 'Small', 'Pequeño') }, { value: 'md', label: L('Médio', 'Medium', 'Mediano') }, { value: 'lg', label: L('Grande', 'Large', 'Grande') }] },
+    ],
+    render: (s) => withSize(s.kind === 'text' ? textGroup(label) : iconGroup(label), s.size),
     mount: (preview) => {
       const g = createSegmented(preview.querySelector('.ds-segmented'));
       return () => g.destroy();
     },
-    code: (s) => `<div class="ds-segmented" role="radiogroup" aria-label="${label}">
+    code: (s) => `<div class="ds-segmented${s.size === 'md' ? '' : ` ds-segmented--${s.size}`}" role="radiogroup" aria-label="${label}">
 ${(s.kind === 'text' ? VIEWS().map(([v, t], i) => `  <button type="button" class="ds-segmented__item" role="radio" data-value="${v}" aria-checked="${i === 0}">${t}</button>`) : LAYOUTS().map(([v, ic, t], i) => `  <button type="button" class="ds-segmented__item" role="radio" data-value="${v}" aria-checked="${i === 0}" aria-label="${t}"><ds-icon name="${ic}" size="16"></ds-icon></button>`)).join('\n')}
 </div>
 
 <script type="module">
-  import { createSegmented } from 'https://lumeui.dev/v/1.9/lume.js';
+  import { createSegmented } from 'https://lumeui.dev/v/1.10/lume.js';
   createSegmented(document.querySelector('.ds-segmented'), {
     onChange: (value) => trocar(value),
   });
 </script>`,
   });
-  const groups = [...root.querySelectorAll('#variantes [data-demo]')].map((el) => createSegmented(el));
+  const groups = [...root.querySelectorAll('#variantes [data-demo], #tamanhos [data-demo]')].map((el) => createSegmented(el));
   const unmountCopy = mountCodeCopy(root);
   const unmountNav = mountDocNav(root);
   return () => {

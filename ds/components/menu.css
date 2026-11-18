@@ -142,6 +142,19 @@
   background: var(--ds-color-border-subtle);
 }
 
+/* meta: texto curto à direita (uma contagem); com a marca do modo radio, fica antes dela */
+.ds-menu__meta {
+  margin-inline-start: auto;
+  padding-inline-start: var(--ds-space-200);
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-caption);
+  font-variant-numeric: tabular-nums;
+}
+
+.ds-menu__meta + .ds-menu__check {
+  margin-inline-start: var(--ds-space-100);
+}
+
 .ds-menu__shortcut {
   margin-inline-start: auto;
   padding-inline-start: var(--ds-space-200);

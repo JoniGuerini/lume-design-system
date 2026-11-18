@@ -232,6 +232,8 @@
 
 .ds-segmented__item {
   display: inline-grid;
+  grid-auto-flow: column;
+  gap: var(--ds-space-075);
   place-items: center;
   min-width: 28px;
   height: var(--ds-size-control-xs);
@@ -243,6 +245,31 @@
     color var(--ds-duration-fast) var(--ds-easing-standard),
     background-color var(--ds-duration-fast) var(--ds-easing-standard),
     box-shadow var(--ds-duration-base) var(--ds-easing-standard);
+}
+
+/* Tamanhos pela altura total (trilho + item): sm 32 · md 36 (padrão) · lg 40, que alinha com campos e botões médios */
+.ds-segmented--sm .ds-segmented__item {
+  min-width: 24px;
+  height: calc(var(--ds-size-control-sm) - 8px);
+  padding-inline: var(--ds-space-075);
+  font: var(--ds-text-label-sm);
+}
+
+.ds-segmented--lg .ds-segmented__item {
+  min-width: 32px;
+  height: calc(var(--ds-size-control-md) - 8px);
+  padding-inline: var(--ds-space-150);
+}
+
+/* Largura toda: as opções dividem o espaço por igual */
+.ds-segmented--fill {
+  display: flex;
+  width: 100%;
+}
+
+.ds-segmented--fill .ds-segmented__item {
+  flex: 1;
+  min-width: 0;
 }
 
 .ds-segmented__item:hover,

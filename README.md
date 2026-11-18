@@ -25,9 +25,9 @@ Works with Vite, Next.js (the components are already marked for the client) and 
 Load a fixed version straight from the site:
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/1.9/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/1.10/lume.css">
 <script type="module">
-  import { initTheme, initTooltips } from 'https://lumeui.dev/v/1.9/lume.js';
+  import { initTheme, initTooltips } from 'https://lumeui.dev/v/1.10/lume.js';
   initTheme();
   initTooltips();
 </script>

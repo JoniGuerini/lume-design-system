@@ -47,7 +47,7 @@ This site’s own sidebar, with fewer pages. Groups open and close, and clicking
 
 ## Item
 
-A 20 px icon, a label, and, when it applies, the dot. States can be forced with `data-state`.
+A 20 px icon, a label, and, when it applies, the count or the dot. States can be forced with `data-state`.
 
 ## Open and collapsed
 
@@ -195,7 +195,7 @@ The HTML is fixed; the navigation is drawn from a list. The sidebar lives inside
 ### JavaScript
 
 ```html
-import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/1.9/lume.js';
+import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/1.10/lume.js';
 
 const nav = document.getElementById('sidebar-nav');
 renderSidebarNav(nav, [
@@ -220,7 +220,7 @@ shell.collapsed;                        // → true
 
 | API | What it does |
 | --- | --- |
-|  `renderSidebarNav(el, groups)`  | Draws the navigation. Each item: `label`, `icon`, `href` and, optionally, `dot` and `section`. |
+|  `renderSidebarNav(el, groups)`  | Draws the navigation. Each item: `label`, `icon`, `href` and, optionally, `count`, `dot` and `section`. |
 |  `setActiveNavItem(el, href)`  | Marks the current page, opens its group, and scrolls to it. |
 |  `createShell(el, { persist, initial })`  | Wires collapse, drawer, and groups. `persist: false` saves nothing; `initial` forces “expanded” or “collapsed”. |
 |  `shell.toggle() · setCollapsed() · setMobileOpen()`  | Change the state the way the buttons and the shortcut do. |

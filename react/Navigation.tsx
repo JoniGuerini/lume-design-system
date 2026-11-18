@@ -12,7 +12,17 @@ import { cx } from './cx';
 /* ───────── Menu ───────── */
 
 export type MenuOption =
-  | { value: string; label: string; icon?: IconName; swatch?: string; shortcut?: string; tone?: 'danger'; disabled?: boolean }
+  | {
+      value: string;
+      label: string;
+      icon?: IconName;
+      swatch?: string;
+      shortcut?: string;
+      /** Texto curto à direita, como uma contagem. */
+      meta?: string | number;
+      tone?: 'danger';
+      disabled?: boolean;
+    }
   | { type: 'separator' }
   | { type: 'group'; label: string };
 
@@ -25,8 +35,10 @@ export interface MenuProps {
   /** O valor escolhido, no modo radio. */
   value?: string;
   onChange: (value: string) => void;
-  /** Título pequeno no topo da lista. */
+  /** Título pequeno no topo da lista e nome do menu. */
   label?: string;
+  /** Esconde o título: label fica só para o leitor de tela (menus de ações de uma linha). */
+  hideLabel?: boolean;
   /** Lista longa vira grade: no máximo N itens por coluna. */
   maxRows?: number;
   /** Cada grupo abre uma coluna. */
@@ -40,19 +52,19 @@ export interface MenuProps {
  *   <Menu triggerRef={ref} options={…} value={ordem} onChange={setOrdem} />
  * https://lumeui.dev/#/componentes/menu
  */
-export function Menu({ triggerRef, options, mode, value, onChange, label, maxRows, sectionColumns }: MenuProps) {
+export function Menu({ triggerRef, options, mode, value, onChange, label, hideLabel, maxRows, sectionColumns }: MenuProps) {
   const change = useLatest(onChange);
   const api = useRef<{ value: string; setValue(v: string): void; destroy(): void } | null>(null);
   useEffect(() => {
     if (!triggerRef.current) return;
-    const c = createMenu(triggerRef.current, defined({ options, mode, value, label, maxRows, sectionColumns, onChange: (v: string) => change.current(v) }));
+    const c = createMenu(triggerRef.current, defined({ options, mode, value, label, hideLabel, maxRows, sectionColumns, onChange: (v: string) => change.current(v) }));
     api.current = c;
     return () => {
       c.destroy();
       api.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [triggerRef, stableKey(options), mode, label, maxRows, sectionColumns]);
+  }, [triggerRef, stableKey(options), mode, label, hideLabel, maxRows, sectionColumns]);
   useEffect(() => {
     if (api.current && value !== undefined && api.current.value !== value) api.current.setValue(value);
   }, [value]);
@@ -65,6 +77,8 @@ export interface TabItem {
   id: string;
   label: ReactNode;
   icon?: IconName;
+  /** Contagem ao lado do rótulo ("Prontuário 8"). */
+  count?: number | string;
   disabled?: boolean;
   /** O conteúdo do painel. */
   content: ReactNode;
@@ -119,6 +133,7 @@ export function Tabs({ items, value, onChange, label, look = 'underline', size =
           >
             {t.icon && <Icon name={t.icon} size={16} />}
             {t.label}
+            {t.count !== undefined && t.count !== null && <span className="ds-tabs__count">{t.count}</span>}
           </button>
         ))}
       </div>
@@ -146,6 +161,10 @@ export interface SegmentedControlProps {
   onChange: (value: string) => void;
   /** Nome do grupo para leitores de tela ("Visão"). */
   label: string;
+  /** sm (32 px) para barras densas; md (36 px, padrão); lg (40 px) alinha com campos e botões médios. */
+  size?: 'sm' | 'md' | 'lg';
+  /** Ocupa a largura toda, com as opções dividindo o espaço por igual (como fill nas Abas). */
+  fill?: boolean;
   className?: string;
 }
 
@@ -153,7 +172,7 @@ export interface SegmentedControlProps {
  * Poucas opções lado a lado, uma escolhida, com efeito na hora. As setas trocam a opção.
  * https://lumeui.dev/#/componentes/controle-segmentado
  */
-export function SegmentedControl({ options, value, onChange, label, className }: SegmentedControlProps) {
+export function SegmentedControl({ options, value, onChange, label, size = 'md', fill, className }: SegmentedControlProps) {
   const root = useRef<HTMLDivElement>(null);
   const onKey = (event: KeyboardEvent) => {
     const delta = ({ ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 } as Record<string, number>)[event.key];
@@ -166,7 +185,13 @@ export function SegmentedControl({ options, value, onChange, label, className }:
     root.current?.querySelector<HTMLElement>(`[data-value="${CSS.escape(next.value)}"]`)?.focus();
   };
   return (
-    <div ref={root} className={cx('ds-segmented', className)} role="radiogroup" aria-label={label} onKeyDown={onKey}>
+    <div
+      ref={root}
+      className={cx('ds-segmented', size !== 'md' && `ds-segmented--${size}`, fill && 'ds-segmented--fill', className)}
+      role="radiogroup"
+      aria-label={label}
+      onKeyDown={onKey}
+    >
       {options.map((o) => (
         <button
           key={o.value}

@@ -47,7 +47,7 @@ A sidebar do próprio site, com menos páginas. Os grupos abrem e fecham, e clic
 
 ## Item
 
-Ícone de 20 px, rótulo e, se for o caso, a bolinha. Os estados podem ser forçados com `data-state`.
+Ícone de 20 px, rótulo e, se for o caso, a contagem ou a bolinha. Os estados podem ser forçados com `data-state`.
 
 ## Aberta e recolhida
 
@@ -195,7 +195,7 @@ O HTML é fixo; a navegação é desenhada a partir de uma lista. A sidebar vive
 ### JavaScript
 
 ```html
-import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/1.9/lume.js';
+import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/1.10/lume.js';
 
 const nav = document.getElementById('sidebar-nav');
 renderSidebarNav(nav, [
@@ -220,7 +220,7 @@ shell.collapsed;                        // → true
 
 | API | O que faz |
 | --- | --- |
-|  `renderSidebarNav(el, groups)`  | Desenha a navegação. Cada item: `label`, `icon`, `href` e, se quiser, `dot` e `section`. |
+|  `renderSidebarNav(el, groups)`  | Desenha a navegação. Cada item: `label`, `icon`, `href` e, se quiser, `count`, `dot` e `section`. |
 |  `setActiveNavItem(el, href)`  | Marca a página atual, abre o grupo dela e rola até ela. |
 |  `createShell(el, { persist, initial })`  | Liga recolher, gaveta e grupos. `persist: false` não grava nada; `initial` força “expanded” ou “collapsed”. |
 |  `shell.toggle() · setCollapsed() · setMobileOpen()`  | Mudam o estado como os botões e o atalho fazem. |

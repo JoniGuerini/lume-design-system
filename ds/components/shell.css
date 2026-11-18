@@ -202,6 +202,19 @@
   transition: opacity var(--ds-duration-base) var(--ds-easing-standard);
 }
 
+/* contagem à direita do rótulo: número apagado, sem pílula (o rótulo continua mandando) */
+.ds-nav-item__count {
+  flex: none;
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-caption);
+  font-variant-numeric: tabular-nums;
+  transition: opacity var(--ds-duration-base) var(--ds-easing-standard);
+}
+
+.ds-nav-item[aria-current="page"] .ds-nav-item__count {
+  color: var(--ds-color-fg-muted);
+}
+
 .ds-nav-item > .ds-dot {
   margin-inline-end: 4px;
   transition: translate var(--_dur) var(--_ease);
@@ -532,6 +545,12 @@ button.ds-account {
   color: var(--ds-color-fg-default);
 }
 
+.ds-navbar__count {
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-caption);
+  font-variant-numeric: tabular-nums;
+}
+
 .ds-navbar__item > .ds-dot {
   margin-inline-start: 2px;
 }
@@ -689,6 +708,7 @@ button.ds-account {
     .ds-sidebar-search .ds-field__placeholder,
     .ds-sidebar-search__kbd,
     .ds-nav-item__label,
+    .ds-nav-item__count,
     .ds-nav-group__label,
     .ds-nav-group__toggle,
     .ds-account__text,
@@ -717,6 +737,11 @@ button.ds-account {
 
   .ds-shell[data-sidebar="collapsed"] > .ds-sidebar .ds-nav-group__items > .ds-nav-list {
     visibility: visible;
+  }
+
+  /* recolhida: a contagem sai do fluxo, para o ícone não sair do lugar */
+  .ds-shell[data-sidebar="collapsed"] > .ds-sidebar .ds-nav-item__count {
+    position: absolute;
   }
 
   .ds-shell[data-sidebar="collapsed"] > .ds-sidebar .ds-nav-item > .ds-dot {

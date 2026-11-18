@@ -4,7 +4,7 @@ Seção do Lume: Componentes. Página: https://lumeui.dev/#/componentes/botao
 
 Dispara uma ação. Plano e direto: a cor fica para a ação principal, o resto se apoia em contorno e transparência.
 
-Em números: variantes: 5 · tamanhos: 3 · estados: 5 · contraste do primário: 7,80:1.
+Em números: variantes: 5 · tamanhos: 3 · estados: 6 · contraste do primário: 7,80:1.
 
 ## Exemplo
 
@@ -89,17 +89,17 @@ Marcação dos exemplos desta seção:
 
 <button type="button" class="ds-btn ds-btn--primary" disabled="">Salvar</button>
 
+<button type="button" class="ds-btn ds-btn--primary" aria-busy="true" aria-disabled="true"><span class="ds-spinner ds-spinner--sm" aria-hidden="true"></span>Salvando</button>
+
 <button type="button" class="ds-btn ds-btn--secondary">Salvar</button>
 
 <button type="button" class="ds-btn ds-btn--secondary" disabled="">Salvar</button>
 
+<button type="button" class="ds-btn ds-btn--secondary" aria-busy="true" aria-disabled="true"><span class="ds-spinner ds-spinner--sm" aria-hidden="true"></span>Salvando</button>
+
 <button type="button" class="ds-btn ds-btn--ghost">Salvar</button>
 
 <button type="button" class="ds-btn ds-btn--ghost" disabled="">Salvar</button>
-
-<button type="button" class="ds-btn ds-btn--subtle">Salvar</button>
-
-<button type="button" class="ds-btn ds-btn--subtle" disabled="">Salvar</button>
 ```
 
 ## Anatomia
@@ -168,6 +168,7 @@ O botão já vem acessível. Estas são as decisões que continuam sendo suas.
 - Foco sempre visível — Anel de 2 px na cor de foco, com 2 px de respiro — nos dois temas, em todas as variantes.
 - Contraste verificado — Texto do primário sobre a marca: 7,80:1 no Lume claro e 9,09:1 no Lume escuro, acima do mínimo de 4,5:1.
 - Só ícone? Dê um nome — Coloque `aria-label` no botão e uma dica com o mesmo texto.
+- Ocupado sem segundo clique — Enquanto salva, o botão leva `aria-busy="true"` e `aria-disabled="true"`: o spinner entra no lugar do ícone, o rótulo diz o que acontece (“Salvando”) e o foco continua nele. No React, `busy` faz tudo isso e segura o envio do formulário.
 - Desativado com cuidado — `disabled` tira o botão do foco. Se a pessoa precisa descobrir a ação, use `aria-disabled="true"` e explique o motivo.
 
 ## Tokens usados

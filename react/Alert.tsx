@@ -32,13 +32,18 @@ export interface AlertProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'
 }
 
 /**
- * Aviso dentro da página. Depois de uma ação urgente, passe role="alert"; o resto, role="status".
+ * Aviso dentro da página. O role vem do tom: danger é role="alert" (lido na hora); os outros, role="status"
+ * (lidos sem interromper). Passe role para trocar, ou role="none" num aviso fixo que não deve ser anunciado.
  * https://lumeui.dev/#/componentes/alerta
  */
-export function Alert({ tone = 'info', title, children, actions, compact, icon, onClose, className, ...rest }: AlertProps) {
+export function Alert({ tone = 'info', title, children, actions, compact, icon, onClose, className, role, ...rest }: AlertProps) {
   useLocale();
   return (
-    <div className={cx('ds-alert', tone !== 'neutral' && `ds-alert--${tone}`, compact && 'ds-alert--compact', className)} {...rest}>
+    <div
+      className={cx('ds-alert', tone !== 'neutral' && `ds-alert--${tone}`, compact && 'ds-alert--compact', className)}
+      role={role ?? (tone === 'danger' ? 'alert' : 'status')}
+      {...rest}
+    >
       <span className="ds-alert__icon"><Icon name={icon ?? TONE_ICON[tone]} size={18} /></span>
       <div className="ds-alert__body">
         <p className="ds-alert__title">{title}</p>

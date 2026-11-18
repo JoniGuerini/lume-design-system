@@ -66,13 +66,16 @@ function positionPicker(selected) {
 
 /* ───────── Montagem ───────── */
 
-function pinned({ message, tone = 'neutral', action, dismissible }) {
-  return `<div class="${toastClasses({ tone })} ts-pinned" data-open inert>${toastContent(message, { tone, action, dismissible })}</div>`;
+function pinned({ message, tone = 'neutral', action, dismissible, description }) {
+  return `<div class="${toastClasses({ tone, description })} ts-pinned" data-open inert>${toastContent(message, { tone, action, dismissible, description })}</div>`;
 }
+
+const sampleDescription = () => L('Quem tem acesso já vê a versão nova.', 'Everyone with access already sees the new version.', 'Quien tiene acceso ya ve la versión nueva.');
 
 function stateOptions(state) {
   return {
     message: state.message || L('Aviso', 'Notice', 'Aviso'),
+    description: state.description === 'yes' ? sampleDescription() : undefined,
     tone: state.tone,
     action: state.action === 'undo' ? { label: undo() } : undefined,
     dismissible: state.duration === 'sticky',
@@ -82,6 +85,7 @@ function stateOptions(state) {
 function toastCode(state) {
   const opts = [];
   const undoFn = L('desfazer', 'undo', 'deshacer');
+  if (state.description === 'yes') opts.push(`description: '${sampleDescription()}'`);
   if (state.tone !== 'neutral') opts.push(`tone: '${state.tone}'`);
   if (state.position && state.position !== 'bottom-center') opts.push(`position: '${state.position}'`);
   if (state.action === 'undo') opts.push(`action: { label: '${undo()}', onClick: ${undoFn} }`);
@@ -92,7 +96,7 @@ function toastCode(state) {
   const handle = L('aviso', 'notice', 'aviso');
   const body = state.duration === 'sticky' ? `const ${handle} = ${call}\n// ${L('… depois', '… later', '… después')}: ${handle}.close();` : call;
   const appWide = state.position && state.position !== 'bottom-center' ? `\n\n// ${L('ou, para o app inteiro (salvo no navegador)', 'or, for the whole app (saved in the browser)', 'o, para toda la app (guardado en el navegador)')}:\n// setToastPosition('${state.position}');` : '';
-  return `import { toast } from 'https://lumeui.dev/v/1.9/lume.js';\n\n${body}${appWide}`;
+  return `import { toast } from 'https://lumeui.dev/v/1.10/lume.js';\n\n${body}${appWide}`;
 }
 
 /* ───────── Página ───────── */
@@ -120,6 +124,7 @@ export default function renderToast(page) {
       ${[
         ['playground', 'Playground'],
         ['tons', L('Tons', 'Tones', 'Tonos')],
+        ['descricao', L('Com descrição', 'With a description', 'Con descripción')],
         ['acao', L('Com ação', 'With an action', 'Con acción')],
         ['comportamento', L('Comportamento', 'Behavior', 'Comportamiento')],
         ['acessibilidade', L('Acessibilidade', 'Accessibility', 'Accesibilidad')],
@@ -158,6 +163,31 @@ export default function renderToast(page) {
             </div>
           </article>`,
         ).join('')}
+      </div>
+    </section>
+
+    <section class="doc-section" id="descricao" aria-labelledby="descricao-title">
+      <header class="doc-section__header">
+        <div>
+          <h2 class="doc-section__title" id="descricao-title">${L('Com descrição', 'With a description', 'Con descripción')}</h2>
+          <p class="doc-section__desc">${L(`Quando o resultado pede um detalhe, ${ic('description')} põe uma segunda linha, mais apagada, embaixo da mensagem. A mensagem continua curta e vira o título.`, `When the result needs a detail, ${ic('description')} adds a second, quieter line under the message. The message stays short and becomes the title.`, `Cuando el resultado pide un detalle, ${ic('description')} pone una segunda línea, más atenuada, debajo del mensaje. El mensaje sigue corto y se vuelve el título.`)}</p>
+        </div>
+      </header>
+      <div class="ts-tones ts-tones--wide">
+        <article class="cd-example">
+          <div class="cd-example__preview">${pinned({ message: L('Nome salvo', 'Name saved', 'Nombre guardado'), description: 'Ana Souza', tone: 'success' })}</div>
+          <div class="cd-example__body">
+            <p class="cd-example__name">${L('Título e descrição', 'Title and description', 'Título y descripción')}<code>description: 'Ana Souza'</code></p>
+            <p class="cd-example__text">${L('O ícone e os botões alinham com a primeira linha.', 'The icon and the buttons line up with the first line.', 'El ícono y los botones se alinean con la primera línea.')}</p>
+          </div>
+        </article>
+        <article class="cd-example">
+          <div class="cd-example__preview">${pinned({ message: L('Sessão remarcada', 'Session rescheduled', 'Sesión reprogramada'), description: L('Quinta, 20 de novembro, às 14:00', 'Thursday, November 20, at 2:00 PM', 'Jueves, 20 de noviembre, a las 14:00'), action: { label: undo() } })}</div>
+          <div class="cd-example__body">
+            <p class="cd-example__name">${L('Com ação', 'With an action', 'Con acción')}<code>description + action</code></p>
+            <p class="cd-example__text">${L('A descrição quebra a linha se precisar; a mensagem, não.', 'The description wraps if it needs to; the message doesn’t.', 'La descripción salta de línea si hace falta; el mensaje, no.')}</p>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -298,6 +328,7 @@ export function mount(root) {
     controls: [
       { id: 'tone', label: L('Tom', 'Tone', 'Tono'), value: 'success', options: TONES().map(([value, label]) => ({ value, label })) },
       { id: 'action', label: L('Ação', 'Action', 'Acción'), value: 'none', options: [{ value: 'none', label: L('Sem ação', 'No action', 'Sin acción') }, { value: 'undo', label: undo() }] },
+      { id: 'description', label: L('Descrição', 'Description', 'Descripción'), value: 'no', options: [{ value: 'no', label: L('Só a mensagem', 'Message only', 'Solo el mensaje') }, { value: 'yes', label: L('Com descrição', 'With description', 'Con descripción') }] },
       { id: 'duration', label: L('Duração', 'Duration', 'Duración'), value: 'short', options: DURATIONS().map(([value, label]) => ({ value, label })) },
       { id: 'position', label: L('Posição', 'Position', 'Posición'), value: getToastPosition(), options: POSITIONS().map(([value, label]) => ({ value, label })) },
     ],
@@ -328,6 +359,7 @@ export function mount(root) {
     const o = stateOptions(current);
     toast(o.message, {
       tone: o.tone,
+      description: o.description,
       position,
       duration: durationMs(current.duration),
       action: o.action ? { label: undo(), onClick: () => toast(L('Desfeito', 'Undone', 'Deshecho'), { icon: 'refresh', position }) } : undefined,

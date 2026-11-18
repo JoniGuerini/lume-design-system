@@ -202,17 +202,21 @@ export function createShell(root, { persist = true, initial, layout } = {}) {
 
 const escape = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 
+const hasCount = (item) => item.count !== undefined && item.count !== null && item.count !== '';
+
 function navItem(item, large) {
   return `<li><a class="ds-nav-item${large ? ' ds-nav-item--lg' : ''}" href="${escape(item.href)}" data-ds-tooltip="${escape(item.label)}" data-ds-tooltip-placement="right">
     ${icon(item.icon, { size: 20 })}
     <span class="ds-nav-item__label">${escape(item.label)}</span>
+    ${hasCount(item) ? `<span class="ds-nav-item__count">${escape(item.count)}</span>` : ''}
     ${item.dot ? `<span class="ds-dot" aria-label="${escape(msg('shell.new'))}"></span>` : ''}
   </a></li>`;
 }
 
 /**
  * Renderiza a navegação.
- * groups: [{ id, label?, items: [{ label, icon, href, dot?, section? }] }] — o grupo sem label vira a navegação principal.
+ * groups: [{ id, label?, items: [{ label, icon, href, count?, dot?, section? }] }] — o grupo sem label vira a navegação principal.
+ * count: contagem à direita do rótulo ("Clientes 37"); na sidebar recolhida ela some.
  * section: rótulo pequeno que abre uma seção dentro do grupo (repita em cada item da seção).
  */
 export function renderSidebarNav(container, groups) {
@@ -278,7 +282,7 @@ export function renderNavbarNav(container, groups, { createMenu = createMenuDefa
         ? `<button type="button" class="ds-navbar__item" data-navbar-group="${escape(group.id)}"><span>${escape(group.label)}</span><span class="ds-navbar__chevron" aria-hidden="true">${icon('chevron-down', { size: 16 })}</span></button>`
         : group.items
             .filter((i) => i.href !== '#/')
-            .map((i) => `<a class="ds-navbar__item" href="${escape(i.href)}"><span>${escape(i.label)}</span>${i.dot ? `<span class="ds-dot" aria-label="${escape(msg('shell.new'))}"></span>` : ''}</a>`)
+            .map((i) => `<a class="ds-navbar__item" href="${escape(i.href)}"><span>${escape(i.label)}</span>${hasCount(i) ? `<span class="ds-navbar__count">${escape(i.count)}</span>` : ''}${i.dot ? `<span class="ds-dot" aria-label="${escape(msg('shell.new'))}"></span>` : ''}</a>`)
             .join(''),
     )
     .join('');
@@ -295,7 +299,7 @@ export function renderNavbarNav(container, groups, { createMenu = createMenuDefa
       menu: createMenu(button, {
         label: group.label,
         // com seções, cada uma vira uma coluna; sem elas, grupos longos abrem em grade (nos dois casos, sem rolagem)
-        options: group.items.flatMap((i, n) => [...(i.section && i.section !== group.items[n - 1]?.section ? [{ type: 'group', label: i.section }] : []), { value: i.href, label: i.label, icon: i.icon }]),
+        options: group.items.flatMap((i, n) => [...(i.section && i.section !== group.items[n - 1]?.section ? [{ type: 'group', label: i.section }] : []), { value: i.href, label: i.label, icon: i.icon, meta: i.count }]),
         ...(group.items.some((i) => i.section) ? { sectionColumns: true } : { maxRows: 5 }),
         value: null,
         onChange: go,

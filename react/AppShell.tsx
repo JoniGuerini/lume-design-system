@@ -12,6 +12,8 @@ export interface NavItem {
   label: string;
   icon: IconName;
   href: string;
+  /** Contagem à direita do rótulo ("Clientes 37"). Na navbar, entra também nos menus dos grupos. */
+  count?: number | string;
   /** Pontinho de novidade. */
   dot?: boolean;
   /** Rótulo pequeno que abre uma seção dentro do grupo (repita em cada item da seção). */

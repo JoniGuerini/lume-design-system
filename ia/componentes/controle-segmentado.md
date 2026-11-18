@@ -4,7 +4,7 @@ Seção do Lume: Componentes. Página: https://lumeui.dev/#/componentes/controle
 
 Poucas opções lado a lado, sempre visíveis, com uma escolhida. A troca vale na hora, como nos seletores de layout e de visão do calendário.
 
-Em números: altura: 36 px · opções: 2 – 4 · tipos: 2 · papel ARIA: radiogroup.
+Em números: altura: 36 px · opções: 2 – 4 · tamanhos: 3 · papel ARIA: radiogroup.
 
 ## Exemplo
 
@@ -16,7 +16,7 @@ Em números: altura: 36 px · opções: 2 – 4 · tipos: 2 · papel ARIA: radio
 </div>
 
 <script type="module">
-  import { createSegmented } from 'https://lumeui.dev/v/1.9/lume.js';
+  import { createSegmented } from 'https://lumeui.dev/v/1.10/lume.js';
   createSegmented(document.querySelector('.ds-segmented'), {
     onChange: (value) => trocar(value),
   });
@@ -40,6 +40,38 @@ Marcação dos exemplos desta seção:
 
 <div class="ds-segmented" role="radiogroup" aria-label="Exibição" data-demo="">
 <button type="button" class="ds-segmented__item" role="radio" data-value="lista" aria-checked="true" aria-label="Lista" data-ds-tooltip="Lista"><ds-icon name="list"></ds-icon></button><button type="button" class="ds-segmented__item" role="radio" data-value="grade" aria-checked="false" aria-label="Grade" data-ds-tooltip="Grade"><ds-icon name="grid"></ds-icon></button>
+</div>
+```
+
+## Tamanhos e largura
+
+Médio é o padrão, na altura do Chip e das abas. O pequeno serve a barras densas; o grande alinha com campos e botões médios num formulário. Em painéis estreitos, a largura toda divide o espaço por igual.
+
+Pequeno `ds-segmented--sm` — 32 px
+
+Médio `ds-segmented` — 36 px, o padrão
+
+Grande `ds-segmented--lg` — 40 px, ao lado de campos
+
+Largura toda `ds-segmented--fill` — As opções dividem a largura do contêiner.
+
+Marcação dos exemplos desta seção:
+
+```html
+<div class="ds-segmented ds-segmented--sm" role="radiogroup" aria-label="Visão" data-demo="">
+<button type="button" class="ds-segmented__item" role="radio" data-value="mes" aria-checked="true">Mês</button><button type="button" class="ds-segmented__item" role="radio" data-value="semana" aria-checked="false">Semana</button><button type="button" class="ds-segmented__item" role="radio" data-value="dia" aria-checked="false">Dia</button>
+</div>
+
+<div class="ds-segmented" role="radiogroup" aria-label="Visão" data-demo="">
+<button type="button" class="ds-segmented__item" role="radio" data-value="mes" aria-checked="true">Mês</button><button type="button" class="ds-segmented__item" role="radio" data-value="semana" aria-checked="false">Semana</button><button type="button" class="ds-segmented__item" role="radio" data-value="dia" aria-checked="false">Dia</button>
+</div>
+
+<div class="ds-segmented ds-segmented--lg" role="radiogroup" aria-label="Visão" data-demo="">
+<button type="button" class="ds-segmented__item" role="radio" data-value="mes" aria-checked="true">Mês</button><button type="button" class="ds-segmented__item" role="radio" data-value="semana" aria-checked="false">Semana</button><button type="button" class="ds-segmented__item" role="radio" data-value="dia" aria-checked="false">Dia</button>
+</div>
+
+<div class="ds-segmented ds-segmented--fill" role="radiogroup" aria-label="Visão" data-demo="">
+<button type="button" class="ds-segmented__item" role="radio" data-value="mes" aria-checked="false">Mês</button><button type="button" class="ds-segmented__item" role="radio" data-value="semana" aria-checked="true">Semana</button><button type="button" class="ds-segmented__item" role="radio" data-value="dia" aria-checked="false">Dia</button>
 </div>
 ```
 

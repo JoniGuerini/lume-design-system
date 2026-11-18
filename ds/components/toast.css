@@ -2,6 +2,7 @@
  * Toast — aviso curto e passageiro (ds/js/toast.js)
  *   tons: --success --warning --danger --info (neutro é o padrão)
  *   partes: __icon, __message, __action (opcional), __close (quando dura até fechar)
+ *   com descrição (--stacked): __message guarda __title e __description, em duas linhas
  *   regiões: .ds-toast-region--{top|bottom}-{start|center|end}, uma por posição
  *   recuos ajustáveis: --ds-toast-offset-top (abaixo da topbar), --ds-toast-offset-bottom, --ds-toast-offset-inline
  */
@@ -103,6 +104,41 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* Título e descrição: duas linhas, o ícone e os botões alinham com o título */
+.ds-toast--stacked {
+  align-items: flex-start;
+  min-width: min(280px, 100%);
+  padding-block: var(--ds-space-150);
+}
+
+.ds-toast--stacked .ds-toast__message {
+  display: grid;
+  gap: 2px;
+  white-space: normal;
+}
+
+.ds-toast__title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ds-toast__description {
+  font: var(--ds-text-body-sm);
+  letter-spacing: var(--ds-text-body-sm-tracking);
+  opacity: 0.72;
+  overflow-wrap: anywhere;
+}
+
+/* a primeira linha tem 20 px: ícone, ação e fechar descem para o meio dela */
+.ds-toast--stacked .ds-toast__icon {
+  min-height: 20px;
+}
+
+.ds-toast--stacked :is(.ds-toast__action, .ds-toast__close) {
+  margin-block: -4px;
 }
 
 .ds-toast code {

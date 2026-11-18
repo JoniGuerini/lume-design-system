@@ -4,7 +4,7 @@ Sección de Lume: Componentes. Página: https://lumeui.dev/#/componentes/botao
 
 Dispara una acción. Plano y directo: el color queda para la acción principal, el resto se apoya en contorno y transparencia.
 
-En números: variantes: 5 · tamaños: 3 · estados: 5 · contraste del primario: 7,80:1.
+En números: variantes: 5 · tamaños: 3 · estados: 6 · contraste del primario: 7,80:1.
 
 ## Ejemplo
 
@@ -89,17 +89,17 @@ Marcado de los ejemplos de esta sección:
 
 <button type="button" class="ds-btn ds-btn--primary" disabled="">Guardar</button>
 
+<button type="button" class="ds-btn ds-btn--primary" aria-busy="true" aria-disabled="true"><span class="ds-spinner ds-spinner--sm" aria-hidden="true"></span>Guardando</button>
+
 <button type="button" class="ds-btn ds-btn--secondary">Guardar</button>
 
 <button type="button" class="ds-btn ds-btn--secondary" disabled="">Guardar</button>
 
+<button type="button" class="ds-btn ds-btn--secondary" aria-busy="true" aria-disabled="true"><span class="ds-spinner ds-spinner--sm" aria-hidden="true"></span>Guardando</button>
+
 <button type="button" class="ds-btn ds-btn--ghost">Guardar</button>
 
 <button type="button" class="ds-btn ds-btn--ghost" disabled="">Guardar</button>
-
-<button type="button" class="ds-btn ds-btn--subtle">Guardar</button>
-
-<button type="button" class="ds-btn ds-btn--subtle" disabled="">Guardar</button>
 ```
 
 ## Anatomía
@@ -168,6 +168,7 @@ El botón ya viene accesible. Estas son las decisiones que siguen siendo tuyas.
 - Foco siempre visible — Anillo de 2 px en el color de foco, con 2 px de respiro — en los dos temas, en todas las variantes.
 - Contraste verificado — Texto del primario sobre la marca: 7,80:1 en Lume claro y 9,09:1 en Lume oscuro, por encima del mínimo de 4,5:1.
 - ¿Solo ícono? Dale un nombre — Pon `aria-label` en el botón y una pista con el mismo texto.
+- Ocupado sin segundo clic — Mientras guarda, el botón lleva `aria-busy="true"` y `aria-disabled="true"`: el spinner reemplaza al ícono, la etiqueta dice qué pasa (“Guardando”) y el foco sigue en él. En React, `busy` hace todo esto y frena el envío del formulario.
 - Desactivado con cuidado — `disabled` saca el botón del foco. Si la persona necesita descubrir la acción, usa `aria-disabled="true"` y explica el motivo.
 
 ## Tokens usados

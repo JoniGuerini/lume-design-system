@@ -103,6 +103,7 @@ O papel depende de quando o alerta aparece.
 - Depois de uma ação — `role="alert"` anuncia na hora, como num erro ao salvar. Use só para o que é urgente.
 - Aviso sem pressa — `role="status"` anuncia sem interromper o que a pessoa está ouvindo.
 - Já na página — Quem já está ali ao carregar não precisa de papel: é lido na ordem normal.
+- No React — `` já escolhe sozinho: `tone="danger"` vira `role="alert"` e os outros tons, `role="status"`. Passe `role` para trocar, ou `role="none"` no aviso que já está na página ao carregar.
 - Não só cor — Cada tom tem ícone próprio e texto que explica.
 
 ## Tokens usados

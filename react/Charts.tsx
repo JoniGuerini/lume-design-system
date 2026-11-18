@@ -77,6 +77,8 @@ export interface BarChartProps extends ChartBase {
   diverging?: boolean;
   /** Categorias em sequência (funil) numa rampa de um tom. */
   ordinal?: boolean;
+  /** O título da dica de cada categoria, quando o eixo usa uma forma curta ("Jan" no eixo, "Janeiro de 2026" na dica). */
+  tooltipLabels?: string[];
 }
 
 /** Colunas e barras. https://lumeui.dev/#/graficos/barras */
@@ -94,6 +96,8 @@ export interface LineChartProps extends ChartBase {
   /** Linha tracejada de meta ou limite. */
   target?: { value: number; label?: string };
   zero?: boolean;
+  /** O título da dica de cada categoria, quando o eixo usa uma forma curta. */
+  tooltipLabels?: string[];
 }
 
 /** Linhas e áreas. Um eixo só. https://lumeui.dev/#/graficos/linhas */

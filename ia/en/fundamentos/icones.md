@@ -249,7 +249,7 @@ Two ways to use them: the `icon()` function in JavaScript or the `<ds-icon>` ele
 JavaScript
 
 ```html
-import { icon } from 'https://lumeui.dev/v/1.9/lume.js';
+import { icon } from 'https://lumeui.dev/v/1.10/lume.js';
 
 button.innerHTML = icon('home', { size: 20 });
 // with a label for screen readers

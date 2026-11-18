@@ -47,7 +47,7 @@ La sidebar del propio sitio, con menos páginas. Los grupos se abren y se cierra
 
 ## Elemento
 
-Ícono de 20 px, etiqueta y, si corresponde, el punto. Los estados se pueden forzar con `data-state`.
+Ícono de 20 px, etiqueta y, si corresponde, el conteo o el punto. Los estados se pueden forzar con `data-state`.
 
 ## Abierta y contraída
 
@@ -195,7 +195,7 @@ El HTML es fijo; la navegación se dibuja a partir de una lista. La sidebar vive
 ### JavaScript
 
 ```html
-import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/1.9/lume.js';
+import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/1.10/lume.js';
 
 const nav = document.getElementById('sidebar-nav');
 renderSidebarNav(nav, [
@@ -220,7 +220,7 @@ shell.collapsed;                        // → true
 
 | API | Qué hace |
 | --- | --- |
-|  `renderSidebarNav(el, groups)`  | Dibuja la navegación. Cada elemento: `label`, `icon`, `href` y, si quieres, `dot` y `section`. |
+|  `renderSidebarNav(el, groups)`  | Dibuja la navegación. Cada elemento: `label`, `icon`, `href` y, si quieres, `count`, `dot` y `section`. |
 |  `setActiveNavItem(el, href)`  | Marca la página actual, abre su grupo y se desplaza hasta ella. |
 |  `createShell(el, { persist, initial })`  | Conecta contraer, cajón y grupos. `persist: false` no guarda nada; `initial` fuerza “expanded” o “collapsed”. |
 |  `shell.toggle() · setCollapsed() · setMobileOpen()`  | Cambian el estado como lo hacen los botones y el atajo. |

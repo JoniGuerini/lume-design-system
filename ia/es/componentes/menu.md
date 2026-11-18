@@ -9,7 +9,7 @@ En números: modos: 2 · tipos de elemento: 6 · teclas: 8 · función: createMe
 ## Ejemplo
 
 ```html
-import { createMenu } from 'https://lumeui.dev/v/1.9/lume.js';
+import { createMenu } from 'https://lumeui.dev/v/1.10/lume.js';
 
 const menu = createMenu(disparador, {
   label: 'Ordenar por',
@@ -70,10 +70,12 @@ Marcado de los ejemplos de esta sección:
 Cada elemento es un objeto en `options`. Los especiales organizan la lista sin volverse opciones.
 
 - Etiqueta del menú `label: 'Ordenar por'` — Opcional. Dice qué se está eligiendo y se vuelve el nombre del menú.
+- Nombre sin título `hideLabel: true` — La etiqueta sale de la lista y queda solo como nombre para el lector de pantalla. Para menús de acciones de una fila, donde el disparador ya dice de qué se trata.
 - Elemento con ícono `{ value, label, icon: 'clock' }` — Ícono de 18 px a la izquierda. Úsalo en todos los elementos o en ninguno.
 - Seleccionado `value: 'name'` — En el modo selección, la marca en el color de la marca indica el valor actual.
 - Grupo `{ type: 'group', label: 'Archivo' }` — Un título pequeño para separar temas en una lista larga.
 - Atajo `shortcut: 'Ctrl D'` — Solo en el modo acción. Enseña la tecla sin ocupar espacio.
+- Meta `meta: '37'` — Texto corto a la derecha, como el conteo de cada filtro. Queda atenuado para no competir con la etiqueta.
 - Desactivado `disabled: true` — Queda visible, pero el teclado lo salta. Prefiere ocultarlo si nunca va a funcionar.
 - Separador `{ type: 'separator' }` — Una línea entre bloques — antes de lo destructivo, por ejemplo.
 - Peligro `tone: 'danger'` — Para eliminar y similares. Siempre al final, después de un separador.

@@ -31,6 +31,7 @@ const STATES = () => [
   ['pressed', L('Pressionado', 'Pressed', 'Presionado')],
   ['focus', L('Foco', 'Focus', 'Foco')],
   ['disabled', L('Desativado', 'Disabled', 'Desactivado')],
+  ['busy', L('Ocupado', 'Busy', 'Ocupado')],
 ];
 
 const ICONS = () => [
@@ -60,6 +61,7 @@ function parseIcon(value) {
 
 const iconSize = (size) => (size === 'sm' ? 16 : size === 'lg' ? 20 : 18);
 const defaultLabel = () => L('Botão', 'Button', 'Botón');
+const busyLabel = () => L('Salvando', 'Saving', 'Guardando');
 
 function button(state) {
   const icn = parseIcon(state.icon);
@@ -67,10 +69,20 @@ function button(state) {
   const label = escapeHtml(state.label || defaultLabel());
   const forced = ['hover', 'pressed', 'focus'].includes(state.state) ? ` data-state="${state.state}"` : '';
   const disabled = state.state === 'disabled' ? ' disabled' : '';
+  if (state.state === 'busy') {
+    // ocupado: o spinner entra no lugar do ícone e o rótulo diz o que está acontecendo
+    return `<button type="button" class="${classes(state)}" aria-busy="true" aria-disabled="true" tabindex="-1"><span class="ds-spinner ds-spinner--sm" aria-hidden="true"></span>${escapeHtml(busyLabel())}</button>`;
+  }
   return `<button type="button" class="${classes(state)}"${forced}${disabled} tabindex="-1">${icn && !icn.end ? glyph : ''}${label}${icn?.end ? glyph : ''}</button>`;
 }
 
 function buttonCode(state) {
+  if (state.state === 'busy') {
+    return `<button type="button" class="${classes(state)}" aria-busy="true" aria-disabled="true">
+  <span class="ds-spinner ds-spinner--sm" aria-hidden="true"></span>
+  ${busyLabel()}
+</button>`;
+  }
   const icn = parseIcon(state.icon);
   const glyph = icn ? `\n  <ds-icon name="${icn.name}"></ds-icon>` : '';
   const disabled = state.state === 'disabled' ? ' disabled' : '';
@@ -263,6 +275,7 @@ export default function renderBotao(page) {
         [L('Foco sempre visível', 'Focus always visible', 'Foco siempre visible'), L('Anel de 2 px na cor de foco, com 2 px de respiro — nos dois temas, em todas as variantes.', 'A 2 px ring in the focus color, with 2 px of offset — in both themes, in every variant.', 'Anillo de 2 px en el color de foco, con 2 px de respiro — en los dos temas, en todas las variantes.')],
         [L('Contraste verificado', 'Contrast checked', 'Contraste verificado'), L(`Texto do primário sobre a marca: ${perTheme(pair)}, acima do mínimo de ${ratio(4.5, 1)}.`, `Primary text on the brand: ${perTheme(pair)}, above the ${ratio(4.5, 1)} minimum.`, `Texto del primario sobre la marca: ${perTheme(pair)}, por encima del mínimo de ${ratio(4.5, 1)}.`)],
         [L('Só ícone? Dê um nome', 'Icon only? Give it a name', '¿Solo ícono? Dale un nombre'), L(`Coloque ${ic('aria-label')} no botão e uma dica com o mesmo texto.`, `Put an ${ic('aria-label')} on the button and a hint with the same text.`, `Pon ${ic('aria-label')} en el botón y una pista con el mismo texto.`)],
+        [L('Ocupado sem segundo clique', 'Busy without a second click', 'Ocupado sin segundo clic'), L(`Enquanto salva, o botão leva ${ic('aria-busy="true"')} e ${ic('aria-disabled="true"')}: o spinner entra no lugar do ícone, o rótulo diz o que acontece (“Salvando”) e o foco continua nele. No React, ${ic('busy')} faz tudo isso e segura o envio do formulário.`, `While saving, the button gets ${ic('aria-busy="true"')} and ${ic('aria-disabled="true"')}: the spinner replaces the icon, the label says what’s happening (“Saving”), and focus stays on it. In React, ${ic('busy')} does all of this and holds back the form submit.`, `Mientras guarda, el botón lleva ${ic('aria-busy="true"')} y ${ic('aria-disabled="true"')}: el spinner reemplaza al ícono, la etiqueta dice qué pasa (“Guardando”) y el foco sigue en él. En React, ${ic('busy')} hace todo esto y frena el envío del formulario.`)],
         [L('Desativado com cuidado', 'Disable with care', 'Desactivado con cuidado'), L(`${ic('disabled')} tira o botão do foco. Se a pessoa precisa descobrir a ação, use ${ic('aria-disabled="true"')} e explique o motivo.`, `${ic('disabled')} removes the button from focus. If people need to discover the action, use ${ic('aria-disabled="true"')} and explain why.`, `${ic('disabled')} saca el botón del foco. Si la persona necesita descubrir la acción, usa ${ic('aria-disabled="true"')} y explica el motivo.`)],
       ])}
     </section>

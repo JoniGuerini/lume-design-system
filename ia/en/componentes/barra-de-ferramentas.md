@@ -22,7 +22,7 @@ In numbers: Tab stops: 1 · keys: 4 · height: 36 px · ARIA role: toolbar.
 </div>
 
 <script type="module">
-  import { createToolbar } from 'https://lumeui.dev/v/1.9/lume.js';
+  import { createToolbar } from 'https://lumeui.dev/v/1.10/lume.js';
   createToolbar(document.querySelector('.ds-toolbar'), {
     onToggle: (button, pressed) => console.log(button.ariaLabel, pressed),
   });
@@ -83,7 +83,7 @@ The buttons are yours; the bar handles Tab, the arrow keys, and `aria-pressed`.
 </div>
 
 <script type="module">
-  import { createToolbar } from 'https://lumeui.dev/v/1.9/lume.js';
+  import { createToolbar } from 'https://lumeui.dev/v/1.10/lume.js';
   createToolbar(document.querySelector('.ds-toolbar'), {
     onToggle: (button, pressed) => console.log(button.ariaLabel, pressed),
   });

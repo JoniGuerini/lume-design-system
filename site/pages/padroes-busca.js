@@ -165,7 +165,7 @@ const PALETTE_PARTS = () => [
   [L('Rodapé', 'Footer', 'Pie'), L('Lembra as teclas. Some no celular, onde não há teclado físico.', 'Reminds you of the keys. It disappears on phones, where there’s no physical keyboard.', 'Recuerda las teclas. Desaparece en el móvil, donde no hay teclado físico.')],
 ];
 
-const paletteCode = () => `import { createCommandPalette } from 'https://lumeui.dev/v/1.9/lume.js';
+const paletteCode = () => `import { createCommandPalette } from 'https://lumeui.dev/v/1.10/lume.js';
 
 const palette = createCommandPalette({
   placeholder: '${L('Buscar páginas e ações…', 'Search pages and actions…', 'Buscar páginas y acciones…')}',
@@ -193,7 +193,7 @@ const ITEM_FIELDS = () => [
   ['perform()', L('O que acontece no Enter ou no clique. A paleta fecha antes.', 'What happens on Enter or click. The palette closes first.', 'Lo que pasa con Enter o con el clic. La paleta se cierra antes.')],
 ];
 
-const filtersCode = () => `import { createFilters } from 'https://lumeui.dev/v/1.9/lume.js';
+const filtersCode = () => `import { createFilters } from 'https://lumeui.dev/v/1.10/lume.js';
 
 const filters = createFilters(document.querySelector('#${L('filtros', 'filters', 'filtros')}'), {
   label: '${L('Filtrar pedidos', 'Filter orders', 'Filtrar pedidos')}',
@@ -214,7 +214,7 @@ const filters = createFilters(document.querySelector('#${L('filtros', 'filters',
 
 filters.clear();                           // ${L('limpa tudo, menos a ordenação', 'clears everything except sorting', 'limpia todo, menos el orden')}`;
 
-const urlCode = () => `import { filtersToQuery, filtersFromQuery } from 'https://lumeui.dev/v/1.9/lume.js';
+const urlCode = () => `import { filtersToQuery, filtersFromQuery } from 'https://lumeui.dev/v/1.10/lume.js';
 
 // ${L('ao filtrar: troca a URL sem empilhar uma entrada por letra digitada', 'on filtering: replace the URL without stacking one entry per typed letter', 'al filtrar: cambia la URL sin apilar una entrada por letra escrita')}
 history.replaceState(null, '', '?' + filtersToQuery(filters.value, config));

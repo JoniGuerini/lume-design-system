@@ -190,10 +190,17 @@
   to { transform: rotate(1turn); }
 }
 
-/* Botão ocupado: <button class="ds-btn" aria-busy="true"><span class="ds-spinner ds-spinner--sm"></span>Salvando</button> */
+/*
+ * Botão ocupado: <button class="ds-btn" aria-busy="true" aria-disabled="true"><span class="ds-spinner ds-spinner--sm"></span>Salvando</button>
+ * Fica indisponível (sem segundo clique) mas não esmaece: o spinner já diz que está trabalhando.
+ */
 .ds-btn[aria-busy="true"] {
   cursor: progress;
   pointer-events: none;
+}
+
+.ds-btn[aria-busy="true"][aria-disabled="true"] {
+  opacity: 1;
 }
 
 /*

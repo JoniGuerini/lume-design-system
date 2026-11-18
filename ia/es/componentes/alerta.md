@@ -103,6 +103,7 @@ El rol depende de cuándo aparece la alerta.
 - Después de una acción — `role="alert"` anuncia al instante, como en un error al guardar. Úsalo solo para lo urgente.
 - Aviso sin prisa — `role="status"` anuncia sin interrumpir lo que la persona está oyendo.
 - Ya en la página — Quien ya está ahí al cargar no necesita rol: se lee en el orden normal.
+- En React — `` elige solo: `tone="danger"` se vuelve `role="alert"` y los otros tonos, `role="status"`. Pasa `role` para cambiarlo, o `role="none"` en el aviso que ya está en la página al cargar.
 - No solo color — Cada tono tiene ícono propio y texto que explica.
 
 ## Tokens usados

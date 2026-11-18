@@ -8,10 +8,41 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '1.9.2';
+export const CURRENT_VERSION = '1.10.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '1.10.0',
+    date: '2026-11-18',
+    title: T('Props que faltavam', 'Missing props', 'Props que faltaban'),
+    summary: T(
+      'O que o app Lume mais sentiu falta nos componentes: toast com descrição, botão ocupado que não envia duas vezes, contagens nas abas e na navegação, e o controle segmentado em três tamanhos e na largura toda.',
+      'What the Lume app missed most in the components: toasts with a description, a busy button that won’t submit twice, counts in tabs and in the navigation, and the segmented control in three sizes and at full width.',
+      'Lo que la app Lume más extrañó en los componentes: toast con descripción, botón ocupado que no envía dos veces, conteos en las pestañas y en la navegación, y el control segmentado en tres tamaños y a todo el ancho.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['novo', T('Toast: description põe uma segunda linha, mais apagada, embaixo da mensagem', 'Toast: description adds a second, quieter line under the message', 'Toast: description pone una segunda línea, más atenuada, debajo del mensaje'), '/componentes/toast'],
+          ['novo', T('Botão: estado ocupado, com spinner, aria-busy e aria-disabled, sem perder o foco', 'Button: busy state, with spinner, aria-busy, and aria-disabled, without losing focus', 'Botón: estado ocupado, con spinner, aria-busy y aria-disabled, sin perder el foco'), '/componentes/botao'],
+          ['novo', T('Controle segmentado: tamanhos pequeno, médio e grande (ds-segmented--sm, --lg) e largura toda (--fill)', 'Segmented control: small, medium, and large sizes (ds-segmented--sm, --lg) and full width (--fill)', 'Control segmentado: tamaños pequeño, mediano y grande (ds-segmented--sm, --lg) y ancho completo (--fill)'), '/componentes/controle-segmentado'],
+          ['novo', T('Menu: hideLabel deixa o rótulo só para o leitor de tela, e meta põe um texto curto à direita do item', 'Menu: hideLabel keeps the label for screen readers only, and meta puts short text on the right of an item', 'Menú: hideLabel deja la etiqueta solo para el lector de pantalla, y meta pone un texto corto a la derecha del elemento'), '/componentes/menu'],
+          ['novo', T('Sidebar e Navbar: count mostra a contagem ao lado do item ("Clientes 37"), também nos menus da navbar', 'Sidebar and Navbar: count shows a number next to the item ("Clients 37"), in the navbar menus too', 'Sidebar y Navbar: count muestra el conteo junto al elemento ("Clientes 37"), también en los menús de la navbar'), '/componentes/sidebar'],
+        ],
+      },
+      {
+        name: T('React', 'React', 'React'),
+        items: [
+          ['novo', T('Button busy segura o clique e o envio do formulário enquanto salva', 'Button busy holds back the click and the form submit while saving', 'Button busy frena el clic y el envío del formulario mientras guarda'), '/componentes/botao'],
+          ['novo', T('Alert escolhe o role pelo tom: alert no perigo, status nos outros', 'Alert picks its role from the tone: alert for danger, status for the others', 'Alert elige el role por el tono: alert en peligro, status en los demás'), '/componentes/alerta'],
+          ['novo', T('Tabs com count, SegmentedControl com size e fill, Menu com hideLabel e NavItem com count', 'Tabs with count, SegmentedControl with size and fill, Menu with hideLabel, and NavItem with count', 'Tabs con count, SegmentedControl con size y fill, Menu con hideLabel y NavItem con count'), '/recursos/react'],
+          ['melhoria', T('tooltipLabels nos tipos do BarChart e do LineChart', 'tooltipLabels in the BarChart and LineChart types', 'tooltipLabels en los tipos de BarChart y LineChart'), '/graficos/barras'],
+        ],
+      },
+    ],
+  },
   {
     version: '1.9.2',
     date: '2026-11-18',

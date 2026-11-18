@@ -15,7 +15,7 @@ Una conversación de verdad, con respuestas simuladas. Envía, escribe / , adjun
 Pregunta en español, adjunta un archivo o escribe / para ver los comandos.
 
 ```html
-import { createComposer, messageHtml, typingHtml, streamText } from 'https://lumeui.dev/v/1.9/lume.js';
+import { createComposer, messageHtml, typingHtml, streamText } from 'https://lumeui.dev/v/1.10/lume.js';
 
 const thread = document.querySelector('.ds-thread');   // role="log" aria-live="polite"
 
@@ -77,7 +77,7 @@ Marcado de los ejemplos de esta sección:
 
 <p class="ds-visually-hidden" aria-live="polite" data-demo-live=""></p>
 
-<button type="button" class="ds-chip" data-control="reply" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-228">
+<button type="button" class="ds-chip" data-control="reply" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-230">
 <span>Respuesta</span><span data-label="">Texto y tarjeta</span>
 <span class="ds-chip__chevron"><ds-icon name="chevron-down"></ds-icon></span>
 </button>
@@ -489,7 +489,7 @@ El CSS viene en `ds/ds.css`; el comportamiento, en `ds/js/composer.js`.
 ```
 
 ```html
-import { createComposer } from 'https://lumeui.dev/v/1.9/lume.js';
+import { createComposer } from 'https://lumeui.dev/v/1.10/lume.js';
 
 const composer = createComposer(document.querySelector('#composer'), {
   label: 'Mensaje para Lume',

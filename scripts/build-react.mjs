@@ -132,6 +132,8 @@ export declare function sanitizeHtml(html: string): string;
 `,
   toast: `export type ToastPosition = 'top-start' | 'top-center' | 'top-end' | 'bottom-start' | 'bottom-center' | 'bottom-end';
 export interface ToastOptions {
+  /** Uma segunda linha, mais apagada, embaixo da mensagem (que vira o título). */
+  description?: string;
   icon?: string;
   tone?: 'neutral' | 'success' | 'warning' | 'danger' | 'info';
   action?: { label: string; onClick: () => void };
@@ -145,7 +147,7 @@ export declare function copyText(text: string, label?: string, options?: { echo?
 export declare function getToastPosition(): ToastPosition;
 export declare function setToastPosition(position: ToastPosition): ToastPosition;
 export declare function toastContent(message: string, options?: ToastOptions & { dismissible?: boolean }): string;
-export declare function toastClasses(options?: { tone?: string }): string;
+export declare function toastClasses(options?: { tone?: string; description?: string }): string;
 `,
   shell: `export declare const LAYOUTS: Array<'sidebar' | 'navbar'>;
 export declare function createShell(root: HTMLElement, options?: { persist?: boolean; initial?: 'expanded' | 'collapsed'; layout?: 'sidebar' | 'navbar' }): { toggle(): void; setCollapsed(collapsed: boolean): void; setLayout(layout: 'sidebar' | 'navbar'): void; readonly layout: 'sidebar' | 'navbar'; setMobileOpen(open: boolean): void; closeMobile(): void; readonly collapsed: boolean; readonly mobile: boolean; readonly mobileOpen: boolean; scrollToTop(): void; destroy(): void };
