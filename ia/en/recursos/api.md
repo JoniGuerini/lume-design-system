@@ -4,17 +4,17 @@ Lume section: Resources. Page: https://lumeui.dev/#/recursos/api
 
 Everything you can call from JavaScript, in a single file. What’s here is public and stable; the rest is internal and may change.
 
-In numbers: public items: 102 · verbs: 5 · dependencies: 0.
+In numbers: public items: 105 · verbs: 5 · dependencies: 0.
 
 ## Import
 
 One file, `ds/lume.js`, gathers the whole API. The `ds/js/` modules can still be imported one by one, to load only what you need.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/1.10/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/1.11/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/1.10/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/1.11/lume.js';
 
   initTheme();
   const modal = createModal({ title: 'Publish changes?' });
@@ -69,7 +69,7 @@ Few, all prefixed with `ds:`. Everything else arrives through each component’s
 
 ## Everything public
 
-The 102 items in `ds/lume.js`, with the module each one comes from.
+The 105 items in `ds/lume.js`, with the module each one comes from.
 
 ### Components
 
@@ -99,6 +99,9 @@ The 102 items in `ds/lume.js`, with the module each one comes from.
 | `createNotificationCenter` | Notification center on the bell: list, unread, mark all, and announcing new ones. | notifications.js |
 | `relativeTime` | Relative time in Lume’s language (“5 minutes ago”); after a week, a date. | notifications.js |
 | `createNumberField` | Number field with – and +. | number-field.js |
+| `createCurrencyField` | Money field: formats in the language and submits the number. | currency-field.js |
+| `createPasswordField` | Password field with show and hide. | password-field.js |
+| `createSearchField` | Search field with clear, Esc, and a shortcut. | search-field.js |
 | `createOtpField` | Verification code field. | otp-field.js |
 | `createPagination` | Pagination for a list or table. | pagination.js |
 | `createPopover` | Panel that opens attached to a button. | popover.js |

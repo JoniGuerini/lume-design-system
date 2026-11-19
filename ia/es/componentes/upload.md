@@ -15,7 +15,7 @@ En números: formas de enviar: 2 · estados del archivo: 4 · límites: tipo · 
 </div>
 
 <script type="module">
-  import { createFileUpload } from 'https://lumeui.dev/v/1.10/lume.js';
+  import { createFileUpload } from 'https://lumeui.dev/v/1.11/lume.js';
   createFileUpload(document.querySelector('.ds-upload'), {
     maxSize: 5 * 1024 * 1024,
     maxFiles: 3,
@@ -85,7 +85,7 @@ Marcado de los ejemplos de esta sección:
 La función `upload` recibe el archivo, avisa el progreso (de 0 a 1) y devuelve una promesa. El error que lance aparece en la fila del archivo.
 
 ```html
-import { createFileUpload } from 'https://lumeui.dev/v/1.10/lume.js';
+import { createFileUpload } from 'https://lumeui.dev/v/1.11/lume.js';
 
 createFileUpload(document.querySelector('.ds-upload'), {
   accept: ['image/*', '.pdf'],

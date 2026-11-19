@@ -1,6 +1,6 @@
 # Lume Design System
 
-> Design system en HTML, CSS y JavaScript nativos, sin dependencias: tokens, tipografía, 130 íconos propios, componentes, gráficos y patrones de pantalla, en los temas claro y oscuro. Versión 1.10.0.
+> Design system en HTML, CSS y JavaScript nativos, sin dependencias: tokens, tipografía, 130 íconos propios, componentes, gráficos y patrones de pantalla, en los temas claro y oscuro. Versión 1.11.0.
 
 Empieza por [LEEME](https://lumeui.dev/ia/es/LEEME.md): instalación, reglas generales y lo que nunca inventar. Cada página del sitio tiene un archivo Markdown abajo, generado a partir de ella.
 
@@ -29,11 +29,16 @@ Empieza por [LEEME](https://lumeui.dev/ia/es/LEEME.md): instalación, reglas gen
 ## Componentes
 
 - [Botón](https://lumeui.dev/ia/es/componentes/botao.md): Dispara una acción. Primario, secundario, ghost, sutil y peligro.
+- [Botón dividido](https://lumeui.dev/ia/es/componentes/botao-dividido.md): La acción principal y, pegada a ella, la flecha con las alternativas.
 - [Acción en línea](https://lumeui.dev/ia/es/componentes/acao-inline.md): La acción más discreta: dentro del contenido, con + o →.
 - [Chip](https://lumeui.dev/ia/es/componentes/chip.md): Píldora para filtrar, elegir y mostrar selecciones.
 - [Menú](https://lumeui.dev/ia/es/componentes/menu.md): Lista que se abre desde un disparador, para elegir un valor o ejecutar acciones.
 - [Barra de herramientas](https://lumeui.dev/ia/es/componentes/barra-de-ferramentas.md): Botones de ícono agrupados, con un solo Tab y flechas entre ellos.
 - [Campo de texto](https://lumeui.dev/ia/es/componentes/campo-de-texto.md): Etiqueta, pista, error y contador — en una línea o en varias.
+- [Campo de contraseña](https://lumeui.dev/ia/es/componentes/campo-de-senha.md): Contraseña con el botón de mostrar y ocultar.
+- [Campo de búsqueda](https://lumeui.dev/ia/es/componentes/campo-de-busca.md): Lupa, borrar, Esc y una tecla que lleva el foco al campo.
+- [Campo de dinero](https://lumeui.dev/ia/es/componentes/campo-de-dinheiro.md): Valor en dinero: se escribe libre, se formatea en el idioma y envía el número.
+- [Grupo de campos](https://lumeui.dev/ia/es/componentes/grupo-de-campos.md): Una etiqueta, una pista y un error para varios controles.
 - [Selector](https://lumeui.dev/ia/es/componentes/selecao.md): Única, con búsqueda o múltiple — lista con el estilo de los menús y un select real debajo.
 - [Checkbox y radio](https://lumeui.dev/ia/es/componentes/checkbox-radio.md): Varias opciones o una sola, con grupos y estado indeterminado.
 - [Switch](https://lumeui.dev/ia/es/componentes/switch.md): Enciende y apaga con efecto inmediato.
@@ -73,6 +78,7 @@ Empieza por [LEEME](https://lumeui.dev/ia/es/LEEME.md): instalación, reglas gen
 - [Progreso circular](https://lumeui.dev/ia/es/componentes/progresso-circular.md): El progreso en un anillo, para cuando la barra no cabe.
 - [Spinner](https://lumeui.dev/ia/es/componentes/spinner.md): Espera corta, también dentro de botones.
 - [Skeleton](https://lumeui.dev/ia/es/componentes/skeleton.md): La forma del contenido antes de que llegue.
+- [Estado vacío](https://lumeui.dev/ia/es/componentes/estado-vazio.md): Qué falta, por qué y el siguiente paso, en lugar de la lista vacía.
 - [Tarjeta](https://lumeui.dev/ia/es/componentes/card.md): La superficie básica para agrupar contenido.
 - [Carrusel](https://lumeui.dev/ia/es/componentes/carrossel.md): Destacados que pasan de a uno, con flechas, puntos y deslizar.
 - [Visor de imágenes](https://lumeui.dev/ia/es/componentes/visualizador-de-imagem.md): La imagen grande sobre la página, con zoom, arrastre y la galería.

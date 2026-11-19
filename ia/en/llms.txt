@@ -1,6 +1,6 @@
 # Lume Design System
 
-> A design system in native HTML, CSS, and JavaScript, with no dependencies: tokens, typography, 130 custom icons, components, charts, and screen patterns, in light and dark themes. Version 1.10.0.
+> A design system in native HTML, CSS, and JavaScript, with no dependencies: tokens, typography, 130 custom icons, components, charts, and screen patterns, in light and dark themes. Version 1.11.0.
 
 Start with [README](https://lumeui.dev/ia/en/README.md): installation, general rules, and what never to invent. Every page of the site has a Markdown file below, generated from it.
 
@@ -29,11 +29,16 @@ Start with [README](https://lumeui.dev/ia/en/README.md): installation, general r
 ## Components
 
 - [Button](https://lumeui.dev/ia/en/componentes/botao.md): Triggers an action. Primary, secondary, ghost, subtle, and danger.
+- [Split button](https://lumeui.dev/ia/en/componentes/botao-dividido.md): The main action and, attached to it, the arrow with the alternatives.
 - [Inline action](https://lumeui.dev/ia/en/componentes/acao-inline.md): The quietest action: inside the content, with + or →.
 - [Chip](https://lumeui.dev/ia/en/componentes/chip.md): A pill to filter, choose, and show selections.
 - [Menu](https://lumeui.dev/ia/en/componentes/menu.md): A list that opens from a trigger, to pick a value or run actions.
 - [Toolbar](https://lumeui.dev/ia/en/componentes/barra-de-ferramentas.md): Grouped icon buttons, with a single Tab stop and arrow keys between them.
 - [Text field](https://lumeui.dev/ia/en/componentes/campo-de-texto.md): Label, hint, error, and counter — single line or multiline.
+- [Password field](https://lumeui.dev/ia/en/componentes/campo-de-senha.md): A password with the show and hide button.
+- [Search field](https://lumeui.dev/ia/en/componentes/campo-de-busca.md): Magnifier, clear, Esc, and a key that brings focus to the field.
+- [Money field](https://lumeui.dev/ia/en/componentes/campo-de-dinheiro.md): A money amount: type freely, formatted in the language, submits the number.
+- [Field group](https://lumeui.dev/ia/en/componentes/grupo-de-campos.md): One label, one hint, and one error for several controls.
 - [Select](https://lumeui.dev/ia/en/componentes/selecao.md): Single, searchable, or multiple — a list that looks like a menu, with a real select underneath.
 - [Checkbox and radio](https://lumeui.dev/ia/en/componentes/checkbox-radio.md): Many choices or just one, with groups and an indeterminate state.
 - [Switch](https://lumeui.dev/ia/en/componentes/switch.md): Turns something on or off, right away.
@@ -73,6 +78,7 @@ Start with [README](https://lumeui.dev/ia/en/README.md): installation, general r
 - [Circular progress](https://lumeui.dev/ia/en/componentes/progresso-circular.md): Progress in a ring, for when a bar doesn’t fit.
 - [Spinner](https://lumeui.dev/ia/en/componentes/spinner.md): A short wait, inside buttons too.
 - [Skeleton](https://lumeui.dev/ia/en/componentes/skeleton.md): The shape of the content before it arrives.
+- [Empty state](https://lumeui.dev/ia/en/componentes/estado-vazio.md): What’s missing, why, and the next step, in place of the empty list.
 - [Card](https://lumeui.dev/ia/en/componentes/card.md): The basic surface for grouping content.
 - [Carousel](https://lumeui.dev/ia/en/componentes/carrossel.md): Highlights that go by one at a time, with arrows, dots, and swipe.
 - [Image viewer](https://lumeui.dev/ia/en/componentes/visualizador-de-imagem.md): The large image over the page, with zoom, panning, and the gallery.

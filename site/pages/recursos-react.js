@@ -84,7 +84,7 @@ export default function renderReact(page) {
         <p class="doc-header__lead">${L('Componentes React por cima do mesmo CSS e JavaScript do Lume, já compilados e com tipos. Instale pelo npm ou, se preferir os arquivos no projeto, copie os .tsx.', 'React components on top of Lume’s same CSS and JavaScript, already compiled and typed. Install from npm or, if you’d rather have the files in your project, copy the .tsx files.', 'Componentes React sobre el mismo CSS y JavaScript de Lume, ya compilados y con tipos. Instálalos desde npm o, si prefieres los archivos en el proyecto, copia los .tsx.')}</p>
       </div>
       <dl class="doc-stats">
-        <div class="doc-stat"><dt class="doc-stat__label">${L('dos 60 componentes', 'of the 60 components', 'de los 60 componentes')}</dt><dd class="doc-stat__value">${reactCount()}</dd></div>
+        <div class="doc-stat"><dt class="doc-stat__label">${L('dos 66 componentes', 'of the 66 components', 'de los 66 componentes')}</dt><dd class="doc-stat__value">${reactCount()}</dd></div>
         <div class="doc-stat"><dt class="doc-stat__label">React</dt><dd class="doc-stat__value">18+</dd></div>
         <div class="doc-stat"><dt class="doc-stat__label">${L('dependências', 'dependencies', 'dependencias')}</dt><dd class="doc-stat__value">0</dd></div>
       </dl>
@@ -136,8 +136,8 @@ export default function renderReact(page) {
       'react-proximos',
       L('O que vem', 'What’s next', 'Lo que viene'),
       next.length
-        ? L('Uma etapa por versão, até os 60 componentes. Enquanto um componente não chega, use a marcação HTML da página dele com className: o CSS é o mesmo.', 'One stage per version, up to all 60 components. Until a component arrives, use the HTML markup from its page with className: the CSS is the same.', 'Una etapa por versión, hasta los 60 componentes. Mientras un componente no llega, usa el marcado HTML de su página con className: el CSS es el mismo.')
-        : L('Os 60 componentes já estão em React.', 'All 60 components are already in React.', 'Los 60 componentes ya están en React.'),
+        ? L('Uma etapa por versão, até os 66 componentes. Enquanto um componente não chega, use a marcação HTML da página dele com className: o CSS é o mesmo.', 'One stage per version, up to all 66 components. Until a component arrives, use the HTML markup from its page with className: the CSS is the same.', 'Una etapa por versión, hasta los 66 componentes. Mientras un componente no llega, usa el marcado HTML de su página con className: el CSS es el mismo.')
+        : L('Os 66 componentes já estão em React.', 'All 66 components are already in React.', 'Los 66 componentes ya están en React.'),
       next.length
         ? `<div class="doc-table ra-items">
         ${next.map((s) => `<div class="doc-table__row"><span>${ic(s.version)}</span><span>${s.title}: ${s.text}</span><span class="ra-muted">${s.status}</span></div>`).join('')}

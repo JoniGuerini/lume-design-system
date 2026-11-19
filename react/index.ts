@@ -8,7 +8,7 @@ export { useLocale } from './useLocale';
 export { Icon, type IconName, type IconProps } from './Icon';
 
 // Ações
-export { Button, ButtonLink, type ButtonProps, type ButtonLinkProps, type ButtonVariant, type ButtonSize } from './Button';
+export { Button, ButtonLink, SplitButton, type ButtonProps, type ButtonLinkProps, type ButtonVariant, type ButtonSize, type SplitButtonProps } from './Button';
 export { IconButton, type IconButtonProps } from './IconButton';
 export { InlineAction, type InlineActionProps } from './InlineAction';
 export { Link, Divider, type LinkProps, type DividerProps } from './Link';
@@ -17,6 +17,7 @@ export { Chip, RemovableChip, ChipGroup, type ChipProps, type RemovableChipProps
 // Feedback e carregamento
 export { Badge, type BadgeProps, type Tone } from './Badge';
 export { Alert, type AlertProps, type AlertTone } from './Alert';
+export { EmptyState, type EmptyStateProps } from './EmptyState';
 export { Banner, NotificationCenter, type BannerProps, type BannerTone, type NotificationCenterProps, type NotificationItem } from './Notices';
 export { ImageGallery, openImageViewer, type ImageGalleryProps, type GalleryImage, type ViewerImage } from './ImageViewer';
 export { SortableList, Kanban, type SortableListProps, type SortableItem, type KanbanProps, type KanbanColumn } from './Sortable';
@@ -32,7 +33,11 @@ export {
 } from './Content';
 
 // Formulários
-export { Field, Input, Textarea, TextField, FieldAction, useField, type FieldProps, type InputProps, type TextareaProps, type TextFieldProps, type FieldActionProps, type FieldSize } from './Field';
+export {
+  Field, Input, Textarea, TextField, FieldAction, FieldGroup, PasswordField, SearchField, CurrencyField, useField,
+  type FieldProps, type InputProps, type TextareaProps, type TextFieldProps, type FieldActionProps, type FieldSize,
+  type FieldGroupProps, type PasswordFieldProps, type SearchFieldProps, type CurrencyFieldProps,
+} from './Field';
 export { Select, type SelectProps, type SelectOption, type SelectGroup } from './Select';
 export {
   Checkbox, Radio, Switch, ChoiceGroup, RadioGroup, CheckboxGroup,

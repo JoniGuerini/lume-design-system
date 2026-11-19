@@ -49,6 +49,9 @@ export {
 export { createMenu } from './js/menu.js';
 export { createModal, openModal, confirmModal, modalHtml } from './js/modal.js';
 export { createNumberField } from './js/number-field.js';
+export { createCurrencyField } from './js/currency-field.js';
+export { createPasswordField } from './js/password-field.js';
+export { createSearchField } from './js/search-field.js';
 export { createOtpField } from './js/otp-field.js';
 export { createPagination } from './js/pagination.js';
 export { createPopover } from './js/popover.js';

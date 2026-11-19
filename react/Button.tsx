@@ -1,5 +1,8 @@
-import { forwardRef, type AnchorHTMLAttributes, type ButtonHTMLAttributes } from 'react';
+import { forwardRef, useRef, type AnchorHTMLAttributes, type ButtonHTMLAttributes } from 'react';
 import { Icon, type IconName } from './Icon';
+import { Menu, type MenuOption } from './Navigation';
+import { msg } from '../js/i18n.js';
+import { useLocale } from './useLocale';
 import { cx } from './cx';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'subtle' | 'danger';
@@ -78,3 +81,53 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(functio
     </a>
   );
 });
+
+export interface SplitButtonProps {
+  /** O rótulo da ação principal, com verbo ("Novo atendimento"). */
+  label: string;
+  icon?: IconName;
+  /** A ação principal. */
+  onClick: () => void;
+  /** As alternativas, no menu da seta (modo ação: separador e tone: 'danger' valem). */
+  options: MenuOption[];
+  /** Chamado com o value da alternativa escolhida. */
+  onSelect: (value: string) => void;
+  /** Nome da seta e do menu para o leitor de tela. Padrão: "Mais opções". */
+  menuLabel?: string;
+  /** Padrão: primary. Ghost não entra: sem contorno, as duas metades não se leem como uma peça. */
+  variant?: Exclude<ButtonVariant, 'ghost'>;
+  size?: ButtonSize;
+  disabled?: boolean;
+  /** A ação principal está em andamento: o spinner entra nela e a seta fica indisponível. */
+  busy?: boolean;
+  className?: string;
+}
+
+/**
+ * A ação principal e, colada nela, a seta com as alternativas ("Novo atendimento ▾").
+ * https://lumeui.dev/#/componentes/botao-dividido
+ */
+export function SplitButton({
+  label, icon, onClick, options, onSelect, menuLabel, variant = 'primary', size = 'md', disabled, busy, className,
+}: SplitButtonProps) {
+  useLocale();
+  const arrow = useRef<HTMLButtonElement>(null);
+  const name = menuLabel ?? msg('split.more');
+  return (
+    <div className={cx('ds-split-button', className)}>
+      <Button variant={variant} size={size} icon={icon} disabled={disabled} busy={busy} onClick={onClick}>
+        {label}
+      </Button>
+      <button
+        ref={arrow}
+        type="button"
+        className={classes({ variant, size }, 'ds-split-button__menu')}
+        aria-label={name}
+        disabled={disabled || busy}
+      >
+        <Icon name="chevron-down" size={size === 'sm' ? 16 : 18} />
+      </button>
+      <Menu triggerRef={arrow} options={options} mode="action" label={name} hideLabel onChange={onSelect} />
+    </div>
+  );
+}

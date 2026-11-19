@@ -4,7 +4,7 @@ Lume section: Resources. Page: https://lumeui.dev/#/recursos/react
 
 React components on top of Lume’s same CSS and JavaScript, already compiled and typed. Install from npm or, if you’d rather have the files in your project, copy the .tsx files.
 
-In numbers: of the 60 components: 60 · React: 18+ · dependencies: 0.
+In numbers: of the 66 components: 66 · React: 18+ · dependencies: 0.
 
 ## Install
 
@@ -16,7 +16,7 @@ npm install @joniguerini/lume
 
 ### Prefer the files in your project?
 
-As with shadcn: download the 1.10 zip and move the folder into `src/` named `lume`, or run `npx @joniguerini/lume init`. The components live in `lume/react/`, as .tsx, to read and change freely; your imports then become `./lume/react`.
+As with shadcn: download the 1.11 zip and move the folder into `src/` named `lume`, or run `npx @joniguerini/lume init`. The components live in `lume/react/`, as .tsx, to read and change freely; your imports then become `./lume/react`.
 
 ```html
 src/
@@ -90,6 +90,7 @@ What’s already in React. Each name leads to the component’s page, with the u
 | Component | What it does | File |
 | --- | --- | --- |
 | `Button · ButtonLink` | Variant, size, icons and busy. ButtonLink is the same look on a link. | Button.tsx |
+| `SplitButton` | The main action and the arrow with the alternatives in a Menu. | Button.tsx |
 | `IconButton` | Icon only; the screen reader label is required. | IconButton.tsx |
 | `InlineAction` | Minimal action within content ("In scene +"). | InlineAction.tsx |
 | `Link` | Inline or standalone (variant), muted, and external, with icon and new-tab notice. | Link.tsx |
@@ -100,6 +101,10 @@ What’s already in React. Each name leads to the component’s page, with the u
 | Component | What it does | File |
 | --- | --- | --- |
 | `Field · Input · Textarea · TextField` | Label, hint, error and counter wired to the control; TextField puts it all together. | Field.tsx |
+| `PasswordField` | Password with show and hide (aria-pressed). | Field.tsx |
+| `SearchField` | Search with clear, Esc and a keyboard shortcut. | Field.tsx |
+| `CurrencyField` | Money formatted in the language; state and the form get the number. | Field.tsx |
+| `FieldGroup` | One label, hint and error for several controls, each with its own id. | Field.tsx |
 | `Select` | One or more options, with groups, search and a limit. | Select.tsx |
 | `Checkbox · Radio · RadioGroup · CheckboxGroup` | Single options or groups, with a controlled value. | Choice.tsx |
 | `Switch` | On and off, with a description and two sizes. | Choice.tsx |
@@ -152,6 +157,7 @@ What’s already in React. Each name leads to the component’s page, with the u
 | `ProgressRing` | Ring with the percentage; without a value, indeterminate. Three sizes and the bar’s tones. | Loading.tsx |
 | `Spinner` | Three sizes, with the "Loading" label built in. | Loading.tsx |
 | `Skeleton` | Block, text line and circle. | Loading.tsx |
+| `EmptyState` | What’s missing, why and the next step; sizes, tones and plain. | EmptyState.tsx |
 
 ### Content
 
@@ -201,8 +207,8 @@ What’s already in React. Each name leads to the component’s page, with the u
 | Your files | From npm, they come compiled and typed. Copied, the .tsx files live in your project, as with shadcn: you can read, change, and delete what you don’t use. |
 | TypeScript | Typed, commented props, with a link to each component’s page. `IconName` lists the 154 icons: a wrong name won’t compile. |
 | Language | The text a component writes on its own ("Close", "Loading") follows Lume’s language and changes with `setLocale`. `useLocale()` does the same for yours. |
-| Versions | From npm, updating is `npm update @joniguerini/lume`; the package version is Lume’s. Copied, the `react/` folder ships with every line (`/v/1.10/react/`) and updating means swapping the folder. |
+| Versions | From npm, updating is `npm update @joniguerini/lume`; the package version is Lume’s. Copied, the `react/` folder ships with every line (`/v/1.11/react/`) and updating means swapping the folder. |
 
 ## What’s next
 
-All 60 components are already in React.
+All 66 components are already in React.

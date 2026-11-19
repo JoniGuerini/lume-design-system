@@ -4,17 +4,17 @@ Seção do Lume: Recursos. Página: https://lumeui.dev/#/recursos/api
 
 Tudo o que você pode chamar pelo JavaScript, num arquivo só. O que está aqui é público e estável; o resto é interno e pode mudar.
 
-Em números: itens públicos: 102 · verbos: 5 · dependências: 0.
+Em números: itens públicos: 105 · verbos: 5 · dependências: 0.
 
 ## Importar
 
 Um arquivo, `ds/lume.js`, reúne a API inteira. Os módulos de `ds/js/` continuam podendo ser importados um a um, para carregar só o necessário.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/1.10/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/1.11/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/1.10/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/1.11/lume.js';
 
   initTheme();
   const modal = createModal({ title: 'Publicar alterações?' });
@@ -69,7 +69,7 @@ Poucos e todos com o prefixo `ds:`. O resto chega pelas opções `on…` de cada
 
 ## Tudo o que é público
 
-Os 102 itens de `ds/lume.js`, com o módulo de onde cada um vem.
+Os 105 itens de `ds/lume.js`, com o módulo de onde cada um vem.
 
 ### Componentes
 
@@ -99,6 +99,9 @@ Os 102 itens de `ds/lume.js`, com o módulo de onde cada um vem.
 | `createNotificationCenter` | Central de notificações no sino: lista, não lidas, marcar todas e anúncio das novas. | notifications.js |
 | `relativeTime` | Tempo relativo no idioma do Lume (“há 5 minutos”); depois de uma semana, data. | notifications.js |
 | `createNumberField` | Campo numérico com – e +. | number-field.js |
+| `createCurrencyField` | Campo de dinheiro: formata no idioma e envia o número. | currency-field.js |
+| `createPasswordField` | Campo de senha com mostrar e esconder. | password-field.js |
+| `createSearchField` | Campo de busca com limpar, Esc e atalho. | search-field.js |
 | `createOtpField` | Campo de código de verificação. | otp-field.js |
 | `createPagination` | Paginação de uma lista ou tabela. | pagination.js |
 | `createPopover` | Painel que abre preso a um botão. | popover.js |

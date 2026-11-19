@@ -2,7 +2,7 @@
 
 Leia este arquivo antes de criar qualquer tela com o Lume. Ele diz como instalar, quais regras valem para todas as telas e o que você nunca deve inventar. O índice completo dos arquivos está em https://lumeui.dev/llms.txt.
 
-O Lume é um design system em HTML, CSS e JavaScript nativos, sem dependências. Ele reúne tokens, tipografia, 154 ícones próprios, 60 componentes, gráficos e padrões de tela, nos temas claro e escuro.
+O Lume é um design system em HTML, CSS e JavaScript nativos, sem dependências. Ele reúne tokens, tipografia, 154 ícones próprios, 66 componentes, gráficos e padrões de tela, nos temas claro e escuro.
 
 ## Antes de tudo
 
@@ -15,18 +15,18 @@ O Lume é um design system em HTML, CSS e JavaScript nativos, sem dependências.
 
 ## Instalação
 
-O Lume está publicado com versão fixa em `https://lumeui.dev/v/1.10/` e pode ser carregado direto de outro site. Licença MIT.
+O Lume está publicado com versão fixa em `https://lumeui.dev/v/1.11/` e pode ser carregado direto de outro site. Licença MIT.
 
 ```html
 <html lang="pt-BR" data-theme="light">
   <head>
-    <link rel="stylesheet" href="https://lumeui.dev/v/1.10/lume.css">
+    <link rel="stylesheet" href="https://lumeui.dev/v/1.11/lume.css">
   </head>
   <body>
     <button type="button" class="ds-btn ds-btn--primary">Salvar</button>
 
     <script type="module">
-      import { initTooltips } from 'https://lumeui.dev/v/1.10/lume.js';
+      import { initTooltips } from 'https://lumeui.dev/v/1.11/lume.js';
       initTooltips();
     </script>
   </body>
@@ -34,16 +34,16 @@ O Lume está publicado com versão fixa em `https://lumeui.dev/v/1.10/` e pode s
 ```
 
 - **Um CSS só:** `lume.css` traz as fontes, os tokens, a base e todos os componentes.
-- **Um JavaScript só, se preferir:** `lume.js` reúne toda a API pública (`import { createModal, toast } from 'https://lumeui.dev/v/1.10/lume.js'`). A lista e a convenção de nomes estão em `https://lumeui.dev/ia/recursos/api.md`. O que não está nele é interno: não use.
+- **Um JavaScript só, se preferir:** `lume.js` reúne toda a API pública (`import { createModal, toast } from 'https://lumeui.dev/v/1.11/lume.js'`). A lista e a convenção de nomes estão em `https://lumeui.dev/ia/recursos/api.md`. O que não está nele é interno: não use.
 - **Tema:** `data-theme="light"` (claro) ou `data-theme="dark"` (escuro) no `<html>`. Para seguir o sistema, chame `initTheme()` de `https://lumeui.dev/ds/js/theme.js`.
 - **JavaScript só onde precisa:** componentes visuais funcionam só com CSS. Os interativos têm um módulo em `https://lumeui.dev/ds/js/`. Importe só os que a tela usa, e o arquivo de cada componente mostra qual é.
 - **Ícones:** importe `https://lumeui.dev/ds/icons/icons.js` uma vez para que o `<ds-icon>` funcione.
 - **Idioma:** os textos de sistema dos componentes seguem o idioma do navegador (português, inglês ou espanhol; qualquer outro vira inglês). Para fixar um, chame `setLocale('pt-BR')` de `https://lumeui.dev/ds/js/i18n.js`.
-- **Versão:** use o endereço com versão (`/v/1.10/`). A versão atual e a lista estão em `https://lumeui.dev/v/index.json`. `https://lumeui.dev/ds/` sempre traz a mais nova, e cada versão tem um zip para quem prefere os arquivos no projeto (`https://lumeui.dev/v/1.10/lume-1.10.zip`).
+- **Versão:** use o endereço com versão (`/v/1.11/`). A versão atual e a lista estão em `https://lumeui.dev/v/index.json`. `https://lumeui.dev/ds/` sempre traz a mais nova, e cada versão tem um zip para quem prefere os arquivos no projeto (`https://lumeui.dev/v/1.11/lume-1.11.zip`).
 
 ## React
 
-Em projetos React, instale o pacote `@joniguerini/lume` (`npm install @joniguerini/lume`): o app importa `@joniguerini/lume/lume.css` uma vez e os componentes de `@joniguerini/lume/react`, já compilados e com tipos. Funciona com Vite, Next.js e React 18 ou mais novo. Quem prefere os arquivos no projeto, como no shadcn, leva a pasta do zip da versão (`https://lumeui.dev/v/1.10/lume-1.10.zip`) para `src/lume/` e importa de `./lume/react`.
+Em projetos React, instale o pacote `@joniguerini/lume` (`npm install @joniguerini/lume`): o app importa `@joniguerini/lume/lume.css` uma vez e os componentes de `@joniguerini/lume/react`, já compilados e com tipos. Funciona com Vite, Next.js e React 18 ou mais novo. Quem prefere os arquivos no projeto, como no shadcn, leva a pasta do zip da versão (`https://lumeui.dev/v/1.11/lume-1.11.zip`) para `src/lume/` e importa de `./lume/react`.
 
 ```tsx
 import '@joniguerini/lume/lume.css';

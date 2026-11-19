@@ -117,7 +117,7 @@ const htmlCode = () => `<div class="ds-shell" id="shell" data-layout="navbar">
   <div class="ds-main">…</div>
 </div>`;
 
-const jsCode = () => `import { createShell, renderSidebarNav, renderNavbarNav } from 'https://lumeui.dev/v/1.10/lume.js';
+const jsCode = () => `import { createShell, renderSidebarNav, renderNavbarNav } from 'https://lumeui.dev/v/1.11/lume.js';
 
 const groups = [
   { id: 'main', items: [

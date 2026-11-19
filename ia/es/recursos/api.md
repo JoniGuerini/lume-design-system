@@ -4,17 +4,17 @@ Sección de Lume: Recursos. Página: https://lumeui.dev/#/recursos/api
 
 Todo lo que puedes llamar desde JavaScript, en un solo archivo. Lo que está aquí es público y estable; el resto es interno y puede cambiar.
 
-En números: ítems públicos: 102 · verbos: 5 · dependencias: 0.
+En números: ítems públicos: 105 · verbos: 5 · dependencias: 0.
 
 ## Importar
 
 Un archivo, `ds/lume.js`, reúne toda la API. Los módulos de `ds/js/` siguen pudiéndose importar uno a uno, para cargar solo lo necesario.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/1.10/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/1.11/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/1.10/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/1.11/lume.js';
 
   initTheme();
   const modal = createModal({ title: '¿Publicar cambios?' });
@@ -69,7 +69,7 @@ Pocos y todos con el prefijo `ds:`. El resto llega por las opciones `on…` de c
 
 ## Todo lo público
 
-Los 102 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
+Los 105 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 
 ### Componentes
 
@@ -99,6 +99,9 @@ Los 102 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 | `createNotificationCenter` | Centro de notificaciones en la campana: lista, sin leer, marcar todas y aviso de las nuevas. | notifications.js |
 | `relativeTime` | Tiempo relativo en el idioma de Lume (“hace 5 minutos”); después de una semana, fecha. | notifications.js |
 | `createNumberField` | Campo numérico con – y +. | number-field.js |
+| `createCurrencyField` | Campo de dinero: formatea en el idioma y envía el número. | currency-field.js |
+| `createPasswordField` | Campo de contraseña con mostrar y ocultar. | password-field.js |
+| `createSearchField` | Campo de búsqueda con borrar, Esc y atajo. | search-field.js |
 | `createOtpField` | Campo de código de verificación. | otp-field.js |
 | `createPagination` | Paginación de una lista o tabla. | pagination.js |
 | `createPopover` | Panel que se abre sujeto a un botón. | popover.js |

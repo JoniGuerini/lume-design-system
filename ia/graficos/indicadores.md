@@ -9,7 +9,7 @@ Em números: peças: 3 · destaque por tela: 1 · sentidos da variação: 3 · t
 ## Exemplo
 
 ```html
-import { statTileHtml } from 'https://lumeui.dev/v/1.10/lume.js';
+import { statTileHtml } from 'https://lumeui.dev/v/1.11/lume.js';
 
 el.innerHTML = statTileHtml({
   label: 'Receita',
@@ -333,7 +333,7 @@ Quando um número basta — e como não estragá-lo.
 Três funções que devolvem HTML, sem estado — use em qualquer lugar, inclusive dentro de tabelas e cards.
 
 ```html
-import { statTileHtml, sparklineHtml, meterHtml } from 'https://lumeui.dev/v/1.10/lume.js';
+import { statTileHtml, sparklineHtml, meterHtml } from 'https://lumeui.dev/v/1.11/lume.js';
 
 kpis.innerHTML = [
   statTileHtml({ label: 'Receita', value: 1284000, format: 'currency-compact',

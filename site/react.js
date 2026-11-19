@@ -18,6 +18,7 @@ export const REACT_GROUPS = () => [
     title: L('Ações', 'Actions', 'Acciones'),
     items: [
       ['Button · ButtonLink', 'Button.tsx', '/componentes/botao', '0.26', L('Variante, tamanho, ícones e ocupado (busy). ButtonLink é o mesmo visual num link.', 'Variant, size, icons and busy. ButtonLink is the same look on a link.', 'Variante, tamaño, íconos y ocupado (busy). ButtonLink es el mismo aspecto en un enlace.')],
+      ['SplitButton', 'Button.tsx', '/componentes/botao-dividido', '1.11', L('A ação principal e a seta com as alternativas num Menu.', 'The main action and the arrow with the alternatives in a Menu.', 'La acción principal y la flecha con las alternativas en un Menú.')],
       ['IconButton', 'IconButton.tsx', '/componentes/botao', '0.26', L('Só o ícone; o rótulo para leitores de tela é obrigatório.', 'Icon only; the screen reader label is required.', 'Solo el ícono; la etiqueta para lectores de pantalla es obligatoria.')],
       ['InlineAction', 'InlineAction.tsx', '/componentes/acao-inline', '0.26', L('Ação mínima no meio do conteúdo ("Na cena +").', 'Minimal action within content ("In scene +").', 'Acción mínima dentro del contenido ("En escena +").')],
       ['Link', 'Link.tsx', '/componentes/link', '0.34', L('No texto ou solto (variant), apagado (muted) e externo, com ícone e aviso de nova aba.', 'Inline or standalone (variant), muted, and external, with icon and new-tab notice.', 'En el texto o suelto (variant), apagado (muted) y externo, con ícono y aviso de pestaña nueva.')],
@@ -28,6 +29,10 @@ export const REACT_GROUPS = () => [
     title: L('Formulários', 'Forms', 'Formularios'),
     items: [
       ['Field · Input · Textarea · TextField', 'Field.tsx', '/componentes/campo-de-texto', '0.27', L('Rótulo, dica, erro e contador ligados ao controle; TextField junta tudo.', 'Label, hint, error and counter wired to the control; TextField puts it all together.', 'Etiqueta, pista, error y contador conectados al control; TextField lo junta todo.')],
+      ['PasswordField', 'Field.tsx', '/componentes/campo-de-senha', '1.11', L('Senha com mostrar e esconder (aria-pressed).', 'Password with show and hide (aria-pressed).', 'Contraseña con mostrar y ocultar (aria-pressed).')],
+      ['SearchField', 'Field.tsx', '/componentes/campo-de-busca', '1.11', L('Busca com limpar, Esc e atalho de teclado.', 'Search with clear, Esc and a keyboard shortcut.', 'Búsqueda con borrar, Esc y atajo de teclado.')],
+      ['CurrencyField', 'Field.tsx', '/componentes/campo-de-dinheiro', '1.11', L('Dinheiro formatado no idioma; o estado e o formulário recebem o número.', 'Money formatted in the language; state and the form get the number.', 'Dinero formateado en el idioma; el estado y el formulario reciben el número.')],
+      ['FieldGroup', 'Field.tsx', '/componentes/grupo-de-campos', '1.11', L('Um rótulo, dica e erro para vários controles, cada um com o próprio id.', 'One label, hint and error for several controls, each with its own id.', 'Una etiqueta, pista y error para varios controles, cada uno con su propio id.')],
       ['Select', 'Select.tsx', '/componentes/selecao', '0.27', L('Uma ou várias opções, com grupos, busca e limite.', 'One or more options, with groups, search and a limit.', 'Una o varias opciones, con grupos, búsqueda y límite.')],
       ['Checkbox · Radio · RadioGroup · CheckboxGroup', 'Choice.tsx', '/componentes/checkbox-radio', '0.27', L('Opções soltas ou em grupo, com o valor controlado.', 'Single options or groups, with a controlled value.', 'Opciones sueltas o en grupo, con el valor controlado.')],
       ['Switch', 'Choice.tsx', '/componentes/switch', '0.27', L('Liga e desliga, com descrição e dois tamanhos.', 'On and off, with a description and two sizes.', 'Enciende y apaga, con descripción y dos tamaños.')],
@@ -80,6 +85,7 @@ export const REACT_GROUPS = () => [
       ['ProgressRing', 'Loading.tsx', '/componentes/progresso-circular', '0.34', L('Anel com a porcentagem; sem valor, indeterminado. Três tamanhos e os tons da barra.', 'Ring with the percentage; without a value, indeterminate. Three sizes and the bar’s tones.', 'Anillo con el porcentaje; sin valor, indeterminado. Tres tamaños y los tonos de la barra.')],
       ['Spinner', 'Loading.tsx', '/componentes/spinner', '0.26', L('Três tamanhos, já com o rótulo "Carregando".', 'Three sizes, with the "Loading" label built in.', 'Tres tamaños, ya con la etiqueta "Cargando".')],
       ['Skeleton', 'Loading.tsx', '/componentes/skeleton', '0.26', L('Bloco, linha de texto e círculo.', 'Block, text line and circle.', 'Bloque, línea de texto y círculo.')],
+      ['EmptyState', 'EmptyState.tsx', '/componentes/estado-vazio', '1.11', L('O que falta, por quê e o próximo passo; tamanhos, tons e sem contorno.', 'What’s missing, why and the next step; sizes, tones and plain.', 'Qué falta, por qué y el siguiente paso; tamaños, tonos y sin contorno.')],
     ],
   },
   {

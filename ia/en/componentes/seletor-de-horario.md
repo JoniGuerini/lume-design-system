@@ -15,7 +15,7 @@ In numbers: default step: 15 min · formats: 12 · 24 h · value sent: HH:MM · 
 </div>
 
 <script type="module">
-  import { createTimePicker } from 'https://lumeui.dev/v/1.10/lume.js';
+  import { createTimePicker } from 'https://lumeui.dev/v/1.11/lume.js';
   createTimePicker(document.querySelector('#inicio'), {
     step: 15,
   });
@@ -39,22 +39,22 @@ Markup of the examples in this section:
 ```html
 <div class="ds-form-field">
 <label class="ds-form-field__label" for="tp-15">Start</label>
-<div class="ds-field"><input class="ds-field__input" id="tp-15" type="text" autocomplete="off" role="combobox" aria-autocomplete="none" aria-expanded="false" aria-controls="ds-timepicker-2" placeholder="--:--"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-label="Open time list"><ds-icon name="clock"></ds-icon></button><input type="hidden" name="tp-15" value=""></div>
+<div class="ds-field"><input class="ds-field__input" id="tp-15" type="text" autocomplete="off" role="combobox" aria-autocomplete="none" aria-expanded="false" aria-controls="ds-timepicker-6" placeholder="--:--"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-label="Open time list"><ds-icon name="clock"></ds-icon></button><input type="hidden" name="tp-15" value=""></div>
 </div>
 
 <div class="ds-form-field">
 <label class="ds-form-field__label" for="tp-30">Meeting</label>
-<div class="ds-field"><input class="ds-field__input" id="tp-30" type="text" autocomplete="off" role="combobox" aria-autocomplete="none" aria-expanded="false" aria-controls="ds-timepicker-3" placeholder="--:--"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-label="Open time list"><ds-icon name="clock"></ds-icon></button><input type="hidden" name="tp-30" value=""></div>
+<div class="ds-field"><input class="ds-field__input" id="tp-30" type="text" autocomplete="off" role="combobox" aria-autocomplete="none" aria-expanded="false" aria-controls="ds-timepicker-7" placeholder="--:--"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-label="Open time list"><ds-icon name="clock"></ds-icon></button><input type="hidden" name="tp-30" value=""></div>
 </div>
 
 <div class="ds-form-field">
 <label class="ds-form-field__label" for="tp-limits">Support</label>
-<div class="ds-field"><input class="ds-field__input" id="tp-limits" type="text" autocomplete="off" role="combobox" aria-autocomplete="none" aria-expanded="false" aria-controls="ds-timepicker-4" placeholder="--:--"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-label="Open time list"><ds-icon name="clock"></ds-icon></button><input type="hidden" name="tp-limits" value=""></div>
+<div class="ds-field"><input class="ds-field__input" id="tp-limits" type="text" autocomplete="off" role="combobox" aria-autocomplete="none" aria-expanded="false" aria-controls="ds-timepicker-8" placeholder="--:--"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-label="Open time list"><ds-icon name="clock"></ds-icon></button><input type="hidden" name="tp-limits" value=""></div>
 </div>
 
 <div class="ds-form-field">
 <label class="ds-form-field__label" for="tp-filled">Reminder</label>
-<div class="ds-field"><input class="ds-field__input" id="tp-filled" type="text" autocomplete="off" role="combobox" aria-autocomplete="none" aria-expanded="false" aria-controls="ds-timepicker-5" placeholder="--:--"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-label="Open time list"><ds-icon name="clock"></ds-icon></button><input type="hidden" name="tp-filled" value="09:30"></div>
+<div class="ds-field"><input class="ds-field__input" id="tp-filled" type="text" autocomplete="off" role="combobox" aria-autocomplete="none" aria-expanded="false" aria-controls="ds-timepicker-9" placeholder="--:--"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-label="Open time list"><ds-icon name="clock"></ds-icon></button><input type="hidden" name="tp-filled" value="09:30"></div>
 </div>
 ```
 
@@ -109,7 +109,7 @@ Markup of the examples in this section:
 It works with `createForm`, like the other fields.
 
 ```html
-import { createTimePicker } from 'https://lumeui.dev/v/1.10/lume.js';
+import { createTimePicker } from 'https://lumeui.dev/v/1.11/lume.js';
 
 const picker = createTimePicker(document.querySelector('#inicio'), {
   value: '09:00',

@@ -4,7 +4,7 @@ Sección de Lume: Recursos. Página: https://lumeui.dev/#/recursos/react
 
 Componentes React sobre el mismo CSS y JavaScript de Lume, ya compilados y con tipos. Instálalos desde npm o, si prefieres los archivos en el proyecto, copia los .tsx.
 
-En números: de los 60 componentes: 60 · React: 18+ · dependencias: 0.
+En números: de los 66 componentes: 66 · React: 18+ · dependencias: 0.
 
 ## Instalar
 
@@ -16,7 +16,7 @@ npm install @joniguerini/lume
 
 ### ¿Prefieres los archivos en el proyecto?
 
-Como en shadcn: descarga el zip de la versión 1.10 y lleva la carpeta a `src/` con el nombre `lume`, o ejecuta `npx @joniguerini/lume init`. Los componentes quedan en `lume/react/`, en .tsx, para leer y cambiar a gusto; entonces los imports pasan a ser `./lume/react`.
+Como en shadcn: descarga el zip de la versión 1.11 y lleva la carpeta a `src/` con el nombre `lume`, o ejecuta `npx @joniguerini/lume init`. Los componentes quedan en `lume/react/`, en .tsx, para leer y cambiar a gusto; entonces los imports pasan a ser `./lume/react`.
 
 ```html
 src/
@@ -90,6 +90,7 @@ Lo que ya está en React. Cada nombre lleva a la página del componente, con los
 | Componente | Qué hace | Archivo |
 | --- | --- | --- |
 | `Button · ButtonLink` | Variante, tamaño, íconos y ocupado (busy). ButtonLink es el mismo aspecto en un enlace. | Button.tsx |
+| `SplitButton` | La acción principal y la flecha con las alternativas en un Menú. | Button.tsx |
 | `IconButton` | Solo el ícono; la etiqueta para lectores de pantalla es obligatoria. | IconButton.tsx |
 | `InlineAction` | Acción mínima dentro del contenido ("En escena +"). | InlineAction.tsx |
 | `Link` | En el texto o suelto (variant), apagado (muted) y externo, con ícono y aviso de pestaña nueva. | Link.tsx |
@@ -100,6 +101,10 @@ Lo que ya está en React. Cada nombre lleva a la página del componente, con los
 | Componente | Qué hace | Archivo |
 | --- | --- | --- |
 | `Field · Input · Textarea · TextField` | Etiqueta, pista, error y contador conectados al control; TextField lo junta todo. | Field.tsx |
+| `PasswordField` | Contraseña con mostrar y ocultar (aria-pressed). | Field.tsx |
+| `SearchField` | Búsqueda con borrar, Esc y atajo de teclado. | Field.tsx |
+| `CurrencyField` | Dinero formateado en el idioma; el estado y el formulario reciben el número. | Field.tsx |
+| `FieldGroup` | Una etiqueta, pista y error para varios controles, cada uno con su propio id. | Field.tsx |
 | `Select` | Una o varias opciones, con grupos, búsqueda y límite. | Select.tsx |
 | `Checkbox · Radio · RadioGroup · CheckboxGroup` | Opciones sueltas o en grupo, con el valor controlado. | Choice.tsx |
 | `Switch` | Enciende y apaga, con descripción y dos tamaños. | Choice.tsx |
@@ -152,6 +157,7 @@ Lo que ya está en React. Cada nombre lleva a la página del componente, con los
 | `ProgressRing` | Anillo con el porcentaje; sin valor, indeterminado. Tres tamaños y los tonos de la barra. | Loading.tsx |
 | `Spinner` | Tres tamaños, ya con la etiqueta "Cargando". | Loading.tsx |
 | `Skeleton` | Bloque, línea de texto y círculo. | Loading.tsx |
+| `EmptyState` | Qué falta, por qué y el siguiente paso; tamaños, tonos y sin contorno. | EmptyState.tsx |
 
 ### Contenido
 
@@ -201,8 +207,8 @@ Lo que ya está en React. Cada nombre lleva a la página del componente, con los
 | Tus archivos | Desde npm, vienen compilados y con tipos. Copiados, los .tsx quedan en tu proyecto, como en shadcn: puedes leer, cambiar y borrar lo que no uses. |
 | TypeScript | Props tipadas y comentadas, con el enlace a la página de cada componente. `IconName` lista los 154 íconos: un nombre equivocado no compila. |
 | Idioma | Los textos que el componente escribe solo ("Cerrar", "Cargando") siguen el idioma de Lume y cambian con `setLocale`. `useLocale()` hace lo mismo en los tuyos. |
-| Versiones | Desde npm, actualizar es `npm update @joniguerini/lume`; la versión del paquete es la de Lume. Copiado, la carpeta `react/` va en cada línea (`/v/1.10/react/`) y actualizar es cambiar la carpeta. |
+| Versiones | Desde npm, actualizar es `npm update @joniguerini/lume`; la versión del paquete es la de Lume. Copiado, la carpeta `react/` va en cada línea (`/v/1.11/react/`) y actualizar es cambiar la carpeta. |
 
 ## Lo que viene
 
-Los 60 componentes ya están en React.
+Los 66 componentes ya están en React.

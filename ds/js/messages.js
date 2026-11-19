@@ -138,6 +138,10 @@ export const MESSAGES = {
 
     'number.increase': 'Aumentar',
     'number.decrease': 'Diminuir',
+    'password.show': 'Mostrar senha',
+    'search.clear': 'Limpar busca',
+    'search.shortcut': (key) => `Atalho: ${key}`,
+    'split.more': 'Mais opções',
     'slider.min': 'Mínimo',
     'slider.max': 'Máximo',
 
@@ -437,6 +441,10 @@ export const MESSAGES = {
 
     'number.increase': 'Increase',
     'number.decrease': 'Decrease',
+    'password.show': 'Show password',
+    'search.clear': 'Clear search',
+    'search.shortcut': (key) => `Shortcut: ${key}`,
+    'split.more': 'More options',
     'slider.min': 'Minimum',
     'slider.max': 'Maximum',
 
@@ -736,6 +744,10 @@ export const MESSAGES = {
 
     'number.increase': 'Aumentar',
     'number.decrease': 'Disminuir',
+    'password.show': 'Mostrar contraseña',
+    'search.clear': 'Borrar búsqueda',
+    'search.shortcut': (key) => `Atajo: ${key}`,
+    'split.more': 'Más opciones',
     'slider.min': 'Mínimo',
     'slider.max': 'Máximo',
 

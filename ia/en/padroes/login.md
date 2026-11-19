@@ -167,7 +167,7 @@ Sign-in is a regular form with `createForm`: the fields, the show-password butto
 ```
 
 ```html
-import { createForm } from 'https://lumeui.dev/v/1.10/lume.js';
+import { createForm } from 'https://lumeui.dev/v/1.11/lume.js';
 
 // show password: switches the field type and marks the button
 document.addEventListener('click', (event) => {

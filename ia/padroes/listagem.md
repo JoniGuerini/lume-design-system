@@ -25,10 +25,10 @@ Marcação dos exemplos desta seção:
 <button type="button" class="ds-icon-btn ds-icon-btn--sm ds-icon-btn--muted ds-field__action" data-filter-clear-search="" aria-label="Limpar busca" hidden=""><ds-icon name="x"></ds-icon></button>
 </label>
 <div class="ds-filters__controls">
-<button type="button" class="ds-chip ds-filters__field" data-filter-field="funcao" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-239">
+<button type="button" class="ds-chip ds-filters__field" data-filter-field="funcao" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-255">
 <span data-label="">Função</span>
 <span class="ds-chip__chevron"><ds-icon name="chevron-down"></ds-icon></span>
-</button><button type="button" class="ds-chip ds-filters__field" data-filter-field="status" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-240">
+</button><button type="button" class="ds-chip ds-filters__field" data-filter-field="status" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-256">
 <span data-label="">Status</span>
 <span class="ds-chip__chevron"><ds-icon name="chevron-down"></ds-icon></span>
 </button>
@@ -41,7 +41,7 @@ Marcação dos exemplos desta seção:
 </div>
 </div>
 
-<button type="button" class="ds-btn ds-btn--ghost ds-btn--sm" data-dl-role="" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-241"><ds-icon name="users"></ds-icon>Mudar função<ds-icon name="chevron-down"></ds-icon></button>
+<button type="button" class="ds-btn ds-btn--ghost ds-btn--sm" data-dl-role="" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-257"><ds-icon name="users"></ds-icon>Mudar função<ds-icon name="chevron-down"></ds-icon></button>
 
 <button type="button" class="ds-btn ds-btn--ghost ds-btn--sm" data-dl-deactivate=""><ds-icon name="pause"></ds-icon>Desativar</button>
 
@@ -166,7 +166,7 @@ A lista junta `createFilters`, a tabela, `createPagination` e `toast` com “Des
 ```
 
 ```html
-import { createFilters, createPagination, filtersToQuery, toast } from 'https://lumeui.dev/v/1.10/lume.js';
+import { createFilters, createPagination, filtersToQuery, toast } from 'https://lumeui.dev/v/1.11/lume.js';
 
 const pages = createPagination(document.querySelector('#paginas'), {
   total: pessoas.length, pageSize: 8,

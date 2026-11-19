@@ -59,6 +59,11 @@ export declare function mountSelects(root?: ParentNode): () => void;
 `,
   'time-picker': `export declare function createTimePicker(input: HTMLInputElement, options?: Record<string, unknown>): { value: string | null; setValue(value: string | null): void; open(): void; close(): void; destroy(): void };
 `,
+  'currency-field': `export declare function currencyParts(currency?: string): { symbol: string; after: boolean; digits: number };
+export declare function parseMoney(text: string): number | null;
+export declare function createCurrencyField(input: HTMLInputElement, options?: { currency?: string; value?: number | null; min?: number; max?: number; onChange?: (value: number | null) => void }): { el: HTMLInputElement; value: number | null; setValue(value: number | null): void; destroy(): void };`,
+  'password-field': `export declare function createPasswordField(input: HTMLInputElement, options?: { onToggle?: (visible: boolean) => void }): { el: HTMLInputElement; visible: boolean; show(): void; hide(): void; toggle(): void; destroy(): void };`,
+  'search-field': `export declare function createSearchField(input: HTMLInputElement, options?: { shortcut?: string; onChange?: (value: string) => void }): { el: HTMLInputElement; value: string; setValue(value: string): void; clear(): void; focus(): void; destroy(): void };`,
   'number-field': `export declare function createNumberField(input: HTMLInputElement, options?: Record<string, unknown>): { value: number | null; setValue(value: number | null): void; destroy(): void };
 `,
   'tag-field': `export declare function createTagField(input: HTMLInputElement, options?: Record<string, unknown>): { value: string[]; setValue(value: string[]): void; add(text: string): void; remove(text: string): void; destroy(): void };

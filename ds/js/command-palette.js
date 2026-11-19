@@ -1,5 +1,5 @@
 /**
- * Paleta de comandos (⌘K / Ctrl K / "/").
+ * Paleta de comandos (⌘K / Ctrl K / "/"). Se a página tem um Campo de busca com o atalho "/", a tecla fica com ele.
  *
  * const palette = createCommandPalette({
  *   items: () => [{ id, label, group, icon, keywords?, description?, hint?, perform }],
@@ -202,11 +202,15 @@ export function createCommandPalette({ items = [], placeholder, label, hotkeys =
     returnFocus = null;
   });
 
+  // um Campo de busca da página com shortcut: '/' (aria-keyshortcuts) fica com a tecla; ⌘K continua abrindo a paleta
+  const pageSearchOwnsSlash = () =>
+    [...document.querySelectorAll('[aria-keyshortcuts="/"]')].some((el) => !el.disabled && el.getClientRects().length > 0);
+
   const onKey = (event) => {
     if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k' && !event.defaultPrevented) {
       event.preventDefault();
       dialog.open ? close() : open();
-    } else if (event.key === '/' && !dialog.open && !isTyping(event.target)) {
+    } else if (event.key === '/' && !dialog.open && !isTyping(event.target) && !pageSearchOwnsSlash()) {
       event.preventDefault();
       open();
     }

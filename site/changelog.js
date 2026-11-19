@@ -8,10 +8,39 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '1.10.0';
+export const CURRENT_VERSION = '1.11.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '1.11.0',
+    date: '2026-11-18',
+    title: T('Campos e peças do dia a dia', 'Everyday fields and pieces', 'Campos y piezas del día a día'),
+    summary: T(
+      'Seis componentes que o app Lume montou por conta própria e agora fazem parte do Lume: campo de dinheiro, de senha e de busca, grupo de campos, botão dividido e estado vazio, em HTML e em React.',
+      'Six components the Lume app had built on its own are now part of Lume: money, password, and search fields, field group, split button, and empty state, in HTML and React.',
+      'Seis componentes que la app Lume armó por su cuenta ahora forman parte de Lume: campo de dinero, de contraseña y de búsqueda, grupo de campos, botón dividido y estado vacío, en HTML y en React.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['novo', T('Campo de dinheiro: digita livre, formata no idioma com o símbolo da moeda e envia o número (createCurrencyField, CurrencyField)', 'Money field: type freely, formatted in the language with the currency symbol, submits the number (createCurrencyField, CurrencyField)', 'Campo de dinero: se escribe libre, se formatea en el idioma con el símbolo de la moneda y envía el número (createCurrencyField, CurrencyField)'), '/componentes/campo-de-dinheiro'],
+          ['novo', T('Campo de senha: mostrar e esconder sem tirar o foco do campo (createPasswordField, PasswordField)', 'Password field: show and hide without leaving the field (createPasswordField, PasswordField)', 'Campo de contraseña: mostrar y ocultar sin salir del campo (createPasswordField, PasswordField)'), '/componentes/campo-de-senha'],
+          ['novo', T('Campo de busca: limpar, Esc e uma tecla que leva o foco ao campo (createSearchField, SearchField)', 'Search field: clear, Esc, and a key that brings focus to the field (createSearchField, SearchField)', 'Campo de búsqueda: borrar, Esc y una tecla que lleva el foco al campo (createSearchField, SearchField)'), '/componentes/campo-de-busca'],
+          ['novo', T('Grupo de campos: um rótulo, uma dica e um erro para vários controles (ds-field-group, FieldGroup)', 'Field group: one label, one hint, and one error for several controls (ds-field-group, FieldGroup)', 'Grupo de campos: una etiqueta, una pista y un error para varios controles (ds-field-group, FieldGroup)'), '/componentes/grupo-de-campos'],
+          ['novo', T('Botão dividido: a ação principal e a seta com as alternativas (ds-split-button, SplitButton)', 'Split button: the main action and the arrow with the alternatives (ds-split-button, SplitButton)', 'Botón dividido: la acción principal y la flecha con las alternativas (ds-split-button, SplitButton)'), '/componentes/botao-dividido'],
+          ['novo', T('Estado vazio ganhou página própria e o EmptyState no React', 'Empty state got its own page and EmptyState in React', 'Estado vacío ganó página propia y EmptyState en React'), '/componentes/estado-vazio'],
+        ],
+      },
+      {
+        name: T('Ajustes', 'Tweaks', 'Ajustes'),
+        items: [
+          ['melhoria', T('Paleta de comandos: se a página tem um Campo de busca com o atalho /, a tecla fica com ele (o ⌘K continua abrindo a paleta)', 'Command palette: if the page has a Search field with the / shortcut, the key goes to it (⌘K still opens the palette)', 'Paleta de comandos: si la página tiene un Campo de búsqueda con el atajo /, la tecla queda con él (⌘K sigue abriendo la paleta)'), '/componentes/campo-de-busca'],
+        ],
+      },
+    ],
+  },
   {
     version: '1.10.0',
     date: '2026-11-18',

@@ -140,6 +140,55 @@
   width: 100%;
 }
 
+/*
+ * Botão dividido — a ação principal e, colada nela, a seta que abre as alternativas (createMenu).
+ * <div class="ds-split-button">
+ *   <button type="button" class="ds-btn ds-btn--primary">Novo atendimento</button>
+ *   <button type="button" class="ds-btn ds-btn--primary ds-split-button__menu" aria-label="Mais opções"><ds-icon name="chevron-down"></ds-icon></button>
+ * </div>
+ * Os dois botões levam a mesma variante e o mesmo tamanho. Um fio na cor do fundo separa os dois.
+ */
+.ds-split-button {
+  display: inline-flex;
+  isolation: isolate;
+}
+
+.ds-split-button > .ds-btn:first-child {
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+}
+
+.ds-split-button > .ds-split-button__menu {
+  width: var(--_h);
+  padding-inline: 0;
+  margin-inline-start: -1px;
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+}
+
+/* nas variantes com fundo, o fio entre os dois é a cor da superfície; nas de contorno, o próprio contorno */
+.ds-split-button > .ds-split-button__menu:is(.ds-btn--primary, .ds-btn--danger, .ds-btn--subtle) {
+  margin-inline-start: 1px;
+}
+
+.ds-split-button > .ds-btn:is(:hover, :focus-visible, [data-state="hover"], [data-state="focus"]) {
+  z-index: 1;
+}
+
+.ds-split-button > .ds-split-button__menu .ds-icon {
+  transition: transform var(--ds-duration-base) var(--ds-easing-emphasized);
+}
+
+.ds-split-button > .ds-split-button__menu[aria-expanded="true"] .ds-icon {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-split-button > .ds-split-button__menu .ds-icon {
+    transition: none;
+  }
+}
+
 /* ───────── Botão de ícone ───────── */
 
 .ds-icon-btn {

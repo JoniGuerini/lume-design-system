@@ -17,7 +17,7 @@ Las personas de un espacio de trabajo. Busca, filtra, ordena por el encabezado, 
 Marcado de los ejemplos de esta sección:
 
 ```html
-<button type="button" class="ds-btn ds-btn--ghost ds-btn--sm" data-dl-role="" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-241"><ds-icon name="users"></ds-icon>Cambiar función<ds-icon name="chevron-down"></ds-icon></button>
+<button type="button" class="ds-btn ds-btn--ghost ds-btn--sm" data-dl-role="" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-257"><ds-icon name="users"></ds-icon>Cambiar función<ds-icon name="chevron-down"></ds-icon></button>
 
 <button type="button" class="ds-btn ds-btn--ghost ds-btn--sm" data-dl-deactivate=""><ds-icon name="pause"></ds-icon>Desactivar</button>
 
@@ -142,7 +142,7 @@ La lista junta `createFilters`, la tabla, `createPagination` y `toast` con “De
 ```
 
 ```html
-import { createFilters, createPagination, filtersToQuery, toast } from 'https://lumeui.dev/v/1.10/lume.js';
+import { createFilters, createPagination, filtersToQuery, toast } from 'https://lumeui.dev/v/1.11/lume.js';
 
 const pages = createPagination(document.querySelector('#paginas'), {
   total: personas.length, pageSize: 8,

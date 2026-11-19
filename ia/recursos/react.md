@@ -4,7 +4,7 @@ Seção do Lume: Recursos. Página: https://lumeui.dev/#/recursos/react
 
 Componentes React por cima do mesmo CSS e JavaScript do Lume, já compilados e com tipos. Instale pelo npm ou, se preferir os arquivos no projeto, copie os .tsx.
 
-Em números: dos 60 componentes: 60 · React: 18+ · dependências: 0.
+Em números: dos 66 componentes: 66 · React: 18+ · dependências: 0.
 
 ## Instalar
 
@@ -16,7 +16,7 @@ npm install @joniguerini/lume
 
 ### Prefere os arquivos no projeto?
 
-Como no shadcn: baixe o zip da versão 1.10 e leve a pasta para `src/` com o nome `lume`, ou rode `npx @joniguerini/lume init`. Os componentes ficam em `lume/react/`, em .tsx, para ler e mudar à vontade; aí os imports passam a ser `./lume/react`.
+Como no shadcn: baixe o zip da versão 1.11 e leve a pasta para `src/` com o nome `lume`, ou rode `npx @joniguerini/lume init`. Os componentes ficam em `lume/react/`, em .tsx, para ler e mudar à vontade; aí os imports passam a ser `./lume/react`.
 
 ```html
 src/
@@ -90,6 +90,7 @@ O que já está em React. Cada nome leva à página do componente, onde estão o
 | Componente | O que faz | Arquivo |
 | --- | --- | --- |
 | `Button · ButtonLink` | Variante, tamanho, ícones e ocupado (busy). ButtonLink é o mesmo visual num link. | Button.tsx |
+| `SplitButton` | A ação principal e a seta com as alternativas num Menu. | Button.tsx |
 | `IconButton` | Só o ícone; o rótulo para leitores de tela é obrigatório. | IconButton.tsx |
 | `InlineAction` | Ação mínima no meio do conteúdo ("Na cena +"). | InlineAction.tsx |
 | `Link` | No texto ou solto (variant), apagado (muted) e externo, com ícone e aviso de nova aba. | Link.tsx |
@@ -100,6 +101,10 @@ O que já está em React. Cada nome leva à página do componente, onde estão o
 | Componente | O que faz | Arquivo |
 | --- | --- | --- |
 | `Field · Input · Textarea · TextField` | Rótulo, dica, erro e contador ligados ao controle; TextField junta tudo. | Field.tsx |
+| `PasswordField` | Senha com mostrar e esconder (aria-pressed). | Field.tsx |
+| `SearchField` | Busca com limpar, Esc e atalho de teclado. | Field.tsx |
+| `CurrencyField` | Dinheiro formatado no idioma; o estado e o formulário recebem o número. | Field.tsx |
+| `FieldGroup` | Um rótulo, dica e erro para vários controles, cada um com o próprio id. | Field.tsx |
 | `Select` | Uma ou várias opções, com grupos, busca e limite. | Select.tsx |
 | `Checkbox · Radio · RadioGroup · CheckboxGroup` | Opções soltas ou em grupo, com o valor controlado. | Choice.tsx |
 | `Switch` | Liga e desliga, com descrição e dois tamanhos. | Choice.tsx |
@@ -152,6 +157,7 @@ O que já está em React. Cada nome leva à página do componente, onde estão o
 | `ProgressRing` | Anel com a porcentagem; sem valor, indeterminado. Três tamanhos e os tons da barra. | Loading.tsx |
 | `Spinner` | Três tamanhos, já com o rótulo "Carregando". | Loading.tsx |
 | `Skeleton` | Bloco, linha de texto e círculo. | Loading.tsx |
+| `EmptyState` | O que falta, por quê e o próximo passo; tamanhos, tons e sem contorno. | EmptyState.tsx |
 
 ### Conteúdo
 
@@ -201,8 +207,8 @@ O que já está em React. Cada nome leva à página do componente, onde estão o
 | Seus arquivos | Pelo npm, vêm compilados e com tipos. Copiados, os .tsx ficam no seu projeto, como no shadcn: dá para ler, mudar e apagar o que não usar. |
 | TypeScript | Props tipadas e comentadas, com o link da página de cada componente. `IconName` lista os 154 ícones: nome errado não compila. |
 | Idioma | Os textos que o componente escreve sozinho ("Fechar", "Carregando") seguem o idioma do Lume e mudam com `setLocale`. `useLocale()` faz o mesmo nos seus. |
-| Versões | Pelo npm, atualizar é `npm update @joniguerini/lume`; a versão do pacote é a do Lume. Copiado, a pasta `react/` vai em cada linha (`/v/1.10/react/`) e atualizar é trocar a pasta. |
+| Versões | Pelo npm, atualizar é `npm update @joniguerini/lume`; a versão do pacote é a do Lume. Copiado, a pasta `react/` vai em cada linha (`/v/1.11/react/`) e atualizar é trocar a pasta. |
 
 ## O que vem
 
-Os 60 componentes já estão em React.
+Os 66 componentes já estão em React.

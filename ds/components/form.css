@@ -457,6 +457,71 @@
   margin-inline-start: calc(-1 * var(--ds-space-150) + 2px);
 }
 
+/* símbolo depois do valor (moeda em espanhol: "12,50 €") */
+.ds-field__input + .ds-field__affix {
+  margin-inline-start: calc(-1 * var(--ds-space-150) + 2px);
+}
+
+/*
+ * Campo de dinheiro (ds/js/currency-field.js): o valor alinha à direita, como numa coluna de valores,
+ * e os algarismos têm a mesma largura.
+ */
+.ds-currency .ds-field__input {
+  font-variant-numeric: tabular-nums;
+}
+
+/*
+ * Campo de busca (ds/js/search-field.js): a lupa, o × quando há texto e a tecla de atalho quando está vazio.
+ * O × nativo do type="search" sai: o do Lume tem nome e o mesmo desenho dos outros campos.
+ */
+.ds-search .ds-field__input::-webkit-search-cancel-button,
+.ds-search .ds-field__input::-webkit-search-decoration {
+  appearance: none;
+}
+
+.ds-search__kbd {
+  flex: none;
+  margin-inline-end: calc(-1 * var(--ds-space-050));
+}
+
+/*
+ * Grupo de campos — um rótulo, uma dica e um erro para vários controles ("Quando": data e dois horários).
+ * <div class="ds-form-field ds-field-group" role="group" aria-labelledby="quando-label" aria-describedby="quando-hint">
+ *   <span class="ds-form-field__label" id="quando-label">Quando</span>
+ *   <div class="ds-field-group__controls">…controles, cada um com o próprio aria-label…</div>
+ *   <div class="ds-form-field__footer"><p class="ds-form-field__hint" id="quando-hint">Dica</p></div>
+ * </div>
+ */
+.ds-field-group__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ds-space-100);
+  min-width: 0;
+}
+
+/* o primeiro controle ocupa o dobro dos outros (a data e os horários); todos quebram a linha quando falta espaço.
+   Sem min-width: 0, o input largo por natureza empurraria os vizinhos para a linha de baixo. */
+.ds-field-group__controls > * {
+  flex: 1 1 120px;
+  min-width: 0;
+}
+
+.ds-field-group__controls > :first-child {
+  flex: 2 1 160px;
+}
+
+/* com --even, todos dividem a linha por igual (nome e sobrenome) */
+.ds-field-group--even .ds-field-group__controls > * {
+  flex: 1 1 0;
+}
+
+.ds-field-group__controls > .ds-field-group__sep {
+  flex: none;
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-body-sm);
+}
+
 @media (max-width: 639.98px) {
   .ds-form__row,
   .ds-form__row--3 {

@@ -9,7 +9,7 @@ En números: modos: 2 · tipos de elemento: 6 · teclas: 8 · función: createMe
 ## Ejemplo
 
 ```html
-import { createMenu } from 'https://lumeui.dev/v/1.10/lume.js';
+import { createMenu } from 'https://lumeui.dev/v/1.11/lume.js';
 
 const menu = createMenu(disparador, {
   label: 'Ordenar por',
@@ -37,9 +37,9 @@ Acción `mode: 'action'` — Ejecuta un comando y desaparece. Sin marca de selec
 Marcado de los ejemplos de esta sección:
 
 ```html
-<button type="button" class="ds-chip" data-mn-demo="radio" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-32"><span class="ds-chip__icon"><ds-icon name="filter"></ds-icon></span><span data-mn-label="">Más recientes</span><span class="ds-chip__chevron"><ds-icon name="chevron-down"></ds-icon></span></button>
+<button type="button" class="ds-chip" data-mn-demo="radio" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-39"><span class="ds-chip__icon"><ds-icon name="filter"></ds-icon></span><span data-mn-label="">Más recientes</span><span class="ds-chip__chevron"><ds-icon name="chevron-down"></ds-icon></span></button>
 
-<button type="button" class="ds-icon-btn ds-icon-btn--outline" data-mn-demo="action" aria-label="Más opciones" data-ds-tooltip="Más opciones" data-ds-tooltip-placement="bottom" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-33"><ds-icon name="more-horizontal"></ds-icon></button>
+<button type="button" class="ds-icon-btn ds-icon-btn--outline" data-mn-demo="action" aria-label="Más opciones" data-ds-tooltip="Más opciones" data-ds-tooltip-placement="bottom" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-40"><ds-icon name="more-horizontal"></ds-icon></button>
 ```
 
 ## Columnas
@@ -60,7 +60,7 @@ createMenu(boton, {
 Marcado de los ejemplos de esta sección:
 
 ```html
-<button type="button" class="ds-chip" data-mn-demo="columns" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-31"><span>Componentes</span><span class="ds-chip__chevron"><ds-icon name="chevron-down"></ds-icon></span></button>
+<button type="button" class="ds-chip" data-mn-demo="columns" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-38"><span>Componentes</span><span class="ds-chip__chevron"><ds-icon name="chevron-down"></ds-icon></span></button>
 
 <button type="button" class="ds-icon-btn ds-icon-btn--sm ds-icon-btn--muted" data-copy-code="" aria-label="Copiar código" data-ds-tooltip="Copiar código"><ds-icon name="copy"></ds-icon></button>
 ```

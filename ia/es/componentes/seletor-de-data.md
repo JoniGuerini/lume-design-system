@@ -15,7 +15,7 @@ En números: modos: 2 · idiomas: 3 · valor enviado: ISO · rol ARIA: dialog.
 </div>
 
 <script type="module">
-  import { createDatePicker } from 'https://lumeui.dev/v/1.10/lume.js';
+  import { createDatePicker } from 'https://lumeui.dev/v/1.11/lume.js';
   createDatePicker(document.querySelector('#entrega'), {
   });
 </script>
@@ -38,22 +38,22 @@ Marcado de los ejemplos de esta sección:
 ```html
 <div class="ds-form-field">
 <label class="ds-form-field__label" for="dp-one">Fecha de entrega</label>
-<div class="ds-field"><input class="ds-field__input" id="dp-one" type="text" autocomplete="off" placeholder="dd/mm/aaaa"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-haspopup="dialog" aria-expanded="false" aria-controls="ds-datepicker-2" aria-label="Abrir calendario"><ds-icon name="calendar"></ds-icon></button><input type="hidden" name="dp-one" value=""></div>
+<div class="ds-field"><input class="ds-field__input" id="dp-one" type="text" autocomplete="off" placeholder="dd/mm/aaaa"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-haspopup="dialog" aria-expanded="false" aria-controls="ds-datepicker-4" aria-label="Abrir calendario"><ds-icon name="calendar"></ds-icon></button><input type="hidden" name="dp-one" value=""></div>
 </div>
 
 <div class="ds-form-field">
 <label class="ds-form-field__label" for="dp-range">Período</label>
-<div class="ds-field"><input class="ds-field__input" id="dp-range" type="text" autocomplete="off" placeholder="dd/mm/aaaa – dd/mm/aaaa"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-haspopup="dialog" aria-expanded="false" aria-controls="ds-datepicker-3" aria-label="Abrir calendario"><ds-icon name="calendar"></ds-icon></button><input type="hidden" name="dp-range" value=""></div>
+<div class="ds-field"><input class="ds-field__input" id="dp-range" type="text" autocomplete="off" placeholder="dd/mm/aaaa – dd/mm/aaaa"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-haspopup="dialog" aria-expanded="false" aria-controls="ds-datepicker-5" aria-label="Abrir calendario"><ds-icon name="calendar"></ds-icon></button><input type="hidden" name="dp-range" value=""></div>
 </div>
 
 <div class="ds-form-field">
 <label class="ds-form-field__label" for="dp-limits">Programar para</label>
-<div class="ds-field"><input class="ds-field__input" id="dp-limits" type="text" autocomplete="off" placeholder="dd/mm/aaaa"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-haspopup="dialog" aria-expanded="false" aria-controls="ds-datepicker-4" aria-label="Abrir calendario"><ds-icon name="calendar"></ds-icon></button><input type="hidden" name="dp-limits" value=""></div>
+<div class="ds-field"><input class="ds-field__input" id="dp-limits" type="text" autocomplete="off" placeholder="dd/mm/aaaa"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-haspopup="dialog" aria-expanded="false" aria-controls="ds-datepicker-6" aria-label="Abrir calendario"><ds-icon name="calendar"></ds-icon></button><input type="hidden" name="dp-limits" value=""></div>
 </div>
 
 <div class="ds-form-field">
 <label class="ds-form-field__label" for="dp-filled">Fecha de entrega</label>
-<div class="ds-field"><input class="ds-field__input" id="dp-filled" type="text" autocomplete="off" placeholder="dd/mm/aaaa"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-haspopup="dialog" aria-expanded="false" aria-controls="ds-datepicker-5" aria-label="Abrir calendario"><ds-icon name="calendar"></ds-icon></button><input type="hidden" name="dp-filled" value="2026-11-21"></div>
+<div class="ds-field"><input class="ds-field__input" id="dp-filled" type="text" autocomplete="off" placeholder="dd/mm/aaaa"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-haspopup="dialog" aria-expanded="false" aria-controls="ds-datepicker-7" aria-label="Abrir calendario"><ds-icon name="calendar"></ds-icon></button><input type="hidden" name="dp-filled" value="2026-11-21"></div>
 </div>
 ```
 
@@ -108,7 +108,7 @@ Marcado de los ejemplos de esta sección:
 Funciona con `createForm`: `required` y los errores de formato aparecen como en los otros campos. El valor en ISO va en un input oculto, con el `name` del campo.
 
 ```html
-import { createDatePicker } from 'https://lumeui.dev/v/1.10/lume.js';
+import { createDatePicker } from 'https://lumeui.dev/v/1.11/lume.js';
 
 const picker = createDatePicker(document.querySelector('#entrega'), {
   min: new Date(),

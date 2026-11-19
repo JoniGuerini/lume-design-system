@@ -1,6 +1,6 @@
 # Lume Design System
 
-An open design system: tokens, 154 icons, 60 components, charts and 12 screen patterns. Light and dark themes, in English, Portuguese and Spanish, built with plain HTML, CSS and JavaScript and no dependencies. It also ships a React layer and documentation written for AI assistants.
+An open design system: tokens, 154 icons, 66 components, charts and 12 screen patterns. Light and dark themes, in English, Portuguese and Spanish, built with plain HTML, CSS and JavaScript and no dependencies. It also ships a React layer and documentation written for AI assistants.
 
 **[lumeui.dev](https://lumeui.dev)** · [Storybook](https://lumeui.dev/storybook/) · [Figma](https://www.figma.com/design/1yTJ881xoXjRmdi6NeTnYD/Lume-Design-System) · [npm](https://www.npmjs.com/package/@joniguerini/lume) · [Contributing](CONTRIBUTING.md)
 
@@ -25,9 +25,9 @@ Works with Vite, Next.js (the components are already marked for the client) and 
 Load a fixed version straight from the site:
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/1.10/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/1.11/lume.css">
 <script type="module">
-  import { initTheme, initTooltips } from 'https://lumeui.dev/v/1.10/lume.js';
+  import { initTheme, initTooltips } from 'https://lumeui.dev/v/1.11/lume.js';
   initTheme();
   initTooltips();
 </script>
