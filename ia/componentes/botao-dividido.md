@@ -20,7 +20,7 @@ Em números: partes: 2 · variantes: 4 · tamanhos: 3 · menu: createMenu.
 </div>
 
 <script type="module">
-  import { createMenu } from 'https://lumeui.dev/v/1.11/lume.js';
+  import { createMenu } from 'https://lumeui.dev/v/1.12/lume.js';
   createMenu(document.querySelector('#nova-mais'), {
     mode: 'action',
     label: 'Mais opções',
@@ -106,7 +106,7 @@ Só CSS mais o Menu: a seta é um `createMenu` no modo ação, com o nome só pa
 </div>
 
 <script type="module">
-  import { createMenu } from 'https://lumeui.dev/v/1.11/lume.js';
+  import { createMenu } from 'https://lumeui.dev/v/1.12/lume.js';
   createMenu(document.querySelector('#nova-mais'), {
     mode: 'action',
     label: 'Mais opções',

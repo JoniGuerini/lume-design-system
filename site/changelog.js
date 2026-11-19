@@ -8,10 +8,31 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '1.11.0';
+export const CURRENT_VERSION = '1.12.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '1.12.0',
+    date: '2026-11-18',
+    title: T('21 ícones novos', '21 new icons', '21 íconos nuevos'),
+    summary: T(
+      'Os ícones que faltaram no app Lume, no mesmo traço dos outros: agenda, pessoas, documentos, dinheiro, segurança e tabela. A biblioteca passa a ter 175.',
+      'The icons the Lume app was missing, in the same stroke as the rest: schedule, people, documents, money, security, and tables. The library now has 175.',
+      'Los íconos que le faltaron a la app Lume, con el mismo trazo que los demás: agenda, personas, documentos, dinero, seguridad y tabla. La biblioteca pasa a tener 175.',
+    ),
+    groups: [
+      {
+        name: T('Ícones', 'Icons', 'Íconos'),
+        items: [
+          ['novo', T('Agenda: calendar-plus, calendar-check, calendar-off, map-pin e pin', 'Schedule: calendar-plus, calendar-check, calendar-off, map-pin, and pin', 'Agenda: calendar-plus, calendar-check, calendar-off, map-pin y pin'), '/fundamentos/icones'],
+          ['novo', T('Pessoas: user-plus, user-x e id-card', 'People: user-plus, user-x, and id-card', 'Personas: user-plus, user-x e id-card'), '/fundamentos/icones'],
+          ['novo', T('Documentos e dinheiro: receipt, printer, notebook-pen, file-x, mail-check e wallet', 'Documents and money: receipt, printer, notebook-pen, file-x, mail-check, and wallet', 'Documentos y dinero: receipt, printer, notebook-pen, file-x, mail-check y wallet'), '/fundamentos/icones'],
+          ['novo', T('Sistema: key, hard-drive, shield-alert, eraser, minimize, columns e rows', 'System: key, hard-drive, shield-alert, eraser, minimize, columns, and rows', 'Sistema: key, hard-drive, shield-alert, eraser, minimize, columns y rows'), '/fundamentos/icones'],
+        ],
+      },
+    ],
+  },
   {
     version: '1.11.0',
     date: '2026-11-18',

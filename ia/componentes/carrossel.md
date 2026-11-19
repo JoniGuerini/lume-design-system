@@ -18,7 +18,7 @@ Em números: por vista: 1+ · teclas: 4 · ponto: 6 px · arrastar: nativo.
 </section>
 
 <script type="module">
-  import { createCarousel } from 'https://lumeui.dev/v/1.11/lume.js';
+  import { createCarousel } from 'https://lumeui.dev/v/1.12/lume.js';
   createCarousel(document.querySelector('.ds-carousel'));
 </script>
 ```
@@ -71,7 +71,7 @@ Os slides são seus; o carrossel põe a barra de baixo, o teclado e os rótulos.
 </section>
 
 <script type="module">
-  import { createCarousel } from 'https://lumeui.dev/v/1.11/lume.js';
+  import { createCarousel } from 'https://lumeui.dev/v/1.12/lume.js';
 
   const carousel = createCarousel(document.querySelector('.ds-carousel'), {
     loop: true,

@@ -4,7 +4,7 @@ Lume section: Foundations. Page: https://lumeui.dev/#/fundamentos/icones
 
 A custom library, drawn on the same grid with the same stroke. Thin outlines, round caps, and color inherited from the text.
 
-In numbers: icons: 154 · categories: 8 · grid: 24 px · stroke: 1.5.
+In numbers: icons: 175 · categories: 8 · grid: 24 px · stroke: 1.5.
 
 ## Library
 
@@ -31,6 +31,8 @@ Search by name or by words in English, Portuguese, or Spanish. Click an icon to 
 - zoom-in
 - zoom-out
 - maximize
+- minimize
+- eraser
 - search
 - search-x
 - send
@@ -72,6 +74,7 @@ Search by name or by words in English, Portuguese, or Spanish. Click an icon to 
 - clock
 - history
 - shield
+- shield-alert
 - lock
 - wifi-off
 - star
@@ -105,6 +108,8 @@ Search by name or by words in English, Portuguese, or Spanish. Click an icon to 
 - kanban
 - tooltip
 - table
+- columns
+- rows
 - list
 - bold
 - italic
@@ -125,7 +130,14 @@ Search by name or by words in English, Portuguese, or Spanish. Click an icon to 
 - message-square
 - stack
 - calendar
+- calendar-plus
+- calendar-check
+- calendar-off
 - file-text
+- file-x
+- receipt
+- printer
+- notebook-pen
 - folder
 - inbox
 - image
@@ -136,6 +148,12 @@ Search by name or by words in English, Portuguese, or Spanish. Click an icon to 
 - git-branch
 - git-pull-request
 - mail
+- mail-check
+- wallet
+- key
+- hard-drive
+- map-pin
+- pin
 - globe
 - target
 - hash
@@ -164,6 +182,9 @@ Search by name or by words in English, Portuguese, or Spanish. Click an icon to 
 - user
 - user-circle
 - users
+- user-plus
+- user-x
+- id-card
 
 Markup of the examples in this section:
 
@@ -176,17 +197,17 @@ Markup of the examples in this section:
 
 <button type="button" class="ds-chip" data-menu="size" aria-haspopup="menu" aria-expanded="false" aria-controls="ds-menu-10"><span class="ds-chip__icon"><ds-icon name="spacing"></ds-icon></span><span data-label="">24 px</span><span class="ds-chip__chevron"><ds-icon name="chevron-down"></ds-icon></span></button>
 
-<button type="button" class="ds-chip ds-chip--sm" data-category="all" aria-pressed="true">All<span>154</span></button>
+<button type="button" class="ds-chip ds-chip--sm" data-category="all" aria-pressed="true">All<span>175</span></button>
 
 <button type="button" class="ds-chip ds-chip--sm" data-category="navegacao" aria-pressed="false">Navigation<span>18</span></button>
 
-<button type="button" class="ds-chip ds-chip--sm" data-category="acoes" aria-pressed="false">Actions<span>35</span></button>
+<button type="button" class="ds-chip ds-chip--sm" data-category="acoes" aria-pressed="false">Actions<span>37</span></button>
 
-<button type="button" class="ds-chip ds-chip--sm" data-category="status" aria-pressed="false">Status and feedback<span>17</span></button>
+<button type="button" class="ds-chip ds-chip--sm" data-category="status" aria-pressed="false">Status and feedback<span>18</span></button>
 
-<button type="button" class="ds-chip ds-chip--sm" data-category="interface" aria-pressed="false">Interface<span>44</span></button>
+<button type="button" class="ds-chip ds-chip--sm" data-category="interface" aria-pressed="false">Interface<span>46</span></button>
 
-<button type="button" class="ds-chip ds-chip--sm" data-category="objetos" aria-pressed="false">Objects<span>15</span></button>
+<button type="button" class="ds-chip ds-chip--sm" data-category="objetos" aria-pressed="false">Objects<span>28</span></button>
 ```
 
 ## Anatomy
@@ -249,7 +270,7 @@ Two ways to use them: the `icon()` function in JavaScript or the `<ds-icon>` ele
 JavaScript
 
 ```html
-import { icon } from 'https://lumeui.dev/v/1.11/lume.js';
+import { icon } from 'https://lumeui.dev/v/1.12/lume.js';
 
 button.innerHTML = icon('home', { size: 20 });
 // with a label for screen readers

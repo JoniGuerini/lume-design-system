@@ -16,7 +16,7 @@ In numbers: height: 36 px · options: 2 – 4 · sizes: 3 · ARIA role: radiogro
 </div>
 
 <script type="module">
-  import { createSegmented } from 'https://lumeui.dev/v/1.11/lume.js';
+  import { createSegmented } from 'https://lumeui.dev/v/1.12/lume.js';
   createSegmented(document.querySelector('.ds-segmented'), {
     onChange: (value) => trocar(value),
   });

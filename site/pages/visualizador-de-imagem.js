@@ -71,7 +71,7 @@ export default function renderImageViewer(page) {
 </a>
 
 <script type="module">
-  import { mountImageViewer, openImageViewer } from 'https://lumeui.dev/v/1.11/lume.js';
+  import { mountImageViewer, openImageViewer } from 'https://lumeui.dev/v/1.12/lume.js';
 
   // ${L('clicar numa miniatura abre a galeria do mesmo data-ds-viewer', 'clicking a thumbnail opens the gallery with the same data-ds-viewer', 'hacer clic en una miniatura abre la galería del mismo data-ds-viewer')}
   mountImageViewer(document);
@@ -144,7 +144,7 @@ export function mount(root) {
         .join('\n')}
 
 <script type="module">
-  import { mountImageViewer } from 'https://lumeui.dev/v/1.11/lume.js';
+  import { mountImageViewer } from 'https://lumeui.dev/v/1.12/lume.js';
   mountImageViewer(document);
 </script>`;
     },

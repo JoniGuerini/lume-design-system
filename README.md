@@ -1,6 +1,6 @@
 # Lume Design System
 
-An open design system: tokens, 154 icons, 66 components, charts and 12 screen patterns. Light and dark themes, in English, Portuguese and Spanish, built with plain HTML, CSS and JavaScript and no dependencies. It also ships a React layer and documentation written for AI assistants.
+An open design system: tokens, 175 icons, 66 components, charts and 12 screen patterns. Light and dark themes, in English, Portuguese and Spanish, built with plain HTML, CSS and JavaScript and no dependencies. It also ships a React layer and documentation written for AI assistants.
 
 **[lumeui.dev](https://lumeui.dev)** · [Storybook](https://lumeui.dev/storybook/) · [Figma](https://www.figma.com/design/1yTJ881xoXjRmdi6NeTnYD/Lume-Design-System) · [npm](https://www.npmjs.com/package/@joniguerini/lume) · [Contributing](CONTRIBUTING.md)
 
@@ -25,9 +25,9 @@ Works with Vite, Next.js (the components are already marked for the client) and 
 Load a fixed version straight from the site:
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/1.11/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/1.12/lume.css">
 <script type="module">
-  import { initTheme, initTooltips } from 'https://lumeui.dev/v/1.11/lume.js';
+  import { initTheme, initTooltips } from 'https://lumeui.dev/v/1.12/lume.js';
   initTheme();
   initTooltips();
 </script>
@@ -79,7 +79,7 @@ ds/            the design system itself
   ds.css         entry point (imports everything); lume.css is the same in a single file
   tokens.css/js  generated, don't edit
   components/    one CSS file per component
-  icons/         154 icons, icon() and <ds-icon>
+  icons/         175 icons, icon() and <ds-icon>
   js/            behavior: theme, menu, select, pickers, modal, toast, shell, charts, i18n…
 react/         the React layer (.tsx), compiled into the npm package
 site/          the documentation site (built with the design system)

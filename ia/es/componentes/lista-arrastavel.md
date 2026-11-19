@@ -25,7 +25,7 @@ En números: formas de arrastrar: 3 · direcciones: 2 · atajos: 7 · dependenci
 </ul>
 
 <script type="module">
-  import { createSortable } from 'https://lumeui.dev/v/1.11/lume.js';
+  import { createSortable } from 'https://lumeui.dev/v/1.12/lume.js';
   createSortable(document.querySelector('.ds-sortable'), { onChange: (e) => console.log(e.id, e.newIndex) });
 </script>
 ```
@@ -45,7 +45,7 @@ Sin agarre, el elemento entero arrastra y recibe el foco. Las flechas `←` `→
 Marcado de los ejemplos de esta sección:
 
 ```html
-<ul class="ds-sortable" role="list" aria-label="Orden de los fundamentos en la sidebar" data-sortable=""><li class="ds-sortable__item" data-id="cores"><button type="button" class="ds-sortable__handle" data-auto-label="" aria-label="Mover “Colores”" aria-describedby="ds-sortable-help" aria-pressed="false"><ds-icon name="grip-vertical"></ds-icon></button><span class="ds-sortable__label">Colores</span><span class="ds-sortable__meta">15 paletas</span></li><li class="ds-sortable__item" data-id="tipografia"><button type="button" class="ds-sortable__handle" data-auto-label="" aria-label="Mover “Tipografía”" aria-describedby="ds-sortable-help" aria-pressed="false"><ds-icon name="grip-vertical"></ds-icon></button><span class="ds-sortable__label">Tipografía</span><span class="ds-sortable__meta">Geist</span></li><li class="ds-sortable__item" data-id="icones"><button type="button" class="ds-sortable__handle" data-auto-label="" aria-label="Mover “Íconos”" aria-describedby="ds-sortable-help" aria-pressed="false"><ds-icon name="grip-vertical"></ds-icon></button><span class="ds-sortable__label">Íconos</span><span class="ds-sortable__meta">154 íconos</span></li><li class="ds-sortable__item" data-id="espacamento"><button type="button" class="ds-sortable__handle" data-auto-label="" aria-label="Mover “Espaciado”" aria-describedby="ds-sortable-help" aria-pressed="false"><ds-icon name="grip-vertical"></ds-icon></button><span class="ds-sortable__label">Espaciado</span><span class="ds-sortable__meta">base 8</span></li></ul>
+<ul class="ds-sortable" role="list" aria-label="Orden de los fundamentos en la sidebar" data-sortable=""><li class="ds-sortable__item" data-id="cores"><button type="button" class="ds-sortable__handle" data-auto-label="" aria-label="Mover “Colores”" aria-describedby="ds-sortable-help" aria-pressed="false"><ds-icon name="grip-vertical"></ds-icon></button><span class="ds-sortable__label">Colores</span><span class="ds-sortable__meta">15 paletas</span></li><li class="ds-sortable__item" data-id="tipografia"><button type="button" class="ds-sortable__handle" data-auto-label="" aria-label="Mover “Tipografía”" aria-describedby="ds-sortable-help" aria-pressed="false"><ds-icon name="grip-vertical"></ds-icon></button><span class="ds-sortable__label">Tipografía</span><span class="ds-sortable__meta">Geist</span></li><li class="ds-sortable__item" data-id="icones"><button type="button" class="ds-sortable__handle" data-auto-label="" aria-label="Mover “Íconos”" aria-describedby="ds-sortable-help" aria-pressed="false"><ds-icon name="grip-vertical"></ds-icon></button><span class="ds-sortable__label">Íconos</span><span class="ds-sortable__meta">175 íconos</span></li><li class="ds-sortable__item" data-id="espacamento"><button type="button" class="ds-sortable__handle" data-auto-label="" aria-label="Mover “Espaciado”" aria-describedby="ds-sortable-help" aria-pressed="false"><ds-icon name="grip-vertical"></ds-icon></button><span class="ds-sortable__label">Espaciado</span><span class="ds-sortable__meta">base 8</span></li></ul>
 
 <span class="ds-visually-hidden" aria-live="assertive"></span>
 
@@ -89,7 +89,7 @@ El `data-id` de cada elemento es lo que `toArray()` devuelve y lo que guardas.
 </ul>
 
 <script type="module">
-  import { createSortable } from 'https://lumeui.dev/v/1.11/lume.js';
+  import { createSortable } from 'https://lumeui.dev/v/1.12/lume.js';
 
   const sortable = createSortable(document.querySelector('.ds-sortable'), {
     onChange: () => salvar(sortable.toArray()), // ['tipografia', 'cores']

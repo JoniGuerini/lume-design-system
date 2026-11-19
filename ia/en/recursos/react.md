@@ -16,7 +16,7 @@ npm install @joniguerini/lume
 
 ### Prefer the files in your project?
 
-As with shadcn: download the 1.11 zip and move the folder into `src/` named `lume`, or run `npx @joniguerini/lume init`. The components live in `lume/react/`, as .tsx, to read and change freely; your imports then become `./lume/react`.
+As with shadcn: download the 1.12 zip and move the folder into `src/` named `lume`, or run `npx @joniguerini/lume init`. The components live in `lume/react/`, as .tsx, to read and change freely; your imports then become `./lume/react`.
 
 ```html
 src/
@@ -205,9 +205,9 @@ What’s already in React. Each name leads to the component’s page, with the u
 | --- | --- |
 | A thin layer | Each component only builds Lume’s markup, with the same classes. The look comes from `lume.css`; fix it there, it’s fixed in React. |
 | Your files | From npm, they come compiled and typed. Copied, the .tsx files live in your project, as with shadcn: you can read, change, and delete what you don’t use. |
-| TypeScript | Typed, commented props, with a link to each component’s page. `IconName` lists the 154 icons: a wrong name won’t compile. |
+| TypeScript | Typed, commented props, with a link to each component’s page. `IconName` lists the 175 icons: a wrong name won’t compile. |
 | Language | The text a component writes on its own ("Close", "Loading") follows Lume’s language and changes with `setLocale`. `useLocale()` does the same for yours. |
-| Versions | From npm, updating is `npm update @joniguerini/lume`; the package version is Lume’s. Copied, the `react/` folder ships with every line (`/v/1.11/react/`) and updating means swapping the folder. |
+| Versions | From npm, updating is `npm update @joniguerini/lume`; the package version is Lume’s. Copied, the `react/` folder ships with every line (`/v/1.12/react/`) and updating means swapping the folder. |
 
 ## What’s next
 

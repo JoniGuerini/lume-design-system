@@ -114,7 +114,7 @@ const htmlCode = () => `<!-- ${L('Alerta: no topo da área afetada, com um link 
   <p class="ds-banner__text"><strong>${L('Sem conexão.', 'Offline.', 'Sin conexión.')}</strong> ${L('O que você escrever fica guardado.', 'What you write is kept.', 'Lo que escribas queda guardado.')}</p>
 </div>`;
 
-const jsCode = () => `import { toast, confirmModal } from 'https://lumeui.dev/v/1.11/lume.js';
+const jsCode = () => `import { toast, confirmModal } from 'https://lumeui.dev/v/1.12/lume.js';
 
 // ${L('Tem volta: faz na hora e oferece Desfazer', 'Can be undone: do it now and offer Undo', 'Tiene vuelta: hazlo ahora y ofrece Deshacer')}
 ${L('arquivar', 'archive', 'archivar')}(${L('relatorio', 'report', 'informe')});

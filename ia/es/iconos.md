@@ -1,6 +1,6 @@
 # Íconos de Lume
 
-Son 154 íconos dibujados para Lume: cuadrícula de 24, trazo de 1,5, puntas redondeadas. Usa solo estos nombres, en `<ds-icon name="…">` (con https://lumeui.dev/ds/icons/icons.js importado) o en la función `icon(name)` del mismo módulo. No existe ningún otro nombre.
+Son 175 íconos dibujados para Lume: cuadrícula de 24, trazo de 1,5, puntas redondeadas. Usa solo estos nombres, en `<ds-icon name="…">` (con https://lumeui.dev/ds/icons/icons.js importado) o en la función `icon(name)` del mismo módulo. No existe ningún otro nombre.
 
 ```html
 <ds-icon name="search" size="20"></ds-icon>
@@ -38,6 +38,8 @@ El tamaño predeterminado es 20 px; el trazo pasa a 1,75 por debajo de 16 px. El
 | `zoom-in` | acercar, zoom, ampliar, lupa, más |
 | `zoom-out` | alejar, zoom, reducir, lupa, menos |
 | `maximize` | maximizar, pantalla, completa, expandir, ajustar |
+| `minimize` | minimizar, salir, pantalla, completa, reducir |
+| `eraser` | borrador, borrar, limpiar, marcado |
 | `search` | buscar, encontrar, lupa |
 | `search-x` | sin, resultados, búsqueda, vacía, nada, encontrado |
 | `send` | enviar, mensaje, avión |
@@ -86,6 +88,7 @@ El tamaño predeterminado es 20 px; el trazo pasa a 1,75 por debajo de 16 px. El
 | `clock` | tiempo, hora, reloj |
 | `history` | historial, changelog, versiones |
 | `shield` | seguridad, protección |
+| `shield-alert` | aviso, seguridad, alerta, riesgo |
 | `lock` | bloqueado, privado, contraseña |
 | `wifi-off` | sin, conexión, offline, internet, red |
 | `star` | favorito, destacado, ejemplo |
@@ -125,6 +128,8 @@ El tamaño predeterminado es 20 px; el trazo pasa a 1,75 por debajo de 16 px. El
 | `kanban` | kanban, tablero, columnas, tarjetas, tareas |
 | `tooltip` | pista, globo, ayuda |
 | `table` | tabla, datos, cuadrícula |
+| `columns` | columnas, elegir, tabla, diseño |
+| `rows` | filas, densidad, tabla, diseño |
 | `list` | lista, elementos |
 | `bold` | negrita, texto, editor, formato |
 | `italic` | cursiva, itálica, texto, editor, formato |
@@ -147,7 +152,14 @@ El tamaño predeterminado es 20 px; el trazo pasa a 1,75 por debajo de 16 px. El
 | Nombre | Palabras clave |
 | --- | --- |
 | `calendar` | calendario, fecha, agenda, evento |
+| `calendar-plus` | agendar, añadir, evento, nuevo, horario |
+| `calendar-check` | agendado, confirmado, reservado |
+| `calendar-off` | bloquear, día, libre, cancelar, sin, horario |
 | `file-text` | documento, archivo, página |
+| `file-x` | archivo, eliminado, no, encontrado, documento, error |
+| `receipt` | recibo, factura, comprobante, pago |
+| `printer` | imprimir, impresora, impresión |
+| `notebook-pen` | cuaderno, escribir, anotar, registro |
 | `folder` | carpeta, directorio |
 | `inbox` | bandeja, de, entrada, vacío |
 | `image` | imagen, foto, multimedia |
@@ -158,6 +170,12 @@ El tamaño predeterminado es 20 px; el trazo pasa a 1,75 por debajo de 16 px. El
 | `git-branch` | rama, versión |
 | `git-pull-request` | contribuir, pull, request, revisión |
 | `mail` | correo, mensaje, carta |
+| `mail-check` | correo, enviado, confirmado, verificado |
+| `wallet` | billetera, finanzas, dinero, pago |
+| `key` | llave, contraseña, acceso, certificado |
+| `hard-drive` | disco, almacenamiento, local, datos, guardado |
+| `map-pin` | ubicación, dirección, mapa, lugar |
+| `pin` | fijar, chincheta, destacar, sujetar |
 | `globe` | mundo, idioma, web |
 | `target` | objetivo, meta, foco |
 | `hash` | número, etiqueta, canal |
@@ -201,3 +219,6 @@ El tamaño predeterminado es 20 px; el trazo pasa a 1,75 por debajo de 16 px. El
 | `user` | usuario, persona, perfil |
 | `user-circle` | avatar, cuenta, perfil |
 | `users` | equipo, grupo, personas |
+| `user-plus` | nuevo, cliente, añadir, persona, invitar |
+| `user-x` | quitar, persona, eliminar, cliente |
+| `id-card` | ficha, registro, documento, identidad, credencial |

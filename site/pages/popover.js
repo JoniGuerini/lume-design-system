@@ -35,7 +35,7 @@ export default function renderPopover(page) {
         id: 'codigo',
         title: L('Código', 'Code', 'Código'),
         desc: L(`Com ${ic('data-popover-close')}, um botão de dentro também fecha o painel.`, `With ${ic('data-popover-close')}, a button inside also closes the panel.`, `Con ${ic('data-popover-close')}, un botón de adentro también cierra el panel.`),
-        html: codeBlock(`import { createPopover } from 'https://lumeui.dev/v/1.11/lume.js';
+        html: codeBlock(`import { createPopover } from 'https://lumeui.dev/v/1.12/lume.js';
 
 const popover = createPopover(document.querySelector('#detalhes'), {
   title: '${L('Detalhes', 'Details', 'Detalles')}',
@@ -97,7 +97,7 @@ export function mount(root) {
     code: (s) => `<button type="button" class="ds-btn ds-btn--secondary" id="detalhes">${L('Abrir popover', 'Open popover', 'Abrir popover')}</button>
 
 <script type="module">
-  import { createPopover } from 'https://lumeui.dev/v/1.11/lume.js';
+  import { createPopover } from 'https://lumeui.dev/v/1.12/lume.js';
   createPopover(document.querySelector('#detalhes'), {${s.title === 'on' ? `\n    title: '${L('Detalhes', 'Details', 'Detalles')}',` : `\n    label: '${L('Detalhes', 'Details', 'Detalles')}',`}
     content: '<p>${hint()}</p>',
     placement: '${s.placement}',

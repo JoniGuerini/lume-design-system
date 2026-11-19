@@ -9,7 +9,7 @@ Em números: visões: 3 · tons de evento: 6 · semana começa: domingo · depen
 ## Exemplo
 
 ```html
-import { createCalendar } from 'https://lumeui.dev/v/1.11/lume.js';
+import { createCalendar } from 'https://lumeui.dev/v/1.12/lume.js';
 
 createCalendar(document.querySelector('#agenda'), {
   events: [

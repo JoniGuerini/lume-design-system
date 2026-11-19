@@ -14,7 +14,7 @@ Em números: formas de abrir: 3 · papel ARIA: menu · toque longo: 500 ms · su
 </ul>
 
 <script type="module">
-  import { createContextMenu } from 'https://lumeui.dev/v/1.11/lume.js';
+  import { createContextMenu } from 'https://lumeui.dev/v/1.12/lume.js';
   createContextMenu(document.querySelector('#arquivos'), {
     selector: '[data-arquivo]',
     options: [
@@ -32,7 +32,7 @@ Em números: formas de abrir: 3 · papel ARIA: menu · toque longo: 500 ms · su
 Com `selector`, um único menu atende a todas as linhas; `options` pode mudar conforme o item.
 
 ```html
-import { createContextMenu } from 'https://lumeui.dev/v/1.11/lume.js';
+import { createContextMenu } from 'https://lumeui.dev/v/1.12/lume.js';
 
 createContextMenu(document.querySelector('#arquivos'), {
   selector: '[data-arquivo]',

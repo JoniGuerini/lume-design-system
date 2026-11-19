@@ -39,7 +39,7 @@ const codeFor = (variant = 'primary', size = 'md') => {
 </div>
 
 <script type="module">
-  import { createMenu } from 'https://lumeui.dev/v/1.11/lume.js';
+  import { createMenu } from 'https://lumeui.dev/v/1.12/lume.js';
   createMenu(document.querySelector('#nova-mais'), {
     mode: 'action',
     label: '${more()}',

@@ -15,7 +15,7 @@ Em números: limpar: × · Esc · atalho: / · type: search · tamanhos: 3.
 </div>
 
 <script type="module">
-  import { createSearchField } from 'https://lumeui.dev/v/1.11/lume.js';
+  import { createSearchField } from 'https://lumeui.dev/v/1.12/lume.js';
   createSearchField(document.querySelector('#busca'), { shortcut: '/' });
 </script>
 ```
@@ -89,7 +89,7 @@ O nome do campo vem do `aria-label` ou de um rótulo. O placeholder não é nome
 </div>
 
 <script type="module">
-  import { createSearchField } from 'https://lumeui.dev/v/1.11/lume.js';
+  import { createSearchField } from 'https://lumeui.dev/v/1.12/lume.js';
   createSearchField(document.querySelector('#busca'), {
     shortcut: '/',
     onChange: (value) => filtrar(value),

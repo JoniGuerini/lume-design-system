@@ -1,0 +1,2 @@
+// Gerado por scripts/build-react.mjs. Não edite.
+export declare function createPasswordField(input: HTMLInputElement, options?: { onToggle?: (visible: boolean) => void }): { el: HTMLInputElement; visible: boolean; show(): void; hide(): void; toggle(): void; destroy(): void };

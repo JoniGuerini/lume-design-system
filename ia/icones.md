@@ -1,6 +1,6 @@
 # Ícones do Lume
 
-São 154 ícones desenhados para o Lume: grade de 24, traço de 1,5, pontas arredondadas. Use só estes nomes, em `<ds-icon name="…">` (com https://lumeui.dev/ds/icons/icons.js importado) ou na função `icon(name)` do mesmo módulo. Não existe nenhum outro nome.
+São 175 ícones desenhados para o Lume: grade de 24, traço de 1,5, pontas arredondadas. Use só estes nomes, em `<ds-icon name="…">` (com https://lumeui.dev/ds/icons/icons.js importado) ou na função `icon(name)` do mesmo módulo. Não existe nenhum outro nome.
 
 ```html
 <ds-icon name="search" size="20"></ds-icon>
@@ -38,6 +38,8 @@ O tamanho padrão é 20 px; o traço fica em 1,75 abaixo de 16 px. O ícone herd
 | `zoom-in` | aproximar, zoom, ampliar, lupa, mais |
 | `zoom-out` | afastar, zoom, reduzir, lupa, menos |
 | `maximize` | ampliar, tela, cheia, expandir, ajustar |
+| `minimize` | reduzir, sair, da, tela, cheia, recolher |
+| `eraser` | apagar, borracha, limpar, marcação |
 | `search` | buscar, procurar, lupa |
 | `search-x` | sem, resultados, busca, vazia, nada, encontrado |
 | `send` | enviar, mensagem, avião |
@@ -86,6 +88,7 @@ O tamanho padrão é 20 px; o traço fica em 1,75 abaixo de 16 px. O ícone herd
 | `clock` | tempo, hora, relógio |
 | `history` | histórico, changelog, versões |
 | `shield` | segurança, proteção |
+| `shield-alert` | aviso, de, segurança, alerta, proteção, risco |
 | `lock` | bloqueado, privado, senha |
 | `wifi-off` | sem, conexão, offline, internet, rede |
 | `star` | favorito, destaque, exemplo |
@@ -125,6 +128,8 @@ O tamanho padrão é 20 px; o traço fica em 1,75 abaixo de 16 px. O ícone herd
 | `kanban` | kanban, quadro, colunas, cartões, tarefas |
 | `tooltip` | dica, balão, ajuda |
 | `table` | tabela, dados, grade |
+| `columns` | colunas, escolher, colunas, tabela, layout |
+| `rows` | linhas, densidade, tabela, layout |
 | `list` | lista, itens |
 | `bold` | negrito, texto, editor, formatação |
 | `italic` | itálico, texto, editor, formatação |
@@ -147,7 +152,14 @@ O tamanho padrão é 20 px; o traço fica em 1,75 abaixo de 16 px. O ícone herd
 | Nome | Palavras-chave |
 | --- | --- |
 | `calendar` | calendário, data, agenda, evento |
+| `calendar-plus` | agendar, adicionar, evento, novo, horário |
+| `calendar-check` | agendado, confirmado, marcado, horário |
+| `calendar-off` | bloquear, dia, folga, cancelar, sem, horário |
 | `file-text` | documento, arquivo, página |
+| `file-x` | arquivo, removido, não, encontrado, documento, erro |
+| `receipt` | recibo, nota, fiscal, comprovante, pagamento |
+| `printer` | imprimir, impressora, impressão |
+| `notebook-pen` | caderno, anotar, registrar, escrever, evolução |
 | `folder` | pasta, diretório |
 | `inbox` | caixa, entrada, vazio |
 | `image` | imagem, foto, mídia |
@@ -158,6 +170,12 @@ O tamanho padrão é 20 px; o traço fica em 1,75 abaixo de 16 px. O ícone herd
 | `git-branch` | branch, versão, ramificação |
 | `git-pull-request` | contribuir, pull, request, revisão |
 | `mail` | email, mensagem, carta |
+| `mail-check` | email, enviado, confirmado, verificado |
+| `wallet` | carteira, financeiro, dinheiro, pagamento |
+| `key` | chave, senha, acesso, certificado |
+| `hard-drive` | disco, armazenamento, local, dados, salvo |
+| `map-pin` | local, endereço, mapa, lugar |
+| `pin` | fixar, alfinete, destacar, prender |
 | `globe` | mundo, idioma, web |
 | `target` | alvo, objetivo, foco |
 | `hash` | número, tag, canal |
@@ -201,3 +219,6 @@ O tamanho padrão é 20 px; o traço fica em 1,75 abaixo de 16 px. O ícone herd
 | `user` | usuário, pessoa, perfil |
 | `user-circle` | avatar, conta, perfil |
 | `users` | equipe, grupo, pessoas |
+| `user-plus` | novo, cliente, adicionar, pessoa, convidar |
+| `user-x` | remover, pessoa, tirar, cliente, excluir |
+| `id-card` | ficha, cadastro, documento, identidade, crachá |

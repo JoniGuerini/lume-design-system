@@ -15,7 +15,7 @@ In numbers: currencies: ISO 4217 · format: Intl · submits: 1290.5 · sizes: 3.
 </div>
 
 <script type="module">
-  import { createCurrencyField } from 'https://lumeui.dev/v/1.11/lume.js';
+  import { createCurrencyField } from 'https://lumeui.dev/v/1.12/lume.js';
   createCurrencyField(document.querySelector('#valor'), { currency: 'BRL', value: 180 });
 </script>
 ```
@@ -62,7 +62,7 @@ Markup of the examples in this section:
 The form receives the plain number (1290.5), in a hidden input with the field’s `name`. Text that isn’t a number goes back to the last valid value.
 
 ```html
-import { createCurrencyField } from 'https://lumeui.dev/v/1.11/lume.js';
+import { createCurrencyField } from 'https://lumeui.dev/v/1.12/lume.js';
 
 const valor = createCurrencyField(document.querySelector('#valor'), {
   currency: 'BRL',

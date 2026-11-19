@@ -1,6 +1,6 @@
 # Lume icons
 
-There are 154 icons drawn for Lume: a 24 grid, a 1.5 stroke, round caps. Use only these names, in `<ds-icon name="…">` (with https://lumeui.dev/ds/icons/icons.js imported) or in the `icon(name)` function from the same module. No other name exists.
+There are 175 icons drawn for Lume: a 24 grid, a 1.5 stroke, round caps. Use only these names, in `<ds-icon name="…">` (with https://lumeui.dev/ds/icons/icons.js imported) or in the `icon(name)` function from the same module. No other name exists.
 
 ```html
 <ds-icon name="search" size="20"></ds-icon>
@@ -38,6 +38,8 @@ The default size is 20 px; the stroke becomes 1.75 below 16 px. The icon inherit
 | `zoom-in` | zoom, in, magnify, enlarge, plus |
 | `zoom-out` | zoom, out, reduce, minus |
 | `maximize` | maximize, fullscreen, expand, fit |
+| `minimize` | minimize, exit, fullscreen, shrink |
+| `eraser` | eraser, clear, erase, markup |
 | `search` | search, find, magnifier |
 | `search-x` | no, results, empty, search, nothing, found |
 | `send` | send, message, plane |
@@ -86,6 +88,7 @@ The default size is 20 px; the stroke becomes 1.75 below 16 px. The icon inherit
 | `clock` | time, hour, clock |
 | `history` | history, changelog, versions |
 | `shield` | security, protection |
+| `shield-alert` | security, warning, alert, risk |
 | `lock` | locked, private, password |
 | `wifi-off` | no, connection, offline, internet, network |
 | `star` | favorite, highlight, example |
@@ -125,6 +128,8 @@ The default size is 20 px; the stroke becomes 1.75 below 16 px. The icon inherit
 | `kanban` | kanban, board, columns, cards, tasks |
 | `tooltip` | hint, balloon, help, tooltip |
 | `table` | table, data, grid |
+| `columns` | columns, choose, table, layout |
+| `rows` | rows, density, table, layout |
 | `list` | list, items |
 | `bold` | bold, text, editor, formatting |
 | `italic` | italic, text, editor, formatting |
@@ -147,7 +152,14 @@ The default size is 20 px; the stroke becomes 1.75 below 16 px. The icon inherit
 | Name | Keywords |
 | --- | --- |
 | `calendar` | calendar, date, schedule, event |
+| `calendar-plus` | schedule, add, event, new, booking |
+| `calendar-check` | scheduled, confirmed, booked |
+| `calendar-off` | block, day, off, cancel, unavailable |
 | `file-text` | document, file, page |
+| `file-x` | file, removed, not, found, document, error |
+| `receipt` | receipt, invoice, bill, payment |
+| `printer` | print, printer, printing |
+| `notebook-pen` | notebook, write, note, log, entry |
 | `folder` | folder, directory |
 | `inbox` | inbox, empty |
 | `image` | image, photo, media |
@@ -158,6 +170,12 @@ The default size is 20 px; the stroke becomes 1.75 below 16 px. The icon inherit
 | `git-branch` | branch, version |
 | `git-pull-request` | contribute, pull, request, review |
 | `mail` | email, message, letter |
+| `mail-check` | email, sent, confirmed, verified |
+| `wallet` | wallet, finance, money, payment |
+| `key` | key, password, access, certificate |
+| `hard-drive` | drive, storage, local, data, saved |
+| `map-pin` | location, address, map, place |
+| `pin` | pin, pushpin, stick, highlight |
 | `globe` | world, language, web |
 | `target` | target, goal, focus |
 | `hash` | number, tag, channel, hashtag |
@@ -201,3 +219,6 @@ The default size is 20 px; the stroke becomes 1.75 below 16 px. The icon inherit
 | `user` | user, person, profile |
 | `user-circle` | avatar, account, profile |
 | `users` | team, group, people |
+| `user-plus` | new, client, add, person, invite |
+| `user-x` | remove, person, delete, client |
+| `id-card` | profile, record, id, card, badge |

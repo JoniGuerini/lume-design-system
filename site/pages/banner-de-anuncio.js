@@ -69,7 +69,7 @@ export default function renderBanner(page) {
 </div>
 
 <script type="module">
-  import { createBanner } from 'https://lumeui.dev/v/1.11/lume.js';
+  import { createBanner } from 'https://lumeui.dev/v/1.12/lume.js';
 
   // ${L('id novo a cada anúncio: quem fechou o anterior vê este', 'a new id for each announcement: whoever closed the last one sees this one', 'id nuevo en cada anuncio: quien cerró el anterior ve este')}
   createBanner(document.querySelector('.ds-banner'), { id: 'lume-0.35' });
@@ -148,7 +148,7 @@ export function mount(root) {
 </div>${s.close === 'yes' ? `
 
 <script type="module">
-  import { createBanner } from 'https://lumeui.dev/v/1.11/lume.js';
+  import { createBanner } from 'https://lumeui.dev/v/1.12/lume.js';
   createBanner(document.querySelector('.ds-banner'), { id: 'lume-0.35' });
 </script>` : ''}`,
   });
