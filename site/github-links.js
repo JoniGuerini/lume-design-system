@@ -70,6 +70,7 @@ const FILES = {
   divisor: C('surfaces'),
   avatar: C('surfaces'),
   tabela: C('table'),
+  'tabela-de-dados': J('data-table'),
   calendario: C('calendar'),
   'linha-do-tempo': C('content'),
   'lista-de-definicoes': C('content'),

@@ -4,17 +4,17 @@ Sección de Lume: Recursos. Página: https://lumeui.dev/#/recursos/api
 
 Todo lo que puedes llamar desde JavaScript, en un solo archivo. Lo que está aquí es público y estable; el resto es interno y puede cambiar.
 
-En números: ítems públicos: 105 · verbos: 5 · dependencias: 0.
+En números: ítems públicos: 111 · verbos: 5 · dependencias: 0.
 
 ## Importar
 
 Un archivo, `ds/lume.js`, reúne toda la API. Los módulos de `ds/js/` siguen pudiéndose importar uno a uno, para cargar solo lo necesario.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/1.12/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/1.13/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/1.12/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/1.13/lume.js';
 
   initTheme();
   const modal = createModal({ title: '¿Publicar cambios?' });
@@ -69,7 +69,7 @@ Pocos y todos con el prefijo `ds:`. El resto llega por las opciones `on…` de c
 
 ## Todo lo público
 
-Los 105 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
+Los 111 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 
 ### Componentes
 
@@ -104,6 +104,12 @@ Los 105 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 | `createSearchField` | Campo de búsqueda con borrar, Esc y atajo. | search-field.js |
 | `createOtpField` | Campo de código de verificación. | otp-field.js |
 | `createPagination` | Paginación de una lista o tabla. | pagination.js |
+| `createDataTable` | Tabla de datos: búsqueda, filtros, lote, columnas, edición y CSV. | data-table.js |
+| `dataTableView` | La cuenta de la tabla de datos (filtrar, ordenar, paginar), sin DOM. | data-table.js |
+| `dataTableCsv` | CSV de filas y columnas. | data-table.js |
+| `dataTableMinWidth` | Ancho mínimo de la tabla de datos, a partir de las columnas. | data-table.js |
+| `downloadCsv` | Descarga un texto como .csv. | data-table.js |
+| `DATA_TABLE_STATE` | El estado inicial de la tabla de datos. | data-table.js |
 | `createPopover` | Panel que se abre sujeto a un botón. | popover.js |
 | `progressRingHtml` | Marcado del progreso circular, con el porcentaje en el centro; sin valor, indeterminado. | progress-ring.js |
 | `setProgressRing` | Cambia el valor de un progreso circular ya dibujado. | progress-ring.js |

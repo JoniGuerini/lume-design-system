@@ -12,7 +12,7 @@ En números: orientaciones: 2 · estados: 3 · marcador: 28 px · atributo: aria
 <ol class="ds-stepper"></ol>
 
 <script type="module">
-  import { createStepper } from 'https://lumeui.dev/v/1.12/lume.js';
+  import { createStepper } from 'https://lumeui.dev/v/1.13/lume.js';
   createStepper(document.querySelector('.ds-stepper'), {
     steps: [{ label: 'Cuenta' }, { label: 'Perfil' }, { label: 'Equipo' }, { label: 'Listo' }],
     current: 1,
@@ -82,7 +82,7 @@ Marcado de los ejemplos de esta sección:
 El contenido de cada etapa es tuyo; el stepper solo muestra el camino.
 
 ```html
-import { createStepper } from 'https://lumeui.dev/v/1.12/lume.js';
+import { createStepper } from 'https://lumeui.dev/v/1.13/lume.js';
 
 const stepper = createStepper(document.querySelector('.ds-stepper'), {
   steps: [{ label: 'Cuenta' }, { label: 'Perfil' }, { label: 'Listo' }],

@@ -4,17 +4,17 @@ Lume section: Resources. Page: https://lumeui.dev/#/recursos/api
 
 Everything you can call from JavaScript, in a single file. What’s here is public and stable; the rest is internal and may change.
 
-In numbers: public items: 105 · verbs: 5 · dependencies: 0.
+In numbers: public items: 111 · verbs: 5 · dependencies: 0.
 
 ## Import
 
 One file, `ds/lume.js`, gathers the whole API. The `ds/js/` modules can still be imported one by one, to load only what you need.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/1.12/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/1.13/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/1.12/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/1.13/lume.js';
 
   initTheme();
   const modal = createModal({ title: 'Publish changes?' });
@@ -69,7 +69,7 @@ Few, all prefixed with `ds:`. Everything else arrives through each component’s
 
 ## Everything public
 
-The 105 items in `ds/lume.js`, with the module each one comes from.
+The 111 items in `ds/lume.js`, with the module each one comes from.
 
 ### Components
 
@@ -104,6 +104,12 @@ The 105 items in `ds/lume.js`, with the module each one comes from.
 | `createSearchField` | Search field with clear, Esc, and a shortcut. | search-field.js |
 | `createOtpField` | Verification code field. | otp-field.js |
 | `createPagination` | Pagination for a list or table. | pagination.js |
+| `createDataTable` | Data table: search, filters, bulk, columns, editing and CSV. | data-table.js |
+| `dataTableView` | The data table math (filter, sort, paginate), with no DOM. | data-table.js |
+| `dataTableCsv` | CSV from rows and columns. | data-table.js |
+| `dataTableMinWidth` | The data table’s minimum width, from its columns. | data-table.js |
+| `downloadCsv` | Downloads text as a .csv. | data-table.js |
+| `DATA_TABLE_STATE` | The data table’s initial state. | data-table.js |
 | `createPopover` | Panel that opens attached to a button. | popover.js |
 | `progressRingHtml` | Circular progress markup, with the percentage in the middle; with no value, indeterminate. | progress-ring.js |
 | `setProgressRing` | Changes the value of a circular progress already on the page. | progress-ring.js |

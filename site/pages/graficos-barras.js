@@ -47,7 +47,7 @@ const thousandUnits = () => L('Mil unidades', 'Thousand units', 'Miles de unidad
 const list = (arr) => `[${arr.map((v) => (typeof v === 'string' ? `'${v}'` : v)).join(', ')}]`;
 
 function chartCode(fn, target, lines) {
-  return `import { ${fn} } from 'https://lumeui.dev/v/1.12/lume.js';\n\n${fn}(document.querySelector('${target}'), {\n${lines.filter(Boolean).map((l) => `  ${l}`).join('\n')}\n});`;
+  return `import { ${fn} } from 'https://lumeui.dev/v/1.13/lume.js';\n\n${fn}(document.querySelector('${target}'), {\n${lines.filter(Boolean).map((l) => `  ${l}`).join('\n')}\n});`;
 }
 
 /* ───────── Playground ───────── */

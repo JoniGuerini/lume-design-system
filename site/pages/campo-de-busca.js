@@ -74,7 +74,7 @@ export default function renderCampoDeBusca(page) {
 </div>
 
 <script type="module">
-  import { createSearchField } from 'https://lumeui.dev/v/1.12/lume.js';
+  import { createSearchField } from 'https://lumeui.dev/v/1.13/lume.js';
   createSearchField(document.querySelector('#busca'), {
     shortcut: '/',
     onChange: (value) => filtrar(value),
@@ -137,7 +137,7 @@ export function mount(root) {
 </div>
 
 <script type="module">
-  import { createSearchField } from 'https://lumeui.dev/v/1.12/lume.js';
+  import { createSearchField } from 'https://lumeui.dev/v/1.13/lume.js';
   createSearchField(document.querySelector('#busca')${s.shortcut === 'on' ? ", { shortcut: '/' }" : ''});
 </script>`,
   });

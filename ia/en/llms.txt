@@ -1,6 +1,6 @@
 # Lume Design System
 
-> A design system in native HTML, CSS, and JavaScript, with no dependencies: tokens, typography, 130 custom icons, components, charts, and screen patterns, in light and dark themes. Version 1.12.0.
+> A design system in native HTML, CSS, and JavaScript, with no dependencies: tokens, typography, 130 custom icons, components, charts, and screen patterns, in light and dark themes. Version 1.13.0.
 
 Start with [README](https://lumeui.dev/ia/en/README.md): installation, general rules, and what never to invent. Every page of the site has a Markdown file below, generated from it.
 
@@ -89,6 +89,7 @@ Start with [README](https://lumeui.dev/ia/en/README.md): installation, general r
 - [Divider](https://lumeui.dev/ia/en/componentes/divisor.md): A line between blocks, horizontal and vertical, with an optional label.
 - [Avatar](https://lumeui.dev/ia/en/componentes/avatar.md): A person or account: photo, initials in a stable tone, status, and group.
 - [Table](https://lumeui.dev/ia/en/componentes/tabela.md): Data in rows and columns, with sorting and selection.
+- [Data table](https://lumeui.dev/ia/en/componentes/tabela-de-dados.md): The Table with search, filters, bulk actions, columns, cell editing, and CSV.
 - [Calendar](https://lumeui.dev/ia/en/componentes/calendario.md): Month, week, and day, with events and keyboard.
 - [Timeline](https://lumeui.dev/ia/en/componentes/linha-do-tempo.md): Events in order, like an activity history.
 - [Description list](https://lumeui.dev/ia/en/componentes/lista-de-definicoes.md): Label and value pairs, as on a details sheet.

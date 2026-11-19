@@ -54,6 +54,7 @@ export { createPasswordField } from './js/password-field.js';
 export { createSearchField } from './js/search-field.js';
 export { createOtpField } from './js/otp-field.js';
 export { createPagination } from './js/pagination.js';
+export { createDataTable, dataTableView, dataTableCsv, dataTableMinWidth, downloadCsv, DATA_TABLE_STATE } from './js/data-table.js';
 export { createPopover } from './js/popover.js';
 export { initScrollbars } from './js/scrollbar.js';
 export { createSegmented } from './js/segmented.js';

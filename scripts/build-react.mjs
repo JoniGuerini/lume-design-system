@@ -59,6 +59,13 @@ export declare function mountSelects(root?: ParentNode): () => void;
 `,
   'time-picker': `export declare function createTimePicker(input: HTMLInputElement, options?: Record<string, unknown>): { value: string | null; setValue(value: string | null): void; open(): void; close(): void; destroy(): void };
 `,
+  'data-table': `export interface DataTableViewResult<Row> { filtered: Row[]; pageRows: Row[]; page: number; pages: number; total: number; counts: Record<string, Record<string, number>> }
+export declare const DATA_TABLE_STATE: { query: string; filters: Record<string, string[]>; sort: { key: string; direction: 'ascending' | 'descending' } | null; page: number; pageSize: number; selected: string[]; hidden: string[]; density: 'comfortable' | 'compact' };
+export declare function dataTableView<Row>(rows: Row[], config: { columns: any[]; filters?: any[] }, state: any): DataTableViewResult<Row>;
+export declare function dataTableCsv<Row>(rows: Row[], columns: any[], options?: { textOf?: (column: any, row: Row) => unknown }): string;
+export declare function downloadCsv(fileName: string, text: string): void;
+export declare function dataTableMinWidth(columns: { width?: number; minWidth?: number }[], options?: { selectable?: boolean; actions?: boolean }): number;
+export declare function createDataTable(root: HTMLElement, options?: Record<string, unknown>): { el: HTMLElement; state: Record<string, unknown>; setState(partial: Record<string, unknown>): void; setRows(rows: unknown[]): void; setLoading(loading: boolean): void; setActive(key: string | null): void; exportCsv(): void; destroy(): void };`,
   'currency-field': `export declare function currencyParts(currency?: string): { symbol: string; after: boolean; digits: number };
 export declare function parseMoney(text: string): number | null;
 export declare function createCurrencyField(input: HTMLInputElement, options?: { currency?: string; value?: number | null; min?: number; max?: number; onChange?: (value: number | null) => void }): { el: HTMLInputElement; value: number | null; setValue(value: number | null): void; destroy(): void };`,

@@ -4,7 +4,7 @@ Lume section: Resources. Page: https://lumeui.dev/#/recursos/react
 
 React components on top of Lume’s same CSS and JavaScript, already compiled and typed. Install from npm or, if you’d rather have the files in your project, copy the .tsx files.
 
-In numbers: of the 66 components: 66 · React: 18+ · dependencies: 0.
+In numbers: of the 67 components: 67 · React: 18+ · dependencies: 0.
 
 ## Install
 
@@ -16,7 +16,7 @@ npm install @joniguerini/lume
 
 ### Prefer the files in your project?
 
-As with shadcn: download the 1.12 zip and move the folder into `src/` named `lume`, or run `npx @joniguerini/lume init`. The components live in `lume/react/`, as .tsx, to read and change freely; your imports then become `./lume/react`.
+As with shadcn: download the 1.13 zip and move the folder into `src/` named `lume`, or run `npx @joniguerini/lume init`. The components live in `lume/react/`, as .tsx, to read and change freely; your imports then become `./lume/react`.
 
 ```html
 src/
@@ -171,6 +171,7 @@ What’s already in React. Each name leads to the component’s page, with the u
 | `Timeline` | Events with tone, icon and date. | Content.tsx |
 | `Breadcrumb` | Items with links; renderLink for your router’s link. | Content.tsx |
 | `Table` | Columns, sorting and selection in state; empty and loading. | Table.tsx |
+| `DataTable` | Search, filters, sort, pages, bulk, columns, density, cell editing and CSV. | DataTable.tsx |
 | `Calendar` | Month, week and day, with events; view and date in state. | Calendar.tsx |
 | `CodeBlock` | Code with the copy button. | Calendar.tsx |
 | `Carousel` | Each child becomes a slide; perView, peek, loop and autoplay with pause. index and onChange in state. | Carousel.tsx |
@@ -207,8 +208,8 @@ What’s already in React. Each name leads to the component’s page, with the u
 | Your files | From npm, they come compiled and typed. Copied, the .tsx files live in your project, as with shadcn: you can read, change, and delete what you don’t use. |
 | TypeScript | Typed, commented props, with a link to each component’s page. `IconName` lists the 175 icons: a wrong name won’t compile. |
 | Language | The text a component writes on its own ("Close", "Loading") follows Lume’s language and changes with `setLocale`. `useLocale()` does the same for yours. |
-| Versions | From npm, updating is `npm update @joniguerini/lume`; the package version is Lume’s. Copied, the `react/` folder ships with every line (`/v/1.12/react/`) and updating means swapping the folder. |
+| Versions | From npm, updating is `npm update @joniguerini/lume`; the package version is Lume’s. Copied, the `react/` folder ships with every line (`/v/1.13/react/`) and updating means swapping the folder. |
 
 ## What’s next
 
-All 66 components are already in React.
+All 67 components are already in React.

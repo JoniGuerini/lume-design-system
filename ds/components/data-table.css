@@ -1,0 +1,270 @@
+/*
+ * Tabela de dados (ds/js/data-table.js, DataTable no React) — a Tabela com cabeçalho, barra de ferramentas,
+ * ações em lote e paginação, num cartão só.
+ *
+ * <section class="ds-data-table" data-density="comfortable|compact">
+ *   <header class="ds-data-table__head">título, descrição · ações</header>
+ *   <div class="ds-data-table__toolbar">busca, filtros · colunas, densidade, exportar</div>
+ *   <div class="ds-data-table__bulk" hidden>"3 selecionadas" · ações em lote · ×</div>   ← no lugar da barra
+ *   <div class="ds-data-table__scroll"><table class="ds-table">…</table></div>
+ *   <footer class="ds-data-table__foot"><nav class="ds-pagination"></nav></footer>
+ * </section>
+ *
+ * Linha clicável: tr[data-clickable]; a ativa (a ficha aberta): tr[data-active]. Célula editável: .ds-data-table__edit.
+ */
+.ds-data-table {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-xl);
+  background: var(--ds-color-bg-surface);
+  overflow: hidden;
+}
+
+.ds-data-table__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--ds-space-200);
+  padding: var(--ds-space-250) var(--ds-space-250) var(--ds-space-150);
+}
+
+.ds-data-table__title {
+  font: var(--ds-text-heading-xs);
+  letter-spacing: var(--ds-text-heading-xs-tracking);
+}
+
+.ds-data-table__desc {
+  margin-top: 2px;
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+  letter-spacing: var(--ds-text-body-sm-tracking);
+}
+
+.ds-data-table__head-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-100);
+}
+
+/* Barra de ferramentas e barra de lote têm a mesma altura: trocar uma pela outra não mexe na tabela */
+.ds-data-table__toolbar,
+.ds-data-table__bulk {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ds-space-100);
+  min-height: 52px;
+}
+
+.ds-data-table__toolbar {
+  padding: 0 var(--ds-space-250) var(--ds-space-150);
+}
+
+.ds-data-table__toolbar[hidden],
+.ds-data-table__bulk[hidden] {
+  display: none;
+}
+
+.ds-data-table__search {
+  flex: 0 1 260px;
+  min-width: 160px;
+}
+
+.ds-data-table__spacer {
+  flex: 1;
+}
+
+/* Lote: fundo invertido, como o Toast — fica claro que a barra fala das linhas marcadas */
+.ds-data-table__bulk {
+  margin: 0 var(--ds-space-150) var(--ds-space-150);
+  padding: 6px var(--ds-space-100) 6px var(--ds-space-200);
+  min-height: 40px;
+  border-radius: var(--ds-radius-md);
+  background: var(--ds-color-bg-inverse);
+  color: var(--ds-color-fg-inverse);
+  font: var(--ds-text-label-md);
+  letter-spacing: var(--ds-text-label-md-tracking);
+}
+
+.ds-data-table__bulk .ds-btn,
+.ds-data-table__bulk .ds-icon-btn {
+  --_fg: var(--ds-color-fg-inverse);
+  color: var(--ds-color-fg-inverse);
+}
+
+.ds-data-table__bulk .ds-btn:is(:hover, [data-state="hover"]),
+.ds-data-table__bulk .ds-icon-btn:is(:hover, [data-state="hover"]) {
+  --_bg: color-mix(in srgb, var(--ds-color-fg-inverse) 12%, transparent);
+  background: color-mix(in srgb, var(--ds-color-fg-inverse) 12%, transparent);
+}
+
+.ds-data-table__bulk .ds-data-table__bulk-danger {
+  --_fg: var(--ds-color-danger-on-solid);
+}
+
+/* Tabela */
+.ds-data-table__scroll {
+  min-width: 0;
+  overflow-x: auto;
+  border-top: 1px solid var(--ds-color-border-subtle);
+}
+
+.ds-data-table .ds-table {
+  table-layout: fixed;
+}
+
+.ds-data-table .ds-table td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ds-data-table tr[data-clickable] {
+  cursor: pointer;
+}
+
+.ds-data-table tr[data-clickable]:focus-visible {
+  outline-offset: -2px;
+}
+
+.ds-data-table tbody tr[data-active] td {
+  background: var(--ds-color-bg-selected);
+}
+
+/* Ações da linha: aparecem com o mouse, o foco ou a linha ativa; no toque, sempre */
+.ds-data-table .ds-data-table__actions {
+  padding-inline: 0 var(--ds-space-150);
+  text-align: end;
+}
+
+.ds-data-table__actions .ds-icon-btn {
+  opacity: 0;
+}
+
+.ds-data-table tr:is(:hover, :focus-within, [data-active], [data-state="hover"]) .ds-data-table__actions .ds-icon-btn,
+.ds-data-table__actions .ds-icon-btn[aria-expanded="true"] {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .ds-data-table__actions .ds-icon-btn {
+    opacity: 1;
+  }
+}
+
+/* Célula editável: o valor é um botão; o lápis aparece com o mouse ou o foco */
+.ds-data-table__edit {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-075);
+  max-width: 100%;
+  margin-inline: -6px;
+  padding: 4px 6px;
+  border-radius: var(--ds-radius-xs);
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+}
+
+.ds-data-table__edit > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ds-data-table__edit > .ds-icon {
+  flex: none;
+  color: var(--ds-color-fg-subtle);
+  opacity: 0;
+}
+
+.ds-data-table__edit:is(:hover, :focus-visible, [data-state="hover"], [data-state="focus"]) {
+  background: var(--ds-color-bg-hover);
+}
+
+.ds-data-table__edit:is(:hover, :focus-visible, [data-state="hover"], [data-state="focus"]) > .ds-icon {
+  opacity: 1;
+}
+
+.ds-data-table__cell-field {
+  margin-block: -6px;
+}
+
+.ds-table__num .ds-data-table__cell-field .ds-field__input {
+  text-align: end;
+}
+
+.ds-data-table__saving {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Filtros e colunas: lista de caixas com a contagem à direita */
+.ds-data-table__filter {
+  display: grid;
+  gap: var(--ds-space-100);
+  min-width: 220px;
+}
+
+.ds-data-table__checks {
+  display: grid;
+  gap: var(--ds-space-050);
+}
+
+.ds-data-table__checks li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-200);
+}
+
+.ds-data-table__checks .ds-choice__label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-075);
+}
+
+.ds-data-table__swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.ds-data-table__count {
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-caption);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Rodapé */
+.ds-data-table__foot {
+  padding: var(--ds-space-150) var(--ds-space-250);
+  border-top: 1px solid var(--ds-color-border-subtle);
+}
+
+.ds-data-table__foot .ds-pagination {
+  width: 100%;
+}
+
+@media (max-width: 639.98px) {
+  .ds-data-table__head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ds-data-table__search {
+    flex: 1 1 100%;
+  }
+}
+
+/* em número, o lápis vai à esquerda: o valor fica alinhado à direita com os outros */
+.ds-table__num .ds-data-table__edit {
+  flex-direction: row-reverse;
+}
+
+/* a linha ativa (a ficha aberta) ganha o fio do indicador, para não se confundir com as marcadas */
+.ds-data-table tbody tr[data-active] td:first-child {
+  box-shadow: inset 2px 0 0 var(--ds-color-brand-indicator);
+}

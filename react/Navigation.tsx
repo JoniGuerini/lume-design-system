@@ -228,6 +228,8 @@ export interface PaginationProps {
   hrefFor?: (page: number) => string;
   /** Nome para leitores de tela. */
   label?: string;
+  /** Troca o texto do intervalo (os números já vêm formatados). */
+  summary?: (range: { first: string; last: string; total: string }) => string;
   className?: string;
 }
 
@@ -235,15 +237,17 @@ export interface PaginationProps {
  * Páginas de uma lista, com total e itens por página. Em telas estreitas, vira "3 de 25".
  * https://lumeui.dev/#/componentes/paginacao
  */
-export function Pagination({ total, page, pageSize, onChange, pageSizes, siblings, hrefFor, label, className }: PaginationProps) {
+export function Pagination({ total, page, pageSize, onChange, pageSizes, siblings, hrefFor, label, summary, className }: PaginationProps) {
   const root = useRef<HTMLElement>(null);
   const api = useRef<{ page: number; setPage(p: number): void; setTotal(t: number): void; destroy(): void } | null>(null);
   const change = useLatest(onChange);
   const href = useLatest(hrefFor);
+  const sum = useLatest(summary);
   useEffect(() => {
     const c = createPagination(root.current!, defined({
       total, page, pageSize, pageSizes, siblings,
       hrefFor: hrefFor ? (p: number) => href.current!(p) : undefined,
+      summary: summary ? (r: { first: string; last: string; total: string }) => sum.current!(r) : undefined,
       onChange: (s: { page: number; pageSize: number }) => change.current(s),
     }));
     api.current = c;
@@ -252,7 +256,7 @@ export function Pagination({ total, page, pageSize, onChange, pageSizes, sibling
       api.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pageSize, stableKey(pageSizes), siblings, Boolean(hrefFor)]);
+  }, [pageSize, stableKey(pageSizes), siblings, Boolean(hrefFor), Boolean(summary)]);
   useEffect(() => {
     if (api.current && api.current.page !== page) api.current.setPage(page);
   }, [page]);

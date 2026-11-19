@@ -226,3 +226,8 @@
     animation: none;
   }
 }
+
+/* Larguras de coluna (<colgroup> com width): a tabela respeita e as colunas não pulam ao paginar */
+.ds-table:has(> colgroup col[style*="width"]) {
+  table-layout: fixed;
+}

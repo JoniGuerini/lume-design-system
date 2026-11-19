@@ -4,17 +4,17 @@ Seção do Lume: Recursos. Página: https://lumeui.dev/#/recursos/api
 
 Tudo o que você pode chamar pelo JavaScript, num arquivo só. O que está aqui é público e estável; o resto é interno e pode mudar.
 
-Em números: itens públicos: 105 · verbos: 5 · dependências: 0.
+Em números: itens públicos: 111 · verbos: 5 · dependências: 0.
 
 ## Importar
 
 Um arquivo, `ds/lume.js`, reúne a API inteira. Os módulos de `ds/js/` continuam podendo ser importados um a um, para carregar só o necessário.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/1.12/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/1.13/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/1.12/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/1.13/lume.js';
 
   initTheme();
   const modal = createModal({ title: 'Publicar alterações?' });
@@ -69,7 +69,7 @@ Poucos e todos com o prefixo `ds:`. O resto chega pelas opções `on…` de cada
 
 ## Tudo o que é público
 
-Os 105 itens de `ds/lume.js`, com o módulo de onde cada um vem.
+Os 111 itens de `ds/lume.js`, com o módulo de onde cada um vem.
 
 ### Componentes
 
@@ -104,6 +104,12 @@ Os 105 itens de `ds/lume.js`, com o módulo de onde cada um vem.
 | `createSearchField` | Campo de busca com limpar, Esc e atalho. | search-field.js |
 | `createOtpField` | Campo de código de verificação. | otp-field.js |
 | `createPagination` | Paginação de uma lista ou tabela. | pagination.js |
+| `createDataTable` | Tabela de dados: busca, filtros, lote, colunas, edição e CSV. | data-table.js |
+| `dataTableView` | A conta da tabela de dados (filtrar, ordenar, paginar), sem DOM. | data-table.js |
+| `dataTableCsv` | CSV de linhas e colunas. | data-table.js |
+| `dataTableMinWidth` | Largura mínima da tabela de dados, a partir das colunas. | data-table.js |
+| `downloadCsv` | Baixa um texto como .csv. | data-table.js |
+| `DATA_TABLE_STATE` | O estado inicial da tabela de dados. | data-table.js |
 | `createPopover` | Painel que abre preso a um botão. | popover.js |
 | `progressRingHtml` | Marcação do progresso circular, com a porcentagem no meio; sem valor, indeterminado. | progress-ring.js |
 | `setProgressRing` | Muda o valor de um progresso circular já desenhado. | progress-ring.js |

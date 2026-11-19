@@ -40,7 +40,7 @@ export default function renderCampoDeDinheiro(page) {
         id: 'codigo',
         title: L('Código', 'Code', 'Código'),
         desc: L(`O formulário recebe o número puro (1290.5), num input oculto com o ${ic('name')} do campo. Texto que não é número volta ao último valor válido.`, `The form receives the plain number (1290.5), in a hidden input with the field’s ${ic('name')}. Text that isn’t a number goes back to the last valid value.`, `El formulario recibe el número puro (1290.5), en un input oculto con el ${ic('name')} del campo. El texto que no es número vuelve al último valor válido.`),
-        html: codeBlock(`import { createCurrencyField } from 'https://lumeui.dev/v/1.12/lume.js';
+        html: codeBlock(`import { createCurrencyField } from 'https://lumeui.dev/v/1.13/lume.js';
 
 const valor = createCurrencyField(document.querySelector('#valor'), {
   currency: 'BRL',
@@ -107,7 +107,7 @@ export function mount(root) {
 </div>
 
 <script type="module">
-  import { createCurrencyField } from 'https://lumeui.dev/v/1.12/lume.js';
+  import { createCurrencyField } from 'https://lumeui.dev/v/1.13/lume.js';
   createCurrencyField(document.querySelector('#valor'), { currency: '${s.currency}', value: 180 });
 </script>`,
   });

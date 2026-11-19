@@ -175,7 +175,7 @@ Los switches y `createSegmented` guardan al instante; el perfil es un `<form>` c
 ```
 
 ```html
-import { createModal, toast } from 'https://lumeui.dev/v/1.12/lume.js';
+import { createModal, toast } from 'https://lumeui.dev/v/1.13/lume.js';
 
 // Encender y apagar: guarda al instante y avisa sin mover el foco
 seccion.addEventListener('change', async (e) => {

@@ -1,0 +1,2 @@
+// Gerado por scripts/build-react.mjs. Não edite.
+export declare function createSearchField(input: HTMLInputElement, options?: { shortcut?: string; onChange?: (value: string) => void }): { el: HTMLInputElement; value: string; setValue(value: string): void; clear(): void; focus(): void; destroy(): void };

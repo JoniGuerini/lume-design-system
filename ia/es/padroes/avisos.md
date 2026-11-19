@@ -142,7 +142,7 @@ Alerta y banner son marcado; `toast` y `confirmModal` son una línea cada uno.
 ```
 
 ```html
-import { toast, confirmModal } from 'https://lumeui.dev/v/1.12/lume.js';
+import { toast, confirmModal } from 'https://lumeui.dev/v/1.13/lume.js';
 
 // Tiene vuelta: hazlo ahora y ofrece Deshacer
 archivar(informe);

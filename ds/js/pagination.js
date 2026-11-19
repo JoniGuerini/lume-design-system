@@ -10,6 +10,7 @@
  *     pageSizes: [10, 25, 50],              // mostra o seletor de itens por página (opcional)
  *     siblings: 1,                          // páginas de cada lado da atual
  *     hrefFor: (page) => `?pagina=${page}`, // vira links de verdade (opcional)
+ *     summary: ({ first, last, total }) => …, // troca o texto do intervalo (opcional; os números já vêm formatados)
  *     onChange: ({ page, pageSize }) => carregar(page, pageSize),
  *   });
  *   pagination.setPage(3); pagination.setTotal(100); pagination.destroy();
@@ -63,7 +64,7 @@ export function createPagination(root, options = {}) {
       ? `<button type="button" class="ds-chip ds-chip--sm ds-pagination__size" data-size><span data-label>${escape(msg('pagination.perPage', pageSize))}</span><span class="ds-chip__chevron">${icon('chevron-down', { size: 14 })}</span></button>`
       : '';
     root.innerHTML = `
-      <p class="ds-pagination__summary" role="status">${escape(msg('pagination.range', n(first), n(last), n(total)))}</p>
+      <p class="ds-pagination__summary" role="status">${escape(o.summary ? o.summary({ first: n(first), last: n(last), total: n(total) }) : msg('pagination.range', n(first), n(last), n(total)))}</p>
       ${sizes}
       <ul class="ds-pagination__list" role="list">
         <li>${control(page - 1, icon('chevron-left', { size: 18 }), { label: msg('pagination.prev'), disabled: page <= 1, cls: 'ds-pagination__page ds-pagination__arrow' })}</li>

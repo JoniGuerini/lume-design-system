@@ -181,7 +181,7 @@ const htmlCode = () => `<section aria-labelledby="${L('notificacoes', 'notificat
   </label>
 </section>`;
 
-const jsCode = () => `import { createModal, toast } from 'https://lumeui.dev/v/1.12/lume.js';
+const jsCode = () => `import { createModal, toast } from 'https://lumeui.dev/v/1.13/lume.js';
 
 // ${L('Liga e desliga: grava na hora e avisa sem tirar o foco', 'On and off: store right away and announce without moving focus', 'Encender y apagar: guarda al instante y avisa sin mover el foco')}
 ${L('secao', 'section', 'seccion')}.addEventListener('change', async (e) => {

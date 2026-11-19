@@ -8,10 +8,30 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '1.12.0';
+export const CURRENT_VERSION = '1.13.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '1.13.0',
+    date: '2026-11-19',
+    title: T('Tabela de dados', 'Data table', 'Tabla de datos'),
+    summary: T(
+      'A Tabela com o estado dentro, para listas de trabalho: busca, filtros com contagem, ordem, páginas, seleção com ações em lote, colunas visíveis, densidade, ações por linha, edição na célula e exportar CSV, em HTML e em React.',
+      'The Table with state inside, for working lists: search, filters with counts, sort, pages, selection with bulk actions, visible columns, density, row actions, cell editing, and CSV export, in HTML and React.',
+      'La Tabla con el estado adentro, para listas de trabajo: búsqueda, filtros con conteo, orden, páginas, selección con acciones en lote, columnas visibles, densidad, acciones por fila, edición en la celda y exportar CSV, en HTML y en React.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['novo', T('Tabela de dados: createDataTable e DataTable, com a conta (dataTableView) e o CSV (dataTableCsv) separados para quem busca no servidor', 'Data table: createDataTable and DataTable, with the math (dataTableView) and CSV (dataTableCsv) split out for server-side search', 'Tabla de datos: createDataTable y DataTable, con la cuenta (dataTableView) y el CSV (dataTableCsv) aparte para quien busca en el servidor'), '/componentes/tabela-de-dados'],
+          ['melhoria', T('Tabela: width e minWidth nas colunas, para elas não pularem ao trocar de página', 'Table: width and minWidth on columns, so they don’t jump when changing pages', 'Tabla: width y minWidth en las columnas, para que no salten al cambiar de página'), '/componentes/tabela'],
+          ['melhoria', T('Paginação: summary troca o texto do intervalo (“1–20 de 186 · filtrado de 248”)', 'Pagination: summary replaces the range text (“1–20 of 186 · filtered from 248”)', 'Paginación: summary cambia el texto del intervalo (“1–20 de 186 · filtrado de 248”)'), '/componentes/paginacao'],
+        ],
+      },
+    ],
+  },
   {
     version: '1.12.0',
     date: '2026-11-18',

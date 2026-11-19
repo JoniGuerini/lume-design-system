@@ -20,7 +20,7 @@ In numbers: parts: 2 · variants: 4 · sizes: 3 · menu: createMenu.
 </div>
 
 <script type="module">
-  import { createMenu } from 'https://lumeui.dev/v/1.12/lume.js';
+  import { createMenu } from 'https://lumeui.dev/v/1.13/lume.js';
   createMenu(document.querySelector('#nova-mais'), {
     mode: 'action',
     label: 'More options',
@@ -106,7 +106,7 @@ Just CSS plus the Menu: the arrow is a `createMenu` in action mode, with the nam
 </div>
 
 <script type="module">
-  import { createMenu } from 'https://lumeui.dev/v/1.12/lume.js';
+  import { createMenu } from 'https://lumeui.dev/v/1.13/lume.js';
   createMenu(document.querySelector('#nova-mais'), {
     mode: 'action',
     label: 'More options',

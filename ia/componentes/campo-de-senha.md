@@ -15,7 +15,7 @@ Em números: botão: aria-pressed · foco: no campo · preenchimento: autocomple
 </div>
 
 <script type="module">
-  import { createPasswordField } from 'https://lumeui.dev/v/1.12/lume.js';
+  import { createPasswordField } from 'https://lumeui.dev/v/1.13/lume.js';
   createPasswordField(document.querySelector('#senha'));
 </script>
 ```
@@ -76,7 +76,7 @@ Ao enviar o formulário, a senha volta a ficar escondida, para o navegador ofere
 </div>
 
 <script type="module">
-  import { createPasswordField } from 'https://lumeui.dev/v/1.12/lume.js';
+  import { createPasswordField } from 'https://lumeui.dev/v/1.13/lume.js';
   const senha = createPasswordField(document.querySelector('#senha'));
   // senha.visible · senha.show() · senha.hide() · senha.toggle()
 </script>

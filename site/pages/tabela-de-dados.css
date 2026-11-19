@@ -1,0 +1,29 @@
+/* Tabela de dados — lista de recursos (prefixo td-) */
+.td-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: var(--ds-space-150);
+}
+
+.td-features li {
+  display: grid;
+  gap: var(--ds-space-075);
+  padding: var(--ds-space-200);
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-lg);
+  background: var(--ds-color-bg-surface);
+}
+
+.td-features__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--ds-space-100);
+  font: var(--ds-text-label-md);
+}
+
+.td-features__text {
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}

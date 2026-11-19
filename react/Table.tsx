@@ -18,6 +18,9 @@ export interface TableColumn<Row> {
   sortable?: boolean;
   /** Como desenhar a célula. Padrão: row[key]. */
   render?: (row: Row) => ReactNode;
+  /** Largura fixa (px): as colunas não pulam ao trocar de página. */
+  width?: number;
+  minWidth?: number;
 }
 
 export interface TableProps<Row> {
@@ -86,6 +89,14 @@ export function Table<Row>({
           {caption}
           {description && <span className="ds-table__caption-desc"> {description}</span>}
         </caption>
+        {columns.some((c) => c.width || c.minWidth) && (
+          <colgroup>
+            {selectable && <col style={{ width: 48 }} />}
+            {columns.map((c) => (
+              <col key={c.key} style={c.width ? { width: c.width } : c.minWidth ? { minWidth: c.minWidth } : undefined} />
+            ))}
+          </colgroup>
+        )}
         <thead>
           <tr>
             {selectable && (

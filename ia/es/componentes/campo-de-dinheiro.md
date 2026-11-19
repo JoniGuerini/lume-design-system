@@ -15,7 +15,7 @@ En números: monedas: ISO 4217 · formato: Intl · envía: 1290.5 · tamaños: 3
 </div>
 
 <script type="module">
-  import { createCurrencyField } from 'https://lumeui.dev/v/1.12/lume.js';
+  import { createCurrencyField } from 'https://lumeui.dev/v/1.13/lume.js';
   createCurrencyField(document.querySelector('#valor'), { currency: 'BRL', value: 180 });
 </script>
 ```
@@ -62,7 +62,7 @@ Marcado de los ejemplos de esta sección:
 El formulario recibe el número puro (1290.5), en un input oculto con el `name` del campo. El texto que no es número vuelve al último valor válido.
 
 ```html
-import { createCurrencyField } from 'https://lumeui.dev/v/1.12/lume.js';
+import { createCurrencyField } from 'https://lumeui.dev/v/1.13/lume.js';
 
 const valor = createCurrencyField(document.querySelector('#valor'), {
   currency: 'BRL',

@@ -68,6 +68,10 @@ export { toast, copyText, clearToasts, setToastPosition, getToastPosition, type 
 
 // Conteúdo e dados
 export { Table, type TableProps, type TableColumn, type SortDirection } from './Table';
+export {
+  DataTable,
+  type DataTableProps, type DataTableColumn, type DataTableFilter, type DataTableAction, type DataTableEdit, type DataTableState, type DataTableDensity,
+} from './DataTable';
 export { Carousel, type CarouselProps } from './Carousel';
 export { ResizablePanels, ResizablePanel, type ResizablePanelsProps, type ResizablePanelProps } from './Resizable';
 export { Rating, RatingDisplay, type RatingProps, type RatingDisplayProps } from './Rating';
