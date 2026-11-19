@@ -103,6 +103,7 @@ export declare const getThemePreference: any;
 export declare const mountThemeControls: any;
 export declare const THEMES: any;
 export declare const createTimePicker: any;
+export declare const createMiniCalendar: any;
 export declare const toast: any;
 export declare const clearToasts: any;
 export declare const copyText: any;

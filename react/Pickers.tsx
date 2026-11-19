@@ -3,6 +3,7 @@ import { createDatePicker } from '../js/date-picker.js';
 import { createTimePicker } from '../js/time-picker.js';
 import { createNumberField } from '../js/number-field.js';
 import { createTagField } from '../js/tag-field.js';
+import { createMiniCalendar } from '../js/mini-calendar.js';
 import { Input, type FieldSize } from './Field';
 import { useLatest, stableKey, defined } from './useController';
 
@@ -112,18 +113,20 @@ export interface TimePickerProps extends TextControlBase {
   step?: number;
   min?: string;
   max?: string;
+  /** Para o horário de fim: a lista começa depois deste início, mostra a duração ("15:00 · 1 h") e vai até 24:00. */
+  from?: string;
 }
 
 /**
  * Campo de horário com uma lista; aceita digitar 1430, 14h30 ou 2:30 pm. O formulário recebe HH:MM.
  * https://lumeui.dev/#/componentes/seletor-de-horario
  */
-export function TimePicker({ value, onChange, step, min, max, name, size, ...rest }: TimePickerProps) {
+export function TimePicker({ value, onChange, step, min, max, from, name, size, ...rest }: TimePickerProps) {
   const input = useControlled<string | null>(
-    (el, emit) => createTimePicker(el, defined({ step, min, max, placeholder: rest.placeholder, onChange: emit })),
+    (el, emit) => createTimePicker(el, defined({ step, min, max, from, placeholder: rest.placeholder, onChange: emit })),
     value,
     onChange,
-    [step, min, max, rest.placeholder],
+    [step, min, max, from, rest.placeholder],
   );
   return (
     <>
@@ -190,4 +193,48 @@ export function TagField({ value, onChange, max, validate, name, size, ...rest }
       {name && <input type="hidden" name={name} value={value.join(',')} />}
     </>
   );
+}
+
+/* ───────── Mini calendário ───────── */
+
+export interface MiniCalendarProps {
+  /** O dia escolhido. */
+  value: Date | null;
+  onChange: (date: Date) => void;
+  /** Um trecho em destaque, como a semana vista na agenda. */
+  highlight?: { start: Date; end: Date } | null;
+  min?: Date;
+  max?: Date;
+  className?: string;
+}
+
+/**
+ * O mês do Seletor de data sempre aberto, para a lateral de uma agenda.
+ * https://lumeui.dev/#/componentes/calendario
+ */
+export function MiniCalendar({ value, onChange, highlight, min, max, className }: MiniCalendarProps) {
+  const root = useRef<HTMLDivElement>(null);
+  const api = useRef<{ value: Date | null; setValue(d: Date | null): void; setHighlight(h: { start: Date; end: Date } | null): void; destroy(): void } | null>(null);
+  const emit = useLatest(onChange);
+  const latest = useLatest({ value, highlight });
+  useEffect(() => {
+    const c = createMiniCalendar(root.current!, defined({ value: latest.current.value, highlight: latest.current.highlight, min, max, onChange: (d: Date) => emit.current(d) }));
+    api.current = c;
+    return () => {
+      c.destroy();
+      api.current = null;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [min?.getTime(), max?.getTime()]);
+  const day = value?.toDateString();
+  useEffect(() => {
+    if (api.current && api.current.value?.toDateString() !== day) api.current.setValue(value);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [day]);
+  const hl = highlight ? `${highlight.start.toDateString()}|${highlight.end.toDateString()}` : '';
+  useEffect(() => {
+    api.current?.setHighlight(highlight ?? null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hl]);
+  return <div ref={root} className={className} />;
 }

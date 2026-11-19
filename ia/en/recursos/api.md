@@ -4,17 +4,17 @@ Lume section: Resources. Page: https://lumeui.dev/#/recursos/api
 
 Everything you can call from JavaScript, in a single file. What’s here is public and stable; the rest is internal and may change.
 
-In numbers: public items: 111 · verbs: 5 · dependencies: 0.
+In numbers: public items: 112 · verbs: 5 · dependencies: 0.
 
 ## Import
 
 One file, `ds/lume.js`, gathers the whole API. The `ds/js/` modules can still be imported one by one, to load only what you need.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/1.13/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/1.14/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/1.13/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/1.14/lume.js';
 
   initTheme();
   const modal = createModal({ title: 'Publish changes?' });
@@ -69,7 +69,7 @@ Few, all prefixed with `ds:`. Everything else arrives through each component’s
 
 ## Everything public
 
-The 111 items in `ds/lume.js`, with the module each one comes from.
+The 112 items in `ds/lume.js`, with the module each one comes from.
 
 ### Components
 
@@ -132,6 +132,7 @@ The 111 items in `ds/lume.js`, with the module each one comes from.
 | `selectTab` | Selects a tab from code. | tabs.js |
 | `createTagField` | Tag field. | tag-field.js |
 | `createTimePicker` | Time picker attached to a field. | time-picker.js |
+| `createMiniCalendar` | The date picker’s month, always open, with a highlighted span. | mini-calendar.js |
 | `createToolbar` | Toolbar: a single Tab stop, arrow keys between buttons, and toggle buttons. | toolbar.js |
 | `createTree` | Tree that expands and collapses. | tree.js |
 

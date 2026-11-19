@@ -42,6 +42,7 @@ export default function renderSeletorDeHorario(page) {
           example(L('A cada 15 minutos', 'Every 15 minutes', 'Cada 15 minutos'), 'step: 15', L('O padrão, bom para compromissos.', 'The default, good for appointments.', 'Lo predeterminado, bueno para compromisos.'), formField({ id: 'tp-15', label: L('Início', 'Start', 'Inicio') })),
           example(L('A cada 30 minutos', 'Every 30 minutes', 'Cada 30 minutos'), 'step: 30', L('Menos opções, quando a precisão não importa tanto.', 'Fewer options, when precision matters less.', 'Menos opciones, cuando la precisión importa menos.'), formField({ id: 'tp-30', label: L('Reunião', 'Meeting', 'Reunión') })),
           example(L('Com limites', 'With limits', 'Con límites'), 'min · max', L('Só o horário comercial. Digitar fora dele mostra o erro.', 'Business hours only. Typing outside them shows the error.', 'Solo el horario comercial. Escribir fuera de él muestra el error.'), formField({ id: 'tp-limits', label: L('Atendimento', 'Support', 'Atención') })),
+          example(L('Horário de fim', 'End time', 'Hora de fin'), "from: '14:00'", L('Para o fim de algo que começa às 14:00: a lista começa depois, mostra a duração ao lado e vai até 24:00.', 'For the end of something that starts at 14:00: the list starts after it, shows the duration next to each time, and goes up to 24:00.', 'Para el fin de algo que empieza a las 14:00: la lista empieza después, muestra la duración al lado y llega hasta las 24:00.'), formField({ id: 'tp-end', label: L('Fim', 'End', 'Fin') })),
           example(L('Já preenchido', 'Already filled', 'Ya completado'), 'value', L('Sempre em HH:MM no código; a tela mostra o formato do idioma.', 'Always HH:MM in code; the screen shows the language’s format.', 'Siempre HH:MM en el código; la pantalla muestra el formato del idioma.'), formField({ id: 'tp-filled', label: L('Lembrete', 'Reminder', 'Recordatorio') })),
         ]),
       },
@@ -71,7 +72,7 @@ export default function renderSeletorDeHorario(page) {
         id: 'codigo',
         title: L('Código', 'Code', 'Código'),
         desc: L(`Funciona com ${ic('createForm')}, como os outros campos.`, `It works with ${ic('createForm')}, like the other fields.`, `Funciona con ${ic('createForm')}, como los otros campos.`),
-        html: codeBlock(`import { createTimePicker } from 'https://lumeui.dev/v/1.13/lume.js';
+        html: codeBlock(`import { createTimePicker } from 'https://lumeui.dev/v/1.14/lume.js';
 
 const picker = createTimePicker(document.querySelector('#inicio'), {
   value: '09:00',
@@ -140,7 +141,7 @@ export function mount(root) {
 </div>
 
 <script type="module">
-  import { createTimePicker } from 'https://lumeui.dev/v/1.13/lume.js';
+  import { createTimePicker } from 'https://lumeui.dev/v/1.14/lume.js';
   createTimePicker(document.querySelector('#inicio'), {
     step: ${s.step},${s.limit === 'business' ? "\n    min: '08:00',\n    max: '18:00'," : ''}
   });
@@ -152,6 +153,7 @@ export function mount(root) {
     createTimePicker(root.querySelector('#tp-30'), { step: 30 }),
     createTimePicker(root.querySelector('#tp-limits'), { min: '08:00', max: '18:00', step: 30 }),
     createTimePicker(root.querySelector('#tp-filled'), { value: '09:30' }),
+    createTimePicker(root.querySelector('#tp-end'), { from: '14:00', value: '15:00' }),
   ];
 
   const unmountCopy = mountCodeCopy(root);

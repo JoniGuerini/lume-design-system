@@ -4,12 +4,12 @@ Sección de Lume: Componentes. Página: https://lumeui.dev/#/componentes/calenda
 
 Mes, semana y día en la misma pieza, con eventos. Las fechas, los nombres y el primer día de la semana vienen del idioma — y se puede usar entero con el teclado.
 
-En números: vistas: 3 · tonos de evento: 6 · la semana empieza: lunes · dependencias: 0.
+En números: vistas: 3 · tonos de evento: 14 · la semana empieza: lunes · dependencias: 0.
 
 ## Ejemplo
 
 ```html
-import { createCalendar } from 'https://lumeui.dev/v/1.13/lume.js';
+import { createCalendar } from 'https://lumeui.dev/v/1.14/lume.js';
 
 createCalendar(document.querySelector('#agenda'), {
   events: [
@@ -62,6 +62,59 @@ Marcado de los ejemplos de esta sección:
 <span class="ds-calendar__event ds-calendar__event--brand"><span class="ds-calendar__event-title">Marca</span><span class="ds-calendar__event-time">'brand'</span></span>
 
 <span class="ds-calendar__event ds-calendar__event--info"><span class="ds-calendar__event-title">Info</span><span class="ds-calendar__event-time">'info'</span></span>
+```
+
+## Agenda
+
+El mismo calendario, con lo que pide una agenda: semana de 5 días, colores por agenda, detalles en un popover con acciones, arrastrar para reprogramar, clic en un horario vacío para crear y el mini calendario al costado. Todo opcional.
+
+- Reuniones
+- Grabaciones
+- Plazos
+
+### Opciones de la agenda
+
+|   |   |
+| --- | --- |
+| `weekends: false` | Semana de 5 días, en el mes y en la semana. |
+| `categories · event.category` | Las agendas: cada una con nombre y tono. Los tonos incluyen los 8 colores de los gráficos (blue, violet, amber…). |
+| `event.meta · event.icon` | Una línea de detalle (el lugar) y una marca a la derecha (hecho, asistencia). |
+| `eventDetails · eventActions · onEventAction` | El clic abre los detalles en un popover, con las acciones en el pie. eventHref convierte el título en enlace. |
+| `onEventMove · snap` | Arrastrar con el ratón a otro horario o día, con encaje de 15 min. event.readOnly queda quieto. |
+| `onSlotCreate · slotDuration` | Clic en un horario vacío de la semana o del día crea un evento de 60 min ahí. |
+| `maxEvents` | Cuántos caben en el día del mes antes del “+N”. Los eventos de día entero se vuelven franjas que cruzan los días. |
+| `actions` | Botones en el encabezado, antes del cambio de vista. |
+| `createMiniCalendar · highlight` | El mes del selector de fecha siempre abierto, con la semana visible destacada. |
+
+```html
+import { createCalendar, createMiniCalendar } from 'https://lumeui.dev/v/1.14/lume.js';
+
+const agenda = createCalendar(document.querySelector('#agenda'), {
+  view: 'week',
+  weekends: false,
+  categories: [{ id: 'semanal', label: 'Semanal', tone: 'blue' }, { id: 'quinzenal', label: 'Quincenal', tone: 'violet' }],
+  events, // { id, title, start, end, category, meta: 'Consultorio', icon: 'check-circle' }
+  eventDetails: true,
+  eventActions: [{ value: 'presenca', label: 'Marcar asistencia' }, { value: 'excluir', label: 'Eliminar', icon: 'trash', tone: 'danger' }],
+  onEventAction: (value, evento) => …,
+  onEventMove: (evento, inicio, fim) => remarcar(evento.id, inicio, fim),
+  onSlotCreate: ({ start, end }) => novoEvento(start, end),
+  actions: '<button class="ds-btn ds-btn--primary ds-btn--sm">Nueva cita</button>',
+});
+
+createMiniCalendar(document.querySelector('#mini'), { value: new Date(), onChange: (d) => agenda.setDate(d) });
+
+// React
+<Calendar view={view} date={date} onChange={…} events={events} weekends={false} categories={categories}
+  eventDetails eventFooter={(e) => <Button size="sm">Marcar asistencia</Button>}
+  onEventMove={remarcar} onSlotCreate={novo} actions={<Button variant="primary" size="sm">Nueva cita</Button>} />
+<MiniCalendar value={date} onChange={setDate} highlight={semana} />
+```
+
+Marcado de los ejemplos de esta sección:
+
+```html
+<button type="button" class="ds-icon-btn ds-icon-btn--sm ds-icon-btn--muted" data-copy-code="" aria-label="Copiar código" data-ds-tooltip="Copiar código"><ds-icon name="copy"></ds-icon></button>
 ```
 
 ## Accesibilidad

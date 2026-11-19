@@ -1,0 +1,174 @@
+/*
+ * Editor de texto rico — escrever com formatação, sobre contenteditable.
+ *
+ *   <div class="ds-editor">
+ *     (barra criada pelo JS: .ds-toolbar.ds-toolbar--plain.ds-editor__toolbar, depois a .ds-editor__linkbar)
+ *     <div class="ds-editor__content" aria-label="Descrição"><p>…</p></div>
+ *   </div>
+ *   .ds-editor--borderless: sem contorno, para quando o editor já é a página (uma nota, um documento)
+ *   [data-disabled]: só leitura, apagado
+ *
+ * createEditor (ds/js/editor.js) liga a barra, os atalhos, o colar limpo e o valor para o formulário.
+ * O contorno e o foco são os do Campo: o editor é um campo de texto que formata.
+ */
+.ds-editor {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--ds-color-border-default);
+  border-radius: var(--ds-radius-lg);
+  background: var(--ds-color-bg-field);
+  color: var(--ds-color-fg-default);
+  transition:
+    border-color var(--ds-duration-fast) var(--ds-easing-standard),
+    box-shadow var(--ds-duration-base) var(--ds-easing-standard);
+}
+
+.ds-editor:hover,
+.ds-editor[data-state="hover"] {
+  border-color: var(--ds-color-border-strong);
+}
+
+.ds-editor:has(.ds-editor__content:focus),
+.ds-editor[data-state="focus"] {
+  border-color: var(--ds-color-border-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ds-color-border-focus) 22%, transparent);
+}
+
+.ds-editor--borderless,
+.ds-editor--borderless:hover,
+.ds-editor--borderless:has(.ds-editor__content:focus) {
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+}
+
+.ds-editor__toolbar {
+  flex: none;
+  padding: var(--ds-space-075) var(--ds-space-100);
+  border-bottom: 1px solid var(--ds-color-border-subtle);
+}
+
+.ds-editor__toolbar .ds-icon-btn[aria-pressed="true"] {
+  background: var(--ds-color-bg-selected);
+  color: var(--ds-color-fg-default);
+}
+
+.ds-editor__linkbar {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--ds-space-100);
+  padding: var(--ds-space-100);
+  border-bottom: 1px solid var(--ds-color-border-subtle);
+  background: var(--ds-color-bg-surface);
+}
+
+.ds-editor__linkbar[hidden] {
+  display: none;
+}
+
+.ds-editor__url {
+  flex: 1;
+  min-width: 0;
+}
+
+.ds-editor__url:has([aria-invalid="true"]) {
+  border-color: var(--ds-color-danger-border);
+}
+
+.ds-editor__content {
+  position: relative;
+  flex: 1;
+  min-height: 160px;
+  padding: var(--ds-space-200) var(--ds-space-250);
+  overflow-wrap: anywhere;
+  font: var(--ds-text-body-md);
+  letter-spacing: var(--ds-text-body-md-tracking);
+  outline: none;
+  cursor: text;
+}
+
+.ds-editor__content.is-empty::before {
+  content: attr(data-placeholder);
+  position: absolute;
+  inset-inline-start: var(--ds-space-250);
+  top: var(--ds-space-200);
+  color: var(--ds-color-fg-muted);
+  pointer-events: none;
+}
+
+.ds-editor[data-disabled] {
+  background: var(--ds-color-bg-muted);
+}
+
+.ds-editor[data-disabled] .ds-editor__content {
+  color: var(--ds-color-fg-muted);
+  cursor: default;
+}
+
+/* o texto dentro: o mesmo ritmo do texto de leitura do Lume */
+.ds-editor__content > * {
+  margin: 0;
+}
+
+.ds-editor__content > * + * {
+  margin-top: var(--ds-space-150);
+}
+
+.ds-editor__content h2 {
+  font: var(--ds-text-heading-md);
+  letter-spacing: var(--ds-text-heading-md-tracking);
+}
+
+.ds-editor__content h3 {
+  font: var(--ds-text-heading-sm);
+  letter-spacing: var(--ds-text-heading-sm-tracking);
+}
+
+.ds-editor__content > * + :is(h2, h3) {
+  margin-top: var(--ds-space-300);
+}
+
+.ds-editor__content :is(ul, ol) {
+  padding-inline-start: var(--ds-space-300);
+}
+
+.ds-editor__content li + li {
+  margin-top: var(--ds-space-050);
+}
+
+.ds-editor__content li::marker {
+  color: var(--ds-color-fg-muted);
+}
+
+.ds-editor__content blockquote {
+  padding-inline-start: var(--ds-space-200);
+  border-inline-start: 2px solid var(--ds-color-border-strong);
+  color: var(--ds-color-fg-muted);
+}
+
+.ds-editor__content a {
+  color: var(--ds-color-fg-default);
+  text-decoration: underline;
+  text-decoration-color: var(--ds-color-border-strong);
+  text-underline-offset: 3px;
+}
+
+.ds-editor__content code,
+.ds-editor__content pre {
+  font: var(--ds-text-code-sm);
+}
+
+.ds-editor__content code {
+  padding: 1px 5px;
+  border-radius: var(--ds-radius-sm);
+  background: var(--ds-color-bg-muted);
+}
+
+.ds-editor__content pre {
+  padding: var(--ds-space-150);
+  border-radius: var(--ds-radius-md);
+  background: var(--ds-color-bg-muted);
+  white-space: pre-wrap;
+}

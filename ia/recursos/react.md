@@ -16,7 +16,7 @@ npm install @joniguerini/lume
 
 ### Prefere os arquivos no projeto?
 
-Como no shadcn: baixe o zip da versão 1.13 e leve a pasta para `src/` com o nome `lume`, ou rode `npx @joniguerini/lume init`. Os componentes ficam em `lume/react/`, em .tsx, para ler e mudar à vontade; aí os imports passam a ser `./lume/react`.
+Como no shadcn: baixe o zip da versão 1.14 e leve a pasta para `src/` com o nome `lume`, ou rode `npx @joniguerini/lume init`. Os componentes ficam em `lume/react/`, em .tsx, para ler e mudar à vontade; aí os imports passam a ser `./lume/react`.
 
 ```html
 src/
@@ -173,6 +173,7 @@ O que já está em React. Cada nome leva à página do componente, onde estão o
 | `Table` | Colunas, ordenação e seleção no estado; vazio e carregando. | Table.tsx |
 | `DataTable` | Busca, filtros, ordem, páginas, lote, colunas, densidade, edição na célula e CSV. | DataTable.tsx |
 | `Calendar` | Mês, semana e dia, com eventos; visão e data no estado. | Calendar.tsx |
+| `MiniCalendar` | O mês sempre aberto, com um trecho em destaque. | Pickers.tsx |
 | `CodeBlock` | Código com o botão de copiar. | Calendar.tsx |
 | `Carousel` | Cada filho vira um slide; perView, peek, loop e autoplay com pausa. index e onChange no estado. | Carousel.tsx |
 | `ResizablePanels` | Um ResizablePanel por parte, com size, min, max e collapsible; as divisórias entram sozinhas. storageKey guarda o tamanho. | Resizable.tsx |
@@ -208,7 +209,7 @@ O que já está em React. Cada nome leva à página do componente, onde estão o
 | Seus arquivos | Pelo npm, vêm compilados e com tipos. Copiados, os .tsx ficam no seu projeto, como no shadcn: dá para ler, mudar e apagar o que não usar. |
 | TypeScript | Props tipadas e comentadas, com o link da página de cada componente. `IconName` lista os 175 ícones: nome errado não compila. |
 | Idioma | Os textos que o componente escreve sozinho ("Fechar", "Carregando") seguem o idioma do Lume e mudam com `setLocale`. `useLocale()` faz o mesmo nos seus. |
-| Versões | Pelo npm, atualizar é `npm update @joniguerini/lume`; a versão do pacote é a do Lume. Copiado, a pasta `react/` vai em cada linha (`/v/1.13/react/`) e atualizar é trocar a pasta. |
+| Versões | Pelo npm, atualizar é `npm update @joniguerini/lume`; a versão do pacote é a do Lume. Copiado, a pasta `react/` vai em cada linha (`/v/1.14/react/`) e atualizar é trocar a pasta. |
 
 ## O que vem
 

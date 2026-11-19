@@ -16,7 +16,7 @@ npm install @joniguerini/lume
 
 ### Prefer the files in your project?
 
-As with shadcn: download the 1.13 zip and move the folder into `src/` named `lume`, or run `npx @joniguerini/lume init`. The components live in `lume/react/`, as .tsx, to read and change freely; your imports then become `./lume/react`.
+As with shadcn: download the 1.14 zip and move the folder into `src/` named `lume`, or run `npx @joniguerini/lume init`. The components live in `lume/react/`, as .tsx, to read and change freely; your imports then become `./lume/react`.
 
 ```html
 src/
@@ -173,6 +173,7 @@ What’s already in React. Each name leads to the component’s page, with the u
 | `Table` | Columns, sorting and selection in state; empty and loading. | Table.tsx |
 | `DataTable` | Search, filters, sort, pages, bulk, columns, density, cell editing and CSV. | DataTable.tsx |
 | `Calendar` | Month, week and day, with events; view and date in state. | Calendar.tsx |
+| `MiniCalendar` | The month always open, with a highlighted span. | Pickers.tsx |
 | `CodeBlock` | Code with the copy button. | Calendar.tsx |
 | `Carousel` | Each child becomes a slide; perView, peek, loop and autoplay with pause. index and onChange in state. | Carousel.tsx |
 | `ResizablePanels` | One ResizablePanel per part, with size, min, max and collapsible; dividers are added for you. storageKey keeps the size. | Resizable.tsx |
@@ -208,7 +209,7 @@ What’s already in React. Each name leads to the component’s page, with the u
 | Your files | From npm, they come compiled and typed. Copied, the .tsx files live in your project, as with shadcn: you can read, change, and delete what you don’t use. |
 | TypeScript | Typed, commented props, with a link to each component’s page. `IconName` lists the 175 icons: a wrong name won’t compile. |
 | Language | The text a component writes on its own ("Close", "Loading") follows Lume’s language and changes with `setLocale`. `useLocale()` does the same for yours. |
-| Versions | From npm, updating is `npm update @joniguerini/lume`; the package version is Lume’s. Copied, the `react/` folder ships with every line (`/v/1.13/react/`) and updating means swapping the folder. |
+| Versions | From npm, updating is `npm update @joniguerini/lume`; the package version is Lume’s. Copied, the `react/` folder ships with every line (`/v/1.14/react/`) and updating means swapping the folder. |
 
 ## What’s next
 

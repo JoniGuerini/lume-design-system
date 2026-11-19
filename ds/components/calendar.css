@@ -62,7 +62,11 @@
 .ds-calendar__weekdays,
 .ds-calendar__week {
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--_cols, 7), minmax(0, 1fr));
+}
+
+.ds-calendar__week {
+  position: relative;
 }
 
 .ds-calendar__weekday {
@@ -144,6 +148,8 @@
   flex-direction: column;
   gap: 2px;
   min-width: 0;
+  /* abre espaço para as faixas de dia todo da semana */
+  margin-top: calc(var(--_lanes, 0) * 20px);
 }
 
 /* evento com horário no mês: ponto, hora e título numa linha */
@@ -528,5 +534,192 @@ button.ds-calendar__col-head[data-state="hover"] {
 
   .ds-calendar__event-time {
     display: none;
+  }
+}
+
+/* ───────── Agenda ───────── */
+
+/* faixas de dia todo no mês: atravessam os dias, uma raia por evento */
+.ds-calendar__bars {
+  position: absolute;
+  inset: 34px 0 auto;
+  display: grid;
+  grid-template-columns: repeat(var(--_cols, 7), minmax(0, 1fr));
+  pointer-events: none;
+}
+
+.ds-calendar__bar {
+  grid-row: 1;
+  margin: calc(var(--_lane) * 20px) 4px 0;
+  height: 18px;
+  pointer-events: auto;
+}
+
+.ds-calendar__bar--from {
+  margin-inline-start: 0;
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+}
+
+.ds-calendar__bar--to {
+  margin-inline-end: 0;
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+}
+
+/* marca à direita (presença) e linha de detalhe */
+.ds-calendar__mark {
+  flex: none;
+  margin-inline-start: auto;
+  color: var(--_tone-fg, var(--ds-color-fg-muted));
+}
+
+.ds-calendar__event .ds-calendar__mark {
+  position: absolute;
+  top: var(--ds-space-050);
+  right: var(--ds-space-050);
+}
+
+.ds-calendar__event > span {
+  flex: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ds-calendar__event-meta {
+  opacity: 0.8;
+}
+
+.ds-calendar__event:has(.ds-calendar__mark) .ds-calendar__event-title {
+  padding-inline-end: 16px;
+}
+
+/* cabeçalho: ações antes da troca de visão */
+.ds-calendar__actions {
+  display: flex;
+  gap: var(--ds-space-100);
+  margin-inline-start: auto;
+}
+
+.ds-calendar__actions + .ds-calendar__views {
+  margin-inline-start: 0;
+}
+
+/* criar no horário vazio */
+.ds-calendar__col[data-slots] {
+  cursor: copy;
+}
+
+/* arrastar */
+.ds-calendar [data-draggable] {
+  cursor: grab;
+}
+
+.ds-calendar[data-dragging],
+.ds-calendar[data-dragging] * {
+  cursor: grabbing !important;
+  user-select: none;
+}
+
+.ds-calendar [data-dragging] {
+  z-index: 2;
+  outline: 2px dashed var(--_tone-solid, var(--ds-color-border-strong));
+  outline-offset: 1px;
+  box-shadow: var(--ds-shadow-md);
+}
+
+.ds-calendar__day[data-drop] {
+  background: var(--ds-color-bg-selected);
+}
+
+/* detalhes do evento (popover) */
+.ds-calendar__popover {
+  width: min(320px, calc(100vw - 16px));
+  padding: 0;
+}
+
+.ds-calendar__details-body {
+  display: grid;
+  gap: var(--ds-space-100);
+  padding: var(--ds-space-200);
+}
+
+.ds-calendar__details-title {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-100);
+  font: var(--ds-text-heading-xs);
+  letter-spacing: var(--ds-text-heading-xs-tracking);
+}
+
+.ds-calendar__details-title .ds-calendar__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.ds-calendar__details-row {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-100);
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+.ds-calendar__details-row .ds-icon {
+  flex: none;
+  color: var(--ds-color-fg-subtle);
+}
+
+.ds-calendar__details-desc {
+  color: var(--ds-color-fg-default);
+  font: var(--ds-text-body-sm);
+}
+
+.ds-calendar__details-foot {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-050);
+  padding: var(--ds-space-100) var(--ds-space-150);
+  border-top: 1px solid var(--ds-color-border-subtle);
+}
+
+.ds-calendar__details-foot > .ds-btn:first-child {
+  margin-inline-end: auto;
+}
+
+.ds-calendar__details-danger:is(:hover, [data-state="hover"]) {
+  color: var(--ds-color-danger-fg);
+}
+
+/* tons das cores dos gráficos (as agendas): o traço na cor, o fundo bem claro e o texto no padrão */
+.ds-calendar__item--peach, .ds-calendar__chip--peach, .ds-calendar__event--peach, .ds-calendar__details-title--peach { --_c: var(--ds-color-chart-series-1); }
+.ds-calendar__item--blue, .ds-calendar__chip--blue, .ds-calendar__event--blue, .ds-calendar__details-title--blue { --_c: var(--ds-color-chart-series-2); }
+.ds-calendar__item--pink, .ds-calendar__chip--pink, .ds-calendar__event--pink, .ds-calendar__details-title--pink { --_c: var(--ds-color-chart-series-3); }
+.ds-calendar__item--amber, .ds-calendar__chip--amber, .ds-calendar__event--amber, .ds-calendar__details-title--amber { --_c: var(--ds-color-chart-series-4); }
+.ds-calendar__item--teal, .ds-calendar__chip--teal, .ds-calendar__event--teal, .ds-calendar__details-title--teal { --_c: var(--ds-color-chart-series-5); }
+.ds-calendar__item--red, .ds-calendar__chip--red, .ds-calendar__event--red, .ds-calendar__details-title--red { --_c: var(--ds-color-chart-series-6); }
+.ds-calendar__item--violet, .ds-calendar__chip--violet, .ds-calendar__event--violet, .ds-calendar__details-title--violet { --_c: var(--ds-color-chart-series-7); }
+.ds-calendar__item--green, .ds-calendar__chip--green, .ds-calendar__event--green, .ds-calendar__details-title--green { --_c: var(--ds-color-chart-series-8); }
+
+:is(.ds-calendar__item, .ds-calendar__chip, .ds-calendar__event, .ds-calendar__details-title):is(
+  [class*="--peach"], [class*="--blue"], [class*="--pink"], [class*="--amber"], [class*="--teal"], [class*="--red"], [class*="--violet"], [class*="--green"]
+) {
+  --_tone-solid: var(--_c);
+  --_tone-subtle: color-mix(in srgb, var(--_c) 16%, var(--ds-color-bg-surface));
+  --_tone-fg: var(--ds-color-fg-default);
+}
+
+/* tons de status também no título dos detalhes */
+.ds-calendar__details-title--brand { --_tone-solid: var(--ds-color-brand-solid); }
+.ds-calendar__details-title--info { --_tone-solid: var(--ds-color-info-solid); }
+.ds-calendar__details-title--success { --_tone-solid: var(--ds-color-success-solid); }
+.ds-calendar__details-title--warning { --_tone-solid: var(--ds-color-warning-solid); }
+.ds-calendar__details-title--danger { --_tone-solid: var(--ds-color-danger-solid); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-calendar [data-dragging] {
+    box-shadow: none;
   }
 }

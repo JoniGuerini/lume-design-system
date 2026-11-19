@@ -33,7 +33,7 @@ In HTML, `render` returns HTML as text; in React, `DataTable` takes JSX. The opt
 <div id="clientes"></div>
 
 <script type="module">
-  import { createDataTable } from 'https://lumeui.dev/v/1.13/lume.js';
+  import { createDataTable } from 'https://lumeui.dev/v/1.14/lume.js';
 
   const tabela = createDataTable(document.querySelector('#clientes'), {
     caption: 'Clients',

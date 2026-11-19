@@ -1,0 +1,2 @@
+// Gerado por scripts/build-react.mjs. Não edite.
+export declare function createMiniCalendar(root: HTMLElement, options?: { value?: Date | null; highlight?: { start: Date; end: Date } | null; min?: Date; max?: Date; onChange?: (date: Date) => void }): { el: HTMLElement; value: Date | null; setValue(value: Date | null): void; setHighlight(highlight: { start: Date; end: Date } | null): void; destroy(): void };

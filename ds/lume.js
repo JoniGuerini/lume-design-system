@@ -66,6 +66,7 @@ export { mountTabs, selectTab } from './js/tabs.js';
 export { createTagField } from './js/tag-field.js';
 export { initTheme, setTheme, toggleTheme, resolvedTheme, getThemePreference, mountThemeControls, THEMES } from './js/theme.js';
 export { createTimePicker } from './js/time-picker.js';
+export { createMiniCalendar } from './js/mini-calendar.js';
 export { toast, clearToasts, copyText, getToastPosition, setToastPosition, TOAST_POSITIONS } from './js/toast.js';
 export { initTooltips } from './js/tooltip.js';
 export { createTree } from './js/tree.js';

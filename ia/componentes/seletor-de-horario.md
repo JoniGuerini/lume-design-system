@@ -15,7 +15,7 @@ Em números: passo padrão: 15 min · formatos: 12 · 24 h · valor enviado: HH:
 </div>
 
 <script type="module">
-  import { createTimePicker } from 'https://lumeui.dev/v/1.13/lume.js';
+  import { createTimePicker } from 'https://lumeui.dev/v/1.14/lume.js';
   createTimePicker(document.querySelector('#inicio'), {
     step: 15,
   });
@@ -31,6 +31,8 @@ A cada 15 minutos `step: 15` — O padrão, bom para compromissos.
 A cada 30 minutos `step: 30` — Menos opções, quando a precisão não importa tanto.
 
 Com limites `min · max` — Só o horário comercial. Digitar fora dele mostra o erro.
+
+Horário de fim `from: '14:00'` — Para o fim de algo que começa às 14:00: a lista começa depois, mostra a duração ao lado e vai até 24:00.
 
 Já preenchido `value` — Sempre em HH:MM no código; a tela mostra o formato do idioma.
 
@@ -50,6 +52,11 @@ Marcação dos exemplos desta seção:
 <div class="ds-form-field">
 <label class="ds-form-field__label" for="tp-limits">Atendimento</label>
 <div class="ds-field"><input class="ds-field__input" id="tp-limits" type="text" autocomplete="off" role="combobox" aria-autocomplete="none" aria-expanded="false" aria-controls="ds-timepicker-8" placeholder="--:--"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-label="Abrir lista de horários"><ds-icon name="clock"></ds-icon></button><input type="hidden" name="tp-limits" value=""></div>
+</div>
+
+<div class="ds-form-field">
+<label class="ds-form-field__label" for="tp-end">Fim</label>
+<div class="ds-field"><input class="ds-field__input" id="tp-end" type="text" autocomplete="off" role="combobox" aria-autocomplete="none" aria-expanded="false" aria-controls="ds-timepicker-10" placeholder="--:--"><button type="button" class="ds-icon-btn ds-icon-btn--sm ds-field__action" aria-label="Abrir lista de horários"><ds-icon name="clock"></ds-icon></button><input type="hidden" name="tp-end" value="15:00"></div>
 </div>
 
 <div class="ds-form-field">
@@ -109,7 +116,7 @@ Marcação dos exemplos desta seção:
 Funciona com `createForm`, como os outros campos.
 
 ```html
-import { createTimePicker } from 'https://lumeui.dev/v/1.13/lume.js';
+import { createTimePicker } from 'https://lumeui.dev/v/1.14/lume.js';
 
 const picker = createTimePicker(document.querySelector('#inicio'), {
   value: '09:00',

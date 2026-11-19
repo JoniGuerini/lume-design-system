@@ -4,12 +4,12 @@ Seção do Lume: Componentes. Página: https://lumeui.dev/#/componentes/calendar
 
 Mês, semana e dia na mesma peça, com eventos. Datas, nomes e o primeiro dia da semana vêm do idioma — e dá para usar inteiro pelo teclado.
 
-Em números: visões: 3 · tons de evento: 6 · semana começa: domingo · dependências: 0.
+Em números: visões: 3 · tons de evento: 14 · semana começa: domingo · dependências: 0.
 
 ## Exemplo
 
 ```html
-import { createCalendar } from 'https://lumeui.dev/v/1.13/lume.js';
+import { createCalendar } from 'https://lumeui.dev/v/1.14/lume.js';
 
 createCalendar(document.querySelector('#agenda'), {
   events: [
@@ -62,6 +62,59 @@ Marcação dos exemplos desta seção:
 <span class="ds-calendar__event ds-calendar__event--brand"><span class="ds-calendar__event-title">Marca</span><span class="ds-calendar__event-time">'brand'</span></span>
 
 <span class="ds-calendar__event ds-calendar__event--info"><span class="ds-calendar__event-title">Info</span><span class="ds-calendar__event-time">'info'</span></span>
+```
+
+## Agenda
+
+O mesmo calendário, com o que uma agenda pede: semana de 5 dias, cores por agenda, detalhes num popover com ações, arrastar para remarcar, clicar num horário vazio para criar e o mini calendário na lateral. Tudo opcional.
+
+- Reuniões
+- Gravações
+- Prazos
+
+### Opções da agenda
+
+|   |   |
+| --- | --- |
+| `weekends: false` | Semana de 5 dias, no mês e na semana. |
+| `categories · event.category` | As agendas: cada uma com nome e tom. Os tons incluem as 8 cores dos gráficos (blue, violet, amber…). |
+| `event.meta · event.icon` | Uma linha de detalhe (o local) e uma marca à direita (feito, presença). |
+| `eventDetails · eventActions · onEventAction` | Clicar abre os detalhes num popover, com as ações no rodapé. eventHref transforma o título em link. |
+| `onEventMove · snap` | Arrastar com o mouse para outro horário ou dia, com encaixe de 15 min. event.readOnly fica parado. |
+| `onSlotCreate · slotDuration` | Clicar num horário vazio da semana ou do dia cria um evento de 60 min ali. |
+| `maxEvents` | Quantos cabem no dia do mês antes do “+N”. Eventos de dia todo viram faixas que atravessam os dias. |
+| `actions` | Botões no cabeçalho, antes da troca de visão. |
+| `createMiniCalendar · highlight` | O mês do seletor de data sempre aberto, com a semana vista em destaque. |
+
+```html
+import { createCalendar, createMiniCalendar } from 'https://lumeui.dev/v/1.14/lume.js';
+
+const agenda = createCalendar(document.querySelector('#agenda'), {
+  view: 'week',
+  weekends: false,
+  categories: [{ id: 'semanal', label: 'Semanal', tone: 'blue' }, { id: 'quinzenal', label: 'Quinzenal', tone: 'violet' }],
+  events, // { id, title, start, end, category, meta: 'Consultório', icon: 'check-circle' }
+  eventDetails: true,
+  eventActions: [{ value: 'presenca', label: 'Marcar presença' }, { value: 'excluir', label: 'Excluir', icon: 'trash', tone: 'danger' }],
+  onEventAction: (value, evento) => …,
+  onEventMove: (evento, inicio, fim) => remarcar(evento.id, inicio, fim),
+  onSlotCreate: ({ start, end }) => novoEvento(start, end),
+  actions: '<button class="ds-btn ds-btn--primary ds-btn--sm">Novo atendimento</button>',
+});
+
+createMiniCalendar(document.querySelector('#mini'), { value: new Date(), onChange: (d) => agenda.setDate(d) });
+
+// React
+<Calendar view={view} date={date} onChange={…} events={events} weekends={false} categories={categories}
+  eventDetails eventFooter={(e) => <Button size="sm">Marcar presença</Button>}
+  onEventMove={remarcar} onSlotCreate={novo} actions={<Button variant="primary" size="sm">Novo atendimento</Button>} />
+<MiniCalendar value={date} onChange={setDate} highlight={semana} />
+```
+
+Marcação dos exemplos desta seção:
+
+```html
+<button type="button" class="ds-icon-btn ds-icon-btn--sm ds-icon-btn--muted" data-copy-code="" aria-label="Copiar código" data-ds-tooltip="Copiar código"><ds-icon name="copy"></ds-icon></button>
 ```
 
 ## Acessibilidade

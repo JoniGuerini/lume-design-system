@@ -68,6 +68,7 @@ const GROUPS = [
       ['selectTab', 'tabs.js', T('Escolhe uma aba pelo código.', 'Selects a tab from code.', 'Elige una pestaña desde el código.')],
       ['createTagField', 'tag-field.js', T('Campo de tags.', 'Tag field.', 'Campo de etiquetas.')],
       ['createTimePicker', 'time-picker.js', T('Seletor de horário ligado a um campo.', 'Time picker attached to a field.', 'Selector de hora ligado a un campo.')],
+      ['createMiniCalendar', 'mini-calendar.js', T('O mês do seletor de data sempre aberto, com um trecho em destaque.', 'The date picker’s month, always open, with a highlighted span.', 'El mes del selector de fecha siempre abierto, con un tramo destacado.')],
       ['createToolbar', 'toolbar.js', T('Barra de ferramentas: um Tab só, setas entre os botões e botões que ligam e desligam.', 'Toolbar: a single Tab stop, arrow keys between buttons, and toggle buttons.', 'Barra de herramientas: un solo Tab, flechas entre los botones y botones que se activan y desactivan.')],
       ['createTree', 'tree.js', T('Árvore que expande e recolhe.', 'Tree that expands and collapses.', 'Árbol que se expande y contrae.')],
     ],

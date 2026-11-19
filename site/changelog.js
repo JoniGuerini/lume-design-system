@@ -8,10 +8,31 @@ import { tr } from '../ds/js/i18n.js';
 
 const T = (pt, en, es) => ({ 'pt-BR': pt, en, es });
 
-export const CURRENT_VERSION = '1.13.0';
+export const CURRENT_VERSION = '1.14.0';
 export const SEEN_KEY = 'ds-novidades-vista';
 
 const RELEASES = [
+  {
+    version: '1.14.0',
+    date: '2026-11-19',
+    title: T('Agenda no Calendário', 'Schedule in the Calendar', 'Agenda en el Calendario'),
+    summary: T(
+      'O Calendário ganhou o que uma agenda pede, tudo opcional: semana de 5 dias, cores por agenda, detalhes num popover com ações, arrastar para remarcar, criar no horário vazio, faixas de vários dias e ações no cabeçalho. Junto, o mini calendário e o horário de fim com a duração.',
+      'The Calendar got what a schedule needs, all optional: a 5-day week, colors per calendar, details in a popover with actions, drag to reschedule, create in an empty slot, multi-day bars, and header actions. Alongside, the mini calendar and the end time with its duration.',
+      'El Calendario ganó lo que pide una agenda, todo opcional: semana de 5 días, colores por agenda, detalles en un popover con acciones, arrastrar para reprogramar, crear en un horario vacío, franjas de varios días y acciones en el encabezado. Junto, el mini calendario y la hora de fin con la duración.',
+    ),
+    groups: [
+      {
+        name: T('Componentes', 'Components', 'Componentes'),
+        items: [
+          ['novo', T('Calendário: weekends, maxEvents, categories, event.meta e event.icon, eventDetails com eventActions, onEventMove, onSlotCreate e actions', 'Calendar: weekends, maxEvents, categories, event.meta and event.icon, eventDetails with eventActions, onEventMove, onSlotCreate, and actions', 'Calendario: weekends, maxEvents, categories, event.meta y event.icon, eventDetails con eventActions, onEventMove, onSlotCreate y actions'), '/componentes/calendario'],
+          ['novo', T('Calendário: as 8 cores dos gráficos como tons de evento (violet, blue, amber…), e eventos de dia todo como faixas que atravessam os dias no mês', 'Calendar: the 8 chart colors as event tones (violet, blue, amber…), and all-day events as bars spanning the days in the month', 'Calendario: los 8 colores de los gráficos como tonos de evento (violet, blue, amber…), y eventos de día entero como franjas que cruzan los días en el mes'), '/componentes/calendario'],
+          ['novo', T('Mini calendário: createMiniCalendar e MiniCalendar, o mês sempre aberto com a semana vista em destaque', 'Mini calendar: createMiniCalendar and MiniCalendar, the month always open with the visible week highlighted', 'Mini calendario: createMiniCalendar y MiniCalendar, el mes siempre abierto con la semana visible destacada'), '/componentes/calendario'],
+          ['novo', T('Seletor de horário: from para o horário de fim, com a duração ao lado ("15:00 · 1 h") e até 24:00', 'Time picker: from for the end time, with the duration alongside ("15:00 · 1 h") and up to 24:00', 'Selector de hora: from para la hora de fin, con la duración al lado ("15:00 · 1 h") y hasta las 24:00'), '/componentes/seletor-de-horario'],
+        ],
+      },
+    ],
+  },
   {
     version: '1.13.0',
     date: '2026-11-19',

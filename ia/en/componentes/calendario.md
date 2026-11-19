@@ -4,12 +4,12 @@ Lume section: Components. Page: https://lumeui.dev/#/componentes/calendario
 
 Month, week, and day in the same piece, with events. Dates, names, and the first day of the week come from the locale — and it’s fully usable by keyboard.
 
-In numbers: views: 3 · event tones: 6 · week starts: Sunday · dependencies: 0.
+In numbers: views: 3 · event tones: 14 · week starts: Sunday · dependencies: 0.
 
 ## Example
 
 ```html
-import { createCalendar } from 'https://lumeui.dev/v/1.13/lume.js';
+import { createCalendar } from 'https://lumeui.dev/v/1.14/lume.js';
 
 createCalendar(document.querySelector('#calendar'), {
   events: [
@@ -62,6 +62,59 @@ Markup of the examples in this section:
 <span class="ds-calendar__event ds-calendar__event--brand"><span class="ds-calendar__event-title">Brand</span><span class="ds-calendar__event-time">'brand'</span></span>
 
 <span class="ds-calendar__event ds-calendar__event--info"><span class="ds-calendar__event-title">Info</span><span class="ds-calendar__event-time">'info'</span></span>
+```
+
+## Schedule
+
+The same calendar, with what a schedule needs: a 5-day week, colors per calendar, details in a popover with actions, drag to reschedule, click an empty slot to create, and the mini calendar on the side. All optional.
+
+- Meetings
+- Recordings
+- Deadlines
+
+### Schedule options
+
+|   |   |
+| --- | --- |
+| `weekends: false` | A 5-day week, in month and week. |
+| `categories · event.category` | The calendars: each with a name and tone. Tones include the 8 chart colors (blue, violet, amber…). |
+| `event.meta · event.icon` | A detail line (the place) and a mark on the right (done, attendance). |
+| `eventDetails · eventActions · onEventAction` | Clicking opens the details in a popover, with actions in the footer. eventHref turns the title into a link. |
+| `onEventMove · snap` | Drag with the mouse to another time or day, snapping to 15 min. event.readOnly stays put. |
+| `onSlotCreate · slotDuration` | Clicking an empty time in week or day creates a 60-min event there. |
+| `maxEvents` | How many fit in a month day before “+N”. All-day events become bars spanning the days. |
+| `actions` | Buttons in the header, before the view switch. |
+| `createMiniCalendar · highlight` | The date picker’s month, always open, with the visible week highlighted. |
+
+```html
+import { createCalendar, createMiniCalendar } from 'https://lumeui.dev/v/1.14/lume.js';
+
+const agenda = createCalendar(document.querySelector('#agenda'), {
+  view: 'week',
+  weekends: false,
+  categories: [{ id: 'semanal', label: 'Weekly', tone: 'blue' }, { id: 'quinzenal', label: 'Biweekly', tone: 'violet' }],
+  events, // { id, title, start, end, category, meta: 'Office', icon: 'check-circle' }
+  eventDetails: true,
+  eventActions: [{ value: 'presenca', label: 'Mark attendance' }, { value: 'excluir', label: 'Delete', icon: 'trash', tone: 'danger' }],
+  onEventAction: (value, evento) => …,
+  onEventMove: (evento, inicio, fim) => remarcar(evento.id, inicio, fim),
+  onSlotCreate: ({ start, end }) => novoEvento(start, end),
+  actions: '<button class="ds-btn ds-btn--primary ds-btn--sm">New appointment</button>',
+});
+
+createMiniCalendar(document.querySelector('#mini'), { value: new Date(), onChange: (d) => agenda.setDate(d) });
+
+// React
+<Calendar view={view} date={date} onChange={…} events={events} weekends={false} categories={categories}
+  eventDetails eventFooter={(e) => <Button size="sm">Mark attendance</Button>}
+  onEventMove={remarcar} onSlotCreate={novo} actions={<Button variant="primary" size="sm">New appointment</Button>} />
+<MiniCalendar value={date} onChange={setDate} highlight={semana} />
+```
+
+Markup of the examples in this section:
+
+```html
+<button type="button" class="ds-icon-btn ds-icon-btn--sm ds-icon-btn--muted" data-copy-code="" aria-label="Copy code" data-ds-tooltip="Copy code"><ds-icon name="copy"></ds-icon></button>
 ```
 
 ## Accessibility

@@ -75,7 +75,7 @@ function playCode(state) {
     o.texture && 'texture: true,',
   ].filter(Boolean);
   const fold = o.items.length > 6 ? `\n// ${L('Mais de 6 itens: os menores viram “Outros”, em cinza.', 'More than 6 items: the smallest become “Others”, in gray.', 'Más de 6 elementos: los menores se vuelven “Otros”, en gris.')}` : '';
-  return `import { createDonutChart } from 'https://lumeui.dev/v/1.13/lume.js';${fold}\n\ndonutChart(document.querySelector('#${L('pagamentos', 'payments', 'pagos')}'), {\n${lines.map((l) => `  ${l}`).join('\n')}\n});`;
+  return `import { createDonutChart } from 'https://lumeui.dev/v/1.14/lume.js';${fold}\n\ndonutChart(document.querySelector('#${L('pagamentos', 'payments', 'pagos')}'), {\n${lines.map((l) => `  ${l}`).join('\n')}\n});`;
 }
 
 /* ───────── Variantes ───────── */

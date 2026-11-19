@@ -15,7 +15,7 @@ In numbers: directions: 2 · line: 1 px · grab area: 9 px · keys: 5.
 </div>
 
 <script type="module">
-  import { createResizable } from 'https://lumeui.dev/v/1.13/lume.js';
+  import { createResizable } from 'https://lumeui.dev/v/1.14/lume.js';
   createResizable(document.querySelector('.ds-resizable'), {
     storageKey: 'editor', // keeps the size in the browser
   });
@@ -97,7 +97,7 @@ The panels are yours; JavaScript puts the dividers between them. Limits in % (`d
 </div>
 
 <script type="module">
-  import { createResizable } from 'https://lumeui.dev/v/1.13/lume.js';
+  import { createResizable } from 'https://lumeui.dev/v/1.14/lume.js';
   createResizable(document.querySelector('.ds-resizable'), {
     storageKey: 'editor', // keeps the size in the browser
   });

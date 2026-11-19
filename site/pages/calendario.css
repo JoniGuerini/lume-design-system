@@ -125,3 +125,54 @@
     gap: var(--ds-space-050);
   }
 }
+
+/* Agenda: mini calendário e legenda na lateral, o calendário ao lado */
+.cl-agenda {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--ds-space-200);
+  align-items: start;
+}
+
+.cl-agenda__side {
+  display: grid;
+  gap: var(--ds-space-200);
+}
+
+.cl-agenda__legend {
+  display: grid;
+  gap: var(--ds-space-100);
+  padding-inline: var(--ds-space-100);
+  color: var(--ds-color-fg-muted);
+  font: var(--ds-text-body-sm);
+}
+
+.cl-agenda__legend li {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-100);
+}
+
+.cl-agenda__swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+/* sem espaço para os dois lado a lado: a lateral sobe e vira uma linha (mini calendário e legenda) */
+@media (max-width: 1279.98px) {
+  .cl-agenda {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cl-agenda__side {
+    grid-template-columns: auto 1fr;
+    align-items: start;
+  }
+}
+
+@media (max-width: 599.98px) {
+  .cl-agenda__side {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

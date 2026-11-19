@@ -124,7 +124,7 @@ Properties are a `ds-dl`; editing swaps the `<dd>` for a small form. Tabs come f
 ```
 
 ```html
-import { mountTabs } from 'https://lumeui.dev/v/1.13/lume.js';
+import { mountTabs } from 'https://lumeui.dev/v/1.14/lume.js';
 
 mountTabs(page);
 

@@ -61,7 +61,7 @@ export default function renderCampoDeSenha(page) {
 </div>
 
 <script type="module">
-  import { createPasswordField } from 'https://lumeui.dev/v/1.13/lume.js';
+  import { createPasswordField } from 'https://lumeui.dev/v/1.14/lume.js';
   const senha = createPasswordField(document.querySelector('#senha'));
   // senha.visible · senha.show() · senha.hide() · senha.toggle()
 </script>
@@ -123,7 +123,7 @@ export function mount(root) {
 </div>
 
 <script type="module">
-  import { createPasswordField } from 'https://lumeui.dev/v/1.13/lume.js';
+  import { createPasswordField } from 'https://lumeui.dev/v/1.14/lume.js';
   createPasswordField(document.querySelector('#senha'));
 </script>`,
   });

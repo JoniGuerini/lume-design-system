@@ -16,7 +16,7 @@ npm install @joniguerini/lume
 
 ### ¿Prefieres los archivos en el proyecto?
 
-Como en shadcn: descarga el zip de la versión 1.13 y lleva la carpeta a `src/` con el nombre `lume`, o ejecuta `npx @joniguerini/lume init`. Los componentes quedan en `lume/react/`, en .tsx, para leer y cambiar a gusto; entonces los imports pasan a ser `./lume/react`.
+Como en shadcn: descarga el zip de la versión 1.14 y lleva la carpeta a `src/` con el nombre `lume`, o ejecuta `npx @joniguerini/lume init`. Los componentes quedan en `lume/react/`, en .tsx, para leer y cambiar a gusto; entonces los imports pasan a ser `./lume/react`.
 
 ```html
 src/
@@ -173,6 +173,7 @@ Lo que ya está en React. Cada nombre lleva a la página del componente, con los
 | `Table` | Columnas, orden y selección en el estado; vacío y cargando. | Table.tsx |
 | `DataTable` | Búsqueda, filtros, orden, páginas, lote, columnas, densidad, edición en la celda y CSV. | DataTable.tsx |
 | `Calendar` | Mes, semana y día, con eventos; vista y fecha en el estado. | Calendar.tsx |
+| `MiniCalendar` | El mes siempre abierto, con un tramo destacado. | Pickers.tsx |
 | `CodeBlock` | Código con el botón de copiar. | Calendar.tsx |
 | `Carousel` | Cada hijo es una diapositiva; perView, peek, loop y autoplay con pausa. index y onChange en el estado. | Carousel.tsx |
 | `ResizablePanels` | Un ResizablePanel por parte, con size, min, max y collapsible; los divisores se agregan solos. storageKey guarda el tamaño. | Resizable.tsx |
@@ -208,7 +209,7 @@ Lo que ya está en React. Cada nombre lleva a la página del componente, con los
 | Tus archivos | Desde npm, vienen compilados y con tipos. Copiados, los .tsx quedan en tu proyecto, como en shadcn: puedes leer, cambiar y borrar lo que no uses. |
 | TypeScript | Props tipadas y comentadas, con el enlace a la página de cada componente. `IconName` lista los 175 íconos: un nombre equivocado no compila. |
 | Idioma | Los textos que el componente escribe solo ("Cerrar", "Cargando") siguen el idioma de Lume y cambian con `setLocale`. `useLocale()` hace lo mismo en los tuyos. |
-| Versiones | Desde npm, actualizar es `npm update @joniguerini/lume`; la versión del paquete es la de Lume. Copiado, la carpeta `react/` va en cada línea (`/v/1.13/react/`) y actualizar es cambiar la carpeta. |
+| Versiones | Desde npm, actualizar es `npm update @joniguerini/lume`; la versión del paquete es la de Lume. Copiado, la carpeta `react/` va en cada línea (`/v/1.14/react/`) y actualizar es cambiar la carpeta. |
 
 ## Lo que viene
 

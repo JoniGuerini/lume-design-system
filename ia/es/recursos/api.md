@@ -4,17 +4,17 @@ Sección de Lume: Recursos. Página: https://lumeui.dev/#/recursos/api
 
 Todo lo que puedes llamar desde JavaScript, en un solo archivo. Lo que está aquí es público y estable; el resto es interno y puede cambiar.
 
-En números: ítems públicos: 111 · verbos: 5 · dependencias: 0.
+En números: ítems públicos: 112 · verbos: 5 · dependencias: 0.
 
 ## Importar
 
 Un archivo, `ds/lume.js`, reúne toda la API. Los módulos de `ds/js/` siguen pudiéndose importar uno a uno, para cargar solo lo necesario.
 
 ```html
-<link rel="stylesheet" href="https://lumeui.dev/v/1.13/lume.css">
+<link rel="stylesheet" href="https://lumeui.dev/v/1.14/lume.css">
 
 <script type="module">
-  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/1.13/lume.js';
+  import { initTheme, createModal, toast } from 'https://lumeui.dev/v/1.14/lume.js';
 
   initTheme();
   const modal = createModal({ title: '¿Publicar cambios?' });
@@ -69,7 +69,7 @@ Pocos y todos con el prefijo `ds:`. El resto llega por las opciones `on…` de c
 
 ## Todo lo público
 
-Los 111 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
+Los 112 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 
 ### Componentes
 
@@ -132,6 +132,7 @@ Los 111 ítems de `ds/lume.js`, con el módulo del que viene cada uno.
 | `selectTab` | Elige una pestaña desde el código. | tabs.js |
 | `createTagField` | Campo de etiquetas. | tag-field.js |
 | `createTimePicker` | Selector de hora ligado a un campo. | time-picker.js |
+| `createMiniCalendar` | El mes del selector de fecha siempre abierto, con un tramo destacado. | mini-calendar.js |
 | `createToolbar` | Barra de herramientas: un solo Tab, flechas entre los botones y botones que se activan y desactivan. | toolbar.js |
 | `createTree` | Árbol que se expande y contrae. | tree.js |
 

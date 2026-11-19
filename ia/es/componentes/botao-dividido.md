@@ -20,7 +20,7 @@ En números: partes: 2 · variantes: 4 · tamaños: 3 · menú: createMenu.
 </div>
 
 <script type="module">
-  import { createMenu } from 'https://lumeui.dev/v/1.13/lume.js';
+  import { createMenu } from 'https://lumeui.dev/v/1.14/lume.js';
   createMenu(document.querySelector('#nova-mais'), {
     mode: 'action',
     label: 'Más opciones',
@@ -106,7 +106,7 @@ Solo CSS más el Menú: la flecha es un `createMenu` en modo acción, con el nom
 </div>
 
 <script type="module">
-  import { createMenu } from 'https://lumeui.dev/v/1.13/lume.js';
+  import { createMenu } from 'https://lumeui.dev/v/1.14/lume.js';
   createMenu(document.querySelector('#nova-mais'), {
     mode: 'action',
     label: 'Más opciones',

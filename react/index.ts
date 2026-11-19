@@ -44,8 +44,8 @@ export {
   type CheckboxProps, type RadioProps, type SwitchProps, type ChoiceGroupProps, type RadioGroupProps, type CheckboxGroupProps, type ChoiceOption,
 } from './Choice';
 export {
-  DatePicker, TimePicker, NumberField, TagField,
-  type DatePickerProps, type DateRange, type TimePickerProps, type NumberFieldProps, type TagFieldProps,
+  DatePicker, TimePicker, NumberField, TagField, MiniCalendar,
+  type DatePickerProps, type DateRange, type TimePickerProps, type NumberFieldProps, type TagFieldProps, type MiniCalendarProps,
 } from './Pickers';
 export { ColorPicker, ColorField, type ColorPickerProps, type ColorFieldProps, type ColorSwatch } from './ColorPicker';
 export { Slider, FileUpload, OtpField, type SliderProps, type FileUploadProps, type FileUploadHandle, type OtpFieldProps } from './Controls';
@@ -76,7 +76,10 @@ export { Carousel, type CarouselProps } from './Carousel';
 export { ResizablePanels, ResizablePanel, type ResizablePanelsProps, type ResizablePanelProps } from './Resizable';
 export { Rating, RatingDisplay, type RatingProps, type RatingDisplayProps } from './Rating';
 export { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarButton, type ToolbarProps, type ToolbarButtonProps } from './Toolbar';
-export { Calendar, CodeBlock, type CalendarProps, type CalendarEvent, type CalendarView, type CodeBlockProps } from './Calendar';
+export {
+  Calendar, CodeBlock,
+  type CalendarProps, type CalendarEvent, type CalendarView, type CalendarTone, type CalendarCategory, type CalendarAction, type CodeBlockProps,
+} from './Calendar';
 
 // Gráficos
 export {

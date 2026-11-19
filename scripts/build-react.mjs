@@ -57,7 +57,8 @@ export declare function mountSelects(root?: ParentNode): () => void;
 `,
   'date-picker': `export declare function createDatePicker(input: HTMLInputElement, options?: Record<string, unknown>): { value: any; setValue(value: any): void; open(): void; close(): void; destroy(): void };
 `,
-  'time-picker': `export declare function createTimePicker(input: HTMLInputElement, options?: Record<string, unknown>): { value: string | null; setValue(value: string | null): void; open(): void; close(): void; destroy(): void };
+  'mini-calendar': `export declare function createMiniCalendar(root: HTMLElement, options?: { value?: Date | null; highlight?: { start: Date; end: Date } | null; min?: Date; max?: Date; onChange?: (date: Date) => void }): { el: HTMLElement; value: Date | null; setValue(value: Date | null): void; setHighlight(highlight: { start: Date; end: Date } | null): void; destroy(): void };`,
+  'time-picker': `export declare function createTimePicker(input: HTMLInputElement, options?: Record<string, unknown>): { value: string | null; setValue(value: string | null): void; setFrom(from: string | null): void; open(): void; close(): void; destroy(): void };
 `,
   'data-table': `export interface DataTableViewResult<Row> { filtered: Row[]; pageRows: Row[]; page: number; pages: number; total: number; counts: Record<string, Record<string, number>> }
 export declare const DATA_TABLE_STATE: { query: string; filters: Record<string, string[]>; sort: { key: string; direction: 'ascending' | 'descending' } | null; page: number; pageSize: number; selected: string[]; hidden: string[]; density: 'comfortable' | 'compact' };
@@ -177,7 +178,7 @@ export declare function mountThemeControls(scope?: ParentNode): () => void;
 export declare function initTheme(): void;
 `,
   calendar: `export declare function localeWeekStart(tag?: string): number;
-export declare function createCalendar(root: HTMLElement, options?: Record<string, unknown>): { view: 'month' | 'week' | 'day'; date: Date; setView(view: string): void; setDate(date: Date): void; today(): void; prev(): void; next(): void; setEvents(events: any[]): void; destroy(): void };
+export declare function createCalendar(root: HTMLElement, options?: Record<string, unknown>): { view: 'month' | 'week' | 'day'; date: Date; setView(view: string): void; setDate(date: Date): void; today(): void; prev(): void; next(): void; setEvents(events: any[]): void; closeDetails(): void; destroy(): void };
 `,
   'code-block': `export declare function codeBlockHtml(code: string, options?: { small?: boolean }): string;
 export declare function mountCodeBlocks(root?: ParentNode): () => void;

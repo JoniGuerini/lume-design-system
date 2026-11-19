@@ -6,6 +6,8 @@
  *   const picker = createTimePicker(document.querySelector('#inicio'), {
  *     value: '14:30',   // HH:MM (24 h)
  *     step: 15,         // minutos entre as opções da lista
+ *     from: '14:00',    // opcional: horário de fim de algo que começa às 14:00 — a lista começa depois dele,
+ *                       // mostra a duração ao lado ("15:00 · 1 h") e vai até 24:00. setFrom('15:00') troca.
  *     min: '08:00', max: '18:00',
  *     onChange: (value) => …,
  *   });
@@ -27,7 +29,15 @@ const toMinutes = (hhmm) => {
 };
 const toValue = (minutes) => `${String(Math.floor(minutes / 60)).padStart(2, '0')}:${String(minutes % 60).padStart(2, '0')}`;
 
-const format = (minutes) => new Intl.DateTimeFormat(locale(), { hour: '2-digit', minute: '2-digit' }).format(new Date(2026, 0, 1, Math.floor(minutes / 60), minutes % 60));
+const format = (minutes) =>
+  minutes >= 24 * 60 ? '24:00' : new Intl.DateTimeFormat(locale(), { hour: '2-digit', minute: '2-digit' }).format(new Date(2026, 0, 1, Math.floor(minutes / 60), minutes % 60));
+
+/** "45 min", "1 h", "1 h 30" — a duração ao lado do horário de fim. */
+const duration = (minutes) => {
+  const h = Math.floor(minutes / 60);
+  const m = minutes % 60;
+  return h ? (m ? `${h} h ${m}` : `${h} h`) : `${m} min`;
+};
 
 /** “1430”, “14h30”, “2:30 pm”, “9” → minutos do dia. null se não for um horário. */
 function parse(text) {
@@ -44,14 +54,21 @@ function parse(text) {
     if (h < 1 || h > 12) return null;
     h = (h % 12) + (m[3] === 'p' ? 12 : 0);
   }
+  if (h === 24 && min === 0) return 24 * 60;
   return h > 23 ? null : h * 60 + min;
 }
 
 export function createTimePicker(input, options = {}) {
   const o = { step: 15, ...options };
   const id = `ds-timepicker-${++uid}`;
-  const min = o.min ? toMinutes(o.min) : 0;
-  const max = o.max ? toMinutes(o.max) : 24 * 60 - 1;
+  let from = o.from ? toMinutes(o.from) : null;
+  let min = 0;
+  let max = 0;
+  const bounds = () => {
+    min = from !== null ? from + o.step : o.min ? toMinutes(o.min) : 0;
+    max = o.max ? toMinutes(o.max) : from !== null ? 24 * 60 : 24 * 60 - 1;
+  };
+  bounds();
   const field = input.closest('.ds-field');
   const hidden = input.name ? hiddenValue(input) : null;
   if (!input.id) input.id = id;
@@ -65,7 +82,11 @@ export function createTimePicker(input, options = {}) {
   let active = -1;
 
   const times = [];
-  for (let t = min; t <= max; t += o.step) times.push(t);
+  const buildTimes = () => {
+    times.length = 0;
+    for (let t = min; t <= max; t += o.step) times.push(t);
+  };
+  buildTimes();
 
   const button = document.createElement('button');
   button.type = 'button';
@@ -137,7 +158,7 @@ export function createTimePicker(input, options = {}) {
     if (isOpen() || input.disabled) return;
     inheritTheme(list, input);
     list.innerHTML = times
-      .map((t, i) => `<div class="ds-picker__option" role="option" id="${id}-${i}" data-index="${i}" aria-selected="${t === value}">${format(t)}${icon('check', { size: 16, className: 'ds-picker__check' })}</div>`)
+      .map((t, i) => `<div class="ds-picker__option" role="option" id="${id}-${i}" data-index="${i}" aria-selected="${t === value}">${format(t)}${from !== null ? `<span class="ds-picker__duration">${duration(t - from)}</span>` : ''}${icon('check', { size: 16, className: 'ds-picker__check' })}</div>`)
       .join('');
     panelHost(input).append(list);
     list.style.minWidth = `${Math.min(field.offsetWidth, 240)}px`;
@@ -264,6 +285,13 @@ export function createTimePicker(input, options = {}) {
     setValue(next) {
       value = next ? toMinutes(next) : null;
       syncField();
+    },
+    /** Troca o início de referência (fim de um evento): a lista e as durações acompanham. */
+    setFrom(next) {
+      from = next ? toMinutes(next) : null;
+      bounds();
+      buildTimes();
+      if (isOpen()) close();
     },
     open,
     close,

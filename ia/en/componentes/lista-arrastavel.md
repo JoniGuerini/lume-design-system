@@ -25,7 +25,7 @@ In numbers: ways to drag: 3 · directions: 2 · shortcuts: 7 · dependencies: 0.
 </ul>
 
 <script type="module">
-  import { createSortable } from 'https://lumeui.dev/v/1.13/lume.js';
+  import { createSortable } from 'https://lumeui.dev/v/1.14/lume.js';
   createSortable(document.querySelector('.ds-sortable'), { onChange: (e) => console.log(e.id, e.newIndex) });
 </script>
 ```
@@ -89,7 +89,7 @@ Each item’s `data-id` is what `toArray()` returns and what you save.
 </ul>
 
 <script type="module">
-  import { createSortable } from 'https://lumeui.dev/v/1.13/lume.js';
+  import { createSortable } from 'https://lumeui.dev/v/1.14/lume.js';
 
   const sortable = createSortable(document.querySelector('.ds-sortable'), {
     onChange: () => salvar(sortable.toArray()), // ['tipografia', 'cores']

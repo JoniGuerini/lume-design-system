@@ -205,3 +205,46 @@
     flex-direction: column;
   }
 }
+
+/*
+ * Mini calendário (ds/js/mini-calendar.js): o mesmo mês, sempre aberto, no fluxo da página.
+ * <div class="ds-picker ds-picker--inline"> — sem sombra nem posição fixa; o trecho em destaque é td[data-highlight].
+ */
+.ds-picker--inline {
+  position: relative;
+  z-index: auto;
+  display: inline-block;
+  border-color: var(--ds-color-border-subtle);
+  background: var(--ds-color-bg-surface);
+  box-shadow: none;
+  animation: none;
+}
+
+.ds-picker__grid td[data-highlight] {
+  background: var(--ds-color-bg-hover);
+}
+
+.ds-picker__grid td[data-highlight="start"] {
+  border-start-start-radius: var(--ds-radius-sm);
+  border-end-start-radius: var(--ds-radius-sm);
+}
+
+.ds-picker__grid td[data-highlight="end"] {
+  border-start-end-radius: var(--ds-radius-sm);
+  border-end-end-radius: var(--ds-radius-sm);
+}
+
+.ds-picker__grid td[data-highlight="single"] {
+  border-radius: var(--ds-radius-sm);
+}
+
+/* Horário de fim (TimePicker com from): a duração depois do horário, apagada */
+.ds-picker__duration {
+  margin-inline-start: auto;
+  color: var(--ds-color-fg-subtle);
+  font: var(--ds-text-caption);
+}
+
+.ds-picker__duration + .ds-picker__check {
+  margin-inline-start: 0;
+}

@@ -115,7 +115,7 @@ const skeleton = () => `<a class="ds-skip-link" href="#${L('conteudo', 'content'
   </div>
 </div>`;
 
-const script = () => `import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/1.13/lume.js';
+const script = () => `import { createShell, renderSidebarNav, setActiveNavItem } from 'https://lumeui.dev/v/1.14/lume.js';
 
 const nav = document.getElementById('sidebar-nav');
 renderSidebarNav(nav, [

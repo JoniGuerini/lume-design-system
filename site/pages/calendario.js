@@ -1,5 +1,6 @@
 import { icon } from '../../ds/icons/icons.js';
 import { createCalendar, localeWeekStart } from '../../ds/js/calendar.js';
+import { createMiniCalendar } from '../../ds/js/mini-calendar.js';
 import { toast } from '../../ds/js/toast.js';
 import { dateFormat } from '../../ds/js/i18n.js';
 import { mountDocNav } from '../doc-nav.js';
@@ -80,7 +81,7 @@ const KEYS = () => [
 const weekLabel = (n) => dateFormat({ weekday: 'long' }).format(new Date(2026, 10, 1 + n)); // 1/11/2026 é domingo
 
 function code(s) {
-  const lines = [`import { createCalendar } from 'https://lumeui.dev/v/1.13/lume.js';`, '', `createCalendar(document.querySelector('#${L('agenda', 'calendar', 'agenda')}'), {`];
+  const lines = [`import { createCalendar } from 'https://lumeui.dev/v/1.14/lume.js';`, '', `createCalendar(document.querySelector('#${L('agenda', 'calendar', 'agenda')}'), {`];
   if (s.view !== 'month') lines.push(`  view: '${s.view}',`);
   if (s.start !== 'auto') lines.push(`  weekStartsOn: ${s.start}, // ${weekLabel(Number(s.start))}`);
   lines.push(
@@ -132,11 +133,117 @@ function forms() {
   ];
 }
 
+
+/* ───────── Agenda (o calendário com detalhes, arrastar, criar e cores por agenda) ───────── */
+
+const CATEGORIES = () => [
+  { id: 'reunioes', label: L('Reuniões', 'Meetings', 'Reuniones'), tone: 'blue' },
+  { id: 'gravacoes', label: L('Gravações', 'Recordings', 'Grabaciones'), tone: 'violet' },
+  { id: 'prazos', label: L('Prazos', 'Deadlines', 'Plazos'), tone: 'amber' },
+];
+
+const swatchOf = (tone) => ({ blue: 2, violet: 7, amber: 4 })[tone];
+
+function agendaEvents() {
+  const monday = (() => {
+    const d = new Date();
+    d.setHours(0, 0, 0, 0);
+    d.setDate(d.getDate() - ((d.getDay() + 6) % 7));
+    return d;
+  })();
+  const at = (day, h, m = 0) => new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + day, h, m);
+  const room = L('Sala 2', 'Room 2', 'Sala 2');
+  const online = L('On-line', 'Online', 'En línea');
+  return [
+    { id: 'a1', title: L('Revisão do roteiro', 'Script review', 'Revisión del guion'), start: at(0, 9), end: at(0, 10), category: 'reunioes', meta: room, icon: 'check-circle', description: L('Fechar a ordem das cenas antes da gravação.', 'Lock the scene order before recording.', 'Cerrar el orden de las escenas antes de la grabación.') },
+    { id: 'a2', title: L('Gravação da abertura', 'Opening recording', 'Grabación de la apertura'), start: at(1, 14), end: at(1, 16), category: 'gravacoes', meta: L('Estúdio', 'Studio', 'Estudio') },
+    { id: 'a3', title: L('Daily do time', 'Team daily', 'Daily del equipo'), start: at(2, 9, 30), end: at(2, 10), category: 'reunioes', meta: online },
+    { id: 'a4', title: L('Crítica de design', 'Design critique', 'Crítica de diseño'), start: at(3, 11), end: at(3, 12), category: 'reunioes', meta: room },
+    { id: 'a5', title: L('Entrega do corte', 'Cut delivery', 'Entrega del corte'), start: at(3, 0), end: at(5, 0), allDay: true, category: 'prazos' },
+    { id: 'a6', title: L('Feriado', 'Holiday', 'Feriado'), start: at(4, 0), end: at(5, 0), allDay: true, tone: 'neutral', readOnly: true },
+    { id: 'a7', title: L('Gravação das entrevistas', 'Interview recording', 'Grabación de entrevistas'), start: at(4, 10), end: at(4, 12, 30), category: 'gravacoes', meta: L('Estúdio', 'Studio', 'Estudio') },
+  ];
+}
+
+
+function mountAgenda(root) {
+  const host = root.querySelector('[data-agenda]');
+  const miniHost = root.querySelector('[data-agenda-mini]');
+  if (!host || !miniHost) return () => {};
+  let events = agendaEvents();
+  const weekOf = (d) => {
+    const start = new Date(d.getFullYear(), d.getMonth(), d.getDate() - ((d.getDay() + 6) % 7));
+    return { start, end: new Date(start.getFullYear(), start.getMonth(), start.getDate() + 4) };
+  };
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'ds-btn ds-btn--primary ds-btn--sm';
+  button.innerHTML = `${icon('calendar-plus', { size: 16 })}${L('Novo evento', 'New event', 'Nuevo evento')}`;
+  button.addEventListener('click', () => toast(L('Aqui abriria o formulário do evento.', 'The event form would open here.', 'Aquí se abriría el formulario del evento.'), { icon: 'info' }));
+  const cal = createCalendar(host, {
+    view: 'week',
+    date: new Date(),
+    events,
+    weekends: false,
+    categories: CATEGORIES(),
+    actions: button,
+    eventDetails: true,
+    eventActions: [
+      { value: 'done', label: L('Marcar como feito', 'Mark as done', 'Marcar como hecho') },
+      { value: 'edit', label: L('Editar', 'Edit', 'Editar'), icon: 'pencil' },
+      { value: 'delete', label: L('Excluir', 'Delete', 'Eliminar'), icon: 'trash', tone: 'danger' },
+    ],
+    onEventAction: (value, event) => {
+      if (value === 'done') events = events.map((e) => (e.id === event.id ? { ...e, icon: 'check-circle' } : e));
+      if (value === 'delete') events = events.filter((e) => e.id !== event.id);
+      cal.setEvents(events);
+      toast(value === 'edit' ? L('Aqui abriria a edição.', 'The editor would open here.', 'Aquí se abriría la edición.') : value === 'done' ? L('Marcado como feito', 'Marked as done', 'Marcado como hecho') : L('Evento excluído', 'Event deleted', 'Evento eliminado'), { tone: value === 'edit' ? 'neutral' : 'success' });
+    },
+    onEventMove: (event, start, end) => {
+      events = events.map((e) => (e.id === event.id ? { ...e, start, end } : e));
+      cal.setEvents(events);
+      toast(L(`${event.title} remarcado`, `${event.title} rescheduled`, `${event.title} reprogramado`), { tone: 'success' });
+    },
+    onSlotCreate: ({ start, end }) => {
+      const id = `n${Date.now()}`;
+      events = [...events, { id, title: L('Novo evento', 'New event', 'Nuevo evento'), start, end, category: 'reunioes' }];
+      cal.setEvents(events);
+    },
+    onChange: ({ date }) => {
+      mini.setValue(date);
+      mini.setHighlight(weekOf(date));
+    },
+  });
+  const mini = createMiniCalendar(miniHost, {
+    value: new Date(),
+    highlight: weekOf(new Date()),
+    onChange: (d) => cal.setDate(d),
+  });
+  return () => {
+    cal.destroy();
+    mini.destroy();
+  };
+}
+
+
+const AGENDA_OPTIONS = () => [
+  ['weekends: false', L('Semana de 5 dias, no mês e na semana.', 'A 5-day week, in month and week.', 'Semana de 5 días, en el mes y en la semana.')],
+  ['categories · event.category', L('As agendas: cada uma com nome e tom. Os tons incluem as 8 cores dos gráficos (blue, violet, amber…).', 'The calendars: each with a name and tone. Tones include the 8 chart colors (blue, violet, amber…).', 'Las agendas: cada una con nombre y tono. Los tonos incluyen los 8 colores de los gráficos (blue, violet, amber…).')],
+  ['event.meta · event.icon', L('Uma linha de detalhe (o local) e uma marca à direita (feito, presença).', 'A detail line (the place) and a mark on the right (done, attendance).', 'Una línea de detalle (el lugar) y una marca a la derecha (hecho, asistencia).')],
+  ['eventDetails · eventActions · onEventAction', L('Clicar abre os detalhes num popover, com as ações no rodapé. eventHref transforma o título em link.', 'Clicking opens the details in a popover, with actions in the footer. eventHref turns the title into a link.', 'El clic abre los detalles en un popover, con las acciones en el pie. eventHref convierte el título en enlace.')],
+  ['onEventMove · snap', L('Arrastar com o mouse para outro horário ou dia, com encaixe de 15 min. event.readOnly fica parado.', 'Drag with the mouse to another time or day, snapping to 15 min. event.readOnly stays put.', 'Arrastrar con el ratón a otro horario o día, con encaje de 15 min. event.readOnly queda quieto.')],
+  ['onSlotCreate · slotDuration', L('Clicar num horário vazio da semana ou do dia cria um evento de 60 min ali.', 'Clicking an empty time in week or day creates a 60-min event there.', 'Clic en un horario vacío de la semana o del día crea un evento de 60 min ahí.')],
+  ['maxEvents', L('Quantos cabem no dia do mês antes do “+N”. Eventos de dia todo viram faixas que atravessam os dias.', 'How many fit in a month day before “+N”. All-day events become bars spanning the days.', 'Cuántos caben en el día del mes antes del “+N”. Los eventos de día entero se vuelven franjas que cruzan los días.')],
+  ['actions', L('Botões no cabeçalho, antes da troca de visão.', 'Buttons in the header, before the view switch.', 'Botones en el encabezado, antes del cambio de vista.')],
+  ['createMiniCalendar · highlight', L('O mês do seletor de data sempre aberto, com a semana vista em destaque.', 'The date picker’s month, always open, with the visible week highlighted.', 'El mes del selector de fecha siempre abierto, con la semana visible destacada.')],
+];
+
 /* ───────── Página ───────── */
 
 const NAV = () => [
   ['playground', 'Playground'],
   ['eventos', L('Eventos', 'Events', 'Eventos')],
+  ['agenda', L('Agenda', 'Schedule', 'Agenda')],
   ['acessibilidade', L('Acessibilidade', 'Accessibility', 'Accesibilidad')],
   ['api', 'API'],
   ['tokens', 'Tokens'],
@@ -165,7 +272,7 @@ export default function renderCalendario(page) {
       </div>
       <dl class="doc-stats">
         <div class="doc-stat"><dt class="doc-stat__label">${L('visões', 'views', 'vistas')}</dt><dd class="doc-stat__value">3</dd></div>
-        <div class="doc-stat"><dt class="doc-stat__label">${L('tons de evento', 'event tones', 'tonos de evento')}</dt><dd class="doc-stat__value">6</dd></div>
+        <div class="doc-stat"><dt class="doc-stat__label">${L('tons de evento', 'event tones', 'tonos de evento')}</dt><dd class="doc-stat__value">14</dd></div>
         <div class="doc-stat"><dt class="doc-stat__label">${L('semana começa', 'week starts', 'la semana empieza')}</dt><dd class="doc-stat__value cl-stat-text">${firstDay}</dd></div>
         <div class="doc-stat"><dt class="doc-stat__label">${L('dependências', 'dependencies', 'dependencias')}</dt><dd class="doc-stat__value">0</dd></div>
       </dl>
@@ -207,6 +314,48 @@ export default function renderCalendario(page) {
           )
           .join('')}
       </div>`,
+    )}
+
+
+    ${section(
+      'agenda',
+      L('Agenda', 'Schedule', 'Agenda'),
+      L('O mesmo calendário, com o que uma agenda pede: semana de 5 dias, cores por agenda, detalhes num popover com ações, arrastar para remarcar, clicar num horário vazio para criar e o mini calendário na lateral. Tudo opcional.', 'The same calendar, with what a schedule needs: a 5-day week, colors per calendar, details in a popover with actions, drag to reschedule, click an empty slot to create, and the mini calendar on the side. All optional.', 'El mismo calendario, con lo que pide una agenda: semana de 5 días, colores por agenda, detalles en un popover con acciones, arrastrar para reprogramar, clic en un horario vacío para crear y el mini calendario al costado. Todo opcional.'),
+      `<div class="cl-agenda">
+        <aside class="cl-agenda__side">
+          <div data-agenda-mini></div>
+          <ul class="cl-agenda__legend" role="list">${CATEGORIES().map((c) => `<li><span class="cl-agenda__swatch" style="background: var(--ds-color-chart-series-${swatchOf(c.tone)})"></span>${c.label}</li>`).join('')}</ul>
+        </aside>
+        <div class="cl-cal" data-agenda></div>
+      </div>
+      <h3 class="doc-subhead">${L('Opções da agenda', 'Schedule options', 'Opciones de la agenda')}</h3>
+      <div class="doc-table cl-api">
+        ${AGENDA_OPTIONS()
+          .map(([name, text]) => `<div class="doc-table__row"><span><code class="ds-inline-code">${name}</code></span><span class="cl-api__text">${text}</span></div>`)
+          .join('')}
+      </div>
+      ${codeBlock(`import { createCalendar, createMiniCalendar } from 'https://lumeui.dev/v/1.14/lume.js';
+
+const agenda = createCalendar(document.querySelector('#agenda'), {
+  view: 'week',
+  weekends: false,
+  categories: [{ id: 'semanal', label: '${L('Semanal', 'Weekly', 'Semanal')}', tone: 'blue' }, { id: 'quinzenal', label: '${L('Quinzenal', 'Biweekly', 'Quincenal')}', tone: 'violet' }],
+  events, // { id, title, start, end, category, meta: '${L('Consultório', 'Office', 'Consultorio')}', icon: 'check-circle' }
+  eventDetails: true,
+  eventActions: [{ value: 'presenca', label: '${L('Marcar presença', 'Mark attendance', 'Marcar asistencia')}' }, { value: 'excluir', label: '${L('Excluir', 'Delete', 'Eliminar')}', icon: 'trash', tone: 'danger' }],
+  onEventAction: (value, evento) => …,
+  onEventMove: (evento, inicio, fim) => remarcar(evento.id, inicio, fim),
+  onSlotCreate: ({ start, end }) => novoEvento(start, end),
+  actions: '<button class="ds-btn ds-btn--primary ds-btn--sm">${L('Novo atendimento', 'New appointment', 'Nueva cita')}</button>',
+});
+
+createMiniCalendar(document.querySelector('#mini'), { value: new Date(), onChange: (d) => agenda.setDate(d) });
+
+// React
+<Calendar view={view} date={date} onChange={…} events={events} weekends={false} categories={categories}
+  eventDetails eventFooter={(e) => <Button size="sm">${L('Marcar presença', 'Mark attendance', 'Marcar asistencia')}</Button>}
+  onEventMove={remarcar} onSlotCreate={novo} actions={<Button variant="primary" size="sm">${L('Novo atendimento', 'New appointment', 'Nueva cita')}</Button>} />
+<MiniCalendar value={date} onChange={setDate} highlight={semana} />`)}`,
     )}
 
     ${section(
@@ -300,9 +449,11 @@ export function mount(root) {
     mount: mountCalendar,
     code,
   });
+  const unmountAgenda = mountAgenda(root);
   const unmountCopy = mountCodeCopy(root);
   const unmountNav = mountDocNav(root);
   return () => {
+    unmountAgenda();
     unmountPlayground();
     unmountCopy();
     unmountNav();
